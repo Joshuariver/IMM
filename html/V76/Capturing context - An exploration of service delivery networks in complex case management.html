@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capturing context - SDN in Complex Case Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: -apple-system, "Malgun Gothic", "맑은 고딕", sans-serif; }
+  </style>
+</head>
+<body class="bg-base-200 min-h-screen p-4 md:p-8">
+  <div class="max-w-5xl mx-auto space-y-6">
+
+    <!-- Header Card -->
+    <div class="card bg-base-100 shadow-lg border-l-4 border-primary">
+      <div class="card-body">
+        <h1 class="card-title text-xl md:text-2xl font-bold text-primary leading-tight">
+          Capturing context: An exploration of service delivery networks in complex case management
+        </h1>
+        <div class="flex flex-wrap gap-2 mt-3">
+          <span class="badge badge-primary badge-outline">Mark Spurrell</span>
+          <span class="badge badge-primary badge-outline">Luis Araujo</span>
+          <span class="badge badge-primary badge-outline">Nathan Proudlove</span>
+        </div>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <span class="badge badge-secondary">Industrial Marketing Management</span>
+          <span class="badge badge-secondary">Vol. 76, 2019</span>
+          <span class="badge badge-secondary">pp. 1–11</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 1: Abstract -->
+    <div class="card bg-base-100 shadow">
+      <div class="card-body">
+        <h2 class="card-title border-l-4 border-accent pl-3 text-lg">STEP 1 — 초록 번역 (Abstract Translation)</h2>
+        <div class="grid md:grid-cols-2 gap-4 mt-4">
+          <div>
+            <p class="text-sm font-semibold text-base-content/60 mb-2">영문 원문 (Original English)</p>
+            <blockquote class="border-l-4 border-base-300 pl-4 italic text-sm text-base-content/80 leading-relaxed">
+              The purpose of this paper is to explore how the participation practices of stakeholder networks inform an understanding of context functioning in complex service exchange settings. We adapt the concept of the service delivery network (SDN) as a suitable approach to investigate how context is made within collaborative healthcare projects. Case management reviews in a UK Learning Disability service are the focus of study as an area of significant practical interest, and as suitable exemplars of healthcare case management. Based on a template analysis, we describe the SDN related to stakeholder participation and co-participation at the intersection of patient, commissioner and clinician networks. We identify notable variations to SDN profiles and degrees of participation of the different stakeholder networks involved. Our findings suggest a fresh focus for researching complex service settings and for case management practice. We discuss the impact of this perspective for understanding and researching context functioning and developing service theory based on mid-range empirical studies.
+            </blockquote>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-base-content/60 mb-2">한국어 번역 (Korean Translation)</p>
+            <blockquote class="border-l-4 border-primary/40 pl-4 text-sm text-base-content/90 leading-relaxed">
+              본 논문의 목적은 이해관계자 네트워크의 참여 실천(participation practices)이 복잡한 서비스 교환 환경에서 맥락 기능(context functioning)에 대한 이해를 어떻게 형성하는지를 탐구하는 것이다. 우리는 협력적 의료 프로젝트 내에서 맥락이 어떻게 형성되는지를 조사하기 위한 적합한 접근법으로 서비스 전달 네트워크(SDN) 개념을 채택한다. 영국 학습장애 서비스에서의 사례관리 검토(case management reviews)는 중요한 실천적 관심 영역으로서 연구의 초점이 된다. 템플릿 분석에 기반하여, 환자·의뢰인·임상의 네트워크의 교차점에서 이해관계자 참여 및 공동참여와 관련된 SDN을 설명하고, SDN 프로필과 참여 수준에서 주목할 만한 변이를 확인한다. 연구 결과는 복잡한 서비스 환경 연구와 사례관리 실천을 위한 새로운 초점을 제시하며, 중범위 실증 연구에 기반한 서비스 이론 개발에 대한 함의를 논의한다.
+            </blockquote>
+          </div>
+        </div>
+        <div class="mt-6">
+          <p class="text-sm font-semibold mb-2">주요 학술 용어 번역 주석</p>
+          <div class="overflow-x-auto">
+            <table class="table table-xs table-zebra w-full">
+              <thead>
+                <tr><th>원어 (English)</th><th>번역어 (Korean)</th><th>번역 선택 이유</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="font-mono text-xs">Service delivery network (SDN)</td><td>서비스 전달 네트워크</td><td>Tax et al.(2013) 원어 개념 직역; 고객 여정 중심 연결 네트워크</td></tr>
+                <tr><td class="font-mono text-xs">Context functioning</td><td>맥락 기능</td><td>맥락이 능동적으로 작동한다는 의미 강조</td></tr>
+                <tr><td class="font-mono text-xs">Template analysis</td><td>템플릿 분석</td><td>King(2012)의 방법론; 사전 설계된 코드 체계 이용</td></tr>
+                <tr><td class="font-mono text-xs">Co-participation</td><td>공동참여</td><td>복수 네트워크 간 일치된(aligned) 참여 강조</td></tr>
+                <tr><td class="font-mono text-xs">Mid-range empirical studies</td><td>중범위 실증 연구</td><td>추상적 이론과 구체적 실천 사이 중간 수준 연결</td></tr>
+                <tr><td class="font-mono text-xs">Care Programme Approach (CPA)</td><td>케어 프로그램 접근법</td><td>영국 NHS의 복잡한 정신건강·학습장애 환자 사례관리 절차</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: Key Claims -->
+    <div class="card bg-base-100 shadow">
+      <div class="card-body">
+        <h2 class="card-title border-l-4 border-accent pl-3 text-lg">STEP 2 — 핵심 주장 요약 (Key Claims)</h2>
+
+        <div class="mt-4 space-y-3">
+          <div class="bg-base-200 rounded-lg p-3">
+            <p class="text-sm font-bold text-primary mb-1">연구 질문 (Research Questions)</p>
+            <p class="text-sm">RQ1: 복잡한 서비스 교환(CPA 사례관리)에서 맥락(context)을 어떻게 포착할 수 있는가?</p>
+            <p class="text-sm mt-1">RQ2: 상이한 이해관계자 네트워크들의 참여를 어떻게 개념화하고 측정해야 하는가?</p>
+          </div>
+        </div>
+
+        <ul class="steps steps-vertical mt-6">
+          <li class="step step-primary">
+            <div class="text-left ml-4">
+              <p class="font-semibold text-sm">SDN 프로필의 현저한 변이</p>
+              <p class="text-sm text-base-content/70">단일 의료 조직 내에서도 20개 사례에 걸쳐 환자·의뢰인·임상의 네트워크 참여 실천에 상당한 변이가 존재한다.</p>
+            </div>
+          </li>
+          <li class="step step-primary">
+            <div class="text-left ml-4">
+              <p class="font-semibold text-sm">이원적 변이 구조</p>
+              <p class="text-sm text-base-content/70">변이는 두 차원으로 구성된다: ① 각 네트워크의 참여 질(quality), ② 네트워크 간 참여의 정렬 수준(co-participation).</p>
+            </div>
+          </li>
+          <li class="step step-primary">
+            <div class="text-left ml-4">
+              <p class="font-semibold text-sm">참여 부족 실증</p>
+              <p class="text-sm text-base-content/70">환자 네트워크 20개 중 6개만, 의뢰인 네트워크는 4개만 임계값(0.7) 충족. 세 네트워크 전체 중첩도는 0.52에 불과.</p>
+            </div>
+          </li>
+          <li class="step step-primary">
+            <div class="text-left ml-4">
+              <p class="font-semibold text-sm">수정된 SDN 개념 유용성</p>
+              <p class="text-sm text-base-content/70">관점을 서비스 이용자 중심에서 협력 공간 중심으로, 이원적 교환에서 다자간 교환으로 수정한 SDN이 복잡한 서비스 맥락 포착에 유효하다.</p>
+            </div>
+          </li>
+          <li class="step step-primary">
+            <div class="text-left ml-4">
+              <p class="font-semibold text-sm">이론적 기여</p>
+              <p class="text-sm text-base-content/70">Tax et al.(2013) SDN 개념을 협력 공간 + 다자간 교환으로 확장; 서비스 이론과 경험적 실천을 연결하는 중범위 개념 제공.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="alert alert-success mt-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-5 w-5" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span class="font-semibold text-sm">의료 사례관리에서 이해관계자 참여 실천의 변이를 수정된 SDN 프로필로 포착함으로써, 서비스 맥락 기능이 사례 수준에서 동태적으로 구성되며 그 질이 상당히 불균등함을 최초로 실증하였다.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: Evidence Table -->
+    <div class="card bg-base-100 shadow">
+      <div class="card-body">
+        <h2 class="card-title border-l-4 border-accent pl-3 text-lg">STEP 3 — 근거 표 (Evidence Table)</h2>
+        <div class="overflow-x-auto mt-4">
+          <table class="table table-zebra table-sm w-full">
+            <thead>
+              <tr>
+                <th class="w-8">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th>직접 인용 근거 (원문)</th>
+                <th class="w-1/6">위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge badge-primary badge-sm">1</span></td>
+                <td class="font-medium text-sm">SDN 프로필에 상당한 변이 존재</td>
+                <td class="text-xs italic">"Our findings demonstrated that there was considerable variation to the participation practices associated with each of the patient, clinician and commissioner networks, which ranged from some very rich profiles to more limited ones."</td>
+                <td class="text-xs">Section 8 (Findings)</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-primary badge-sm">2</span></td>
+                <td class="font-medium text-sm">환자 네트워크 참여 저조</td>
+                <td class="text-xs italic">"Only 6 out of the 20 cases achieved that threshold [0.7]."</td>
+                <td class="text-xs">Section 8.1</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-primary badge-sm">3</span></td>
+                <td class="font-medium text-sm">의뢰인 네트워크 참여 최저</td>
+                <td class="text-xs italic">"In this case only 4 cases reached the threshold we suggest as a reasonable quality of practice."</td>
+                <td class="text-xs">Section 8.2</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-primary badge-sm">4</span></td>
+                <td class="font-medium text-sm">낮은 전체 네트워크 일치도</td>
+                <td class="text-xs italic">"The degree of overlap of rich participation for all three was only 0.52."</td>
+                <td class="text-xs">Section 8.4</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-primary badge-sm">5</span></td>
+                <td class="font-medium text-sm">불일치적 네트워크 참여 패턴</td>
+                <td class="text-xs italic">"There are not simply cases where everyone is engaged and participating together, leaving other cases where engagement and participation is poor. Rather a more complex and inconsistent picture appears between participating networks for each case."</td>
+                <td class="text-xs">Section 8.4</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-primary badge-sm">6</span></td>
+                <td class="font-medium text-sm">SDN의 맥락 포착 유용성</td>
+                <td class="text-xs italic">"We have demonstrated that an adapted version of the notion of service delivery network (SDN) was able to capture important aspects of contextual functioning in complex service exchange in healthcare."</td>
+                <td class="text-xs">Section 10 (Conclusions)</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-primary badge-sm">7</span></td>
+                <td class="font-medium text-sm">협력 공간 중심 관점 전환</td>
+                <td class="text-xs italic">"We have selected the vantage point of the collaborative space as the focus for the SDN... we view exchanges in terms of multi-party interactions rather than a series of dyadic exchanges."</td>
+                <td class="text-xs">Section 5</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-primary badge-sm">8</span></td>
+                <td class="font-medium text-sm">임상의 네트워크 변이</td>
+                <td class="text-xs italic">"Thus, for some cases 'the MDT' consisted of just the responsible clinician (RC) and a nurse. This contrasted with other cases, which benefitted from the RC, a specialty doctor, the case manager and the unit manager as well as OT and psychology representation."</td>
+                <td class="text-xs">Section 8.3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4: Method -->
+    <div class="card bg-base-100 shadow">
+      <div class="card-body">
+        <h2 class="card-title border-l-4 border-accent pl-3 text-lg">STEP 4 — 방법론 분해 (Method Decomposition)</h2>
+        <ul class="timeline timeline-vertical mt-4">
+          <li>
+            <div class="timeline-start timeline-box bg-primary text-primary-content text-xs font-bold">STEP 1</div>
+            <div class="timeline-middle"><div class="w-3 h-3 rounded-full bg-primary"></div></div>
+            <div class="timeline-end timeline-box max-w-md">
+              <p class="font-semibold text-sm">이론적 프레임 개발 및 개념 수정</p>
+              <p class="text-xs text-base-content/70 mt-1">Tax et al.(2013) SDN 개념을 CPA 사례관리에 맞게 수정. 관점을 '서비스 이용자 중심'에서 '협력 공간 중심'으로, 이원적 교환에서 다자간 교환으로 전환. 환자·의뢰인·임상의 세 이해관계자 네트워크 정의.</p>
+              <p class="text-xs text-primary/70 mt-1">위치: Section 4, 5</p>
+            </div>
+            <hr class="bg-primary"/>
+          </li>
+          <li>
+            <hr class="bg-secondary"/>
+            <div class="timeline-start timeline-box bg-secondary text-secondary-content text-xs font-bold">STEP 2</div>
+            <div class="timeline-middle"><div class="w-3 h-3 rounded-full bg-secondary"></div></div>
+            <div class="timeline-end timeline-box max-w-md">
+              <p class="font-semibold text-sm">연구 설계 및 사례 선택</p>
+              <p class="text-xs text-base-content/70 mt-1">복수 내재적 사례연구 방법론 채택. UK Healthcare Trust와 협업하여 4개 서비스 영역에서 각 5개씩 총 20개 CPA 검토 사례 선정(체계적 횡단면 표본).</p>
+              <p class="text-xs text-secondary/70 mt-1">위치: Section 7.1, 7.2</p>
+            </div>
+            <hr class="bg-secondary"/>
+          </li>
+          <li>
+            <hr class="bg-accent"/>
+            <div class="timeline-start timeline-box bg-accent text-accent-content text-xs font-bold">STEP 3</div>
+            <div class="timeline-middle"><div class="w-3 h-3 rounded-full bg-accent"></div></div>
+            <div class="timeline-end timeline-box max-w-md">
+              <p class="font-semibold text-sm">데이터 수집</p>
+              <p class="text-xs text-base-content/70 mt-1">전자 사례 기록에 보관된 공식 CPA 문서 수집. 회의 기록, 전문가 보고서, 환자 제출 보고서 포함. 직접 관찰이 아닌 순수 문서 연구.</p>
+              <p class="text-xs text-accent/70 mt-1">위치: Section 7.2</p>
+            </div>
+            <hr class="bg-accent"/>
+          </li>
+          <li>
+            <hr class="bg-neutral"/>
+            <div class="timeline-start timeline-box bg-neutral text-neutral-content text-xs font-bold">STEP 4</div>
+            <div class="timeline-middle"><div class="w-3 h-3 rounded-full bg-neutral"></div></div>
+            <div class="timeline-end timeline-box max-w-md">
+              <p class="font-semibold text-sm">템플릿 개발 및 NVivo 코딩</p>
+              <p class="text-xs text-base-content/70 mt-1">문헌 기반 세 네트워크 정의. 6개 예비 사례 탐색으로 세 주제(Representation, Structuring, Contribution) 도출. NVivo 10으로 전체 사례 코딩.</p>
+              <p class="text-xs text-neutral-content/60 mt-1">위치: Section 7.3</p>
+            </div>
+            <hr class="bg-primary"/>
+          </li>
+          <li>
+            <hr class="bg-primary"/>
+            <div class="timeline-start timeline-box bg-primary text-primary-content text-xs font-bold">STEP 5</div>
+            <div class="timeline-middle"><div class="w-3 h-3 rounded-full bg-primary"></div></div>
+            <div class="timeline-end timeline-box max-w-md">
+              <p class="font-semibold text-sm">퍼지 집합 QCA 분석</p>
+              <p class="text-xs text-base-content/70 mt-1">Ragin(2006, 2008) 방법 적용. 완전 구성원=1, 비구성원=0, 전환점=0.5. 좋은 실천 임계값=0.7. fs/QCA v2.5로 세 네트워크 간 집합 중첩 계산.</p>
+              <p class="text-xs text-primary/70 mt-1">위치: Section 7.4</p>
+            </div>
+            <hr class="bg-secondary"/>
+          </li>
+          <li>
+            <hr class="bg-secondary"/>
+            <div class="timeline-start timeline-box bg-secondary text-secondary-content text-xs font-bold">STEP 6</div>
+            <div class="timeline-middle"><div class="w-3 h-3 rounded-full bg-secondary"></div></div>
+            <div class="timeline-end timeline-box max-w-md">
+              <p class="font-semibold text-sm">SDN 품질 모델 도출</p>
+              <p class="text-xs text-base-content/70 mt-1">QCA 결과에서 패턴 매칭을 통해 각 사례의 SDN 프로필 특성 기술. 참여 풍부성(quality)과 참여 정렬(co-participation)의 두 차원으로 SDN 품질 모델 제시(Fig. 6).</p>
+              <p class="text-xs text-secondary/70 mt-1">위치: Section 9.1.2</p>
+            </div>
+          </li>
+        </ul>
+        <div class="alert alert-info mt-4">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span class="text-sm"><strong>재현 가능성:</strong> 부분 재현 가능 — 템플릿 분석과 QCA 방법론이 상세히 기술되어 방법론적 재현은 가능하나, 특정 NHS Trust 기밀 문서에 의존하므로 완전한 재현은 불가능. 유사 설계로 다른 의료 기관에 적용 가능.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 5: Limitations -->
+    <div class="card bg-base-100 shadow">
+      <div class="card-body">
+        <h2 class="card-title border-l-4 border-accent pl-3 text-lg">STEP 5 — 한계점 (Limitations)</h2>
+
+        <!-- Limitations A -->
+        <div class="collapse collapse-arrow bg-error/10 border border-error/20 mt-4">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-semibold text-error">A. 논문이 인정한 한계 (Paper's Own Acknowledged Limitations)</div>
+          <div class="collapse-content space-y-2">
+            <div class="alert alert-error alert-sm text-sm">
+              <div><p class="font-medium">1. 단면적 연구의 시간적 제약</p><p class="text-xs mt-1">"This study provided a cross-sectional view of cases at different stages of care. One explanation of the noted between case variation in SDN quality and shape may simply be that it reflects the evolution of engagement over time." (Section 9)</p></div>
+            </div>
+            <div class="alert alert-error alert-sm text-sm">
+              <div><p class="font-medium">2. 문서 데이터의 한계</p><p class="text-xs mt-1">"there may be other dimensions to context functioning that were not captured either within documentation, or within the SDN construct." (Section 9)</p></div>
+            </div>
+            <div class="alert alert-error alert-sm text-sm">
+              <div><p class="font-medium">3. 표본 다양성 제한</p><p class="text-xs mt-1">"the sample was not structured to capture the diversity of functioning within the organisation that might have differentially affected case management reviews." (Section 9)</p></div>
+            </div>
+            <div class="alert alert-error alert-sm text-sm">
+              <div><p class="font-medium">4. 단일 조직에서의 연구</p><p class="text-xs mt-1">"This is a first investigation of a cross-sectional view in one particular organisation in one sector of health care." (Section 10)</p></div>
+            </div>
+            <div class="alert alert-error alert-sm text-sm">
+              <div><p class="font-medium">5. 삼각검증 부재</p><p class="text-xs mt-1">"It would be helpful in further work to triangulate aspects of context generating practices with other data sources to strengthen the findings." (Section 9)</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Limitations B -->
+        <div class="collapse collapse-arrow bg-warning/10 border border-warning/20 mt-3">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-semibold text-warning">B. 추가적 비판적 의문점 (Additional Critical Doubts)</div>
+          <div class="collapse-content space-y-2">
+            <div class="bg-base-100 rounded p-3 text-sm border border-warning/20">
+              <p class="font-medium text-warning">1. 문서화 편향 (Documentation Bias)</p>
+              <p class="text-xs mt-1 text-base-content/80">공식 회의 문서만을 데이터로 사용하여 실제 참여와 문서화된 참여 간의 괴리 가능성을 간과한다. 문서에 기록되지 않은 비공식적 상호작용이나 복도 대화가 실제 사례관리 결과에 더 큰 영향을 미칠 수 있다.</p>
+            </div>
+            <div class="bg-base-100 rounded p-3 text-sm border border-warning/20">
+              <p class="font-medium text-warning">2. QCA 임계값의 자의성</p>
+              <p class="text-xs mt-1 text-base-content/80">0.7이라는 '좋은 참여' 임계값 선택이 전적으로 연구자 판단에 의한 것으로, 다른 임계값(0.6 또는 0.8) 적용 시 결과가 달라질 수 있다. Casing 과정에서의 주관성은 QCA의 고유 한계이다.</p>
+            </div>
+            <div class="bg-base-100 rounded p-3 text-sm border border-warning/20">
+              <p class="font-medium text-warning">3. 역인과관계 가능성</p>
+              <p class="text-xs mt-1 text-base-content/80">SDN 프로필 특성이 서비스 결과에 영향을 미치는지, 반대로 환자 상태 복잡성이 SDN 형태를 결정하는지를 구분할 수 없다. 복잡한 환자일수록 더 많은 이해관계자가 참여하는 선택 편향 가능성도 있다.</p>
+            </div>
+            <div class="bg-base-100 rounded p-3 text-sm border border-warning/20">
+              <p class="font-medium text-warning">4. 맥락 특수성 (Context Specificity)</p>
+              <p class="text-xs mt-1 text-base-content/80">영국 NHS 학습장애 서비스라는 매우 특수한 제도적 맥락에서의 발견을 B2B 마케팅 이론이나 다른 국가의 의료 시스템으로 일반화하는 데 상당한 주의가 필요하다.</p>
+            </div>
+            <div class="bg-base-100 rounded p-3 text-sm border border-warning/20">
+              <p class="font-medium text-warning">5. 참여 측정의 타당성</p>
+              <p class="text-xs mt-1 text-base-content/80">대표성·구조화·기여라는 세 지표가 복잡한 참여 현상을 충분히 포착하는지 의문이다. 특히 '기여'의 질적 측면을 이진법적 척도로 단순화하는 과정에서 중요한 뉘앙스가 손실될 수 있다.</p>
+            </div>
+            <div class="bg-base-100 rounded p-3 text-sm border border-warning/20">
+              <p class="font-medium text-warning">6. 조직 내부자 편향 가능성</p>
+              <p class="text-xs mt-1 text-base-content/80">연구자가 해당 Trust와 협력 관계에 있었음을 감안할 때, 조직 내 정치적 역학이나 특수 상황이 발견에 영향을 미쳤을 가능성을 배제하기 어렵다.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
