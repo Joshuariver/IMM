@@ -10,7 +10,7 @@ import shutil
 ROOT = Path(__file__).resolve().parent.parent
 APP = ROOT / "app"
 DEST = APP / "html"
-SOURCES = ["V01", "V73", "V75", "V76", "V92"]
+SOURCES = ["V01", "V73", "V75", "V76", "V92", "V100"]
 
 
 class Extractor(HTMLParser):
@@ -287,6 +287,6 @@ records.sort(key=lambda r: (SOURCES.index(r["collection"]), r["title"].lower()))
     encoding="utf-8",
 )
 
-assert len(records) == 29, len(records)
+assert len(records) == 31, len(records)
 assert len({r["id"] for r in records}) == len(records)
 print(f"synced {len(records)} html files -> {DEST} and rebuilt data.js")
