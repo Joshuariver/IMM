@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Effectual-Causal Resilience Nexus - IMM 2022</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (No Navbar as requested) -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2022)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Effectuation & Causation</div>
+        <div class="badge badge-secondary text-white style-label">Citations: 33 (Crossref)</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Uncovering the effectual-causal resilience nexus:<br>
+            <span class="text-cyan-400">A food sector SME's resilience</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            C. Simms, P. McGowan, D. Pickernell, D. Vazquez-Brust, A. Williams
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            코로나19 시대의 이펙추에이션-인과론적 회복탄력성 넥서스 규명:<br>
+            <span class="text-indigo-300">식품 분야 중소기업의 위기 대응 사례</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            영국 토마토 생산/가공 중소기업(Tomato Co.)의 6개월 종단 사례를 기반으로 한 이펙추에이션과 인과론 논리의 동적 전이 메커니즘 분석
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">위기 초기에는 임시방편적인 이펙추에이션 실험을, 안정기에는 기획 기반의 인과론을 순차 적용해야 기업 복원력이 극대화됩니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This research explores the underlying roles of effectuation and causation logic as they impact upon firm resilience in Small and Medium Sized Enterprises (SMEs) in the unprecedented disruption caused by Covid-19. Because Covid-19 provides a unique and powerful discontinuance to internal and external environments, it requires firm adaptation in a wide variety of areas, as they seek to find a new “normal”. Our study contributes to the literature by applying effectuation to understand how an SME can experiment and learn in the face of disruption, and then subsequently causally adapt their resources and networks to achieve resilient outcomes. It adds to knowledge about the interaction between effectual and causal logic, leading to a more nuanced explanation of how and why an SME might apply each logic when responding to disruption caused by Covid-19."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 연구는 코로나19로 인한 전례 없는 혼란 속에서 중소기업(SME)의 기업 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">회복탄력성</span>에 미치는 영향으로서 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">이펙추에이션</span>(실행적 의사결정)과 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">인과론</span> 논리의 근본적인 역할을 탐색한다. 코로나19는 대내외 환경에 독특하고 강력한 단절을 제공하므로, 기업이 새로운 '뉴노멀'을 찾하고자 할 때 광범위한 영역에서 기업의 적응을 요구한다. 본 연구는 이펙추에이션을 적용하여 중소기업이 혼란에 직면했을 때 어떻게 실험하고 학습하는지 이해한 후, 결과적으로 회복탄력성 있는 성과를 달성하기 위해 자원과 네트워크를 인과적으로 적응시키는 방법을 규명함으로써 기존 문헌에 기여한다. 이는 이펙추에이션과 인과론 논리 간의 상호작용에 관한 지식을 더함으로써, 중소기업이 코로나19로 인한 혼란에 대응할 때 각 논리를 어떻게 그리고 왜 적용하는지에 대한 보다 세밀한 설명을 제공한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Effectuation</td>
+                  <td>이펙추에이션 / 실행적 의사결정</td>
+                  <td class="text-sm">목표를 사전에 정하지 않고, 가용한 수단(Means)에서 시작하여 실행 대안과 감당할 수 있는 손실을 토대로 의사결정을 내리는 행동 주의 논리입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Causation</td>
+                  <td>인과론 / 예측적 의사결정</td>
+                  <td class="text-sm">특정 목표를 설정하고, 기획, 예측, 분석을 통해 효율적인 자원 조달 및 성과 극대화 수단을 선택하는 전통적 전략 경영 논리입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resilience (Dynamic)</td>
+                  <td>동적 회복탄력성</td>
+                  <td class="text-sm">단순한 이전 복원(static)에 그치지 않고, 충격으로부터 학습 및 재구성을 거쳐 더 우수한 사업적 포트폴리오로 진화하는 프로세스 능력을 지칭합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Nexus</td>
+                  <td>넥서스 / 연계점</td>
+                  <td class="text-sm">이펙추에이션과 인과론 논리가 대립하지 않고 위기 전개 과정에서 순차적이고 시너지 있게 연결되는 연합 매커니즘을 뜻합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">SME</td>
+                  <td>중소기업 (Small & Medium Enterprise)</td>
+                  <td class="text-sm">대기업에 비해 조직 유연성이 높으나 자원 제약이 심해 위기 극복 시 이펙추에이션 중심 학습이 유용하게 작용하는 기업군입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 공헌과 핵심 메커니즘을 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">예측 불가한 대위기 상황에서 생존 의사결정은 어떻게 작동하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">이펙추에이션 실험에서 인과론적 재건으로의 순차 전이</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">회복탄력성의 순차적 연계(Nexus) 및 촉발 분기점 규명</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 코로나19 봉쇄와 같은 공급망 중단 및 수요 붕괴 위기에서 중소기업은 이펙추에이션과 인과론을 어떻게 교차 적용하여 복원력을 성취하는가?</li>
+                  <li><strong>핵심 발견:</strong> 극심한 환경 혼란기에는 무리한 장기기획 대신 가용 자원 기반의 <strong>이펙추에이션 실험</strong>(시시각각 변하는 로컬 오프라인 마켓 배달 시도, 레시피 가공 개발)으로 단기 안정성을 지탱합니다. 이후 판매 예측력이 확보된 <strong>넥서스 포인트(Point A)</strong>에서 목표 지향적 <strong>인과론적 재건</strong>(정식 D2C 웹 빌딩, 가공설비 구축)으로 전환하여 영속적 복원력을 완성합니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 창업학에 국한되었던 이펙추에이션 이론을 일반 중소기업의 위기 극복 및 회복탄력성 프로세스 이론으로 연계했습니다. 경영자에게는 "초기에는 실험과 유연성, 안정 후에는 기획과 자원 재배치"라는 구체적인 의사결정 전략을 처방합니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "위기 초기에는 가용 수단 중심의 이펙추에이션 실험을 실행하고, 예측 신뢰가 회복되는 분기점에서 인과론적 자원 구조화로 전환하는 순차적 연계가 동적 회복탄력성의 근원이다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 학술적 엄밀성을 입증하기 위해 논문 내 주요 주장들과 그 실증적 근거 구절 및 페이지를 연결했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">위기 초기 이펙추에이션 즉각 적용</td>
+                <td class="text-sm italic text-slate-600">
+                  "Due to the extreme nature of the disruption, rather than trying to continue operating using previous causal logic until it became apparent this was no longer viable, the firm adopted effectual logic immediately at the onset of the crisis."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 172, Section 4.2</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">감당 가능한 손실 수준 내 마케팅/실험</td>
+                <td class="text-sm italic text-slate-600">
+                  "This theme uncovers the approach adopted by Tomato Co. to pursue new opportunities whilst mitigating expenditure, ensuring any loss would be affordable (Dew, Sarasvathy, Read, & Wiltbank, 2009)..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 173, Section 4.2.3</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">예측 가능성 회복이 인과적 재건(Causal Rebuilding)을 촉발함</td>
+                <td class="text-sm italic text-slate-600">
+                  "Monitoring and evaluating sales against forecasts allowed management to uncover when it became possible to predict sales and undertake future planning... At this point, decision-making across the firm's activities transitioned to causal rebuilding."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 176, Section 5</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">안정기 인과론적 자원 재배치와 영구 시스템 투자</td>
+                <td class="text-sm italic text-slate-600">
+                  "Having overcome their constrained cash flows in the first phase through effectual learning... subsequently Tomato Co. began to implement long-term strategies to promote resilience through causal rebuilding... prioritizing permanent adaptations and resource investments."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 173, Section 4.3</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">순차적 연계(Nexus)가 회복탄력성의 근원</td>
+                <td class="text-sm italic text-slate-600">
+                  "We suggest that resilience lies at the nexus between these two logics. Applying effectuation in the initial response supports the firm's ability to rapidly acquire resources, adapt and learn... and through these actions it was possible to subsequently transition to causal rebuilding."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 176, Section 5</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (이펙추에이션-인과론 동적 전이 모델)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 350" class="w-full h-auto">
+              <!-- Environmental Disruption (Top Left) -->
+              <rect x="20" y="20" width="200" height="50" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="2" />
+              <text x="120" y="40" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">외부 환경 격변 (Disruption)</text>
+              <text x="120" y="58" text-anchor="middle" fill="#64748b" font-size="10">코로나19 팬데믹 & 봉쇄</text>
+
+              <!-- Left: Effectual Experimentation -->
+              <rect x="20" y="110" width="220" height="180" rx="12" fill="#ecfdf5" stroke="#10b981" stroke-width="2" />
+              <text x="130" y="135" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">이펙추에이션 실험</text>
+              <text x="130" y="152" text-anchor="middle" fill="#047857" font-size="11">(Effectual Experimentation)</text>
+              
+              <rect x="35" y="170" width="190" height="30" rx="6" fill="#ffffff" stroke="#a7f3d0" stroke-width="1" />
+              <text x="130" y="189" text-anchor="middle" fill="#065f46" font-size="11">시행착오 학습 (Trial & Error)</text>
+
+              <rect x="35" y="208" width="190" height="30" rx="6" fill="#ffffff" stroke="#a7f3d0" stroke-width="1" />
+              <text x="130" y="227" text-anchor="middle" fill="#065f46" font-size="11">조직 탄성 확보 (Elasticity)</text>
+
+              <rect x="35" y="246" width="190" height="30" rx="6" fill="#ffffff" stroke="#a7f3d0" stroke-width="1" />
+              <text x="130" y="265" text-anchor="middle" fill="#065f46" font-size="11">임시 자원 확보 (Grafting)</text>
+
+              <!-- Middle: Point A Nexus -->
+              <polygon points="350,200 375,155 425,155 450,200 425,245 375,245" fill="#fffbeb" stroke="#d97706" stroke-width="2" />
+              <text x="400" y="193" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">Point A</text>
+              <text x="400" y="210" text-anchor="middle" font-weight="700" fill="#b45309" font-size="11">넥서스 포인트</text>
+              <text x="400" y="226" text-anchor="middle" fill="#78350f" font-size="9">예측 가능성 회복</text>
+
+              <!-- Right: Causal Rebuilding -->
+              <rect x="560" y="110" width="220" height="180" rx="12" fill="#eef2ff" stroke="#4f46e5" stroke-width="2" />
+              <text x="670" y="135" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">인과론적 재건</text>
+              <text x="670" y="152" text-anchor="middle" fill="#4338ca" font-size="11">(Causal Rebuilding)</text>
+
+              <rect x="575" y="170" width="190" height="30" rx="6" fill="#ffffff" stroke="#c7d2fe" stroke-width="1" />
+              <text x="670" y="189" text-anchor="middle" fill="#3730a3" font-size="11">조직 정비 (Reorganisation)</text>
+
+              <rect x="575" y="208" width="190" height="30" rx="6" fill="#ffffff" stroke="#c7d2fe" stroke-width="1" />
+              <text x="670" y="227" text-anchor="middle" fill="#3730a3" font-size="11">공식 자원 재배치 (Reallocation)</text>
+
+              <rect x="575" y="246" width="190" height="30" rx="6" fill="#ffffff" stroke="#c7d2fe" stroke-width="1" />
+              <text x="670" y="265" text-anchor="middle" fill="#3730a3" font-size="11">신규 사업 다변화 (Diversification)</text>
+
+              <!-- Bottom Right: Outcomes of Resilience -->
+              <rect x="560" y="20" width="220" height="50" rx="8" fill="#f8fafc" stroke="#1e293b" stroke-width="2" />
+              <text x="670" y="40" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="12">회복탄력성 성과 (Outcomes)</text>
+              <text x="670" y="58" text-anchor="middle" fill="#475569" font-size="10">재무 성과 확보 및 D2C 포트폴리오 구축</text>
+
+              <!-- Arrows -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+
+              <!-- Disruption -> Effectual Experimentation -->
+              <path d="M 120 70 L 120 100" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+              
+              <!-- Effectual Experimentation -> Point A -->
+              <path d="M 240 200 L 340 200" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              
+              <!-- Point A -> Causal Rebuilding -->
+              <path d="M 450 200 L 550 200" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Causal Rebuilding -> Outcomes -->
+              <path d="M 670 110 L 670 80" fill="none" stroke="#1e293b" stroke-width="2" marker-end="url(#arrow)"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Construct 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">동적 요인 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Effectual Logic</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">이펙추에이션 실험 (Effectual Experimentation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자원 제약과 높은 불확실성 속에서 계획 대신 감당할 수 있는 손실 범위 내에서 여러 시도를 병행하며 현지 환경 변화를 학습해 가는 주체적 행동 논리.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Tomato Co.가 위기 직후 식음료 서비스 붕괴 시 실행했던 '이메일 직접 마케팅', '오프라인 시장 Bag 제품 전향', '신제품 가공 테스트' 등 임시적 실험군.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Sarasvathy (2001, 2008), Dew et al. (2009)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 급작스러운 공급망 폐쇄나 시장의 완전한 모호성 상태에서 즉각적인 유동성을 보존하는 실용적인 임시 적응 장치로 간주됩니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">동적 요인 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Causal Logic</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">인과론적 재건 (Causal Rebuilding)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 특정 목표(뉴노멀 하 D2C 시장 선점)를 설정하고 이를 달성하기 위해 분석적 예측과 정식 기획 프로세스를 활성화하여 고도화된 자원을 영구 배분하는 의사결정 논리.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 매출 회복세에 기초한 예산 설정, D2C 전용 모바일 앱 기획/개발, 신규 데이터 분석업체 연계, 가공 전용 건조기 설비의 대규모 영구 투자.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Sarasvathy (2001), Ivens & Pardo (2007)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 시장 질서가 복구되는 시점에 비즈니스의 운영 효율성과 장기적 안정성을 고도화하고 포트폴리오를 다변화하는 핵심 원동력입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">전이 분기점</span>
+                <span class="text-xs text-slate-400 font-semibold">Nexus Trigger</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">넥서스 포인트 (Nexus Point A)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 의사결정의 지배적 논리가 유연한 이펙추에이션에서 계획 중심의 인과론으로 안전하게 이동하도록 촉발하는 정보 정합성 임계지점.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 주간 단위 매출액 추이와 초기 실험적 채널의 고객 피드백이 정형화되어 매출의 예측 신뢰성(Predictability)이 검증된 6월 중순 국면.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 본 논문 제안 프레임워크 (Point A)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 위기 극복 시 너무 이른 인과적 투자(자원 고갈 리스크)나 너무 늦은 인과적 전환(시스템 기회 상실)을 조율하는 시의적적한 동적 역량입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 4 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Dependent Construct</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">동적 회복탄력성 (Dynamic Resilience)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 전례 없는 외부 교란 사태를 감지 및 흡수하며, 신속한 비즈니스 모델 재구성(Reconfiguration)을 실행해 지속 성장 가능한 새로운 조직 상태로 진화하는 능력.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 주력 도매 공급로 단절에도 불구하고 과일 폐기율 0%에 수렴, 단기 유동성 극복 및 당초 예상을 상회하는 £100,000 수준의 이익 및 신규 고객 기반 다변화 성취.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Mithani (2020), Ambulkar et al. (2015), Duchek (2019)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 질적 실증 연구의 학술적 가치와 방법론적 신뢰성을 확보하고 추종 연구가 가능하도록 단계별 연구 재현 프로토콜을 상술합니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">대상 업종 및 대상 기업 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  코로나19 이동통제 하에 주력 공급망(식음료 서비스)이 붕괴되어 급격한 적응이 필요하고, 보관 기한이 지극히 짧은(Short window of window) 농산물/토마토 재배-가공-유통을 담당하는 영국의 중소기업(직원 52명) Tomato Co.를 선정합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 169, Section 3 & 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">종단적 밀착 질적 조사 개시</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  1차 영국 전국 봉쇄 조치가 내려진 2020년 3월 말부터 동년 9월까지 6개월간 매주 토마토 대표(MD/Owner-manager), 신제품개발(NPD) 매니저가 연구진과 직접 참석하는 주간 정례 화상 미팅(16회, 각 60-90분)을 기록 및 전사합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 170, Section 3.2 & Table 2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">다각화(Triangulation) 데이터 보강</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  비즈니스 개발 관리자, 영업/마케팅 헤드, 신제품 개발 매니저 등 핵심 임원진 6인과의 개별 심층 인터뷰(각 55-75분)를 추가 수행하고, 내부 운영 데이터 및 제휴사 계약 문서를 보완해 데이터 삼각검증을 완료합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 170, Section 3.2 & Table 2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">Braun & Clarke식 위계적 주제 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  전사본을 대상으로 1차 코딩(1st Order Categories), 2차 코딩(2nd Order Themes)을 정립한 후 거시적 차원(Aggregate Dimensions - 환경 붕괴, 이펙추에이션 실험, 인과론적 재건, 성과)의 위계적 코딩 체계(Fig. 1)를 수립합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 170, Section 3.3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">이론 매칭 및 피드백 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  이펙추에이션 및 인과론의 구성개념과 도출된 질적 자료를 왕복 결합하는 귀납/연역 복합 분석(Systematic Combining)을 시행하고, 결과 프레임워크(Fig. 2)를 대상 기업 임원진에 공유하여 정보 타당성 검증을 거칩니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 170, Section 3.3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            주제 분석 코딩 분류표 및 상세 방법론이 명시되어 분석 체계의 재현은 무리가 없으나, 특정 위기 시점(코로나19 1차 봉쇄기)에 돌입한 특정 중소기업 임원진에 대해 6개월간 밀착하여 관찰한 질적 인터뷰 자산을 외래 연구자가 동일하게 획득하기는 현실적으로 제한적입니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        
+        <!-- Limitation A: Self-Admitted (alert + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-200 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-600 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-14 0 9 9 0 0114 0z" /></svg>
+            <span>Limitation A. 논문이 자체 인정한 연구의 한계</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6)에서 연구진들이 직접 한정한 연구 설계상 한계점입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>단일 사례 연구(Single Case Study)의 일반화 제약:</strong> 영국 내 특정 토마토 생산/가공 기업 한 곳만을 종단적으로 분석한 질적 연구이므로, 제조업 타 분야나 서비스업 전반에 그대로 일반화(Generalizability)하기에 제약이 있습니다. (Page 177, Section 6)
+              </li>
+              <li>
+                <strong>코로나19 팬데믹 맥락의 특수성:</strong> 연구가 코로나19 1차 록다운이라는 대단히 예외적이고 극단적 수준의 거시적 충격 상황에 국한되어 있어, 일반적 경기침체나 기술 변화 위기 상황에도 동일 넥서스가 작동할지 추가 규명이 필요합니다. (Page 177, Section 6)
+              </li>
+              <li>
+                <strong>농업/식료품 공급망의 산업적 독특성:</strong> 작물 재배 주기와 짧은 유통기한(Seasonality & Perishability)이라는 토마토 산업 고유의 특성으로 인해 이펙추에이션의 즉각적 전환 속도가 촉진되었을 개연성이 큽니다. (Page 177, Section 6)
+              </li>
+              <li>
+                <strong>조직 내 다층적 의사결정 주체의 간과:</strong> 최고경영자(MD)와 주요 임원진 위주의 의사결정을 집중 모니터링하여, 중하위 부서 및 일반 구성원 수준에서 두 논리가 혼재되는 다원적 동학을 상세히 살피지 못했습니다. (Page 177, Section 6)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 서술 메커니즘을 토대로 제기하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 사후적 합리화 편향 (Ex-post Rationalization)</span>
+                <p class="text-sm text-slate-700">
+                  아무리 주간 정례 기록을 활용했다 하더라도, 인터뷰 및 질적 면담 과정에서 최고경영자가 당시의 즉흥적인 <strong>'임기응변(Bricolage)'이나 단순 시행착오적 실패들을 사후적으로 전략적인 '이펙추에이션 실험'</strong>이었던 것으로 미화하고 전략적 목적을 투영해 사후 합리화했을 위험이 농후합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 생존자 및 성공 사례 편향 (Survivor Bias)</span>
+                <p class="text-sm text-slate-700">
+                  위기 극복 과정에서 이펙추에이션과 인과론을 오가며 전환에 실패해 결국 파산한 중소기업(실패 경로)에 대한 연구는 제외되고, 최종적으로 £100,000의 초과 매출을 내며 D2C 전환에 훌륭하게 성공한 <strong>'강한 생존 사례' 하나만을 관찰함으로써</strong> 이 넥서스 모델이 위기 생존을 위한 필수불가결한 보증서인 것처럼 메커니즘이 과장되었을 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 연구자의 이론 투영 및 아브덕션(Abduction) 한계</span>
+                <p class="text-sm text-slate-700">
+                  이펙추에이션과 인과론이라는 양분화된 theoretical lens를 연구자가 처음부터 상정한 뒤 데이터를 해석했으므로, 실제 기업의 생존 경로에서 발생한 다른 현실적 영향 요인(예: 경영자의 타고난 인적 네트워크 역량, 우연한 기후 호조 등)보다 이론적 틀에 끼워 맞추기(theoretical imposition)식 데이터 재단이 일어났을 개연성이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 브렉시트(Brexit)라는 교란 변수 통제 미흡</span>
+                <p class="text-sm text-slate-700">
+                  2020년 당시 영국 농식품 분야 중소기업들은 코로나19 팬데믹뿐만 아니라, 브렉시트 집행으로 인한 라트비아, 루마니아 등 동유럽 <strong>이주 노동자 유입 중단(Page 172 언급) 및 관세 인상</strong>이라는 극도의 이중 교란을 겪었습니다. 논문은 이를 코로나19의 복잡성에 뭉뚱그려 기술했으나 브렉시트만의 고유한 충격 영향이 어떻게 분리·통제되었는지 불분명합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Uncovering the effectual-causal resilience nexus in the era of Covid-19: A case of a food sector SME's resilience in the face of the global pandemic</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paradoxes and Coping Mechanisms in the Servitisation Journey - IMM 2022</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 36px;
+      }
+      .style-h1 {
+        font-size: 28px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2022)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Qualitative Exploratory Study</div>
+        <div class="badge badge-secondary text-white style-label">Citations: 38 (Crossref)</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Paradoxes and coping mechanisms in the<br>
+            <span class="text-cyan-400">servitisation journey</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Sanjay Chaudhary, Amandeep Dhir, David Gligor, Sher Jahan Khan, Alberto Ferraris
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            서비타이제이션 여정에서의 모순과<br>
+            <span class="text-indigo-300">대처 메커니즘 분석</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            다단계 개방형 에세이 질적 분석(101명 응답)을 바탕으로 한 조직화, 학습, 성과의 모순적 긴장 관계와 4대 대처 행위 규명
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">제조업의 서비스화는 불가피한 조직 모순을 수반하므로, 변화 관리·소통·교육·디지털화로 지속 조율해야 생존합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Servitisation is conceptualised as product manufacturers’ transition towards bundling products and services to offer customers enhanced value. Scholars have raised concerns regarding the potential challenges that firms face during servitisation, often termed servitisation paradoxes. Limited studies have explored the paradoxes experienced during the servitisation journey and the associated coping mechanisms. We utilise the open-ended essay methodology to unravel various paradoxes and coping mechanisms to address the gap. We collected data in two stages—from 69 participants in the first stage and 32 in the second stage. The study’s findings reveal three broad paradoxes: the paradox of organising (autonomy and control, efficiency and flexibility, formal and informal information flow, and employee and customer needs), the paradox of learning (prior knowledge and new knowledge), and the paradox of performance (short-term and long-term performance). In addition, we identify four coping practices: change management, open communication, training programmes and digitalisation. The study augments the prior literature by developing a conceptual framework that elucidates the coexistence of numerous paradoxes and coping mechanisms."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "서비타이제이션(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">Servitisation</span>)은 제조업체가 가치 향상을 목표로 제품과 서비스를 결합(Bundling)하여 고객에게 제공하는 비즈니스 모델 전환으로 개념화됩니다. 많은 학자들이 제조업 전환 과정에서 마주하는 잠재적 저항과 도전을 일컬어 '서비타이제이션 패러독스(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">Servitisation Paradoxes</span>)'라 지칭하며 이에 대한 우려를 제기해 왔습니다. 하지만 서비타이제이션 여정 중 겪는 모순들과 이에 직접 대응하는 대처 메커니즘에 관한 연구는 제한적이었습니다. 본 연구는 이러한 격차를 해소하고자 개방형 에세이(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">Open-ended Essay</span>) 방법론을 활용하여 모순과 대처 방식을 분석했습니다. 데이터는 1단계 69명, 2단계 32명 등 총 2단계에 걸쳐 수집되었습니다. 본 연구 결과, 크게 세 가지 차원의 모순이 발견되었습니다: 조직화의 모순(자율성과 통제, 효율성과 유연성, 공식/비공식 정보 흐름, 직원과 고객의 요구사항 상충), 학습의 모순(기존 지식과 새로운 지식 간 충돌), 성과의 모순(단기 실적 압박과 장기 비전 간 긴장). 아울러 이를 조율하는 네 가지 대처 전략으로 변화 관리, 열린 소통, 교육 프로그램, 디지털화를 규명했습니다. 본 연구는 이러한 다양한 모순과 대처 방식의 공존 관계를 밝힌 개념적 프레임워크를 개발하여 기존 문헌 연구를 크게 보완합니다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Servitisation</td>
+                  <td>서비타이제이션 / 제품의 서비스화</td>
+                  <td class="text-sm">전통적 제품 중심 제조기업이 고부가가치 솔루션 패키지를 위해 서비스를 추가·확대하는 산업 전환적 비즈니스 용어입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Servitisation Paradox</td>
+                  <td>서비타이제이션 패러독스 / 서비스화의 모순</td>
+                  <td class="text-sm">제조업체가 서비스 비즈니스를 늘림에도 불구하고 비용 증가 및 역량 불일치로 성과가 하락하는 경영상의 모순 현상입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Open-ended Essay</td>
+                  <td>개방형 에세이 방법론</td>
+                  <td class="text-sm">응답자에게 객관식 척도가 아닌 자유 서술 형태의 질의를 던져 심층적 질적 데이터(에세이)를 수집하는 탐색적 연구 방법론입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Paradox of Organising</td>
+                  <td>조직화의 모순</td>
+                  <td class="text-sm">서비타이제이션 실행 시 조직 구조, 업무 프로세스, 소통 체계의 설계상에서 서로 상충되는 상반된 요구조건들의 충돌입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Coping Mechanisms</td>
+                  <td>대처 메커니즘 / 조율 전략</td>
+                  <td class="text-sm">모순을 극단적으로 선택하여 하나를 폐기하는 것이 아닌, 두 상반된 긴장 요소를 공존시키고 제어하는 조직적 조율 방침입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">서비타이제이션 초기 조직 모순의 정체는?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">3대 모순의 발현과 4대 대처 행위의 공존</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">패러독스 관점의 전환과 통합 프레임워크</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 제조업이 서비스 전략으로 선회할 때 부딪히는 본질적 마찰(모순)은 무엇이며, 현장 관리자들은 이를 어떻게 인지하고 조율(Coping)하고 있는가?</li>
+                  <li><strong>핵심 발견:</strong> 질적 텍스트 분석 결과, 서비스화 전환 시 <strong>조직화(Organising)</strong>, <strong>학습(Learning)</strong>, <strong>성과(Performing)</strong>의 3개 차원에서 양립 불가능해 보이는 긴장(예: 단기 마진 vs 장기 비전, 기존 지식 고수 vs 신규 교육 저항)이 동시 발현됩니다. 이를 해소하기 위해 <strong>변화 관리, 열린 소통, 재교육, 디지털화</strong>가 핵심 대처전략으로 공존하고 있음을 밝혔습니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 기존의 서비타이제이션 장벽 연구를 단절적 도전이 아닌 '모순 공존(Both-and)' 관점으로 전환하고, 다단계 개방형 에세이로 현장 관리자 101명의 생생한 진술 데이터를 체계화하여 실무 관점에서 예측 및 조율 로드맵을 제공했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "제조업의 서비스화 전환은 피할 수 없는 조직·학습·성과 모순을 수반하며, 성공적 안착은 모순의 제거가 아니라 변화 관리, 열린 소통, 교육 및 디지털화 시스템을 통한 지속적 조율로 달성됩니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 쟁점 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">3대 모순의 동시적 발현 규명</td>
+                <td class="text-sm italic text-slate-600">
+                  "The findings revealed the simultaneous manifestation of three types of paradoxes: paradoxes of organising, performing and learning"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 324 (Sec. 1), Page 325 (Sec. 4)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">조직화 모순: 자율성과 통제의 충돌</td>
+                <td class="text-sm italic text-slate-600">
+                  "...representing a tension between controlling employees’ actions and allowing employees to execute tasks without supervision."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 326 (Sec. 4.1.1)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">조직화 모순: 제품 효율성과 서비스 유연성</td>
+                <td class="text-sm italic text-slate-600">
+                  "...tensions can emerge between two contrasting goals: achieving efficiency in the manufacturing of products and exhibiting the flexibility to offer customised solutions..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 327 (Sec. 4.1.2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">조직화 모순: 지식 흐름의 공식성과 비공식성</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the simultaneous roles of formal and informal information flows are a component of the paradox of organising, which must be balanced..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 328 (Sec. 4.1.3)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">조직화 모순: 직원 만족과 고객 요구의 대립</td>
+                <td class="text-sm italic text-slate-600">
+                  "Organisations faced intra-team tensions as employees’ responsibilities were altered to meet customers’ needs, leaving employees dissatisfied."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 329 (Sec. 4.1.4)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">학습 모순: 과거 지식 고수와 신규 지식 탐색</td>
+                <td class="text-sm italic text-slate-600">
+                  "...potential conflicts between the simultaneous and competing goals of exploiting established knowledge and exploring new knowledge"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 329 (Sec. 4.2.1)</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">성과 모순: 단기 실적 저하와 장기 성장 비전</td>
+                <td class="text-sm italic text-slate-600">
+                  "During the transition, manufacturing firms’ initial returns decrease... tension between efforts to achieve short-term and long-term performance goals."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 330 (Sec. 4.3.1)</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">4대 통합 대처 메커니즘 제시</td>
+                <td class="text-sm italic text-slate-600">
+                  "These coping mechanisms include a) change management, b) open communication, c) training programmes and d) digitalisation."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 331 (Sec. 4.4)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual Framework (논문 도출 개념 프레임워크)</h3>
+          
+          <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 400" class="w-full h-auto">
+              <!-- Define Markers and Gradients -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+                <linearGradient id="copingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#06b6d4" />
+                  <stop offset="100%" stop-color="#4f46e5" />
+                </linearGradient>
+              </defs>
+
+              <!-- 1. Paradox of Organising Box (Top) -->
+              <rect x="230" y="20" width="340" height="110" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+              <text x="400" y="48" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="14">조직화의 모순 (Paradox of Organising)</text>
+              <text x="400" y="72" text-anchor="middle" fill="#475569" font-size="11">자율성 vs 통제 | 효율성 vs 유연성</text>
+              <text x="400" y="90" text-anchor="middle" fill="#475569" font-size="11">공식 vs 비공식 소통 | 직원 vs 고객 요구</text>
+
+              <!-- 2. Paradox of Performing Box (Bottom Left) -->
+              <rect x="50" y="270" width="280" height="90" rx="10" fill="#fff5f5" stroke="#f87171" stroke-width="2"/>
+              <text x="190" y="298" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="13">성과의 모순 (Paradox of Performing)</text>
+              <text x="190" y="322" text-anchor="middle" fill="#b91c1c" font-size="11">단기 성과 (수익 압박, 마진 감소)</text>
+              <text x="190" y="338" text-anchor="middle" fill="#b91c1c" font-size="11">vs 장기 성과 (지속 성장, 서비스 비전)</text>
+
+              <!-- 3. Paradox of Learning Box (Bottom Right) -->
+              <rect x="470" y="270" width="280" height="90" rx="10" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="610" y="298" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="13">학습의 모순 (Paradox of Learning)</text>
+              <text x="610" y="322" text-anchor="middle" fill="#0284c7" font-size="11">기존 지식 활용 (과거 성공 공식, 제조업 관행)</text>
+              <text x="610" y="338" text-anchor="middle" fill="#0284c7" font-size="11">vs 신규 지식 탐색 (서비스 역량, 재교육)</text>
+
+              <!-- 4. Coping Strategies Central Box (Center) -->
+              <rect x="250" y="170" width="300" height="70" rx="12" fill="url(#copingGrad)" stroke="#3b82f6" stroke-width="1"/>
+              <text x="400" y="195" text-anchor="middle" font-weight="700" fill="#ffffff" font-size="13">대처 메커니즘 (Coping Mechanisms)</text>
+              <text x="400" y="215" text-anchor="middle" fill="#e0f2fe" font-size="11" font-weight="600">변화관리 · 열린소통 · 교육프로그램 · 디지털화</text>
+
+              <!-- Connection Arrows representing the cycle -->
+              <!-- Organising -> Learning -->
+              <path d="M 570 75 C 680 75, 680 260, 610 270" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              
+              <!-- Learning -> Performing -->
+              <path d="M 470 315 L 340 315" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+
+              <!-- Performing -> Organising -->
+              <path d="M 190 270 C 120 260, 120 75, 230 75" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+
+              <!-- Coping Mechanisms Impact Arrows (from Center to Outer boxes) -->
+              <path d="M 400 170 L 400 135" fill="none" stroke="#0ea5e9" stroke-width="2.5" marker-end="url(#arrow)"/>
+              <path d="M 280 205 C 200 205, 190 230, 190 265" fill="none" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrow)"/>
+              <path d="M 520 205 C 600 205, 610 230, 610 265" fill="none" stroke="#0ea5e9" stroke-width="2.5" marker-end="url(#arrow)"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV/Concept 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">비즈니스 전환</span>
+                <span class="text-xs text-slate-400 font-semibold">Context</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">서비타이제이션 여정 (Servitisation Journey)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 제조기업이 고객 가치 증대 및 상품 차별화를 위해 제품 판매 중심 모델에서 제품-서비스 결합 패키지로 전환해가는 총체적 조직 전략 프로세스.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 본 논문에서는 기존 제품 및 핵심 기술 인프라를 바탕으로 신규 부가 서비스를 출시하는 초기 수용 단계 제조사들을 지칭.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Vandermerwe & Rada (1988), Oliva & Kallenberg (2003)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 단순히 서비스를 붙이는 것에 그치지 않고 조직 구조 및 전반적인 가치 사슬 역량 조정을 거쳐야만 서비타이제이션 패러독스를 예방할 수 있음.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV/Concept 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">모순 범주 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Organising</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">조직화의 모순 (Paradox of Organising)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 서비타이제이션 과정에서 조직 구조, 소통 표준 및 운영 기준 수립 시 동시에 발생하는 상반된 요구조건 간의 구조적 충돌.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 자율성-통제(수준 제어), 효율성-유연성(공동 추구), 공식-비공식 소통(지식 전파), 직원-고객 갈등(가부하 해소) 4대 척도로 분석.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Smith & Lewis (2011), Radu-Lefebvre & Randerson (2020)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 제조업 특유의 강력한 절차적 '통제 및 효율'과 서비스업 특유의 현장 대응적 '자율 및 유연'이 한 조직에 내재하여 긴장을 촉발함.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV/Concept 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">모순 범주 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Learning</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">학습의 모순 (Paradox of Learning)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 과거의 제조 경쟁력을 기반으로 구축한 성공 공식(기존 지식)과 서비스화를 위한 조직 역량 개발(신규 지식) 간의 인식적 갈등.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 구세대 직원들이 체화한 관행의 고수와 신규 인력이 가져오는 서비스 전문성 사이의 사내 알력 및 학습 거부감.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Lewis (2000), Paiola et al. (2021)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 신규 서비스 역량 획득을 위해 조직 역량 재교육(Reskilling)과 타사 벤치마킹을 실행할 때, 과거 성공으로 인한 타성(Inertia)이 강력한 걸림돌로 작동.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV/Concept 4 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">모순 범주 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Performing</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">성과의 모순 (Paradox of Performing)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 다중목표 조직 환경에서 단기 재무 지표(수익성, 가시적 제품 판매량) 충족과 장기적인 생존을 위한 서비스 미래 비전 달성 간의 목표 상충.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 신규 서비스 부문의 낮은 단기 회수율로 인한 비용 압박 및 경영진의 실적 요구와 장기 성장을 정당화하는 논쟁.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Gebauer et al. (2005), Dmitrijeva et al. (2022)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 단기적으로는 제조 라인의 단가 저감이 중요하나, 시장의 저성장을 극복하려면 서비스 투자가 필수라는 가치의 충돌을 드러냄.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV/Outcome Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">조율/조절 메커니즘</span>
+                <span class="text-xs text-slate-400 font-semibold">Coping Mechanisms</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">4대 대처 메커니즘 (Coping Mechanisms)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 조직 내에 필연적으로 상존하는 3대 패러독스(조직화·학습·성과)의 긴장 강도를 완화하고 생산적인 성과로 전환하는 구조적 조율 장치.</p>
+              <p class="text-sm text-slate-700"><strong>조작 및 실행 구성:</strong></p>
+              <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mt-2">
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+                  <strong class="text-slate-900 block mb-1">1. 변화 관리</strong>
+                  지리적 거점 일원화 및 부서 재설계, 문화 정비 및 적절한 인사 변화.
+                </div>
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+                  <strong class="text-slate-900 block mb-1">2. 열린 소통</strong>
+                  정기적 회의 플랫폼 개설, 고객과의 투명성 보장, 동료 피드백 강화.
+                </div>
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+                  <strong class="text-slate-900 block mb-1">3. 교육 프로그램</strong>
+                  기존 직원 재교육(Reskilling) 및 신규 기기/서비스 직무 교육 정기 집행.
+                </div>
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+                  <strong class="text-slate-900 block mb-1">4. 디지털화</strong>
+                  ERP/SAP 등 전사적 통합 시스템 연동을 통한 실시간 정보 연계 및 자동화.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 동일한 질적 탐색 연구 모델을 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">질적 질문 세트 설계 및 에세이 포맷 확립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  서비타이제이션 및 조직 패러독스 선행 연구들을 바탕으로 비즈니스 모델 변화 양상, 내부 부서간 긴장 원인, 이를 통제하는 대처 경험을 자유로이 서술하게 하는 개방형 질의 세트(Appendix A)를 설계함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 325, Section 3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">1단계 에세이 수집 (Stage 1)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  2021년 2월, 영국 및 미국의 제조산업 군(전자, 항공우주, 의료기기, 자동차 등) 내 관리자급 실무자 69명을 선발하여 온라인 채널을 통해 에세이 텍스트 응답을 획득함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 325, Section 3</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">연역적 코딩 및 데이터 구조 개발</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Gioia 방법론을 차용하여 텍스트를 문장별로 분절 코딩함. 이메일 등에서 도출된 응답자 관점 단어를 1차 코드로 도출하고, 패러독스 문헌에 근거하여 2차 상위 주제(조직화, 학습, 성과 모순 및 Coping)로 축코딩하여 구조화함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 325-326, Section 3.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">코더 간 교차 분석 신뢰성 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  연구원 간 주관성 배제를 위해 화상회의(Zoom)를 개설하여 개별 코딩 데이터를 상호 대조함. 이견이 발생한 지점은 개념적 타당성 검토 메모(Theoretical memos)를 작성하여 최종 합의점에 도달함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 325, Section 3.1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">2단계 검증 설문 배포 및 통섭 (Stage 2)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  2021년 12월, 1차 수집 코딩 결과를 검증 및 보완하기 위해 동일 직군 배경을 공유하는 32명의 피험자를 신규 모집하여 2차 개방형 조사(Appendix B)를 실행. 총 101개의 통합 질적 에세이 응답풀 구축.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 325, Section 3.1</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">개념적 프레임워크 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  도출된 3대 모순 영역(조직화·학습·성과)과 4대 대처 행위 간의 상호작용 및 지속적인 보완 피드백 루프를 연결한 통합 프레임워크 완성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 331, Fig. 6</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            개방형 질적 설문 문항 전체(Appendix A, B) 및 코딩 체계와 intercoder 합의 프로토콜이 투명하게 명시되어 있어 코딩 기법 상의 재현은 매우 용이합니다. 그러나 서비타이제이션을 추진하는 영/미권 제조산업의 고숙련 관리자급 101명을 모집하여 동일 수준의 고품질 심층 에세이 데이터를 독자적으로 구축하는 것은 샘플 접근장벽으로 인해 부분적으로 제한됩니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.3)에서 연구진이 연구 설계상의 바운더리로 직접 밝힌 내용입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>지리적 표본 편향:</strong> 연구의 응답자들이 미국(US) 및 영국(UK) 제조업체에 국한되어 있으므로, 타 국가나 동양적 비즈니스 생태계(아시아 제조업) 환경에 이 메커니즘을 그대로 일반화하는 것은 제약이 큼.
+              </li>
+              <li>
+                <strong>모순 포착의 비망라성:</strong> 본 연구에서 밝힌 패러독스는 서비타이제이션 '초기 단계(early stages)' 및 '서비스 부서 레벨(service-unit level)'에 집중되어 있어, 전환 고도화기나 전사 최고경영층에서의 상위 모순들은 미처 검토하지 못함.
+              </li>
+              <li>
+                <strong>단일 응답자(Single informant) 평가 의존:</strong> 각 회사별로 한 명의 운영 관리자급 진술에 근거하였기 때문에, 조직 내부의 다각적인 갈등 관계나 부서별 상이한 입장을 통합 포착하지 못할 위험이 존재함.
+              </li>
+              <li>
+                <strong>횡단적 자료의 내재적 한계:</strong> 질적 횡단 설문 특성상, 시간 흐름에 따른 모순 요소의 발현 변화 주기 및 대처 메커니즘의 실질적 성과 피드백을 추적 조사하는 종단 연구가 부재함.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 횡단 질적 분석 구조를 기반으로 제기하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 생존자 편향 (Survivorship Bias)</span>
+                <p class="text-sm text-slate-700">
+                  데이터는 2021년 코로나19 위기가 이어지던 당시 수집되었습니다. 이미 서비타이제이션 패러독스를 조율하지 못해 파산했거나 심각한 경영 악화로 설문에 답할 수 없었던 <strong>'실패한 한계 기업'들은 조사 단계에서 원천 차단</strong>되고, 위기를 견뎌내고 있는 기업 관리자만 답변에 참여한 강한 생존자 편향이 내포되어 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 회고적 합리화 편향 (Rationalisation Bias)</span>
+                <p class="text-sm text-slate-700">
+                  응답자들이 본인의 과거 전환 경험 및 관리 과정을 서술하는 에세이 방식의 특성상, 본인들이 시도한 대처 방안(소통, 디지털화, 교육 등)에 대해 <strong>사후적으로 긍정화하거나 의도적으로 합리화하여 진술</strong>했을 가능성(사후 합리화 편향)이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 대처 전략의 구체적 효과성 검증 결여</span>
+                <p class="text-sm text-slate-700">
+                  연구는 4가지 대처 방침이 모순을 '통제하는 데 기여한다'고 제언하지만, 실질적으로 디지털 시스템 구축이 부서 간 소통 효율을 낮추거나 역으로 비용을 높이는 부작용(예: 과다 정보 피로)은 없는지, 4대 대처 중 무엇이 특정 모순에 가장 직효약인지에 대한 <strong>매개/조절의 실증적 정량 데이터 검증이 전혀 결여</strong>되어 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 팬데믹이라는 거시 환경의 특수성</span>
+                <p class="text-sm text-slate-700">
+                  조사 시점이 2021년 팬데믹 공급망 붕괴 등 이례적 거시적 혼란기였으므로, 조직이 느끼는 모순 긴장 수준과 재무적 실적 압박이 평상시 제조 시장에 비해 <strong>비정상적으로 증폭되어 포착</strong>되었을 여지가 있습니다. 즉, 안정기 상태의 제조기업 환경에 그대로 접목할 때 긴장 강도 및 대처 필요성이 다를 수 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Paradoxes and coping mechanisms in the servitisation journey</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

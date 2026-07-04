@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Applying the Resource Interaction Approach to Policy Analysis - IMM 2022</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (NO Navbar, as requested) -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2022)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Policy Analysis</div>
+        <div class="badge badge-secondary text-white style-label">Citations: 11 (Crossref)</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Applying the resource interaction approach to policy analysis:<br>
+            <span class="text-cyan-400">Insights from the antibiotic resistance challenge</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Enrico Baraldi, Sofia Wagrell
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            정책 분석에 자원 상호작용 접근법 적용:<br>
+            <span class="text-indigo-300">항생제 내성 도전 과제로부터의 통찰</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            글로벌 보건 난제인 항생제 내성(AMR) 생태계를 개발-생산-사용 환경 전반의 자원 결합, 계약 구조 및 화폐 흐름의 연계성 관점에서 체계적으로 진단
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              RIA
+            </div>
+          </div>
+          <div class="max-w-3xl">
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">
+              항생제 내성(AMR)과 같은 글로벌 난제는 단편적 유인책을 넘어 개발-생산-사용 환경 전반의 자원 인터페이스를 조정하고, 이를 법적 거래 구조(Deal) 및 화폐 흐름(Monetary Flow)과 정합시켜야 해결할 수 있습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This paper explores how the Resource Interaction Approach (RIA), namely the 4Rs model and the three settings of developing-producing-using, can be applied to complex policy analyses. We use the global sustainability challenge of antibiotic resistance as an example to define an agenda about how these analytical tools can frame and analyze such problems systematically. We find that these tools offer benefits to policymakers, including flexibility in framing problems, by selecting the focal resources and values to be prioritized, and the ability to visualize the direct and indirect interdependencies that enable or hinder value creation. Moreover, the RIA can point at the resource interfaces that need to change through specific policy interventions, as well as the potential network-level barriers to such changes. We also find that the RIA needs to be complemented by network-level analyses of deal structures and monetary flows in order to better capture the legal and financial dimensions of policy problems and solutions."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 논문은 자원 상호작용 접근법(RIA), 즉 4Rs 모델과 개발-생산-사용의 세 가지 환경이 어떻게 복잡한 정책 분석에 적용될 수 있는지 탐구한다. 우리는 글로벌 지속가능성 과제인 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">항생제 내성(AMR)</span>을 실증 사례로 삼아, 이러한 분석 도구들이 어떻게 문제를 시스템적으로 구조화(frame)하고 분석할 수 있는지에 대한 아젠다를 정의한다. 연구 결과, 이러한 도구들이 정책 입안자에게 우선순위를 둘 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">중심 자원과 가치</span>를 선택함으로써 문제를 구조화하는 유연성을 제공하고, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">가치 창출</span>을 촉진하거나 저해하는 직접적 및 간접적 상호의존성을 시각화하는 능력을 제공한다는 점을 확인하였다. 나아가, RIA는 구체적인 정책 개입을 통해 변화되어야 할 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">자원 인터페이스</span>뿐만 아니라, 그러한 변화에 대한 잠재적인 네트워크 수준의 장벽을 지적할 수 있다. 또한, 정책 문제와 해결책의 법적 및 재정적 차원을 더 잘 포착하기 위해서 RIA가 네트워크 수준의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">거래 구조와 화폐 흐름</span> 분석으로 보완되어야 할 필요가 있음을 발견하였다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resource Interaction Approach (RIA)</td>
+                  <td>자원 상호작용 접근법</td>
+                  <td class="text-sm">자원의 이질성과 다른 자원과의 결합적 시너지를 중시하는 B2B 마케팅 학파인 IMP 그룹의 핵심 방법론적 토대입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">4Rs Model</td>
+                  <td>4Rs 모델</td>
+                  <td class="text-sm">비즈니스 네트워크 상의 자원을 제품(Products), 시설(Facilities), 조직 단위(Org Units), 관계(Relationships)의 4가지 유형으로 나누어 분석하는 모델입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Developing-Producing-Using Settings</td>
+                  <td>개발-생산-사용 환경</td>
+                  <td class="text-sm">자원 상호작용이 발생하는 세 가지 주요 비즈니스 맥락 영역으로, R&D(개발), 제조 및 유통(생산), 임상 처방 및 관리(사용)를 지칭합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Deal Structures & Monetary Flows</td>
+                  <td>거래 구조 및 화폐 흐름</td>
+                  <td class="text-sm">네트워크의 비즈니스 계약/특허권 등 법률적 구조(Deal Structures)와 이에 수반되는 재정적 결제/약가 구조(Monetary Flows)를 뜻하며 가치 획득(Value Appropriation)에 해당합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Value Preservation</td>
+                  <td>가치 보존</td>
+                  <td class="text-sm">항생제 내성 문제에서 특히 중요하게 부각되는 개념으로, 자원을 오남용으로부터 보호하고 약물의 유효성 및 효용을 유지하는 전략입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            복잡하게 얽힌 항생제 생태계의 한계와 이에 따른 정책 패러다임 전환의 필요성을 <strong>1분 만에</strong> 청중에게 설득할 수 있도록 핵심 구조를 요약했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">AMR 난제를 해결할 체계적 정책 프레임워크는?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">단편적 개입 대신 자원접점 조율과 거래구조의 통합</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">IMP 네트워크 이론을 거시 공공정책 분석에 접목</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 항생제 내성(AMR)처럼 시장 실패와 네트워크 상호의존성이 복잡하게 얽힌 공공 의제에서, 기존의 단편적인 정책(단순 약가 인하 또는 R&D 보조금)이 실패하는 메커니즘은 무엇이며 이를 어떻게 극복할 것인가?</li>
+                  <li><strong>핵심 발견:</strong> 신약 R&D(개발)에 대규모 자금을 넣어도 원료 의약품 제조공장의 마진 부족으로 인한 품귀와 오염(생산), 농가의 축산 사료 남용 및 병원의 신속진단 도입 미비(사용) 등 <strong>개발-생산-사용 환경 간의 자원 결합(Interface)</strong>이 단절되면 정책 효과는 소멸합니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 기존의 자원기반관점(RBV)이나 자원의존이론(RDT)을 넘어, 자원 상호작용 접근법(RIA)에 계약 구조(Deal Structures)와 화폐 흐름(Monetary Flows) 레이어를 결합함으로써, 정책 입안자들에게 생태계 전체를 조율하는 '7단계 아젠다'를 제시했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "항생제 난제 극복은 단편적인 유인책을 넘어 개발-생산-사용 환경 전반의 자원 결합을 조정하고, 이를 법률적 거래 구조 및 금융적 화폐 흐름과 종단적으로 일치시킬 때 실현됩니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 이를 뒷받침하는 원문 인용(Quote) 및 논문 내 세부 위치를 맵핑하였습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">RIA 도구의 프레이밍 유연성 및 관계 시각화 효용</td>
+                <td class="text-sm italic text-slate-600">
+                  "...these tools offer benefits to policymakers, including flexibility in framing problems, by selecting the focal resources and values to be prioritized, and the ability to visualize the direct and indirect interdependencies that enable or hinder value creation."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 377 (Sec. 1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">글로벌 네트워크 단절에 따른 단편적 정책의 한계</td>
+                <td class="text-sm italic text-slate-600">
+                  "The clash is due to the disconnection between activated resource structures and monetary flows... which counteracts the expected effects of national policy interventions."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 380 (Sec. 3.4)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">정책 유도를 위한 거래 구조 및 계약 법률 개입의 필요성</td>
+                <td class="text-sm italic text-slate-600">
+                  "Therefore, policy interventions may need to intervene in the legal domain of deal structures in order to influence the monetary flows to specific actors and eventually also influence value creation processes..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 380 (Sec. 3.4)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">개발-생산-사용 환경 간의 단절과 악영향 전이</td>
+                <td class="text-sm italic text-slate-600">
+                  "The lack of full-blown relationships and of deep interfaces connecting the three settings appears clearly from our exploratory analysis... the lack of economic and natural sustainability in the production and the use of old antibiotics has also transmitted negative effects on the development of new antibiotics."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 386 (Sec. 3.12)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">재정적 유인책(MERs) 평가를 위한 거래 구조 분석의 결합</td>
+                <td class="text-sm italic text-slate-600">
+                  "Hence, MERs are policies not captured by RIA alone and would require additional analytical tools capable of penetrating the financial and contractual dimension of interorganizational networks..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 386 (Sec. 3.13)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables (NO DAG SVG, as per instruction) -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 논문은 정성적 네트워크 개념 설계 논문이므로, 통계적 인과 모델 변수 대신 <strong>확장된 자원 상호작용 접근법(RIA) 프레임워크의 5대 핵심 분석 차원</strong>을 시각화 카드로 정리하였습니다.
+        </p>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Card 1 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">분석의 출발점</span>
+                <span class="text-xs text-slate-400 font-semibold">Target</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">중심 자원 (Focal Resource: Antibiotics)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 정책 목적(가치 보존 및 창출)의 분석 대상이 되는 물리적 핵심 제품군 자원.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 신약 개발 단계의 물질(Novelty)과 유통되는 구형 제네릭 물질(Durability/Efficacy)로 나누어지며, 이들의 가치가 대립하는 속성.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Penrose (1959)의 자원의 물리적 이질성(Resource Heterogeneity) 개념.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 사용할수록 약효가 닳아 없어져 가치가 상실되는 공유 자원(Common-pool Resource)의 성격을 띠며 시장 실패의 온상임.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">분석의 미시적 접점</span>
+                <span class="text-xs text-slate-400 font-semibold">Interface</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">자원 인터페이스 (Resource Interfaces)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 네트워크 내 두 개 이상의 이질적 자원들이 접촉하여 서로 영향을 미치는 물리적·사회적 접점.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 기술적 접합(예: 진단 기술과 병원 처방 프로세스)과 사회적 접합(예: 대학 랩과 제약 조직 간 공동 연구)의 깊이(Depth).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Håkansson & Waluszewski (2002), Baraldi et al. (2012)의 IMP 자원이론.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 정책 설계 시 부정적 접점(동물 농장의 촉진제 남용)을 절단하고, 누락된 접점(병원 임상 루틴의 신속진단 결합)을 잇는 타겟이 됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">분석의 공간적 영역</span>
+                <span class="text-xs text-slate-400 font-semibold">Settings</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">세 가지 네트워크 환경 (Three Settings)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자원이 창출·Preserve되는 거시 비즈니스 생태계의 세 가지 환경적 국면.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 연구 개발(Developing), 공정 및 대량 제조(Producing), 임상 진단 및 예방 사용(Using)의 세 가지 네트워크 도메인.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Håkansson & Waluszewski (2002)의 임베딩 설정 모델.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 각 환경은 상이한 경제 논리로 가동되며, 한 영역의 단절이 전체 생태계의 혁신 중단과 품귀로 이어지는 병목을 형성함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">법률·재정적 매개 기제</span>
+                <span class="text-xs text-slate-400 font-semibold">Appropriation</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">거래 구조 및 화폐 흐름 (Deal & Monetary Flow)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자원 결합으로 창출된 가치를 개별 참여자에게 경제적으로 분배하는 법적·재무적 유인 기제.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 특허 독점권 조건, 대규모 조달 입찰 요건(거래 구조)과 정부 보조금, 시장 처방 약가(화폐 흐름)의 정합성.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Håkansson & Olsen (2015), Baraldi & Lind (2017).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 가치 창출(물리적 자원 배치)과 가치 획득(금융적 보상 구조)의 미스매치를 해결해야만 혁신의 시장 공급이 지속될 수 있음.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 5 (colspan-2) -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">최종 전략적 목적</span>
+                <span class="text-xs text-slate-400 font-semibold">Strategic Goal</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">가치의 공동 창출 및 보존 (Value Co-creation & Preservation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 항생제 내성(AMR)이라는 지속가능성 리스크에 빠진 글로벌 보건 자원의 치료 효능을 보존하고 신규 치료 대안을 계속 공급하는 종국적 정책 목표.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 신약 개발 성공률, 글로벌 원료의약품 공급망의 분산적 탄력성 확보, 전 세계 임상 현장에서의 항생제 보존(Stewardship) 정착 수준.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 정책 연구자가 타 산업 영역(예: 청정 에너지 핵심 원자재 공급망 정책)에 이 RIA 방법론을 그대로 <strong>추종 재현</strong>할 수 있도록 절차를 단계별로 구조화했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">중심 자원(Focal Resource)의 선정 및 가치 이질성 정의</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  분석 대상 생태계에서 가장 핵심이 되는 중심 물리 자원을 설정하고(항생제), 이 자원의 기술적 특징과 대립하는 가치들(신개발의 novelty vs 보존의 durability)을 설정합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 377, Section 1.1 / Page 381, Section 3.7</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">정성적 데이터베이스 및 다중 이해관계자 채널 구축</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  1차 자료(Primary Data) 확보를 위해 다년간의 정책 프로젝트 참여 경로를 확보하고, 다국적 대기업 10개 사, 연구 개발 SME 25개 사, 연구소 20개소, 보건 당국 등을 대상으로 한 100회 이상의 심층 인터뷰 데이터를 수집합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 377, Section 1.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">정책적 핵심 우선순위 가치 범주화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  이해관계자 조정 및 정책 성과 평가의 기준이 될 4대 전략 가치(새로움, 보존성, 접근성, 수익성)를 규정하고 이들 사이의 절충(Trade-off) 지점을 도출합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 377, Section 1.1 / Page 381, Section 3.7</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">3대 환경별 4Rs 자원 및 인터페이스 매핑</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  개발, 생산, 사용 각 영역 내부의 제품, 시설, 조직, 관계 자원을 정리(Table 1-3)하고, 자원 간 결합면(Interface)의 깊이(Depth)와 형태(얕음, 깊음, 누락, 파괴적 접점)를 명확히 진단합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Pages 382-386, Sections 3.9-3.11</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">환경 간 종단적 연계 구조(Cross-Setting) 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  세 가지 환경을 동시에 관통하며 이동하는 자원들을 추적하여, 한 영역(예: 사용 영역의 제네릭 약가 인하)이 타 영역(예: 개발의 R&D 포기)에 미치는 간접적 네트워크 피드백 병목을 규명합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Pages 385-386, Section 3.12</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">거래 구조 및 화폐 흐름 통합 정책 모델화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  대상 정책 수단들을 자원 인터페이스 차원으로 환원하고, 물리적 자원 결합(가치 창출)을 실현하기 위한 법률 조건(Deal)과 재무 보상 구조(Monetary Flow)를 연계한 3층 프레임워크(Fig. 3)를 수립합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Pages 386-388, Section 3.13</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            분석 기법(RIA, 4Rs, 3 settings)과 통합 정책 설계 프로토콜은 타 도메인에 완전하게 이식하여 재현할 수 있습니다. 그러나 저자들이 7년 동안 글로벌 정책 기구에 직접 소속되어 축적하고 100회 이상의 다해당 행위자 대면을 통해 획득한 방대한 질적 1차 자료는 외래 연구자가 독자적으로 완전 복제하기 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 연구진들이 스스로 한정 지은 연구의 경계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>개별 물질 및 미시 세부 기업 단위의 사례 검증 누락:</strong> '항생제'라는 거시적 물질 카테고리 전체를 대상으로 분석하여, 개별 항생제의 분자식별 특성이나 미시적 공급망 변이(narrow vs broad spectrum)에 따른 인터페이스 편차를 정밀하게 다루지 못함. (Page 382, Section 3.7 & Page 383, Section 3.8)
+              </li>
+              <li>
+                <strong>자원 인터페이스 심화의 선행 요인 규명 부재:</strong> 4Rs 모델을 통해 자원 접점의 심도(depth)를 분류하였을 뿐, 이러한 깊이 있는 사회적·물리적 상호작용 및 파트너십 관계가 애초에 어떠한 조건에서 발현되고 심화되는지에 대한 동태적 설명이 미진함. (Page 386, Section 3.12)
+              </li>
+              <li>
+                <strong>정성적 정책 평가 도구로써의 독자성 한계:</strong> 기존의 RIA는 물리적 자원 배치(가치 창출)에 특화되어 금융 약가 정책이나 특허 보유 형태 등 가치 획득(Value Appropriation) 관련 법률/금융 레이어를 독자적으로 설명하기 어려워 외부 모형을 급조해 보완해야 했음. (Page 386, Section 3.13)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 데이터 추출 방식에 기반하여 도출되는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 질적 해석의 사후 주관 편향</span>
+                <p class="text-sm text-slate-700">
+                  7년 동안 축적된 방대한 인터뷰 및 회의 자료에 대해 엄격한 정성적 코딩 분석 툴(예: NVivo 코딩 프로토콜)의 사용 명세가 부재합니다. 연구자가 수집된 정성 텍스트 데이터를 사후적으로 RIA 모델의 4Rs 프레임워크에 맞게 자의적으로 분류하고 합리화(Post-hoc rationalization)했을 가능성이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 이해관계자 인터뷰의 생존자 편향</span>
+                <p class="text-sm text-slate-700">
+                  인터뷰에 응한 10대 제약 대기업 및 25개 혁신 SME들은 극심한 시장 실패와 R&D 단절 속에서도 파산하지 않고 생존한 기업들입니다. 개발 도중 현금 고갈로 도산했거나 특허권을 매각하고 시장을 이탈한 한계 주체들의 목소리가 배제되어 네트워크 장벽의 심각도가 왜곡되었을 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 보건 체계의 지리적·제도적 국한성</span>
+                <p class="text-sm text-slate-700">
+                  실증적 준거가 스웨덴 보건당국 및 영국 등 국가 공공 보건 성격이 매우 강하고 제도적 신뢰가 깊은 북유럽/EU 맥락에 치우쳐 있습니다. 극단적 상업화 논리와 민간 보험이 지배적인 미국 보건 시장이나 환경 규제가 느슨한 개발도상국의 원료 유통망에는 자원 인터페이스 해법이 이식되기 어렵습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 다국적 강제적 실행 기제 결여</span>
+                <p class="text-sm text-slate-700">
+                  논문은 글로벌 B2B 공급망 상의 거래 구조와 약가를 개혁해야 한다고 주장하나, 사법 관할권과 주권이 서로 다른 다국적 행위자(중국의 API 공장, 인도의 제네릭 제조사, 서구의 다국적 제약사 등) 사이에서 어떻게 법적 계약(Deal Structures)을 강제하고 규제할 것인지에 대한 다국적 공조 및 행정 실행 방안을 전혀 제시하지 못합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Applying the resource interaction approach to policy analysis – Insights from the antibiotic resistance challenge</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

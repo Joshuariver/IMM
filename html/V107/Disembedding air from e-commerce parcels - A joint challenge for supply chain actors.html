@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disembedding air from e-commerce parcels: A joint challenge for supply chain actors - IMM 2022</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2022)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Resource Interaction Approach</div>
+        <div class="badge badge-secondary text-white style-label">B2B Qualitative Case Study</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Disembedding air from e-commerce parcels:<br>
+            <span class="text-cyan-400">A joint challenge for supply chain actors</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Sandra Brüel Grönberg, Kajsa Hulthén
+          </p>
+          <p class="style-small text-slate-400">
+            Chalmers University of Technology, Department of Technology Management and Economics, Sweden
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            전자상거래 택배 포장 내 빈 공간(공기) 제거:<br>
+            <span class="text-indigo-300">공급망 행위자들의 공동 과제</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            스웨덴 Chalmers 공과대학의 단일 사례 연구(33개 인터뷰, 4개 현장 실사, 1개 워크숍 기반). 산업 네트워크 이론(4R 모델)을 통한 자원 연계와 분리 분석.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">택배 상자 속 빈 공간을 줄이기 위해선 물류 설비, 표준 라벨 규격, 계약 조건 등 공급망 전반의 자원 조율이 필수적입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "The increasing use of e-commerce has brought attention to the problem of excessive air in e-commerce parcels. Within this context, the paper sets out to illustrate how e-commerce parcels are embedded in a network of resources controlled by various actors, each with their own perspective on how to tackle the problem of excessive air in e-commerce parcels and its associated challenges. The findings are derived from a single case study relying on 33 interviews, field visits, a workshop and secondary data. The article is grounded in Industrial Network Theory and particularly the Resource Interaction Approach, which enables an analysis of how air as a resource can be disembedded from e-commerce parcels. The results offer insights for firms involved in e-commerce supply chains into various actors’ perspectives on air in e-commerce parcels and how firms can start tackling the challenge of reducing it. The paper concludes that even though excessive air in parcels has received much attention lately, this problem is not always highly prioritised and only one of many considerations for firms."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "전자상거래의 급속한 성장은 택배 상자 내의 과도한 공기(빈 공간) 문제에 대한 관심을 불러일으켰다. 이러한 맥락에서 본 논문은 전자상거래 택배 포장이 서로 다른 행위자들에 의해 통제되는 자원 네트워크 내에 어떻게 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">내재(embedded)</span>되어 있는지 보여주고자 한다. 각 행위자들은 택배 내 과도한 공기 문제와 이와 연계된 도전을 해결하는 방법에 대해 저마다의 관점을 가지고 있다. 본 연구의 결과는 33건의 인터뷰, 현장 방문, 워크숍 및 2차 데이터를 기반으로 한 단일 사례 연구(single case study)로부터 도출되었다. 본 논문은 산업 네트워크 이론(Industrial Network Theory)과 특히 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">자원 상호작용 접근법(Resource Interaction Approach)</span>에 기반하고 있으며, 이를 통해 공기가 하나의 자원으로서 전자상거래 택배 포장으로부터 어떻게 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">분리(disembedded)</span>될 수 있는지 분석한다. 연구 결과는 전자상거래 공급망에 참여하는 기업들에게 택배 상자 내 공기에 대한 다양한 행위자들의 관점을 이해하고, 이를 줄이기 위한 도전에 어떻게 대응할 수 있는지에 대한 통찰을 제공한다. 본 연구는 택배 상자 내 과도한 공기 문제가 최근 많은 주목을 받았음에도 불구하고, 기업들에게 이 문제가 항상 최우선 과제는 아니며 수많은 고려 사항 중 하나일 뿐이라는 결론을 내린다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-2/4">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Embeddedness</td>
+                  <td>내재성 / 연계성</td>
+                  <td class="text-sm">자원 상호작용 관점에서 하나의 자원(공기)이 다른 자원들의 물리적, 조직적 인터페이스와 단단히 얽혀 있어 쉽게 분리될 수 없는 의존 구조를 말합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Disembedding</td>
+                  <td>분리 / 제거</td>
+                  <td class="text-sm">기존 자원 결합체(Resource Bundle)인 택배 포장 내의 과도한 공기를 물리적·조직적 연계망으로부터 물리치고 해체해 내는 학술적 활동명입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resource Interaction Approach</td>
+                  <td>자원 상호작용 접근법</td>
+                  <td class="text-sm">산업 네트워크 이론(IMP) 연구진들이 제창한 4R 모델을 이용해 제품, 설비, 비즈니스 단위 및 관계 간의 연계를 분석하는 접근법입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resource Bundle</td>
+                  <td>자원 결합체 / 번들</td>
+                  <td class="text-sm">상자 내 공기, 골판지 종이, 테이프, 완충재, 정보 라벨 등이 결합되어 '택배 상자'라는 단일 기능을 실현하는 묶음 상태를 의미합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Product Terms</td>
+                  <td>제품 약관 / 물류 규정</td>
+                  <td class="text-sm">물류사가 서비스 카테고리(우편, 택배 등)별로 규정한 무게, 부피 및 치수 상한선과 낙하 충격 보호 규정을 의미합니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 연구 흐름과 메커니즘을 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">택배 박스의 빈 공간(공기)은 왜 잘 줄어들지 않는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">분류 설비, 라벨 규격, 계약 조건 등 공급망의 자원이 얽혀 있기 때문</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">단일 기업의 최적화를 넘는 공동 자원 조율 모델(4R) 제시</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 전자상거래 택배 박스 내의 빈 공간(공기)은 다른 자원들과 어떻게 연계(embedded)되어 있으며, 이를 성공적으로 분리·제거(disembed)하기 위한 공급망 수준의 제약은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> 택배 빈 공간 축소는 단순 소매업체의 노력이 아닌, 물류사(LSP)의 고속 자동 분류 설비가 요구하는 보호 강도, 표준 라벨 규격의 물리적 면적 한계, 소매업체의 자동화 포장기계 규격 고착, 무게 중심 요금제(Weight-based pricing) 등 다자간 비즈니스 논리의 충돌로 제한됩니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 기존의 전통적인 3단계 포장 구분법(1-2-3차)이 e-commerce 낱개 배송에는 미흡함을 입증하고, IMP 학파의 4R 모델을 이용해 15개의 직/간접 자원 인터페이스를 밝혀 다자간 공동 대응(Joint Action)의 당위성을 제시했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "택배 상자 내 빈 공간(공기)을 줄이려면 개별 소매업체의 최적화를 넘어, 공급망 내 분류기, 표준 라벨, 계약 약관 및 자동화 기계 간의 다자간 자원 조율이 선행되어야 합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 학술적 신뢰도를 검증하기 위해 주요 주장들을 실제 설문/인터뷰/텍스트 데이터의 원문 인용 및 페이지 위치와 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">택배 박스 내 공기는 단순 낭비가 아닌 충격 흡수 자원임</td>
+                <td class="text-sm italic text-slate-600">
+                  "E-commerce parcels, especially those containing fragile products, must include some air to facilitate protection and shock absorption, but too much may lead to the content being squeezed or shaken during transport and result in damaged content"
+                </td>
+                <td class="text-right font-medium text-slate-500">Sec 1.2, Page 2</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">물류사의 구형 분류 설비 충격 조건이 포장 소형화를 제지함</td>
+                <td class="text-sm italic text-slate-600">
+                  "Some of the large LSPs’ sorting equipment was developed before the ‘e-commerce boom’ and are optimised for speed rather than the ‘delicate handling’ of parcels... Since many large retailers work with a range of different LSPs... all standardised packaging needs to meet the strictest requirements set by any one LSP."
+                </td>
+                <td class="text-right font-medium text-slate-500">Sec 4.1.3, Page 6</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">표준 운송 라벨(STE) 면적 요건이 박스 가로세로 규격을 지배함</td>
+                <td class="text-sm italic text-slate-600">
+                  "Sometimes this means that the size of the label is the limiting aspect for the dimensions of parcels. Hence, the requirements of sizes and positions (on top of the parcel) of labels can lead to parcels containing excessive air."
+                </td>
+                <td class="text-right font-medium text-slate-500">Sec 4.1.7, Page 6-7</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">자동 포장 기계 투자가 규격 고착(Lock-in)을 초래함</td>
+                <td class="text-sm italic text-slate-600">
+                  "One retailer in our study pointed out that investments in automated packing machines are long-term decisions since they lock a retailer into a certain ‘box assortment’ with specific dimensions for a long time."
+                </td>
+                <td class="text-right font-medium text-slate-500">Sec 4.1.2, Page 6</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">무게 중심의 가격 요금제가 공기 축소 인센티브를 박탈함</td>
+                <td class="text-sm italic text-slate-600">
+                  "This problem also relates to the price models used by LSPs, where some refer to the ‘weight’ of parcels rather than their ‘volume’. This, in turn, creates very little incentive for retailers to focus on ‘fill rates in parcels’."
+                </td>
+                <td class="text-right font-medium text-slate-500">Sec 5.2.2, Page 9</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 자원 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">4R Model & Interfaces</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Qualitative Resource Interaction Framework (자원 상호작용 및 15개 인터페이스 모형)</h3>
+          
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 500" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <!-- Arrow Marker -->
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569" />
+                </marker>
+                <!-- Cyan Arrow Marker -->
+                <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0ea5e9" />
+                </marker>
+                <!-- Indigo Arrow Marker -->
+                <marker id="arrow-indigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#6366f1" />
+                </marker>
+                <!-- Emerald Arrow Marker -->
+                <marker id="arrow-emerald" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981" />
+                </marker>
+              </defs>
+
+              <!-- Background Grid Concept (Soft lines) -->
+              <line x1="450" y1="0" x2="450" y2="500" stroke="#f1f5f9" stroke-width="2" stroke-dasharray="5 5" />
+              <line x1="0" y1="250" x2="900" y2="250" stroke="#f1f5f9" stroke-width="2" stroke-dasharray="5 5" />
+
+              <!-- Quadrant Titles -->
+              <text x="50" y="30" fill="#94a3b8" font-size="11" font-weight="700" letter-spacing="0.05em">TECHNICAL RESOURCES (기술적 자원)</text>
+              <text x="850" y="30" text-anchor="end" fill="#94a3b8" font-size="11" font-weight="700" letter-spacing="0.05em">ORGANIZATIONAL RESOURCES (조직적 자원)</text>
+
+              <!-- Center Focal Resource Bundle -->
+              <rect x="330" y="200" width="240" height="100" rx="12" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="3" />
+              <text x="450" y="240" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="16">택배 상자 내 공기 (Air)</text>
+              <text x="450" y="262" text-anchor="middle" fill="#0284c7" font-size="12">Focal Resource Bundle</text>
+              <text x="450" y="280" text-anchor="middle" fill="#64748b" font-size="10">(Empty Space Ratio)</text>
+
+              <!-- Top-Left: Products -->
+              <rect x="40" y="45" width="250" height="125" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="2" />
+              <rect x="40" y="45" width="250" height="30" rx="8" fill="#e2e8f0" />
+              <text x="165" y="65" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">Products (제품 자원)</text>
+              <text x="55" y="100" fill="#475569" font-size="12" font-weight="600">Interface 1. 제품 규격 & Assortment</text>
+              <text x="55" y="125" fill="#475569" font-size="12" font-weight="600">Interface 7. STE 운송 라벨 규격</text>
+              <text x="55" y="145" fill="#94a3b8" font-size="10">크기 제약 및 형태 다양성에 따른 공기 발생</text>
+
+              <!-- Bottom-Left: Facilities -->
+              <rect x="40" y="315" width="250" height="150" rx="8" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2" />
+              <rect x="40" y="315" width="250" height="30" rx="8" fill="#e0f2fe" />
+              <text x="165" y="335" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="13">Facilities (설비 자원)</text>
+              <text x="55" y="365" fill="#0284c7" font-size="11" font-weight="600">2. 포장 기계 (자동화 규격 Lock-in)</text>
+              <text x="55" y="385" fill="#0284c7" font-size="11" font-weight="600">3. 분류 설비 (물류 터미널 낙하충격)</text>
+              <text x="55" y="405" fill="#0284c7" font-size="11" font-weight="600">4/5. 적재 용기(케이지) & 운송 차량</text>
+              <text x="55" y="425" fill="#0284c7" font-size="11" font-weight="600">6. 유통 인프라 (우체통/보관함 크기)</text>
+              <text x="55" y="445" fill="#94a3b8" font-size="9.5">물리적 설비 한계가 상자 소형화를 저지</text>
+
+              <!-- Top-Right: Business Units -->
+              <rect x="610" y="45" width="250" height="125" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2" />
+              <rect x="610" y="45" width="250" height="30" rx="8" fill="#d1fae5" />
+              <text x="735" y="65" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">Business Units (비즈니스 단위)</text>
+              <text x="625" y="100" fill="#047857" font-size="12" font-weight="600">Interface 8. 물류사 제품 약관 (Terms)</text>
+              <text x="625" y="120" fill="#047857" font-size="12" font-weight="600">Interface 9. 내부 포장 가이드라인</text>
+              <text x="625" y="140" fill="#047857" font-size="12" font-weight="600">Interface 10. 브랜드 가이드라인</text>
+
+              <!-- Bottom-Right: Business Relationships -->
+              <rect x="610" y="315" width="250" height="150" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="2" />
+              <rect x="610" y="315" width="250" height="30" rx="8" fill="#e0e7ff" />
+              <text x="735" y="335" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">Business Relationships (관계)</text>
+              <text x="625" y="365" fill="#4f46e5" font-size="11" font-weight="600">11. 물류사 - 소매업체 (무게 요금제의 한계)</text>
+              <text x="625" y="385" fill="#4f46e5" font-size="11" font-weight="600">12. 소매업체 - 포장기계사 (속도 최우선)</text>
+              <text x="625" y="405" fill="#4f46e5" font-size="11" font-weight="600">13. 소매업체 - 포장재사 (단가 중심)</text>
+              <text x="625" y="425" fill="#4f46e5" font-size="11" font-weight="600">14/15. 소매업체/물류사 - 소비자 (SNS 비난)</text>
+              <text x="625" y="448" fill="#94a3b8" font-size="9.5">다양한 주체 간 비즈니스 논리의 충돌</text>
+
+              <!-- Connection Arrows to Center -->
+              <!-- Top-Left Products to Center -->
+              <path d="M 290 120 C 330 140, 350 170, 370 200" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="3 3" marker-end="url(#arrow)" />
+              <rect x="315" y="140" width="30" height="18" rx="4" fill="#64748b" />
+              <text x="330" y="153" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">1,7</text>
+
+              <!-- Bottom-Left Facilities to Center -->
+              <path d="M 290 380 C 330 360, 350 330, 370 300" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow-cyan)" />
+              <rect x="310" y="335" width="40" height="18" rx="4" fill="#0ea5e9" />
+              <text x="330" y="348" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">2-6</text>
+
+              <!-- Top-Right Business Units to Center -->
+              <path d="M 610 120 C 570 140, 550 170, 530 200" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-emerald)" />
+              <rect x="550" y="140" width="40" height="18" rx="4" fill="#10b981" />
+              <text x="570" y="153" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">8-10</text>
+
+              <!-- Bottom-Right Business Relationships to Center -->
+              <path d="M 610 380 C 570 360, 550 330, 530 300" fill="none" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow-indigo)" />
+              <rect x="545" y="335" width="45" height="18" rx="4" fill="#6366f1" />
+              <text x="567" y="348" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">11-15</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Focal Resource Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">핵심 분석 대상 자원</span>
+                <span class="text-xs text-slate-400 font-semibold">Focal Resource</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">택배 상자 내 공기 (Air inside E-commerce Parcel)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 택배 포장 용기의 전체 부피와 그 내부에 적입된 상품들의 실체 부피 간의 비율(Empty Space Ratio).</p>
+              <p class="text-sm text-slate-700"><strong>조작 및 수치:</strong> 물류사 내부 통계 기준 최소 30%에서 50%를 초과하는 빈 공간 비율로 측정됨(PostNord 2021; Oh et al. 2019).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론적 특징:</strong> 4R 모델상 단순 폐기물이 아닌 포장 강도 유지, 물리적 손상 방지 및 완충을 위해 작동하는 '자원(Resource)'의 성격을 지님.
+              </p>
+            </div>
+          </div>
+
+          <!-- Product Resources Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">기술적 자원 (1)</span>
+                <span class="text-xs text-slate-400 font-semibold">Products</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">제품 및 운송 라벨 자원 (Product & Label Resources)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 판매 및 유통 대상이 되는 단품/구색(Assortment)의 물리적 형상과 표준화된 정보 전사 라벨(STE Label).</p>
+              <p class="text-sm text-slate-700"><strong>조작화:</strong> 구색의 다양성 범위(Assortment diversity) 및 표준화된 STE 라벨의 요구 면적(예: 102 x 192 mm 등).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론적 특징:</strong> 라벨의 평면 부착 규격과 포장 구색의 불일치가 택배 최소 크기를 결정하여 잔여 공기를 남기는 병목으로 작동함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Facility Resources Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">기술적 자원 (2)</span>
+                <span class="text-xs text-slate-400 font-semibold">Facilities</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">물류 설비 자원 (Logistics Facilities)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 택배 포장, 터미널 분류, 적재, 운송, 배송 거점 전 과정에 존재하는 물리적 하드웨어 인프라.</p>
+              <p class="text-sm text-slate-700"><strong>구성 요소:</strong> 자동 포장기계, 고속 낙하식 분류 벨트, 유로 팔레트(120x80cm) 및 롤 케이지(120x75cm), 아파트 수거함/우체통.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론적 특징:</strong> 구형 분류 벨트의 낙하 충격을 버티기 위한 완충(공기) 요구, 적재 롤 케이지의 정적 치수 제한이 상자 소형화의 물리적 한계를 강제함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Business Units Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조직적 자원 (1)</span>
+                <span class="text-xs text-slate-400 font-semibold">Business Units</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">비즈니스 조직 규정 (Business Unit Guidelines)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 각 참여 행위자(물류사, 소매업체 등) 내부에서 운영 효율 및 브랜딩을 위해 작동하는 관리 지침 및 약관.</p>
+              <p class="text-sm text-slate-700"><strong>구성 요소:</strong> 물류사의 제품 승인 약관(Product Terms), 소매업체의 내부 포장 매뉴얼, 브랜드 로고 노출 가이드라인.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론적 특징:</strong> 소매 창고 포장 인력의 '포장 속도 최우선 지침'과 물류사의 엄격한 '제품 파손 면책 규정'이 결합되어 현장에서 완충성 공기를 다량 주입하게 유도함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Business Relationships Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">조직적 자원 (2)</span>
+                <span class="text-xs text-slate-400 font-semibold">Business Relationships</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">비즈니스 관계 자원 (Inter-Organizational Relationships)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 개별 소매업체, 물류사, 포장재 공급사, 포장 기계사, 소비자 간의 신뢰, 권력 구도 및 정산 거래 관계.</p>
+              <p class="text-sm text-slate-700"><strong>상호작용 구조:</strong> 소매업체-물류사(무게 기반 정산 모델), 소매업체-기계제조사(장기 설비 도입 고착), 소매업체/물류사-소비자(SNS #stopsendingair 해시태그 평판 위험).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론적 특징:</strong> 물류사 요금제가 체적이 아닌 무게(Weight)를 기준으로 할 때 소매업체는 박스 축소 개발 동기가 없으며, 단가 중심의 포장재 구매 관행이 공기 축소에 대한 B2B 공동 투자를 어렵게 만듭니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 직접 읽지 않은 외부 연구자도 동일한 실증 조사를 수행할 수 있도록 질적 연구 절차를 타임라인으로 분해하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">사례 연구 시작점 및 연구 대상 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  이커머스 급증으로 인해 "과도한 공기 운송 문제"를 직접적으로 겪는 대형 물류사(LSP Inc. - 스웨덴 PostNord 모델)를 앵커(Anchor) 기업으로 설정하고, 공급망 파트너 분석 범위를 기획함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec 3, Page 3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">눈덩이 표집(Snowball) 기반 B2B 인터뷰</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  물류사 및 포장 공급사를 최초 접점으로 삼아 이들의 B2B 파트너를 소개받으며 물류사, 기계사, 소매 가전/뷰티/생필품 5개 사, 3PL 기업으로 범위를 확장. 총 33회 반구조화 인터뷰(36명) 실시 및 전사.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec 3, Page 3-4 / Table 1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">다양한 유통 현장 실사 및 관찰 조사</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  3PL 물류 터미널, LSP Inc. 택배/우편 터미널, 가전 소매기업 중앙창고 등 총 4개 현장 실사를 단행. 포장 공정, 정렬 벨트 낙하 강도, 롤 케이지 적재 정합성을 관찰하고 사진 아카이브를 구축함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec 3, Page 3-4 / Table 2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">소매기업 다기능 부서 연계 워크숍 수행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  아웃바운드 운송, 풀필먼트 운영, 포장 개발, 운송 코디네이터 등이 참여하는 1.5시간의 워크숍을 개최. 예비 분석 결과에 피드백을 수렴하고 마케팅 구색 대 물류 비용 간의 기능 상충을 유도 및 기록 분석함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec 3, Page 4</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">4R 모델 및 NVivo 프로그램 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Dubois & Gadde(2002)의 체계적 결합(Systematic Combining) 분석 기법을 채택. NVivo 소프트웨어를 사용해 녹음 전사본에서 '공기'와 접하는 자원을 매핑하고 최종 15가지 직접 인터페이스 범주를 코딩 분류함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec 3, Page 4</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">분류기 기반 간접 영향 관계 추가 매핑</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  직접 인터페이스 분석을 넘어 '분류 설비'를 매개로 작동하는 바코드 스캐너, 물류 직원, 롤 케이지 간의 2차 간접 자원 인터페이스망을 구조화하여 물류 시스템의 기술적 고착 효과를 증명함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec 4.3, Page 8-9</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            사례 연구의 프로토콜, 대상 기업의 특성 및 NVivo 코딩 구조가 명확히 기술되어 프레임워크 자체의 재현은 가능하나, 스웨덴 국가 물류 규격(EU pallet 등) 및 PostNord 중심의 특정 인프라 의존성 때문에 다른 환경에서 수행 시 결과물의 정성적 가중치가 달라질 수 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 저자들이 명시한 연구의 한계점과 원문 근거입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>코로나19 이동 제한에 따른 실사 부족:</strong> 팬데믹 방역 수칙으로 인해 당초 계획보다 다양한 소매업체 중앙 창고 및 허브 터미널을 방문하지 못하고 4회 실사로 제한되었습니다.
+                <div class="text-xs italic text-slate-500 mt-1">"The reason more study visits were not carried out was the presence of restrictions related to the Covid-19 pandemic during 2020–2021." (Page 3)</div>
+              </li>
+              <li>
+                <strong>인터페이스 매핑의 완전성 결여:</strong> 4R 모델에 따른 15개 자원 인터페이스 분석은 택배 내 공기가 결합될 수 있는 모든 가능성을 총망라한 것이 아니며, 대표적인 정성 사례를 도식화한 예시 수준입니다.
+                <div class="text-xs italic text-slate-500 mt-1">"The analysis should not be considered ‘complete’ in the sense that it covers all resources... but rather as an example of such resources and resource interfaces." (Page 5)</div>
+              </li>
+              <li>
+                <strong>원자료 비공개 제약:</strong> B2B 기업들의 보안 민감성(계약 단가, 공정 프로세스 등)으로 인해 수집한 전사 데이터(Transcripts)를 외부에 공개하지 못하는 연구 기밀성 제약이 있습니다.
+                <div class="text-xs italic text-slate-500 mt-1">"Data availability: The authors do not have permission to share data." (Page 10)</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">공급망 포장 관리 및 연구 설계를 바탕으로 제기할 수 있는 비판적 의문들입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 정량적 영향도(Volumetric Weight) 측정 결여</span>
+                <p class="text-sm text-slate-700">
+                  논문은 15가지 인터페이스의 연계성을 묘사하지만, 실제로 어떤 요소(라벨 면적 제한 vs 분류 벨트의 충격 규격 등)가 <strong>가장 높은 비중으로 공기 발생을 주도하는가</strong>에 대한 정량적 수치 분석(예: 요인별 기여도 계량화)이 없어 실무 개선의 우선순위 결정에 제약을 줍니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 눈덩이 표집(Snowball)에 따른 대기업 편향</span>
+                <p class="text-sm text-slate-700">
+                  최초 접점인 메이저 물류사(PostNord 모델)와 거래 관계가 깊은 대형 포장재 공급사 및 기계 제조업체 중심의 추천 인맥(눈덩이)으로 인터뷰가 확산되었습니다. 이로 인해 다품종 소량 배송을 수행하며 자동화 기계가 없는 중소기업(SME)이나 스타트업 풀필먼트의 유연한 물류 현실이 배제되었을 위험이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 북유럽(스웨덴) 유통 규격의 거시적 한계</span>
+                <p class="text-sm text-slate-700">
+                  스웨덴 특유의 노사 근로 조건 규칙(분류 터미널의 수작업 보호 규제) 및 유로 팔레트(EU Pallet) 적입 조건이 15개 인터페이스의 뼈대를 이루고 있습니다. 허브앤스포크가 극도로 세분화되고 속도 경쟁이 치열한 다른 국가(예: 한국, 미국 등)의 라스트마일 환경에서는 이 가이드라인이 다른 강도로 작동할 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 신생 다이내믹 포장 솔루션의 과소평가</span>
+                <p class="text-sm text-slate-700">
+                  논문은 종이 상자(Cardboard)의 치수 표준화 조율에만 논의를 국한하고 있습니다. 제품 규격을 즉석 스캔하여 재단 후 봉인하는 3D 다이내믹 포장기계(Dynamic packaging machine)나 비닐 재질의 메일러 백(Mailer bags) 등의 파괴적인 신생 대안들이 공기 감소에 미치는 실질적인 잠재력을 제대로 다루지 않았습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Disembedding air from e-commerce parcels: A joint challenge for supply chain actors</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

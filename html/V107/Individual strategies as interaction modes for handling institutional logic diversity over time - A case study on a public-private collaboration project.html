@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Individual Strategies as Interaction Modes - IMM 2022</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2022)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Public-Private Collaboration</div>
+        <div class="badge badge-outline border-indigo-400 text-indigo-300 style-label uppercase">Institutional Logics</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Case Study</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Individual strategies as interaction modes for handling institutional logic diversity over time:<br>
+            <span class="text-cyan-400">A case study on a public-private collaboration project</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Emilene Leite, Mads Bruun Ingstrup
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            시간 경과에 따른 제도적 논리 다양성 관리를 위한 상호작용 모드로서의 개인의 전략:<br>
+            <span class="text-indigo-300">민관 협력 프로젝트에 대한 사례 연구</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            브라질 아구아스(Aguas) 시의 스마트시티 프로젝트 종단 분석을 기반으로 한 시장·국가·공동체 논리의 수렴 매커니즘 규명
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">개인의 무시·저항·결합·순응·분할 전략이 프로젝트 생애주기별로 작동하고, 사적 욕구와 공식 목표가 균형을 이룰 때 민관 갈등이 해소되고 논리적 수렴에 도달합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "A diversity of institutional logics can impede public – private collaboration. In this paper, we explore how individuals use different strategies as interaction modes to foster institutional logic convergence in a public – private collaboration project. To do this, we rely on research on public – private collaboration and institutional logics and a single case study of a public – private smart city development project in the city of Aguas, Brazil. This paper contributes to the research on institutional logic diversity in three ways. First, we find that individuals use different strategies as interaction modes to achieve institutional logic convergence, but these strategies serve diverse purposes over time in a project. Second, when the organizational and individual goals in a project are balanced, this eases institutional logic convergence. Third, individuals can be facilitators of institutional logic convergence if they can unite diverse institutional logics and are perceived to have a central position in a project."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "제도적 논리(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">Institutional logics</span>)의 다양성은 민관 협업(Public-private collaboration)을 저해할 수 있다. 본 연구에서는 민관 협업 프로젝트 내에서 개인이 제도적 논리의 수렴(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">Convergence</span>)을 촉진하기 위해 상호작용 모드(Interaction modes)로서 어떻게 서로 다른 전략들을 활용하는지 탐색한다. 이를 위해 민관 협업 및 제도적 논리에 관한 연구와 브라질 아구아스(Aguas) 시의 민관 스마트시티 개발 프로젝트에 대한 단일 사례 연구를 기반으로 분석을 수행하였다. 본 논문은 제도적 논리 다양성에 대한 연구에 세 가지 방식으로 기여한다. 첫째, 개인들이 제도적 논리 수렴을 달성하기 위해 다양한 전략을 상호작용 모드로 사용하지만, 이러한 전략들은 프로젝트 시간 경과에 따라 상이한 목적을 수행한다는 점을 발견했다. 둘째, 프로젝트의 조직 목표와 개인 목표가 균형을 이룰 때 제도적 논리 수렴이 용이해진다는 점을 보여준다. 셋째, 다양한 제도적 논리를 통합할 수 있고 프로젝트 내에서 중심적인 위치(Central position)에 있다고 인식되는 개인은 제도적 논리 수렴의 조력자(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">Facilitator</span>)가 될 수 있음을 시사한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Institutional Logics</td>
+                  <td>제도적 논리</td>
+                  <td class="text-sm">사회 제도의 행위자들이 자신의 인지, 판단, 가치 및 자원 운영 방식을 조직하고 해석하기 위해 따르는 공통된 신념과 규칙체계입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Institutional Logic Convergence</td>
+                  <td>제도적 논리 수렴</td>
+                  <td class="text-sm">서로 다른 성격의 제도 논리들이 파트너십 내에서 소통과 조정을 통해 타협점을 찾고 공동 가치 아래 결합하는 통합 상태를 뜻합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Interaction Modes</td>
+                  <td>상호작용 모드</td>
+                  <td class="text-sm">단순히 제도를 준수하거나 회피하는 것에서 나아가, 타 주체들과 갈등을 조율하고 적응하기 위해 실행하는 구체적인 실천 전략 형태를 지칭합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Facilitator</td>
+                  <td>조력자 / 촉진자</td>
+                  <td class="text-sm">서로 대립하는 논리들을 이해하고 융합할 수 있는 지식과 협력 네트워크의 중심적 위상을 통해 논리적 합의를 매개하는 특정 리더입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">민관 협력에서 제도적 논리 수렴은 어떻게 달성되는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">시간 경과에 따른 개인 전략의 조합과 목표의 균형</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">개인 전략의 종단적 재구조화 및 조력자의 특징 조명</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 기업(시장 논리), 지방 정부(국가 논리), 시민 단체(공동체 논리)가 복합적으로 얽힌 스마트시티 프로젝트에서, 행위자들은 갈등을 극복하고 어떻게 하나의 합의된 가치 체계(수렴)를 이끌어내는가?</li>
+                  <li><strong>핵심 발견:</strong> 행위자들은 '무시/저항'(갈등기) -> '결합'(협상기) -> '순응/분할'(수렴기)의 전략을 시간에 흐름에 맞춰 상호작용 방식으로 구사합니다. 또한 개인의 사적 경력/평판 증대 목표와 공식 조직 목표의 결합이 수렴을 더 촉진합니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 기존에 개별적으로 간주되던 개인 대응 전략(Pache & Santos, 2013)들이 상호 유기적이고 종속적인 하나의 '종단적 흐름'임을 입증하였습니다. 또한 다원적 이해관계가 대립할 때 조력자(Facilitator)의 구체적 조건(중심성, 융합성)을 도출하였습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "참여자들이 단계별로 무시·저항·결합·순응·분할의 대응 전략을 다이나믹하게 전환하고, 개인과 조직의 목표를 균형 있게 충족시키며, 중심적 조력자가 갈등을 중재할 때 제도적 논리 수렴이 완결됩니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 핵심 주장들과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">개인 전략의 시간적 다양성 및 상호의존성</td>
+                <td class="text-sm italic text-slate-600">
+                  "...individuals use different strategies as interaction modes to achieve institutional logic convergence, but these strategies serve diverse purposes over time in a project."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 8 (Sec. 6.4)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">조직과 개인 수준 목표의 균형과 수렴</td>
+                <td class="text-sm italic text-slate-600">
+                  "...when the organizational and individual goals in a project are balanced, this eases institutional logic convergence."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 8 (Sec. 6.4)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">중심적 조력자의 제도적 수렴 매개 효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "...individuals can be facilitators of institutional logic convergence if they can unite diverse institutional logics and are perceived to have a central position in a project."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 8 (Sec. 6.4)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">갈등기(Phase 1)의 무시 및 저항 전략</td>
+                <td class="text-sm italic text-slate-600">
+                  "At the start of the project, conflicts occurred because the firm managers and public officials either ignored or defied... each other’s institutional logics."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 8 (Sec. 6.4) / Page 6 (Sec. 6.1)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">협상기(Phase 2)의 결합 전략의 유효성</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the individuals relied on the strategy of combination (Pache & Santos, 2013) as an interaction mode where certain aspects of the firm managers’ and public officials’ institutional logics were linked."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 8 (Sec. 6.4)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">수렴기(Phase 3)의 순응 및 분할 공존</td>
+                <td class="text-sm italic text-slate-600">
+                  "Finally, at the end of the project... The strategies of compliance and compartmentalization (Pache & Santos, 2013) were valuable as interaction modes in this connection."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 8 (Sec. 6.4)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual Process Model (제도적 수렴 과정 프레임워크)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 420" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <!-- Background grid guide -->
+              <rect x="0" y="0" width="800" height="420" rx="15" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+              
+              <!-- Phase 1 Card (Conflict) -->
+              <rect x="20" y="100" width="220" height="200" rx="12" fill="#fff5f5" stroke="#fecaca" stroke-width="2"/>
+              <rect x="20" y="100" width="220" height="35" rx="12" fill="#fca5a5" />
+              <text x="130" y="123" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="13">Phase 1: 갈등기 (Conflict)</text>
+              <text x="130" y="155" text-anchor="middle" font-weight="700" fill="#7f1d1d" font-size="12">시장 논리 ↔ 국가 논리 충돌</text>
+              <text x="35" y="180" fill="#991b1b" font-size="11" font-weight="600">• 목표, 인지, 관행의 불일치</text>
+              <text x="35" y="200" fill="#991b1b" font-size="11" font-weight="600">• 상호작용 모드:</text>
+              <rect x="40" y="215" width="80" height="24" rx="4" fill="#fca5a5" />
+              <text x="80" y="231" text-anchor="middle" font-weight="700" fill="#7f1d1d" font-size="11">무시 (Ignorance)</text>
+              <rect x="130" y="215" width="85" height="24" rx="4" fill="#fca5a5" />
+              <text x="172" y="231" text-anchor="middle" font-weight="700" fill="#7f1d1d" font-size="11">저항 (Defiance)</text>
+              <text x="130" y="270" text-anchor="middle" fill="#dc2626" font-size="11" font-weight="700">이해 충돌 및 정보 차단</text>
+
+              <!-- Arrow 1 to 2 -->
+              <path d="M 240 200 L 285 200" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/>
+              <text x="262" y="190" text-anchor="middle" fill="#64748b" font-size="10" font-weight="700">협상 개시</text>
+
+              <!-- Phase 2 Card (Negotiation) -->
+              <rect x="290" y="100" width="220" height="200" rx="12" fill="#fffbeb" stroke="#fde68a" stroke-width="2"/>
+              <rect x="290" y="100" width="220" height="35" rx="12" fill="#fcd34d" />
+              <text x="400" y="123" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">Phase 2: 협상기 (Negotiation)</text>
+              <text x="400" y="155" text-anchor="middle" font-weight="700" fill="#78350f" font-size="12">상호 타협 및 공동 학습</text>
+              <text x="305" y="180" fill="#92400e" font-size="11" font-weight="600">• 공동 가치 창출 모색</text>
+              <text x="305" y="200" fill="#92400e" font-size="11" font-weight="600">• 상호작용 모드:</text>
+              <rect x="345" y="215" width="110" height="24" rx="4" fill="#fcd34d" />
+              <text x="400" y="231" text-anchor="middle" font-weight="700" fill="#78350f" font-size="11">결합 (Combination)</text>
+              <text x="400" y="270" text-anchor="middle" fill="#d97706" font-size="11" font-weight="700">쌍방의 양보와 소통</text>
+
+              <!-- Arrow 2 to 3 -->
+              <path d="M 510 200 L 555 200" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/>
+              <text x="532" y="190" text-anchor="middle" fill="#64748b" font-size="10" font-weight="700">수렴 달성</text>
+
+              <!-- Phase 3 Card (Convergence) -->
+              <rect x="560" y="100" width="220" height="200" rx="12" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="2"/>
+              <rect x="560" y="100" width="220" height="35" rx="12" fill="#86efac" />
+              <text x="670" y="123" text-anchor="middle" font-weight="700" fill="#166534" font-size="13">Phase 3: 수렴기 (Convergence)</text>
+              <text x="670" y="155" text-anchor="middle" font-weight="700" fill="#14532d" font-size="11">시장 + 국가 + 공동체 수렴</text>
+              <text x="575" y="180" fill="#166534" font-size="11" font-weight="600">• 파트너십 구축 및 안정화</text>
+              <text x="575" y="200" fill="#166534" font-size="11" font-weight="600">• 상호작용 모드:</text>
+              <rect x="575" y="215" width="90" height="24" rx="4" fill="#86efac" />
+              <text x="620" y="231" text-anchor="middle" font-weight="700" fill="#14532d" font-size="11">순응 (Compliance)</text>
+              <rect x="670" y="215" width="100" height="24" rx="4" fill="#86efac" />
+              <text x="720" y="231" text-anchor="middle" font-weight="700" fill="#14532d" font-size="9">분할 (Compartment.)</text>
+              <text x="670" y="270" text-anchor="middle" fill="#16a34a" font-size="11" font-weight="700">하이브리드 공동 가치 창출</text>
+
+              <!-- Facilitator Badge (Overlapping or top connector) -->
+              <rect x="290" y="20" width="220" height="60" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="400" y="42" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">촉진자 (Facilitator)의 역할</text>
+              <text x="400" y="62" text-anchor="middle" fill="#047857" font-size="11">관광부 장관: 중심적 입지 & 논리 조율</text>
+              
+              <!-- Arrow from Facilitator to Phase 2 & Phase 3 -->
+              <path d="M 400 80 L 400 95" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="3 3" marker-end="url(#arrow-green)"/>
+
+              <!-- Goal Balancing (Bottom spans) -->
+              <rect x="20" y="320" width="760" height="70" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+              <text x="400" y="345" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">개인적 목표 (Career, Reputation)와 조직적 목표 (Economic, Social)의 균형 (Goal Balancing)</text>
+              <text x="400" y="368" text-anchor="middle" fill="#475569" font-size="11">두 차원의 목표가 조화를 이룰 때 제도적 논리 수렴이 극대화되고 유지됨</text>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+                </marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Market Logic Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">시장 요인</span>
+                <span class="text-xs text-slate-400 font-semibold">Market Logic</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">시장 논리 (Market Logic)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자아이익(Self-interest), 경제적 이윤 극대화 및 효율성 가치를 근간으로 거래를 성사시키는 행위 준거 체계.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 참여 다국적 기업 매니저들의 파일럿 테스트 성공을 통한 향후 라틴아메리카 판로 확보, 가입자당 평균매출(ARPU) 확대, 사내 실적 입증.</p>
+              <p class="text-sm text-slate-600"><strong>이론적 출처:</strong> Thornton et al. (2012)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 공공 인프라 구축에서 규정 위반 법적 리스크를 자극하여 초기 단계 갈등의 방아쇠가 됩니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- State Logic Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">국가 요인</span>
+                <span class="text-xs text-slate-400 font-semibold">State Logic</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">국가 논리 (State Logic)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 민주적 시민 권리 증진, 지역 공동체의 웰빙 확보, 법규 및 조례 준수를 통제의 기준으로 삼는 관료제적 행위 체계.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 아구아스 시장 및 각 부처 장관들이 추구하는 투명하고 공정한 입찰 프로세스 준수, 시민 민원 최소화, 시정 예산 절감 목표.</p>
+              <p class="text-sm text-slate-600"><strong>이론적 출처:</strong> Kearney et al. (2008)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 시장 논리의 신속함과 충돌하며, 합리적인 조정을 위해 입찰 면제 조항 등의 유연한 법률 해석이 요구됩니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Community Logic Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">공동체 요인</span>
+                <span class="text-xs text-slate-400 font-semibold">Community Logic</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공동체 논리 (Community Logic)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 정서적 연대, 상호주의 및 신뢰를 바탕으로 비영리 교육과 사회공헌 활동 등 공동체 가치를 전파하는 가치 체계.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Vanzolini 재단 및 Telefonica 재단의 교사 교육 훈련, 기술에 적대적인 구성원 설득, 내적 사회 환원의 만족감 획득.</p>
+              <p class="text-sm text-slate-600"><strong>이론적 출처:</strong> Thornton et al. (2012)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 국가 논리와 시장 논리 사이에서 포용적 커뮤니케이션을 가동해 시민들의 수용성을 촉진하는 윤활유 역할을 수행합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Individual Strategies Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">개인 전략</span>
+                <span class="text-xs text-slate-400 font-semibold">Interaction Modes</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">상호작용 전략 (Individual Strategies)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 다원주의 제도 복합성 속에서 타 행위자와 교섭할 때 사용하는 5가지 의사결정 전략 (무시, 저항, 결합, 순응, 분할).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 초기 충돌 시 상대 제약을 '무시'하고 자기 이익을 고집하는 '저항', 중기 '결합' 교육 마련, 후기 법규 준수를 위한 '순응' 및 '분할'.</p>
+              <p class="text-sm text-slate-600"><strong>이론적 출처:</strong> Pache & Santos (2013)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 본 논문은 이 5가지 전략이 분리되지 않고 갈등기->협상기->수렴기를 관통하며 순차 배합됨을 밝힙니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Goal Balancing Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">매개/조절 작용</span>
+                <span class="text-xs text-slate-400 font-semibold">Goal Balancing & Facilitator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">개인적 목표의 균형과 조력자의 역할</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 거시적 조직 성과 달성뿐만 아니라 미시적 평판(Reputation), 경력 관리(Career advancement), 내적 만족 등의 사적 목표가 정렬되는 상태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 아구아스 관광부 장관이 자신의 정치적 수명 연장을 위해 프로젝트 성공을 견인하며 관계 중심의 중재자(Facilitator) 역할을 수행, 각 사 PM들의 사내 승진 욕구를 채워 합의 도달.</p>
+              <p class="text-sm text-slate-600"><strong>이론적 출처:</strong> Leite & Ingstrup (2022)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 질적 연구 방법론 및 사례 분석 절차를 그대로 <strong>추종 재현</strong>할 수 있도록 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">단일 사례 연구 설계 및 현장 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  복잡한 민관 협력 제도적 갈등을 관찰하기 위해 브라질 스마트시티 개발 프로젝트(아구아스 시)를 단일 분석 현장으로 선정. 대립하는 복수 논리의 존재와 장기간 연구 자료 접근권 확보를 최우선 기준으로 설정함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 3, Section 4 & 4.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">1차 종단적 반구조화 인터뷰 (26건)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  프로젝트가 진행되던 2014년부터 2017년까지 실시간으로 다국적 IT 기업 PM, 시청 행정 책임자, 재단 공헌 관리자 등을 추적하여 총 26회의 반구조화 인터뷰를 집행하고 모든 음성을 텍스트로 전사(Transcribe)함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 3, Section 4.1 & Table 1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">2차 사후 추적 인터뷰 (3건)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  사후 회고적(Retrospective) 해석 및 데이터 공백 방지를 위해 프로젝트 종료 3년 뒤인 2020년에 추가로 3회의 심층 인터뷰를 수행하여 총 29회의 인터뷰 샘플을 확보함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 3, Section 4.1 & Table 1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">2차 데이터 확보 및 교차 삼각측량</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  주관적 진술 편향을 최소화하고자 신문 보도 기사, 지방 정부 공식 백서, 참여 기관 내부 보고서 및 현장 시연 홍보 영상물 등 다양한 형태의 2차 다차원 데이터를 수집하여 삼각측량 검증(Triangulation)을 완료함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 4.1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">NVivo를 이용한 아브덕티브 2단계 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  질적 데이터 분석 도구인 NVivo를 도입. 1차는 인물의 진술을 가공하지 않고 원어로 도출한 개방 코딩(Open coding), 2차는 제도적 논리 및 갈등 이론 프레임을 대입해 고차원의 이론적 개념 코딩을 완성함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 4.2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">생애주기 국면(Phase) 매핑 및 완성</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  도출된 코드들을 사건의 발생 흐름에 빗대어 3개 국면(갈등-협상-수렴)으로 배열하고, 각 국면에서의 참가자 행동 및 수렴 매커니즘을 규정하여 질적 분석 체계를 완결시킴.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 4.2 & Table 2</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            본 논문은 질적 탐색 연구로서 코딩 체계와 타겟 집단 분류, 데이터 대조 방식 등 분석 절차가 투명하게 제공되어 타 현장에 유사 프로세스를 대입하는 것은 전적으로 가능합니다. 다만, 2014~2017년 브라질 아구아스 스마트시티라는 매우 국지적인 공간과 당사자 집단(관광부 장관 등)에 대한 고유한 관계적 접근권을 복제할 수는 없습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 7.3)에서 연구진들이 스스로 고백한 한계점입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>지리적·제도적 맥락의 한정성:</strong> 브라질의 특정 소도시(Aguas)에 속한 스마트시티 개발 프로젝트만을 단일 사례로 취급하여, 비즈니스 관행과 공공 제도가 상이한 타 지리적 구도 및 거시 환경에 분석 모형을 무조건 대입하기 어렵습니다.
+              </li>
+              <li>
+                <strong>프로젝트 외부 행위자 변수의 누락:</strong> 프로젝트에 소속된 내부인들 위주로 데이터를 수집하여, 주정부 지침, 국가 기술 연합 협회 등 행위자의 신념 규칙에 영향을 미칠 법한 프로젝트 외생적 행위자(External actors)의 힘을 반영하지 못했습니다.
+              </li>
+              <li>
+                <strong>시민(최종 유저) 관점의 분석 배제:</strong> 스마트시티 기술의 최종 수혜자이자 행정 민원의 주체인 시민들의 작용을 피상적으로만 처리하고, 최상위 관리자/매니저 관점의 주관적 정렬에만 집중했습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구의 설계 및 서사적 질적 기술을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 회상 및 인지적 미화 편향</span>
+                <p class="text-sm text-slate-700">
+                  2014~2017년의 실시간 관찰에 근거했다고 하지만, 핵심 논리가 수렴하고 성과를 도출한 과정을 추적하는 인터뷰는 2020년에도 수행되었습니다. 다자간 치열한 갈등을 겪은 행위자들이 사후적으로 자신의 결정을 성공스토리 양식에 맞춰 미화(Social desirability bias)했거나 오랜 세월에 따른 기억 왜곡(Recall bias)이 개입되었을 위험이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 힘의 불균형에 기초한 '강요된' 합의 가능성</span>
+                <p class="text-sm text-slate-700">
+                  Telefonica/Vivo는 브라질 전역을 장악한 대기업이며 56만 달러 이상을 전액 기부 형태로 투자하여 프로젝트의 실권을 쥐고 있었습니다. 반면 아구아스 시청은 인구 3천 명의 영세한 소도시입니다. 본문에서는 평화롭고 대등한 '수렴(Convergence)'과 '결합'으로 서사되었으나, 실질적으로는 대기업의 막강한 자본과 압력에 압도당해 지자체와 지역 재단이 일방적으로 기업의 시장 논리에 종속되었던 구조적 불평등이 은폐되었을 가능성이 농후합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 성공작 중심의 생존자 편향 (Success Bias)</span>
+                <p class="text-sm text-slate-700">
+                  본 연구 현장은 70여 명의 시장과 장관이 시찰하고 혁신상을 받는 등 성공이 보장된 단일 사례였습니다. 갈등기에서 합의를 끌어내지 못해 중도 해체되거나 대기업이 기부금을 회수해 철수해버린 수많은 실패 프로젝트와의 비교 대조군(Comparative design)이 결여되어, 도출된 3단계 전략이 보편적 갈등 극복 기제인지 아니면 결과론적 우연의 일치인지 검증할 방법이 없습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 시범 사업(Pilot/Living Lab)의 온정적 환경</span>
+                <p class="text-sm text-slate-700">
+                  본 프로젝트는 테스트 베드 성격의 시범 사업이었으므로, 규제 당국이나 지자체도 법규를 온정적으로 적용하고(입찰 과정 면제 등) 요금 징수에 따르는 거부감도 적었습니다. 만약 대규모 정식 상용화(Commercialization) 단계에 도달해 거액의 세금이 투입되고 민간 통신 요금 부과 장벽이 가동될 시기에도 이러한 유화적인 수렴 상태가 유지될지는 회의적입니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Individual strategies as interaction modes for handling institutional logic diversity over time: A case study on a public-private collaboration project</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

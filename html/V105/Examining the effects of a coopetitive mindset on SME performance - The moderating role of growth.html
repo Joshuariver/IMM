@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="corporate">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Examining the effects of a coopetitive mindset on SME performance: The moderating role of growth</title>
+  
+  <!-- Tailwind CSS & DaisyUI CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+    }
+
+    /* Custom style scales from paper_analysis.md */
+    .text-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .text-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .text-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .text-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .text-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .text-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .text-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .text-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Custom Responsive Adjustments */
+    @media (max-width: 1024px) {
+      .text-display {
+        font-size: 38px;
+      }
+      .text-h1 {
+        font-size: 30px;
+      }
+      .text-h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#1E3A8A',
+              accent: '#0D9488'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-base-200 min-h-screen text-base-content antialiased">
+
+  <!-- Navbar -->
+  <div class="navbar bg-base-100 shadow-md px-4 md:px-8">
+    <div class="flex-1">
+      <a class="btn btn-ghost text-lg md:text-xl font-bold flex gap-2 items-center normal-case">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-brand-accent">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
+        </svg>
+        <span>B2B Marketing Paper Analysis</span>
+      </a>
+    </div>
+    <div class="flex-none gap-2">
+      <div class="badge badge-outline text-label">IMM 2022 (V105)</div>
+      <div class="badge badge-primary text-label">SME & Coopetition</div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto p-4 md:p-8 space-y-12">
+
+    <!-- Hero Header Component -->
+    <div class="hero bg-base-100 shadow-xl rounded-3xl p-6 md:p-12 border border-base-300">
+      <div class="hero-content flex-col text-center">
+        <div class="flex flex-wrap gap-2 justify-center">
+          <span class="badge badge-accent badge-lg text-label text-white px-4 py-3">B2B TOP-TIER JOURNAL ANLYSIS</span>
+          <span class="badge badge-secondary badge-lg text-label text-white px-4 py-3">Citations: 22 (Crossref)</span>
+        </div>
+        <h1 class="text-display text-base-content mt-4 leading-tight">
+          Examining the effects of a coopetitive mindset on SME performance:
+          <span class="text-brand-accent block mt-2 text-h1 md:text-display">The moderating role of growth</span>
+        </h1>
+        <div class="divider max-w-lg mx-auto"></div>
+        <h2 class="text-h2 text-neutral/80 mt-2 font-medium">
+          코옵티션 마인드셋이 중소기업 성과에 미치는 영향: <span class="text-brand-accent font-semibold">성장 지향성의 조절 역할</span>
+        </h2>
+        <p class="text-small text-base-content/60 mt-4">
+          <strong>Authors:</strong> Anni Rajala, Annika Tidström (University of Vaasa, Finland)<br>
+          <strong>Journal:</strong> Industrial Marketing Management 105 (2022) 351–358
+        </p>
+      </div>
+    </div>
+
+    <!-- STEP 1: Title & Abstract Translation (2-Column & Glossary) -->
+    <section class="space-y-6">
+      <h2 class="text-h1 border-l-8 border-primary pl-4 text-neutral flex items-center gap-2">
+        <span>STEP 1</span>
+        <span class="text-body-large font-normal text-base-content/70">/ Title & Abstract Translation</span>
+      </h2>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- English Abstract -->
+        <div class="card bg-base-100 shadow-md border border-base-300">
+          <div class="card-body">
+            <h3 class="card-title text-h3 text-primary flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-primary"></span> Abstract (Original)
+            </h3>
+            <blockquote class="text-body-large text-base-content/80 italic border-l-4 border-primary/40 pl-4 py-2 my-2">
+              "The connection between coopetition and performance is increasingly attracting attention. Existing research focus on firm-level, whereas there is a call for research on individual aspects of coopetition, such as a coopetitive mindset. To narrow that research gap, we investigate the moderating role of growth aspirations on the relationship between a coopetitive mindset and SME performance. We test our hypotheses on a sample of 273 SMEs. The results of our empirical study demonstrate that the relationship between a coopetitive mindset and SME performance is not direct but is instead moderated by growth aspirations. The results demonstrate that in the presence of high growth aspirations, a coopetitive mindset reduces performance in SMEs, while if growth aspirations are low, a coopetitive mindset improves performance. The results of the study contribute to coopetition literature by focusing on the individual level and by demonstrating that the effect of a coopetitive mindset on SME performance differs based on the relevant growth aspirations."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Korean Abstract -->
+        <div class="card bg-base-100 shadow-md border border-base-300">
+          <div class="card-body">
+            <h3 class="card-title text-h3 text-brand-accent flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-brand-accent"></span> 국문 초록 번역
+            </h3>
+            <blockquote class="text-body-large text-base-content/90 border-l-4 border-brand-accent/40 pl-4 py-2 my-2 leading-relaxed">
+              "코옵티션(협력적 경쟁)과 성과 간의 관계는 점점 더 많은 관심을 받고 있다. 기존 연구들은 주로 기업 수준에 초점을 맞추고 있는 반면, 코옵티션 마인드셋과 같은 코옵티션의 개인적 측면에 대한 연구 요구가 제기되어 왔다. 이러한 연구 공백을 해소하기 위해, 본 연구는 코옵티션 마인드셋과 중소기업(SME) 성과 간의 관계에서 성장 지향성(growth aspirations)의 조절 역할을 조사한다. 우리는 273개 중소기업 표본을 바탕으로 가설을 검증하였다. 실증 연구 결과, 코옵티션 마인드셋과 중소기업 성과 간의 관계는 직접적이지 않고 성장 지향성에 의해 조절되는 것으로 나타났다. 구체적으로, 성장 지향성이 높은 경우 코옵티션 마인드셋은 중소기업의 성과를 감소시키는 반면, 성장 지향성이 낮은 경우에는 코옵티션 마인드셋이 성과를 향상시키는 것으로 나타났다. 본 연구의 결과는 개인 수준에 초점을 맞추고 성장 지향성에 따라 코옵티션 마인드셋이 중소기업 성과에 미치는 영향이 달라진다는 점을 실증함으로써 코옵티션 문헌에 기여한다."
+            </blockquote>
+          </div>
+        </div>
+      </div>
+
+      <!-- Glossary Table -->
+      <div class="card bg-base-100 shadow-md border border-base-300 overflow-hidden">
+        <div class="card-body p-0">
+          <div class="p-6 pb-2">
+            <h3 class="text-h3 text-neutral font-semibold">Core Academic Terms & Glossary</h3>
+            <p class="text-small text-base-content/60">핵심 학술 용어의 정의 및 번역 근거</p>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="table w-full">
+              <thead>
+                <tr class="bg-base-200">
+                  <th class="text-label text-base-content">원어 (English)</th>
+                  <th class="text-label text-base-content">한국어 번역</th>
+                  <th class="text-label text-base-content">개념 설명 및 번역 선택 이유</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-brand-navy">Coopetition</td>
+                  <td><span class="badge badge-outline badge-md text-label">코옵티션 (협력적 경쟁)</span></td>
+                  <td class="text-body text-base-content/80">Cooperation과 Competition의 합성어로, 경쟁사와의 동시적 협력과 경쟁을 의미함. 국내 학계 및 저널에서도 외래어 음차 표기인 '코옵티션'으로 널리 통용됨.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-brand-navy">Coopetitive mindset</td>
+                  <td><span class="badge badge-outline badge-md text-label">코옵티션 마인드셋</span></td>
+                  <td class="text-body text-base-content/80">경쟁업체와의 협력이 주는 기회와 가치를 인지하고 협력을 지지하며 의도를 갖는 경영자 개인의 주관적이고 인지적인 신념 상태.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-brand-navy">Growth aspiration</td>
+                  <td><span class="badge badge-outline badge-md text-label">성장 지향성 (성장 열망)</span></td>
+                  <td class="text-body text-base-content/80">기업의 매출 규모를 적극적으로 늘리고 성장시키고자 하는 경영자의 주관적 태도나 욕구. '실제 성장'과 비교하여 경영자 '인지'의 특징을 담기 위해 성장 지향성으로 번역.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-brand-navy">SME performance</td>
+                  <td><span class="badge badge-outline badge-md text-label">중소기업 성과</span></td>
+                  <td class="text-body text-base-content/80">중소기업의 경영 성과로, 본 연구에서는 ROI, 매출총이익, 영업현금흐름 등 다각적 재무적 상태에 대한 경쟁사 대비 주관적인 상대 평가를 측정함.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-brand-navy">Paradox mindset</td>
+                  <td><span class="badge badge-outline badge-md text-label">역설 마인드셋</span></td>
+                  <td class="text-body text-base-content/80">모순되거나 긴장 관계를 유발하는 두 요인(협력과 경쟁)을 동시에 수용하고, 이러한 긴장을 시너지 창출의 기회로 생각하는 경영자의 통합적 사고 경향.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2: Core Claims (Steps Component) -->
+    <section class="space-y-6">
+      <h2 class="text-h1 border-l-8 border-primary pl-4 text-neutral flex items-center gap-2">
+        <span>STEP 2</span>
+        <span class="text-body-large font-normal text-base-content/70">/ Core Claims (1-Min Summary)</span>
+      </h2>
+
+      <div class="card bg-base-100 shadow-lg border border-base-300 p-6 md:p-10">
+        <ul class="steps steps-vertical w-full text-left">
+          
+          <li class="step step-primary pb-8">
+            <div class="ml-6">
+              <span class="text-label text-primary font-bold uppercase tracking-wider block">1. 연구 질문 (Research Questions)</span>
+              <h3 class="text-h3 text-neutral mt-1">경영자의 코옵티션 마인드셋이 중소기업 성과를 직접 촉진하는가? 그리고 성장 지향성은 이 관계를 조절하는가?</h3>
+              <p class="text-body text-base-content/70 mt-1">
+                기존 연구들이 주로 기업 레벨에서 다루어 실마리가 모호했던 코옵티션-성과 간 연결고리를 개인 수준의 마인드셋(Mindset)과 경영자의 주관적 성장 욕구(Aspirations)를 통해 밝혀내고자 함.
+              </p>
+            </div>
+          </li>
+
+          <li class="step step-primary pb-8">
+            <div class="ml-6">
+              <span class="text-label text-primary font-bold uppercase tracking-wider block">2. 핵심 발견 (Key Findings)</span>
+              <h3 class="text-h3 text-neutral mt-1">성장 지향성의 부정적 조절 효과 발견 (H2 기각, 상호작용항 &beta; = -0.27, p &lt; 0.01)</h3>
+              <p class="text-body text-base-content/70 mt-1">
+                회귀 모델에서 마인드셋 단독 효과는 직접적으로 성과를 예측하지 않으나, 성장 지향성과의 상호작용 하에 유의미해짐. 
+                중요한 발견은 **성장 지향성이 낮을 때**는 마인드셋이 성과를 획기적으로 개선하는 반면, **성장 지향성이 높은 기업**은 오히려 마인드셋이 강할수록 성과가 소폭 저하된다는 역설적 사실임.
+              </p>
+            </div>
+          </li>
+
+          <li class="step step-primary pb-8">
+            <div class="ml-6">
+              <span class="text-label text-primary font-bold uppercase tracking-wider block">3. 이론적 & 실무적 기여 (Contributions)</span>
+              <h3 class="text-h3 text-neutral mt-1">마인드셋이라는 미시적 기초(Micro-foundations) 도입 및 맞춤형 코옵티션 경로 제안</h3>
+              <p class="text-body text-base-content/70 mt-1">
+                <strong>이론적:</strong> 코옵티션 연구에 인지적 렌즈(Microfoundations)를 결합하였고, 코옵티션 효과의 이질성(Heterogeneity)을 성장 열망 수준으로 규명함.<br>
+                <strong>실무적:</strong> 고성장을 추구하는 SME는 코옵티션 긴장과 자원 분산에 주의해야 하며, 성장에 욕심이 없는 유지/안정형 중소기업은 코옵티션 마인드셋을 유용한 성과 레버리지로 활용할 수 있음.
+              </p>
+            </div>
+          </li>
+
+          <li class="step step-primary">
+            <div class="ml-6">
+              <span class="text-label text-secondary font-bold uppercase tracking-wider block">4. 한 줄 요약 (1-Line Conclusion)</span>
+              <div class="text-body-large text-primary font-semibold mt-1 bg-primary/5 p-4 rounded-xl border border-primary/20">
+                "경영자의 코옵티션 마인드셋은 성장을 크게 지향하지 않는 중소기업에서 강력한 성과 개선을 이끌지만, 성장 지향성이 높은 기업에서는 긴장과 자원 갈등으로 인해 오히려 성과를 저해한다."
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- STEP 3: Claims and Evidence (Zebra Table) -->
+    <section class="space-y-6">
+      <h2 class="text-h1 border-l-8 border-primary pl-4 text-neutral flex items-center gap-2">
+        <span>STEP 3</span>
+        <span class="text-body-large font-normal text-base-content/70">/ Claims and Evidence</span>
+      </h2>
+
+      <div class="card bg-base-100 shadow-md border border-base-300 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="table table-zebra w-full">
+            <thead>
+              <tr class="bg-base-200">
+                <th class="w-12 text-center text-label text-base-content">#</th>
+                <th class="w-1/4 text-label text-base-content">핵심 주장 (Claims)</th>
+                <th class="w-1/2 text-label text-base-content">원문 근거 인용 (Evidence)</th>
+                <th class="w-1/4 text-label text-base-content">원문 위치 (Page / Section)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center font-bold">1</td>
+                <td class="font-semibold text-brand-navy">코옵티션 마인드셋은 중소기업 성과와 유의미하게 연관된다 (가설 1 지지)</td>
+                <td class="text-body text-base-content/80 font-mono text-xs">"The model shows that a coopetitive mindset is positively associated with performance (&beta; = 0.28, p &lt; 0.01), supporting Hypothesis 1."</td>
+                <td class="text-small text-neutral/70">Page 355<br>4. Results (Model 3)</td>
+              </tr>
+              <tr>
+                <td class="text-center font-bold">2</td>
+                <td class="font-semibold text-brand-navy">성장 지향성은 코옵티션 마인드셋과 성과의 관계를 음(-)의 방향으로 조절한다 (가설 2 기각)</td>
+                <td class="text-body text-base-content/80 font-mono text-xs">"The model provides evidence of the moderating role of growth aspirations (&beta; = &minus;0.27, p &lt; 0.01). However, the moderating effect is negative... Therefore, Hypothesis 2 was not supported."</td>
+                <td class="text-small text-neutral/70">Page 355<br>4. Results (Model 3)</td>
+              </tr>
+              <tr>
+                <td class="text-center font-bold">3</td>
+                <td class="font-semibold text-brand-navy">성장 목표가 없을 때는 마인드셋이 성과를 올리지만, 있을 때는 저하시킨다</td>
+                <td class="text-body text-base-content/80 font-mono text-xs">"...if a company has no aspiration to grow or only low growth aspirations, company performance improves when the coopetitive mindset strengthens. Accordingly, when a company has high growth aspirations, company performance actually worsens as a coopetitive mindset strengthens."</td>
+                <td class="text-small text-neutral/70">Page 355<br>4. Results &amp; Figure 2</td>
+              </tr>
+              <tr>
+                <td class="text-center font-bold">4</td>
+                <td class="font-semibold text-brand-navy">성장 지향성이 높은 기업에서 코옵티션이 성과를 낮추는 기제</td>
+                <td class="text-body text-base-content/80 font-mono text-xs">"Managers may see that coopetition requires investing considerable effort and resources in avoiding undesired leakage of knowledge and opportunistic behavior... strong growth aspirations may hinder firm performance..."</td>
+                <td class="text-small text-neutral/70">Page 355-356<br>5. Discussion &amp; conclusions</td>
+              </tr>
+              <tr>
+                <td class="text-center font-bold">5</td>
+                <td class="font-semibold text-brand-navy">주관적 성과 측정치의 신뢰성 검증 결과</td>
+                <td class="text-body text-base-content/80 font-mono text-xs">"We found that our three-item performance measure positively correlated with the profit margin achieved by a company (the three-year average) (0.36, p &lt; 0.000). That finding provides evidence of the reliability..."</td>
+                <td class="text-small text-neutral/70">Page 354<br>3.2. Measures (Performance)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 4: Research Model & Variables (Cards) -->
+    <section class="space-y-6">
+      <h2 class="text-h1 border-l-8 border-primary pl-4 text-neutral flex items-center gap-2">
+        <span>STEP 4</span>
+        <span class="text-body-large font-normal text-base-content/70">/ Research Model & Variables</span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- IV Card -->
+        <div class="card bg-base-100 shadow-md border border-base-300">
+          <div class="card-body">
+            <div class="flex justify-between items-start">
+              <h3 class="card-title text-h3 text-neutral font-bold">코옵티션 마인드셋<br><span class="text-small font-normal text-base-content/50">Coopetitive Mindset</span></h3>
+              <span class="badge badge-primary text-label text-white">독립변수 (IV)</span>
+            </div>
+            <div class="divider my-1"></div>
+            <div class="space-y-2 text-body">
+              <p><strong>개념 정의:</strong> 경쟁업체와의 동시적 경쟁/협력이 주는 가치와 비즈니스 기회를 인정하고 협력 관계를 개시 및 정비하고자 하는 인지적·태도적 마음가짐.</p>
+              <p><strong>조작적 정의:</strong> 7개 척도 문항(Czakon et al., 2020 개작), 리커트 7점 척도로 측정.</p>
+              <p><strong>통계 지표:</strong> Cronbach's &alpha; = 0.86, CR = 0.89, AVE = 0.47</p>
+              <p class="text-small text-base-content/70 bg-base-200 p-2 rounded">
+                <strong>학술 논의:</strong> 기업 활동(action)의 이전 단계인 인지적 영역(cognitive base)에 집중하여, 경쟁사 협력에 따른 내재적 긴장(tension)을 통제하려는 주관적 토대 역할을 함.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- DV Card -->
+        <div class="card bg-base-100 shadow-md border border-base-300">
+          <div class="card-body">
+            <div class="flex justify-between items-start">
+              <h3 class="card-title text-h3 text-neutral font-bold">중소기업 성과<br><span class="text-small font-normal text-base-content/50">SME Performance</span></h3>
+              <span class="badge badge-success text-label text-white">종속변수 (DV)</span>
+            </div>
+            <div class="divider my-1"></div>
+            <div class="space-y-2 text-body">
+              <p><strong>개념 정의:</strong> 동종 업계의 주된 경쟁사 대비 최근 3개년 간 해당 중소기업이 거둔 전반적인 재무 성과의 비교 수준.</p>
+              <p><strong>조작적 정의:</strong> 경쟁사 대비 ROI, 매출총이익, 영업현금흐름에 대한 주관적 평가 만족도 (리커트 7점).</p>
+              <p><strong>통계 지표:</strong> Cronbach's &alpha; = 0.91, CR = 0.91, AVE = 0.77</p>
+              <p class="text-small text-base-content/70 bg-base-200 p-2 rounded">
+                <strong>학술 논의:</strong> 중소기업의 다양한 이질성으로 인해 재무제표의 객관적 표준화가 힘들 때 주관 평가를 널리 쓰며, 실제 3년 평균 이익 마진과의 실증적 상관성 검증($r=0.36, p<0.000$)으로 우수한 타당도를 확인받음.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- MV Card -->
+        <div class="card bg-base-100 shadow-md border border-base-300">
+          <div class="card-body">
+            <div class="flex justify-between items-start">
+              <h3 class="card-title text-h3 text-neutral font-bold">성장 지향성<br><span class="text-small font-normal text-base-content/50">Growth Aspiration</span></h3>
+              <span class="badge badge-accent text-label text-white">조절변수 (MV)</span>
+            </div>
+            <div class="divider my-1"></div>
+            <div class="space-y-2 text-body">
+              <p><strong>개념 정의:</strong> 기업을 외형적, 매출적으로 지속 성장시키고자 경영자가 품는 주관적 욕망 및 지향 목표 수준.</p>
+              <p><strong>조작적 정의:</strong> 연평균 성장 목표를 측정하는 단일 문항(4점 척도)으로 측정 후, 실질적 분석을 위해 목표 있음(1), 없음(0)의 더미(Dummy) 변수화.</p>
+              <p><strong>타당도 지표:</strong> 실제 과거 3년 성장 지표와 유의한 양의 상관성 지님 ($r = 0.26, p < 0.000$).</p>
+              <p class="text-small text-base-content/70 bg-base-200 p-2 rounded">
+                <strong>학술 논의:</strong> 성장을 단지 코옵티션의 당연한 사후 혜택이나 종속변수로 다뤄오던 기존 틀을 탈피하여, 코옵티션 파트너 관계의 비용-편익을 자원 경쟁 관점에서 필터링하는 조건 변수로 제안함.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CV Card -->
+        <div class="card bg-base-100 shadow-md border border-base-300">
+          <div class="card-body">
+            <div class="flex justify-between items-start">
+              <h3 class="card-title text-h3 text-neutral font-bold">통제 변수 군<br><span class="text-small font-normal text-base-content/50">Control Variables</span></h3>
+              <span class="badge badge-neutral text-label">통제변수 (CV)</span>
+            </div>
+            <div class="divider my-1"></div>
+            <div class="space-y-2 text-body">
+              <p><strong>1. 기업 규모 (Company size):</strong> 사원 수 기준 (평균 15명 수준의 소기업 위주 구성).</p>
+              <p><strong>2. 업력 (Company age):</strong> 특정 지역에서 비즈니스를 수행한 연수 (평균 25.8년).</p>
+              <p><strong>3. 경영자 연령 (Manager's age):</strong> 의사 결정 주체자의 나이 (평균 51.5세).</p>
+              <p><strong>4. 산업 분야 (Industry):</strong> 상업(13%), 제조업(34%), 서비스업(46%), 건설업(7%)으로 구성되었으며, OLS 분석 시 상업을 기준 범주로 한 더미 처리.</p>
+              <p class="text-small text-base-content/70 bg-base-200 p-2 rounded">
+                <strong>영향력 확인:</strong> 회귀분석 결과 모든 통제변수는 기업 성과에 통계적으로 유의미한 직접적 해를 끼치거나 도움을 주지 않는 것(n.s.)으로 밝혀짐.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STEP 5: Method Replication (Timeline Component) -->
+    <section class="space-y-6">
+      <h2 class="text-h1 border-l-8 border-primary pl-4 text-neutral flex items-center gap-2">
+        <span>STEP 5</span>
+        <span class="text-body-large font-normal text-base-content/70">/ Research Method & Replication Steps</span>
+      </h2>
+
+      <div class="card bg-base-100 shadow-lg border border-base-300 p-6 md:p-10 overflow-hidden">
+        <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+          
+          <!-- Step 1 -->
+          <li>
+            <div class="timeline-middle text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+            </div>
+            <div class="timeline-start md:text-end mb-10">
+              <time class="font-mono italic text-label text-primary">STEP 1</time>
+              <div class="text-h3 font-bold text-neutral">표본 모집단 정의 & 프레임 구축</div>
+              <p class="text-body text-base-content/70 mt-2">
+                핀란드 특정 지역 내 상업, 제조업, 서비스업, 건설업 분야에서 작동하는 중소기업(SMEs) 1,005개를 리스트업하여 메일링 프레임을 구축함.
+              </p>
+              <div class="badge badge-ghost text-small mt-1">Page 354 / Section 3.1</div>
+            </div>
+            <hr class="bg-primary"/>
+          </li>
+
+          <!-- Step 2 -->
+          <li>
+            <hr class="bg-primary"/>
+            <div class="timeline-middle text-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-label text-secondary">STEP 2</time>
+              <div class="text-h3 font-bold text-neutral">설문 발송 & 의사결정권자 타겟팅</div>
+              <p class="text-body text-base-content/70 mt-2">
+                웹 기반 설문조사 발송을 개시하고, 기업의 방향성에 실질적 마인드셋 영향력을 발휘할 수 있는 핵심 응답자(CEO, 소유주/창업가)들이 작성하도록 가이드라인을 부여함.
+              </p>
+              <div class="badge badge-ghost text-small mt-1">Page 354 / Section 3.1</div>
+            </div>
+            <hr class="bg-secondary"/>
+          </li>
+
+          <!-- Step 3 -->
+          <li>
+            <hr class="bg-secondary"/>
+            <div class="timeline-middle text-accent">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+            </div>
+            <div class="timeline-start md:text-end mb-10">
+              <time class="font-mono italic text-label text-accent">STEP 3</time>
+              <div class="text-h3 font-bold text-neutral">무응답 및 중복치 정제 (Data Cleaning)</div>
+              <p class="text-body text-base-content/70 mt-2">
+                회수된 306개 응답 중 동일 회사 중복 데이터 15건을 폐기하고, 재무 정보 검증을 위해 매칭될 데이터베이스 연계를 위한 회사명이 기재되지 않은 설문지 4건을 누락 처리하여 최종 273건 확보.
+              </p>
+              <div class="badge badge-ghost text-small mt-1">Page 354 / Section 3.1</div>
+            </div>
+            <hr class="bg-accent"/>
+          </li>
+
+          <!-- Step 4 -->
+          <li>
+            <hr class="bg-accent"/>
+            <div class="timeline-middle text-info">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-label text-info">STEP 4</time>
+              <div class="text-h3 font-bold text-neutral">확인적 요인 분석 (CFA)을 통한 척도 신뢰성 검증</div>
+              <p class="text-body text-base-content/70 mt-2">
+                Stata 15.1 프로그램을 로드하고 다문항 척도인 코옵티션 마인드셋(7문항)과 주관적 성과(3문항)의 단일차원성(Unidimensionality) 및 신뢰도 검증을 수행하여 적절한 적합도를 입증함.
+              </p>
+              <div class="badge badge-ghost text-small mt-1">Page 354 / Section 3.3</div>
+            </div>
+            <hr class="bg-info"/>
+          </li>
+
+          <!-- Step 5 -->
+          <li>
+            <hr class="bg-info"/>
+            <div class="timeline-middle text-warning">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+            </div>
+            <div class="timeline-start md:text-end mb-10">
+              <time class="font-mono italic text-label text-warning">STEP 5</time>
+              <div class="text-h3 font-bold text-neutral">공통방법편향 (CMV) &amp; 다중공선성 통제 진단</div>
+              <p class="text-body text-base-content/70 mt-2">
+                단일요인 모델과의 적합도 격차 비교 및 마커 변수('지역 공동체와의 관계' 척도) 투입법을 통해 공통방법편향 위협이 적음을 입증하고, 분산팽창요인(VIF)을 계산해 다중공선성이 없음을 확인함.
+              </p>
+              <div class="badge badge-ghost text-small mt-1">Page 354 / Section 3.3 &amp; 4</div>
+            </div>
+            <hr class="bg-warning"/>
+          </li>
+
+          <!-- Step 6 -->
+          <li>
+            <hr class="bg-warning"/>
+            <div class="timeline-middle text-success">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-label text-success">STEP 6</time>
+              <div class="text-h3 font-bold text-neutral">위계적 다중 조절 회귀분석 실행 (OLS)</div>
+              <p class="text-body text-base-content/70 mt-2">
+                종속변수(SME Performance)에 대고 통제변수군 투입(Model 1) -> 주효과 투입(Model 2) -> 상호작용항 투입(Model 3) 순으로 위계적 OLS 분석을 수행하여 상호작용 회귀계수 통계 유의성을 판별함.
+              </p>
+              <div class="badge badge-ghost text-small mt-1">Page 354-355 / Section 4 &amp; Table 2</div>
+            </div>
+            <hr class="bg-success"/>
+          </li>
+
+          <!-- Step 7 -->
+          <li>
+            <hr class="bg-success"/>
+            <div class="timeline-middle text-neutral">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+            </div>
+            <div class="timeline-start md:text-end mb-10">
+              <time class="font-mono italic text-label text-neutral">STEP 7</time>
+              <div class="text-h3 font-bold text-neutral">상호작용 그래프 플로팅</div>
+              <p class="text-body text-base-content/70 mt-2">
+                조절변수인 성장 지향성(Dummy 0 vs 1) 값에 따라 독립변수(마인드셋)가 종속변수(성과)에 미치는 단순 기울기(Simple Slope)의 교차선을 확인하고 시각적으로 묘사함.
+              </p>
+              <div class="badge badge-ghost text-small mt-1">Page 355 / Figure 2</div>
+            </div>
+          </li>
+
+        </ul>
+
+        <div class="divider my-4"></div>
+        <div class="text-center font-semibold text-neutral">
+          연구 재현성 평가: <span class="badge badge-warning text-white text-label py-3 px-4">부분 재현 가능 (Partially Replicable)</span>
+          <p class="text-small font-normal text-base-content/60 mt-1 max-w-2xl mx-auto">
+            설문 항목(Appendix A)과 분석적 데이터 가공 프로시저는 충분히 투명하게 기술되어 학문적 재현은 가능하나, 데이터 수집 대상이 된 핀란드 특정 지역 명칭과 설문 배포 Raw Data 리스트는 비공개이므로 실물 데이터 기준 완전 재현은 불가함.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 6: Limitations (Collapse & Alert) -->
+    <section class="space-y-6">
+      <h2 class="text-h1 border-l-8 border-primary pl-4 text-neutral flex items-center gap-2">
+        <span>STEP 6</span>
+        <span class="text-body-large font-normal text-base-content/70">/ Limitations & Critical Review</span>
+      </h2>
+
+      <!-- Limitation A: Admitted Limitations (Alert-Error + Collapse) -->
+      <div class="collapse collapse-arrow border border-error/30 bg-error/5 rounded-2xl shadow-sm">
+        <input type="checkbox" checked /> 
+        <div class="collapse-title text-h3 text-error font-semibold flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          <span>A. 논문이 스스로 인정한 한계 (Admitted Limitations)</span>
+        </div>
+        <div class="collapse-content space-y-4 px-6 pb-6">
+          
+          <div class="alert alert-error bg-error/10 border border-error/20 p-4">
+            <div class="flex-col items-start gap-1">
+              <span class="text-label font-bold text-error">한계점 1. 주관적 성장의 측정에 의존 (Page 356, 5.2)</span>
+              <p class="text-small text-base-content/80 mt-1 font-mono">
+                "A limitation of this approach is that we do not investigate the growth of firms as an objective measure, but subjectively."
+              </p>
+              <p class="text-body text-base-content/90 mt-1">
+                성장의 실제 데이터(매출액 성장폭 등)를 측정하는 대신 경영자의 주관적 성장 욕망(성장 지향성)으로 대체했으므로 실제 기업 성장률과의 조절 효과 차이를 규명하지 못함.
+              </p>
+            </div>
+          </div>
+
+          <div class="alert alert-error bg-error/10 border border-error/20 p-4">
+            <div class="flex-col items-start gap-1">
+              <span class="text-label font-bold text-error">한계점 2. 일방향(단일) 기업 대상 설문 (Page 356, 5.2)</span>
+              <p class="text-small text-base-content/80 mt-1 font-mono">
+                "Accordingly, the focus on the performance of a single firm is a limitation of our study. An avenue for future research would consequently be to investigate the effect of coopetition on the performance of all firms involved..."
+              </p>
+              <p class="text-body text-base-content/90 mt-1">
+                코옵티션은 두 군데 이상의 파트너사 간의 동맹과 갈등을 포함함에도 일방 중소기업 경영자의 응답에만 기초하여, 관계 역학 관계를 완전하게 반영하지 못함.
+              </p>
+            </div>
+          </div>
+
+          <div class="alert alert-error bg-error/10 border border-error/20 p-4">
+            <div class="flex-col items-start gap-1">
+              <span class="text-label font-bold text-error">한계점 3. 코옵티션의 부정적 비용 경로 미고려 (Page 356, 5.2)</span>
+              <p class="text-small text-base-content/80 mt-1 font-mono">
+                "...a limitation of our study is that it does not consider the negative effects of coopetition on performance."
+              </p>
+              <p class="text-body text-base-content/90 mt-1">
+                코옵티션 마인드셋으로 생겨나는 협력 긴장, 기회주의 행동 등 부정적 비용을 모델 내에 독립변수나 매개변수로 명시적 통제하지 못함.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Limitation B: Critical Doubts (Collapse with Warning Background) -->
+      <div class="collapse collapse-arrow border border-warning/30 bg-warning/5 rounded-2xl shadow-sm">
+        <input type="checkbox" checked /> 
+        <div class="collapse-title text-h3 text-warning font-semibold flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          <span>B. 논문이 언급하지 않은 비판적 의심 (Critical Doubts)</span>
+        </div>
+        <div class="collapse-content space-y-4 px-6 pb-6">
+          
+          <!-- Doubt 1 -->
+          <div class="card bg-base-100 border border-warning/20 p-5 mt-2">
+            <span class="text-label text-warning font-bold uppercase block mb-1">1. 역인과성 (Reverse Causality) 의혹 (단면 연구의 고질적 한계)</span>
+            <p class="text-body text-base-content/90">
+              본 연구의 설문조사는 한 시점에 독립/조절/종속변수를 동시에 물어본 **횡단적(Cross-sectional) 연구**임. 
+              설문에서 성과는 '지난 3년'을 평가하라고 했고, 마인드셋과 성장 목표는 '현재 시점'을 물어봄. 
+              인과관계 선후를 생각해보면, **최근 3년간 경영 성과가 처참했던 기업**이 최후의 활로로써 경쟁사와의 '코옵티션 마인드셋'을 억지로 쥐어짰거나, 반대로 **지난 3년간 대성공한 기업**은 이미 시장 지위가 탄탄하므로 리스크가 있는 경쟁사 협력에 대한 우호적 태도가 약해졌을 수 있음. 시계열적 랙(Lag)이 확보된 종단 설계(Longitudinal design)가 부재하여 인과적 흐름이 뒤집혔을 가능성을 제어하지 못함.
+            </p>
+          </div>
+
+          <!-- Doubt 2 -->
+          <div class="card bg-base-100 border border-warning/20 p-5">
+            <span class="text-label text-warning font-bold uppercase block mb-1">2. 조절변수(성장 지향성)의 단일 문항 및 이분법화(Dichotomization) 분석 편향</span>
+            <p class="text-body text-base-content/90">
+              조절변수인 성장 지향성은 단 1개의 주관적 문항으로 응답받음. 게다가 이를 다시 분석 상에서 '성장계획 있음(1)'과 '없음(0)'의 **더미(이분법) 변수**로 잘라냄. 
+              통계학적으로 4점 리커트 연속형 느낌을 주는 척도를 인위적으로 이분화하면, 데이터 정보의 엄청난 손실(Loss of information)이 발생함. 
+              게다가 기울기 차이가 불연속 지점에서 과장되어 나타나는 **통계적 착시(artifact)**를 유발함으로써 조절 가설 검증 결과의 타당도가 지나치게 부풀려졌을 수 있음.
+            </p>
+          </div>
+
+          <!-- Doubt 3 -->
+          <div class="card bg-base-100 border border-warning/20 p-5">
+            <span class="text-label text-warning font-bold uppercase block mb-1">3. 제도적 환경 신뢰 수준의 맥락 특수성 (핀란드 한정)</span>
+            <p class="text-body text-base-content/90">
+              표본이 된 중소기업들은 사회적 신뢰(Social Capital) 수준이 세계에서 가장 높은 편에 속하고 투명한 제도적 계약 장치가 뒷받침되는 **핀란드 특정 지역**에 국한됨. 
+              경쟁사와 협력 시 기회주의 행동이나 핵심 기술 유출 리스크가 타 국가 대비 제도적·규범적으로 통제되는 청정 환경이기에, 성장에 대한 열망이 낮은 보수적 소기업 경영자들도 큰 무리 없이 코옵티션 마인드셋을 성과로 치환시킬 수 있음. 
+              경쟁이 피튀기고 신뢰 인프라가 부재한 아시아나 영미권의 치열한 B2B 현장에서는 저성장 추구형 기업이 코옵티션 마인드셋을 가졌다간 기술을 도용당해 생존을 위협받는 상반된 결과가 나타날 확률이 높음.
+            </p>
+          </div>
+
+          <!-- Doubt 4 -->
+          <div class="card bg-base-100 border border-warning/20 p-5">
+            <span class="text-label text-warning font-bold uppercase block mb-1">4. 극도로 제한적인 실무 영향력 (설명력 R² = 8%)</span>
+            <p class="text-body text-base-content/90">
+              본 논문의 핵심 기여로 내세운 Model 3(상호작용항 투입)의 전체 설명력($R^2$)은 **겨우 8.0%**임. 조정된 결정계수($Adj. R^2$)는 5.0% 수준임. 
+              즉, 중소기업 성과 변동성의 **92%는 본 모델에서 무시한 다른 요인들**에 의해 결정됨. 
+              조절 항 투입으로 인한 설명력 증가분($\Delta R^2$)도 불과 2.0%에 지나지 않아 통계적으로 유의미하다(p<0.01)고는 하지만 실무 경영 현장에서 이 조절 메커니즘을 핵심 비즈니스 프레임워크로 적용하기에는 효과 크기(Effect size)가 실제적으로 유의하지 않음.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-base-100 border-t border-base-300 text-base-content/60 mt-16 text-small">
+    <div>
+      <p class="font-semibold text-brand-navy">Industrial Marketing Management 105 (2022) 351–358</p>
+      <p>Examining the effects of a coopetitive mindset on SME performance: The moderating role of growth</p>
+      <p class="opacity-75 text-xs">Analyzed &amp; Rendered by paper_analyst subagent on 2026.07.03</p>
+    </div>
+  </footer>
+
+</body>
+</html>

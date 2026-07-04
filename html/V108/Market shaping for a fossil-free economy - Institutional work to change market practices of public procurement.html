@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market shaping for a fossil-free economy - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Fossil-Free Economy</div>
+        <div class="badge badge-secondary text-white style-label">Public Procurement 개혁</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Market shaping for a fossil-free economy:<br>
+            <span class="text-cyan-400">Institutional work to change market practices of public procurement</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Lars-Gunnar Mattsson, Sven-Olof Junker
+          </p>
+          <p class="style-small text-slate-400 mt-1">
+            Center for Sustainability Research, Stockholm School of Economics, Sweden
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            탄소 중립 경제를 위한 시장 형성:<br>
+            <span class="text-indigo-300">공공 조달의 시장 관행 변화를 위한 제도적 일</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            스웨덴의 탈탄소 산업 로드맵(Fossil-Free Sweden)과 기후 법안 및 조달청 정책 분석을 통한 공공 조달의 시장 개혁 매커니즘 고찰
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">공공 조달 법규 개정이 실제 거래 관행으로 연결되려면 '가치 사슬' 네트워크 재현과 '시간성 지연' 통제가 필수적입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "In the context of climate change as a grand challenge, this article offers insights on market shaping from research on industrial networks and institutional work to the market practice perspective. The purpose of the study is to conceptually integrate policy practices and market practices aimed at coping with climate change using public procurement as a case. We draw upon a conceptual model distinguishing three separate market practice categories: market exchange, market representation, and market normalizing. In expanding the model with policy actors deliberate market shaping activities, we locate institutional work as part of the larger set of normalizing practices. Based on the extended model, we find two concepts worthy to be at the core of the analysis: translation within and between market practice categories, and temporality attributes of institutional work and market actor innovations.
+              In an empirical study, reflecting an on-going abductive research process on market shaping, the article scrutinizes how government institutional work in Sweden can make public procurement contribute to innovations related to market practices. Based on a study of government documents, we formulate three propositions, on translation, temporality and market representation. The study suggests that temporality dimensions in institutional work to develop policy innovations and translation of the innovations to exchange practices affect the intended effects on procurement behavior. It also shows that policy innovations performed by institutional work might be in conflict with established norms to which actors might continue to adhere, requiring added translation efforts, and delaying climate mitigating effects. Based on the empirical observations, the article argues that value chains, as a model for market representation, may have the performative power to shape and reshape markets."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "기후 변화라는 거대한 도전(grand challenge)의 맥락에서, 본 논문은 산업 네트워크 및 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">제도적 일(institutional work)</span> 연구로부터 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">시장 관행 관점</span>으로의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">시장 형성(market shaping)</span>에 대한 통찰을 제공한다. 본 연구의 목적은 공공 조달을 사례로 삼아 기후 변화에 대응하기 위한 정책 관행과 시장 관행을 개념적으로 통합하는 것이다. 본 연구는 시장 교환(market exchange), 시장 재현(market representation), 시장 규범화(market normalizing)라는 세 가지 별도의 시장 관행 범주를 구분하는 개념 모델을 사용한다. 정책 행위자들의 의도적인 시장 형성 활동으로 이 모델을 확장하면서, 본 연구는 제도적 일을 더 광범위한 규범화 관행의 일부로 위치시킨다. 확장된 모델을 바탕으로, 분석의 핵심이 될 두 가지 개념인 시장 관행 범주 내 및 범주 간의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">번역(translation)</span> 과정, 그리고 제도적 일과 시장 행위자 혁신의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">시간성(temporality)</span> 속성을 도출한다.
+              시장 형성에 대한 지속적인 귀추적(abductive) 연구 과정을 반영한 실증 연구에서, 본 논문은 스웨덴의 정부 제도적 일이 어떻게 공공 조달을 시장 관행 관련 혁신에 기여하게 만들 수 있는지 조사한다. 정부 문서 연구를 바탕으로 번역, 시간성, 시장 재현에 관한 세 가지 명제(propositions)를 공식화한다. 본 연구는 정책 혁신을 개발하기 위한 제도적 일의 시간성 차원과 이러한 혁신을 교환 관행으로 번역하는 과정이 조달 행동에 미치는 의도된 효과에 영향을 미친다는 것을 시사한다. 또한, 제도적 일에 의해 수행되는 정책 혁신이 행위자들이 계속 고수할 수 있는 기존 규범과 충돌할 수 있으며, 이로 인해 추가적인 번역 노력이 요구되고 기후 완화 효과가 지연될 수 있음을 보여준다. 실증적 관찰을 바탕으로, 본 논문은 시장 재현의 모델로서 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">가치 사슬(value chains)</span>이 시장을 형성하고 재형성하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">수행적 힘(performative power)</span>을 가질 수 있다고 주장한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Market Shaping</td>
+                  <td>시장 형성</td>
+                  <td class="text-sm">시장을 정적인 상태로 보지 않고, 다양한 이해관계자의 상호작용 및 개입을 통해 동적으로 진화·구조화해 나가는 적극적인 프로세스입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Institutional Work</td>
+                  <td>제도적 일</td>
+                  <td class="text-sm">신제도주의 조직학파에서 유래한 단어로, 행위자가 제도를 창조(create), 유지(maintain), 혹은 해체(disrupt)하려 쏟는 의도적 노력을 지칭합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Translation</td>
+                  <td>번역</td>
+                  <td class="text-sm">행위자 네트워크 이론(ANT) 맥락으로, 한 영역의 아이디어나 규범이 다른 영역(실제 조달 거래 현장)으로 이동하여 실천으로 안착·변형되는 과정입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Temporality</td>
+                  <td>시간성</td>
+                  <td class="text-sm">정책 수립과 실무 집행 단계 사이의 타임랙(시차), 의사결정의 반복성, 각 혁신 활동 간의 시간적 동기화(synchronization) 조율 등을 분석하는 틀입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Value Chains</td>
+                  <td>가치 사슬</td>
+                  <td class="text-sm">단일 거래 형태의 협소한 시장 개념을 확장해 원재료 수급부터 생산, 유통, 재활용에 이르는 상호 의존적 산업 결합 형태를 지칭합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Performative Power</td>
+                  <td>수행적 힘</td>
+                  <td class="text-sm">이론이나 표현(재현) 모델이 단순히 대상을 묘사하는 데 머무르지 않고, 행동 방식을 규제하여 현실을 직접 조형해 나가는 힘입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            기후 변화에 대처하는 변혁적 공공 조달을 설계하기 위해 본 연구가 제시하는 핵심 인과관계를 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">공공 조달로 어떻게 탈탄소 혁신을 유도하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">번역의 복잡성과 긴 시차, 가치 사슬 연계가 열쇠</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">시장 관행론에 제도적 일과 시간성 통합</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">핵심 메커니즘 설명</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 국가 기후 목표 달성을 위한 정부 정책 혁신(조달 개혁)이 어떻게 민간 비즈니스 네트워크(시장 관행)에 침투하여 탈탄소 혁신을 창출할 수 있는가?</li>
+                  <li><strong>핵심 발견:</strong> 정책적 규칙이 단순 수립되는 것만으로는 부족하며, 조달 실무 및 파트너 관계(교환 관행)로 흘러가는 <strong>'번역의 사슬'</strong>이 성립되어야 합니다. 이 과정에서 최저가 입찰 선호 등의 기존 규범과 충돌하여 <strong>수십 년의 시차(Time lags)</strong>가 발생합니다. 이를 극복하려면 시장을 개별 거래가 아닌 <strong>'가치 사슬'</strong>의 상호연동적 관점으로 그리고 정책을 기획해야 합니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 시장 관행 개념 모형에 '시간성'과 '제도적 일'을 도입하여 분석력을 높였으며, 실무적으로는 정책 기획자가 지자체 실행 단계의 시간적 불일치 및 마찰을 사전에 계산하고 다부처적 접근을 적용할 필요성을 제기했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "공공 조달 개혁은 개별 시장이 아닌 가치 사슬 단위의 시장 재현에 기초해야 하며, 새로운 기후 규범이 실제 조달 거래 관행으로 번역되는 과정에서 발생하는 극심한 시차와 충돌을 능동적으로 극복해야 한다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구 결과 제시된 핵심 명제와 이를 증빙하는 원문 텍스트 인용을 원문 위치와 함께 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장 / 명제</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">명제 1: 번역의 사슬 연계성 (Connected Chains of Translation)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Chains of translation of course need to include translation to exchange practices to have any emission reduction effect. A promotion of innovative procurement, for instance, needs to be translated to exchange practices in order to contribute to the adopted goal for climate mitigation."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 29, Section 5.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">명제 2: 시간성 요소의 필수성 (Temporality of Institutional Work)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Documents referred to in sub-section 4.2.3 demonstrate a considerable duration of institutional work processes, from ideas about the role of public procurement voiced in the early 1990s to the realization of ideas still not substantially implemented in the early 2020s."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 30, Section 5.2</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">규범 충돌에 따른 시간성 지연 및 복잡성</td>
+                <td class="text-sm italic text-slate-600">
+                  "...policy innovations performed by institutional work might be in conflict with established norms to which actors might continue to adhere, requiring added translation efforts, and delaying climate mitigating effects."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract, Page 23</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">명제 3: 시장을 가치 사슬 네트워크로 재현해야 함</td>
+                <td class="text-sm italic text-slate-600">
+                  "The roadmap innovations in Table 1 provide evidence that transformative innovations require interactions across product markets. The conditions of temporality and translation therefore need to be understood in a wider exchange context than what is offered by traditional market concepts. Value chains, and related concepts such as supply chains and life cycles, denote linkages between exchanges..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 31, Section 6.1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">가치 사슬 모델의 수행적 힘 (Performative Power)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Based on the empirical observations, the article argues that value chains, as a model for market representation, may have the performative power to shape and reshape markets."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract, Page 23</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual Framework (시장 개혁 가설 모형)</h3>
+          
+          <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 480" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100%" height="100%" fill="#fafafa" rx="12"/>
+              <defs>
+                <marker id="arrow-indigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5" />
+                </marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#16a34a" />
+                </marker>
+                <marker id="arrow-gray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+                </marker>
+                <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+                  <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+                </filter>
+              </defs>
+
+              <text x="400" y="35" text-anchor="middle" font-size="16" font-weight="700" fill="#334155">공공 조달 개혁을 통한 시장 형성 개념적 메커니즘</text>
+
+              <!-- Node 1 -->
+              <g filter="url(#shadow)">
+                <rect x="250" y="60" width="300" height="95" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+                <text x="400" y="90" text-anchor="middle" font-size="14" font-weight="700" fill="#1e1b4b">규범화 관행 (Normalizing Practices)</text>
+                <text x="400" y="112" text-anchor="middle" font-size="12" font-weight="600" fill="#4338ca">정부의 제도적 일 (Institutional Work)</text>
+                <text x="400" y="132" text-anchor="middle" font-size="10" fill="#6366f1">예: 공공조달법 개정, 친환경 지속가능성 기준 수립</text>
+              </g>
+
+              <!-- Node 2 -->
+              <g filter="url(#shadow)">
+                <rect x="40" y="290" width="300" height="95" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+                <text x="190" y="320" text-anchor="middle" font-size="14" font-weight="700" fill="#052e16">재현 관행 (Representation Practices)</text>
+                <text x="190" y="342" text-anchor="middle" font-size="12" font-weight="600" fill="#15803d">시장 구조의 개념화 모델</text>
+                <text x="190" y="362" text-anchor="middle" font-size="10" fill="#22c55e">예: 연결된 가치 사슬 (Connected Value Chains)</text>
+              </g>
+
+              <!-- Node 3 -->
+              <g filter="url(#shadow)">
+                <rect x="460" y="290" width="300" height="95" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+                <text x="610" y="320" text-anchor="middle" font-size="14" font-weight="700" fill="#451a03">교환 관행 (Exchange Practices)</text>
+                <text x="610" y="342" text-anchor="middle" font-size="12" font-weight="600" fill="#b45309">시장 행위자의 마테리얼 혁신</text>
+                <text x="610" y="362" text-anchor="middle" font-size="10" fill="#f59e0b">예: 저탄소 자재 조달, 온실가스 실질 감축 거래</text>
+              </g>
+
+              <!-- Central Concept: Temporality -->
+              <g>
+                <circle cx="400" cy="270" r="48" fill="#fff5f5" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 4" filter="url(#shadow)"/>
+                <text x="400" y="265" text-anchor="middle" font-size="13" font-weight="700" fill="#991b1b">시간성</text>
+                <text x="400" y="285" text-anchor="middle" font-size="10" font-weight="600" fill="#dc2626">Temporality</text>
+              </g>
+
+              <!-- Path 1: Normalizing -> Exchange -->
+              <path d="M 425 155 Q 485 210, 545 285" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow-indigo)"/>
+              <text x="510" y="200" font-size="11" font-weight="700" fill="#4f46e5" text-anchor="middle">번역 (Translation)</text>
+              <text x="525" y="215" font-size="9" font-weight="600" fill="#b91c1c" text-anchor="middle">수십년의 지연 (Prop 1, 2)</text>
+
+              <!-- Path 2: Normalizing -> Representation -->
+              <path d="M 375 155 Q 315 210, 255 285" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow-indigo)"/>
+              <text x="290" y="200" font-size="11" font-weight="700" fill="#4f46e5" text-anchor="middle">번역 (Translation)</text>
+              <text x="275" y="215" font-size="9" fill="#64748b" text-anchor="middle">가치 사슬 모델화</text>
+
+              <!-- Path 3: Representation -> Exchange -->
+              <path d="M 345 338 L 450 338" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+              <text x="397" y="328" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">수행적 힘 (Prop 3)</text>
+              <text x="397" y="352" font-size="9" fill="#166534" text-anchor="middle">Performative Power</text>
+
+              <!-- Feedback Path -->
+              <path d="M 590 285 C 600 230, 530 180, 480 160" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow-gray)"/>
+              <text x="560" y="150" font-size="9" font-weight="600" fill="#64748b" text-anchor="middle">FFS 로드맵 요구안 피드백</text>
+
+              <!-- Time interactions -->
+              <path d="M 360 250 Q 320 235, 300 210" fill="none" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="2 2" marker-end="url(#arrow-gray)"/>
+              <path d="M 440 250 Q 480 235, 500 210" fill="none" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="2 2" marker-end="url(#arrow-gray)"/>
+              
+              <text x="400" y="405" text-anchor="middle" font-size="11" font-weight="700" fill="#991b1b">정책 혁신과 시장 혁신의 동기화/지연 장애물 관리</text>
+              <text x="400" y="415" text-anchor="middle" font-size="10" fill="#b91c1c">가격 우선의 기존 규범 vs 기후 대응의 새로운 규범 간 충돌</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Concept 1 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">규범화 관행</span>
+                <span class="text-xs text-slate-400 font-semibold">Normalizing Practices</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">제도적 일 (Institutional Work)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 시장 규칙과 평가 프레임워크를 수정하거나 재조합하기 위해 다양한 행위자가 실행하는 개입 활동(Lawrence & Suddaby, 2006).</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> 스웨덴 기후법(2017), 기후행동계획, 공공조달법(2016), 조달청(UHM)에 전달되는 연례 예산 할당 명령서 속 정책 설계 등 총 29개 세부 활동 항목.</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> 스웨덴 의회 오픈 데이터베이스 및 국가 조달청(UHM) 공식 연하장/보고서</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 단순히 규칙만 갱신하는 것이 아니라, 현장에서 이를 집행하고 해석할 수 있도록 전문 데이터베이스(기후 영향도 DB)를 세우는 작업 등이 유기적으로 엮여야 함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Concept 2 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">교환 관행</span>
+                <span class="text-xs text-slate-400 font-semibold">Exchange Practices</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">시장 행위자 혁신 (Market Actor Innovation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 가치 사슬 내 거래(물품, 대금, 정보 교환) 및 이를 뒷받침하는 생산/공정 프로세스의 탈탄소 변혁 활동.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> 저탄소 시멘트 가공, 시멘트 생산 공정 내 탄소 포집 저장(CCS), 전기 구동 대형 차량 운용, 순환적 비즈니스 모델로의 조달 관계 재편.</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> 'Fossil-Free Sweden' 위원회에 제출된 업계 주도의 탈탄소 로드맵 22개(건설, 대형 차량, 시멘트, 재활용 등)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> IMP 학파의 'Markets-as-networks'에 기반하여, 개별 업자의 독자적 개발이 아닌, 가치 사슬 전반의 상호 긴밀한 '자원 적응(Resource adaptation)'이 수반되어야 실물 감축이 완성됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Concept 3 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">재현 관행</span>
+                <span class="text-xs text-slate-400 font-semibold">Representation Practices</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">가치 사슬 모델 (Value Chains Representation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 거래의 관계망과 배출 과정을 단순한 시장이 아니라 '원자재-생산-유통-재활용'이 순환하는 네트워크적 묘사 모델로 시각화하는 활동.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> 개별 산업의 탈탄소 보고서 내 '가치 사슬(value chain)' 용어 사용 빈도 및 전/후방 연관 관계 구조 매핑 지표.</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> FFS 건설 로드맵 분석 (가치 사슬 용어가 시장 용어보다 압도적 빈도인 84회 등장하는 지점 입증)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 가치 사슬 재현 방식은 현실을 단순 기술(describe)하는 것을 넘어, Scope 3 온실가스 규제 및 전방위적 생애주기 평가(LCA) 적용을 정당화하고 조달 규칙을 재단하는 수행적 힘을 가짐.
+              </p>
+            </div>
+          </div>
+
+          <!-- Concept 4 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">개동적 조절</span>
+                <span class="text-xs text-slate-400 font-semibold">Translation & Temporality</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">번역 사슬 및 시간성 (Translation & Temporality)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 규범적 선언이 교환 실무로 연쇄 전환되는 연결망(번역)과 집행까지 소요되는 시차, 타이밍, 동기화 속성(시간성).</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> 1990년대 초 공공 조달의 환경 지침 태동기부터 2020년대 개정법의 실효성 평가까지 약 30년간의 실무 정착 지연 양상 추적.</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> 스웨덴 의회 세부 회의록 및 예산 통지서의 집행 시차 분석</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 긴 번역 과정 중 지방 분권, 소송 제기 가능성, 기존의 가격 우위 평가 관행 등의 요인이 정착을 방해하며, 이를 동기화하지 못하면 기후 변화 대처 시한을 넘기게 됨.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 연구는 공공 자료를 수집·해석하는 질적 문서 분석법과 이론-현실의 왕복을 다루는 귀추적 사례 연구 모델을 차용했습니다. 절차는 다음과 같이 추종할 수 있습니다.
+        </p>
+
+        <!-- Timeline Component -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">공공 정책 문서 데이터 수집 (Data Collection)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  2015년 1월 1일 ~ 2022년 4월 15일 범위 내의 스웨덴 의회 오픈 데이터(기후 법안 및 공공 조달 법안), Fossil-Free Sweden 22개 산업 로드맵 웹 다운로드 파일, 세입세출 예산 통지 데이터(Statsliggaren) 및 UHM 연례 보고서를 취합하여 원천 텍스트 데이터베이스를 구축합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 27, Section 4.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">사례 필터링 및 범위 축소 (Case Filtering)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  전체 로드맵 중 공공 조달 금액 규모가 거대하고 철강, 에너지, 시멘트, 폐기물 처리 등 타 산업 시장과 전방위적 상호 의존성을 띠는 "건설 및 토목 공학" 로드맵을 주사례로 축소 선정합니다. 이후 분석 보강을 위해 "대형 차량", "시멘트", "재활용" 로드맵을 연계 사례로 추가 결합합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 27, Section 4.1 & 4.2.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">Nvivo를 이용한 핵심어 분석 (Qualitative Text Search)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  질적 데이터 분석 소프트웨어인 NVivo에 수집된 문서를 입력하고, 텍스트 검색 쿼리를 실행하여 특정 단어("market", "value chain" 등)의 사용 횟수, 공기관 예산 편지 내 기후 단어 매치 빈도, 공정 결합 묘사 단락을 코딩합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 27, Section 4.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">병렬 교차 검토를 통한 주관성 통제 (Bias Control)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  두 명의 공동 저자가 수집한 텍스트 묶음을 각자 독립적으로 정독 및 코딩을 실시한 뒤, 대면 미팅을 거쳐 분석 범주 매핑의 정확도를 높이고 주관적 자의 해석 편향(Confirmation bias)을 보정합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 27, Section 4.1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">이론적 프레임워크 개념 매핑 (Theoretical Mapping)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  산업계가 제시한 요구사항 28개(Table 1)와 정부의 실제 집행 활동 29개(Table 2)를 분류하고, Kjellberg & Helgesson(2007)의 교환, 규범화, 재현의 3요소 매트릭스에 맵핑합니다. 이를 바탕으로 정책 수립과 집행의 흐름을 잇는 번역 사슬(Table 3)을 구성합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Pages 27-31, Section 5</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">시간 지연성 분석 및 명제 도출 (Propositions)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  1990년대 초 조달 지침 도입 아이디어 단계부터 2021년 실제 조달법 조항에 반영될 때까지의 연도별 시계열 타임라인을 대조하고, 지자체의 실행 지연 원인을 법적/제도적/심리적 장벽으로 정량화하여 세 가지 최종 명제를 공식화합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Pages 28-31, Section 5.2 & 6</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            분석에 활용된 모든 국가 기후 로드맵, 예산 배정서, 조달 관련 성적 지표 법안은 스웨덴 정부 웹사이트와 의회 오픈 데이터베이스에 공시되어 있어 100% 동일 데이터를 재획득할 수 있습니다. 다만, 연구진들이 병렬 독해 과정에서 부여한 단락의 개념 코딩 가중치나 귀추적 해석 과정(Abductive process)은 질적 방법론 고유의 주관적 성향이 있으므로 완벽한 복제는 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 연구진들이 직접 밝힌 연구 설계의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>EU 수준의 제도적 복잡성 제외:</strong> 연구 범위를 스웨덴 국가 및 기관 수준에 맞추어 국한하였으며, 스웨덴 공공 조달 법규의 실질적 모태가 되는 EU 차원의 규제 개혁 및 입법 상호작용은 깊이 있게 다루지 못했습니다. (Page 27, Sec 4.1)
+              </li>
+              <li>
+                <strong>현장 인터뷰 부재:</strong> 분석 대상을 공인 문서 데이터베이스에만 고정하여, 실제 현장에서 조달을 담당하는 조달관이나 납품 업자들이 체감하는 미시적 문제와 인식을 생생히 파악하는 실증 인터뷰 데이터가 생략되었습니다. (Page 27, Sec 4.1)
+              </li>
+              <li>
+                <strong>실물 경제 교환 관행 작동 검증 미비:</strong> 조달 기준의 변경이나 법안 개정이 실제 민간 기업들의 일상적 거래량, 실물 탄소 감축 수치 등으로 번역되어 침투한 최종 아웃풋의 실증 수치는 보유하지 못하고 있습니다. (Page 27, Sec 4.1)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 집행 데이터를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 지자체 조달관의 현장 관성(Street-level Bureaucracy) 간과</span>
+                <p class="text-sm text-slate-700">
+                  스웨덴 지자체들은 예산 편성과 부과에 막강한 독립적 재량권을 지니고 있습니다. 비록 국가 법률상 친환경 기술 파트너십과 LCA 비용 산정을 열어두었을지라도, 실무 수준에서 단기 예산 한계에 맞닥뜨리는 지방 관청 실무자의 최저가 입찰 선호 관성을 깰 구체적 장치가 결여되어 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 분석 대상 수집 편향 (Optimistic Bias of FFS Roadmaps)</span>
+                <p class="text-sm text-slate-700">
+                  'Fossil-Free Sweden' 위원회에 제출된 업계 로드맵은 주로 협회나 대기업 연합체가 정부에 대대적인 보조금 청원이나 규제 감면을 위해 장밋빛으로 기획한 공표용 선언서입니다. 따라서 가치 사슬 내 중소업체의 납품 마찰이나 기술적 전환 실현 불가능성 등 실제 시장의 심각한 고통이 과소평가되어 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 번역 사슬 매핑의 사후 합리화(Hindsight Bias) 오류</span>
+                <p class="text-sm text-slate-700">
+                  연구진이 질적으로 도출한 '번역의 사슬'(Table 3)은 29개의 파편화된 정책과 규칙 중 이론적 프레임에 끼워 맞춰 인과적인 연결성이 매끄러운 일부 항목들만 사후적으로 수거해 정렬한 결과물일 수 있습니다. 도중에 붕괴되거나 집행 실패된 다른 다수의 규제 혁신 오류는 추적 대상에서 삭제되었습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 스웨덴 거시 환경의 제도적 특수성 일반화 제약</span>
+                <p class="text-sm text-slate-700">
+                  스웨덴은 민간 기업 연합과 정부가 '합의주의적(Corporatist) 경제' 전통 하에 유기적인 합의를 이끌어내는 고신뢰 자본주의 모델을 보입니다. 대립적이고 규제 중심인 국가 거버넌스 환경에 이와 같은 조달 로드맵 협조 기반의 시장 형성 모델을 직접 전파하는 것은 작동하기 곤란합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Market shaping for a fossil-free economy: Institutional work to change market practices of public procurement</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

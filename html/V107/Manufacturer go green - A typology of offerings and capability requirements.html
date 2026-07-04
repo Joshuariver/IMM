@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manufacturer Go Green - IMM 2022</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (No Top Navbar, just direct hero flow) -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2022)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Green Offerings</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Case Study</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Manufacturer go green:<br>
+            <span class="text-cyan-400">A typology of offerings and capability requirements</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Daniel Ellström, Per Carlborg
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            제조업체의 친환경 전환:<br>
+            <span class="text-indigo-300">제공물(Offerings) 유형화 및 역량 요구사항</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            스웨덴 제조업체 8개 사의 다중 사례 연구를 통해 규명한 친환경 오퍼링의 세 가지 전략 경로와 필요 역량의 체계적 매칭
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">친환경 비즈니스도 유형별로 궁합이 맞는 역량(생산 공정 적응, 고객 연결, 네트워크 협업 등)이 따로 있습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Environmental sustainability is becoming an increasingly important motivator for the development of new offerings on business-to-business markets. Taking environmental concerns into account in the creation of new offerings can increase the complexity of the offering development process. Green offering development is therefore associated with new or emphasized capability requirements. This paper aims to explore these capability requirements through a multiple case study of manufacturing firms. It introduces a typology of three distinct kinds of green offering development, and suggests capabilities that are especially important for each type of green offering. The three types of offering are: internally oriented green production, externally oriented green application, and finally, reshaped green networks, which entails modifications in the boundaries between production and use."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "환경적 지속가능성은 기업간 거래(B2B) 시장에서 새로운 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">제공물(Offerings)</span>을 개발하는 데 있어 점점 더 중요한 동기부여 요인이 되고 있다. 새로운 제공물을 창출할 때 환경적 고려사항을 반영하는 것은 제공물 개발 프로세스의 복잡성을 증가시킬 수 있다. 따라서 친환경 제공물 개발은 새로운 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">역량 요구사항(Capability requirements)</span>이 발생하거나 기존 역량이 더욱 강조되는 상황과 관련이 있다. 본 연구는 제조업 기업들에 대한 다중 사례 연구를 통해 이러한 역량 요구사항을 탐색하고자 한다. 본 연구는 친환경 제공물 개발의 세 가지 뚜렷한 유형을 분류하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">유형학(Typology)</span>을 도입하고, 각 유형에 특히 중요한 역량들을 제안한다. 세 가지 제공물 유형은 내부 지향적인 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">친환경 생산(Green Production)</span>, 외부 지향적인 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">친환경 응용(Green Application)</span>, 그리고 생산과 사용 간의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">경계 수정(Modifications in boundaries)</span>을 수반하는 재구성된 친환경 네트워크(Green Network)이다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Offering</td>
+                  <td>제공물 / 오퍼링</td>
+                  <td class="text-sm">단순 제품(Product)이나 서비스(Service)를 넘어 가치 전달을 목적으로 결합된 토탈 솔루션 패키지입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Capability Requirements</td>
+                  <td>역량 요구사항</td>
+                  <td class="text-sm">친환경 비즈니스의 복잡성을 통제하고 성공적인 결과를 거두기 위해 필수적으로 구비해야 하는 동적/마케팅적 핵심 능력입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Green Production</td>
+                  <td>친환경 생산</td>
+                  <td class="text-sm">제품의 물리적 생산 프로세스 및 원자재 소싱에서 부정적 환경 부하를 낮춰 가치를 어필하는 오퍼링입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Green Application</td>
+                  <td>친환경 응용</td>
+                  <td class="text-sm">고객사나 최종 구매자가 제품을 운용 및 활용하는 가동(Use) 단계에서 환경 부하를 절감해 주는 오퍼링입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Green Network</td>
+                  <td>친환경 네트워크</td>
+                  <td class="text-sm">생산과 소비 간의 구조적 관계망 경계를 무너뜨려 자원 순환 및 신규 가치 사슬 네트워크를 형성하는 형태입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">오퍼링별 역량 궁합이 어떻게 다른가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">3대 친환경 전환 경로와 독자적 역량 조건</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">조직 경계론과 역량 이론의 융합 유형학</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 제조업의 지속가능한 친환경 전환 과정에서 오퍼링 유형별로 요구되는 차별적 핵심 조직 역량은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> 친환경 오퍼링은 환경 개선 저감 초점(생산 vs 사용)과 네트워크적 변화(경계 유지 vs 경계 재구성)에 따라 그린 생산, 그린 응용, 그린 네트워크로 분류되며, 각 유형별로 요구되는 역량 조합(공정적응, 제품개조, 고객연결, 생애주기분석, 네트워크협업, 신공정개발)이 독자적으로 규정됩니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 단편적인 친환경 기법의 단순 열거에서 탈피하여 조직 경계와 역량론에 기초한 범용적 유형학을 구축하고, B2B 매니저들에게 내부 역량 기반의 맞춤형 친환경 개발 로드맵을 설계할 수 있는 나침반을 제공했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "그린 오퍼링을 시장에 던지기 전에, 자사의 전략이 생산 공정의 환경 개선인지, 사용 상의 에너지 절감인지, 아니면 신생 공급망 구조인지 판별하고 그에 맞는 전용 역량을 확보해야 성공한다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 다중 사례 연구에서 도출된 핵심 주장과 이를 정성적으로 뒷받침하는 원문 인용 데이터 및 원천 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">제조업체의 친환경 오퍼링을 위한 세 가지 유형 성립</td>
+                <td class="text-sm italic text-slate-600">
+                  "...three distinct kinds of green offering development... internally oriented green production, externally oriented green application, and finally, reshaped green networks..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 423 (Abstract)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">그린 네트워크 오퍼링의 외부 파트너 협업 중요성</td>
+                <td class="text-sm italic text-slate-600">
+                  "We have to work in networks and try to gather those who are capable, and are capable to work with us... our sustainability manager... collaborated with selected environmental consultants..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 427 (Sec. 4.1)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">그린 네트워크 오퍼링의 원초적 공정 수립 도전</td>
+                <td class="text-sm italic text-slate-600">
+                  "We are standing on the shoulders of the paper- and pulp industry... It is about recycling as much knowledge as possible... super steep learning curve."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 427 (Sec. 4.2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">그린 생산 오퍼링의 자체 공정 개선 및 커뮤니케이션</td>
+                <td class="text-sm italic text-slate-600">
+                  "...to eliminate the carbon dioxide as much as possible from our own production... distribute the information [carbon footprint] on invoices, order confirmations..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 428 (Sec. 4.3 & 4.4)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">그린 응용 오퍼링의 핵심인 고객 연결 및 가치 설득</td>
+                <td class="text-sm italic text-slate-600">
+                  "To reduce the environmental footprint in the usage of an offering, suppliers need a good understanding of this use-phase... customer relationships are especially important..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 428-429 (Sec. 4.5)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">그린 응용 오퍼링의 제품 전과정(Lifecycle) 분석</td>
+                <td class="text-sm italic text-slate-600">
+                  "We are seeing... that you are much, much more sensitive to the total life cycle costs for the vehicle today... select a value proposition that has an impact..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 429 (Sec. 4.6)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Typology Matrix (친환경 제공물 유형 매트릭스)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 450" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <!-- Background Grid & Axes -->
+              <line x1="80" y1="360" x2="760" y2="360" stroke="#94a3b8" stroke-width="2" />
+              <line x1="80" y1="50" x2="80" y2="360" stroke="#94a3b8" stroke-width="2" />
+              
+              <!-- Y-Axis Label: Scope of Network Change -->
+              <text x="30" y="200" transform="rotate(-90 30 200)" font-weight="700" fill="#475569" font-size="13" text-anchor="middle">네트워크 변화 범위 (Scope of Network Change)</text>
+              <text x="95" y="110" font-weight="600" fill="#4f46e5" font-size="11">네트워크 구조 재구성 (Reshaped Network)</text>
+              <text x="95" y="270" font-weight="600" fill="#475569" font-size="11">기존 네트워크 내 개선 (Within Current Network)</text>
+
+              <!-- X-Axis Label: Footprint Reduction Focus -->
+              <text x="420" y="420" font-weight="700" fill="#475569" font-size="13" text-anchor="middle">환경 영향 저감 초점 (Footprint Reduction Focus)</text>
+              <text x="240" y="380" font-weight="600" fill="#64748b" font-size="11" text-anchor="middle">생산 프로세스 초점 (Production-Focused)</text>
+              <text x="600" y="380" font-weight="600" fill="#64748b" font-size="11" text-anchor="middle">사용/적용 초점 (Use-Focused)</text>
+
+              <!-- Divider between production and use -->
+              <line x1="420" y1="50" x2="420" y2="360" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 4" />
+              <line x1="80" y1="200" x2="760" y2="200" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 4" />
+
+              <!-- Type 1: Green Production Box (Bottom-Left) -->
+              <rect x="100" y="215" width="300" height="130" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="2" />
+              <text x="250" y="238" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="14">그린 생산 (Green Production)</text>
+              <text x="250" y="254" text-anchor="middle" fill="#64748b" font-size="10.5">사례: Hydrogen, Reboard, Exchanger</text>
+              <line x1="120" y1="262" x2="380" y2="262" stroke="#e2e8f0" stroke-width="1" />
+              <text x="120" y="280" fill="#0f172a" font-size="11" font-weight="600">필요 핵심 역량:</text>
+              <text x="120" y="298" fill="#334155" font-size="10.5">• 친환경 생산 프로세스 적응 (Process Adaptation)</text>
+              <text x="120" y="316" fill="#334155" font-size="10.5">• 친환경 가치 소통용 제품 개조 (Product Adaptation)</text>
+
+              <!-- Type 2: Green Application Box (Bottom-Right) -->
+              <rect x="440" y="215" width="300" height="130" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2" />
+              <text x="590" y="238" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">그린 응용 (Green Application)</text>
+              <text x="590" y="254" text-anchor="middle" fill="#047857" font-size="10.5">사례: Powder, Brake</text>
+              <line x1="460" y1="262" x2="720" y2="262" stroke="#d1fae5" stroke-width="1" />
+              <text x="460" y="280" fill="#065f46" font-size="11" font-weight="600">필요 핵심 역량:</text>
+              <text x="460" y="298" fill="#047857" font-size="10.5">• 밀착 B2B 고객 관계 체결 (Customer Linking)</text>
+              <text x="460" y="316" fill="#047857" font-size="10.5">• 사용단계 환경영향 가시화 (Lifecycle Analysis)</text>
+
+              <!-- Type 3: Green Network Box (Top - Spans Across) -->
+              <rect x="100" y="65" width="640" height="120" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2" />
+              <text x="420" y="88" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">그린 네트워크 (Green Network)</text>
+              <text x="420" y="104" text-anchor="middle" fill="#4338ca" font-size="11">사례: Sawdust, Sludge, Viscose (생산과 사용의 구조적 경계 자체를 재정의)</text>
+              <line x1="120" y1="112" x2="720" y2="112" stroke="#e0e7ff" stroke-width="1" />
+              <text x="120" y="130" fill="#3730a3" font-size="11" font-weight="600">필요 핵심 역량:</text>
+              <text x="120" y="148" fill="#4338ca" font-size="10.5">• 다방면의 친환경 파트너 협력 (Network Collaboration)</text>
+              <text x="420" y="148" fill="#4338ca" font-size="10.5">• 신규 친환경 제조공정 개발 (New Process Development)</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+          <!-- Type 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">유형 1 (내부 지향)</span>
+                <span class="text-xs text-slate-400 font-semibold">Green Production</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">그린 생산 (Green Production)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>정의:</strong> 현행 공급망 경계(Value Chain) 내에서 생산 설비, 가열 에너지, 친환경 소재 변경을 통해 제조 단계의 발자국을 감소시키는 오퍼링.</p>
+              <p class="text-sm text-slate-700"><strong>대표 사례:</strong> Hydrogen(수소 환원 철강), Reboard(100% 폐골판지 박스), Exchanger(스크랩 리사이클 알루미늄).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>필요 역량:</strong> 제조 프로세스를 저탄소화로 바꾸는 <em>공정 적응(Process Adaptation)</em> 및 탄소 함량을 명확히 계측해 시장에 전달하는 <em>제품 개조(Product Adaptation)</em> 역량.
+              </p>
+            </div>
+          </div>
+
+          <!-- Type 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">유형 2 (외부 지향)</span>
+                <span class="text-xs text-slate-400 font-semibold">Green Application</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">그린 응용 (Green Application)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>정의:</strong> 고객사가 장비를 기동하고 부품을 활용해 최종 사업을 영위할 때 소모되는 에너지를 최소화하고 환경 효율을 향상하는 오퍼링.</p>
+              <p class="text-sm text-slate-700"><strong>대표 사례:</strong> Powder(경량 철재 분말을 통한 자동차 연비 향상), Brake(드래그 토크 감축 브레이크로 트럭 에너지 저감).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>필요 역량:</strong> 고객 가동 환경을 심층 이해하는 <em>고객 연결(Customer Linking)</em> 및 생애주기 총소요비용(TCO) 절감을 환산해주는 <em>생애주기 분석(Lifecycle Analysis)</em> 역량.
+              </p>
+            </div>
+          </div>
+
+          <!-- Type 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">유형 3 (경계 재구성)</span>
+                <span class="text-xs text-slate-400 font-semibold">Green Network</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">그린 네트워크 (Green Network)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>정의:</strong> 자재 투입부터 소각/폐기에 이르는 밸류 네트워크 구조를 통째로 바꾸고, 생산-사용 주체 간의 의존 장벽을 무너트리는 완전 순환경제 지향 오퍼링.</p>
+              <p class="text-sm text-slate-700"><strong>대표 사례:</strong> Sawdust(제철 목재 잔여물로 연료 오일 추출), Sludge(제지 폐수로 바이오 가스 생산), Viscose(헌 옷을 재사용하여 비스코스 섬유 추출).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>필요 역량:</strong> 다방면의 협력 파트너를 엮어내는 <em>네트워크 협업(Collaboration within Network)</em> 및 전례 없는 기술을 이종 결합하는 <em>새로운 생산 공정 수립(New Process Development)</em> 역량.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 질적 다중 사례 연구가 어떤 조사 프로세스와 분석 체계를 가치 있게 이행했는지 단계별 타임라인으로 분해했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">표적 사례 표본 선정 기준 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  스웨덴 시장의 B2B 제조업체들을 모집단으로 설정하고, '친환경 제공물 보유', '충분한 지식 교환 협조 가능'을 기준으로 8개 표본 기업(Sawdust, Sludge, Viscose 등)을 의도적 샘플링(Purposeful sampling) 기법으로 선별.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 425, Section 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">2차 보조 데이터 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  심층 면접 설계 전에 사례 대상 기업들의 웹사이트, 지속가능성 보고서(Annual Reports), 제품 명세서 등의 문헌을 사전 수집하여 기본적인 기업 규모 및 친환경 제공물 작동 프로필을 문서화함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 425-426, Section 3.1 & 3.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">반구조화 면접(Semi-Structured Interview) 진행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  CEO, 비즈니스 디렉터, 지속가능성 부서장 등 핵심 관련자 12인과의 1~2시간 심층 대화 이행. 질의는 '아이디어 기획', '오퍼링화 공정', '신규 역량 규정', '조직 적응 방식' 등 4개 영역 중심 구성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 425-426, Section 3.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">사례 내 코딩 (Within-Case Open Coding)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  녹취록 원문을 스웨덴어로 전사하고 오픈 코딩법(Open Coding)을 이행. 기존 학술적 변수 틀에 가두지 않고 날것 그대로의 역량들을 귀납 도출한 후, 산업 특수적인 항목(예: 패션업 브랜딩)은 필터링하여 기각함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 426, Section 3.3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">사례 간 비교 및 유형학 도출 (Cross-Case Synthesis)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  8개 기업의 역량 조합을 상호 비교(Cross-case synthesis)하여, 기술 배치의 중심지와 조직적 범위라는 두 기준축으로 3대 오퍼링 카테고리를 최종 확정하고 연동 역량을 기존 이론(Day, Teece 등)으로 체계화함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 426, Section 3.3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            사례 연구의 체계적인 코딩 기법과 인터뷰 설계 주제는 본문을 통해 완벽하게 복사할 수 있습니다. 그러나 스웨덴 기업 경영진 대상의 심층 면접 접촉 권한(Access)을 복제하기 어렵고, 실제 면접에서 오간 대화 전사 자료(Confidential Transcripts)가 모두 비공개로 유지되고 있어 완전한 물리적 재현은 불가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.3)에서 연구진들이 직접 인정한 한계점입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>정적 횡단 연구의 한계 (Static Perspective):</strong> 친환경 제공물이 진화함에 따라 기업의 내부 역량 요구사항이 어떻게 함께 변모하고 반응하는지 상호 피드백의 동태적 과정을 설명하지 못했습니다.
+              </li>
+              <li>
+                <strong>스웨덴 단일 국가 연구 (Geographical Bias):</strong> 친환경 규제 및 고객 수용성이 극도로 성숙한 스웨덴 시장에서만 데이터를 수집하였으므로 다른 거시 제도 및 규제 문화를 가진 국가에 일반화하기 어렵습니다.
+              </li>
+              <li>
+                <strong>소규모 질적 샘플의 통계적 검증 부재 (No Quantitative Verification):</strong> 8개 사례에 대한 질적 탐색 연구 수준이므로, 더 큰 모집합을 대상으로 도출 역량들의 유의성을 정밀 검증(Deductive statistical test)해볼 것을 촉구했습니다.
+              </li>
+              <li>
+                <strong>유형학적 기능 제한:</strong> 수립된 유형학은 오퍼링 종류와 핵심 역량을 설명하는 데 치우쳐 있어, 실제 기술 이행 과정에서 발생하는 세부 장벽이나 실패 요인을 구조화하는 데는 한계가 있습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 B2B 시장 특성을 근거로 독자적으로 제안하는 한계점입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 생존자 편향 (Survivor Bias)</span>
+                <p class="text-sm text-slate-700">
+                  연구는 친환경 제공물을 성공적으로 런칭하거나 개발 완료 궤도에 올려놓고 살아남은 8개 기업만 표본으로 삼았습니다. 기술이나 마켓 문제로 도중에 좌초했거나 파산해버린 '실패한 친환경 프로젝트'를 분석(Negative cases comparison)하지 않아 역량 매칭의 성공 공식을 과장했을 가능성이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 소싱/접촉 편향 (Respondent Bias)</span>
+                <p class="text-sm text-slate-700">
+                  전체 8개 샘플 중 5개 기업이 연구진의 '기존 관계망(Existing Relationships)'을 기반으로 선정되었습니다. 이는 편향된 정보 제공이나 연구자의 기대에 부응하는 사후 심리적 합리화(Cognitive Bias) 답변을 면접 과정에서 증폭시켰을 개연성이 높습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 네트워크 경계 분류의 모호성</span>
+                <p class="text-sm text-slate-700">
+                  저자들은 Exchanger를 '그린 생산'으로 분류했으나, 이 기업은 고객 공정에서 나오는 고철 스크랩을 다시 회수하여 리커버리하는 폐쇄 순환 루프(Closed-loop) 협력을 수행합니다. 이는 생산과 사용의 경계를 변경하고 파트너를 재조정하는 행위로 저자들의 정의상 '그린 네트워크'의 성격도 강하므로, 유형 간의 엄격한 경계 구분이 실무적으로 다소 작위적일 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. B2B 다단계 가치 획득 병목 간과</span>
+                <p class="text-sm text-slate-700">
+                  제조업체가 친환경 오퍼링(예: 수소 열처리 강철)을 성공적으로 적응·개발해도, 직접 구매자인 1차 협력사가 친환경 가격 프리미엄(Green Premium)을 수용하지 않으면 공급망상에서 가치를 획득(Value Capture)할 수 없습니다. 이 다단계 공급망(Multi-tier Supply Chain) 내 경제적 병목에 대한 조직 역량 차원의 해법이 충분히 다뤄지지 않았습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Manufacturer go green: A typology of offerings and capability requirements</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

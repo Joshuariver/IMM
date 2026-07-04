@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The development of B2B social networking capabilities - IMM 2022</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (No Navbar as per guidelines) -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2022)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Social Media Capabilities</div>
+        <div class="badge badge-secondary text-white style-label">Citations: 19 (Crossref)</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            The development of B2B<br>
+            <span class="text-cyan-400">social networking capabilities</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Severina Cartwright, Iain A. Davies
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            B2B 소셜 네트워킹 역량의 개발:<br>
+            <span class="text-indigo-300">질적 다중 사례 연구를 통한 4단계 진화론</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            영국 B2B 기업 12개 사의 47회 심층 인터뷰 분석을 기반으로 규명한 소셜 미디어 활용 능력의 점진적 고도화 및 조직적 결합 메커니즘
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">소셜 미디어 통제(Control)를 버리고 전사적 다자 대화(Dialogue)를 열어갈 때 진짜 소셜 관계 자본이 축적됩니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "The adoption of social media (SM) as a marketing platform in B2B markets has been growing, but there is a lack of research exploring the development of the social networking capabilities organizations need to build and maintain relationships via SM. By applying a qualitative, in-depth, case study research design in 12 organizations, this paper identifies a four-stage journey of social networking capability development. The stage-model captures the types of capabilities organizations engage or develop to be effective in creating actor engagement, network development and network management on SM. Through this, we demonstrate how the capabilities build over time and integrate with each other to improve the organizations' perceived competitive performance on SM. We highlight the operational, dynamic and adaptive capabilities needed to build capacity for seizing the opportunities available through SM."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "B2B 시장에서 마케팅 플랫폼으로서의 소셜 미디어(SM) 채택이 증가하고 있으나, 소셜 미디어를 통해 관계를 구축하고 유지하기 위해 조직이 필요로 하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">소셜 네트워킹 역량</span>(social networking capabilities) 개발을 탐구한 연구는 부족하다. 12개 조직을 대상으로 한 질적, 심층 사례 연구 설계를 적용하여, 본 논문은 소셜 네트워킹 역량 개발의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">4단계 여정</span>을 규명하였다. 이 단계 모델은 조직이 소셜 미디어상에서 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">행위자 참여</span>(actor engagement), 네트워크 개발(network development) 및 네트워크 관리(network management)를 효과적으로 수행하기 위해 동원하거나 개발해야 하는 역량의 유형을 포착한다. 이를 통해 역량들이 시간이 지남에 따라 어떻게 축적되고 서로 통합되어 소셜 미디어상에서 조직의 인지된 경쟁적 성과를 향상시키는지 입증한다. 우리는 소셜 미디어가 제공하는 기회를 포착하기 위해 필요한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">운영적(operational), 동적(dynamic), 적응적(adaptive) 역량</span>을 강조한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Social Networking Capabilities</td>
+                  <td>소셜 네트워킹 역량</td>
+                  <td class="text-sm">단순한 소셜 플랫폼 게시 도구 사용 기술을 넘어, 소셜 미디어를 기반으로 기업 간(B2B) 관계 자산을 연결 및 관리하는 총체적 조직적 역량입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Actor Engagement</td>
+                  <td>행위자 참여</td>
+                  <td class="text-sm">B2B 파트너들이 메시지 관찰자를 넘어 공동 창작(Co-creation) 및 댓글 등 양방향 토의에 능동적으로 몰입해 소통을 이어가는 행위 상태입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Four-Stage Journey</td>
+                  <td>소셜 활용 4단계 진화 여정</td>
+                  <td class="text-sm">소셜 미디어 성숙도를 임기응변식 도구 도입(1단계)에서부터 전사적인 유기적 커뮤니티 정착(4단계)까지 4개의 계단식 발전 경로로 세분화한 개념입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Operational, Dynamic, Adaptive Capabilities</td>
+                  <td>운영적, 동적, 적응적 역량</td>
+                  <td class="text-sm">기존 현상 유지(Operational), 환경 변화 대응을 위한 자원 재구성(Dynamic), 외부 시장 예측 및 정보 선제 결합(Adaptive) 능력을 뜻합니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 비즈니스 세미나에서 <strong>1분 만에</strong> 연구 요체를 명확히 공유할 수 있도록 핵심 주장 단계를 수직 구조로 설계했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">B2B 소셜 활용을 돕는 역량과 진화 경로는 무엇인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">4단계 성숙 과정 동안 다원적 역량이 통합됨</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">네트워크 통제 무력화 실증 및 다차원 결합 제안</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B 거래 관행에서 소셜 미디어를 전략적으로 안착시키는 계단식 여정은 어떻게 정의되며, 도약을 위해 장착해야 하는 단계별 조직적 능력(Capabilities)의 조합은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> 기업들은 4개 발전 단계(Ad-hoc &rarr; Siloed &rarr; Embedded &rarr; Community)를 밟아가며 성장합니다. 이때 단순 기능적 운영 역량(KPI, 채널관리)에서 프로세스를 쪼개고 흔드는 동적 역량, 나아가 개방형 소통을 주도하는 적응적 역량으로 진화 및 결합이 수반됩니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 기존에 개별적으로 다뤄지던 소셜 채택 이론들을 학술적 동적/적응 역량 관점으로 연계하였고, 소셜 미디어를 홍보실처럼 '통제(Control)'할수록 네트워크 성과가 줄어들고(네트워크 패러독스), 마케팅부가 권한을 실무진에게 '탈중앙화'해야 가치가 커짐을 보여주었습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "소셜 미디어를 일방적 광고판처럼 통제(Control)하기를 포기하고, 전사 직원이 시장 학습을 토대로 파트너들과 개방형 대화(Dialogue)를 하도록 장려할 때 가치가 극대화됩니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구 타당성을 위해 논문 원서 본문의 질적 인용구(Quotes)와 물리적 위치를 대조 표로 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">소셜 활용의 4단계 진화 여정 경로 존재</td>
+                <td class="text-sm italic text-slate-600">
+                  "...this paper identifies a four-stage journey of social networking capability development. The stage-model captures the types of capabilities organizations engage or develop..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / 144페이지 (Sec. 4)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">1단계 기업들의 통제 불능 및 계획 부재 상태</td>
+                <td class="text-sm italic text-slate-600">
+                  "We find organizations starting SM activities do so in a highly disorganized way, focusing on establishing a presence on an array of different SM channels, but without a clearly articulated and integrated SM strategy..."
+                </td>
+                <td class="text-right font-medium text-slate-500">144페이지 (Sec. 4.1)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">2단계 마케팅 부서 사일로화와 일방형 유통 습성</td>
+                <td class="text-sm italic text-slate-600">
+                  "...these groups tend to remain in a silo within the marketing function and attempt to retain overall control of all SM activity... using SM as an information dissemination tool..."
+                </td>
+                <td class="text-right font-medium text-slate-500">145페이지 (Sec. 4.2.1)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">3단계 심층적인 시장 감지 및 대화 계획 수립</td>
+                <td class="text-sm italic text-slate-600">
+                  "The specialist teams however have driven investment in market learning with progressive market research, clear targeting, and the collection and sharing of engagement metrics."
+                </td>
+                <td class="text-right font-medium text-slate-500">146페이지 (Sec. 4.3.1)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">4단계 분권화 및 직원을 매개로 한 네트워크 효과 촉발</td>
+                <td class="text-sm italic text-slate-600">
+                  "It's more powerful when every individual of the business is sharing content because you connect with a far wider audience... SM is viewed as a more open, networked organization."
+                </td>
+                <td class="text-right font-medium text-slate-500">147페이지 (Sec. 4.4.2)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">소셜 미디어 통제권 포기와 네트워크 생성 가치의 비례</td>
+                <td class="text-sm italic text-slate-600">
+                  "Marketing relinquishing control over SM content generation and curation appears a key step... that trying to control a network diminishes the value-creating potential of that network."
+                </td>
+                <td class="text-right font-medium text-slate-500">148페이지 (Sec. 5)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- SVG Framework Diagram -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Qualitative Evolution Framework (질적 성숙 진화 모델)</h3>
+          
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 450" class="w-full h-auto">
+              <!-- Define Marker for Arrows -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+                </marker>
+              </defs>
+
+              <!-- Background Lines / Visual Grid (subtle) -->
+              <line x1="20" y1="210" x2="780" y2="210" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4 4" />
+
+              <!-- STAGE 1 CARD -->
+              <rect x="20" y="20" width="170" height="170" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" />
+              <rect x="20" y="20" width="170" height="36" rx="10" fill="#94a3b8" />
+              <!-- Overwrite bottom rounded corners of the header rect -->
+              <rect x="20" y="46" width="170" height="10" fill="#f8fafc" />
+              <text x="105" y="42" text-anchor="middle" font-weight="700" fill="#ffffff" font-size="12">Stage 1: 임기응변 (Ad hoc)</text>
+              <text x="30" y="75" fill="#334155" font-size="11" font-weight="600">• 무전략 / 무목적</text>
+              <text x="30" y="95" fill="#334155" font-size="11">• 자원 부족 (파트타임)</text>
+              <text x="30" y="115" fill="#334155" font-size="11">• 채널 수 늘리기 중심</text>
+              <text x="30" y="135" fill="#334155" font-size="11">• 시장 조사 없음</text>
+              <text x="30" y="155" fill="#334155" font-size="11">• 뉴스 단순 공유/재포스팅</text>
+
+              <!-- STAGE 2 CARD -->
+              <rect x="215" y="20" width="170" height="170" rx="10" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" />
+              <rect x="215" y="20" width="170" height="36" rx="10" fill="#0d9488" />
+              <rect x="215" y="46" width="170" height="10" fill="#f0fdfa" />
+              <text x="300" y="42" text-anchor="middle" font-weight="700" fill="#ffffff" font-size="12">Stage 2: 고립형 실험 (Siloed)</text>
+              <text x="225" y="75" fill="#0f172a" font-size="11" font-weight="600">• 마케팅 부서 독점</text>
+              <text x="225" y="95" fill="#0f172a" font-size="11">• 소셜 전담인력 확보</text>
+              <text x="225" y="115" fill="#0f172a" font-size="11">• 콘텐츠 형태 다양화</text>
+              <text x="225" y="135" fill="#0f172a" font-size="11">• 일방향 메시지 배포</text>
+              <text x="225" y="155" fill="#0f172a" font-size="11">• 청중 니즈 분석 미흡</text>
+
+              <!-- STAGE 3 CARD -->
+              <rect x="410" y="20" width="170" height="170" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="2" />
+              <rect x="410" y="20" width="170" height="36" rx="10" fill="#0284c7" />
+              <rect x="410" y="46" width="170" height="10" fill="#f0f9ff" />
+              <text x="495" y="42" text-anchor="middle" font-weight="700" fill="#ffffff" font-size="12">Stage 3: 관계형 (Embedded)</text>
+              <text x="420" y="75" fill="#0f172a" font-size="11" font-weight="600">• 마케팅 전략에 내재화</text>
+              <text x="420" y="95" fill="#0f172a" font-size="11">• 소셜 전담 부서 구축</text>
+              <text x="420" y="115" fill="#0f172a" font-size="11">• 다자간 대화식 소통</text>
+              <text x="420" y="135" fill="#0f172a" font-size="11">• 정교한 청중 분석</text>
+              <text x="420" y="155" fill="#0f172a" font-size="11">• 계획된 대화 콘텐츠</text>
+
+              <!-- STAGE 4 CARD -->
+              <rect x="605" y="20" width="170" height="170" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="2" />
+              <rect x="605" y="20" width="170" height="36" rx="10" fill="#4f46e5" />
+              <rect x="605" y="46" width="170" height="10" fill="#eef2ff" />
+              <text x="690" y="42" text-anchor="middle" font-weight="700" fill="#ffffff" font-size="12">Stage 4: 커뮤니티 (Community)</text>
+              <text x="615" y="75" fill="#0f172a" font-size="11" font-weight="600">• 전사 비즈니스와 정렬</text>
+              <text x="615" y="95" fill="#0f172a" font-size="11">• 전사적 소셜 참여 유도</text>
+              <text x="615" y="115" fill="#0f172a" font-size="11">• 관계 지향 인게이지 실험</text>
+              <text x="615" y="135" fill="#0f172a" font-size="11">• 청중 및 경쟁사 심층분석</text>
+              <text x="615" y="155" fill="#0f172a" font-size="11">• 커뮤니티 기반 문화 정착</text>
+
+              <!-- Horizontal Arrows for Stages -->
+              <path d="M 190 105 L 210 105" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" />
+              <path d="M 385 105 L 405 105" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" />
+              <path d="M 580 105 L 600 105" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" />
+
+              <!-- transition requirements sections -->
+              <!-- transition 1 -> 2 -->
+              <rect x="20" y="230" width="230" height="190" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+              <text x="135" y="252" text-anchor="middle" font-weight="700" fill="#475569" font-size="11.5">1단계 &rarr; 2단계 도약 역량</text>
+              <line x1="30" y1="262" x2="240" y2="262" stroke="#e2e8f0" stroke-width="1" />
+              <text x="35" y="280" font-weight="600" fill="#4f46e5" font-size="11">운영적 역량 (Operational)</text>
+              <text x="40" y="300" fill="#334155" font-size="10.5">1) 채널 경쟁력 (적합 채널 선정)</text>
+              <text x="40" y="320" fill="#334155" font-size="10.5">2) 청중 인지 (고객 니즈 인식)</text>
+              <text x="40" y="340" fill="#334155" font-size="10.5">3) 표적 마케팅 (타겟 메시지)</text>
+              <text x="40" y="360" fill="#334155" font-size="10.5">4) 콘텐츠 관리 (포스팅 주기)</text>
+              <text x="40" y="380" fill="#334155" font-size="10.5">5) 기본 KPI 수립 (조회수 등)</text>
+
+              <!-- transition 2 -> 3 -->
+              <rect x="280" y="230" width="240" height="190" rx="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5" />
+              <text x="400" y="252" text-anchor="middle" font-weight="700" fill="#0f766e" font-size="11.5">2단계 &rarr; 3단계 도약 역량</text>
+              <line x1="290" y1="262" x2="510" y2="262" stroke="#ccfbf1" stroke-width="1" />
+              <text x="295" y="278" font-weight="600" fill="#0d9488" font-size="10">운영 역량: 1)시장조사 2)포지셔닝 3)유효지표</text>
+              <text x="295" y="294" font-weight="600" fill="#2563eb" font-size="10">동적 역량: 4)유연 프로세스 5)동적 콘텐츠</text>
+              <text x="295" y="310" font-weight="600" fill="#db2777" font-size="10">적응 역량: 6)계획된 실험 (Planned Exp.)</text>
+              <line x1="290" y1="318" x2="510" y2="318" stroke="#ccfbf1" stroke-width="1" />
+              <text x="295" y="335" fill="#334155" font-size="10" font-weight="600">• 질적 도약 요소:</text>
+              <text x="305" y="355" fill="#334155" font-size="9.5">소셜 미디어를 단순 광고가 아닌</text>
+              <text x="305" y="375" fill="#334155" font-size="9.5">관계 개발 창구로 내재화하고 부서 간</text>
+              <text x="305" y="395" fill="#334155" font-size="9.5">채널 지원 체제 및 계획적 실험 수립</text>
+
+              <!-- transition 3 -> 4 -->
+              <rect x="545" y="230" width="235" height="190" rx="8" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5" />
+              <text x="662" y="252" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="11.5">3단계 &rarr; 4단계 도약 역량</text>
+              <line x1="555" y1="262" x2="770" y2="262" stroke="#e0e7ff" stroke-width="1" />
+              <text x="560" y="278" font-weight="600" fill="#4f46e5" font-size="10">동적 역량: 1)경쟁분석 2)콘텐츠정렬</text>
+              <text x="620" y="294" font-weight="600" fill="#4f46e5" font-size="10">3)적응지표 4)채널 민첩성</text>
+              <text x="560" y="312" font-weight="600" fill="#db2777" font-size="10">적응 역량: 5)통합기획 6)시장감지 7)개방마케팅</text>
+              <line x1="555" y1="320" x2="770" y2="320" stroke="#e0e7ff" stroke-width="1" />
+              <text x="560" y="338" fill="#334155" font-size="10" font-weight="600">• 질적 도약 요소:</text>
+              <text x="570" y="358" fill="#334155" font-size="9.5">마케팅부의 전속 통제를 낮추어(탈중앙화),</text>
+              <text x="570" y="378" fill="#334155" font-size="9.5">소셜 교육을 받은 임직원 개개인이 네트워크</text>
+              <text x="570" y="398" fill="#334155" font-size="9.5">파트너들과 양방향 대화(Dialogue)를 형성</text>
+
+              <!-- Connective Dotted Lines from transitions to flow arrows -->
+              <path d="M 135 230 L 135 200 L 200 200 L 200 115" fill="none" stroke="#94a3b8" stroke-dasharray="2 2" />
+              <path d="M 400 230 L 400 115" fill="none" stroke="#0d9488" stroke-dasharray="2 2" />
+              <path d="M 662 230 L 662 200 L 590 200 L 590 115" fill="none" stroke="#4f46e5" stroke-dasharray="2 2" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+          <!-- Card 1: Operational -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">기본 역량</span>
+                <span class="text-xs text-slate-400 font-semibold">1단계 &rarr; 2단계 도약</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">운영적 역량 (Operational Capabilities)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 현재의 일상적인 마케팅 기능과 소셜 미디어 포스팅 운영을 유지하기 위한 기능 지향적 루틴.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 적정 채널 선택 능력(Competence), 고객 니즈에 대한 인지(Awareness), 타겟 메시지 배포(Targeting) 등.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Holliman & Rowley (2014); Drummond et al. (2020)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 소셜 미디어 활동의 주춧돌이 되며, 이 역량이 내재화되지 않은 채 섣부른 캠페인을 진행하면 무작위 채널 개설 후 방치되는 사태를 맞이하게 됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2: Dynamic -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">중상위 역량</span>
+                <span class="text-xs text-slate-400 font-semibold">2단계 &rarr; 3단계 도약</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">동적 역량 (Dynamic Capabilities)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 트렌드와 관계적 환경 변화에 맞춰 내부의 기존 마케팅 자산과 소셜 포스팅 흐름을 재구성(Reconfigure)하는 상위 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 타 부서와의 유연한 소셜 협업 시스템(Processes), 다차원 콘텐츠 배포 계획, 소셜 채널 민첩성(Dexterity) 등.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Teece (2007, 2014); O'Toole & McGrath (2018)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 일방향의 대고객 광고판에서 벗어나, 상호적인 가치 창출을 위해 타 부서 및 공급망 자원을 콘텐츠 기획 과정과 결착시키는 촉매 역할을 함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3: Adaptive -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">최상위 역량</span>
+                <span class="text-xs text-slate-400 font-semibold">3단계 &rarr; 4단계 도약</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">적응적 역량 (Adaptive Capabilities)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 시장 및 관계망 파트너들이 던지는 무언의 신호를 날카롭게 감지(Market Sensing)하고, 개방적으로 외부 네트워크 정보를 내부화하는 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 지속적인 콘텐츠 실험(Planned Experimentation), 예민한 시장 학습(Vigilant Learning), 개방성 마케팅(Open Marketing) 등.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Day (2011, 2014); Schilke (2014)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 자산 오케스트레이션이 내부 구조화에 머무는 것을 넘어 외부 관계망과의 투명성을 확대하게 하고, 전사 직원의 계정을 연결하여 거대한 관계적 가치를 창출하도록 지배함.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 질적 연구자가 이 연구를 그대로 복제하거나 벤치마크할 수 있도록 실증 인터뷰 및 귀납적 코딩 과정을 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">사례 복제(Replication) 샘플링 기준 정의</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  이론을 정립하기 위해 12개 영국 B2B 기업을 선택. 소셜 활용 선도 2개사 및 서비스 제공사 4개사(Literal Replication), 타 분야 제조업 및 규모별 6개사(Theoretical Replication)로 다변화하여 표본 포화 시점까지 설계함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">141~142페이지 (Sec. 3.1 & Table 1)</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">반구조화 인터뷰(Semi-structured) 설계 및 집행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  마케팅, 영업, 디지털 실무진 대상 47회 심층 면담 실시(회당 38~93분). 응답 유도에 따른 편향을 배제하고자 Dick(1990)의 'content-free' 질문과 "어떻게(How) 콘텐츠를 구성하나요?" 식의 개방형 탐침 질문 배합.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">142페이지 (Sec. 3.2)</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">오디오 전사 및 NVivo 2차 독립 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  모든 음성을 즉시 텍스트화한 뒤 NVivo 프로그램 탑재. 코딩 무결성을 기하기 위해 2명의 연구원이 독립 코딩(Independent Coding)을 적용하고 의견 불일치 구간 조정으로 구성 타당성 검증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">142페이지 (Sec. 3.2 & Fig. 1)</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">지속적 비교 분석(Constant Comparative Method) 수행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Yin(2018)의 프레임에 맞춰 개별 기업 내 분석(Within-case)과 다수 기업 횡단 분석(Cross-case)을 순차 진행. 각 테마의 귀납적 코드를 이론적 개념들과 포화될 때까지 반복 대조하여 수정 보완.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">142페이지 (Sec. 3.2)</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">Requisite Capabilities 프레임워크 구축</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  코딩 다이어그램을 바탕으로 각 진화 단계의 전환점마다 필요한 역량 요건들을 최종 정립하고, 성과에 영향을 미치는 운영/동적/적응 역량의 유기적 메커니즘을 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">144페이지 (Sec. 4 & Fig. 2 / Fig. 3)</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            논문 내에 기업 샘플 특징(Table 1), 코딩 아키텍처(Fig. 1), 구체적인 질문 접근법이 투명하게 수록되어 있어 분석 프로세스의 재현은 전적으로 가능합니다. 다만, 질적 연구의 태생적 한계로 인해 선정된 12개사의 독특한 문화적 맥락이나 임직원의 주관적인 진술 내용 자체를 동일하게 확보해 복제하는 것은 제약됩니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.2)에서 연구진들이 직접 기술한 한계점과 경계선입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>질적 연구 설계의 구조적 일반화 한계:</strong> 12개의 특정 B2B 사례 분석에 의존하여 귀납적으로 도출한 결과이기 때문에, 전체 B2B 시장이나 완전히 상이한 비즈니스 모델로 이를 일반화하기에는 명확한 통계적 한계가 존재함.
+              </li>
+              <li>
+                <strong>지리적 경계 및 샘플 편향성:</strong> 조사 대상 기업들이 영국 본사 소재 기업들로 한정되어 있어, 타 국가 및 사회적 문화권의 B2B 거래 행동 패턴과 소셜 미디어 친숙도 차이를 모델에 반영하지 못함.
+              </li>
+              <li>
+                <strong>소셜 미디어 채널별 고유 특성 미분화:</strong> B2B 소셜 활용의 핵심인 LinkedIn, Twitter(현 X), YouTube 등 개별 플랫폼 아키텍처의 관계 맺기 성격이 상이함에도 불구하고, 구분 없이 단일 소셜 미디어 범주로 분석을 시행함.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 데이터 수집 방식을 근거로 분석가가 학술적으로 제시하는 비판적 쟁점입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 횡단 데이터를 이용한 종단 여정(Journey) 유추 오류</span>
+                <p class="text-sm text-slate-700">
+                  논문은 1단계부터 4단계로 진화해 가는 '성숙의 여정'을 주장하고 있으나, 연구 설계는 특정 시점의 1회성 심층 인터뷰(Cross-sectional data)를 바탕으로 하고 있습니다. 실제로 기업들이 시간을 두고 성장해 나가는 것을 실시간 추적한 참된 종단 연구(Longitudinal research)가 아니므로, 단계 간 전환 경로의 인과성과 필수성이 철저히 규명되었다고 보기 어렵습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 샘플 선정과 생존자 편향 (Survivorship Bias)</span>
+                <p class="text-sm text-slate-700">
+                  사례로 채택된 12개사는 소셜 미디어를 원활하게 사용 중이거나 이미 중요성을 인식하고 정착시키려 애쓰는 상태의 생존 기업들입니다. 소셜 미디어 마케팅에 무모하게 자본을 투입했다가 관계 형성에 전면 실패하고 소셜 운영을 완전히 포기해 버린 B2B '실패 사례'는 표본 수집 단계에서 완전히 증발하여, 모델이 지나치게 장밋빛 성장의 경로만을 대변할 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 객관적 성과 성적표 결여 및 주관적 옹호 편향</span>
+                <p class="text-sm text-slate-700">
+                  진화 단계 분류 및 경쟁력 성과의 진단은 전적으로 인터뷰 응답자(주로 소셜 미디어를 전담하는 마케터 및 부서 임직원)들의 자기 보고식 구두 진술에 의존하고 있습니다. 실제 소셜 유입을 통한 신규 고객 확보 데이터(CRM), 리드 타임 단축, 재무적 성과 지표와 대조하여 검증하지 않았기 때문에, 부서원들의 사후 전략 합리화 편향이 유입되었을 가능성이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 플랫폼 수명 및 생성 AI 환경 변화의 맥락 특수성</span>
+                <p class="text-sm text-slate-700">
+                  이 연구가 수행된 2021~2022년은 생성 AI 콘텐츠 작성이나 플랫폼 자동화 봇 등이 대중화되기 전이었습니다. 오늘날처럼 AI를 통해 콘텐츠가 무제한 공급되고 플랫폼 알고리즘이 임의로 노출을 제한하는 복잡한 환경에서는, 4단계의 탈중앙화된 소설 활동이 되려 메시지 신뢰도 저하와 스팸화로 이어져 B2B 관계를 훼손할 위험이 있어 모형의 장기적 유효성에 의문이 따릅니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>The development of B2B social networking capabilities</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

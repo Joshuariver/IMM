@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open for business: Towards an interactive view on dynamic capabilities - IMM 2022</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2022)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Interactive Dynamic Capabilities</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Process Theory</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Open for business:<br>
+            <span class="text-cyan-400">Towards an interactive view on dynamic capabilities</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Xinlu Qiu, Elsebeth Holmen, Malena Havenvid, Luitzen De Boer, Fanny Hermundsdottir
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            비즈니스에 대한 개방성:<br>
+            <span class="text-indigo-300">동적 역량에 대한 상호작용적 관점을 향하여</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            노르웨이의 양식업(Aqua-culture) 및 제조업(Manufacturing) 복수 질적 사례에 대한 종단적 프로세스 분석을 통한 동적 역량 이론의 양방향성 확장
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">네트워크 시대의 생존은 자원을 독점 통제하는 능력이 아닌, 파트너와 양방향으로 상호작용하는 역량에 달려 있습니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Theories of business relationships and networks suggest that a firm's relationships with other organizations matter for its performance and survival (Håkansson & Snehota, 1995). Inspired by business relationship and network perspectives, we expand Teece's (2007) dynamic capabilities model and develop an interactive dynamic capabilities framework with three pairs of capabilities: sensing and being sensed, seizing and being seized, and reconfiguring and being reconfigured. Conducting process data analysis of two cases, we shed light on how firms can change and enhance their business performance through the three pairs of interactive dynamic capabilities. The framework adds to the theory of dynamic capabilities by conceptualizing how they can operate across firm boundaries, in inter-organizational relationships, networks or ecosystems populated by many organizations involved actively, and interactively, in sensing, seizing and reconfiguring themselves and each other."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "비즈니스 관계 및 네트워크 이론은 타 조직과의 관계가 기업의 성과와 생존에 중요하다는 것을 보여준다(Håkansson & Snehota, 1995). 비즈니스 관계 및 네트워크 관점의 영감을 받아, 본 연구는 Teece(2007)의 동적 역량 모델을 확장하여 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">감지하기와 감지되기</span>(sensing and being sensed), <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">포착하기와 포착되기</span>(seizing and being seized), <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">재구성하기와 재구성되기</span>(reconfiguring and being reconfigured)라는 세 가지 쌍의 역량으로 구성된 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">상호작용적 동적 역량</span> 프레임워크를 개발하였다. 두 가지 사례에 대한 프로세스 데이터 분석을 수행함으로써, 기업들이 세 쌍의 상호작용적 동적 역량을 통해 어떻게 변화를 주도하고 비즈니스 성과를 향상시킬 수 있는지 규명하였다. 본 프레임워크는 기업 경계를 넘어 많은 조직이 활동적으로, 그리고 상호작용적으로 자신과 서로를 감지, 포착, 재구성하는 데 참여하는 조직 간 관계, 네트워크 또는 생태계에서 동적 역량이 어떻게 작동할 수 있는지를 개념화함으로써 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">동적 역량 이론</span>에 기여한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Dynamic Capabilities</td>
+                  <td>동적 역량</td>
+                  <td class="text-sm">급변하는 비즈니스 환경에 조응하기 위해 내외부 역량을 유연하게 조정하는 역량을 뜻하는 표준 학술 용어입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Interactive Dynamic Capabilities</td>
+                  <td>상호작용적 동적 역량</td>
+                  <td class="text-sm">독자적 통제 수준의 역량을 넘어, 네트워크 내 파트너와 상호작용을 촉진하고 조율하는 확장된 역량 세트입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Sensing and Being Sensed</td>
+                  <td>감지하기와 감지되기</td>
+                  <td class="text-sm">자사가 기회를 찾는 탐색(Sensing) 활동과 더불어, 외부 파트너가 자사를 파악하고 기회를 제안할 수 있도록 노출하는 루틴입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Seizing and Being Seized</td>
+                  <td>포착하기와 포착되기</td>
+                  <td class="text-sm">스스로 기회를 상업화(Seizing)하는 것뿐 아니라 파트너의 비즈니스 모델이나 기회 포착 이니셔티브에 부응해 결합(Being Seized)하는 역량입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Reconfiguring and Being Reconfigured</td>
+                  <td>재구성하기와 재구성되기</td>
+                  <td class="text-sm">자원 구조를 조율(Reconfiguring)함과 동시에 파트너의 혁신 요구사항 및 공공적 세칙에 발맞춰 시스템을 변경 적응시키는 능력입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 연구 세미나에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">어떻게 네트워크 파트너들의 혁신을 수용하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">일방향 통제 탈피, 쌍방향 상호작용 역량이 핵심</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">Teece의 일방향성 한계 극복 및 IMP 융합</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 기업의 동적 역량이 자신을 둘러싼 비즈니스 네트워크 내 타 기업들의 감지, 포착, 재구성 활동을 조화롭게 수용 및 반영할 수 있는 메커니즘은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> 기업의 성과와 지속가능 혁신은 단독의 일방향적 능력이 아닌, 외부 파트너가 나를 감지하고(Being Sensed), 나를 기회 모델에 가담시키며(Being Seized), 공급망 변화 요건에 맞춰 자원을 적응(Being Reconfigured)하는 양방향 상호적 역량의 균형에서 창출됩니다.</li>
+                  <li><strong>이론/실무 기여:</strong> Teece(2007)의 전통적 프레임워크가 가졌던 초점 기업 중심의 독점 통제적 시각을 교정하고, 관계적 관점에서 중소 협력사와 대기업, 나아가 공공 기관 간의 호혜적 적응 메커니즘을 입증하였습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "네트워크 시대의 생존은 자원을 독점 통제하는 능력이 아닌, 파트너와 서로 감지하고, 포착하며, 재구성하는 양방향 상호작용 역량에 달려 있다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          이론적 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">비즈니스 네트워크 내 상호의존성</td>
+                <td class="text-sm italic text-slate-600">
+                  "This kind of interdependence between firms means that the firm's development process is interactive and responsive, rather than independent."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 154 (Sec. 5.1.1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">Being Sensed(감지되기)의 개념화</td>
+                <td class="text-sm italic text-slate-600">
+                  "...we define 'being sensed' capacities as the firm's systems, processes and individuals with capacities that enable outside actors to sense and shape opportunities..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 150 (Sec. 2.3)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">Being Seized(포착되기)의 개념화</td>
+                <td class="text-sm italic text-slate-600">
+                  "...we define 'being seized' capacities as the firm's structures, procedures and individuals with capacities that enable the firm to engage in efforts by outside actors to seize opportunities..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 151 (Sec. 2.3)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">Being Reconfigured(재구성되기) 개념화</td>
+                <td class="text-sm italic text-slate-600">
+                  "...we define 'being reconfigured' capacities as the firm's structures, processes and capacities of individuals which enable continuous alignment and realignment of the specific tangible and intangible assets..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 151 (Sec. 2.3)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">임격실재론 및 질적 종단 케이스 연구</td>
+                <td class="text-sm italic text-slate-600">
+                  "We chose the case study method because (1) our focus is to answer how, what, and why... ontological position is closer to critical realism..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 151 (Sec. 3)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Interactive Dynamic Capabilities Model (연구 개념 프레임워크)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 350" class="w-full h-auto">
+              <!-- Definitions of Markers -->
+              <defs>
+                <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7"/>
+                </marker>
+                <marker id="arrow-indigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/>
+                </marker>
+              </defs>
+
+              <!-- Focal Firm Block -->
+              <rect x="30" y="30" width="220" height="290" rx="12" fill="#ecfeff" stroke="#06b6d4" stroke-width="2"/>
+              <text x="140" y="62" text-anchor="middle" font-weight="700" fill="#0891b2" font-size="15">Focal Firm (초점 기업)</text>
+              <text x="140" y="80" text-anchor="middle" fill="#67e8f9" font-size="11" font-weight="600" class="uppercase">Internal Routines</text>
+
+              <!-- Focal Firm Sub-boxes -->
+              <rect x="50" y="100" width="180" height="45" rx="6" fill="#ffffff" stroke="#0891b2" stroke-dasharray="2 2" stroke-width="1.5"/>
+              <text x="140" y="127" text-anchor="middle" font-weight="600" fill="#0e7490" font-size="13">Sensing (감지)</text>
+
+              <rect x="50" y="165" width="180" height="45" rx="6" fill="#ffffff" stroke="#0891b2" stroke-dasharray="2 2" stroke-width="1.5"/>
+              <text x="140" y="192" text-anchor="middle" font-weight="600" fill="#0e7490" font-size="13">Seizing (포착)</text>
+
+              <rect x="50" y="230" width="180" height="45" rx="6" fill="#ffffff" stroke="#0891b2" stroke-dasharray="2 2" stroke-width="1.5"/>
+              <text x="140" y="257" text-anchor="middle" font-weight="600" fill="#0e7490" font-size="13">Reconfiguring (재구성)</text>
+
+
+              <!-- Counterparts Block -->
+              <rect x="550" y="30" width="220" height="290" rx="12" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="660" y="62" text-anchor="middle" font-weight="700" fill="#4f46e5" font-size="15">Counterparts (파트너 기업)</text>
+              <text x="660" y="80" text-anchor="middle" fill="#a5b4fc" font-size="11" font-weight="600" class="uppercase">Partner Routines</text>
+
+              <!-- Counterparts Sub-boxes -->
+              <rect x="570" y="100" width="180" height="45" rx="6" fill="#ffffff" stroke="#4f46e5" stroke-dasharray="2 2" stroke-width="1.5"/>
+              <text x="660" y="127" text-anchor="middle" font-weight="600" fill="#4338ca" font-size="13">Sensing (감지)</text>
+
+              <rect x="570" y="165" width="180" height="45" rx="6" fill="#ffffff" stroke="#4f46e5" stroke-dasharray="2 2" stroke-width="1.5"/>
+              <text x="660" y="192" text-anchor="middle" font-weight="600" fill="#4338ca" font-size="13">Seizing (포착)</text>
+
+              <rect x="570" y="230" width="180" height="45" rx="6" fill="#ffffff" stroke="#4f46e5" stroke-dasharray="2 2" stroke-width="1.5"/>
+              <text x="660" y="257" text-anchor="middle" font-weight="600" fill="#4338ca" font-size="13">Reconfiguring (재구성)</text>
+
+
+              <!-- Interaction Paths (Dual Arrows) -->
+              <!-- Row 1 -->
+              <path d="M 240 112 L 540 112" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <path d="M 540 132 L 240 132" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow-indigo)"/>
+              <rect x="310" y="112" width="180" height="18" rx="4" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+              <text x="400" y="125" text-anchor="middle" font-weight="700" fill="#0f172a" font-size="10">Sensing / Being Sensed</text>
+
+              <!-- Row 2 -->
+              <path d="M 240 177 L 540 177" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <path d="M 540 197 L 240 197" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow-indigo)"/>
+              <rect x="310" y="177" width="180" height="18" rx="4" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+              <text x="400" y="190" text-anchor="middle" font-weight="700" fill="#0f172a" font-size="10">Seizing / Being Seized</text>
+
+              <!-- Row 3 -->
+              <path d="M 240 242 L 540 242" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <path d="M 540 262 L 240 262" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow-indigo)"/>
+              <rect x="310" y="242" width="180" height="18" rx="4" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+              <text x="400" y="255" text-anchor="middle" font-weight="700" fill="#0f172a" font-size="10">Reconfiguring / Being Reconfigured</text>
+
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">개념 차원 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Sensing Pair</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">감지하기 / 감지되기 (Sensing & Being Sensed)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자사가 외부의 기회와 고객의 충족되지 못한 니즈를 탐색(Sensing)하는 일방 루틴뿐 아니라, 파트너가 자사를 관찰하여 신규 협력안을 제의할 수 있도록 회사 전략과 역량을 대외에 투명하게 노출(Being Sensed)하는 쌍방향 활동.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의 및 측정:</strong> R&D 인프라 공개도, 전시회 참가 빈도, 공급업체의 날 설명회 개최 횟수, 산학 연계 연구 과제 등 질적 이력 추적.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>사례 내 실증 분석:</strong> 사례 A의 Firm A가 전시회에서 Firm B에게 기술적 역량을 노출해 협력을 제안받고, 컨퍼런스에서 Firm C와 리사이클링 기회를 센싱/비잉센싱한 절차로 실증됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">개념 차원 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Seizing Pair</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">포착하기 / 포착되기 (Seizing & Being Seized)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 스스로 발견한 시장 기회를 자원 투입 및 독자적 비즈니스 모델로 실현(Seizing)하는 활동과 동시에, 파트너사가 추진하는 가치 창출 플랫폼이나 비즈니스 계획에 자사 설비를 결합시켜 파트너의 비즈니스를 지원(Being Seized)하는 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의 및 측정:</strong> 다년 단위의 전략적 공급 계약 체결, 상호 맞춤형 설비 공동 구매 및 R&D 프로젝트 투자 비율.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>사례 내 실증 분석:</strong> 사례 B의 Firm D가 노르웨이 지자체 복지기구(Org A)의 이민자 통합 및 고용 창출이라는 공공 비즈니스에 수동 조립 공정을 기꺼이 헌신하며 'Being Seized'됨으로써 고착/독점 지위를 형성함.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">개념 차원 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Reconfiguring Pair</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">재구성 / 재구성되기 (Reconfiguring & Being Reconfigured)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 시장 변화에 직면해 기업 스스로 조직 구조와 자산을 변혁(Reconfiguring)하는 자율 능력과, 네트워크 파트너들의 신규 프로세스 표준이나 환경 규제 준수 요구에 대응하여 내부 운영 시스템과 사양을 유연하게 튜닝(Being Reconfigured)하는 수용력.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의 및 측정:</strong> 자재 세척 기술 변경 적응률, 조립 라인 리레이아웃 실행 여부, 연간 합동 리뷰를 통한 규칙 개정 건수.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>사례 내 실증 분석:</strong> 사례 A에서 재활용 플라스틱을 가공하는 Firm C의 세척 표준에 맞춰 자사 사출 성형 루틴을 바꾼 Firm A의 기술적 순응과 재조정 프로세스로 구체화됨.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 타 연구자가 실증 연구 절차를 타임라인으로 단계화하여 재현할 수 있도록 정렬하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 온톨로지 확립 및 프레임워크 초기 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  임계실재론(Critical Realism) 관점에서 현상 이면의 인과 메커니즘을 파악하기 위한 기초 프레임워크(3쌍의 상호작용적 역량)를 Teece(2007)와 IMP 네트워크 관점 융합을 통해 수립합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 150-151, Section 2.3 & 3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">다중 사례 연구 대상 선정 (Purposive Sampling)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  1년 이상의 파트너십 기간, 동반 전략 변화 경험, 민간-민간 협력(양식업) 및 민간-공공 협력(제조 배관업) 대조군 배치의 3대 기준을 만족하는 노르웨이 대표 파트너십 사례를 표본 선정합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 151, Section 3 & Table 1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">다각적 데이터 수집 (May 2014 - May 2018)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  이메일 및 전화 조율 후 총 24회에 걸쳐 양방향 파트너사 전체 임원진(CEO, CFO, R&D 및 구매 임원) 대상 준구조화 인터뷰를 집행하고, 공장 방문 실사 및 정기 주주 간담회 노트를 확보합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 152, Section 3 & Table 2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">시각적 매핑 전략(Visual Mapping) 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Langley(1999)의 지침에 기초하여 각 관계의 히스토리 내 임계 국면(Phases), 도입 배경 조건, 시계열 사건 흐름을 다이어그램으로 도식화하여 사건 간 인과 고리를 구조화합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 152, Section 3 & 4</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">이론적 통합 및 체계적 결합</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Dubois & Gadde(2002)의 abductive 질적 분석 지침을 적용하여 데이터와 초기 3쌍 프레임워크를 수십 차례 상호 교정해 최종 수용적 루틴들의 학술적 정의를 마무리합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 154-155, Section 5</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            사례 프로세스의 데이터 수집 절차와 학술 분석론은 상세히 묘사되어 논리적 재현은 가능하나, 노르웨이 로컬 기업 내부 경영 미팅록, CEO 비공개 서면 및 지자체(NAV) 연계 데이터는 제3자가 독자적으로 다시 확보할 수 없으므로 실증적 완전 재현은 제한됩니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>지리적 및 문화적 한정성:</strong> 노르웨이(양식업 및 제조/배관 배급)라는 고도의 사회적 신뢰와 긴밀한 정부 지원(NAV)이 보장된 단일 국가의 표본 특성 상, 규제나 문화가 다른 해외 시장에의 일반화에 주의해야 합니다.
+              </li>
+              <li>
+                <strong>사례 연구의 크기 한계:</strong> 단 2개의 다중 사례 분석에만 한정되어 있어, 거대한 공급망 생태계나 수백 개의 공급사가 포진한 복합 글로벌 네트워크의 통제 방식을 충분히 반영하지 못했습니다.
+              </li>
+              <li>
+                <strong>상호작용 역량 균형의 조건적 한계:</strong> Sensing과 Being Sensed 같은 쌍방향 역량이 충돌하거나 가용 자원이 제한될 때, 경영진이 우선시해야 할 전략적 배분 순위를 명확히 제시하지 못했습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">질적 분석의 타당성과 인과 고리에 대해 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 생존자 편향 (Survivor Bias)</span>
+                <p class="text-sm text-slate-700">
+                  사례에 채택된 두 연합체(Firm A-B-C 및 Firm D-Org A)는 이미 다년간 성공적인 혁신 성과를 입증한 '생존 챔피언'들입니다. 파트너에게 무리하게 사양을 맞추고(Being Reconfigured) 프로세스에 가담(Being Seized)해주려다 기술 기밀이 유출되거나 재무적 부실을 겪고 해체된 수많은 '실패 기업'들의 기록이 차단되어 있어, 이 프레임워크가 가치창출에 항상 긍정적인 것으로 오도할 우려가 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 권력 불균형 및 갑을 역학 은폐</span>
+                <p class="text-sm text-slate-700">
+                  사례 A의 Firm A는 영세 가족 기업이고 Firm B는 상장 대기업입니다. 논문에서는 호혜적 상호작용 역량의 아름다운 조화로 묘사했으나, 실제 비즈니스 생태계에서 Firm A는 8년 장기 계약을 상실하지 않기 위해 대기업의 요구에 종속적으로 끌려갈 수밖에 없었을(Being Reconfigured) 권력 구조적 한계를 '상호성'이란 개념으로 낭만화하여 미화했을 가능성이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 회고적 서사 오류 및 합리화</span>
+                <p class="text-sm text-slate-700">
+                  실증 데이터의 거의 전부가 경영진 24명의 구두 회고록성 증언에 의존하고 있습니다. 인간의 인지 편향 상 과거의 실수나 실패 요인은 감추고, 성공 후 결과를 바탕으로 전략적 선견지명이 있었던 것처럼 사후 합리화(Social desirability bias)했을 리스크가 짙으나 재무적, 물리적 객관 데이터 교차 검증은 보이지 않습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 인과의 방향성 (Reverse Causality)</span>
+                <p class="text-sm text-slate-700">
+                  "상호작용적 동적 역량이 갖춰져 있어서 동반 성장과 환경 혁신에 도달했다"기보다, "노르웨이 시장 내 유일한 솔루션 공급 기업(Firm D)이거나 탄탄한 현금 유동성을 보유한 덕에 파트너의 이민자 복지 모델이나 값비싼 리사이클링 설비 튜닝을 수용할 여건이 허락되었다"는 인과 관계의 전도가 발생했을 가능성을 부정하기 어렵습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Open for business: Towards an interactive view on dynamic capabilities</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

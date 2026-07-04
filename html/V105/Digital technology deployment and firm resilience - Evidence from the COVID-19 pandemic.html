@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Technology Deployment and Firm Resilience - IMM 2022</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Active navigation styling */
+    .nav-active {
+      color: #0f172a !important;
+      font-weight: 600;
+      border-left: 2px solid #3b82f6;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <div class="navbar bg-slate-900 text-white shadow-md px-4 lg:px-8">
+    <div class="flex-1">
+      <a class="btn btn-ghost normal-case text-xl font-bold tracking-tight text-cyan-400" href="#">IMM Research Brief</a>
+    </div>
+    <div class="flex-none hidden lg:block">
+      <ul class="menu menu-horizontal px-1 gap-2 text-slate-300 style-label">
+        <li><a href="#abstract" class="hover:text-cyan-400">초록</a></li>
+        <li><a href="#claims" class="hover:text-cyan-400">핵심 주장</a></li>
+        <li><a href="#evidence" class="hover:text-cyan-400">근거 데이터</a></li>
+        <li><a href="#model" class="hover:text-cyan-400">연구 모델 & 변수</a></li>
+        <li><a href="#method" class="hover:text-cyan-400">분석 방법론</a></li>
+        <li><a href="#limitations" class="hover:text-cyan-400">한계점 & 비판</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2022)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Firm Resilience</div>
+        <div class="badge badge-secondary text-white style-label">Citations: 131 (Crossref)</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Digital technology deployment and firm resilience:<br>
+            <span class="text-cyan-400">Evidence from the COVID-19 pandemic</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Lixu Li, Zhiqiang Wang, Fei Ye, Lujie Chen, Yuanzhu Zhan
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            디지털 기술 배치와 기업 회복탄력성:<br>
+            <span class="text-indigo-300">코로나19 팬데믹으로부터의 실증 증거</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            중국 제조업 기업 162개 사의 설문 조사를 기반으로 한 기술 배치 범위(Breadth)와 깊이(Depth)의 차별적 효과 분석
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">디지털 기술을 넓게 쓰기보다 특정 업무에 깊이 내재화해야 공급망 위기에서 살아남습니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Although many firms are aggressively deploying diverse digital technologies (DTs) at inter- and intra-organizational levels, not all firms have achieved the anticipated resilience, especially in the face of supply chain disruptions caused by “black swan” events such as the COVID-19 pandemic. To demystify this phenomenon, we draw on the asset orchestration perspective to investigate how breadth (i.e., the scope) and depth (i.e., the scale) of DT deployment influence a firm’s resilience to supply chain disruptions. Survey data from 162 Chinese manufacturing firms show that the depth of DT deployment exerts a positive effect on firm resilience. Interestingly, the breadth has a non-significant effect on firm resilience. Moreover, while the breadth and depth of DT deployment both enhance supply chain coordination, supply chain coordination mediates only the relationship between DT deployment depth and firm resilience. Finally, market acuity positively moderates the relationship between supply chain coordination and firm resilience."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "많은 기업들이 조직 내부 및 조직 간 수준에서 다양한 디지털 기술(DT)을 적극적으로 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">배치/도입</span>하고 있음에도 불구하고, 모든 기업이 기대했던 수준의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">회복탄력성</span>을 달성한 것은 아니며, 특히 코로나19 팬데믹과 같은 '블랙 스완' 이벤트로 인한 공급망 중단에 직면했을 때 그러하다. 이러한 현상을 규명하기 위해 본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">자산 오케스트레이션 관점</span>을 바탕으로 디지털 기술 배치의 범위(Breadth, 다양성)와 깊이(Depth, 활용 규모)가 공급망 중단에 대한 기업의 회복탄력성에 어떻게 영향을 미치는지 조사하였다. 162개 중국 제조업 기업의 설문조사 데이터를 분석한 결과, 디지털 기술 배치의 깊이는 기업 회복탄력성에 긍정적인 영향을 미치는 것으로 나타났다. 흥미롭게도, 배치의 범위는 기업 회복탄력성에 유의미한 영향을 미치지 않았다. 또한, 디지털 기술 배치의 범위와 깊이 모두 공급망 협업을 향상시키지만, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">공급망 협업</span>은 디지털 기술 배치의 깊이와 기업 회복탄력성 간의 관계만을 매개하는 것으로 밝혀졌다. 마지막으로, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">시장 예민성/통찰력</span>은 공급망 협업과 기업 회복탄력성 간의 관계를 긍정적으로 조절하였다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">DT Deployment (Breadth/Depth)</td>
+                  <td>디지털 기술 배치 (범위/깊이)</td>
+                  <td class="text-sm">단순 채택(Adoption)을 넘어, 업무 기능에 배치(Deployment)하여 가시화하는 조직적 범위(다양성)와 강도(깊이)를 의미합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Firm Resilience</td>
+                  <td>기업 회복탄력성</td>
+                  <td class="text-sm">외부 교란(공급망 중단)에 유연하게 대응하고 신속히 복원하는 능력을 가리키는 학술 표준 용어입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Asset Orchestration</td>
+                  <td>자산 오케스트레이션</td>
+                  <td class="text-sm">동적 역량 관점에서 기업이 자원을 단순히 획득하는 것을 넘어, 이를 조율하고 시너지를 내는 전략 프로세스입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Supply Chain Coordination (SCC)</td>
+                  <td>공급망 협업 / 조정</td>
+                  <td class="text-sm">정보 공유 및 공동 의사결정을 통해 공급망 파트너들이 업무 흐름을 맞춰가는 총체적 연계 활동입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Market Acuity</td>
+                  <td>시장 예민성 / 통찰력</td>
+                  <td class="text-sm">시장 신호 및 고객 요구를 예리하게 해석하여 전략적 행동으로 연결시키는 조직적 정보 민감도입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">어떤 기술 활용 방식이 위기에 유효한가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">백화점식 도입보다 깊은 내재화가 답이다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">자산 오케스트레이션과 시장 통찰력의 융합</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 단순히 디지털 기술을 많이 도입하면 공급망 위기에서 살아남을 수 있는가? 기술 배치의 범위(Breadth)와 깊이(Depth)가 기업 회복탄력성에 미치는 영향은 어떻게 다른가?</li>
+                  <li><strong>핵심 발견:</strong> 디지털 기술의 도입 범위(Breadth)는 회복탄력성에 직접적인 영향이 없습니다. 반면, 핵심 5대 프로세스(생산, 조달, 물류 등)에 기술을 깊게 적용한 <strong>깊이(Depth)</strong>는 기업 회복탄력성을 직접 및 간접(공급망 협업 매개)으로 유의하게 향상시킵니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 기술 도입에 관한 혼재된 선행 논의들을 자산 오케스트레이션(Asset Orchestration) 관점에서 해결하였으며, 공급망 정보 조율이 성과로 전환되기 위해서 <strong>시장 예민성(Market Acuity)</strong>이 필수 조절 요인임을 입증하였습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "다양한 기술을 널리 까는 것(Breadth)보다, 핵심 업무에 기술을 깊게 박아 넣는 것(Depth)이 공급망 협업 및 시장 통찰력과 시너지를 이루어 기업을 살아남게 합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">DT 배치 깊이(Depth)의 회복탄력성 강화 효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the depth of DT deployment exerts a positive effect on firm resilience. Interestingly, the breadth has a non-significant effect on firm resilience."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 195 (Sec. 4.2)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">DT 배치가 공급망 협업(SCC)에 미치는 영향</td>
+                <td class="text-sm italic text-slate-600">
+                  "In Model 2, DT deployment breadth (β = 0.331, p &lt; 0.01) and depth (β = 0.436, p &lt; 0.01) both show significant effects on supply chain coordination..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 195 (Sec. 4.2, Table 4)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">공급망 협업(SCC)의 회복탄력성 기여</td>
+                <td class="text-sm italic text-slate-600">
+                  "Model 5 shows that DT deployment depth (β = 0.306, p &lt; 0.01) and supply chain coordination (β = 0.315, p &lt; 0.01) have significant impacts on firm resilience..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 195 (Sec. 4.2, Table 4)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">공급망 협업(SCC)의 매개 작용의 차별성</td>
+                <td class="text-sm italic text-slate-600">
+                  "...supply chain coordination mediates only the relationship between DT deployment depth and firm resilience." / "...the indirect path from DT deployment depth to firm resilience through supply chain coordination... is significant..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 195 (Sec. 4.3)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">시장 예민성(Market Acuity)의 조절 작용</td>
+                <td class="text-sm italic text-slate-600">
+                  "Model 6 reveals that the interaction between supply chain coordination and market acuity (β = 0.121, p &lt; 0.05) has a positive relationship with firm resilience to supply chain disruptions..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 195 (Sec. 4.2, Table 4)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 가설 모형)</h3>
+          
+          <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 400" class="w-full h-auto">
+              <!-- Grid & Background Guide (hidden) -->
+              <!-- IVs -->
+              <rect x="20" y="50" width="220" height="70" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="130" y="80" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">DT 배치 범위 (Breadth)</text>
+              <text x="130" y="102" text-anchor="middle" fill="#64748b" font-size="11">기술 다양성 & 파트너 공유 범위</text>
+
+              <rect x="20" y="230" width="220" height="70" rx="8" fill="#f1f5f9" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="130" y="260" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="14">DT 배치 깊이 (Depth)</text>
+              <text x="130" y="282" text-anchor="middle" fill="#0284c7" font-size="11">핵심 5대 비즈니스 프로세스 내재화</text>
+
+              <!-- Mediator -->
+              <rect x="350" y="140" width="180" height="80" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="440" y="175" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">공급망 협업 (SCC)</text>
+              <text x="440" y="198" text-anchor="middle" fill="#047857" font-size="11">정보공유 & 공동의사결정</text>
+
+              <!-- DV -->
+              <rect x="610" y="140" width="170" height="80" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="695" y="175" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">기업 회복탄력성</text>
+              <text x="695" y="198" text-anchor="middle" fill="#4338ca" font-size="11">코로나19 공급망중단 감지/복구</text>
+
+              <!-- Moderator -->
+              <rect x="470" y="10" width="160" height="60" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="550" y="38" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">시장 예민성 (MA)</text>
+              <text x="550" y="55" text-anchor="middle" fill="#b45309" font-size="10">수요예측 & 위험감지력</text>
+
+              <!-- Arrows -->
+              <!-- IV Breadth -> Mediator -->
+              <path d="M240 85 L 290 85 L 290 160 L 340 160" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="280" y="115" fill="#64748b" font-weight="700" font-size="12">H2a (+)</text>
+
+              <!-- IV Depth -> Mediator -->
+              <path d="M240 265 L 290 265 L 290 200 L 340 200" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="280" y="240" fill="#0284c7" font-weight="700" font-size="12">H2b (+)</text>
+
+              <!-- Mediator -> DV -->
+              <path d="M530 180 L 600 180" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="565" y="172" fill="#047857" font-weight="700" font-size="12">H3 (+)</text>
+
+              <!-- IV Depth -> DV Direct -->
+              <path d="M130 300 L 130 370 L 695 370 L 695 230" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="412" y="360" fill="#1d4ed8" font-weight="700" font-size="12">H1b 직접 효과 (+)</text>
+
+              <!-- Moderator Arrow pointing to Mediator-DV arrow -->
+              <path d="M550 70 L 550 180" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="560" y="110" fill="#b45309" font-weight="700" font-size="12">H4 조절 (+)</text>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">IV1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">DT 배치 범위 (DT Deployment Breadth)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 공급망 전반에 걸친 정보교환을 위해 협력사들과 공유하고 적용하는 디지털 기술 다양성의 폭(Scope).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 기술 활용 파트너의 비중, 전체 거래 및 파트너 관계의 기술 지원 비중(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Zhang et al. (2016) / 3문항 (Cronbach's α = 0.845)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 공급망 가시성 개선에 기여하나 위기 시 정보 과부하(Data overload)를 일으켜 의사결정을 저해할 여지가 존재함.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">독립변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">IV2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">DT 배치 깊이 (DT Deployment Depth)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 핵심 5대 비즈니스 운영 프로세스에 도입하여 활용하는 디지털 기술의 스케일 및 조직적 침투도(Intensity).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 생산, 조달, 배송/물류, 결제 처리, 수요 예측 등 개별 직무 내 디지털 기술 활용 척도(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Zhang et al. (2016) / 5문항 (Cronbach's α = 0.848)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 자산 오케스트레이션의 핵심. 프로세스 고도화를 통해 위기 시 빠른 적응 및 공급망 속도 향상에 직접 기여.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공급망 협업 (Supply Chain Coordination)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 정보의 대칭 공유와 공동 의사결정을 주축으로 부서 및 공급망 파트너 간 활동을 결합하고 맞추어가는 조정 프로세스.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 전용 상호 시스템 연동, 협력 업체를 거래가 아닌 파트너로 여기는 상호주의 수준(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Hill and Scudder (2002) / 3문항 (Cronbach's α = 0.795)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 자원 교환 통로로서 정보의 연결을 돕지만, 기술 깊이(Depth)에서 흘러나오는 운영 효율성 기반 정보만 매개 통로로 활용됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">시장 예민성 (Market Acuity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 외부 시장 신호를 감지하고 예측하여 미래 기회 및 위협(경쟁자, 트렌드, 요구)에 선제적으로 대처하는 경영 능력.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 팬데믹 기간 내 시장 경계 인지, 경쟁사보다 우월한 고객 요구사항 분석력 등(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Ojha et al. (2014) / 3문항 (Cronbach's α = 0.779)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 데이터 홍수 속에서 전략 방향을 정하고, 공급망에서 끌어온 협업 자원을 회복력으로 전환하게 해주는 상위 통찰력.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Dependent Variable (DV)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기업 회복탄력성 (Firm Resilience)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 공급망 붕괴나 중단 등의 외부 교란 사태를 능동적으로 파악하고, 신속하게 적응하며 본래 또는 그 이상의 경영상태로 재정비하는 구조적 생존력.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 코로나19 상황 하에서의 문제 대처력, 신속한 대응 전환력, 항시적인 상황 인지(Situational Awareness) 유지 수준.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Ambulkar et al. (2015) / 3문항 (Cronbach's α = 0.797)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 연구 모델 및 데이터 검증을 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">표본 추출 및 필터링 기준 정의</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  중국 내 30,000개 이상의 기업 DB를 확보한 온라인 마케팅 조사 기관과 협력하여 제조업체를 모집합으로 설정. '생산/조달/IT/비즈니스 관리자 및 임원급' 대상자 및 '조사 시점 전 최소 1개 이상 디지털 기술 도입' 필터를 수립함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 194, Section 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">설문 배포 및 데이터 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  이메일 설문지와 커버 레터를 무작위 발송하고 완료자에게 모바일 기프트카드 보상 즉시 지급. 총 423개 사 대상 배포 결과 162개의 최종 유효 응답 획득(응답률 38.3%).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 194, Section 3.1 & Table 2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">편향(Bias) 테스트 및 통제</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  1) 회수 그룹(초기 25% vs 후기 25%) 간 연령·규모 t-test를 실시해 무응답 편향 유무 검토. 2) 동일방법편향(CMB) 통제를 위해 Harman 단일요인 CFA 적합도 저하를 확인하고 무관 변수 '근무 연수'를 활용한 마커 변수 통제 실시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 194, Section 3.3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">CFA 및 측정 도구 신뢰성 평가</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  AMOS/SPSS 요인 분석으로 모델 적합도(&chi;&sup2;/df=1.691, CFI=0.946, RMSEA=0.066)와 적재값(&gt;0.7), CR(&gt;0.7), AVE(&gt;0.5), Cronbach's &alpha;(&gt;0.7)를 확보하고 AVE 제곱근으로 판별 타당성을 통과시킴.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 194, Section 4.1 & Appendix A</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">표준화 및 위계적 회귀 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  변수를 표준화한 뒤 VIF 진단(&lt;10). SPSS 23.0을 사용해 통제변수 투입(M1/M3), 독립변수 투입(M2/M4), 매개변수 투입(M5), 상호작용항 투입(M6) 순으로 위계적 다중 회귀 분석 실행.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 195, Section 4.2 & Table 4</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">매개 및 조절된 매개 부트스트랩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  SPSS PROCESS Macro 실행. 신뢰구간 95%, 20,000회 부트스트랩 조건 하에 직접 효과(0.306)와 간접 효과(0.137)의 신뢰구간 유의성을 검증하고 시장 예민성에 따른 수준별 조건부 효과 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 195, Section 4.3</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">도구변수(2SLS)를 이용한 강건성 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  내생성 제어를 위해 4대 디지털 기술(Big Data, Cloud, IoT, AI) 개별 도입 여부를 도구변수로 설정하고 2SLS 이단계 최소제곱 분석을 수행하여 관계의 안정성을 강건하게 입증함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 195-196, Section 4.3 & 5</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            구체적인 설문 문항 및 요인 분석 통계값, 2SLS 프로세스가 투명하게 제공되어 기법 상의 완전한 재현은 가능하나, 중국 기업 데이터베이스(>30,000개 사)를 확보한 전문 대행사 샘플링 조사를 외래 연구자가 완전히 독자적으로 복사하여 동일 샘플을 확보하는 것은 제한적입니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>제조업 세부 업종 미세분화:</strong> 자본 집약적/기술 집약적인 자동차 부품 제조업과 섬유/생필품과 같은 노동 집약적 제조업 특성에 따른 차이를 반영하지 못하고 통칭 제조업으로 분석함.
+              </li>
+              <li>
+                <strong>중국 단일 국가 지리적 국한성:</strong> 중국 내 제조업체들로만 수집되어, 다른 국가나 다른 비즈니스 문화 생태계에 이 메커니즘을 동일하게 일반화(Generalization)하기에 제약이 있음.
+              </li>
+              <li>
+                <strong>공급망 협업(SCC)의 세부 차원 미분해:</strong> 공급망 협업을 단일 요인으로 설정했으나, 실제로는 공급업체 협업(Supplier coordination)과 고객 협업(Customer coordination)의 동력과 영향력이 상이할 수 있음.
+              </li>
+              <li>
+                <strong>공급망 중단 이외의 타 재해/위기 미적용:</strong> 본 연구의 회복탄력성은 팬데믹 공급망 단절에 한정되어 있으며, 재무 리스크나 정치 갈등 등의 여타 돌발적 경영 위기 극복에는 분석이 미치지 않음.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 횡단 분석 메커니즘을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 역인과관계 (Reverse Causality)</span>
+                <p class="text-sm text-slate-700">
+                  횡단적 데이터(Cross-sectional data) 수집 특성 상, <strong>"기술 배치의 깊이가 깊어서 회복탄력성이 높은가"</strong>가 아니라, <strong>"원래 현금 자산이 많고 위기 대처력이 훌륭한 기업이 팬데믹 위기 중에도 디지털 기술의 내재화 고도화(Depth) 및 공급망 협업을 완벽하게 진두지휘했을"</strong> 역인과성 내지 동시성 편향(Simultaneity bias)이 작용했을 위험이 농후합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 생존자 편향 (Survivor Bias)</span>
+                <p class="text-sm text-slate-700">
+                  데이터는 코로나19 충격이 이어진 2021년에 대행사 DB를 통해 획득되었습니다. 즉, 공급망 중단으로 인해 2020년 말 이미 파산했거나 설문에 답할 여유조차 없었던 <strong>'회복탄력성이 바닥인 한계 기업'들은 표본에서 애초에 삭제</strong>되었고, 살아남아 영업 중인 강한 생존 기업들만 응답함으로써 모형의 회복탄력성 메커니즘이 과장되었을 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 주관적 인지 측정 한계</span>
+                <p class="text-sm text-slate-700">
+                  변수인 회복탄력성, 공급망 협업, 기술 배치의 깊이/범위 등이 객관적 운영 지표(예: ERP 전산 가동 로그, 실제 리드타임 단축률, 결품 빈도수) 대신 **설문 응답자인 한 명의 관리자의 주관적 평가**로 측정되었습니다. 이는 응답자의 사후 심리적 합리화 및 인지 편향(Social desirability bias)의 유입 가능성을 시사합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 제로 코로나 특수 통제 맥락</span>
+                <p class="text-sm text-slate-700">
+                  조사 국가인 중국은 2021년 당시 '제로 코로나'라는 매우 독단적이고 극단적인 물리적 봉쇄 통제를 집행하던 맥락적 특수성이 있었습니다. 공권력의 물리 강제 봉쇄 하에서 얻은 데이터 결과이므로, 일반적인 시장 경제 파동이나 자율 복구가 허용되는 다른 거시 환경의 공급망 장애 상황에도 기술 깊이의 차별적 영향력이 그대로 성립될지 미지수입니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Digital Technology Deployment and Firm Resilience: Evidence from the COVID-19 pandemic</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

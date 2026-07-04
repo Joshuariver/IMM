@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="corporate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자원 상호작용: 핵심 개념, 관계 및 표현</title>
+    <!-- Tailwind CSS & DaisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        body {
+            font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        .font-display {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.15;
+        }
+        .font-h1 {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .font-h2 {
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        .font-h3 {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        .font-body-large {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        .font-body {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        .font-small {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        .font-label {
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: 0.02em;
+        }
+    </style>
+</head>
+<body class="bg-base-100 text-base-content min-h-screen">
+
+    <!-- Container -->
+    <div class="container mx-auto px-4 py-12 max-w-7xl">
+        
+        <!-- Header -->
+        <header class="border-b border-base-300 pb-8 mb-12">
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+                <div>
+                    <span class="badge badge-primary font-label px-3 py-2 mb-3">CONCEPTS REVIEW</span>
+                    <h1 class="font-h1 text-primary leading-tight mb-2">Resource interaction: Key concepts, relations and representations</h1>
+                    <h2 class="font-h2 text-neutral-500 font-medium">자원 상호작용: 핵심 개념, 관계 및 표현</h2>
+                    <p class="font-small text-neutral-400 mt-4">
+                        <strong>Authors:</strong> Frans Prenkert, Klas Hedvall, Nina Hasche, Jens Eklinder Frick, Morten H. Abrahamsen et al. (18 Authors)<br>
+                        <strong>Journal:</strong> Industrial Marketing Management 105 (2022) 48–59
+                    </p>
+                </div>
+                <div class="card bg-base-200 p-4 border border-base-300 max-w-sm w-full font-small">
+                    <h3 class="font-semibold text-neutral-700 mb-2">Paper Info</h3>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <span class="text-neutral-500 font-medium">Received Date:</span>
+                        <span>7 July 2021</span>
+                        <span class="text-neutral-500 font-medium">Accepted Date:</span>
+                        <span>13 May 2022</span>
+                        <span class="text-neutral-500 font-medium">Publisher:</span>
+                        <span>Elsevier B.V.</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- STEP 1: Title & Abstract Translation -->
+        <section class="mb-16">
+            <h2 class="font-h1 text-secondary mb-6 border-l-4 border-secondary pl-4">STEP 1 — Title & Abstract Translation</h2>
+            
+            <!-- Side-by-side Abstract -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+                <!-- English Abstract -->
+                <div class="card bg-base-200 border border-base-300 shadow-sm">
+                    <div class="card-body p-6">
+                        <h3 class="font-h3 text-neutral-700 mb-3 flex items-center gap-2">
+                            <span class="badge badge-sm badge-neutral">EN</span> Abstract
+                        </h3>
+                        <blockquote class="font-body text-neutral-600 italic border-l-2 border-neutral-400 pl-4 py-2">
+                            Value co-creation is a core focus area in both B2B marketing and strategy research, necessitating resource utilization within and across organizational boundaries. In the Industrial Marketing and Purchasing (IMP) group, scholars have focused on the interactions among resources as one important way to analyze central questions about resources in business relationships and networks. This has produced a breadth of investigations and concepts that are locally defined and utilized. This may hamper further theoretical development and inhibit analytical precision. The purpose of this paper is to develop a more general shared understanding of resource interaction by identifying and explicating the key concepts used, and to assess its status as an approach. The paper synthesizes 20 years of research to identify key concepts and the relationships across concepts. This provides both a platform for further conceptual and empirical research within IMP and potential for cross-fertilization with parallel B2B areas.
+                        </blockquote>
+                    </div>
+                </div>
+
+                <!-- Korean Abstract -->
+                <div class="card bg-base-200 border border-base-300 shadow-sm">
+                    <div class="card-body p-6">
+                        <h3 class="font-h3 text-neutral-700 mb-3 flex items-center gap-2">
+                            <span class="badge badge-sm badge-primary">KO</span> 초록 번역
+                        </h3>
+                        <blockquote class="font-body text-neutral-700 border-l-2 border-primary pl-4 py-2">
+                            가치 공동 창출(Value co-creation)은 B2B 마케팅과 전략 연구 모두에서 핵심적인 초점 분야이며, 조직 경계 내부 및 전반에 걸친 자원 활용을 필요로 한다. 산업 마케팅 및 구매(Industrial Marketing and Purchasing, IMP) 그룹의 학자들은 비즈니스 관계 및 네트워크에서 자원에 대한 핵심 질문들을 분석하기 위한 중요한 방법 중 하나로 자원 간의 상호작용(interactions among resources)에 초점을 맞추어 왔다. 이는 국지적으로 정의되고 활용되는 폭넓은 연구와 개념들을 낳았다. 그러나 이는 추가적인 이론적 발전을 저해하고 분석적 정밀성(analytical precision)을 저하시킬 수 있다. 본 논문의 목적은 사용된 핵심 개념들을 식별하고 설명함으로써 자원 상호작용(resource interaction)에 대한 보다 일반적이고 공유된 이해를 발전시키고, 접근법(approach)으로서의 위상을 평가하는 것이다. 본 논문은 지난 20년간의 연구를 종합하여 핵심 개념들과 개념 간의 관계를 식별한다. 이는 IMP 내에서 향후 개념적 및 실증적 연구를 위한 플랫폼을 제공할 뿐만 아니라, 병행되는 B2B 영역들과의 상호 학문적 교류(cross-fertilization) 가능성을 제시한다.
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Glossary Table -->
+            <div class="card bg-base-100 border border-base-300 shadow-sm">
+                <div class="card-body p-6">
+                    <h3 class="font-h3 text-neutral-700 mb-4">핵심 학술 용어 해석 (Glossary)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="table table-zebra w-full font-small">
+                            <thead>
+                                <tr class="bg-neutral text-neutral-content">
+                                    <th class="font-label w-12 text-center">#</th>
+                                    <th class="font-label w-1/4">핵심 학술 용어</th>
+                                    <th class="font-label w-1/4">번역어</th>
+                                    <th class="font-label">번역 선택 이유 및 학술적 배경 설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center font-semibold">1</td>
+                                    <td class="font-semibold text-primary">Value co-creation</td>
+                                    <td class="font-semibold">가치 공동 창출</td>
+                                    <td>가치 창출이 개별 기업 내부에서 단독으로 일어나는 것이 아니라 네트워크 내 다수 참여자(공동개발사, 고객 등)가 자원을 통합하여 공동 생성한다는 B2B 연구 기조 반영.</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center font-semibold">2</td>
+                                    <td class="font-semibold text-primary">Resource interaction</td>
+                                    <td class="font-semibold">자원 상호작용</td>
+                                    <td>자원이 고정된 가치를 갖는 것이 아니라 타 자원과의 연계, 결합, 조합 과정에서 가치가 발현되는 현상을 뜻함.</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center font-semibold">3</td>
+                                    <td class="font-semibold text-primary">Approach</td>
+                                    <td class="font-semibold">접근법</td>
+                                    <td>이론(Theory)보다 낮은 위상이지만, 현상을 바라보고 지식을 습득하는 독자적인 존재론 및 인식론적 입장을 취한다는 의미에서 접근법으로 일관되게 번역함.</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center font-semibold">4</td>
+                                    <td class="font-semibold text-primary">Cross-fertilization</td>
+                                    <td class="font-semibold">상호 학문적 교류</td>
+                                    <td>생물학적 이종교배 비유로, 서로 다른 학문적 관점(예: IMP 그룹과 서비스 주도 논리 S-D logic)이 결합하여 새 이론적 돌파구를 낸다는 의미.</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center font-semibold">5</td>
+                                    <td class="font-semibold text-primary">Heterogeneity</td>
+                                    <td class="font-semibold">이질성</td>
+                                    <td>자원이 표준화되어 있지 않고 결합되는 맥락과 결합 파트너에 따라 다양한 유용성(이질적 가치)을 낸다는 RBV 및 IMP의 기초 전제.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 2: Core Claims (1-minute explanation) -->
+        <section class="mb-16">
+            <h2 class="font-h1 text-secondary mb-6 border-l-4 border-secondary pl-4">STEP 2 — 핵심 주장 (1분 설명용)</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Vertical Steps Component -->
+                <div class="lg:col-span-2 card bg-base-200 border border-base-300 p-6 shadow-sm">
+                    <h3 class="font-h3 text-primary mb-6">1분 핵심 스피치 로드맵</h3>
+                    <ul class="steps steps-vertical w-full font-body">
+                        <li class="step step-primary" data-content="Q">
+                            <div class="text-left pl-4 pb-6">
+                                <span class="badge badge-outline badge-primary font-label mb-1">RESEARCH QUESTIONS</span>
+                                <p class="font-semibold text-neutral-800">개념적 혼선 정리와 가치 연계 메커니즘 규명</p>
+                                <p class="font-small text-neutral-500">20년간 IMP 내 자원 상호작용 관련 개념의 정의적 불일치를 지적하며, 이를 체계화하고 가치(Value) 창출과 어떻게 통합할 수 있는지 3가지 질문을 던집니다.</p>
+                            </div>
+                        </li>
+                        <li class="step step-primary" data-content="F">
+                            <div class="text-left pl-4 pb-6">
+                                <span class="badge badge-outline badge-primary font-label mb-1">KEY FINDINGS</span>
+                                <p class="font-semibold text-neutral-800">14개 개념의 범주화 및 3대 개념적 지도 제시</p>
+                                <p class="font-small text-neutral-500">문헌 리뷰를 통해 14개 개념을 6대 기초(Foundational) 및 8대 지원(Supportive) 개념으로 이원화하였고, 상황적 맥락(가치 창출, 가치 측정/포착, 신사업 착근)에 최적화된 3가지 관계 모형을 정립했습니다.</p>
+                            </div>
+                        </li>
+                        <li class="step step-primary" data-content="C">
+                            <div class="text-left pl-4 pb-6">
+                                <span class="badge badge-outline badge-primary font-label mb-1">CONTRIBUTIONS</span>
+                                <p class="font-semibold text-neutral-800">이론적 엄밀성 제고 및 네트워크 자원 관리 가이드</p>
+                                <p class="font-small text-neutral-500">무분별한 개념 사용을 막고 분석의 정밀성을 높여 다른 학문(S-D Logic 등)과의 학제간 교류를 활성화하는 동시에, 관리자가 네트워크 상 자원의 중량감(heaviness)과 마찰(friction)을 정밀 설계할 실무 지침을 제공합니다.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- One-line Summary Card -->
+                <div class="card bg-primary text-primary-content shadow-lg flex flex-col justify-between">
+                    <div class="card-body p-8 flex flex-col justify-between h-full">
+                        <div>
+                            <div class="badge badge-secondary font-label px-3 py-2 mb-4">ONE-LINE SUMMARY</div>
+                            <p class="font-body-large font-bold leading-relaxed mb-6">
+                                "본 논문은 지난 20년간의 B2B 자원 상호작용 관련 14개 핵심 개념을 정의·분류하고 세 가지 가치 흐름 상황 모형과 통합함으로써, 자원 상호작용이 독자적 학술 접근법으로 도약할 이론적 초석을 닦았다."
+                            </p>
+                        </div>
+                        <div class="border-t border-primary-content/20 pt-4 text-xs opacity-75">
+                            Industrial Marketing Management (IMM) - Vol. 105
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 3: Claims and Evidence Table -->
+        <section class="mb-16">
+            <h2 class="font-h1 text-secondary mb-6 border-l-4 border-secondary pl-4">STEP 3 — Claims and Evidence</h2>
+            <div class="card bg-base-100 border border-base-300 shadow-sm">
+                <div class="card-body p-6">
+                    <div class="overflow-x-auto">
+                        <table class="table table-zebra w-full font-small">
+                            <thead>
+                                <tr class="bg-neutral text-neutral-content">
+                                    <th class="font-label w-12 text-center">#</th>
+                                    <th class="font-label w-1/4">핵심 주장 (Key Claims)</th>
+                                    <th class="font-label w-1/2">원문 근거 인용 (Evidence)</th>
+                                    <th class="font-label w-1/5">원문 위치 (Page & Section)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center font-semibold">1</td>
+                                    <td class="font-semibold text-neutral-800">연구 내 개념 정의의 일관성 결여와 재정립의 필요성</td>
+                                    <td class="italic text-neutral-600">"We argue that there is a clear need for conceptual refinement as well as continued empirical application. This is due to the presence of substantial variation and partial inconsistencies in how concepts are used and defined (Bocconcelli et al., 2020; Prenkert et al., 2019)."</td>
+                                    <td>Page 49, Section 1: Introduction</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center font-semibold">2</td>
+                                    <td class="font-semibold text-neutral-800">개념의 기초적 전제(FC)와 지원적 적용(SC)의 이원화 구조</td>
+                                    <td class="italic text-neutral-600">"We argue that there are six foundational concepts (FC) of resource interaction. These are: resources, heterogeneity, value, interconnectedness, interaction, and interdependence... On the other hand, we consider concepts that are included in a given study... as supportive."</td>
+                                    <td>Page 52, Section 3: Resource interaction: key concepts</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center font-semibold">3</td>
+                                    <td class="font-semibold text-neutral-800">가치의 비(非)내재성 및 네트워크 상호작용을 통한 발현성</td>
+                                    <td class="italic text-neutral-600">"As a consequence of heterogeneity and interdependence, a resource's value (FC 3) is relative, emergent, indeterminate, and highly context dependent (Baraldi & Strömsten, 2006). The value of a resource emerges through its interaction with other resources embedded in the network structure (Harrison & Håkansson, 2006; Håkansson et al., 2009:65)."</td>
+                                    <td>Page 53, Section 3.1: Exploring the six foundational concepts</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center font-semibold">4</td>
+                                    <td class="font-semibold text-neutral-800">분석 엄밀성 강화를 위한 '단일 자원' vs '자원 결합' 개념 분류</td>
+                                    <td class="italic text-neutral-600">"The left side of Table 4 presents concepts that can be used to describe a single specific resource and its effects on another resource. The right side lists concepts focusing on resource combinations."</td>
+                                    <td>Page 55, Section 4.1: Overlaps and differences</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center font-semibold">5</td>
+                                    <td class="font-semibold text-neutral-800">접근법(Approach)으로서 자원 상호작용의 이론적 성숙 한계</td>
+                                    <td class="italic text-neutral-600">"Thus, we conclude that resource interaction currently may qualify as an approach in itself based on the phenomenon of resource interaction. However, it does not qualify as an approach based on its theoretical constructs. At present, it draws theoretically on the assumptions made in the IMP approach."</td>
+                                    <td>Page 57, Section 6: Conclusions</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 4: Research Model & Variables -->
+        <section class="mb-16">
+            <h2 class="font-h1 text-secondary mb-6 border-l-4 border-secondary pl-4">STEP 4 — 연구 모델 및 변수 상세 분석</h2>
+            <div class="alert alert-info shadow-sm mb-8 font-body">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span><strong>참고사항:</strong> 본 논문은 실증 양적 연구가 아닌 <strong>개념적 문헌 리뷰(Conceptual Literature Review)</strong>이므로 가설 검정용 종속/독립변수는 존재하지 않습니다. 이에 따라 본 분석에서는 저자들이 뼈대로 구축한 핵심 자원 이론 구성체(Constructs)들을 변수로 규정하여 상세 기술합니다.</span>
+            </div>
+
+            <!-- Grid of Cards (DaisyUI component style) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Variable 1 -->
+                <div class="card bg-base-100 border-t-4 border-t-primary border border-base-300 shadow-sm">
+                    <div class="card-body p-6">
+                        <span class="badge badge-primary font-label mb-2">FOUNDATIONAL CONCEPT 1</span>
+                        <h3 class="font-h3 text-neutral-800">자원 (Resource)</h3>
+                        <div class="divider my-2"></div>
+                        <p class="font-body text-neutral-600"><strong class="text-neutral-800">개념적 정의:</strong> 행위자에 의해 용도와 가치가 식별되는 네트워크상의 모든 물리적, 금융적, 인적, 관계적 실체.</p>
+                        <p class="font-body text-neutral-600"><strong class="text-neutral-800">조작적 정의 및 측정:</strong> Håkansson & Waluszewski(2002a)의 '4R 모델'에 따라 자원을 제품(Products), 설비(Facilities), 비즈니스 단위(Business units), 비즈니스 관계(Business relationships)로 맵핑.</p>
+                        <p class="font-small text-neutral-500 mt-2 bg-base-200 p-3 rounded">
+                            <strong>학술적 논의:</strong> 자원의 내부 통제를 넘어 외부 자원들과의 관계 결합(ARA 모델)을 통할 때에만 실질적 가치 창출 경로가 열린다고 논의됩니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Variable 2 -->
+                <div class="card bg-base-100 border-t-4 border-t-primary border border-base-300 shadow-sm">
+                    <div class="card-body p-6">
+                        <span class="badge badge-primary font-label mb-2">FOUNDATIONAL CONCEPT 2</span>
+                        <h3 class="font-h3 text-neutral-800">자원 이질성 (Heterogeneity)</h3>
+                        <div class="divider my-2"></div>
+                        <p class="font-body text-neutral-600"><strong class="text-neutral-800">개념적 정의:</strong> 자원의 유용성과 가치가 절대적으로 고정된 것이 아니라, 결합 관계에 따라 무한히 변화하고 발현되는 고유성.</p>
+                        <p class="font-body text-neutral-600"><strong class="text-neutral-800">조작적 정의 및 측정:</strong> 개별 자원의 고유한 디자인, 지식 등의 특징 수준 및 타 자원과 형성하는 가치 결합 구조의 유연성으로 평가.</p>
+                        <p class="font-small text-neutral-500 mt-2 bg-base-200 p-3 rounded">
+                            <strong>학술적 논의:</strong> Penrose(1959)의 논의를 기초로 하며, 표준화 압력 속에서도 자원 조합을 통해 동적 차별화를 꾀하는 메커니즘을 설명합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Variable 3 -->
+                <div class="card bg-base-100 border-t-4 border-t-primary border border-base-300 shadow-sm">
+                    <div class="card-body p-6">
+                        <span class="badge badge-primary font-label mb-2">FOUNDATIONAL CONCEPT 3</span>
+                        <h3 class="font-h3 text-neutral-800">가치 (Value)</h3>
+                        <div class="divider my-2"></div>
+                        <p class="font-body text-neutral-600"><strong class="text-neutral-800">개념적 정의:</strong> 상호작용을 매개로 자원 결합을 통해 도출해내는 주관적 유용성이자 네트워크상 비용-수익 정산의 관계적 결과물.</p>
+                        <p class="font-body text-neutral-600"><strong class="text-neutral-800">조작적 정의 및 측정:</strong> (1) 가치 창출(기능성 합치), (2) 가치 측정(회계 정보), (3) 가치 포착(딜 계약 구조 및 자금 흐름)으로 삼분하여 개별 측정.</p>
+                        <p class="font-small text-neutral-500 mt-2 bg-base-200 p-3 rounded">
+                            <strong>학술적 논의:</strong> 가치는 고정 불가하며 행위자 인식에 따른 해석 및 조합 설계에 종속되는 지극히 관계적(relational) 개념입니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Variable 4 -->
+                <div class="card bg-base-100 border-t-4 border-t-primary border border-base-300 shadow-sm">
+                    <div class="card-body p-6">
+                        <span class="badge badge-primary font-label mb-2">FOUNDATIONAL CONCEPT 4</span>
+                        <h3 class="font-h3 text-neutral-800">상호연결성 (Interconnectedness)</h3>
+                        <div class="divider my-2"></div>
+                        <p class="font-body text-neutral-600"><strong class="text-neutral-800">개념적 정의:</strong> 자원들이 독립되지 않고 가치 사슬 및 관계를 통해 직·간접적으로 연결되어 하나의 전체 계를 이루는 성질.</p>
+                        <p class="font-body text-neutral-600"><strong class="text-neutral-800">조작적 정의 및 측정:</strong> 네트워크 분석을 통한 노드 연결 중심도, 한 자원의 교체가 타 자원 쌍으로 미치는 간접 충격 정도.</p>
+                        <p class="font-small text-neutral-500 mt-2 bg-base-200 p-3 rounded">
+                            <strong>학술적 논의:</strong> 한 기업의 관계적 변화가 파트너사를 넘어 네트워크 전체의 구조적 지형도를 바꾸는 나비효과를 규명합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 5: Method Replication Steps -->
+        <section class="mb-16">
+            <h2 class="font-h1 text-secondary mb-6 border-l-4 border-secondary pl-4">STEP 5 — Method 재현 순서 분해</h2>
+            
+            <!-- Timeline component -->
+            <div class="card bg-base-200 border border-base-300 shadow-sm mb-8">
+                <div class="card-body p-8">
+                    <h3 class="font-h3 text-neutral-800 mb-8 text-center">개념적 문헌 리뷰 분석 재현 5단계</h3>
+                    
+                    <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+                        <!-- Step 1 -->
+                        <li>
+                            <div class="timeline-middle">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 h-5 text-primary"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                            </div>
+                            <div class="timeline-start md:text-end mb-10">
+                                <time class="font-mono italic font-label text-neutral-400">STEP 1</time>
+                                <div class="font-h3 text-primary font-semibold">범위 설정 및 초기 개념 목록 추출 (v1-v3)</div>
+                                <p class="font-small text-neutral-600 mt-2">
+                                    IMP 특별이익집단 학자 4인의 발의로 논의 착수. 문헌 조사로 17개 후보 개념(v1) 수립 후 공동 저자단(18인) 피드백 수렴해 14개 목록(v2, v3)으로 정선. Coordinator Team 및 sub-team 구성.<br>
+                                    <span class="badge badge-neutral text-xs mt-1">위치: p. 50, Section 2.2 & Table 1</span>
+                                </p>
+                            </div>
+                            <hr class="bg-primary"/>
+                        </li>
+                        
+                        <!-- Step 2 -->
+                        <li>
+                            <hr class="bg-primary"/>
+                            <div class="timeline-middle">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 h-5 text-primary"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                            </div>
+                            <div class="timeline-end mb-10">
+                                <time class="font-mono italic font-label text-neutral-400">STEP 2</time>
+                                <div class="font-h3 text-primary font-semibold">서브팀 할당 및 92개 문헌 심층 조사</div>
+                                <p class="font-small text-neutral-600 mt-2">
+                                    각 서브팀에 개념 할당 후 세미날 논문, 단행본, 학위 논문을 검색. 개념별 역사적 흐름, 복수 정의, 이견 정리. 최종 92개 문헌 분석 및 상호 동료 평가(peer-review)를 거쳐 개념 교정.<br>
+                                    <span class="badge badge-neutral text-xs mt-1">위치: p. 50, Section 2.2 & Table 1</span>
+                                </p>
+                            </div>
+                            <hr class="bg-primary"/>
+                        </li>
+
+                        <!-- Step 3 -->
+                        <li>
+                            <hr class="bg-primary"/>
+                            <div class="timeline-middle">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 h-5 text-primary"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                            </div>
+                            <div class="timeline-start md:text-end mb-10">
+                                <time class="font-mono italic font-label text-neutral-400">STEP 3</time>
+                                <div class="font-h3 text-primary font-semibold">개념 통합 요약 및 이차원 범주화</div>
+                                <p class="font-small text-neutral-600 mt-2">
+                                    합의를 통해 14개 개념의 통합 정의 도출(Table 3). 자원 상호작용 연구의 구조화를 위해 기초(Foundational, 6개)와 지원(Supportive, 8개) 개념으로 나누고, 단일 자원과 자원 결합 관점으로 매트릭스 이원화(Table 4).<br>
+                                    <span class="badge badge-neutral text-xs mt-1">위치: p. 52, Section 3 / p. 55, Section 4</span>
+                                </p>
+                            </div>
+                            <hr class="bg-primary"/>
+                        </li>
+
+                        <!-- Step 4 -->
+                        <li>
+                            <hr class="bg-primary"/>
+                            <div class="timeline-middle">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 h-5 text-primary"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                            </div>
+                            <div class="timeline-end mb-10">
+                                <time class="font-mono italic font-label text-neutral-400">STEP 4</time>
+                                <div class="font-h3 text-primary font-semibold">상황적 개념 지도 설계 및 모델 정립</div>
+                                <p class="font-small text-neutral-600 mt-2">
+                                    3인의 저자가 개념 지도 초안 수립. 복잡성 해소를 위해 상황별로 쪼개 가치 창출(Fig 2), 가치 측정/포착(Fig 3), 신사업 자원 착근(Fig 4)의 3가지 모델로 최종 가시화 및 설명 보완.<br>
+                                    <span class="badge badge-neutral text-xs mt-1">위치: p. 50-51, Section 2.3 & Section 5</span>
+                                </p>
+                            </div>
+                            <hr class="bg-primary"/>
+                        </li>
+
+                        <!-- Step 5 -->
+                        <li>
+                            <hr class="bg-primary"/>
+                            <div class="timeline-middle">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 h-5 text-primary"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                            </div>
+                            <div class="timeline-start md:text-end mb-10">
+                                <time class="font-mono italic font-label text-neutral-400">STEP 5</time>
+                                <div class="font-h3 text-primary font-semibold">접근법 위상 평가 및 미래 연구 수립</div>
+                                <p class="font-small text-neutral-600 mt-2">
+                                    구축된 지도를 토대로 자원 상호작용론이 이론적 구성체 접근법에 부합하는지 평가. 스스로 인정한 한계점 기술 후 B2B 병행 도메인과 상호교류 방향 설계.<br>
+                                    <span class="badge badge-neutral text-xs mt-1">위치: p. 57-58, Section 6</span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Replication Assessment -->
+            <div class="card bg-neutral text-neutral-content shadow-md">
+                <div class="card-body p-6 flex flex-row items-center gap-6">
+                    <div class="radial-progress text-primary font-bold" style="--value:50;" role="progressbar">50%</div>
+                    <div>
+                        <h4 class="text-lg font-bold">Method 재현 가능성 평가</h4>
+                        <p class="font-body-large text-primary font-semibold">부분 재현 가능 (Partially Replicable)</p>
+                        <p class="font-small opacity-85 mt-1">
+                            문헌 탐색의 범위와 기준(Hulland의 5단계)은 명확하게 기술되어 있어 동일 문헌 탐색은 재현할 수 있습니다. 그러나 18명의 질적 저자단이 개념 목록을 14개로 좁히고, 이를 기초와 지원으로 합의 및 분류하는 내재적 조율 과정(Consensus-building)은 주관성이 매우 강해 타 연구진이 완벽히 동일한 분류표와 3가지 시각 모델을 독립적으로 재생산해내는 것은 불가능합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 6: Limitations -->
+        <section class="mb-16">
+            <h2 class="font-h1 text-secondary mb-6 border-l-4 border-secondary pl-4">STEP 6 — Limitations (한계점)</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Part A: Admitted Limitations -->
+                <div class="space-y-4">
+                    <h3 class="font-h3 text-error flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        Part A. 논문이 스스로 밝힌 한계
+                    </h3>
+                    
+                    <!-- Admitted Limit 1 -->
+                    <div class="collapse collapse-plus bg-base-200 border border-base-300">
+                        <input type="checkbox" class="peer" /> 
+                        <div class="collapse-title font-body font-semibold peer-checked:text-error">
+                            1. 개념적 프레임워크의 실증 연구 부재
+                        </div>
+                        <div class="collapse-content font-small text-neutral-600">
+                            <p class="mb-2">문헌 검토에 의존하여 도출한 범주와 모델에 대해 현장 데이터를 통한 정밀한 실증적 탐색과 검증이 전혀 수행되지 않았음을 명시적으로 인정했습니다.</p>
+                            <div class="bg-base-300 p-3 rounded italic text-xs">
+                                "As such, the categories and representations need to be explored and tested in further empirical research." (p. 58, Section 6.1)
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Admitted Limit 2 -->
+                    <div class="collapse collapse-plus bg-base-200 border border-base-300">
+                        <input type="checkbox" class="peer" /> 
+                        <div class="collapse-title font-body font-semibold peer-checked:text-error">
+                            2. 자원의 존재론적 모호성 절충
+                        </div>
+                        <div class="collapse-content font-small text-neutral-600">
+                            <p class="mb-2">자원을 객관적 독립체로 볼 것인지, 아니면 사회적 구성물로 볼 것인지에 대한 복잡한 인식론적·존재론적 토대를 깊이 다루지 못하고 타협했습니다.</p>
+                            <div class="bg-base-300 p-3 rounded italic text-xs">
+                                "While there are degrees of social construction, going into more sophisticated ontological and epistemological discussions is outside the scope of this paper." (p. 58, Section 6.1)
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Admitted Limit 3 -->
+                    <div class="collapse collapse-plus bg-base-200 border border-base-300">
+                        <input type="checkbox" class="peer" /> 
+                        <div class="collapse-title font-body font-semibold peer-checked:text-error">
+                            3. 자원 중심성으로 인한 행위자/활동 소외
+                        </div>
+                        <div class="collapse-content font-small text-neutral-600">
+                            <p class="mb-2">자원 상호작용 자체에 극적인 초점을 두어 자원을 소유하고 활용하는 주체인 행위자(actors) 및 활동(activities)이 연구 상에 간접화되고 소외되었습니다.</p>
+                            <div class="bg-base-300 p-3 rounded italic text-xs">
+                                "However, as we have focused on resource interaction, actors appear indirectly in our research, as do activities." (p. 58, Section 6.1)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part B: Critical Doubts -->
+                <div class="space-y-4">
+                    <h3 class="font-h3 text-warning flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        Part B. 비판적으로 의심할 한계 (저자 분석)
+                    </h3>
+
+                    <!-- Critical Doubt 1 -->
+                    <div class="collapse collapse-plus bg-warning/15 border border-warning/30">
+                        <input type="checkbox" class="peer" /> 
+                        <div class="collapse-title font-body font-semibold peer-checked:text-warning-content">
+                            1. 특정 학파(IMP) 편향성에 따른 문헌 선택
+                        </div>
+                        <div class="collapse-content font-small text-neutral-600">
+                            <p>선정된 92개 주요 논문 대다수가 북유럽 기반의 IMP 학파 내부 연구자들의 논문에 치우쳐 있습니다. 전략 경영의 RBV 학파나 마케팅 유통경로(Channels) 학파의 관점이 충분히 용해되지 못해, 자원 가치에 대한 다른 해석 여지를 닫아버린 패러다임 편향(paradigm bias)이 보입니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Critical Doubt 2 -->
+                    <div class="collapse collapse-plus bg-warning/15 border border-warning/30">
+                        <input type="checkbox" class="peer" /> 
+                        <div class="collapse-title font-body font-semibold peer-checked:text-warning-content">
+                            2. 정량적·실무적 측정 기준(Metrics) 부재
+                        </div>
+                        <div class="collapse-content font-small text-neutral-600">
+                            <p>자원 마찰(friction), 중량감(heaviness), 각인(imprints) 등 추상적이고 직관적인 시적 비유들은 제안했으나, 이를 실무 관리자들이 어떻게 수치적으로 수량화하고 자원 적응 시의 손실을 방지하기 위한 정량적인 통제 지표(Actionable metrics)를 구축할 수 있을지에 대해 어떠한 솔루션도 제공하지 못합니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Critical Doubt 3 -->
+                    <div class="collapse collapse-plus bg-warning/15 border border-warning/30">
+                        <input type="checkbox" class="peer" /> 
+                        <div class="collapse-title font-body font-semibold peer-checked:text-warning-content">
+                            3. 다이어그램 내 역인과 및 선후 관계 모호성
+                        </div>
+                        <div class="collapse-content font-small text-neutral-600">
+                            <p>가치 측정 및 포착 관계 지도(Fig 3)와 신사업 형성 모델(Fig 4)의 개념 흐름에서 각 요인 간의 시간적 선후 및 구체적 원인-결과 관계(causal directions)가 정의되지 않았습니다. 예를 들어 마찰(friction)이 새로운 자원 관계 착근(embedding)을 방해하는 장애요소인지, 착근의 부산물인지 인과관계가 불분명해 이론 검증을 어렵게 만듭니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer footer-center p-6 bg-base-300 text-base-content rounded mt-12 font-small">
+            <nav class="grid grid-flow-col gap-4">
+                <span class="font-semibold text-neutral-700">자원 상호작용 학술 분석 보고서</span>
+            </nav> 
+            <aside>
+                <p>Designed using Tailwind CSS & DaisyUI 4. Styled with Pretendard Font.</p>
+            </aside>
+        </footer>
+
+    </div>
+
+</body>
+</html>
