@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>An Effectual Approach to Executing Dynamic Capabilities - IMM 2022</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2022)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Effectual Dynamic Capabilities</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Study: 24 Interviews</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            An effectual approach to executing dynamic capabilities<br>
+            <span class="text-cyan-400">under unexpected uncertainty</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Joel Mero, Hannele Haapio
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            예기치 못한 불확실성 하에서의 동적 역량 실행:<br>
+            <span class="text-indigo-300">실효적(Effectual) 접근법</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            핀란드 13개 B2B 기업(SME 9개사, 대기업 4개사)의 24회 심층 인터뷰를 통한 감지(Sensing)-포착(Seizing)-재구성(Transforming) 9대 실효 활동 규명
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">예기치 못한 위기에는 계획을 포기하고, 보유 수단과 감당할 수 있는 손실 내에서 고객 피드백을 기반으로 적응해야 생존합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This study investigates how business-to-business (B2B) firms navigate contexts of unexpected uncertainty. Building on the theories of effectuation and dynamic capabilities, the study develops a model that highlights how effectual decision-making logic is manifested in the activities B2B firms employ to sense and seize new opportunities and threats and transform existing business operations. The qualitative data were collected in two phases (before and after the COVID-19 outbreak) and consisted of 24 interviews with 13 B2B firms. The findings demonstrate a strong reliance on managers’ effectual decision-making in situations of unexpected uncertainty and provide a set of key activities that help managers to respond to such situations in a rapid and agile manner."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 연구는 기업 간 거래(B2B) 기업들이 예기치 못한 불확실성의 상황을 어떻게 헤쳐나가는지 조사한다. <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">실효주의(Effectuation)</span> 이론과 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">동적 역량(Dynamic Capabilities)</span> 이론을 바탕으로, 본 연구는 B2B 기업들이 새로운 기회와 위협을 감지(Sense) 및 포착(Seize)하고 기존 비즈니스 운영을 재구성(Transform)하기 위해 채택하는 활동에서 실효적 의사결정 논리가 어떻게 발현되는지를 조명하는 모델을 개발한다. 질적 데이터는 두 단계(코로나19 발생 전과 후)에 걸쳐 수집되었으며, 13개 B2B 기업의 관계자들과 진행한 24회의 인터뷰로 구성된다. 연구 결과는 예기치 못한 불확실성 상황에서 경영진의 실효적 의사결정에 대한 강력한 의존성을 보여주며, 경영진이 이러한 상황에 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">신속하고 민첩(Agile)</span>하게 대응할 수 있도록 돕는 일련의 핵심 활동들을 제시한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Unexpected Uncertainty</td>
+                  <td>예기치 못한 불확실성</td>
+                  <td class="text-sm">사전에 시나리오를 설계하거나 대처 계획(Planning)을 수립할 수 없는 돌발적인 위기를 의미합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Effectuation / Effectual logic</td>
+                  <td>실효주의 / 실효적 논리</td>
+                  <td class="text-sm">수단 중심(Means)과 감당 가능한 손실(Affordable loss)을 기초로 행동을 결정하는 창업학 기반 의사결정 방식입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Dynamic Capabilities</td>
+                  <td>동적 역량</td>
+                  <td class="text-sm">급변하는 환경 속에서 비즈니스 모델 및 유·무형 자산을 재구성하는 조직의 통합적 역량입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Organizational Agility</td>
+                  <td>조직적 민첩성</td>
+                  <td class="text-sm">환경 변화를 탐지하고 이에 빠르고 유연하게 대응하여 비즈니스 모델을 기동성 있게 재조정하는 능력입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Response Uncertainty</td>
+                  <td>대응 불확실성</td>
+                  <td class="text-sm">위기 상황에 직면했을 때 가능한 대응 대안들을 모색하지 못하고 각 대응안의 결과를 예측하기 힘든 상태입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">어떻게 계획 없는 위기에 유연하고 기민하게 대응하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">위기 시에는 계획(Causation)보다 실효주의(Effectuation)가 작동한다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">동적 역량과 실효주의의 최초 융합 모델 구축</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B 기업들은 사전에 계획(Causal Planning)을 세울 수 없는 '예기치 못한 불확실성'(예: 코로나19 등)을 직면했을 때 어떻게 유연하게 대처하고 생존하는가?</li>
+                  <li><strong>핵심 발견:</strong> 예기치 못한 위기 하에서는 하향식 예측 계획(Causation)이 작동하지 않고, 수중의 자원과 감당 가능한 손실(Affordable Loss)을 활용하는 <strong>실효적 의사결정(Effectuation)</strong>에 지대하게 의존하여 9대 동적 역량 활동(Sensing, Seizing, Transforming)을 기민하게 전개합니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 기존 동적 역량 모델의 '깊은 불확실성(Deep Uncertainty, 예측불가이나 시나리오 대처 가능)' 프레임워크를 넘어, 위기 시 즉각 대처하는 <strong>반응적(Reactive) 동적 역량</strong>을 최초로 실효주의 이론과 통합 규명하였습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "사전 계획 수립이 불가능한 예기치 못한 위기 상황에서는, 계획(Causation)을 포기하고 고객과의 소통을 토대로 보유 자원 한도 내에서 유연하게 시도하며 적응해 나가는 실효주의적(Effectual) 동적 역량이 조직 생존의 핵심이다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">불확실성 하에서의 실효주의(Effectuation) 전환</td>
+                <td class="text-sm italic text-slate-600">
+                  "Even the key informants from large companies reported that the COVID-19 pandemic had forced them to rethink the role of planning and shift toward faster and more agile decision-making."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 86 (Section 4)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">Sensing 단계 비공식 피드백의 유용성</td>
+                <td class="text-sm italic text-slate-600">
+                  "First, the companies highlighted that the collection of customer insights via informal discussions and feedback was the most crucial means of sensing the implications of unexpected events."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 86 (Section 4.1)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">Sensing 정보의 전사적 실시간 공유</td>
+                <td class="text-sm italic text-slate-600">
+                  "The second activity concerned active sharing of customer insights throughout the organization, which was considered critical in capitalizing on customer insights generated by different members of the organization."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 86 (Section 4.1)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">Seizing 단계의 린(Lean) 반복 개선</td>
+                <td class="text-sm italic text-slate-600">
+                  "First, the companies highlighted that... fast iterative improvement, plays an important role... The interviewees perceived fast iterations as a means to decrease the risk of failure because they allow firms to test novel ideas quickly and without investing heavily..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 87 (Section 4.2)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">고객 및 파트너와의 공동 창조(Co-creation) 필수성</td>
+                <td class="text-sm italic text-slate-600">
+                  "Finally, we started to work together with a number of customers and partners, and that was sound activity and led to success."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 88 (Section 4.2)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">Transforming 단계 자율적 임직원 권한 위임</td>
+                <td class="text-sm italic text-slate-600">
+                  "The first activity highlighted making independent decisions that are beneficial for customers. All interviewees specified that employees must be empowered and capable of making independent decisions in interacting with customers and solving their acute problems..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 88 (Section 4.3)</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">다기능 자율 협업팀의 가치</td>
+                <td class="text-sm italic text-slate-600">
+                  "There is practically no issue that our teams cannot take care of, because each team consists of all types of competencies. This is how we ensure smooth reaction to all kinds of issues and events."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 88 (Section 4.3)</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">민첩성과 효율성의 모드 전환(Switching Mode)</td>
+                <td class="text-sm italic text-slate-600">
+                  "As Teece et al. (2016) put it, organizational agility should not be treated as an immutable quality because it comes with a cost, as an organization must always balance agility and efficiency."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 89-90 (Section 5.2)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (동적 역량 실행 모델)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+              <!-- Define marker for arrows -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+                </marker>
+              </defs>
+              
+              <!-- Title / Trigger -->
+              <rect x="250" y="20" width="300" height="60" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+              <text x="400" y="45" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="14">예기치 못한 불확실성 (Unexpected Uncertainty)</text>
+              <text x="400" y="68" text-anchor="middle" fill="#64748b" font-size="11">예측 불가능한 위기 (예: 코로나19, 규제 변화, 거래처 이탈)</text>
+              
+              <!-- Flow Arrow -->
+              <path d="M 400 80 L 400 120" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+              
+              <!-- Core Logic -->
+              <rect x="230" y="130" width="340" height="60" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="400" y="155" text-anchor="middle" font-weight="700" fill="#92400e" font-size="14">실효적 의사결정 논리 (Effectual Logic)</text>
+              <text x="400" y="178" text-anchor="middle" fill="#b45309" font-size="11">수단 중심(Means) / 감당 가능한 손실(Affordable Loss) / 파트너십 강조</text>
+              
+              <!-- Flow Arrows to 3 Pillars -->
+              <path d="M 330 190 L 150 190 L 150 230" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+              <path d="M 400 190 L 400 230" stroke="#0ea5e9" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+              <path d="M 470 190 L 650 190 L 650 230" stroke="#4f46e5" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+              
+              <!-- Sensing Pillar -->
+              <rect x="30" y="240" width="230" height="150" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+              <text x="145" y="265" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">1. 감지 활동 (Sensing)</text>
+              <line x1="45" y1="275" x2="245" y2="275" stroke="#cbd5e1" stroke-width="1"/>
+              <text x="50" y="295" fill="#475569" font-size="12" font-weight="600">① 비공식적 고객 피드백 수집</text>
+              <text x="60" y="312" fill="#64748b" font-size="10">고객의 상황 및 비즈니스 애로사항 수집</text>
+              <text x="50" y="333" fill="#475569" font-size="12" font-weight="600">② 고객 통찰 전사 공유</text>
+              <text x="60" y="350" fill="#64748b" font-size="10">부서 간 정보 장벽(Silo) 제거 및 공유</text>
+              <text x="50" y="371" fill="#475569" font-size="12" font-weight="600">③ 피드백 기반 브레인스토밍</text>
+              
+              <!-- Seizing Pillar -->
+              <rect x="285" y="240" width="230" height="150" rx="8" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="400" y="265" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="13">2. 기회 포착 (Seizing)</text>
+              <line x1="300" y1="275" x2="500" y2="275" stroke="#bae6fd" stroke-width="1"/>
+              <text x="305" y="295" fill="#0284c7" font-size="12" font-weight="600">④ 신속한 린(Lean) 반복 개선</text>
+              <text x="315" y="312" fill="#0369a1" font-size="10">개념 단계 테스트 및 피드백 보완</text>
+              <text x="305" y="333" fill="#0284c7" font-size="12" font-weight="600">⑤ 고객/파트너와 공동 창조</text>
+              <text x="315" y="350" fill="#0369a1" font-size="10">자원 결합 및 네트워크 기반 솔루션</text>
+              <text x="305" y="371" fill="#0284c7" font-size="12" font-weight="600">⑥ 디지털 채널 고객 교육</text>
+              
+              <!-- Transforming Pillar -->
+              <rect x="540" y="240" width="230" height="150" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="655" y="265" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">3. 변형/재구성 (Transforming)</text>
+              <line x1="555" y1="275" x2="755" y2="275" stroke="#c7d2fe" stroke-width="1"/>
+              <text x="560" y="295" fill="#4338ca" font-size="12" font-weight="600">⑦ 의사결정 권한 위임</text>
+              <text x="570" y="312" fill="#4f46e5" font-size="10">현장 직원이 고객 대응 시 자율적 판단</text>
+              <text x="560" y="333" fill="#4338ca" font-size="12" font-weight="600">⑧ 유기적 프로세스 변경</text>
+              <text x="570" y="350" fill="#4f46e5" font-size="10">위기 상황에 수반되는 유기적 조직 변경</text>
+              <text x="560" y="371" fill="#4338ca" font-size="12" font-weight="600">⑨ 다기능 자율 협업팀 가동</text>
+              
+              <!-- Arrows to Outcome -->
+              <path d="M 145 390 L 145 420 L 330 420" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+              <path d="M 400 390 L 400 410" stroke="#0ea5e9" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+              <path d="M 655 390 L 655 420 L 470 420" stroke="#4f46e5" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+              
+              <!-- Outcome -->
+              <rect x="250" y="430" width="300" height="50" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="400" y="460" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">신속한 적응 및 조직 민첩성 (Agility)</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">상황 독립요인</span>
+                <span class="text-xs text-slate-400 font-semibold">Unexpected Uncertainty</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">예기치 못한 불확실성</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 사전에 시나리오를 구축하거나 발생에 대해 신뢰성 있는 수준의 예측을 할 수 없을 정도로 돌발적이고 즉시적인 시장 환경의 변화 상태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 코로나19 팬데믹, 급격한 법률 개정 등 조사 시점 직전에 발발하여 연간 사업 기획을 마비시키고 신속한 대응을 요하는 상황적 자극.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Milliken(1987)의 환경 불확실성 이론적 정의 차용. 본 논문에서는 인터뷰이들의 위기 인식 경험 진술을 바탕으로 분류.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 기존 동적 역량 연구는 예측은 불가하지만 시나리오 등으로 대비 가능한 '깊은 불확실성'에 국한되었으나, 본 연구는 한층 즉각적인 대응을 요하는 영역을 탐색합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Logic Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">의사결정 매개논리</span>
+                <span class="text-xs text-slate-400 font-semibold">Effectual Logic</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">실효적 의사결정 논리</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 주어진 수단(Means)에서 출발하여 감당 가능한 손실(Affordable loss) 한도 내에서 파트너십을 맺고, 예상 외의 문제(Contingency)를 기회로 삼는 비즈니스 개발 논리.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 기회 포착과 신규 투자를 개시할 때 NPV(순현재가치) 분석 등에 의존했는지, 아니면 감당할 수 있는 투자 손실 한도를 우선 고려했는지 식별.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Sarasvathy(2001, 2008), Read et al.(2009). 본 연구에서는 24개 인터뷰 전사본을 코딩하여 5대 실효적 원칙 발현을 추적.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 신생 벤처뿐 아니라 성숙한 B2B 및 대기업 관리자들도 예측 불허의 외부 충격을 맞이할 때 이 실효적 논리를 발휘하여 생존을 이끎을 증명했습니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- DC Pillars Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">행동 매개요인</span>
+                <span class="text-xs text-slate-400 font-semibold">Dynamic Capabilities</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">9대 실효적 동적 역량 활동</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 실효주의 의사결정 원리에 의해 실행되는 동적 역량(감지-포착-재구성)의 구체적인 행동적 루틴.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 감지(비공식 피드백 수집, 전사 공유, 브레인스토밍), 포착(린 반복 개선, 공동 창조, 고객 교육), 재구성(의사결정 권한 위임, 유기적 프로세스 변경, 다기능 협업팀) 등의 실천 여부.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Teece(2007)의 Sensing-Seizing-Transforming 3단계 분류를 근간으로 하고, Miles et al.(2014) 질적 연구 코딩을 통해 수렴.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 하향식의 계획적 자산 재조정이 아닌, 위기 하의 동적 역량은 상향식의 유기적이며 파트너 협력적인 성격을 띠게 됨을 시사합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Outcome Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">종속 결과요인</span>
+                <span class="text-xs text-slate-400 font-semibold">Organizational Agility</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">조직적 민첩성 및 적응</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 급변하는 시장 환경에 상응하도록 신속하고 기민하게 사업 모델 및 내부 프로세스를 재정렬하여 복구 및 성장하는 능력.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 충격 이후 신제품/서비스의 단기 개발 및 런칭 성공, 위기 하에서의 업무 연속성 유지 및 회복탄력성 달성 수준.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Bhattacharyya and Thakre(2021) 등 코로나19 위기 적응 문헌과 연계하여, 질적 분석을 통한 성공 사례 판별.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 민첩성 확보는 자산 효율성과 상충 관계(Trade-off)가 있으며, 상황에 맞춰 효율성 모드와 민첩성 모드를 전환하는 것 자체가 조직의 고차원적 역량입니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 연구 모델 및 데이터 검증을 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">예비 분석 프레임워크 수립 (Table 1 개발)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  실효주의 특징(Sarasvathy, 2001)과 동적 역량 3대 구조(Sensing, Seizing, Transforming)를 대조하는 개념적 매트릭스를 구성하여 질적 데이터 분석용 분류 틀을 확보함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 83-84, Section 2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">1차 데이터 수집 (B2B 중소기업 심층 인터뷰)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  핀란드 내 B2B SME 기업 중 예기치 못한 불확실성 상황을 맞이해 비즈니스 전환에 성공한 9개 기업을 식별하여 최고 경영진과의 반구조화된 대면 인터뷰 진행.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 85, Section 3.1 & Table 2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">2차 데이터 수집 (코로나19 실시간 추적 및 대기업 확대)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  코로나19 발발 직후 1차 기업 재조사(4개 사 수락)와 함께 대기업 4개 사를 표본에 추가하고, 다각도 분석을 위해 대기업 내 다수 직책 부서장들을 동시 인터뷰함(총 24개 인터뷰).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 85, Section 3.1 & Table 2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">NVivo 12를 통한 질적 데이터 응축 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  녹취 전사본을 텍스트화한 후 NVivo 12를 통해 '고객 피드백', '린 시도', '권한 임파워먼트' 등 위기 시 행동을 코딩하고 연구 범위 밖의 문맥은 필터링함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 86, Section 3.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">데이터 전시 및 실효주의 원칙 대조 분류</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  추출 코드를 예비 분석 틀(Table 1)의 감지-포착-재구성 단계에 교차 배치하여 각각의 행동 기저에 작동한 실효적 논리(수단 중심, 손실 한도 등)를 구체적으로 도출함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 86, Section 3.2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">결론 도출 및 실증 모델 정립 (Fig. 1 완성)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  기업 규모 및 불확실성 유형별 행동 패턴을 대조 검증하여 공통점을 추출하고, 단계별로 3개씩 총 9개의 실효적 동적 역량 핵심 활동 모델을 최종 도출함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 86, Section 4</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            질적 다중사례 연구의 프로토콜과 코딩 기준(Table 1)은 명확하게 기술되어 있어 유사 기법으로 연구를 설계하는 모방 재현은 가능합니다. 그러나 대상 기업들의 심층적인 인터뷰 상세 녹취 원천 데이터가 비공개 처리되어 있어, 타 연구자가 똑같은 결과를 독립적으로 산출해내는 데는 데이터 획득 상의 뚜렷한 실증적 제약이 따릅니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        
+        <!-- Limitation A: Self-acknowledged (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-800 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Self-Acknowledged)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 저자들이 직접 명시한 분석적 제약 사항입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-rose-200">
+                <span class="badge badge-error style-label text-white mb-2">1. 통계적 일반화 한계</span>
+                <p class="text-sm text-slate-700">
+                  핀란드 내 B2B 13개 기업(24개 인터뷰)의 소표본 사례 연구이므로 통계적 법칙으로 넓게 대중적 일반화할 수는 없습니다.
+                </p>
+                <div class="text-xs italic text-slate-500 mt-2 bg-slate-50 p-2 rounded">
+                  "...this study is limited by its lack of statistical generalizability... the sample of 13 firms does not allow us to claim that the results can be generalized..." (Page 90)
+                </div>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-rose-200">
+                <span class="badge badge-error style-label text-white mb-2">2. 북유럽 조직문화의 편향</span>
+                <p class="text-sm text-slate-700">
+                  수평적 권위 구조와 합의를 우선시하는 스칸디나비아 및 북유럽 비즈니스 문화의 영향으로 임직원 권한 위임 및 민첩한 팀 구성이 타 문화권 대비 쉬웠을 수 있습니다.
+                </p>
+                <div class="text-xs italic text-slate-500 mt-2 bg-slate-50 p-2 rounded">
+                  "...may be easier to implement in cultures that feature consensual... attitudes toward decision making and egalitarian... attitudes toward authority..." (Page 90)
+                </div>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-rose-200">
+                <span class="badge badge-error style-label text-white mb-2">3. B2B 파트너십 맥락 강점</span>
+                <p class="text-sm text-slate-700">
+                  구매자와 긴밀하며 적은 수의 계정을 관리하는 B2B 비즈니스의 특성 때문에 고객과의 기민한 공동 창조(Co-creation)가 훨씬 유리하게 작동했습니다.
+                </p>
+                <div class="text-xs italic text-slate-500 mt-2 bg-slate-50 p-2 rounded">
+                  "...co-creation... may be favorable in B2B contexts, which are often associated with fewer but closer buyer-seller relationships." (Page 90)
+                </div>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-rose-200">
+                <span class="badge badge-error style-label text-white mb-2">4. 극단적 불확실성 편향</span>
+                <p class="text-sm text-slate-700">
+                  코로나19 팬데믹처럼 즉시 대처를 요하는 초비상 상황에 조사가 집중되어 안정적인 시장 하의 기획 중심(Causal) 의사결정의 이점이 배제되었습니다.
+                </p>
+                <div class="text-xs italic text-slate-500 mt-2 bg-slate-50 p-2 rounded">
+                  "Our study specifically focused on contexts of unexpected uncertainty, leaving very little room for careful analysis and planning that is characteristic of causal decision-making..." (Page 90)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm mt-2">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 해석 논리를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 회고적 보고에 의한 사후 합리화 편향</span>
+                <p class="text-sm text-slate-700">
+                  1차 데이터 조사(2019년 말)는 인터뷰 대상자들에게 과거에 겪었던 중단 사태들을 회상하여 진술하도록 요구했습니다. 이로 인해 과거의 무계획적이던 실수나 우연한 대처들이 사후에 미화되어 "유연한 실효주의적 대응 전략"으로 포장 및 왜곡 해석되었을 가능성이 농후합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 수직적 단일 정보원 편향</span>
+                <p class="text-sm text-slate-700">
+                  특히 중소기업(SMEs)의 경우, 다각도 검증(Triangulation) 없이 최고 의사결정권자(CEO, 이사회 의장) 단 1인의 진술에 전적으로 의존했습니다. 최고 권력자의 "임직원 권한 부여가 원활히 작동한다"는 답변이 실무 부서 및 현장 직원들이 직면하는 실제 관료적 구조와 통제 수준과 달랐을 위험이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 비공식적 피드백의 주관성과 노이즈 리스크</span>
+                <p class="text-sm text-slate-700">
+                  저자들은 비공식 경로를 통한 즉각적 정보 수집과 전사적인 정보 공유의 이점만을 부각합니다. 그러나 위기 상황에서 검증되지 않은 일부 고객의 파편적 정보들을 전사에 난립시키는 행위는 오히려 데이터 과부하(Information Overload)와 업무 지시의 상충을 유발해 의사결정 효율을 극심히 저해할 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 모드 전환(Switching Mode) 역량 분석 부재</span>
+                <p class="text-sm text-slate-700">
+                  저자들은 환경 격변에 맞추어 평시의 효율주의(Causation)와 위기 시의 민첩주의(Effectuation)를 전환하는 스위칭 역량이 진정한 의미의 민첩성이라고 결론에 주장하고 있으나, 연구 내에서 13개 기업이 실제로 어떠한 스위칭 코스트를 부담하고 이를 시스템적으로 작동시키는가에 대한 구체적 검증은 빠져 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>An effectual approach to executing dynamic capabilities under unexpected uncertainty</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

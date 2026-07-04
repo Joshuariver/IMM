@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="corporate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completing the market orientation matrix - 논문 분석</title>
+    
+    <!-- Tailwind CSS & DaisyUI 4 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Pretendard Font CDN -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        
+        .typography-display {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.15;
+        }
+        
+        .typography-h1 {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .typography-h2 {
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .typography-h3 {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        
+        .typography-body-large {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        
+        .typography-body {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        
+        .typography-small {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        
+        .typography-label {
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: 0.02em;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-24">
+
+    <!-- Header Section -->
+    <header class="gradient-bg text-white py-16 px-4 md:px-8 shadow-xl">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-wrap items-center gap-3 mb-4">
+                <span class="badge badge-primary typography-label px-3 py-1">Empirical Study (PLS-SEM)</span>
+                <span class="badge badge-outline text-white border-white typography-label px-3 py-1">Industrial Marketing Management (2022)</span>
+            </div>
+            <h1 class="typography-display text-white mb-2 tracking-tight text-4xl md:text-5xl leading-tight">Completing the market orientation matrix:</h1>
+            <p class="typography-h2 text-slate-300 font-light mb-2">The impact of proactive competitor orientation on innovation and firm performance</p>
+            <p class="typography-h3 text-primary-content font-bold text-sky-400 mb-6">시장 지향성 매트릭스의 완성: 주도적 경쟁자 지향성이 혁신 및 기업 성과에 미치는 영향</p>
+            <div class="border-t border-slate-700/60 pt-4 flex flex-wrap justify-between items-center gap-4 text-slate-300 typography-small">
+                <div>저자: <strong class="text-white">Anja Schulze</strong> (Zürich 대학교), <strong class="text-white">Janell D. Townsend</strong>, <strong class="text-white">M. Berk Talay</strong></div>
+                <div>DOI: <a href="https://doi.org/10.1016/j.indmarman.2022.03.013" target="_blank" class="link text-white hover:text-sky-400">10.1016/j.indmarman.2022.03.013</a></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 md:px-8 mt-12 grid grid-cols-1 gap-12">
+        
+        <!-- STEP 1: Title & Abstract Section -->
+        <section class="card glass-card shadow-lg p-6 md:p-8">
+            <h2 class="typography-h1 border-b pb-3 mb-6 flex items-center gap-2 text-primary">
+                <span class="text-3xl">📄</span> Step 1. Abstract 번역 및 학술 용어
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Abstract English -->
+                <div>
+                    <h3 class="typography-h3 text-slate-500 mb-2">Original Abstract</h3>
+                    <div class="bg-slate-100/70 p-5 rounded-box border-l-4 border-slate-400 italic typography-body text-slate-700 h-full">
+                        The concept of market orientation comprises four components: customer and competitor orientations, each with a proactive and responsive dimension. Studies have considered both responsive and proactive customer orientation. Competitor orientation, however, has been investigated more narrowly. <br><br>
+                        Research has focused specifically on its responsive dimension, a firm’s posture of quickly responding to its competitors’ actions and their offerings; but has largely disregarded proactive competitor orientation, a firm’s posture towards altering the market’s competitive behavior in its favor. <br><br>
+                        This study investigates the role of responsive and proactive competitor orientation on influencing innovation and firm performance, as well as the mediating effects of technology and learning orientation. <br><br>
+                        Utilizing a unique dataset that combines primary and time-lagged secondary data from 306 firms, we find that both responsive and proactive competitor orientation are observable drivers of performance in the market, but in notably different ways. <br><br>
+                        Proactive competitor orientation drives innovation performance, directly and through technology orientation. Responsive competitor orientation, instead, enhances firm performance through learning orientation. <br><br>
+                        By providing insights about the proactive side of competitor orientation, this study supplements and completes the so called “market orientation matrix”. This framework provides guidance for leaders to develop and manage a practical application of, and future research on market orientation.
+                    </div>
+                </div>
+                
+                <!-- Abstract Korean -->
+                <div>
+                    <h3 class="typography-h3 text-primary/80 mb-2">국문 번역</h3>
+                    <div class="bg-sky-50/70 p-5 rounded-box border-l-4 border-primary typography-body text-slate-800 h-full">
+                        시장 지향성(market orientation)의 개념은 고객 지향성 및 경쟁자 지향성의 두 가지 구성 요소로 이루어져 있으며, 각 요소는 다시 주도적(proactive) 및 반응적(responsive) 차원으로 세분화된다. 기존 연구들은 반응적 및 주도적 고객 지향성을 모두 고려해왔으나, 경쟁자 지향성(competitor orientation)은 보다 좁은 범위에서만 연구되어 왔다.<br><br>
+                        구체적으로 기존 연구들은 경쟁자의 행동과 제품 제안에 신속하게 대응하는 기업의 태도인 반응적 차원에만 집중해왔고, 시장의 경쟁 행태를 자사에 유리한 방향으로 변화시키려는 기업의 태도인 주도적 경쟁자 지향성(proactive competitor orientation)은 크게 간과하였다.<br><br>
+                        본 연구는 반응적 및 주도적 경쟁자 지향성이 기업의 혁신 성과(innovation performance)와 최종 기업 성과(firm performance)에 미치는 영향을 조사하고, 이 과정에서 기술 지향성 및 학습 지향성의 매개 효과를 분석한다.<br><br>
+                        306개 기업으로부터 수집한 1차 설문 자료와 시차를 둔 2차 객관적 재무 데이터를 결합한 고유의 데이터셋을 활용하여, 우리는 반응적 및 주도적 경쟁자 지향성 모두가 시장 성과의 관측 가능한 동인이지만, 작동하는 메커니즘은 현저히 다르다는 것을 확인하였다.<br><br>
+                        주도적 경쟁자 지향성은 직접적으로, 그리고 기술 지향성을 매개로 혁신 성과를 견인한다. 반면, 반응적 경쟁자 지향성은 학습 지향성을 매개로 하여 기업 성과를 향상시킨다.<br><br>
+                        경쟁자 지향성의 주도적 측면에 대한 새로운 통찰을 제공함으로써, 본 연구는 이른바 '시장 지향성 매트릭스'를 보완하고 완성한다. 이 프레임워크는 경영자들에게 시장 지향성의 실질적인 응용과 향후 시장 지향성 연구를 개발하고 관리하는 데 필요한 지침을 제공한다.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Terminology Glossary Table -->
+            <div class="mt-8">
+                <h3 class="typography-h3 text-slate-700 mb-3">주요 학술 용어 정의</h3>
+                <div class="overflow-x-auto">
+                    <table class="table table-bordered w-full bg-white">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-800 typography-label">
+                                <th class="w-1/4">핵심 학술 용어</th>
+                                <th class="w-1/4">한글 표기</th>
+                                <th class="w-1/2">개념 및 번역어 선택 이유</th>
+                            </tr>
+                        </thead>
+                        <tbody class="typography-small text-slate-600">
+                            <tr>
+                                <td class="font-bold text-slate-800">Proactive Competitor Orientation</td>
+                                <td>주도적 경쟁자 지향성</td>
+                                <td>경쟁사의 미래 행보를 한발 앞서 예측하고, 시장의 경쟁 규칙(표준, 진입장벽 등)을 자사에 유리하게 변화시키려는 능동적 문화 성향.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold text-slate-800">Responsive Competitor Orientation</td>
+                                <td>반응적 경쟁자 지향성</td>
+                                <td>경쟁사의 마케팅 활동이나 신제품 출시를 빠르게 벤치마킹하여 신속하게 대응하려는 전략적 태도.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold text-slate-800">Technology Orientation</td>
+                                <td>기술 지향성</td>
+                                <td>새롭고 우수한 가치를 창출하기 위해 최신 기술 발전을 적극 모니터링하고 신제품 개발 시 최첨단 기술을 투입하려는 태도.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold text-slate-800">Learning Orientation</td>
+                                <td>학습 지향성</td>
+                                <td>조직이 기존 지식과 지배적 가설에 적극 의문을 제기하며 파괴적인 지식(Generative learning)을 창출하고 공유하는 조직적 성향.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold text-slate-800">Market Orientation Matrix</td>
+                                <td>시장 지향성 매트릭스</td>
+                                <td>고객/경쟁자 축과 반응적/주도적 축을 조합하여 시장 지향성의 구조를 2x2 매트릭스로 완결한 모델.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 2: Core Claims Section (Using vertical steps component) -->
+        <section class="card glass-card shadow-lg p-6 md:p-8">
+            <h2 class="typography-h1 border-b pb-3 mb-6 flex items-center gap-2 text-primary">
+                <span class="text-3xl">💡</span> Step 2. 핵심 주장 (1분 설명용)
+            </h2>
+            
+            <div class="flex flex-col md:flex-row gap-8 items-stretch">
+                <div class="flex-1">
+                    <ul class="steps steps-vertical w-full">
+                        <li class="step step-primary" data-content="❓">
+                            <div class="text-left pl-4 py-2">
+                                <h4 class="font-bold text-slate-800 typography-h3">연구 질문 (Research Question)</h4>
+                                <p class="typography-body text-slate-600 mt-1">경쟁자 지향성 중 그간 간과되어온 '주도적 경쟁자 지향성(PCO)'은 어떻게 실증 측정되며, '반응적 경쟁자 지향성(RCO)'과 대조될 때 혁신 성과 및 기업 성과에 미치는 차별적 메커니즘은 무엇인가?</p>
+                            </div>
+                        </li>
+                        <li class="step step-primary" data-content="🔍">
+                            <div class="text-left pl-4 py-2">
+                                <h4 class="font-bold text-slate-800 typography-h3">핵심 발견 (Key Findings)</h4>
+                                <p class="typography-body text-slate-600 mt-1">주도적 경쟁자 지향성(PCO)은 직접적으로, 그리고 기술 지향성(TO)을 매개로 하여 혁신 성과를 높인다. 반면, 반응적 경쟁자 지향성(RCO)은 혁신 성과를 저해하며, 오직 학습 지향성(LO)을 완전히 매개해서만 2년 뒤 재무적 기업 성과를 촉진한다.</p>
+                            </div>
+                        </li>
+                        <li class="step step-primary" data-content="🔑">
+                            <div class="text-left pl-4 py-2">
+                                <h4 class="font-bold text-slate-800 typography-h3">학문적·실무적 기여 (Contributions)</h4>
+                                <p class="typography-body text-slate-600 mt-1">시장 지향성 매트릭스의 마지막 4번째 셀(PCO)을 정립 및 실증해 기존 MO 이론을 최종 완결했다. 실무적으로 단순히 라이벌을 추종하는 모방식 벤치마킹은 장기 혁신을 저해하므로 기술 리더십을 활용해 경쟁 룰을 바꾸어야 함을 경고한다.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-slate-900 text-white p-6 rounded-box flex flex-col justify-between md:w-80 shadow-inner">
+                    <div>
+                        <span class="text-4xl text-sky-400">🚀</span>
+                        <h4 class="typography-h2 text-white font-bold mt-4 mb-2">1분 요약문</h4>
+                        <p class="typography-body-large text-slate-300 font-light leading-relaxed">
+                            "주도적 경쟁자 지향성은 기술 우위를 통해 파괴적 혁신을 촉진하고, 반응적 경쟁자 지향성은 조직 학습을 통해 재무적 매출 성장을 도모함으로써 두 가지 지향성이 보완적으로 작용하여 시장 지향성 매트릭스를 완결한다."
+                        </p>
+                    </div>
+                    <span class="badge badge-outline border-sky-400/50 text-sky-400 mt-4 align-self-start typography-label">Schulze et al., 2022</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 3: Evidence Table & Hypotheses Results (table-zebra) -->
+        <section class="card glass-card shadow-lg p-6 md:p-8">
+            <h2 class="typography-h1 border-b pb-3 mb-6 flex items-center gap-2 text-primary">
+                <span class="text-3xl">📊</span> Step 3. 가설 검증 결과 및 원문 인용
+            </h2>
+            
+            <div class="overflow-x-auto">
+                <table class="table table-zebra w-full bg-white shadow-sm rounded-lg overflow-hidden">
+                    <thead>
+                        <tr class="bg-slate-200 text-slate-800 typography-label">
+                            <th class="w-12 text-center">가설</th>
+                            <th class="w-1/3">가설 내용</th>
+                            <th class="w-1/6 text-center">검증 결과</th>
+                            <th class="w-1/3">근거 (경로 계수 & 원문 언급)</th>
+                            <th class="w-12 text-center">위치</th>
+                        </tr>
+                    </thead>
+                    <tbody class="typography-small text-slate-600">
+                        <tr>
+                            <td class="text-center font-bold text-slate-800">H1</td>
+                            <td class="font-semibold text-slate-800">주도적 경쟁자 지향성(PCO)은 혁신 성과에 긍정적인 영향을 미칠 것이다.</td>
+                            <td class="text-center"><span class="badge badge-success text-white">Supported</span></td>
+                            <td>β = 0.202, p = 0.054 (p < 0.10) <br><span class="text-xs italic text-slate-400">"Therefore, H1 is supported..."</span></td>
+                            <td class="text-center text-slate-500">P.11<br>Sec 5.2</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center font-bold text-slate-800">H2</td>
+                            <td class="font-semibold text-slate-800">주도적 경쟁자 지향성(PCO)은 기업 성과(매출)에 긍정적인 영향을 미칠 것이다.</td>
+                            <td class="text-center"><span class="badge badge-ghost">Not Supported</span></td>
+                            <td>β = -0.013, p > 0.10 <br><span class="text-xs italic text-slate-400">"...insignificant impact on firm performance..."</span></td>
+                            <td class="text-center text-slate-500">P.11<br>Sec 5.2</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center font-bold text-slate-800">H3</td>
+                            <td class="font-semibold text-slate-800">PCO가 혁신 성과에 미치는 영향은 기술 지향성(TO)에 의해 매개될 것이다.</td>
+                            <td class="text-center"><span class="badge badge-success text-white">Supported</span></td>
+                            <td>부분 매개 (매개 효과 비중 31.6%)<br>PCO ➔ TO: β = 0.310 (p<0.01)<br>TO ➔ IP: β = 0.301 (p<0.01)</td>
+                            <td class="text-center text-slate-500">P.11<br>Sec 5.2</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center font-bold text-slate-800">H4</td>
+                            <td class="font-semibold text-slate-800">반응적 경쟁자 지향성(RCO)은 혁신 성과에 부정적인 영향을 미칠 것이다.</td>
+                            <td class="text-center"><span class="badge badge-success text-white">Supported</span></td>
+                            <td>β = -0.305, p < 0.01 <br><span class="text-xs italic text-slate-400">"...decreases innovation performance..."</span></td>
+                            <td class="text-center text-slate-500">P.11<br>Sec 5.2</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center font-bold text-slate-800">H5</td>
+                            <td class="font-semibold text-slate-800">반응적 경쟁자 지향성(RCO)은 기업 성과에 긍정적인 영향을 미칠 것이다.</td>
+                            <td class="text-center"><span class="badge badge-ghost">Not Supported</span></td>
+                            <td>β = 0.025, p > 0.10 <br><span class="text-xs italic text-slate-400">"...is not statistically significant. Therefore, H5 is not supported..."</span></td>
+                            <td class="text-center text-slate-500">P.11<br>Sec 5.2</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center font-bold text-slate-800">H6</td>
+                            <td class="font-semibold text-slate-800">RCO가 기업 성과에 미치는 영향은 학습 지향성(LO)에 의해 매개될 것이다.</td>
+                            <td class="text-center"><span class="badge badge-success text-white">Supported</span></td>
+                            <td>완전 매개 (매개 효과 비중 63.8%)<br>RCO ➔ LO: β = 0.311 (p<0.05)<br>LO ➔ FP: β = 0.140 (p<0.05)</td>
+                            <td class="text-center text-slate-500">P.11<br>Sec 5.2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- STEP 4: Research Model & Variables (Cards / table-bordered) -->
+        <section class="card glass-card shadow-lg p-6 md:p-8">
+            <h2 class="typography-h1 border-b pb-3 mb-6 flex items-center gap-2 text-primary">
+                <span class="text-3xl">📐</span> Step 4. 변수 상세 분석 (조작적 정의 및 출처)
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- PCO Card -->
+                <div class="card bg-white border border-slate-200 shadow-sm">
+                    <div class="card-body p-5">
+                        <span class="badge badge-primary text-white typography-label mb-2">독립변수 (IV)</span>
+                        <h3 class="typography-h3 text-slate-800 font-bold border-b pb-1">주도적 경쟁자 지향성 (PCO)</h3>
+                        <p class="typography-small text-slate-600 mt-2"><strong>개념:</strong> 시장 경쟁 질서를 자사에 유리하도록 파괴적으로 선제 재정립하려는 성향.</p>
+                        <p class="typography-small text-slate-600"><strong>조작적 정의:</strong> 4개 문항 (경쟁 환경 표준 설정, 타사 반응 예측에 따른 제품 결정, 인접 시장 모니터링, 선제적 경쟁 행동).</p>
+                        <p class="typography-small text-slate-400 mt-auto pt-4 border-t italic">출처: 본 연구 신규 개발 (CR=0.784)</p>
+                    </div>
+                </div>
+                
+                <!-- RCO Card -->
+                <div class="card bg-white border border-slate-200 shadow-sm">
+                    <div class="card-body p-5">
+                        <span class="badge badge-primary text-white typography-label mb-2">독립변수 (IV)</span>
+                        <h3 class="typography-h3 text-slate-800 font-bold border-b pb-1">반응적 경쟁자 지향성 (RCO)</h3>
+                        <p class="typography-small text-slate-600 mt-2"><strong>개념:</strong> 라이벌의 마케팅 전략, 강단점을 파악해 그들의 전략에 기민하게 반응하고 보조를 맞추려는 성향.</p>
+                        <p class="typography-small text-slate-600"><strong>조작적 정의:</strong> 4개 문항 (경쟁자 약점 활용, 신속 대응, 경쟁사 전략 정기 논의, 경쟁사 제품 벤치마킹).</p>
+                        <p class="typography-small text-slate-400 mt-auto pt-4 border-t italic">출처: Narver & Slater(1990) 수정 (CR=0.725)</p>
+                    </div>
+                </div>
+                
+                <!-- TO Card -->
+                <div class="card bg-white border border-slate-200 shadow-sm">
+                    <div class="card-body p-5">
+                        <span class="badge badge-accent text-slate-800 typography-label mb-2">매개변수 (MV)</span>
+                        <h3 class="typography-h3 text-slate-800 font-bold border-b pb-1">기술 지향성 (TO)</h3>
+                        <p class="typography-small text-slate-600 mt-2"><strong>개념:</strong> 첨단 기술 및 다변화된 기술 발전을 모니터링하고 제품 개발 시 최첨단 신기술을 적용하려는 적극적 기술 태도.</p>
+                        <p class="typography-small text-slate-600"><strong>조작적 정의:</strong> 5개 문항 (기술 모니터링 및 스캐닝, 제품의 최첨단 수준 유지, 최첨단 기술 적용, 기술 개척 의지).</p>
+                        <p class="typography-small text-slate-400 mt-auto pt-4 border-t italic">출처: Gatignon & Xuereb(1997) (CR=0.805)</p>
+                    </div>
+                </div>
+                
+                <!-- LO Card -->
+                <div class="card bg-white border border-slate-200 shadow-sm">
+                    <div class="card-body p-5">
+                        <span class="badge badge-accent text-slate-800 typography-label mb-2">매개변수 (MV)</span>
+                        <h3 class="typography-h3 text-slate-800 font-bold border-b pb-1">학습 지향성 (LO)</h3>
+                        <p class="typography-small text-slate-600 mt-2"><strong>개념:</strong> 기존 지식 체계와 시장의 기본 가정 자체를 거부하고, 전면적인 혁신적 지식 획득(Generative learning)을 도모하는 성향.</p>
+                        <p class="typography-small text-slate-600"><strong>조작적 정의:</strong> 3개 문항 (결과 불만족 시 기존 가정을 의심하고 generative learning 접근을 전사적으로 독려하는 수준).</p>
+                        <p class="typography-small text-slate-400 mt-auto pt-4 border-t italic">출처: Baker & Sinkula(2007) (CR=0.890)</p>
+                    </div>
+                </div>
+
+                <!-- IP Card -->
+                <div class="card bg-white border border-slate-200 shadow-sm">
+                    <div class="card-body p-5">
+                        <span class="badge badge-secondary text-white typography-label mb-2">종속변수 (DV)</span>
+                        <h3 class="typography-h3 text-slate-800 font-bold border-b pb-1">혁신 성과 (IP)</h3>
+                        <p class="typography-small text-slate-600 mt-2"><strong>개념:</strong> R&D 부서의 본래 목적 달성도 및 기술 리더십, 평판, 우수 인적 유치 성공 수준.</p>
+                        <p class="typography-small text-slate-600"><strong>조작적 정의:</strong> 4개 문항 (R&D 목표 대비 달성도 - 혁신 제품 창출, 업계 기술 리더십 획득, 인재 영입력, 성능 대외 평판).</p>
+                        <p class="typography-small text-slate-400 mt-auto pt-4 border-t italic">출처: De Luca et al.(2010) (CR=0.802)</p>
+                    </div>
+                </div>
+                
+                <!-- FP Card -->
+                <div class="card bg-white border border-slate-200 shadow-sm">
+                    <div class="card-body p-5">
+                        <span class="badge badge-secondary text-white typography-label mb-2">종속변수 (DV)</span>
+                        <h3 class="typography-h3 text-slate-800 font-bold border-b pb-1">기업 성과 (FP)</h3>
+                        <p class="typography-small text-slate-600 mt-2"><strong>개념:</strong> 설문 조사 이후 2년 간의 시차(time-lag)를 둔 상태의 객관적인 재무적 성장 지표.</p>
+                        <p class="typography-small text-slate-600"><strong>조작적 정의:</strong> 2년 시차 연간 매출액 (Sales Revenue) 수집 데이터.</p>
+                        <p class="typography-small text-slate-400 mt-auto pt-4 border-t italic">출처: Orbis & Creditreform 외부 DB 객관적 재무제표</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 5: Method Timeline (timeline with color flow) -->
+        <section class="card glass-card shadow-lg p-6 md:p-8">
+            <h2 class="typography-h1 border-b pb-3 mb-6 flex items-center gap-2 text-primary">
+                <span class="text-3xl">🔄</span> Step 5. Method 재현 순서 분해
+            </h2>
+            
+            <div class="flex flex-col gap-8">
+                <ul class="timeline timeline-vertical lg:timeline-horizontal">
+                    <li>
+                        <div class="timeline-start font-bold typography-label text-blue-600">STEP 1</div>
+                        <div class="timeline-middle text-blue-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                        </div>
+                        <div class="timeline-end timeline-box bg-blue-50 border-blue-200 p-3 shadow-sm">
+                            <span class="block font-bold text-slate-800 typography-small">설문 정성적 개발</span>
+                            <span class="text-xs text-slate-500">14개 PCO 초기 문항 구성. 전문가 8인 및 매니저 20인 pre-test로 문항 정제. (PAGE 8)</span>
+                        </div>
+                        <hr class="bg-blue-400" />
+                    </li>
+                    <li>
+                        <hr class="bg-blue-400" />
+                        <div class="timeline-start font-bold typography-label text-indigo-600">STEP 2</div>
+                        <div class="timeline-middle text-indigo-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                        </div>
+                        <div class="timeline-end timeline-box bg-indigo-50 border-indigo-200 p-3 shadow-sm">
+                            <span class="block font-bold text-slate-800 typography-small">번역 및 현지화</span>
+                            <span class="text-xs text-slate-500">Brislin(1986)의 번역 및 역번역 절차를 따라 최종 독일어 설문 완료. (PAGE 8)</span>
+                        </div>
+                        <hr class="bg-indigo-400" />
+                    </li>
+                    <li>
+                        <hr class="bg-indigo-400" />
+                        <div class="timeline-start font-bold typography-label text-teal-600">STEP 3</div>
+                        <div class="timeline-middle text-teal-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                        </div>
+                        <div class="timeline-end timeline-box bg-teal-50 border-teal-200 p-3 shadow-sm">
+                            <span class="block font-bold text-slate-800 typography-small">1차 설문 조사</span>
+                            <span class="text-xs text-slate-500">독일어권 B2B 내구재 제조기업 581개사 서베이 실시, 306개사 유효 응답. (PAGE 8)</span>
+                        </div>
+                        <hr class="bg-teal-400" />
+                    </li>
+                    <li>
+                        <hr class="bg-teal-400" />
+                        <div class="timeline-start font-bold typography-label text-sky-600">STEP 4</div>
+                        <div class="timeline-middle text-sky-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                        </div>
+                        <div class="timeline-end timeline-box bg-sky-50 border-sky-200 p-3 shadow-sm">
+                            <span class="block font-bold text-slate-800 typography-small">2차 데이터 수집</span>
+                            <span class="text-xs text-slate-500">2년의 시차 후 Orbis 및 Creditreform DB를 통해 306개사 매출액 결합. (PAGE 8)</span>
+                        </div>
+                        <hr class="bg-sky-400" />
+                    </li>
+                    <li>
+                        <hr class="bg-sky-400" />
+                        <div class="timeline-start font-bold typography-label text-purple-600">STEP 5</div>
+                        <div class="timeline-middle text-purple-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                        </div>
+                        <div class="timeline-end timeline-box bg-purple-50 border-purple-200 p-3 shadow-sm">
+                            <span class="block font-bold text-slate-800 typography-small">PLS 구조방정식 분석</span>
+                            <span class="text-xs text-slate-500">CMB(공통방법편향) 통제, PLS 5,000회 부트스트랩을 돌려 H1~H6 통계 검증. (PAGE 11)</span>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="p-4 bg-slate-100 rounded-lg text-center font-bold typography-body border border-slate-200">
+                    재현 가능성 평가: <span class="text-amber-600">부분 재현 가능 (Partially Replicable)</span>
+                    <span class="block text-xs font-normal text-slate-500 mt-1">설문 문항과 통계 절차는 온전히 명시되었으나, 표본 기업 306개사의 실물 명단 및 원시 데이터가 비공개이므로 동일한 설문 복제는 불가능함.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 6: Limitations (Admitted vs Critical) -->
+        <section class="card glass-card shadow-lg p-6 md:p-8">
+            <h2 class="typography-h1 border-b pb-3 mb-6 flex items-center gap-2 text-primary">
+                <span class="text-3xl">⚠️</span> Step 6. Limitations (한계점 분석)
+            </h2>
+            
+            <!-- Limitation A: Admitted by Paper (alert alert-error + collapse) -->
+            <div class="collapse collapse-arrow bg-red-50 border border-red-200 mb-6 rounded-lg">
+                <input type="checkbox" checked="checked" /> 
+                <div class="collapse-title typography-h3 text-red-800 font-bold flex items-center gap-2">
+                    <span class="badge badge-error text-white typography-label">A</span> 논문이 스스로 밝힌 공식 한계 (Admitted Limitations)
+                </div>
+                <div class="collapse-content text-slate-700 typography-body">
+                    <div class="alert alert-error bg-red-100/50 border border-red-300 rounded-lg p-4 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-red-800 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                        <span class="typography-small text-red-950">설문 표본의 지리적/산업적 편중성과 시장 지향성 격자 전체를 아우르지 못한 부분 분석적 접근의 아쉬움을 인정함.</span>
+                    </div>
+                    <ul class="list-disc pl-6 space-y-2 typography-small text-slate-700">
+                        <li><strong>일반화 한계:</strong> 표본이 독일어권(독일, 스위스, 오스트리아) 및 내구재를 제조하는 기술 B2B 기업에 국한되어 있어, 서비스업, B2C, 신흥국 등으로의 일반화에 한계가 있음. (PAGE 12, Section 7)</li>
+                        <li><strong>불완전한 매트릭스 결합:</strong> 2x2 매트릭스 전체의 시너지를 통합 확인하기보다 경쟁자 지향성의 두 차원만 떼어내 모델링하여 고객 지향성과의 연동 효과를 밝히지 못함. (PAGE 12, Section 7)</li>
+                        <li><strong>관계의 선형성 가정:</strong> 변수 간의 관계를 단순 선형으로만 가정해 비선형 임계치 관계(예: 과도한 PCO의 해악) 등을 파악하지 못함. (PAGE 12-13, Section 7)</li>
+                        <li><strong>외생적 경계 조건 검증 부족:</strong> 시장 독과점 수준, 격변 수준 등 환경 변수의 조절 효과 검증이 모형에 포함되지 않음. (PAGE 13, Section 7)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Limitation B: Critical Suspicions (collapse with warning background) -->
+            <div class="collapse collapse-arrow bg-amber-50 border border-amber-200 rounded-lg">
+                <input type="checkbox" /> 
+                <div class="collapse-title typography-h3 text-amber-800 font-bold flex items-center gap-2">
+                    <span class="badge badge-warning text-slate-800 typography-label">B</span> 비판적 분석 및 독자적 의심 (Critical Suspicions)
+                </div>
+                <div class="collapse-content text-slate-700 typography-body">
+                    <ul class="list-disc pl-6 space-y-3 typography-small text-slate-800">
+                        <li>
+                            <strong>종속변수(Revenue) 측정 편향:</strong>
+                            기업 성과 지표로 단순 연간 '매출액' 절대값(2차 데이터)을 사용함. 비록 종업원 수로 대변되는 기업 규모를 통제했다 하더라도, 진정한 경쟁력과 내실 성장을 대변하려면 수익성 지표(ROA, Net Profit)나 가치 효율성을 복합 반영해야 왜곡을 피할 수 있음.
+                        </li>
+                        <li>
+                            <strong>매개변수 척도(LO)의 측정 이질성:</strong>
+                            학습 지향성(LO)은 다른 변수들(7점 리커트 척도)과 다르게 100점 배분법에 기반한 상대적 비율 점수로 구체화됨. 척도 간 질적 수준이 상이한 값을 PLS 경로 구조식에 동일 가중치로 밀어 넣음으로써 가중치 분석 왜곡이 우려됨.
+                        </li>
+                        <li>
+                            <strong>2년 시차(Time-lag) 간의 외생 노이즈:</strong>
+                            설문 응답부터 2년 뒤 매출을 측정하기까지 2년 동안 발생한 대형 시장 변화(전략적 제휴, 조직 개편, 대외적 규제, 환율 쇼크 등)를 통제하지 않음으로써, 종속변수 값에 외생적 노이즈가 과다 개입되었을 여지가 있음.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

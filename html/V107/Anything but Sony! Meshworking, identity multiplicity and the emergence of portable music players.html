@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anything but Sony! Meshworking, identity multiplicity and the emergence of portable music players - IMM 2022</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2022)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Processual Network Research</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Case Study</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Anything but Sony!<br>
+            <span class="text-cyan-400">Meshworking, identity multiplicity and the emergence of portable music players</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Matthew McKinlay, Anna Brown, Kasper Trolle Elmholdt
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            소니만 아니면 돼!<br>
+            <span class="text-indigo-300">그물망화, 정체성 다중성, 그리고 휴대용 음악 플레이어의 출현</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            워크맨부터 mp3 플레이어까지 소니의 흥망성쇠 분석을 통한 시간적·과정론적 비즈니스 네트워크 분석
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">소니는 과거 성공에 갇혀 폐쇄적 독점 기술을 고집하다 mp3 시장에서 실패했고, 경쟁사들은 소니의 성공 방식을 흡수해 시장을 지배했습니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This article explores the temporal processes through which firm identity emerges over time, and how the becoming of a firm's identity orients actors towards specific strategic pathways. Drawing on a historical case study of Sony and its development of consumer music technologies from the Walkman to digital music players (mp3), we present an alternative, processual framing of network relations through the ever-extending tangle of the meshwork. By introducing a meshwork-lens to the question of identity in business networks we emphasise the importance of a dynamic and complex identity multiplicity in shaping the action not only of the firm itself, but also in giving rise to the conditions for others to thrive. In doing so, we advance a processual approach to business networks and address the relatively undertheorized understanding of the temporal dynamics of identity in the IMP literature."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 연구는 기업 정체성이 시간에 따라 형성되는 시간적 프로세스(temporal processes)와 기업 정체성의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">'되기(becoming)'</span>가 행위자들을 어떻게 특정한 전략적 경로로 유도하는지 탐구한다. 워크맨(Walkman)에서 디지털 음악 플레이어(mp3)에 이르기까지 소니(Sony)의 소비자 음악 기술 개발에 대한 역사적 사례 연구를 바탕으로, 본 연구는 끊임없이 확장되는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">그물망(meshwork)</span>의 얽힘을 통해 네트워크 관계에 대한 대안적인 과정론적 프레임워크를 제시한다. 비즈니스 네트워크에서의 정체성 문제에 그물망 렌즈(meshwork-lens)를 도입함으로써, 우리는 역동적이고 복잡한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">정체성 다중성(identity multiplicity)</span>이 소니 기업 자체의 행동을 형성할 뿐만 아니라 타사가 번영할 수 있는 여건을 조성하는 데 미치는 중요성을 강조한다. 이를 통해 우리는 비즈니스 네트워크에 대한 과정론적 접근 방식을 발전시키고, 기존 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">IMP(Industrial Marketing and Purchasing)</span> 문헌에서 상대적으로 과소 연구된 정체성의 시간적 역동성에 대한 이해를 다룬다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Meshwork</td>
+                  <td>그물망 (메쉬워크)</td>
+                  <td class="text-sm">인류학자 팀 잉골드(Tim Ingold)의 개념으로, 사전에 설정된 점들을 연결하는 네트워크 개념을 보완하여 라인(선) 자체의 얽힘을 뜻합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Identity Multiplicity</td>
+                  <td>정체성 다중성</td>
+                  <td class="text-sm">하나의 정체성도 아니고 분절된 복수의 정체성도 아닌, 여러 차원의 정체성이 상호 작용하며 공존하는 동적 복합체를 가리킵니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Becoming</td>
+                  <td>되기 (형성 과정)</td>
+                  <td class="text-sm">고정된 실체(Being)가 아니라 끊임없이 다른 모습으로 변화하고 진화해 나가는 동태적 과정론의 철학적 개념입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Meshworking</td>
+                  <td>그물망화</td>
+                  <td class="text-sm">다양한 사회물리적 관계의 궤적(선들)이 모여 매듭(Knot)을 짓고 흩어지는 과정으로서의 상호작용적 네트워킹을 뜻합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Wayfinding</td>
+                  <td>임행적 길찾기</td>
+                  <td class="text-sm">전략을 정밀 지도 탐색(Navigation)처럼 정적인 계획대로 집행하는 것이 아니라, 환경에 반응하며 한 걸음씩 경험적으로 개척해 가는 과정을 의미합니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            소니가 워크맨 시장의 전성기에서 mp3 시장의 추격자로 실각하고 애플이 이를 차지하게 된 과정을 정체성 다중성과 그물망 이론으로 해석합니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">정체성 형성이 전략적 행로를 어떻게 유도하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">자사의 영광스러운 과거 정체성의 덫</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">과정론적 비즈니스 그물망 이론 개척</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 기업의 정체성 형성('되기')은 어떻게 네트워크 행위자를 경로의존적인 전략적 길로 Orient 시키는가? 소니는 왜 워크맨의 강자에서 mp3 시장의 지체자로 전락했는가?</li>
+                  <li><strong>핵심 발견:</strong> 소니의 'Always lead, never follow' 정체성과 CBS 인수로 다져진 'Two wheels of one cart(하드웨어와 콘텐츠 통합)' 정체성이 갈등을 빚으며, 저작권만을 집착하여 폐쇄적인 독자 포맷(ATRAC3)과 메모리스틱을 고집하다 실패했습니다. 한편, 애플은 소니가 다져놓은 그물망의 토양(mp3 등)에서 소니의 과거 방식(이종 기술의 창의적 조립)을 모방하여 시장 지배자로 등극했습니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 기존 IMP의 정적이고 공간적인 위치 중심 네트워크 분석(ARA)을 극복하고, 시간의 흐름을 반영한 '그물망(meshwork)' 분석을 실증 사례 연구로 완벽히 예증했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "소니는 자사의 과거 독점적 혁신가 정체성과 음반 자산 보호에 대한 집착에 스스로 갇혔으며, 경쟁사(Apple)는 소니가 닦아놓은 기술적 토양 위에서 소니의 개방적 조립 혁신 방식을 채택해 지배자가 되었습니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 신뢰성을 위해 질적 분석에서의 가설적 주장과 실증적 텍스트 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">소니의 'Always lead, never follow' 정체성 확립</td>
+                <td class="text-sm italic text-slate-600">
+                  "creativity … requires human thought, spontaneous intuition, and a lot of courage, and we had plenty of that in our early days, and still do" / "Sony's internally expressed identity as ‘always lead never follow’ gave impetus and direction to launch the Walkman."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 33 (Sec. 4.1 & 4.1.1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">CBS 인수 후 '수레의 두 바퀴' 다중적 정체성 성립</td>
+                <td class="text-sm italic text-slate-600">
+                  Norio Ohga "...control both software (music and movie content) and hardware as ‘two wheels of the same cart’... Thus, Sony became both a consumer electronics company, as well as a major music label..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 33 (Sec. 4.1.2)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">음원 보안 보호 집착으로 인한 소비자 외면</td>
+                <td class="text-sm italic text-slate-600">
+                  "...designed to satisfy lawyers obsessed with protecting the copyrights of the record labels—including Sony's own label—at the expense of simplicity and convenience for consumers..." / "...‘STAY AWAY FROM THE SONY DEVICES, GET A RIO, GET AN IJAM, ANYTHING BUT SONY’"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 34 (Sec. 4.2.2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">애플의 소니 과거 성공 문법 모방 및 역전</td>
+                <td class="text-sm italic text-slate-600">
+                  "...competitors instead invoked Sony's past successes... Apple's successful innovation resulted in Apple appropriating Sony's trajectory, displacing the identity of Sony as innovator, as the intensity of its knot faded to become a laggard."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 34-35 (Sec. 4.2.1 & 4.2.2)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">애플의 소니에 대한 의식과 전략적 긴장감</td>
+                <td class="text-sm italic text-slate-600">
+                  “We always assumed that [Sony] were going to kick [Apple's] butt. And we had a tremendous sense of urgency, very fast pace which is why … we came out with so many different versions and … and just keep iterating on all of them...” (Jon Rubenstein)
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 34 (Sec. 4.2.1)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Sony's Identity Becoming in the Meshwork (그물망 분석 모델)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 400" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100%" height="100%" fill="#fafafa" rx="12" />
+              
+              <!-- Time Axis -->
+              <line x1="60" y1="340" x2="740" y2="340" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4" />
+              <text x="60" y="365" fill="#64748b" font-size="12" font-weight="600">1978</text>
+              <text x="230" y="365" fill="#64748b" font-size="12" font-weight="600">1987</text>
+              <text x="400" y="365" fill="#64748b" font-size="12" font-weight="600">1992</text>
+              <text x="560" y="365" fill="#64748b" font-size="12" font-weight="600">1999</text>
+              <text x="660" y="365" fill="#64748b" font-size="12" font-weight="600">2001</text>
+              <text x="740" y="365" fill="#64748b" font-size="12" font-weight="600">2008</text>
+              
+              <!-- Line 1: Hardware Innovation (Cyan) -->
+              <path d="M 60 100 C 180 100, 220 120, 280 150 C 340 180, 380 200, 420 200 C 480 200, 520 150, 570 170 C 620 190, 650 250, 740 270" fill="none" stroke="#0ea5e9" stroke-width="3" />
+              <text x="70" y="85" fill="#0284c7" font-size="11" font-weight="bold">하드웨어 혁신선 (Hardware Line)</text>
+              
+              <!-- Line 2: Content Protection (Indigo) -->
+              <path d="M 230 300 C 300 300, 340 250, 420 200 C 480 150, 520 130, 570 170 C 620 210, 660 150, 740 150" fill="none" stroke="#4f46e5" stroke-width="3" />
+              <text x="240" y="318" fill="#4338ca" font-size="11" font-weight="bold">콘텐츠 소유/보호선 (Content Line)</text>
+              
+              <!-- Line 3: Competitor Path (Amber) -->
+              <path d="M 400 310 C 480 310, 520 270, 580 240 C 620 210, 650 120, 740 90" fill="none" stroke="#d97706" stroke-width="3" />
+              <text x="410" y="330" fill="#b45309" font-size="11" font-weight="bold">경쟁사 혁신선 (Competitor Line)</text>
+
+              <!-- Knot A: Walkman Success (1978) -->
+              <circle cx="120" cy="100" r="10" fill="#0ea5e9" opacity="0.3" />
+              <circle cx="120" cy="100" r="5" fill="#0ea5e9" />
+              <text x="120" y="125" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">워크맨 &amp; CD 성공</text>
+              <text x="120" y="140" text-anchor="middle" font-size="9" fill="#64748b">"Always Lead, Never Follow"</text>
+
+              <!-- Knot B: CBS Acquisition (1987) -->
+              <circle cx="230" cy="300" r="12" fill="#4f46e5" opacity="0.3" />
+              <circle cx="230" cy="300" r="5" fill="#4f46e5" />
+              <text x="230" y="270" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">CBS 레코드 인수</text>
+              <text x="230" y="285" text-anchor="middle" font-size="9" fill="#64748b">"Two Wheels of One Cart"</text>
+
+              <!-- Knot C: Conflict/Clash (1992-1999) -->
+              <rect x="400" y="155" width="180" height="50" rx="6" fill="#fee2e2" stroke="#f87171" stroke-width="1.5" />
+              <text x="490" y="175" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">정체성 다중성 충돌 (ATRAC3)</text>
+              <text x="490" y="193" text-anchor="middle" font-size="9" fill="#ef4444" font-weight="bold">"Anything but Sony!"</text>
+
+              <!-- Knot D: Competitor Takeover (2001) -->
+              <circle cx="660" cy="150" r="14" fill="#d97706" opacity="0.3" />
+              <circle cx="660" cy="150" r="5" fill="#d97706" />
+              <text x="660" y="180" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">Apple iPod 출시</text>
+              <text x="660" y="195" text-anchor="middle" font-size="9" fill="#64748b">소니의 과거 혁신 문법 차용</text>
+              
+              <!-- End Labels -->
+              <text x="740" y="80" text-anchor="end" font-size="10" font-weight="bold" fill="#b45309">Apple iPod 지배</text>
+              <text x="740" y="135" text-anchor="end" font-size="10" font-weight="bold" fill="#4338ca">소니 음반 비즈니스</text>
+              <text x="740" y="295" text-anchor="end" font-size="10" font-weight="bold" fill="#0284c7">소니 mp3 실각</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Construct 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">그물망 구성 개념 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Meshwork</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">그물망 (Meshwork)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 미리 규정된 노드들의 네트워크를 넘어, 유기적이고 자율적으로 뻗어가는 복합적인 선들의 얽힘(entanglement of lines).</p>
+              <p class="text-sm text-slate-700"><strong>정성적 조작화:</strong> 1978년부터 2008년까지 소니를 통과하고 우회한 가전 기술선, 저작권 사수선, 경쟁사 및 소비자 피드백선의 다차원적 궤적 추적.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Tim Ingold (2007, 2011)의 인류학적 라이프라인 연구</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론적 논의:</strong> 기업의 비즈니스 관계를 박제된 공간(Space)이 아니라 시간 속에서 유동적으로 형성되는 과정(Becoming)으로 이해하게 만듭니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">그물망 구성 개념 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Identity Multiplicity</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">정체성 다중성 (Identity Multiplicity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> "More than one and less than many"로 정의되는, 단일하지도 분할되지도 않은 정체성 요소들이 갈등하고 결합하는 현상.</p>
+              <p class="text-sm text-slate-700"><strong>정성적 조작화:</strong> 소니 내의 '기술을 독점 선도하는 하드웨어 혁신가' 정체성과 '음반 자산의 복제를 막는 음반 보호자' 정체성 간 충돌 분석.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Annemarie Mol (2002) / Pentland et al. (2020)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론적 논의:</strong> 정체성은 고정된 경영진의 의제 기획이 아니며, 여러 상충 가닥들이 얽혀 하나의 결정으로 합류(Confluence)되는 긴장의 연속입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">그물망 구성 개념 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Identity Becoming</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">정체성 되기 (Identity Becoming)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 정체성이 고정된 상태로 주어지는 것이 아니라, 끊임없이 외부에 반응하고 어긋나며 형성되어 가는 미완의 성과물.</p>
+              <p class="text-sm text-slate-700"><strong>정성적 조작화:</strong> 워크맨의 전설에서 미니디스크의 정체기, ATRAC3 포맷 붕괴에 따른 소니의 지체자(laggard)화 궤적을 30년에 걸쳐 추적.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Laari-Salmela et al. (2019) / Chia (1999)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론적 논의:</strong> 정체성은 시간과 사회물리적 매체(카세트테이프, CD, mp3 파일)의 개입에 의해서도 유동적으로 재규정됩니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 4 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">그물망 구성 개념 4</span>
+                <span class="text-xs text-slate-400 font-semibold">Wayfinding</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">임행적 길찾기 (Wayfinding)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 철저히 예측하고 계획에 따르는 네비게이션이 아니라, 유동적 주변 환경에 귀를 기울이며(attunement) 길을 나아가는 즉흥적 방식.</p>
+              <p class="text-sm text-slate-700"><strong>정성적 조작화:</strong> 모리타의 시장조사 무용론 직관, 애플의 소니 역사 문법에 대한 예민한 반응과 초고속 반복 실험 및 적응 패턴 분석.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Tim Ingold (2000, 2011) / Chia and Holt (2009)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론적 논의:</strong> 거대 기업의 몰락과 스타트업의 지배가 사전에 구축된 계획(design)이 아닌, 환경 변화에 대처하는 즉흥적 대처(doing)에서 일어남을 예증합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 논문은 질적 역사적 사례 연구(Historical Case Study)와 체계적 결합 아브덕션(Abduction) 기법을 따르고 있으며, 재현 로드맵은 다음과 같습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">초기 산업 역사 아카이브 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  1978년부터 2008년까지 Billboard, Byte, Wired.com, MiniDisc.org 등 온라인 매체를 통해 총 3,454개에 이르는 대규모 기사를 수집 및 연도별 맵핑.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 32, Section 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">핵심 관계자 인터뷰 조사</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Purposive sampling을 통해 MP3 규격 창안자 Karl Brandenburg, Napster CEO Hank Barry, Apple 부사장 Jon Rubinstein 등 핵심 인물 16명 면담 후 538페이지 사건 연대기 작성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 32, Section 3.1 & Table 1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">타깃 데이터 삼각측정 (Triangulation)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  LexisNexis 데이터베이스에서 소니 관련 기사 1,221건을 추가 추출하고, 창업자 Morita 회장 자서전 및 소니 디자인 센터 단행본 6권을 활용하여 교차 검증 실시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 32, Section 3.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">아브덕션(Abduction) 코딩 및 해석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  12개월간 매달 공동 연구 회의를 열어 Ingold의 그물망(meshwork) 이론과 Mol의 다중성(multiplicity) 렌즈를 투영해 Sony의 정체성 서사를 도식화 및 이론화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 32, Section 3.1 & 4</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            자료 수집 쿼리와 2차 데이터 문헌 목록은 명확히 기록되어 완전 복사가 가능합니다. 다만, 16인의 역사적 핵심 주인공들과의 면담 데이터를 10여 년이 지난 시점에서 고스란히 복제하기가 불가능하며, 질적 귀납적 아브덕션 코딩은 연구팀의 주관적이고 해석학적 지식에 편중되므로 재현에 한계가 따릅니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 스스로 밝히고 있는 경계 범위는 다음과 같습니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>소니의 음악 제품 영역에 국한 (Boundary Choice):</strong> 소니는 플레이스테이션, 금융, 영화 등 매우 거대한 Conglomerate이나 본 연구는 오로지 워크맨, CD, MD, MP3 등 음악 기기 영역에만 한정시켜 분석했으므로 타 사업부에도 동일하게 적용된다고 보장할 수 없습니다. (Page 31)
+              </li>
+              <li>
+                <strong>사후 회고적 연구 기법의 한계 (Retrospective bias):</strong> 1978년~2008년의 30년 역사를 사후 자료와 인터뷰 리콜에 의존해 재구성한 것이므로, 인터뷰이들의 기억 왜곡이나 사후적 결과 정당화(Outcome bias)의 개입 여지가 농후합니다. (Page 31)
+              </li>
+              <li>
+                <strong>산업 전환기의 특수성 (Context Specificity):</strong> 아날로그 매체에서 디지털 파일(MP3) 및 DRM 갈등으로 격렬하게 재구성되던 특수한 산업 교체기 맥락이므로, 다른 일반적인 B2B 제조업 네트워크에 동일한 양상이 보편 적용될 수 있는지는 검토가 필요합니다. (Page 35)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구팀의 논리 및 프레이밍 방식에 대해 던질 수 있는 비판적 의문입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 조직 내부 정치 및 부서 사일로(Silo) 무시</span>
+                <p class="text-sm text-slate-700">
+                  소니의 MP3 시장 패인은 거시적 정체성 충돌이라기보단 본사 '오디오(가전) 부서'와 자회사 '소니 뮤직(콘텐츠)' 간 독립채산제에 의한 사리사욕 경쟁 및 부서 간 불통(Silo Effect)의 결과물입니다. 논문은 이러한 미시적 경영 구조의 병폐를 '정체성 다중성'이라는 지나치게 거대한 학술 프레임으로 미화하여 가린 느낌이 듭니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 인터뷰이의 표본 편향성과 내부 증언 부재</span>
+                <p class="text-sm text-slate-700">
+                  심층 인터뷰 대상자 16인 중 Apple 부사장, Kazaa CTO, Napster CEO 등 외부 경쟁사/이해관계자 인물이 과반을 차지하는 반면, 소니 내부 정책을 실제 수립하고 집행한 중추적 경영인들(Morita 회장, Ohga 회장 등)의 생생한 내부 소명 기회가 극도로 누락되어 타자 중심의 비판론에 경도될 여지가 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 애플 아이팟(iPod) 성공의 단순화 및 축소</span>
+                <p class="text-sm text-slate-700">
+                  그물망의 얽힘을 입증하기 위해 애플의 역작인 아이팟을 단지 '소니가 닦은 혁신 그물망의 궤적을 빌린 것'으로 모사합니다. 하지만 애플은 소니와 달리 음반업계와의 99센트 음원 패키지 유연 라이선싱 협상, 아이튠즈 플랫폼 혁신 등 독자적 비즈니스 모델로 성공한 것입니다. 이를 소니의 전유물로 환원시키는 것은 이론을 위해 사실을 축소 왜곡하는 오류에 해당합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 결과 중심 사후 합리화(Post-hoc Rationalization)</span>
+                <p class="text-sm text-slate-700">
+                  소니가 자사 고유 폐쇄형 ATRAC3 포맷을 고수한 판단은 당시 DRM 및 불법 복제 파일이 가득 차던 Napster 과도기 시절 기업 경영상 매우 합리적인 대안 중 하나였습니다. 만약 소니가 조기에 음반 플랫폼을 더 정교하게 구축했다면 이것이 표준이 될 수 있었습니다. 실패를 본 사후(Ex-post)에 와서야 정체성의 덫으로 맹비난하는 것은 생존자 편향의 오류가 엿보입니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Anything but Sony! Meshworking, identity multiplicity and the emergence of portable music players</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

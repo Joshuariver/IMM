@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisiting Business Relationship Quality in Subsistence Marketplaces - IMM 2022</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2022)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Relationship Quality</div>
+        <div class="badge badge-secondary text-white style-label">Citations: 11 (Crossref)</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Revisiting business relationship quality<br>
+            <span class="text-cyan-400">in subsistence marketplaces</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Umme Hani, Shahriar Akter, Ananda Wickramasinghe, Uraiporn Kattiyapornpong, Marcello Mariani
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            생계형 시장에서의<br>
+            <span class="text-indigo-300">비즈니스 관계 품질의 재조명</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            방글라데시 농촌 영세 상인(n=300) 실증 조사를 바탕으로 신뢰, 존중, 호혜성 중심의 B2B 3차 형성적 관계 품질과 비선형적 성과 창출 규명
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">신뢰, 존중, 호혜성이 결합된 고차원 관계 품질은 영세 상인의 창업 영감과 지각 가치를 높이며, 특히 가치 지각과는 역U자형의 비선형 관계를 띱니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-12 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Micro-entrepreneurs play a critical role in alleviating poverty in subsistence marketplaces through their business relationships with microfinance institutions. Despite the enormous importance of these relationships, a critical research question on the dimensions of business relationship quality and their overall effects on relationship outcomes remains unanswered. Thus, drawing on the relationship marketing, social exchange, and self-determination theories, this study answers the focal research question by conducting in-depth interviews (n = 30), thematic analysis, and a survey (n = 300) of micro-entrepreneurs in a subsistence marketplace. The findings show a third-order business relationship quality model with three second-order dimensions (i.e., business trust, business respect, and business reciprocity) and nine subdimensions. The findings confirm the impact of business relationship quality on business customer inspiration and business customer value examined in this marketplace. The findings also identify the mediating role of customer inspiration and both the moderating and quadratic roles of relationship quality on relationship outcomes. The predictive power of the business relationship quality model is validated through PLSpredict using a training sample (n = 270) and a holdout sample (n = 30)."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "마이크로 기업가(영세 기업가)들은 소액금융기관(MFIs)과의 비즈니스 관계를 통해 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">생계형 시장(subsistence marketplaces)</span>에서 빈곤을 완화하는 데 중요한 역할을 합니다. 이러한 관계의 엄청난 중요성에도 불구하고, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">비즈니스 관계 품질</span>의 구성 차원과 이것이 관계 성과에 미치는 전반적인 영향에 대한 중요한 연구 질문은 여전히 답을 얻지 못한 상태입니다. 이에 따라 본 연구는 관계 마케팅, 사회적 교환, 자기결정 이론을 바탕으로, 생계형 시장의 영세 기업가들을 대상으로 심층 인터뷰(n = 30), 주제 분석, 설문조사(n = 300)를 실시하여 이 질문에 답합니다. 연구 결과, 비즈니스 신뢰(business trust), 비즈니스 존중(business respect), 비즈니스 호혜성(business reciprocity)이라는 3개의 2차 차원과 9개의 하위 차원으로 구성된 3차 비즈니스 관계 품질 모형을 도출하였습니다. 또한, 비즈니스 관계 품질이 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">비즈니스 고객 영감(business customer inspiration)</span>과 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">비즈니스 고객 가치(business customer value)</span>에 미치는 영향을 검증했습니다. 나아가 고객 영감의 매개 역할과 관계 품질이 관계 성과에 미치는 조절 및 비선형(quadratic) 역할을 규명했습니다. 모델의 예측력은 훈련 표본(n = 270)과 홀드아웃 표본(n = 30)을 사용한 PLSpredict를 통해 검증되었습니다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Subsistence Marketplaces</td>
+                  <td>생계형 시장 / 절대빈곤층 시장</td>
+                  <td class="text-sm">극심한 소득 제약과 인프라 결핍 하에 있는 생계형 경제 주체들이 상호작용하는 특수 시장 맥락을 지칭합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Business Relationship Quality (BURQ)</td>
+                  <td>비즈니스 관계 품질</td>
+                  <td class="text-sm">B2B 파트너십의 만족도, 신용도 및 결속력을 대변하는 복합적인 학술 개념입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Business Customer Inspiration (BCIN)</td>
+                  <td>비즈니스 고객 영감</td>
+                  <td class="text-sm">외부 마케팅 및 금융 자극에 반응하여 고객 스스로 새로운 사업 아이디어를 창출하고 행동에 옮기게 되는 동기 부여 상태입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Business Customer Value (BCVA)</td>
+                  <td>비즈니스 고객 가치</td>
+                  <td class="text-sm">영세 기업가가 대출 서비스를 이용하며 지각하는 혜택(자금 활용 등) 대비 비용(이자, 심리적 희생 등)에 대한 가치 인식입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-12 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            소액금융기관과 영세 사업자 간의 비즈니스 관계 메커니즘을 3가지 핵심 요소와 1분 브리핑 형식으로 시각화했습니다.
+          </p>
+          
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">생계형 시장의 B2B 관계 품질 차원 규명 및 성과 메커니즘 검증</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">관계 품질은 신뢰·존중·호혜성의 3차 고차원 형성 요인이며 비선형적 영향력 확인</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">B2B 분야 최초로 고객 영감 메커니즘 및 관계 품질의 비선형(Quadratic) 역U자형 가치 지각 입증</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 세부 주장 요약</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 목적:</strong> 담보가 부족한 영세 대출자들과 관계 지향적 사업을 추진하는 소액금융기관(MFI) 간의 질적 비즈니스 관계 구조를 규명합니다.</li>
+                  <li><strong>핵심 성과 메커니즘:</strong> 관계 품질(BURQ)은 영세 상인의 비즈니스 영감(BCIN)을 유발하고 최종적으로 지각되는 가치(BCVA)를 높입니다.</li>
+                  <li><strong>비선형적 작용:</strong> 관계 품질은 고객 영감에는 가속화(U자형) 효과를 내지만, 고객 가치 지각에는 특정 수준을 넘어서면 비용 부담이 커져 가치가 저하되는 역U자형(concave) 관계를 보입니다.</li>
+                </ul>
+              </div>
+              
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "신뢰, 존중, 호혜성으로 결합된 밀접한 관계 품질은 영세 상인의 성장 영감을 가속화하지만, 과도한 관계 밀착은 이자나 관계적 부담을 높여 지각하는 순가치를 감소시키는 이중적 성격을 띱니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-12 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          실증적 분석을 기반으로 추출한 핵심 가설 및 통계 데이터 근거 테이블입니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">BURQ의 3대 차원 및 형성 요인 확인</td>
+                <td class="text-sm italic text-slate-600">
+                  "...provided us with three primary dimensions: trust, respect, and reciprocity... Table 8 shows that BUTR (β = 0.895), BURE (β = 0.914), and BURC (β = 0.900) are the significant dimensions of BURQ..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 201 (Sec. 3.3) / Page 212 (Table 8)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">BURQ와 고객 영감(BCIN)의 선형 효과 (H1)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...confirm the significance of associations between BURQ–BCIN (β = 0.590, p &lt; 0.001)..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 210 (Sec. 6.7) / Table 9</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">BURQ와 고객 가치(BCVA)의 선형 효과 (H2)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...BURQ–BCVA (β = 0.644, p &lt; 0.001)..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 210 (Sec. 6.7) / Table 9</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">고객 영감(BCIN)의 매개 역할 확인 (H4)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...supports H4 and confirms BCIN as a significant partial mediator between BURQ–BUVA [BCVA]..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 210 (Sec. 6.7)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">BURQ의 비선형 U자형 영감 영향력 (H6a)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...significant, positive quadratic effect of BURQ^2 on BCIN (β = 0.191)... Fig. 3A indicates a positive quadratic term with a convex or u-shaped curve."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 211 (Sec. 6.7) / Table 9</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">BURQ의 비선형 역U자형 가치 영향력 (H6b)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...significant, negative quadratic effect of BURQ^2 on BCVA (β = −0.150)... Fig. 3B shows a negative quadratic effect with a concave or an inverse u-shaped curve."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 211 (Sec. 6.7) / Table 9</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-12 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework DAG (가설 경로 모형)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 420" class="w-full h-auto">
+              <!-- Definitions of Markers -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4b5563"/>
+                </marker>
+                <marker id="arrow-indigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/>
+                </marker>
+                <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#06b6d4"/>
+                </marker>
+              </defs>
+
+              <!-- IV: BURQ (B2B Relationship Quality) -->
+              <rect x="20" y="150" width="220" height="110" rx="10" fill="#f1f5f9" stroke="#0ea5e9" stroke-width="2.5"/>
+              <text x="130" y="175" text-anchor="middle" font-weight="700" fill="#0f172a" font-size="14">독립변수: B2B 관계 품질 (BURQ)</text>
+              <text x="130" y="195" text-anchor="middle" fill="#0284c7" font-size="12" font-weight="600">- 비즈니스 신뢰 (Trust)</text>
+              <text x="130" y="215" text-anchor="middle" fill="#0284c7" font-size="12" font-weight="600">- 비즈니스 존중 (Respect)</text>
+              <text x="130" y="235" text-anchor="middle" fill="#0284c7" font-size="12" font-weight="600">- 비즈니스 호혜성 (Reciprocity)</text>
+
+              <!-- Mediator: BCIN (Business Customer Inspiration) -->
+              <rect x="360" y="40" width="210" height="90" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="2.5"/>
+              <text x="465" y="70" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">매개변수: 고객 영감 (BCIN)</text>
+              <text x="465" y="92" text-anchor="middle" fill="#047857" font-size="11">Inspiration BY (아이디어 유발)</text>
+              <text x="465" y="110" text-anchor="middle" fill="#047857" font-size="11">Inspiration TO (실행 지향성)</text>
+
+              <!-- DV: BCVA (Business Customer Value) -->
+              <rect x="580" y="260" width="200" height="80" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="2.5"/>
+              <text x="680" y="295" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">종속변수: 고객 가치 (BCVA)</text>
+              <text x="680" y="318" text-anchor="middle" fill="#4338ca" font-size="11">투입비용 대비 혜택 지각</text>
+
+              <!-- Paths & Hypothesis Labels -->
+              
+              <!-- BURQ -> BCIN (H1, H6a) -->
+              <path d="M240 170 Q 300 120 360 95" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="295" y="125" fill="#047857" font-weight="700" font-size="11">H1 (+, 0.590)</text>
+              <text x="310" y="142" fill="#047857" font-weight="600" font-size="10">H6a (U자형, 0.191)</text>
+
+              <!-- BURQ -> BCVA (H2, H6b) -->
+              <path d="M240 230 Q 400 290 570 300" fill="none" stroke="#4f46e5" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-indigo)"/>
+              <text x="380" y="270" fill="#3730a3" font-weight="700" font-size="11">H2 (+, 0.644)</text>
+              <text x="380" y="285" fill="#3730a3" font-weight="600" font-size="10">H6b (역U자형, -0.150)</text>
+
+              <!-- BCIN -> BCVA (H3) -->
+              <path d="M480 130 L 610 260" fill="none" stroke="#4b5563" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="560" y="185" fill="#1f2937" font-weight="700" font-size="11">H3 (+, 0.130)</text>
+
+              <!-- Mediation Link H4 (BURQ -> BCIN -> BCVA) -->
+              <path d="M430 40 Q 330 0 200 150" fill="none" stroke="#94a3b8" stroke-dasharray="2 2" stroke-width="1.5"/>
+              <text x="320" y="45" fill="#475569" font-size="10" font-style="italic">H4: 간접 매개 효과 (0.075)</text>
+
+              <!-- Moderation: BURQ as Moderator on BCIN -> BCVA (H5) -->
+              <!-- Drawn from BURQ box pointing to BCIN->BCVA path -->
+              <path d="M200 260 Q 320 340 500 240" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrow)"/>
+              <text x="340" y="325" fill="#b45309" font-weight="700" font-size="11">H5 (BURQ 조절 효과, 0.070)</text>
+
+            </svg>
+          </div>
+        </div>
+        
+        <!-- Variable Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 (X)</span>
+                <span class="text-xs text-slate-400 font-semibold">3rd-Order Formative</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">비즈니스 관계 품질 (BURQ)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 신뢰성(Trust), 인격적 존중(Respect) 및 호혜적 교환(Reciprocity) 규범을 아우르는 B2B 파트너십의 종합 품질 수준.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 금융 신용, 담당자의 인격 존중, 마을 주간 미팅 시의 즐거움과 지식 공유 수준을 총합한 34개 항목.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론/학술 의의:</strong> 선진국 B2B 모델의 주축인 만족·결속력 외에도 빈곤층 환경(BOP)에 맞는 '존중(Respect)'과 '마을 미팅 즐거움'을 학계 최초로 관계 마케팅 이론에 병합시켰습니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수 (M)</span>
+                <span class="text-xs text-slate-400 font-semibold">2nd-Order Reflective</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">비즈니스 고객 영감 (BCIN)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> MFI 직원 및 커뮤니티의 자극(Inspiration BY)을 바탕으로 아이디어를 형성하여 비즈니스를 주체적으로 추진하는 상태(Inspiration TO).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 사업적 시야 확장, 새로운 비즈니스 시도 촉진 의향 등 총 7개 항목.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론/학술 의의:</strong> 자기결정 이론(SDT)에 근거, 정보 취약 계층의 창업 행동 발현에 있어 외재적 지원이 내재적 자율 동기(Inspiration)로 환원되는 흐름을 입증했습니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수 (Y)</span>
+                <span class="text-xs text-slate-400 font-semibold">1st-Order Reflective</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">비즈니스 고객 가치 (BCVA)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 소액 대출의 활용성과 재정적 성장, 지불 이자율의 타당성 등 투입 노력 및 비용 대비 혜택에 대한 영세 사업자의 지각적 평가.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 대출 금리 적절성, 기타 금융사 대비 혜택 우수성, 대출이 사업에 부여한 가치 수준 등 5개 항목.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>특이 분석 발견 (H6b):</strong> 관계 품질이 일정 수준 이상으로 과밀화되면, 마을 회의 참가 부담 및 의무적 지출 비용 등 심리적/물리적 비용 인식이 혜택을 넘어서 가치 인식이 꺾이는 비선형적 역U자 관계(beta = -0.150)가 최초 증명되었습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication -->
+      <section id="method" class="scroll-mt-12 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 신뢰도와 타당성을 검증하기 위해 원작자의 연구 실행 프로세스를 7단계 타임라인으로 분해하여 구성하였습니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">심층 인터뷰를 통한 하위 요인 발굴 (질적 연구)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  방글라데시 그라민 은행 대출 고객 중 3년 이상 비즈니스 관계를 유지하고 있는 영세 기업가 30명을 무작위 선정하여 40-60분간 반구조화 대면/전화 인터뷰 실시. 인터뷰 전사본을 NVivo를 통해 질적 주제 분석하여 9개 요인 후보를 도출함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 203, Section 4</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">전문가 Q-Sorting 내용 타당성 검정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  학계 전문가 3인 및 소액금융 업계 실무자 3인으로 심사위원을 구성하여 1단계에서 코딩된 인터뷰 구절의 9개 지표 재분류 Q-Sorting 진행. SPSS 기반 inter-rater reliability 지수 0.82 획득하여 기준 부합 통과.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 204, Section 4.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">벵골어 설문 번역 및 파일럿 테스트</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  영어 표준 문항을 현지어(Bangla)로 번역 및 역번역하여 어조 오류를 소거함. 이후 51명의 사전 조사(Pre-test)와 73명의 타당성 확인 파일럿 테스트를 수행하여 단어 배열 및 문항 이해도를 최종 다듬음.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 209, Section 6.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">본 설문 배포 및 표본 필터링</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  2019년 9월부터 11월까지 전문 마케팅 리서치 기관을 통해 방글라데시 농촌의 MFI 거래 마이크로 사업주 577명에게 배포. 결측값 및 이상치(speeders, flatliners) 소거 후 최종 300개의 유효 응답 획득.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 209, Section 6.3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">무응답 및 동일방법편향(CMB) 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  회수 전반기 25%와 후반기 25% 응답자 간 차이에 대해 t-test를 실시해 무응답 편향 부재 확인. 모델에 무관한 마커 변수(Marker variable) 상관분석 기법을 도입하여 CMV 수준이 무해함(r=0.015, p>0.05)을 입증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 209-210, Section 6.4</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">측정 모형 적합도 검정 (PLS-CFA)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  SmartPLS 3.3을 사용하여 repeated indicator approach 방식으로 3차 고차 형성 변수 BURQ의 적합성 진단. 하위 요인 문항의 적재량(Loadings > 0.7), CR(>0.8), AVE(>0.5) 및 판별타당성 지수(HTMT < 0.90) 통과 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 210, Section 6.6</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">구조 모델 가설 및 비선형/조절 다중 회귀 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  5,000회 부트스트랩을 통한 경로계수(H1~H4) 유의성 확보. BURQ 및 BCIN의 교차 곱을 통한 조절효과(H5) 검정. 독립변수 제곱항(BURQ^2) 투입 회귀를 수행해 비선형성(H6a, H6b) 확인. PLSpredict로 과적합 방지 및 예측 견고성 검정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 210-211, Section 6.7</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            SmartPLS의 지표, 적재량, 척도 문항들이 Table 4에 구체적으로 나와 있어 계량 모델링의 재현은 매우 투명합니다. 그러나 방글라데시 농촌(Rural Bangladesh)의 특정 소액금융 수혜 영세 상인 그룹을 대상으로 3년 거래 필터를 지닌 동일 표본군을 타 지역 연구자가 자체 모집하는 과정에서 현지 네트워크와 비용 측면의 제약이 존재합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-12 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations & Critical Doubts</h2>
+          <span class="badge badge-error style-label text-white uppercase">Limitations</span>
+        </div>
+        
+        <!-- Limitation A: Self-Acknowledged (collapse with red border) -->
+        <div class="collapse collapse-arrow bg-red-50 border border-red-200 text-red-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-red-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-red-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Self-Acknowledged)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 연구진들이 서술한 한계 사항들입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>국가 및 맥락적 일반화의 제약:</strong> 데이터 수집이 방글라데시 단일 개발도상국의 농촌 지역 소액금융 이용 고객에 편중되어 있으므로, 타 국가나 전혀 다른 산업 특성을 가진 도심 지역 혹은 대기업 B2B 공급망 환경에 본 BURQ 모델을 무차별 적용하기엔 제약이 큽니다.
+              </li>
+              <li>
+                <strong>횡단적(Cross-sectional) 연구의 설계:</strong> 단일 시점 조사 기반 구조방정식이므로, 시간 경과에 따른 인과 관계의 유동적 변화 및 장기적인 관계 품질 피드백 루프를 온전히 포착하지 못하는 한계가 있습니다.
+              </li>
+              <li>
+                <strong>존속 고객 중심의 데이터 샘플링:</strong> 설문 대상이 그라민 은행 등의 서비스를 지속 활용 중인 고객들로 한정되어 있어, 거래가 부도났거나 불화로 인해 이미 중간 탈퇴한 대출 상인(discontinued clients)의 축적된 부정적 피드백이 누락되어 왜곡의 여지가 존재합니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 횡단 분석의 허점을 바탕으로 논의할 수 있는 독립적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 생존자 편향 (Survivor Bias)의 유입</span>
+                <p class="text-sm text-slate-700">
+                  모집 필터로 '3년 이상 거래 관계 유지' 조건을 걸어 샘플을 선택하였습니다. 3년 내에 재무 실패나 연체로 탈락한 최악의 빈곤 위기에 처했던 사업자들의 의견이 차단됨으로써, 관계 품질의 성공율과 긍정적 가치 지각률이 현저하게 고평가된 바이어스가 작용하였을 것입니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 역인과관계 (Reverse Causality) 가능성</span>
+                <p class="text-sm text-slate-700">
+                  BURQ가 고객 가치와 영감을 높인다고 주장하지만, 역으로 '사업 성과가 우수하여 큰 대출 혜택(고객 가치)을 보고 있는 상인'일수록 금융사 담당 직원이나 마을 모팅에 적극적이고 우호적인 관계 품질 평가(BURQ)를 반추하여 응답하였을 역인과가 충분히 성립 가능합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 주관적 자기 보고 편향 (Self-Report Bias)</span>
+                <p class="text-sm text-slate-700">
+                  관계 품질, 영감, 가치가 모두 한 대출자(사업자)의 단일 시점 주관적 설문 응답에만 기초해 측정되었습니다. 공인 회계 자료나 MFI의 공식 대출 부도율, 실제 소득 증대액 등의 하드 데이터가 결여되어 있어 응답자의 사후 심리 합리화가 수치에 그대로 개입되었을 위험이 존재합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 사회적 바람직성 편향 (Social Desirability Bias)</span>
+                <p class="text-sm text-slate-700">
+                  생계형 절대 빈곤층 상인들의 생명줄과 같은 소액 신용 대출 연장 권한을 MFI 직원이 쥐고 있는 갑을 관계 맥락입니다. 제3의 리서치 대행사 설문이라 하더라도 소액금융기관 직원에 대해 솔직한 부정적 의견을 피하고 바람직한 방향으로만 평가 응답을 밀어주었을 개연성이 큽니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Revisiting business relationship quality in subsistence marketplaces</p>
+      <p class="text-xs mt-2">© 2026 PhD B2B Themes. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chaudhary et al. 2021 — ML Social Media Consumer Behavior</title>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4/dist/full.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; }
+</style>
+</head>
+<body class="bg-base-200 min-h-screen p-4">
+<div class="max-w-5xl mx-auto space-y-6">
+
+  <!-- Header -->
+  <div class="card bg-secondary text-secondary-content shadow-xl">
+    <div class="card-body">
+      <h1 class="card-title text-xl font-bold leading-snug">Machine Learning-Based Mathematical Modelling for Prediction of Social Media Consumer Behavior Using Big Data Analytics</h1>
+      <p class="text-sm opacity-80">Chaudhary · Alam · Al-Rakhami · Gumaei | Journal of Big Data (2021) 8:73</p>
+      <div class="flex gap-2 flex-wrap mt-2">
+        <span class="badge badge-outline">Decision Tree (98.29%)</span>
+        <span class="badge badge-outline">Big Data Analytics</span>
+        <span class="badge badge-outline">Social Media</span>
+        <span class="badge badge-outline">n=5279 records</span>
+        <span class="badge badge-outline">7 ML Models</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1: Abstract -->
+  <div class="card bg-base-100 shadow">
+    <div class="card-body">
+      <h2 class="card-title text-lg">📄 STEP 1 — Abstract 번역</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+        <div>
+          <p class="text-xs font-bold text-base-content/60 mb-1">ENGLISH</p>
+          <blockquote class="border-l-4 border-secondary pl-4 text-sm text-base-content/80 italic">
+            Social media is popular in our society right now. People are using social media platforms to purchase various products. We collected the data from various social media platforms (Facebook, Twitter, LinkedIn, YouTube, Instagram, Pinterest). We developed mathematical modeling using machine learning to predict consumer behavior on the social media platform. 80% of data are used for training purposes and 20% for testing.
+          </blockquote>
+        </div>
+        <div>
+          <p class="text-xs font-bold text-base-content/60 mb-1">한국어 번역</p>
+          <blockquote class="border-l-4 border-primary pl-4 text-sm text-base-content/80">
+            소셜 미디어(Facebook, Twitter, LinkedIn, YouTube, Instagram, Pinterest)에서 소비자 행동 데이터를 수집하였다. 이상값·잡음·오류·중복 레코드를 제거하는 전처리 후, 머신러닝 기반 수학적 모델을 개발하여 소비자 행동을 예측하였다. 80% 훈련/20% 테스트 분할 결과 최고 정확도 98%를 달성하였다.
+          </blockquote>
+        </div>
+      </div>
+      <div class="divider text-xs">핵심 용어 주석</div>
+      <div class="overflow-x-auto">
+        <table class="table table-zebra table-sm">
+          <thead><tr><th>원어</th><th>번역어</th><th>주석</th></tr></thead>
+          <tbody>
+            <tr><td class="font-mono text-xs">DTR</td><td>의사결정 트리 회귀기</td><td>트리 구조 기반 예측 모델; 해석 용이성과 높은 정확도 특징</td></tr>
+            <tr><td class="font-mono text-xs">RMSE</td><td>평균 제곱근 오차</td><td>예측값-실제값 차이의 제곱 평균; 낮을수록 좋은 모델</td></tr>
+            <tr><td class="font-mono text-xs">CB(A→B)</td><td>소비자 행동 편차</td><td>(std_A - std_B)/(std_A + std_B) × 100; 플랫폼 간 이질성 수치화</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: Core Claims -->
+  <div class="card bg-base-100 shadow">
+    <div class="card-body">
+      <h2 class="card-title text-lg">🎯 STEP 2 — 핵심 주장 (1분 설명용)</h2>
+      <div class="alert alert-info mb-4">
+        <span class="text-sm font-bold">한 줄 요약: 소셜 미디어 빅데이터 기반 의사결정 트리 회귀 모델이 소비자 행동 예측에서 98.29% 정확도를 달성하며, 플랫폼 간 소비자 행동 이질성을 수학적으로 수식화한다.</span>
+      </div>
+      <ul class="steps steps-vertical w-full">
+        <li class="step step-secondary">
+          <div class="text-left ml-2">
+            <p class="font-bold text-sm">연구 질문</p>
+            <p class="text-sm text-base-content/70">소셜 미디어 플랫폼 빅데이터를 활용한 ML 모델이 소비자 행동을 얼마나 정확하게 예측할 수 있는가?</p>
+          </div>
+        </li>
+        <li class="step step-secondary">
+          <div class="text-left ml-2">
+            <p class="font-bold text-sm">모델 성능 비교 (7개 ML 모델)</p>
+            <div class="mt-1 overflow-x-auto">
+              <table class="table table-xs table-zebra">
+                <thead><tr><th>모델</th><th>정확도</th><th>RMSE</th></tr></thead>
+                <tbody>
+                  <tr class="bg-success/20"><td class="font-bold">Decision Tree (DTR) ★</td><td class="text-success font-bold">98.29%</td><td class="text-success">20,691</td></tr>
+                  <tr><td>Extra Tree (ETR)</td><td>96.37%</td><td>22,431</td></tr>
+                  <tr><td>Random Forest (RFR)</td><td>91.47%</td><td>25,736</td></tr>
+                  <tr><td>XGBoost</td><td>74.59%</td><td>40,237</td></tr>
+                  <tr><td>Bagging (BR)</td><td>67.33%</td><td>44,248</td></tr>
+                  <tr><td>AdaBoost (ABR)</td><td>35.89%</td><td>55,927</td></tr>
+                  <tr class="bg-error/10"><td>Linear Regression</td><td class="text-error font-bold">2.24% ✗</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </li>
+        <li class="step step-primary">
+          <div class="text-left ml-2">
+            <p class="font-bold text-sm">플랫폼 간 소비자 행동 편차</p>
+            <p class="text-sm text-base-content/70">Pinterest→Instagram: <span class="font-bold text-error">99.51%</span> (최대) · Facebook→Twitter: <span class="font-bold text-success">12.22%</span> (최소)</p>
+          </div>
+        </li>
+        <li class="step step-primary">
+          <div class="text-left ml-2">
+            <p class="font-bold text-sm">이론·실무 기여</p>
+            <p class="text-sm text-base-content/70">플랫폼별 소비자 집단 이질성 수치화 → 채널 선택 전략·타겟 광고 최적화 도구 제공</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3: Evidence Table -->
+  <div class="card bg-base-100 shadow">
+    <div class="card-body">
+      <h2 class="card-title text-lg">📊 STEP 3 — 주장별 근거와 원문 위치</h2>
+      <div class="overflow-x-auto">
+        <table class="table table-zebra w-full text-sm">
+          <thead><tr><th>#</th><th>핵심 주장</th><th>근거(원문 인용)</th><th>원문 위치</th></tr></thead>
+          <tbody>
+            <tr class="bg-success/10"><td>1</td><td class="font-bold">DTR이 최고 예측 모델</td><td class="italic">"lowest root mean square error is 20691...highest accuracy on validation of data in Decision Tree Regressor"</td><td>Result &amp; Discussion, p.18</td></tr>
+            <tr><td>2</td><td>LR은 소셜 미디어 예측에 부적합</td><td class="italic">"Linear Regression model, while 0.022... is the lowest accuracy on validation data"</td><td>Table 11, p.17</td></tr>
+            <tr><td>3</td><td>Pinterest→Instagram 편차 최대</td><td class="italic">"CB(Pinterest→Instagram) = 99.51%"</td><td>Table 8, p.14</td></tr>
+            <tr><td>4</td><td>Facebook→Twitter 편차 최소</td><td class="italic">"CB(Facebook→Twitter) = 12.22%"</td><td>Table 8, p.14</td></tr>
+            <tr><td>5</td><td>전처리 후 유효 레코드 감소</td><td class="italic">"Out of 5279 records, 3962 are cleaned records after removing the missing values"</td><td>Data pre-processing, p.12</td></tr>
+            <tr><td>6</td><td>일별 데이터 적용 한계</td><td class="italic">"The limitation of this model is that it will not work on daily basis consumer data"</td><td>Conclusion, p.18-19</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4: Method Timeline -->
+  <div class="card bg-base-100 shadow">
+    <div class="card-body">
+      <h2 class="card-title text-lg">🔬 STEP 4 — Method 재현 순서</h2>
+      <ul class="timeline timeline-vertical">
+        <li>
+          <div class="timeline-start timeline-box bg-secondary text-secondary-content text-sm"><strong>STEP 1</strong> 데이터 수집</div>
+          <div class="timeline-middle"><div class="w-4 h-4 rounded-full bg-secondary"></div></div>
+          <div class="timeline-end text-sm">Facebook, YouTube, LinkedIn, Twitter, Instagram, Pinterest에서 5,279개 레코드 수집 (5개 속성) — Data pre-processing, pp.12-13</div>
+          <hr class="bg-secondary"/>
+        </li>
+        <li>
+          <hr class="bg-accent"/>
+          <div class="timeline-start timeline-box bg-accent text-accent-content text-sm"><strong>STEP 2</strong> 데이터 전처리</div>
+          <div class="timeline-middle"><div class="w-4 h-4 rounded-full bg-accent"></div></div>
+          <div class="timeline-end text-sm">결측치 제거(5,279→3,962), Box Plot 이상값 탐지, 중복 제거, 잡음 스무딩 — pp.12-13, Fig.2-4</div>
+          <hr class="bg-info"/>
+        </li>
+        <li>
+          <hr class="bg-info"/>
+          <div class="timeline-start timeline-box bg-info text-info-content text-sm"><strong>STEP 3</strong> 수학적 모델 공식화</div>
+          <div class="timeline-middle"><div class="w-4 h-4 rounded-full bg-info"></div></div>
+          <div class="timeline-end text-sm">3쌍 플랫폼 선형회귀 모델. CB(A→B) = (std_A - std_B)/(std_A + std_B) × 100 — pp.6-9</div>
+          <hr class="bg-warning"/>
+        </li>
+        <li>
+          <hr class="bg-warning"/>
+          <div class="timeline-start timeline-box bg-warning text-warning-content text-sm"><strong>STEP 4</strong> 피처 엔지니어링</div>
+          <div class="timeline-middle"><div class="w-4 h-4 rounded-full bg-warning"></div></div>
+          <div class="timeline-end text-sm">dtype 기반 4개 클래스(c1-c4) 생성, 80/20 훈련/테스트 분할 — pp.14-16, Table 10</div>
+          <hr class="bg-success"/>
+        </li>
+        <li>
+          <hr class="bg-success"/>
+          <div class="timeline-start timeline-box bg-success text-success-content text-sm"><strong>STEP 5</strong> 7개 ML 모델 비교</div>
+          <div class="timeline-middle"><div class="w-4 h-4 rounded-full bg-success"></div></div>
+          <div class="timeline-end text-sm">LR, DTR, RFR, ETR, ABR, XGB, BR — Python scikit-learn, RMSE·검증 정확도 평가 — Table 11, pp.16-18</div>
+        </li>
+      </ul>
+      <div class="alert alert-warning mt-4 text-sm">
+        <span>재현 가능성: <strong>부분 재현 가능</strong> — 데이터셋 링크(Google Drive) 공개. Python 코드 미공개이나 알고리즘 명세 충분. 일부 전처리 파라미터 불투명.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5: Limitations -->
+  <div class="card bg-base-100 shadow">
+    <div class="card-body">
+      <h2 class="card-title text-lg">⚠️ STEP 5 — Limitation 분리</h2>
+
+      <div class="alert alert-error mb-3">
+        <p class="font-bold text-sm">A. 논문이 스스로 인정한 한계</p>
+      </div>
+      <div class="space-y-2 mb-4">
+        <div class="collapse collapse-arrow bg-error/10 border border-error/30">
+          <input type="checkbox" checked/>
+          <div class="collapse-title text-sm font-bold">① 일별 데이터 적용 불가</div>
+          <div class="collapse-content text-sm italic">"The limitation of this model is that it will not work on daily basis consumer data. If this model is used on daily basis data, the result will be very poor." (Conclusion, p.18-19)</div>
+        </div>
+        <div class="collapse collapse-arrow bg-error/10 border border-error/30">
+          <input type="checkbox"/>
+          <div class="collapse-title text-sm font-bold">② 분산 처리 미구현</div>
+          <div class="collapse-content text-sm">클라우드 분산 처리(Hadoop MapReduce) 활용 권고만 있고 본 연구에서는 미구현 (Conclusion, p.19)</div>
+        </div>
+      </div>
+
+      <div class="collapse collapse-arrow bg-warning/20 border border-warning">
+        <input type="checkbox"/>
+        <div class="collapse-title font-bold text-sm">B. 논문이 언급하지 않은 비판적 의심점 (펼치기)</div>
+        <div class="collapse-content">
+          <table class="table table-zebra table-sm w-full mt-2">
+            <tbody>
+              <tr><td class="font-bold w-36">극소 표본 문제</td><td>Instagram 11개, Pinterest 15개 레코드 — 통계적 대표성 극히 불충분. 98%+ 정확도는 과적합(overfitting) 강력 의심</td></tr>
+              <tr><td class="font-bold">종속변수 혼합</td><td>Likes/Followers/Visits/Downloads를 단일 수치로 통합 → 이질적 지표 동일 척도 취급의 개념적 오류</td></tr>
+              <tr><td class="font-bold">B2B 관련성 부재</td><td>B2C 소비자 데이터 기반. B2B 맥락(기업 구매자, DMU)에 적용 시 유효성 미검증</td></tr>
+              <tr><td class="font-bold">시계열 특성 무시</td><td>소셜 미디어 데이터는 시간적 패턴을 가지나 무작위 80/20 분할로 데이터 누수(data leakage) 가능</td></tr>
+              <tr><td class="font-bold">수집 방법 불투명</td><td>데이터 수집 시점, 기간, 크롤링/API 방식 미명시 → 재현 어려움</td></tr>
+              <tr><td class="font-bold">DTR 해석 부재</td><td>98.29% 정확도 주장이나 feature importance·교차검증 결과 미제시 → 과적합 여부 판단 불가</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

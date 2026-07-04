@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building sustainable hospitals: A resource interaction perspective - IMM 2022</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (NO NAVBAR) -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2022)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Resource Interaction perspective</div>
+        <div class="badge badge-secondary text-white style-label">Citations: 15 (Crossref)</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Building sustainable hospitals:<br>
+            <span class="text-cyan-400">A resource interaction perspective</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Sofia Wagrell, Malena I. Havenvid, Åse Linné, Viktoria Sundquist
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            지속가능한 병원 구축:<br>
+            <span class="text-indigo-300">자원 상호작용 관점의 분석</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            스웨덴 양성자 치료기 전용 '스칸디온 클리닉' 건립 및 운영 사례를 중심으로 DPU 환경 하에서의 자원 적응 및 마찰 규명
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">첨단기술이나 병원 건물 자체보다 주변 의료 생태계, 이송제도, 연구망과의 통합적 인터페이스가 생존을 결정합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "In response to a growing influence of patients, higher specialisation, technological advancement and the need to provide care services more efficiently, the issue of sustainability in healthcare has gained prominence. The purpose of this paper is to investigate how the social and economic sustainability of healthcare are dependent on interconnecting resources across organisational borders and in different settings over time. Adopting a product development process perspective, the paper explores the gap between a planned healthcare facility and how it actually came to be used, through a longitudinal case study of the Skandion clinic, a small, highly specialised, hospital in Sweden. The findings suggests that integration of healthcare resources over time is central to achieve social and economic sustainability goals. The results hereby contend the prevailing view of hospitals as independent organisational units and highlights the need for more holistic analyses of sustainability in healthcare. Analyses which take into account the complex interdependencies stretching across networks of interconnected facilities and organisational units."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "환자의 영향력 증대, 전문성 제고, 기술적 진보, 그리고 의료 서비스를 더욱 효율적으로 제공해야 할 필요성에 대응하여, 의료 부문에서의 지속가능성 이슈가 중요하게 부각되고 있다. 본 논문의 목적은 의료의 사회적 및 경제적 지속가능성이 시간의 흐름에 따라 조직 경계를 넘어 다른 환경에서 자원을 상호 연계하는 방식에 어떻게 의존하는지 조사하는 것이다. <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">신제품 개발 프로세스 관점</span>을 채택하여, 본 연구는 스웨덴의 소규모 고도 전문화 병원인 스칸디온(Skandion) 클리닉에 대한 종단적 사례 연구를 통해 계획된 의료 시설과 실제 그것이 어떻게 사용되었는지 사이의 격차를 탐색한다. 연구 결과는 사회적 및 경제적 지속가능성 목표를 달성하기 위해 시간의 흐름에 따라 의료 자원을 통합하는 것이 핵심적임을 시사한다. 이 결과는 병원을 독립된 조직 단위로 바라보는 지배적인 관점에 반론을 제기하며, 의료 지속가능성에 대한 더 총체적인 분석의 필요성을 강조한다. 즉, 상호 연결된 시설들과 조직 단위들의 네트워크 전체에 걸쳐 있는 복잡한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">상호의존성</span>을 고려하는 분석이 필요하다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resource Interaction</td>
+                  <td>자원 상호작용</td>
+                  <td class="text-sm">IMP 학파의 학술 표준어로, 독립적 자원의 합보다 자원 간 결합 및 적응을 통한 부가가치를 강조합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">DPU Framework</td>
+                  <td>DPU 프레임워크 (개발-생산-사용)</td>
+                  <td class="text-sm">자원의 수명주기를 개발(Developing), 생산(Producing), 사용(Using)의 세 단계로 구별해 각 주체의 경제적 논리를 밝히는 분석 툴입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Distributed Competence Logic</td>
+                  <td>분산 역량 논리</td>
+                  <td class="text-sm">단일 클리닉이 모든 의사결정을 독점하지 않고, 대학병원 전문의들의 협업을 통해 환자를 적합 판정하여 이송하는 진단 조율 시스템입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Friction</td>
+                  <td>자원 인터페이스 마찰</td>
+                  <td class="text-sm">신규 기술 자원이 기존의 안정화된 지자체 보건 시스템 및 타 자원과 부딪혀 발생하는 운영적 비효율과 저항을 뜻합니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            의료 서비스 혁신 연구 및 정책 기획 현장에서 <strong>1분 만에</strong> 설득할 수 있도록 논문의 메커니즘을 3단계로 구조화했습니다.
+          </p>
+          
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">새 병원은 왜 환자난과 적자에 허덕이는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">기술 우수성보다 네트워크 적응이 핵심이다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">의료 통합의 DPU 자원인터페이스 모형 정립</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 요지 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 국가 단위의 막대한 예산(12억 크로나)이 소요된 첨단 암 치료 전용 병원이 왜 당초 목표(환자 1,500명)를 채우지 못하고 200~300명 수준의 적자 운영을 겪게 되었는가?</li>
+                  <li><strong>핵심 발견:</strong> 병원 건물이 완공되더라도(생산 성공), 지역 병원의 의뢰 관행, 복잡한 이송/중복 준비 프로세스, 그리고 보건 예산 환급 갈등과 같은 <strong>사용 단계의 마찰</strong>이 해결되지 않으면 지속가능성이 붕괴됩니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 개별 병원을 고립된 하나의 조직으로 보던 과거 의료 경영의 협소한 관점을 타파하고, 전체 보건의료 시스템의 관계망에 깊게 내포된 '자원 상호작용성'을 병원 성과의 핵심 동력으로 재정의하였습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "새로운 병원의 지속가능성은 첨단 기술이나 건물 자체보다, 시간의 흐름에 따라 국가 전반의 타 지역 병원, 환자 이송 제도, 연구 네트워크와 '자원 상호작용 인터페이스'를 얼마나 깊고 정교하게 구축하느냐에 결정됩니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 엄밀성을 검증하기 위해 질적 주장들과 실제 종단사례(스칸디온 클리닉) 내의 팩트 및 인용문을 연계했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">기획 단계의 단순 질병 유병률 기반 예측 오류</td>
+                <td class="text-sm italic text-slate-600">
+                  "However, the estimates of patient inflow before reaching the evaluation board were mistakenly based on general cancer prevalence, and the initial estimate of 2500 patients a year was soon revised down to 1500 patients."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 425 (Sec. 5.1.1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">시공 단계에서의 파트너링 계약을 통한 위험 공유 성공</td>
+                <td class="text-sm italic text-slate-600">
+                  "In 2010, Akademiska Hus (AH) was contracted... entered into a partnering agreement with NCC Construction... It was also a way to share economic risks between the involved actors..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 425 (Sec. 5.2)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">사용 단계에서의 중복 검사 및 진료 절차 마찰</td>
+                <td class="text-sm italic text-slate-600">
+                  "When at Skandion, the patient has to go through the same preparation procedure again to confirm the accuracy of the data. The responsibility for the patient is thus distributed among many different caregivers, which demands a high level of administrative and medical coordination."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 427 (Sec. 5.3)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">임상 지침 부족으로 인한 사용 권장 기피</td>
+                <td class="text-sm italic text-slate-600">
+                  "This lack of research means that the group of patients eligible for treatment still cannot increase, and that new knowledge utilised for treatment guidelines and standardised procedures cannot be created."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 427 (Sec. 5.3)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">지역 보건비용 환급 저항과 광자 치료와의 경쟁</td>
+                <td class="text-sm italic text-slate-600">
+                  "If photon therapy is already part of the basic care programmes and less expensive (which it usually is), sending a patient to Skandion becomes a tough financial decision where the benefits of using protons instead of photons needs to be clear."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 427 (Sec. 5.3)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">기획 단계의 자원 구체성 무시가 사용 마찰로 전이</td>
+                <td class="text-sm italic text-slate-600">
+                  "Taking the full product development process into account has shown that many of the most salient resource interfaces’ specificity was neglected during development... It is this specificity that become visible in the using setting and appears as friction"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 429 (Sec. 6.2)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Resource Interaction & DPU Framework (자원 인터페이스 연결 모델)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 500" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7"/>
+                </marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/>
+                </marker>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
+                </marker>
+                <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/>
+                </marker>
+              </defs>
+
+              <!-- Zones -->
+              <rect x="15" y="15" width="230" height="210" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+              <text x="30" y="40" font-weight="700" fill="#64748b" font-size="12" letter-spacing="0.05em">DEVELOPING SETTING (개발)</text>
+
+              <rect x="15" y="245" width="230" height="210" rx="12" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="2"/>
+              <text x="30" y="270" font-weight="700" fill="#0d9488" font-size="12" letter-spacing="0.05em">PRODUCING SETTING (생산)</text>
+
+              <rect x="555" y="15" width="230" height="440" rx="12" fill="#fffbeb" stroke="#fef3c7" stroke-width="2"/>
+              <text x="570" y="40" font-weight="700" fill="#d97706" font-size="12" letter-spacing="0.05em">USING SETTING (사용)</text>
+
+              <!-- Focal Resource (Center) -->
+              <rect x="290" y="130" width="220" height="80" rx="8" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="3"/>
+              <text x="400" y="165" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="15">양성자 치료 기술</text>
+              <text x="400" y="188" text-anchor="middle" fill="#0284c7" font-size="11" font-weight="600">Proton Therapy (핵심 물리 자원)</text>
+
+              <!-- KAS (전담기관) -->
+              <rect x="290" y="245" width="220" height="60" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+              <text x="400" y="273" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">KAS (공동 관리 조직)</text>
+              <text x="400" y="293" text-anchor="middle" fill="#475569" font-size="10">조직간 자원 통합 매개체</text>
+
+              <!-- Outcome -->
+              <rect x="270" y="375" width="260" height="80" rx="10" fill="#eef2ff" stroke="#4945ff" stroke-width="3"/>
+              <text x="400" y="410" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">사회적 &amp; 경제적 지속가능성</text>
+              <text x="400" y="435" text-anchor="middle" fill="#4338ca" font-size="11" font-weight="600">치료 가치 보급 &amp; 예산 자립성</text>
+
+              <!-- Developing Setting Nodes -->
+              <rect x="30" y="60" width="200" height="50" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-dasharray="4 4" stroke-width="2"/>
+              <text x="130" y="82" text-anchor="middle" font-weight="700" fill="#475569" font-size="12">환자군 예측 (Patients)</text>
+              <text x="130" y="98" text-anchor="middle" fill="#94a3b8" font-size="9">얕은 물리 인터페이스</text>
+
+              <rect x="30" y="135" width="200" height="50" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-dasharray="4 4" stroke-width="2"/>
+              <text x="130" y="157" text-anchor="middle" font-weight="700" fill="#475569" font-size="12">21개 지방정부 (Regions)</text>
+              <text x="130" y="173" text-anchor="middle" fill="#94a3b8" font-size="9">얕은 혼합 인터페이스 (기획)</text>
+
+              <!-- Producing Setting Nodes -->
+              <rect x="30" y="290" width="200" height="50" rx="6" fill="#ffffff" stroke="#0d9488" stroke-width="2"/>
+              <text x="130" y="312" text-anchor="middle" font-weight="700" fill="#0f766e" font-size="12">파트너링 계약 (AH-NCC)</text>
+              <text x="130" y="328" text-anchor="middle" fill="#14b8a6" font-size="9">깊은 혼합 인터페이스 (위험공유)</text>
+
+              <rect x="30" y="370" width="200" height="50" rx="6" fill="#ffffff" stroke="#0d9488" stroke-width="2"/>
+              <text x="130" y="392" text-anchor="middle" font-weight="700" fill="#0f766e" font-size="12">IBA (가속기 장비사)</text>
+              <text x="130" y="408" text-anchor="middle" fill="#14b8a6" font-size="9">깊은 혼합 인터페이스 (기술통합)</text>
+
+              <!-- Using Setting Nodes -->
+              <rect x="570" y="60" width="200" height="50" rx="6" fill="#ffffff" stroke="#f59e0b" stroke-dasharray="4 4" stroke-width="2"/>
+              <text x="670" y="82" text-anchor="middle" font-weight="700" fill="#b45309" font-size="12">환자 이송/진료 절차</text>
+              <text x="670" y="98" text-anchor="middle" fill="#d97706" font-size="9">마찰 (복잡한 이송 프로세스)</text>
+
+              <rect x="570" y="140" width="200" height="50" rx="6" fill="#ffffff" stroke="#f59e0b" stroke-dasharray="4 4" stroke-width="2"/>
+              <text x="670" y="162" text-anchor="middle" font-weight="700" fill="#b45309" font-size="12">임상 연구 (Research)</text>
+              <text x="670" y="178" text-anchor="middle" fill="#d97706" font-size="9">지침 부족 (임상 활용 기피)</text>
+
+              <rect x="570" y="220" width="200" height="50" rx="6" fill="#ffffff" stroke="#ef4444" stroke-dasharray="4 4" stroke-width="2"/>
+              <text x="670" y="242" text-anchor="middle" font-weight="700" fill="#b91c1c" font-size="12">광자 치료 (Photon Tech)</text>
+              <text x="670" y="258" text-anchor="middle" fill="#f43f5e" font-size="9">대체재 진화로 양성자 매력 감소</text>
+
+              <rect x="570" y="300" width="200" height="50" rx="6" fill="#ffffff" stroke="#ef4444" stroke-dasharray="4 4" stroke-width="2"/>
+              <text x="670" y="322" text-anchor="middle" font-weight="700" fill="#b91c1c" font-size="12">AH 부동산 임대 (Rent)</text>
+              <text x="670" y="338" text-anchor="middle" fill="#f43f5e" font-size="9">고가 고정 임대 비용 마찰 (-)</text>
+
+              <rect x="570" y="380" width="200" height="50" rx="6" fill="#ffffff" stroke="#f59e0b" stroke-dasharray="4 4" stroke-width="2"/>
+              <text x="670" y="402" text-anchor="middle" font-weight="700" fill="#b45309" font-size="12">지역 보건당국 (비용분담)</text>
+              <text x="670" y="418" text-anchor="middle" fill="#d97706" font-size="9">재정 적자 (21개 지방정부 갈등)</text>
+
+              <!-- Paths -->
+              <!-- Developing to Focal -->
+              <path d="M 230 85 L 290 140" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-red)"/>
+              <text x="245" y="105" fill="#dc2626" font-weight="700" font-size="10">단순 예측</text>
+
+              <path d="M 230 160 L 290 160" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-red)"/>
+              <text x="248" y="153" fill="#dc2626" font-weight="700" font-size="10">기획 생략</text>
+
+              <!-- Producing to Focal -->
+              <path d="M 230 315 L 290 190" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrow-green)"/>
+              <text x="238" y="235" fill="#059669" font-weight="700" font-size="10">위험 분산 (+)</text>
+
+              <path d="M 230 395 L 290 200" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrow-green)"/>
+              <text x="240" y="340" fill="#059669" font-weight="700" font-size="10">시공 성공 (+)</text>
+
+              <!-- Focal to Using (Propagating to Outcomes) -->
+              <path d="M 570 85 L 510 145" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-red)"/>
+              <path d="M 570 165 L 510 165" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-red)"/>
+              <path d="M 570 245 L 510 185" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-red)"/>
+              <path d="M 570 325 L 510 200" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-red)"/>
+              <path d="M 570 405 L 510 210" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-red)"/>
+
+              <text x="535" y="115" fill="#dc2626" font-weight="700" font-size="10">이송지연</text>
+              <text x="530" y="160" fill="#dc2626" font-weight="700" font-size="10">지침 부재</text>
+              <text x="535" y="222" fill="#dc2626" font-weight="700" font-size="10">기술 추격</text>
+              <text x="538" y="278" fill="#dc2626" font-weight="700" font-size="10">비탄력임대</text>
+              <text x="538" y="340" fill="#dc2626" font-weight="700" font-size="10">재정적자</text>
+
+              <!-- KAS to outcomes -->
+              <path d="M 400 210 L 400 245" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow-blue)"/>
+              <path d="M 400 305 L 400 375" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow-purple)"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Analytical Dimension 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">분석 환경 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Developing Setting</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">개발 단계 환경 (기획 및 지자체 연계)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 기술의 가치 평가, 21개 지자체의 공동 의사결정 수립 및 공동 운영을 위한 특별 전담 조직 KAS의 설립 단계.</p>
+              <p class="text-sm text-slate-700"><strong>사례 적용:</strong> 질병 유병률 수치에 의존한 단순 수요 예측과 지자체 개별 병원 간 환자 이송 제도 설계 부재로 인해 초기 실패의 단초 제공.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>자원적 특성:</strong> 21개 지자체가 모였지만 '환자'와 '지역 요구'를 매우 단순하고 동질적인 것으로 취급하여 얕은(Shallow) 결합에 그침.
+              </p>
+            </div>
+          </div>
+
+          <!-- Analytical Dimension 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">분석 환경 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Producing Setting</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">생산 단계 환경 (시공 및 장비설치)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 고도 기술 장비(양성자 사이클로트론)를 안정적으로 수용하기 위한 전용 병원 시설을 직접 건설하는 물리적 생산 단계.</p>
+              <p class="text-sm text-slate-700"><strong>사례 적용:</strong> 부동산 소유주 AH와 시공사 NCC 간의 '파트너링 계약(Partnering Contract)'을 통하여 설계와 시공 리스크를 효과적으로 분담하고 공기 내 완공.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>자원적 특성:</strong> 장비사 IBA의 고난도 물리적 요건을 수용하기 위해 밀접하게 상호작용하는 깊은(Deep) 혼합 인터페이스 작동.
+              </p>
+            </div>
+          </div>
+
+          <!-- Analytical Dimension 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">분석 환경 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Using Setting</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">사용 단계 환경 (실제 병원 가동)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 지자체 병원들로부터 환자를 실시간으로 진료 의뢰받고 예산을 정산하며 실제 양성자 치료를 집행하는 운영 단계.</p>
+              <p class="text-sm text-slate-700"><strong>사례 적용:</strong> 복잡한 환자 이송 제도 및 중복 준비 절차, 임상 연구 부재로 인한 가이드라인 미정립, 광자 치료 기술의 진화로 인한 양성자 가치 하락 및 임대료 부담 마찰 발발.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>자원적 특성:</strong> 기존 보건의료망 내 다수 자원(물리적/사회적)들과의 연계 부족으로 인해 네트워크 전반에서 강력한 마찰(Friction) 발생.
+              </p>
+            </div>
+          </div>
+
+          <!-- Outcome Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">종속적 성과</span>
+                <span class="text-xs text-slate-400 font-semibold">Outcome Dimension</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">사회적 &amp; 경제적 지속가능성</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 첨단 의료의 사회적 혜택 보급(사회적 지속성)과 병원이 공적 자립 예산 내에서 장기적으로 운영을 유지하는 능력(경제적 지속성).</p>
+              <p class="text-sm text-slate-700"><strong>사례 적용:</strong> 사용 단계의 자원 마찰로 연간 환자 유입이 예상치(1,500명) 대비 200~300명 수준으로 축소되어 심각한 예산 적자 및 치료 기회 박탈 봉착.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>상호 관계성:</strong> 두 차원은 서로 독립되지 않고 맞물려 있으며, 시스템적 자원 상호작용의 완결도에 의해 동시에 실현되거나 동시에 저하됩니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          후속 연구자가 동일한 DPU 및 자원 상호작용 방법론을 다른 병원이나 인프라 프로젝트 연구에 <strong>추종 재현</strong>할 수 있도록 절차를 단계별로 분해했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">종단적 사례 범위 획득 및 대상 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  특수 고가 치료기술(양성자 치료)을 신규 도입하고, 21개 지자체가 독특한 공동 기금 및 특별 전담 관리 조직(KAS)을 꾸린 스웨덴의 '스칸디온 클리닉' 프로젝트를 사례 분석 대상으로 확정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 424, Section 4</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">1차 데이터 수집 (기획 및 시공 단계)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  2012년~2013년 사이 병원의 기획 및 실제 물리적 건설 단계 동안, 발주처(AH), 주 건설사(NCC), 의료 장비 공급사(IBA), KAS 운영진 등 핵심 참여자들을 대상으로 21회 반구조화 면접 집행.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 424, Section 4 & Appendix A</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">2차 데이터 수집 (사용 및 가동 단계)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  병원이 전면 가동된 후인 2019년에 병원장, KAS 대표이사, 지자체 보건 담당자 등 4회 심층 사후 면접을 집행해 완공 후 운영 실태와 마찰에 대한 추적 데이터 수집.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 424, Section 4 & Appendix A</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">문서 데이터 수집을 통한 교차 분석 (Triangulation)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  2018년~2019년 수집된 시공사 건설 계약 보고서, 병원 재무 상태 보고서, 환자 치료 건수 통계 및 지역 보건 매체의 치료 보도 기사들을 분석에 통합하여 면접 결과의 주관성 보정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 424, Section 4</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">DPU 단계 분류 및 인터페이스 강도 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  사례 데이터를 개발, 생산, 사용 단계별로 분류하고, 각 단계 내 자원 연결 지점의 인터페이스 속성(물리적/사회적/혼합 및 깊음/얕음)을 코딩 및 비교 분석하여 결과 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 424, Section 4 & Pages 425-428</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            종단적 10년에 걸친 사건에 참여했던 스칸디온 병원 건립 프로젝트 핵심 의사결정자들과 2012-2019년의 면접 기억을 완전히 동일하게 복사하여 재현하는 것은 불가능합니다. 하지만 연구 프로토콜과 분석적 DPU 프레임워크를 기반으로 타 국가의 첨단 의료 클리닉 건립 사례에 이식하여 분석하는 방식의 개념적 재현은 완전히 가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 4, 6)에서 연구진들이 스스로 고백한 한계점입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>단일 지리적 맥락의 제한성 (스웨덴):</strong> 스웨덴 특유의 공공 분권형 보건 체계와 21개 지방 정부 간의 협의체(KAS) 하에서만 검증된 사례이므로, 중앙집권형 의료 예산 제도나 일반 사립병원 중심 보건 환경에 이 자원 상호작용 메커니즘을 동일하게 직접 일반화하기 어렵습니다.
+              </li>
+              <li>
+                <strong>사용 단계의 짧은 관찰 시계열:</strong> 스칸디온 클리닉 개원(2017년) 후 2019년까지 단 2년 남짓한 초기 가동 기간의 마찰 데이터만을 위주로 분석했기 때문에, 장기적인 치료 프로토콜 정착 및 재정 수지 회복 등 후기 안정화 주기를 제대로 관조하지 못했습니다.
+              </li>
+              <li>
+                <strong>이해관계자 선정의 공급자 치우침:</strong> 주로 병원을 직접 짓고 장비를 제공하며 관리를 주도한 발주처 및 시공사 위주의 인터뷰로 데이터가 구성되었으며, 환자를 양성자 클리닉으로 이송하기를 기피하는 지방 종합병원 실제 암 전문의들의 구체적 저항 요인은 심도 있게 수집하지 못했습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 횡단적 해석 방식에 입각해 제기할 수 있는 비판적 의문점들입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 회고적 진술 편향 (Retrospective Bias)</span>
+                <p class="text-sm text-slate-700">
+                  2012-2013년에 결정된 건설 계약과 초기 결정을 2019년 면접 시에 사후 회고하면서 수집한 면접이 다수 포함되어 있습니다. 이는 이미 발생한 환자 부진(적자 상태)이라는 부정적인 결과에 응답자들의 사후 합리화나 귀인 오류가 덧씌워져 진술이 오도되었을 리스크를 시사합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 인터페이스 평가 기준의 주관성</span>
+                <p class="text-sm text-slate-700">
+                  자원 결합의 강도를 규정하는 "깊은(Deep)" 인터페이스와 "얕은(Shallow)" 인터페이스 분류에 관한 구체적이고 정량적인 분류 기준이 제시되지 않았습니다. 이는 연구자들의 정성적 해석과 코딩 편의에 따라 귀걸이 코걸이 식의 해석이 유입되었을 개연성이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 대안 기술의 진화 진동에 대한 해석 축소</span>
+                <p class="text-sm text-slate-700">
+                  스칸디온 클리닉의 부진은 단순히 병원 내부의 자원 상호작용 실패보다, 경쟁 대안 기술인 기존 '광자 방사선 치료'가 예상보다 비약적인 속도로 정밀화(부작용 해소)되면서 양성자의 비용 대비 치료 메리트가 상실된 시장 요인이 핵심입니다. 이를 지나치게 내부적인 '자원 통합 부족' 탓으로 끼워 맞춰 분석하려는 경향이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 제도적/정치적 갈등 요인의 기술적 순화</span>
+                <p class="text-sm text-slate-700">
+                  스웨덴의 21개 지자체들이 지역 건강보험 예산을 각자 관리하는 상황에서, 환자를 타 지역(웁살라)으로 보내며 비용을 정산하기 싫어하는 극도로 예민한 지역 정치학적 님비(NIMBY)/재정 갈등이 본질적 장벽이었습니다. 논문은 이를 '자원의 사회적 인터페이스가 얕다'는 학술적이고 추상적인 어휘로 순화하여 갈등의 실제 얼굴을 지나치게 격하했습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Building sustainable hospitals: A resource interaction perspective</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

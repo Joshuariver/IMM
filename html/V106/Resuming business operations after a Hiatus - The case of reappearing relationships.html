@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resuming business operations after a Hiatus - IMM 2022</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2022)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Business Network Dynamics</div>
+        <div class="badge badge-secondary text-white style-label">Citations: 6 (Crossref)</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Resuming business operations after a Hiatus:<br>
+            <span class="text-cyan-400">The case of reappearing relationships</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            León Poblete, Virpi Havila, Helén Anderson, Mikael Gidhagen, Christopher John Medlin
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            휴지기(Hiatus) 이후 사업 재개:<br>
+            <span class="text-indigo-300">재등장하는 관계의 사례</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            스웨덴 광산 재개 사례(1992-2012년)를 통해 본 휴지기 이후의 B2B 비즈니스 네트워크 재노드화(Re-noding) 역학 및 관계 활성화 메커니즘 분석
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">장기 휴지기 이후 사업 재개는 과거 파트너들과의 관계 재활성화와 신규 관계 구축이 결합된 '재노드화(re-noding)' 과정입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Although previous studies have focused on companies that for some reason cease business operations, and on the ending of business relationships, less is known about once ceased business operations that are resumed at a later stage, embedded in the same or similar business network structures. Especially, there is little research on situations where prior relationships reappear in the process of resuming business operations. To fill this gap, the purpose of this paper is to elaborate on resuming of business operations after a hiatus, a certain period of “business inactivity”, and particularly on business network dynamics that can be influenced by reappearing prior relationships during the process of resuming business operations. Based on a single case study within the context of mining industry in Sweden, we add to the literature on business network dynamics by showing that resuming business operations implicates re-noding of a business network, involving both reappearing relationships as well as new relationships. Furthermore, our study operationalizes the concept of hiatus, showing that when resuming business operations, prior counterparts can act as gatekeepers, promoters, and facilitators that may hinder or support the resuming process."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "어떠한 이유로 사업 운영을 중단한 기업들과 비즈니스 관계의 종료에 초점을 맞춘 기존 연구들은 존재하지만, 한때 중단되었던 사업 운영이 동일하거나 유사한 비즈니스 네트워크 구조 내에 내재되어 이후 단계에서 재개되는 과정에 대해서는 알려진 바가 적다. 특히, 사업 재개 과정에서 이전의 관계가 다시 나타나는(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">reappear</span>) 상황에 대한 연구는 매우 부족하다. 이러한 연구 공백을 메우기 위해, 본 논문의 목적은 '사업적 무활동(business inactivity)' 기간을 뜻하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">휴지기(hiatus)</span> 이후의 사업 운영 재개에 대해 상세히 규명하는 것이며, 특히 사업 재개 과정에서 다시 등장하는 이전 관계들의 영향을 받을 수 있는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">비즈니스 네트워크 역학</span>을 명확히 하고자 한다. 스웨덴 광업 분야의 단일 사례 연구를 기반으로, 본 연구는 사업 운영 재개가 재등장하는 관계들과 새로운 관계들 모두를 포함하는 비즈니스 네트워크의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">'재노드화(re-noding)'</span>를 수반함을 보여줌으로써 비즈니스 네트워크 역학 문헌에 기여한다. 나아가 본 연구는 휴지기(hiatus)의 개념을 조작화하며, 사업 재개 시 이전의 거래 상대방이 재개 과정을 방해하거나 지원할 수 있는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">게이트키퍼(gatekeepers)</span>, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">프로모터(promoters)</span>, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">촉진자(facilitators)</span>의 역할을 수행할 수 있음을 보여준다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Hiatus</td>
+                  <td>휴지기 (사업 무활동 기간)</td>
+                  <td class="text-sm">단순히 영구 종료(termination)나 일시정지(pause)가 아니라, 기존 관계들이 잠복했다가 향후 재활성화될 여지가 있는 일시적 비활동 기간을 지칭하므로 학술적으로 '휴지기'로 번역함.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Reappearing relationships</td>
+                  <td>재등장하는 관계</td>
+                  <td class="text-sm">중단되었던 사업이 재개되면서 과거의 거래 파트너가 새로운 법인이나 구조 하에서 다시 출현하여 맺어지는 관계를 뜻함.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Re-noding</td>
+                  <td>재노드화</td>
+                  <td class="text-sm">네트워크 분석에서 복귀 노드가 출현하면서 기존 및 신규 링크가 결합되어 네트워크 구조가 재설정되는 프로세스를 가리키는 저자들의 독창적 개념어.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Gatekeepers</td>
+                  <td>게이트키퍼 (관문 수호자)</td>
+                  <td class="text-sm">네트워크 진입 지점에서 법적 인허가, 토지 소유권, 규제 등으로 인해 신규 진입을 방해하거나 지연시키는 주체.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Promoters</td>
+                  <td>프로모터 (지지/촉진자)</td>
+                  <td class="text-sm">새로운 노드의 진입을 적극 지지하여 기초 인프라(철도, 항구 등)를 마련해주거나, 제품을 구매(Letters of Intent)하여 재개의 타당성을 높여주는 행위자.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Facilitators</td>
+                  <td>촉진자 (조력자)</td>
+                  <td class="text-sm">사업 재개 과정 전반에 과거의 노하우, 현장 지식, 조업 조력 및 소액 주주 등의 형태로 물리적·사회적 기반을 마련해주는 행위자.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 세미나에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 연구 질문과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">휴지기와 과거 파트너는 사업 재개에 어떤 영향을 미치는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">재등장 파트너들의 역할화 및 네트워크 재노드화</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">비즈니스 네트워크 복원력 경로 개척</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 장기 휴지기(hiatus)를 거친 후 사업을 복원할 때, 소멸했던 비즈니스 네트워크는 어떻게 재구축되는가? 과거 거래 관계들의 재등장은 사업 재개 과정에서 어떤 차별적 작용을 하는가?</li>
+                  <li><strong>핵심 발견:</strong> 20년의 긴 휴지기 이후에도 과거 네트워크는 완전히 소멸하지 않고 일부 관계가 '잠복(dormant)' 상태로 보존됩니다. 또한 재등장 파트너들은 시점과 형태에 따라 **게이트키퍼**(허가), **프로모터**(지지), **촉진자**(조력)로 분화되어 활동하며 기존 잠복 관계와 신규 하청 계약이 융합된 **재노드화(Re-noding)**가 전개됩니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 네트워크 진입(entry) 및 탈퇴(exit)로 양분되던 기존 학설에 '일시적 잠복 후 복귀'라는 새로운 종단적 프로세스를 추가했습니다. 실무적으로는 경영자가 과거 파트너사들이 갖고 있던 품질 사양 기록이나 암묵지 등의 신뢰 자산을 적극적으로 발굴하여 재개 비용을 최소화해야 함을 일깨워줍니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "장기 휴지기 이후 사업 재개는 과거 파트너들과의 관계 재활성화와 신규 관계 구축이 결합된 '재노드화(re-noding)' 과정이며, 재등장하는 파트너들은 게이트키퍼, 프로모터, 촉진자 역할을 통해 이 프로세스를 지연시키거나 촉진합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          이론적 주장과 실증 사례의 엄밀성을 보여주기 위해 각 주요 명제(Propositions)에 대응하는 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">휴지기 중 비즈니스 환경 변화가 과거 파트너들의 적격성에 미치는 영향 (Prop 1)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Proposition 1. During a hiatus in business operations, the business landscape may go through considerable changes so that the former counterparts are no longer relevant when resuming business operations."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 262 (Sec. 5)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">재등장하는 파트너들의 게이트키퍼(진입 저해) 작용 (Prop 2)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Proposition 2. Reappearing counterparts can act as gatekeepers that may hinder the beginning of the process of resuming business operations."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 263 (Sec. 5.1)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">지식을 갖춘 재등장 파트너들의 프로모터(지지) 작용 (Prop 3)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Proposition 3. Reappearing counterparts, with knowledge of prior business operations, can act as promoters in the beginning of the process of resuming business operations."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 263 (Sec. 5.2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">재등장 파트너들의 전 과정 촉진자(조력) 작용 (Prop 4)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Proposition 4. Reappearing counterparts can act as facilitators during the entire process of resuming business operations."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 263 (Sec. 5.3)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">휴지기 동안의 지식 습득과 네트워크 영향 (Prop 5)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Proposition 5. During a hiatus in business operations, the former counterparts are likely to have gained new type of knowledge that can influence the formation of the business network when resuming business operations."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 263 (Sec. 5.4)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">재노드화(Re-noding)의 본질적 작동 정의</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the process of resuming business operations involves initiating relationships with both new and prior counterparts. We refer to this as re-noding, an activity needed to reconstruct the business network, based on the resuming business as the node that returns."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 263-264 (Sec. 5.4.1)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Re-noding & Reactivation Framework (비즈니스 네트워크 재노드화 모델)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 450" class="w-full h-auto">
+              <!-- Background Grid Guide (invisible) -->
+              
+              <!-- LEFT AREA: Hiatus & Dormancy -->
+              <rect x="15" y="15" width="280" height="420" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="4 4"/>
+              <text x="155" y="45" text-anchor="middle" font-weight="700" fill="#64748b" font-size="14">휴지기 및 잠복 상태 (Hiatus & Dormancy)</text>
+              
+              <!-- Dormant Center Node -->
+              <circle cx="155" cy="225" r="40" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4"/>
+              <text x="155" y="222" text-anchor="middle" font-weight="700" fill="#64748b" font-size="13">구 광산 기업</text>
+              <text x="155" y="238" text-anchor="middle" fill="#94a3b8" font-size="10">(중단 노드)</text>
+              
+              <!-- Dormant Surrounding Nodes -->
+              <circle cx="70" cy="120" r="25" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="70" y="124" text-anchor="middle" fill="#94a3b8" font-size="10">옛 고객</text>
+              
+              <circle cx="240" cy="120" r="25" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="240" y="124" text-anchor="middle" fill="#94a3b8" font-size="10">철도/항구</text>
+              
+              <circle cx="70" cy="330" r="25" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="70" y="334" text-anchor="middle" fill="#94a3b8" font-size="10">옛 협력사</text>
+              
+              <circle cx="240" cy="330" r="25" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="240" y="334" text-anchor="middle" fill="#94a3b8" font-size="10">전직 직원</text>
+              
+              <!-- Dormant Links -->
+              <path d="M155 185 L 155 80" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <path d="M115 225 L 50 225" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <path d="M155 265 L 155 370" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <path d="M195 225 L 260 225" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3 3"/>
+              
+              <text x="155" y="300" text-anchor="middle" fill="#94a3b8" font-size="11" font-style="italic">관계의 잠복화 (Dormancy)</text>
+              <text x="155" y="315" text-anchor="middle" fill="#94a3b8" font-size="10">(13년 ~ 20년의 중단)</text>
+              
+              <!-- TRANSITION ARROW -->
+              <path d="M310 225 L 360 225" fill="none" stroke="#4f46e5" stroke-width="3" marker-end="url(#arrow)"/>
+              <text x="335" y="215" text-anchor="middle" font-weight="700" fill="#4f46e5" font-size="11">사업 재개</text>
+              
+              <!-- RIGHT AREA: Resuming & Re-noding -->
+              <rect x="375" y="15" width="410" height="420" rx="10" fill="#f8fafc" stroke="#c084fc" stroke-width="2"/>
+              <text x="580" y="45" text-anchor="middle" font-weight="700" fill="#701a75" font-size="14">재개 및 재노드화 (Resuming & Re-noding)</text>
+              
+              <!-- Center Active Node -->
+              <circle cx="580" cy="225" r="45" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="3"/>
+              <text x="580" y="222" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="13">New Mining</text>
+              <text x="580" y="238" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="11">Company</text>
+              
+              <!-- 1. Gatekeepers (Regulatory / Land) -->
+              <rect x="480" y="70" width="200" height="45" rx="5" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="580" y="88" text-anchor="middle" font-weight="700" fill="#78350f" font-size="12">게이트키퍼 (Gatekeepers)</text>
+              <text x="580" y="103" text-anchor="middle" fill="#b45309" font-size="10">광산감사원 / 환경법원 / 지자체</text>
+              <!-- Arrow pointing from Gatekeepers to Center -->
+              <path d="M580 115 L 580 180" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="590" y="145" fill="#b45309" font-weight="700" font-size="11">Prop 2 (인허가 제어)</text>
+              
+              <!-- 2. Promoters (Former Customers / Infrastructure) -->
+              <rect x="390" y="195" width="125" height="60" rx="5" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="452" y="218" text-anchor="middle" font-weight="700" fill="#065f46" font-size="12">프로모터 (Promoters)</text>
+              <text x="452" y="233" text-anchor="middle" fill="#047857" font-size="9">옛 고객사(제철소)</text>
+              <text x="452" y="245" text-anchor="middle" fill="#047857" font-size="9">교통국(철도 공동정비)</text>
+              <!-- Arrow to Center -->
+              <path d="M515 225 L 535 225" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="525" y="215" text-anchor="middle" fill="#047857" font-weight="700" font-size="10">Prop 3</text>
+              
+              <!-- 3. Facilitators (Knowledge / Local Support) -->
+              <rect x="480" y="340" width="200" height="50" rx="5" fill="#f3e8ff" stroke="#a855f7" stroke-width="2"/>
+              <text x="580" y="358" text-anchor="middle" font-weight="700" fill="#581c87" font-size="12">촉진자 (Facilitators)</text>
+              <text x="580" y="373" text-anchor="middle" fill="#7e22ce" font-size="9">전직 직원(기억) / 지역 주주 8000명</text>
+              <text x="580" y="383" text-anchor="middle" fill="#7e22ce" font-size="9">옛 수송 하청사(로컬 지식)</text>
+              <!-- Arrow to Center -->
+              <path d="M580 340 L 580 270" fill="none" stroke="#a855f7" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="590" y="305" fill="#7e22ce" font-weight="700" font-size="11">Prop 4 (조업 조력)</text>
+              
+              <!-- 4. New Supplier Node (Outsourcing) -->
+              <circle cx="730" cy="225" r="25" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+              <text x="730" y="222" text-anchor="middle" font-weight="700" fill="#334155" font-size="9">신규 하청</text>
+              <text x="730" y="234" text-anchor="middle" fill="#64748b" font-size="8">(장비/전기)</text>
+              <!-- Connect Line (Solid) -->
+              <path d="M625 225 L 705 225" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="665" y="218" text-anchor="middle" fill="#334155" font-size="9">아웃소싱 계약</text>
+              
+              <!-- Prop 1 & 5 Modulating box -->
+              <path d="M390 100 Q 370 150 410 195" fill="none" stroke="#6b21a8" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="350" y="160" fill="#6b21a8" font-size="9" font-style="italic">Prop 1 & 5: 환경변화</text>
+              
+              <!-- Arrow Marker Definition -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Hiatus Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">상황 요인</span>
+                <span class="text-xs text-slate-400 font-semibold">Context</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">휴지기 (Hiatus)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 사업 활동이 종료되어 파트너사들과의 연계 관계가 비조업 및 잠복 상태로 유지되는 물리적 시간 격차.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 철광산의 1992년 폐쇄 시점부터 2005년 재개 프로젝트 시작 및 2012년 재개 완료까지의 13~20년의 정지 기간.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> 본 연구 자체 개념화 / Ashby (2016) 및 Eckbo & Thorburn (2009)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 시간 경과에 따라 과거 기억과 역량이 흐려지는 '관계 감쇄' 현상이 수반되나, 신뢰와 역사적 실적은 '잠복 자원(dormant resources)'으로 존속됨을 주장.
+              </p>
+            </div>
+          </div>
+
+          <!-- Gatekeepers Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">진입 제어 변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Gatekeepers</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">게이트키퍼 (Gatekeepers)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 네트워크 외곽에서 진입자가 충족해야 하는 법적, 규제적, 자산적 장벽을 모니터링하고 제어하는 네트워크 게이트 수호 주체.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 광업 허가권 발급 기관(광산감사원), 환경영향평가 법원, 광산 지상 부지 소유자(지방 자치단체).</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Webster Jr. & Wind (1972) / Boari & Riboldazzi (2014)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 초기 진입 과정에서 인허가 반려나 보완 요구로 사업 지연을 초래하지만, 계획의 실현 가능성이 검증되면 지지 세력으로 포섭 가능함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Promoters Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">초기 지지 변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Promoters</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">프로모터 (Promoters)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 사업 개시 및 네트워크 활성화를 위해 필수적인 대형 물리 인프라 재건을 적극 돕거나, 제품 구매 선언으로 활력을 부여하는 파트너.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 광물 사양 아카이브를 보존하고 있던 옛 제철소 고객들, 철도망 보수를 공동 재정 지원한 스웨덴 교통국.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Ritter (2000) / Havila & Wilkinson (2002)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 과거 거래 실적이 보존되어 상호 신뢰와 친숙성이 높기 때문에 계약 및 거래 프로세스 전환 비용이 최소화되어 사업 조기 시동을 도움.
+              </p>
+            </div>
+          </div>
+
+          <!-- Facilitators Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">운영 조력 변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Facilitators</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">촉진자 (Facilitators)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 조업 현장 내부의 미시적 조력 활동을 제공하며, 암묵적 현장 지식을 전달하거나 지역 사회와의 마찰 완화를 돕는 조력 행위자.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 옛 채굴 관리 노하우를 가진 전직 직원들, 투자금과 지역 여론 지지를 제공한 지역 주민 소액주주들, 옛 수송 하청 Haulage사.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Levin et al. (2011b) / Westphal et al. (2006)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 과거 인력의 사회적 유대와 조업 정보 복원이 초기 조업 과정의 훈련 비용과 법적 민원 분쟁을 저해하는 완충 역할을 수행함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Re-noding Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">결과 프로세스</span>
+                <span class="text-xs text-slate-400 font-semibold">Re-noding Process</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">재노드화 (Re-noding)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 사업 복귀 주체가 비즈니스 네트워크 재구성 시 과거 잠복 관계의 선별적 재활성화(reactivation)와 변화된 산업 생태계에 따른 신규 파트너와의 신규 관계 구축(formation)을 결합하여 결합형 네트워크 노드들을 구조화하는 총체적 활동.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 철도 재정비 및 옛 제철소 고객은 복원하고, 1990년대 아웃소싱 트렌드에 발맞추어 채굴 기계, 배선 설비 등의 기능은 신규 전문 하청업체들과 신규 계약을 체결해 네트워크를 조율함.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> 본 연구 핵심 제안 개념 / Chen et al. (2022) 및 Polonsky et al. (2010)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 논문은 질적 사례 연구(Qualitative Case Study)를 취하고 있습니다. 외부 연구자가 다른 국가나 산업의 휴지기 사례를 대상으로 동일하게 추종 재현할 수 있도록 연구 절차를 타임라인으로 상세 분해했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">탐색적 단일 사례 연구 디자인 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  장기 휴지기 이후 B2B 네트워크의 '재노드화' 메커니즘을 심도 있게 관찰할 수 있도록 극단적 휴지 기간(20년)을 거쳐 새로운 주체에 의해 재개된 스웨덴의 한 철광산 기업을 단일 분석 사례(exploratory case)로 선정함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 258-259, Section 3 & 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">선행 이론 기반 인터뷰 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  비즈니스 종료 및 잠복 관계에 관한 기존 이론을 토대로 '1) 폐업 당시의 행위자 및 활동, 2) 휴지기 동안의 변화, 3) 사업 재개 시의 행위자 및 활동'이라는 3대 분석 테마로 설계된 반구조화된 인터뷰 가이드라인을 집필함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 259, Section 3.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">다각적 인터뷰 및 2차 아카이브 수집 (삼각측정)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  설립자, 현직 CEO, 전직 직원 및 지역 주민, 옛 고객 제철소 구매 담당자, 하청 물류사 CEO, 교통국 공무원 등 이해관계자 17인의 인터뷰를 실시하여 전사하고, 정부 라이선스 신청 문서 및 보도자료 등 2차 데이터를 결합함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 259, Section 3.2 & Table 1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">비즈니스 활동 서사(Case Narrative) 기술</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  수집된 질적 데이터를 시간 순으로 수집하고, 4대 비즈니스 활동 범주(1. 허가 신청, 2. 조업 복구 투자, 3. 하청업체 협상, 4. 고객 재발굴)로 구조화한 미가공 사례 보고서(Case Narrative)를 구축함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 259-260, Section 3.3 & 4</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">프로세스 분석 기법을 통한 분석 수행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  시간 경과에 따른 관계의 잠복화와 복원 역학을 해석하기 위해 프로세스 연구 분석 방식(Langley, 1999; Van de Ven, 1992)을 도입하여, 연구자 전원이 독립적 및 공동 워크숍을 통해 코딩 논의를 반복함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 260, Section 4</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">주제별 코딩을 통한 프레임워크 명제 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  이전 파트너들이 수행한 활동을 게이트키퍼, 프로모터, 촉진자로 귀속(coding)시키고, 환경의 변화(Prop 1), 역할 분화(Prop 2~4), 지식의 획득(Prop 5)으로 연결하여 최종 5대 Propositions와 재노드화 프레임워크를 수립함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 262-263, Section 5</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            사례 연구의 체계적인 방법론 설계(3대 영역 인터뷰, 4대 서사 구성, 3가지 역할군 주제별 코딩 방식)는 자세히 명시되어 다른 사례 분석에 도입하여 복제하는 것은 가능합니다. 하지만 20년 전 스웨덴 철광산의 고유한 지역 역사 자료나 17인 피면담자 뇌리에 잔존해 있던 주관적 기억 데이터 자체를 완전히 복제하여 수집하는 것은 질적 데이터의 일회성으로 인해 불가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (연구의 한계점 & 비판)</h2>
+          <span class="badge badge-error style-label text-white uppercase">Limitations</span>
+        </div>
+        
+        <!-- Limitation A: Self-Admitted (alert + collapse) -->
+        <div class="alert alert-error bg-rose-50 border-rose-300 text-rose-950 rounded-b-box rounded-t-none shadow-sm flex flex-col items-stretch p-0 gap-0">
+          <div class="collapse collapse-arrow">
+            <input type="checkbox" checked /> 
+            <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3 p-6 pb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span>Limitation A. 논문이 스스로 인정한 한계 (Internal)</span>
+            </div>
+            <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+              <p class="style-body text-slate-700">논문 본문(Section 6.3)에서 연구진들이 직접 한정 지은 연구의 경계입니다:</p>
+              <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+                <li>
+                  <strong>단일 지리적 및 산업적 한계:</strong> 스웨덴 철광산이라는 특수하고 자본집약적이며 지역 밀착적인 단일 제조업 분야 사례에 한정되어 있어, 타 산업군(예: 첨단 IT, 서비스업)이나 타 국가 비즈니스 네트워크로 보편화하기에는 한계가 존재함.
+                </li>
+                <li>
+                  <strong>질적 단일 사례 연구의 한계:</strong> 통계적인 일반화를 목적으로 하지 않고 이론적 통찰을 깊이 있게 탐색(explore theoretical issues in deep)하는 데 집중했기 때문에 객관적 표본 일반화 능력이 제한됨.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 서사 분석 메커니즘을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 생존자 편향 (Survivorship Bias)</span>
+                <p class="text-sm text-slate-700">
+                  데이터는 20년의 장기 휴지기를 겪고도 결국 **성공적으로 재개하여 영업을 시작한 기업**만을 관찰했습니다. 휴지기 이후 재개를 시도했으나 과거 파트너들과의 합의 실패, 게이트키퍼(허가 반려) 통과 실패 등으로 시장에서 영구히 배제된 **'실패한 재개 시도군'**을 대조군으로 분석하지 않았기 때문에, 재등장 파트너들의 순기능이나 네트워크 복원의 용이성이 왜곡되고 과장되었을 개연성이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 회상 편향 (Recall Bias)</span>
+                <p class="text-sm text-slate-700">
+                  1992년의 폐쇄 상황과 2005년의 재개 초기 추진 과정을 2010~2016년에 걸친 사후 인터뷰를 통해 획득했습니다. 오랜 시간이 지났기 때문에 피면담자들이 과거의 관계 갈등이나 자료 유실로 인한 손실은 망각하고, 성공적으로 복귀한 현재 시점에서 **옛 기억을 미화하거나 사후 합리화(ex-post rationalization)**하여 설명했을 가능성이 짙습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 인프라 독점 및 자원 특이성 한계</span>
+                <p class="text-sm text-slate-700">
+                  해당 광산의 철로(국가 소유)와 항구(지자체 소유)는 대체가 불가능한 고정 자산이며, 구 고객들이 60년 이상의 아카이브를 소장하고 있었던 이유는 광석의 틈새 품질(niche quality)이 대체하기 어려웠기 때문입니다. 이러한 물리적 독점성과 대체 불가능한 자원 특이성이 존재하지 않는 일반적인 B2B 제조업에서는, 휴지기가 길어지면 파트너들이 즉시 타 거래처로 완전히 전환하여 대안을 구축하므로 관계 재활성화 메커니즘의 성립 범위가 극히 좁습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 복원 비용의 경제성 검증 결여</span>
+                <p class="text-sm text-slate-700">
+                  이전 파트너를 설득하고, 옛 철로를 정비하기 위해 민관 매칭 펀드를 유치하며, 지상으로 이동한 분쇄 공정으로 발생한 민원을 조율하는 데 들어간 막대한 소통 비용(transaction costs)이, 차라리 새로운 파트너와 현대식 설비로 처음부터 다시 비즈니스를 개시하는 비용보다 진정으로 우월했는지 정량적인 재무적 타당성 검증(Financial evaluation)이 빠져 있어 실무적 실효성에 의문이 남습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Resuming business operations after a Hiatus: The case of reappearing relationships</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

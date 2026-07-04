@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shared Analytical Capabilities in Business Networks - IMM 2022</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (No Navbar) -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2022)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Shared Capabilities</div>
+        <div class="badge badge-secondary text-white style-label">Citations: 2 (Crossref)</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Shared analytical capabilities in<br>
+            <span class="text-cyan-400">business networks</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Valeria Penttinen, Johanna Frösén
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            비즈니스 네트워크에서의<br>
+            <span class="text-indigo-300">공유된 분석 역량</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            북유럽 유통망 임원 21명의 반구조화 인터뷰 질적 분석을 토대로, 기업 경계를 넘어 작동하는 데이터 공유 자원과 5대 루틴 및 장애 요인 규명
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">내부 분석 역량 한계를 넘어 외부 파트너와의 데이터 연동 및 다자간 루틴을 작동해 협력 시너지를 창출해야 합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This study addresses the development and use of analytical capabilities related to structured data (SD) and unstructured data (UD) in business networks that extend beyond the boundaries of individual firms. It focuses on business-to-business relationships in consumer goods retailing to identify two key groups of external resources firms can leverage to take advantage of shared analytical capabilities within their retail networks: (1) access to data and analytics through partners, and (2) structures supporting data and analytics sharing. The study's findings further extend the existing dyadic typology of data- and analytics-related inter-firm routines from (1) unilateral routines, (2) quasi-unilateral routines, and (3) bilateral routines to two complementary types of routines that involve a variety of partners: (4) multilateral routines and (5) joint multilateral routines. Finally, this study reveals potential barriers that may hinder the development and implementation of shared analytical capabilities."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 연구는 개별 기업의 경계를 넘어 확장되는 비즈니스 네트워크 내에서 정형 데이터(SD) 및 비정형 데이터(UD)와 관련된 분석 역량의 개발과 활용을 다룬다. 소비재 유통 분야의 기업 간(B2B) 관계에 초점을 맞추어, 기업들이 유통 네트워크 내에서 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">공유된 분석 역량</span>을 활용하기 위해 레버리지할 수 있는 외부 자원의 두 가지 핵심 범주를 식별한다: (1) 파트너를 통한 데이터 및 분석에 대한 접근성, (2) 데이터 및 분석 공유를 지원하는 구조. 본 연구의 결과는 데이터 및 분석 관련 기업 간 루틴에 대한 기존의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">양자 간(Dyadic) 분류</span>(일방적 루틴, 준일방적 루틴, 쌍방적 루틴)를 다양한 파트너가 관여하는 두 가지 상호 보완적인 루틴 유형인 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">다자간 루틴</span> 및 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">공동 다자간 루틴</span>으로 확장한다. 마지막으로, 본 연구는 공유된 분석 역량의 개발과 이행을 방해할 수 있는 잠재적 장벽들을 밝힌다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Shared Analytical Capabilities</td>
+                  <td>공유된 분석 역량</td>
+                  <td class="text-sm">단일 기업에 속한 자산을 넘어, 네트워크 내 파트너십을 통해 공유 및 공동 조율되는 협력적 데이터 분석 역량입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Dyadic Typology / Routines</td>
+                  <td>양자 간의 분류 체계 / 루틴</td>
+                  <td class="text-sm">소매업자-제조업자 등 1대1 다이애드(Dyad) 관계 내에만 국한하여 통용되던 데이터 공유 업무 패턴을 가리킵니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Multilateral &amp; Joint Multilateral Routines</td>
+                  <td>다자간 &amp; 공동 다자간 루틴</td>
+                  <td class="text-sm">제3자 마케팅 전문 대행사(Nielsen 등)나 퀵커머스, 물류 스타트업 등 독립 플랫폼 파트너들이 복합적으로 연계된 다원적 협업 루틴을 뜻합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Consumer Goods Retailing</td>
+                  <td>소비재 유통 / 소매업</td>
+                  <td class="text-sm">식료품 및 일상 가전 등 제조업체와 소매업 유통망 간의 빈번한 소비자 정보 거래가 일어나는 연구 맥락입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 논문 세미나에서 <strong>1분 만에</strong> 청중에게 핵심 프레임을 전달할 수 있도록 본 연구의 질문과 기여도를 체계화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">분석 역량을 어떻게 네트워크로 확장하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">자원 조율과 5대 루틴 및 장벽 규명</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">동적 역량의 다자간 네트워크 확장</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 기업 내부 분석 자원의 제약을 외부 협업을 통해 극복할 수 있는가? 네트워크 수준에서 데이터 분석 역량을 공유하기 위해 필요한 외부 자원과 실행 루틴은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> 외부 데이터에 대한 '접근성(Access)'과 정렬 및 전파를 돕는 '공유 구조(Structures)'가 필요하며, 기존 양자 관계를 넘어 제3자 및 독립적 플랫폼이 개입하는 '다자간' 및 '공동 다자간' 협업 루틴이 활성화되어야 함.</li>
+                  <li><strong>이론/실무 기여:</strong> 개별 기업 수준의 동적 역량을 네트워크 및 관계적 관점으로 격상시켰으며, 실무적으로 유통 및 제조업체들이 갈등과 장벽(기회주의 등)을 관리하며 동반 성장할 수 있는 로드맵을 제공함.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "단일 기업 내부의 정보 자원 제약을 타파하기 위해, 네트워크 파트너들과 데이터 공유 구조를 마련하고 다자간/공동 다자간 루틴을 실행하여 가치를 공동 창출해야 합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구 모형의 학술적 증빙을 보장하기 위해, 도출된 핵심 주장과 실증 인터뷰 원문 인용 및 페이지 정보를 연결했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">공유 분석 역량 개발을 지원하는 두 개의 큰 외부 자원 집합</td>
+                <td class="text-sm italic text-slate-600">
+                  "...identify two key groups of external resources... (1) access to data and analytics through partners, and (2) structures supporting data and analytics sharing."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 313 (Sec. 6.1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">기존 양자(Dyadic) 관계를 벗어난 다자간 루틴 도입</td>
+                <td class="text-sm italic text-slate-600">
+                  "...we propose two novel types of routines that extend beyond the buyer-supplier dyad: multilateral routines and joint multilateral routines."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 309 (Sec. 1) &amp; Page 318 (Sec. 6.2)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">다자간 루틴(Multilateral Routines)의 메커니즘</td>
+                <td class="text-sm italic text-slate-600">
+                  "...activities, processes, and practices that extend beyond the buyer-supplier dyad – by including at least one third party that provides data and insights benefiting the buyer-supplier dyad."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 318 (Sec. 6.2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">공동 다자간 루틴(Joint Multilateral Routines)의 실제 사례</td>
+                <td class="text-sm italic text-slate-600">
+                  "...retailers and consumer goods manufacturers increasingly collaborate with independent partners... as quick commerce and food service... retailers and consumer goods manufacturers gain access to unique data..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 318 (Sec. 6.2)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">공유 분석 역량을 저해하는 4대 외부 장벽</td>
+                <td class="text-sm italic text-slate-600">
+                  "These requirements can be translated into four specific barriers that might limit firms' ability to take full advantage of their shared analytical capabilities: (1) the challenge of finding appropriate partners, (2) lack of sufficient resource allocation, (3) fears of opportunism, and (4) stagnation."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 310 (Sec. 4) &amp; Page 319 (Sec. 7.1)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 개념 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model &amp; Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual Framework (질적 연구 개념 구도)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 420" class="w-full h-auto">
+              <!-- Left Group: 외부 자원 -->
+              <rect x="10" y="50" width="240" height="340" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+              <text x="130" y="35" text-anchor="middle" font-weight="700" fill="#475569" font-size="14">필요 외부 자원 (External Resources)</text>
+              
+              <!-- Resource 1 -->
+              <rect x="25" y="70" width="210" height="120" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="130" y="95" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">데이터 및 분석 접근성</text>
+              <text x="130" y="112" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">(Access to Data/Analytics)</text>
+              <text x="130" y="140" text-anchor="middle" fill="#64748b" font-size="10">• 협력 파트너 간 데이터 직접 교환</text>
+              <text x="130" y="155" text-anchor="middle" fill="#64748b" font-size="10">• 제3자 전문 데이터 대행사 구매</text>
+              <text x="130" y="170" text-anchor="middle" fill="#64748b" font-size="10">• 퀵커머스 등 독립 플랫폼 정보</text>
+
+              <!-- Resource 2 -->
+              <rect x="25" y="240" width="210" height="120" rx="6" fill="#ecfeff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="130" y="265" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="12">데이터 및 분석 공유 구조</text>
+              <text x="130" y="282" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="12">(Structures supporting Sharing)</text>
+              <text x="130" y="310" text-anchor="middle" fill="#0284c7" font-size="10">• 기업 간 조율 및 해석 정렬</text>
+              <text x="130" y="325" text-anchor="middle" fill="#0284c7" font-size="10">• 명확한 책임 분담 프로세스</text>
+              <text x="130" y="340" text-anchor="middle" fill="#0284c7" font-size="10">• 기업 내부 활용 시스템 및 전파</text>
+
+              <!-- Center Group: 핵심 역량 -->
+              <rect x="330" y="160" width="210" height="120" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="435" y="195" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">공유된 분석 역량</text>
+              <text x="435" y="215" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="12">(Shared Analytical Cap.)</text>
+              <text x="435" y="245" text-anchor="middle" fill="#4338ca" font-size="10">기업 경계를 초월한</text>
+              <text x="435" y="260" text-anchor="middle" fill="#4338ca" font-size="10">네트워크 수준의 분석 실행력</text>
+
+              <!-- Right Group: 루틴 실행 -->
+              <rect x="600" y="80" width="180" height="280" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="690" y="105" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">공유 분석 루틴 (Routines)</text>
+              <text x="690" y="140" text-anchor="middle" fill="#047857" font-size="11">① 일방적 루틴 (Unilateral)</text>
+              <text x="690" y="170" text-anchor="middle" fill="#047857" font-size="11">② 준일방적 루틴 (Quasi-unil.)</text>
+              <text x="690" y="200" text-anchor="middle" fill="#047857" font-size="11">③ 쌍방적 루틴 (Bilateral)</text>
+              <text x="690" y="230" text-anchor="middle" fill="#047857" font-size="11" font-weight="700">④ 다자간 루틴 (Multilateral)</text>
+              <text x="690" y="260" text-anchor="middle" fill="#047857" font-size="11" font-weight="700">⑤ 공동 다자간 (Joint Multi.)</text>
+              <text x="690" y="300" text-anchor="middle" fill="#0f766e" font-size="10">* 다자간 및 공동 다자간은</text>
+              <text x="690" y="315" text-anchor="middle" fill="#0f766e" font-size="10">본 연구에서 확장된 신규 유형</text>
+
+              <!-- Top Group: 장애 장벽 -->
+              <rect x="330" y="20" width="210" height="70" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="435" y="45" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">잠재적 공유 장벽 (Barriers)</text>
+              <text x="435" y="65" text-anchor="middle" fill="#b45309" font-size="10">파트너 탐색 / 자원 부족 / 기회주의 / 정체</text>
+
+              <!-- Arrows -->
+              <!-- IV1 -> CAP -->
+              <path d="M235 130 L 290 130 L 290 200 L 330 200" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <!-- IV2 -> CAP -->
+              <path d="M235 300 L 290 300 L 290 240 L 330 240" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow)"/>
+              <!-- CAP -> Routines -->
+              <path d="M540 220 L 600 220" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow)"/>
+              <!-- Barriers -> CAP (moderating/blocking) -->
+              <path d="M435 90 L 435 160" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Concept 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">외부 자원 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Resource 1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">데이터 및 분석 접근성 (Access to Data/Analytics)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 개별 기업이 내부적으로 소유하지 못한 상태에서 협력 파트너나 외부 제3자 서비스 대행사를 통해 획득하는 정형(SD) 및 비정형(UD) 데이터와 분석 정보 자산.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> 1차적 파트너 간 공유 정보(재고, 판매 추이 등), 2차적 시장 보고서 및 커스텀 트렌드 분석 서비스, 3차적 모바일 배달 등 외부 퀵커머스 플랫폼 데이터 확보 여부.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술적 논의:</strong> 단일 기업의 자원 희소성(Resource scarcity)을 완화하며, 비정형 데이터(UD)처럼 개발 및 가공 비용이 극심한 지식 자원을 조율 오케스트레이션으로 상쇄합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Concept 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">외부 자원 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Resource 2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">데이터 및 분석 공유 구조 (Structures Supporting Sharing)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 파트너로부터 획득한 데이터가 단발성으로 흩어지지 않고, 상호 이해하고 통합하며 내부의 의사결정에 체계적으로 전파할 수 있도록 돕는 유통 관계망의 구조적 장치.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> 양자 간 공유 빈도 및 방식 조율, 파트너 데이터의 객관적 분석을 돕는 정렬된 이해도(Alignment), 부서 간 정보 공유 및 재사용(Reuse) 활성화도.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술적 논의:</strong> 파트너가 전달하는 정보의 편향이나 허위 데이터를 식별하기 위한 비판적 정보 관리 시스템 구축의 중요성을 포함합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Concept 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">동적 역량</span>
+                <span class="text-xs text-slate-400 font-semibold">Capability</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공유된 분석 역량 (Shared Analytical Capabilities)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 기업이 홀로 데이터를 분석하는 차원을 벗어나, 비즈니스 네트워크 내에 존재하는 데이터를 조율·흡수하고 협력적 프로세스로 내재화하여 시장 변화에 민첩하게 적응하는 동적 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> 제조업-소매업 유통 파트너십 상에서 정형/비정형 데이터를 융합 분석하여 공동 마케팅, 신제품 개발 및 수요 예측에 실질적으로 연계해 실행하는 능력.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술적 논의:</strong> 동적 역량 이론(Dynamic Capabilities Theory)과 관계적 관점(Relational View)을 통합한 모델로, 자산을 직접 소유하지 않더라도 오케스트레이션을 통해 성과를 낼 수 있음을 입증합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Concept 4 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">공유 장벽</span>
+                <span class="text-xs text-slate-400 font-semibold">Barriers</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공유 잠재적 장벽 (Potential Barriers to Sharing)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 기업 간 분석 역량을 유기적으로 연동하고 장기적인 가치 제안으로 진화시키는 과정에서 협력 관계를 와해시키거나 제한하는 4가지 요인.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> 적합한 분석 파트너 탐색의 한계, 자원 배분(시간, 도구, 훈련) 부족, 파트너의 기회주의(정보유출 등) 우려, 기존 계약에 머무르는 정체성(Stagnation).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술적 논의:</strong> 성공적 협력 대리인 관계(Agency theory) 구축에 필요한 조건들(목표 정렬, 투명성, 기대 설정 등)을 가로막는 실제 경영 리스크 영역을 명시합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 직접 정독하지 않은 독립된 외부 연구자가 본 실증적 질적 분석(Thematic analysis) 과정을 그대로 추종 모방할 수 있도록 단계별로 세분화했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">모집합 및 지리적 경계 설정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  정형(SD) 및 비정형(UD) 데이터 마케팅 분석을 실무에 활발히 배포·활용하는 선도적 기업을 타겟으로 함. IT 및 신뢰 네트워크가 발달한 북유럽 5개 국가(덴마크, 핀란드, 노르웨이, 스웨덴, 아이슬란드)로 지역적 제한 설정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 311 (Sec. 5)</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">의도적 샘플링(Purposeful Sampling) 배포</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  유통 분석에 직접 참여하는 제조사 임원 및 관리자 15명과 소매 유통사의 바이어/카테고리 매니저 6명을 도합 21명 섭외. 귀납적 논리가 포화(Saturation)되어 추가 개념이 나오지 않을 때까지 모집을 계속함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 311 (Sec. 5) &amp; Table 1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">반구조화 인터뷰 수행 및 텍스트 전사</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  질문 가이드라인에 기초해 1대1 질적 인터뷰(평균 31분~152분)를 진행. 전사(Transcription) 작업을 통해 원본 텍스트를 마련하고, 보완을 위해 현장 연구 메모(Field notes)를 실시간으로 기록.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 311 (Sec. 5)</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">질적 분석 도구(NVivo)를 이용한 1차 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Miles and Huberman(1984) 기법을 준수하여 전사 자료를 코딩. 질적 코딩 지원 프로그램인 NVivo를 가동하여 인터뷰 문장에 개념 노드(Nodes)를 지정하고 핵심 단어를 도출함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 311 (Sec. 5)</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">Gioia 방법론 적용 및 프레임워크 구조화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  귀납적 코딩의 개념들을 추상화함. 1차 개념(First-order concepts) -> 공통 범주 정렬을 통한 2차 테마(Second-order themes) -> 이론적 3차 총괄 차원(Aggregate dimensions: 외부 자원, 구조, 루틴)으로 연결 및 구조화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 311 (Sec. 6) &amp; Fig. 2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">이론적 삼각측정법 및 장벽 분류 체계 매핑</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  도출된 역량 자원 및 5대 루틴을 기존 동적 역량(Teece, 2007) 및 관계적 지배 이론과 통합. 추가로 대리인 이론(Agency theory)에 따라 파트너 간 데이터 공유 시 맞닥뜨리는 4대 장벽을 정리해 모형 완성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 318-319 (Sec. 7.1)</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            Gioia 방법론의 3단계 개념 분석 틀(Fig 2) 및 인터뷰 세부 가이드가 논문에 상세 기술되어 질적 기법의 재현은 가능합니다. 그러나 북유럽의 21개 대형 제조사/유통사의 실무 임원(Informants) 섭외 접근성을 외부 제3의 연구자가 동일하게 복제하는 것은 매우 제한적입니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 7.3)에서 연구진들이 직접 명시한 연구 설계 상의 한계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>소규모 표본(21명)에 따른 일반화 제약:</strong> 질적 연구로서 심층적인 정보제공자를 대상으로 설계되어 정교한 개념을 도출했으나, 더 광범위한 통계적 검증(Quantitative verification)을 통한 일반화 절차가 뒤따라야 함.
+              </li>
+              <li>
+                <strong>소비재 유통(Retailing)에 편향된 산업 맥락:</strong> 데이터 및 분석 역량이 전통적으로 발달한 소비재 산업에 국한된 성과이므로, 전문 서비스업, 화학 제조업 또는 제약/의료 등 타 비즈니스 생태계의 정보 루틴에 그대로 투영하기 어려울 수 있음.
+              </li>
+              <li>
+                <strong>북유럽(Nordic Countries) 국가들의 지리적 국한성:</strong> 비교적 인프라가 풍부하고 파트너 간 사회적 신뢰도가 견고한 북유럽 5개국 기업들의 응답에 기인하였으므로, 계약 강제력이나 협력 신뢰가 미흡한 여타 국가 및 신흥 시장(Emerging markets)에서는 다른 결과가 보일 수 있음.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 논리적 비약에 대해 비판적으로 제기할 수 있는 학술적 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 주관적 자기 보고 편향 (Self-Reporting Bias)</span>
+                <p class="text-sm text-slate-700">
+                  기업 간의 분석 공유 수준이나 루틴의 조화로움이 객관적 지표(예: 실제 시스템 데이터 트래픽, 정보 오차율 등)가 아닌, <strong>면담 참여자의 주관적인 진술</strong>에 전적으로 의존합니다. 이로 인해 응답자가 자사의 역량을 미화하거나 사회적으로 바람직한 방향(Social desirability bias)으로 응답했을 편향성이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 공유 루틴 조율 비용(Coordinating Cost) 간과</span>
+                <p class="text-sm text-slate-700">
+                  양자를 넘어선 다자간, 공동 다자간 루틴(퀵커머스 협업 등)의 이점을 과장하는 경향이 있습니다. 실제 다자 간에 데이터 호환성 검증, 정보 보안 장치 마련 및 오케스트레이션 갈등 해결에 소요되는 <strong>계약 및 거래 비용(Transaction cost)</strong>이 정보 공유를 통한 의사결정 순익보다 비대해질 수 있는 리스크를 깊이 있게 다루지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 비정형 데이터(UD) 융합의 기술적 모호성</span>
+                <p class="text-sm text-slate-700">
+                  정형 데이터(SD)의 보완재로 비정형 데이터(UD)를 파트너십 상에서 함께 다뤄야 한다고 선언하고 있으나, 두 개의 이종 데이터를 이종 파트너 간에 <strong>기술적으로 어떻게 결합하고(예: NLP 분석 결과와 ERP 수량의 물리적 통합) 실무적으로 적용</strong>해 내는지 구체적인 인프라 및 프로세스 아키텍처는 제시되지 않아 추상적 논의에 그치고 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 인과관계의 방향성 의문 (Reverse Causality)</span>
+                <p class="text-sm text-slate-700">
+                  기회주의(Opportunism) 우려 장벽으로 인해 공유 분석 역량의 발휘가 낮아지는 것이 아니라, <strong>상호 간에 공유 시스템 및 데이터 통제 역량이 부실해서 (즉, 공유 분석 역량이 낮아서) 파트너의 기회주의(정보 왜곡 등) 행위가 사후적으로 촉발</strong>되는 인과성 역전의 여지가 존재합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Shared analytical capabilities in business networks</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

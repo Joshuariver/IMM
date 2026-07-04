@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>An Entrepreneurial Framework for Value Co-Creation in Servitization - IMM 2022</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 36px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+      .style-h3 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2022)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Servitization & Value Co-creation</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Case Study</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            An entrepreneurial framework for value co-creation in servitization
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Man Yang & Tiina Leposky
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            서비타이제이션의 가치 공동 창출을 위한 기업가적 프레임워크:<br>
+            <span class="text-indigo-300">중간 관리자의 역할을 중심으로</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            글로벌 제조 대기업 Valmet의 사례 분석을 통해 경계 연결(Boundary Spanning) 및 브리콜라주(Bricolage)가 미시 수준에서 작동하는 양손잡이 이중 순환 루프 규명
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">서비타이제이션은 중간 관리자(KAM/PDM)의 경계 연결과 브리콜라주 행동을 기점으로 가치를 탐색·활용하는 양손잡이 순환 프로세스입니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h1 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "The importance of value co-creation in servitization is increasingly emphasized but remains largely unexplored from the entrepreneurship theoretical perspective. This study develops an entrepreneurial framework for value co-creation in servitization by conducting a qualitative case study with middle managers from a multinational industrial company. The empirical findings suggest that value co-creation facilitates the discovery and creation of service opportunities through middle managers’ entrepreneurial actions, that is, boundary spanning and bricolage. We also find that servitization reinforces value co-creation through middle managers’ exploitation or exploration of service opportunities. The study not only offers new knowledge on the mutual influence between value co-creation and servitization, but also discusses the importance of middle managers as individual level actors in value co-creation. In addition, this study acts as a call for entrepreneurship frameworks for research on servitization."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "서비타이제이션(servitization, 제조의 서비스화)에서 가치 공동 창출(value co-creation)의 중요성은 점점 더 강조되고 있으나, 기업가 정신(entrepreneurship) 이론적 관점에서는 여전히 거의 탐구되지 않은 채 남아있다. 본 연구는 다국적 산업 기업의 중간 관리자들을 대상으로 질적 사례 연구를 수행함으로써 서비타이제이션에서의 가치 공동 창출을 위한 기업가적 프레임워크를 개발한다. 실증 분석 결과, 가치 공동 창출은 중간 관리자들의 기업가적 행동, 즉 경계 연결(boundary spanning)과 브리콜라주(bricolage)를 통해 서비스 기회의 발견(discovery) 및 창출(creation)을 촉진하는 것으로 나타났다. 또한 서비타이제이션은 중간 관리자들의 서비스 기회 활용(exploitation) 또는 탐색(exploration)을 통해 가치 공동 창출을 강화한다는 점을 발견했다. 본 연구는 가치 공동 창출과 서비타이제이션 간의 상호 영향에 대한 새로운 지식을 제공할 뿐만 아니라, 가치 공동 창출에서 개인 수준 행위자로서 중간 관리자의 중요성을 논의한다. 아울러, 본 연구는 서비타이제이션 연구를 위한 기업가 정신 프레임워크 도입에 대한 촉구 역할을 한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Servitization</td>
+                  <td>서비타이제이션 / 제조의 서비스화</td>
+                  <td class="text-sm">제조업체가 제품 판매 중심에서 제품-서비스 통합 솔루션으로 비즈니스 모델을 전환하는 혁신 프로세스입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Boundary spanning</td>
+                  <td>경계 연결 / 경계 확장</td>
+                  <td class="text-sm">부서 간 장벽을 무너뜨리거나 공급업체-고객사 간의 물리적·심리적 경계를 가로질러 정보와 협업을 조율하는 사내 행위입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Bricolage</td>
+                  <td>브리콜라주</td>
+                  <td class="text-sm">예산이나 자원이 부족한 제한적 환경에서, 수중에 있는 것(기존 장비, 인맥, 기술)을 독창적으로 조합하여 임시변통적 솔루션을 조립하는 행동입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Exploitation / Exploration</td>
+                  <td>활용(개발) / 탐색</td>
+                  <td class="text-sm">양손잡이 경영의 양대 기둥으로, 기존 역량의 점진적 조율 및 개선(Exploitation)과 신규 기회 및 불확실한 대안의 실험(Exploration)을 각각 의미합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Value-in-use / Value co-production</td>
+                  <td>이용 가치 / 가치 공동 생산</td>
+                  <td class="text-sm">실제 기계 사용 및 운영 중에 구현되는 가치(이용 가치)와 제품 기획 및 설계 단계부터 파트너로서 협업하는 것(공동 생산)을 구분합니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h1 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 핵심 주장과 발견을 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">서비타이제이션 가치 창출의 미시적 원천은?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">KAM과 PDM이 상호작용하는 이중 루프</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">기업가적 기획 이론 및 양손잡이 모델 접목</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 조직 차원의 전략 결정이 현장에서 어떻게 가치 공동창출로 변환되는가? 현장 관리자들은 어떻게 기업가적으로 작동하는가?</li>
+                  <li><strong>핵심 발견:</strong> 가치 공동 창출과 서비타이제이션은 양손잡이(Ambidextrous) 순환 구조를 가집니다. KAM은 경계 연결을 통해 이용 가치를 이끌어내며 기회를 <strong>발견(Discovery) 및 활용(Exploitation)</strong>하고, PDM은 브리콜라주를 통해 공동 생산을 이끌어내며 기회를 <strong>창출(Creation) 및 탐색(Exploration)</strong>합니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 기존 조직 연구 중심의 서비타이제이션을 개인 행위자 수준의 '사내 기업가 정신' 관점으로 탈바꿈시켰으며, 두 루프가 단절되지 않고 양방향 순환함을 규명했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "서비타이제이션은 현장 KAM의 경계 연결(이용가치-활용 루프)과 PDM의 브리콜라주(공동생산-탐색 루프)가 교차 구동하는 동적 기업가적 과정이다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h1 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구 모델의 각 핵심 가설 및 질적 명제(Propositions 1~4)를 뒷받침하는 주요 원문 인용 데이터와 페이지 위치를 연계했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장 / 명제</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">명제 1: 이용 가치와 경계 연결을 통한 기회 발견</td>
+                <td class="text-sm italic text-slate-600">
+                  "Proposition 1. Co-creating value-in-use facilitates service opportunity discovery through middle managers’ boundary spanning."
+                </td>
+                <td class="text-right font-medium text-slate-500">p. 489, Sec. 4.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">명제 2: 서비타이제이션의 기회 활용과 이용 가치 강화</td>
+                <td class="text-sm italic text-slate-600">
+                  "Proposition 2. Servitization reinforces co-creating value-in-use through middle managers’ exploitation of service opportunities."
+                </td>
+                <td class="text-right font-medium text-slate-500">p. 490, Sec. 4.2</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">명제 3: 가치 공동 생산과 브리콜라주를 통한 기회 창출</td>
+                <td class="text-sm italic text-slate-600">
+                  "Proposition 3. Value co-production facilitates service opportunity creation through middle managers’ bricolage."
+                </td>
+                <td class="text-right font-medium text-slate-500">p. 491, Sec. 4.3</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">명제 4: 서비타이제이션의 기회 탐색과 공동 생산 강화</td>
+                <td class="text-sm italic text-slate-600">
+                  "Proposition 4. Servitization reinforces value co-production through middle managers’ exploration of service opportunities."
+                </td>
+                <td class="text-right font-medium text-slate-500">p. 492, Sec. 4.4</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">대안적 자원 조립(Bricolage)의 양상</td>
+                <td class="text-sm italic text-slate-600">
+                  "It’s not like there was an official process chart to follow... [The development project] has been a curious creature living in the organizational flow." (PDM 1)
+                </td>
+                <td class="text-right font-medium text-slate-500">p. 495, Appendix</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">고객 대면 KAM의 경계 연결 역할</td>
+                <td class="text-sm italic text-slate-600">
+                  "That’s probably the main part of our job, to achieve contact between the mill, our customers, and the specialists." (KAM 4)
+                </td>
+                <td class="text-right font-medium text-slate-500">p. 495, Appendix</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h1 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (양손잡이 서비타이제이션과 중간 관리자의 가치 창출 루프)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 450" class="w-full h-auto">
+              <!-- Definitions of Markers for Arrows -->
+              <defs>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6"/>
+                </marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+                </marker>
+                <marker id="arrow-gray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+                </marker>
+              </defs>
+
+              <!-- Outer Frame Label -->
+              <rect x="10" y="10" width="780" height="430" rx="10" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+              
+              <!-- =================== TOP LOOP: EXPLOITATION CYCLE (KAM) =================== -->
+              <!-- Value-in-use Block -->
+              <rect x="40" y="60" width="180" height="60" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+              <text x="130" y="85" text-anchor="middle" font-weight="700" fill="#1e3a8a" font-size="13">이용 가치 (Value-in-use)</text>
+              <text x="130" y="105" text-anchor="middle" fill="#2563eb" font-size="10">고객 일상 기계 사용 & 지원</text>
+
+              <!-- Boundary Spanning Block -->
+              <rect x="300" y="60" width="180" height="60" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+              <text x="390" y="85" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">경계 연결 (Boundary Spanning)</text>
+              <text x="390" y="105" text-anchor="middle" fill="#64748b" font-size="10">KAM의 고객 밀착 소통 & 파트너화</text>
+
+              <!-- Service Opportunity Discovery Block -->
+              <rect x="560" y="60" width="200" height="60" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+              <text x="660" y="85" text-anchor="middle" font-weight="700" fill="#7c2d12" font-size="13">서비스 기회 발견 (Discovery)</text>
+              <text x="660" y="105" text-anchor="middle" fill="#ea580c" font-size="10">고객의 실제적 요구 파악</text>
+
+              <!-- Exploitative Servitization Block -->
+              <rect x="560" y="160" width="200" height="60" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+              <text x="660" y="185" text-anchor="middle" font-weight="700" fill="#1e3a8a" font-size="13">활용적 서비타이제이션 (Exploit)</text>
+              <text x="660" y="205" text-anchor="middle" fill="#2563eb" font-size="10">기존 역량/서비스 개선</text>
+
+              <!-- Connectors Top -->
+              <path d="M 220 90 L 300 90" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+              <path d="M 480 90 L 560 90" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+              <text x="520" y="80" text-anchor="middle" fill="#475569" font-weight="700" font-size="11">Prop 1</text>
+              <path d="M 660 120 L 660 160" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+              <path d="M 560 190 C 380 230, 200 200, 130 120" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+              <text x="320" y="200" text-anchor="middle" fill="#2563eb" font-weight="700" font-size="11">Prop 2 (강화 +)</text>
+
+              <!-- =================== BOTTOM LOOP: EXPLORATION CYCLE (PDM) =================== -->
+              <!-- Value Co-production Block -->
+              <rect x="40" y="330" width="180" height="60" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="130" y="355" text-anchor="middle" font-weight="700" fill="#064e3b" font-size="13">가치 공동 생산 (Co-production)</text>
+              <text x="130" y="375" text-anchor="middle" fill="#059669" font-size="10">솔루션 공동 설계 & 리소스 공유</text>
+
+              <!-- Bricolage Block -->
+              <rect x="300" y="330" width="180" height="60" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+              <text x="390" y="355" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">브리콜라주 (Bricolage)</text>
+              <text x="390" y="375" text-anchor="middle" fill="#64748b" font-size="10">PDM의 임시 자원 조합 & 실험</text>
+
+              <!-- Service Opportunity Creation Block -->
+              <rect x="560" y="330" width="200" height="60" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+              <text x="660" y="355" text-anchor="middle" font-weight="700" fill="#7f1d1d" font-size="13">서비스 기회 창출 (Creation)</text>
+              <text x="660" y="375" text-anchor="middle" fill="#dc2626" font-size="10">신제품 및 비즈니스 모델 설계</text>
+
+              <!-- Explorative Servitization Block -->
+              <rect x="560" y="230" width="200" height="60" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="660" y="255" text-anchor="middle" font-weight="700" fill="#064e3b" font-size="13">탐색적 서비타이제이션 (Explore)</text>
+              <text x="660" y="275" text-anchor="middle" fill="#059669" font-size="10">신규 솔루션 & 비즈니스 실험</text>
+
+              <!-- Connectors Bottom -->
+              <path d="M 220 360 L 300 360" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+              <path d="M 480 360 L 560 360" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-gray)"/>
+              <text x="520" y="350" text-anchor="middle" fill="#475569" font-weight="700" font-size="11">Prop 3</text>
+              <path d="M 660 330 L 660 290" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+              <path d="M 560 260 C 380 220, 200 250, 130 330" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+              <text x="320" y="240" text-anchor="middle" fill="#059669" font-weight="700" font-size="11">Prop 4 (강화 +)</text>
+
+              <!-- Divider/Ambidexterity label in Center -->
+              <line x1="240" y1="225" x2="540" y2="225" stroke="#cbd5e1" stroke-dasharray="4 4" stroke-width="1.5"/>
+              <rect x="330" y="210" width="120" height="30" rx="15" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+              <text x="390" y="229" text-anchor="middle" font-weight="700" fill="#475569" font-size="11">양손잡이 경영 (Ambidexterity)</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">행위자 자격 & 행위 1</span>
+                <span class="text-xs text-slate-400 font-semibold">KAM / Boundary Spanning</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">경계 연결 (Boundary Spanning)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 조직의 외부 파트너(고객) 및 조직 내부의 부서 간 경계를 넘어 정보를 통합하고 상호 작용을 연계하는 미시 행위.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의 (질적 측정):</strong> 고객사의 전략 기획 회의에 동반 참여하고, 고객사 고위 경영층과의 주기적 미팅 루트를 개설하며, 사내 기술 센터 전문가를 고객 문제에 매칭시키는 과정.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론적 논의:</strong> Piercy(2009), Prior(2016). 기존 사일로 조직을 파괴하고 대고객 솔루션 공급 속도 및 만족도를 높이는 핵심 동적 역량으로 다루어집니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">행위자 자격 & 행위 2</span>
+                <span class="text-xs text-slate-400 font-semibold">PDM / Bricolage</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">브리콜라주 (Bricolage)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자원 결핍 상태에 처했을 때 표준 매뉴얼이나 예산 획득을 기다리지 않고, 즉시 사용 가능한 것들을 재조합하여 문제를 대응하는 행위.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의 (질적 측정):</strong> 공식 R&D 예산 승인을 배제하고 개발팀 인력의 자발적 근무 시간 외 기여를 이끌어내거나, 외부 파트너사 기기 및 코드를 결합해 프로토타입을 신속 개발하는 것.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론적 논의:</strong> Baker & Nelson(2005), Witell et al.(2017). 혁신 초기 불확실성이 크고 예산이 확보되지 않은 솔루션 형성 단계에서 강력하게 요구됩니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">가치 형태 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Value-in-use</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">이용 가치 (Value-in-use)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 고객이 구매한 제품과 서비스 솔루션을 실제 자사의 비즈니스 현장 안에서 통합·운영하면서 획득하고 평가하는 경험적 가치.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의 (질적 측정):</strong> 고객사가 설비를 정지시키지 않고 가동성을 보전하기 위해 제공되는 상시 현장 기술 서포트, 고객과 KAM 간의 대면 피드백 질 및 축적된 관계 신뢰도.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론적 논의:</strong> Grönroos & Voima(2013). 가치는 제조업자의 공장문 밖을 나오면서 종료되는 것이 아니라 사용 과정에서 '사회적으로 구성'됨을 입증합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">가치 형태 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Value Co-production</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">가치 공동 생산 (Value Co-production)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 공급자와 고객사 양자가 공동으로 새로운 지식을 결합하고 상호 자원을 배정하여 함께 가치 제안(Value Proposition)을 구성해가는 행위.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의 (질적 측정):</strong> 개발 중인 신규 분석 툴에 고객사가 직접 사내 기계 데이터를 수유하여 알고리즘을 테스트하는 것, 유저 인터페이스를 함께 사용 시나리오에 따라 공동 개정하는 것.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론적 논의:</strong> Ranjan & Read(2016), Blazevic & Lievens(2008). 고객을 자원의 공동 기여자이자 외부 R&D 조력자로 투입하는 효과를 다룹니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h1 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구를 타 사 연구자가 추종 재현할 수 있도록 질적 단일 사례 연구 및 종단 연구 흐름을 타임라인 형식으로 해체하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">이론적 표집 및 대상 기업 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  조직의 비즈니스 모델을 제품 중심에서 솔루션 제공 중심으로 대폭 전환 중이며, 전통적이고 보수적인 제조업 환경(예: 글로벌 제지 기계 제조 기업 Valmet)을 파트너 기업으로 설정합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p. 487, Section 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">질적 대면 인터뷰 대상자 표집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  솔루션을 현장에서 실행하는 고객 관리자(KAM) 그룹과 신제품 기획 및 설계에 참여하는 제품 개발 관리자(PDM) 그룹을 중간 관리자(Middle Managers) 대상의 핵심 분석 축으로 나눕니다. 추가 검증을 위해 본사 디렉터(HQ) 및 실제 거래선 고객 임직원을 표집(총 30명, 37회 인터뷰)합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p. 487, Section 3.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">종단적 데이터 설계 및 삼각측량</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  변화 과정을 추적하기 위해 현장 KAM의 면담은 서비타이제이션 초기 및 이행 완료기(1.5년~2년 시차)에 거쳐 2회 수행합니다. 신뢰도 보장을 위해 기업 홍보 자료, 내부 훈련 규정, 웹 아카이브 등 2차 데이터(Secondary data)를 수집하여 진술을 교차 검증합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p. 487, Section 3.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">체계적 결합(Systematic Combining) 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Dubois & Gadde (2002)의 원칙에 따라 데이터 수집과 이론 검토를 쉼 없이 병행합니다. 면담 원본 녹취록을 전사한 뒤 NVivo 등 질적 분석 소프트웨어를 사용해 연역적 주제(가치 공동창출, 양손잡이)와 귀납적 주제(경계 연결, 브리콜라주)를 통합 맵핑(Appendix)합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p. 487-488, Section 3.3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">이론 프레임워크 구축 및 명제 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  KAM의 활용 중심 루프와 PDM의 탐색 중심 루프를 대비 분석하여 최종 4개의 핵심 명제(Propositions 1~4)를 도출하고, 이를 바탕으로 양손잡이 서비타이제이션 개념도(Fig. 1)를 완성합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p. 488-493, Section 4.1-4.5</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            질적 단일 사례 연구 특성상 Valmet이 갖춘 역사적 맥락과 특수성을 외래 연구자가 완전히 그대로 복사하여 수집할 수는 없습니다. 그러나 상세 기술된 인터뷰 방법(Table 1), 코딩 구조 및 원문 텍스트 구조(Appendix)에 의거하여 조선이나 중공업 등 유사한 전통 제조업을 타겟으로 방법론적 추종을 실행하는 것은 완전히 가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h1 text-slate-900">STEP 6. Limitations (한계점 분석)</h2>
+          <span class="badge badge-error style-label text-white uppercase">Critical Review</span>
+        </div>
+        
+        <!-- Limitation A: Self-Acknowledged -->
+        <div class="collapse collapse-arrow bg-red-50 border border-red-200 rounded-b-none rounded-t-lg">
+          <input type="radio" name="limitations-accordion" checked="checked" /> 
+          <div class="collapse-title text-lg font-bold text-red-900 flex items-center gap-2">
+            <span class="badge badge-error badge-sm text-white">A</span>
+            논문이 스스로 인정한 연구의 한계 (Self-Acknowledged Limitations)
+          </div>
+          <div class="collapse-content text-slate-800 text-sm space-y-4">
+            <p><strong>1) 단일 사례 맥락의 한계 (p. 493, Sec. 5.3)</strong><br>
+            글로벌 제지 기계 제조 시장을 장악한 대기업 Valmet의 서비스 사업부만을 분석 대상으로 삼았기 때문에, 이 연구의 프레임워크를 모든 제조업이나 상이한 구조를 지닌 중소 제조 기업에 보편적으로 일반화(universal generalization)하기에는 본질적으로 무리가 따릅니다.</p>
+            
+            <p><strong>2) 정량적 통계 실증 검증의 부재 (p. 493, Sec. 5.3)</strong><br>
+            질적 기법에 집중하여 미시적 기초 개념 관계를 수립하는 과정에 초점을 맞추었으며, 다수의 기업 표본을 대상으로 각 요인 간의 통계적 인과 방향성과 유의성 및 강건성을 직접 수치화하여 검증하지는 못했습니다.</p>
+            
+            <p><strong>3) 내부적 장벽 및 저항에 대한 제한적 분석 (p. 493, Sec. 5.1 & 5.3)</strong><br>
+            중간 관리자가 사내 기업가처럼 성공적으로 행동하기 위해서는 최고경영진의 체계적인 예산 배정과 제도적 권한 위임이 필요하지만, 이 와중에 발생하는 부서 간 마찰, 변화에 대한 내부 기득권의 저항 등 부정적인 메커니즘을 상세히 분석하지 못했습니다.</p>
+          </div>
+        </div>
+
+        <!-- Limitation B: Unmentioned / Critical -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-200 rounded-t-none rounded-b-lg">
+          <input type="radio" name="limitations-accordion" /> 
+          <div class="collapse-title text-lg font-bold text-amber-950 flex items-center gap-2">
+            <span class="badge badge-warning badge-sm text-amber-950">B</span>
+            논문이 규명하지 않은 학술적/실무적 비판 지점 (Unmentioned Critical Review)
+          </div>
+          <div class="collapse-content text-slate-800 text-sm space-y-4">
+            <p><strong>1) 대기업 및 생존자 편향 (Large-Firm & Survivor Bias)</strong><br>
+            Valmet은 200년 이상의 시장 기반을 닦았고 다수의 충성 기업군과 고도의 성능 모니터링 센터(Performance Center)를 선제 확보한 대기업입니다. 자원과 인프라가 극도로 영세한 일반 제조업체(SMEs)에선 PDM이 공식 지원 없이 브리콜라주 행동을 할 경우 기회 창출이 아닌 자원 낭비와 솔루션 개발 실패(가치 파괴)로 이어질 위험이 지대합니다.</p>
+            
+            <p><strong>2) 사내 중간관리자의 열정 착취성 모델 (Self-Exploitation risk)</strong><br>
+            본문 중 PDM 1이 "공식적 예산도, 사람도 배정받지 못했으나, 스포츠에 대한 사랑(love for the sport)으로 본 업무의 곁다리로 시간을 내어 했다"고 말한 진술은, 정식 조직 지원 결핍을 근로자의 개별적 헌신과 자발적 무급 초과 노동으로 메운 형태입니다. 이를 모범적 비즈니스 기획 프로세스로 상정하는 것은 사내 혁신 동력의 지속가능성을 낮추고 직원들의 직무 탈진(burnout)을 야기하기 쉽습니다.</p>
+            
+            <p><strong>3) 실질적 기업 성과(Firm Performance) 링크의 상실</strong><br>
+            KAM과 PDM의 기획 프로세스와 가치 공동 생성에 대해서는 자세히 묘사했으나, 이것이 실제로 기업들이 제조의 서비스화 단계에서 고질적으로 겪는 '서비스 패러독스(Service Paradox, 투자 대비 수익성 저하)'를 해소하여 영업이익률이나 실질 재계약율의 상승으로 직결되었는가에 대한 양적인 데이터나 결론은 결여되어 있습니다.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-10 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <aside class="max-w-7xl mx-auto flex flex-col gap-2">
+      <p class="font-bold text-cyan-400">IMM Paper Analysis Service</p>
+      <p class="text-xs">Based on the publication: Yang, M., & Leposky, T. (2022). An entrepreneurial framework for value co-creation in servitization. Industrial Marketing Management, 107, 484-497.</p>
+      <p class="text-xs">Created for academic research purposes. Font: Pretendard, styled with DaisyUI & Tailwind.</p>
+    </aside>
+  </footer>
+
+</body>
+</html>
