@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Enterprises in Circular Service Ecosystems - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Service-Dominant Logic</div>
+        <div class="badge badge-secondary text-white style-label">Special Issue: 8th IMM Summit</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Social enterprises as key actors in the emergence of circular service ecosystems:<br>
+            <span class="text-cyan-400">A service-dominant logic approach</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Violeta Bouzada-Novoa, Marta Rey-García
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            순환 서비스 생태계의 출현에 있어 핵심 행위자로서의 사회적 기업:<br>
+            <span class="text-indigo-300">서비스 주도 논리 접근법</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            스페인 섬유(Moda re-) 및 전자폐기물(AERESS) 재활용 생태계 질적 사례 연구를 기반으로 한 '생태계 성찰성(Ecosystem Reflexivity)'의 규명
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              SE
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">사회적 기업은 교차 및 내포 생태계 성찰성을 발휘해 효율과 고용의 모순을 조율하고 법 제정을 견인합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          분석 시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "The circular economy is generally regarded as a means to tackle the climate crisis, though the social mechanisms required to ensure a just green transition remain unclear. Social enterprises are key actors in this effort, blending environmental and social goals and providing circular services whilst also creating jobs and integrating vulnerable segments of the population into the workforce. This study adopts the service-dominant logic as a theoretical framework to understand the nested, overlapped, and emergent nature of the service ecosystems in which social enterprises operate in this transition to a circular economy. Through qualitative case study research in the textile and electrical waste streams, we identify social enterprises as generic actors with embedded reflexivity and we expand the concept to ‘ecosystem reflexivity’ as a fundamental prerequisite for intentional systems shaping with two dimensions: cross-ecosystem reflexivity, enabling institutional learning across service ecosystems, and nested-ecosystem reflexivity, facilitating actors to reconcile conflicting institutional logics and paradoxes. This research enriches industrial marketing literature by empirically unveiling the institutional dynamics at play in the transition towards a just circular economy whilst also offering policy and strategic insights for preserving ecosystem viability."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "순환 경제는 일반적으로 기후 위기를 해결하기 위한 수단으로 여겨지지만, 정의로운 녹색 전환을 보장하는 데 필요한 사회적 메커니즘은 여전히 모호합니다. 사회적 기업은 이러한 노력의 핵심 행위자로서, 환경적 목표와 사회적 목표를 결합하고 순환 서비스를 제공하는 동시에 일자리를 창출하고 인구의 취약 계층을 노동 시장에 통합합니다. 본 연구는 서비스 주도 논리(S-D logic)를 이론적 프레임워크로 채택하여, 순환 경제로의 전환 과정에서 사회적 기업이 작동하는 서비스 생태계의 내포되고(nested), 중첩되며(overlapped), 발현되는(emergent) 특성을 이해하고자 합니다. 섬유 및 전기폐기물 흐름에 대한 질적 사례 연구를 통해, 우리는 사회적 기업을 내재적 성찰성을 지닌 일반적 행위자(generic actors)로 식별하고, 이 개념을 의도적인 시스템 형성의 근본적인 전제 조건인 '생태계 성찰성(ecosystem reflexivity)'으로 확장합니다. 이는 두 가지 차원, 즉 서로 다른 서비스 생태계 간의 제도적 학습을 가능하게 하는 '교차 생태계 성찰성'과 행위자가 상충하는 제도적 논리와 모순을 조정할 수 있도록 돕는 '내포 생태계 성찰성'으로 구성됩니다. 본 연구는 정의로운 순환 경제로의 전환 과정에서 작용하는 제도적 동학을 실증적으로 밝히는 동시에, 생태계 생존력(viability)을 보전하기 위한 정책적 및 전략적 통찰을 제공함으로써 산업 마케팅 문헌을 풍성하게 합니다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Glossary)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table table-zebra w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-2/4">번역 선택 이유 및 학술적 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Ecosystem Reflexivity</td>
+                  <td>생태계 성찰성</td>
+                  <td class="text-sm">행위자가 자신이 속한 생태계의 복합적인 제도적 배치(규칙, 규범, 가치)를 인지하고 해석하여 시스템을 의도적으로 재구성하는 역량입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Generic Actor</td>
+                  <td>일반적 행위자</td>
+                  <td class="text-sm">공급업체나 고객 등 단일한 역할에 고정되지 않고, 맥락에 따라 다양한 역할을 수행하며 자원 통합을 주도하는 주체입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Cross-ecosystem Reflexivity</td>
+                  <td>교차 생태계 성찰성</td>
+                  <td class="text-sm">한 서비스 생태계(예: 전자폐기물)의 제도적 갈등과 대처 방식에 대한 학습 내용을 인접한 다른 생태계(예: 섬유)로 전이시키는 성찰성입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Nested-ecosystem Reflexivity</td>
+                  <td>내포 생태계 성찰성</td>
+                  <td class="text-sm">자연, 사회, 경제가 서로 겹겹이 포개진 중첩 구조 속에서 환경 효율화와 사회적 포용의 모순적 요구를 조율하고 균형을 잡는 성찰성입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Ecosystem Viability</td>
+                  <td>생태계 생존력</td>
+                  <td class="text-sm">시스템이 대내외적 환경 변화와 갈등 속에서도 장기적으로 지속 가능한 가치 창출력을 유지하는 상태입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">사회적 기업은 순환 생태계를 어떻게 바꾸는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">교차/내포 성찰성 기반의 주도적 시스템 형성</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">S-D Logic과 순환 경제/사회적 기업 가치의 결합</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 사회적 기업이 작동하는 순환 서비스 생태계(CSE)의 발현적 속성은 무엇이며, 이들은 단순한 외주 계약 업자를 넘어 시스템 형성에 어떻게 기여하는가?</li>
+                  <li><strong>핵심 발견:</strong> 사회적 기업은 <strong>생태계 성찰성(ecosystem reflexivity)</strong>을 발휘해 변화를 능동적으로 주도하는 일반적 행위자입니다. 타 생태계의 EPR 경험을 학습하여 섬유 생태계 법제화 시 50% 유보 조항을 이끌어내는 <strong>교차 성찰성</strong>과, 고도 기술 효율화와 취약계층 고용이라는 딜레마를 조율하는 <strong>내포 성찰성</strong>을 발휘합니다.</li>
+                  <li><strong>이론/실무 기여:</strong> S-D logic의 '제도적 출현 및 성찰성'을 순환 경제로 확장하였고, 기업 단위의 미션 드리프트 리스크를 전체 '생태계 생존력(viability)'과 가치 공동파괴 방지 논의로 전환했습니다. 실무적으로는 사회적 기업을 단순 용역이 아닌 '시스템적 공동 창조자'로 포지셔닝해야 함을 보여줍니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "사회적 기업은 교차 및 내포 생태계 성찰성을 발휘해 기술 혁신과 사회적 고용의 모순을 조율하고 제도적 학습을 이전함으로써, 정의로운 순환 서비스 생태계의 출현을 주도합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label text-slate-900 uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">주도적 시스템 형성 및 4차 출현 유도</td>
+                <td class="text-sm italic text-slate-600">
+                  "...we argue that SEs are not merely adapting to environmental changes but, rather, triggering fourth-order emergence. Findings show the intentional, reflexive shaping of envisioned service ecosystem properties..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9 (Sec. 5, Lines 1047-1050)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">생태계 성찰성의 두 차원 규명</td>
+                <td class="text-sm italic text-slate-600">
+                  "...we expand the concept to ‘ecosystem reflexivity’ as a fundamental prerequisite for intentional systems shaping with two dimensions: cross-ecosystem reflexivity, enabling institutional learning across service ecosystems, and nested-ecosystem reflexivity, facilitating actors to reconcile conflicting institutional logics and paradoxes."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 9-10 (Sec. 5, Lines 1060-1063)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">사회적 기업의 일반적 행위자(Generic Actor) 특성</td>
+                <td class="text-sm italic text-slate-600">
+                  "...our findings substantiate Ekman et al.'s (2016) conceptualisation of the ‘generic actor’ by illustrating that the nature of SEs allows them to assume a multiplicity of roles simultaneously, from circular service providers to strategic partners and institutional activists..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 10 (Sec. 5.1, Lines 1087-1092)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">교차 생태계 성찰성 및 제도적 학습 루프</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the textile ecosystem has learnt from SEs' struggles in the WEEE ecosystem and, though being in a more mature EPR implementation stage, it is engaged in a new feedback loop after its successful proactivity advocating for market reserve for SEs."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 10 (Sec. 5.2, Lines 1108-1111)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">내포 생태계 성찰성을 통한 모순 관리</td>
+                <td class="text-sm italic text-slate-600">
+                  "...even SEs act reflexively to counterbalance structural pressures created by regulatory and market-driven circularity... when the pressure to scale for circular efficiency clashes with the slow rhythms required for social inclusion, interactions may diminish rather than enhance well-being."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 10-11 (Sec. 5.3, Lines 1174-1176 & 1192-1195)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">공공 입찰 50% 유보 조항 관철 (Law 7/2022)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the reserved procurement clause for SEs in the 19th additional provision in the latest Spanish Law on Waste and Contaminated Soils (Law 7/2022)..." / "...we fought for this clause to prevent the new system from being captured by large corporations (INT3)"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 8 (Sec. 4.2.2, Lines 779-781) / Page 10 (Sec. 5.2, Lines 988-989)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (순환 서비스 생태계 전환 및 성찰성 메커니즘)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 440" class="w-full h-auto">
+              <!-- Defs for arrows -->
+              <defs>
+                <marker id="arrow-slate" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+                </marker>
+                <marker id="arrow-emerald" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/>
+                </marker>
+                <marker id="arrow-indigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/>
+                </marker>
+                <marker id="arrow-orange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#ea580c"/>
+                </marker>
+              </defs>
+
+              <!-- Top: Ecosystem Reflexivity Box (orange-50 background, orange-500 border) -->
+              <rect x="200" y="20" width="400" height="110" rx="12" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+              <text x="400" y="52" text-anchor="middle" font-weight="700" fill="#7c2d12" font-size="15">생태계 성찰성 (Ecosystem Reflexivity)</text>
+              <text x="400" y="80" text-anchor="middle" font-weight="500" fill="#c2410c" font-size="11.5">교차 생태계 성찰성 (Cross-ecosystem): 타 생태계의 교훈 이전 및 학습</text>
+              <text x="400" y="103" text-anchor="middle" font-weight="500" fill="#c2410c" font-size="11.5">내포 생태계 성찰성 (Nested-ecosystem): 고용과 환경적 효율 모순 조율</text>
+
+              <!-- Bottom Left: Micro-level Box (slate-50 background, slate-300 border) -->
+              <rect x="30" y="180" width="220" height="135" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+              <text x="140" y="208" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="13">미시 수준 (Micro-level)</text>
+              <text x="50" y="238" font-size="11" fill="#475569">• 사회적 자원 통합 (WISE 고용)</text>
+              <text x="50" y="263" font-size="11" fill="#475569">• 순환적 자원 통합 (수거/재생)</text>
+              <text x="50" y="288" font-size="11" fill="#475569">• 기술 습득 및 의식 개선 활동</text>
+
+              <!-- Bottom Middle: Meso-level Box (emerald-50 background, emerald-500 border) -->
+              <rect x="290" y="180" width="220" height="135" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="400" y="208" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">메조 수준 (Meso-level)</text>
+              <text x="310" y="238" font-size="11" fill="#047857">• SE 네트워크 연맹(Moda re-, AERESS)</text>
+              <text x="310" y="263" font-size="11" fill="#047857">• 이종 산업 협업 (EPR 및 생산자 연계)</text>
+              <text x="310" y="288" font-size="11" fill="#047857">• 순환 솔루션 & 공동 기술 투자</text>
+
+              <!-- Bottom Right: Macro-level Box (indigo-50 background, indigo-500 border) -->
+              <rect x="550" y="180" width="220" height="135" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+              <text x="660" y="208" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">매크로 수준 (Macro-level)</text>
+              <text x="570" y="238" font-size="11" fill="#4338ca">• EPR 법제화 및 50% 유보 조항</text>
+              <text x="570" y="263" font-size="11" fill="#4338ca">• 순환 경제 사회적 가치 인식 확산</text>
+              <text x="570" y="288" font-size="11" fill="#4338ca">• TBL 공동 성과 & 생태계 생존력</text>
+
+              <!-- Arrows and labels -->
+              <!-- Micro -> Meso -->
+              <path d="M 250 248 L 290 248" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-emerald)"/>
+              <text x="270" y="238" text-anchor="middle" font-size="10" fill="#047857" font-weight="600">패턴화</text>
+
+              <!-- Meso -> Macro -->
+              <path d="M 510 248 L 550 248" fill="none" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow-indigo)"/>
+              <text x="530" y="238" text-anchor="middle" font-size="10" fill="#4338ca" font-weight="600">제도화</text>
+
+              <!-- Reflexivity downward interventions -->
+              <path d="M 330 130 L 330 160 L 270 160 L 270 238" fill="none" stroke="#f97316" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+              <text x="260" y="152" font-size="9" fill="#c2410c" font-weight="600">의도적 개입</text>
+
+              <path d="M 470 130 L 470 160 L 530 160 L 530 238" fill="none" stroke="#f97316" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+              <text x="500" y="152" font-size="9" fill="#c2410c" font-weight="600">제도적 옹호</text>
+
+              <!-- Feedback / Loop back (Macro back to Micro) -->
+              <path d="M 660 315 L 660 365 L 140 365 L 140 315" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow-slate)"/>
+              <text x="400" y="385" text-anchor="middle" font-size="11.5" fill="#475569" font-weight="700">교차 생태계 피드백 & 제도적 학습 루프</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Variable 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">핵심 메커니즘</span>
+                <span class="text-xs text-slate-400 font-semibold">Mechanism</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">생태계 성찰성 (Ecosystem Reflexivity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 서비스 생태계 내에서 행위자가 기존의 제도적 배치를 해석하고 성찰하여, 장기적 생태계 생존력을 극대화하기 위해 이를 의도적으로 해체하고 재배치하는 핵심 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 이종 생태계 비교 피드백 학습량, 사회적 기업 보호를 위한 법적 로비 및 조율 강도, 기술적 효율과 인적 가치의 딜레마를 관리하는 의사결정 방식.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> S-D logic에서 제도적 창조 및 변화가 행위자의 에이전시(agency)와 인지력을 통해 내생적으로 일어남을 증명합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Variable 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">성찰성 차원 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Dimension 1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">교차 생태계 성찰성 (Cross-ecosystem Reflexivity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 중첩되어 작동하거나 서로 인접한 다른 생태계(WEEE와 섬유) 간의 제도적 마찰과 대처 경험을 분석하고 자사 영역에 활용해 입법화하는 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> WEEE 분야의 환경 법제 및 대기업 진입 장벽 경험을 학습해 섬유 분야 폐기물 법안(Law 7/2022)의 50% 유보 조항을 성공적으로 관철시키는 연대 로비 과정.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 미시/네트워크 수준의 개별 학습이 연합체(Moda re-)와 입법화(EPR)를 통해 거시 제도로 정교화되는 coevolution(공동 진화) 구조를 포착합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Variable 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">성찰성 차원 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Dimension 2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">내포 생태계 성찰성 (Nested-ecosystem Reflexivity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자연 - 사회 - 경제로 이어지는 거시적 중첩 구조(nested levels) 속에서, 하위 운영적 갈등 요소를 감지하고 장기적이고 균형 있는 가치 창출을 유지하는 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> AI 기반 부품 분석기(WEEE)나 정밀 자동 분리기(FiberSort) 등 기술 도입 시 발생할 수 있는 기술적 스피드(환경)와 취약계층의 고용 속도(사회) 간의 모순을 조율하는 의사결정 프로세스.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 사회적 기업의 개별적 '미션 드리프트' 우려를 생태계 전반의 'viability(생존력)' 및 가치 공동파괴 방지라는 S-D logic 고유 관점으로 승화합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Variable 4 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">자원통합 성과</span>
+                <span class="text-xs text-slate-400 font-semibold">Outcome</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">발현적 속성 (Emergent Properties)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 행위자의 자원 통합과 성찰적 공동 노력이 누적되어 나타나는 새로운 거시적 구조(규제, 신규 시장, 대중 가치관)이자 개별 부분의 합 이상으로 나타나는 속성.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> (미시) AI 수거 및 upcycling, (메조) SE 동맹 체계와 cross-sector 협약, (매크로) 50% reserved procurement 법조항 관철 및 중고 낙인 철폐 교육 활동.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 미시-메조-거시의 oscillation(진동)과 feedback loop를 통해 순환 서비스 생태계가 장기적으로 실현되는 전 과정을 포괄합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 연구 설계 및 질적 데이터 수집을 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">2차 데이터 수집 및 기초 생태계 매핑 (Desk Research)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  AERESS 및 Moda re- 등의 연간 보고서, 스페인 폐기물법(Law 7/2022) 등 법률 문서를 조사하고, 스페인 자활 사회적 기업(WISE) 동향을 파악하여 행위자 관계망 및 1차 맵(초안)을 작성함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4 (Sec. 3.2), Page 5 (Sec. 3.3)</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">1차 전문가 반구조화 정성 인터뷰 (In-depth Interviews)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  사회적 기업 임원, 네트워크 디렉터, 순환 경제 컨설턴트 등 총 10인(INT1~INT10) 대상 인터뷰. 사전 작성한 인포그래픽을 활용하여 맵의 오류를 수정하고 상호작용 형태를 검증함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4-5 (Sec. 3.2), Table 1 & Appendix A.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">2차 포커스 그룹을 통한 관계성 탐색 (Focus Group)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  사회적 기업 실무자, 일반 산업 생산자 협회, 지자체 환경 의원 등 10인(FG1~FG10)이 참가하는 포커스 그룹 세션 진행. 협업의 기회/위험, 이종 산업 간 갈등, 규제 요구 등 미시 역학을 추적.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4-5 (Sec. 3.2), Table 1 & Appendix A.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">핵심 전문가 피드백 검증 루프 (Expert Validation)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  도출된 중간 결과 및 코딩 해석 결과물에 대해 가장 경험이 풍부한 전문가 3인(INT3, INT4, INT6)을 재접촉하여 타당성을 재확인하고 피드백을 반영함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5 (Sec. 3.2)</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">정성 텍스트 코딩 및 테마 도출 (Thematic Coding via MAXQDA)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  전사된 정성 데이터를 MAXQDA 소프트웨어에 입력. 개방 코딩(Open Coding)을 통해 60개의 반복 테마를 축출하고, 이를 미시-메조-거시의 발현적 속성 프레임워크와 최종 대조 통합함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5 (Sec. 3.3), Fig. 2</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            질문 구성 및 표본 분포(Table 1), 코딩 전 단계(Fig. 2)가 공개되어 연구 프로세스는 재현 가능하나, 스페인의 독특한 사법 환경 및 오랜 신뢰 관계(Moda re-, AERESS) 기반 질적 응답을 외래 연구자가 통제 그룹 없이 동일하게 확보하기에는 제약이 큽니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 7)에서 연구진들이 직접 제시한 지리적 및 방법론적 범위의 한계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>지리적 국한성 및 일반화 한계:</strong> 스페인의 제도적 환경, 유럽의 강력한 환경 규제 전통 내에서 수집된 사례이므로 사회적 기업의 발현적 기여가 미흡한 다른 글로벌 생태계에 이 메커니즘을 동일하게 적용하기 어려움.
+              </li>
+              <li>
+                <strong>성찰성 및 준비성 측정 지표 부재:</strong> 본 연구에서 '생태계 성찰성'을 이론적으로 정의하고 규명했으나, 기업이나 행위자의 성찰적 준비 수준을 객관적으로 비교·측정할 수 있는 양적 지표(metric)가 부재함.
+              </li>
+              <li>
+                <strong>개도국 비공식 생태계 반영 배제:</strong> 글로벌 폐기물 이동 및 비공식 부문(예: 비공식 폐지/고철 수거인)이 지배적인 개발도상국의 특수한 환경을 연구 범위에서 제외하여 보편성 확보에 제약이 있음.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 질적 데이터 수집 절차를 근거로 제기하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 표본 선정 편향</span>
+                <p class="text-sm text-slate-700">
+                  인터뷰 대상이 AERESS, Moda re- 등의 사회적 기업 핵심 관계자 및 이들의 활동을 오랫동안 지지하고 대변해 온 우호적인 외부 전문가 위주로 포진되어 있습니다. 따라서 사회적 기업의 역량이 다소 과대평가되었을 우려가 있고, 이들과 경쟁하는 영리 폐기물 기업이나 사회적 기업의 생산 효율성 한계를 지적하는 정책 실무자의 비판적 목소리가 누락되어 결과의 편향성이 의심됩니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 권력 비대칭 및 구조적 제약</span>
+                <p class="text-sm text-slate-700">
+                  사회적 기업이 '내포 성찰성'을 발휘하여 환경적 가치(정밀 분류 기술)와 사회적 가치(취약 계층 고용)의 균형을 맞춘다고 서술하지만, 실제 시장에서는 막대한 자금력을 쥐고 있는 대기업 및 대형 영리 유통사들이 순환 시장의 지배권을 행사합니다. 이들이 주도하는 강력한 시장 경쟁 구조 앞에서도 과연 사회적 기업의 성찰성이 미션 드리프트를 완전히 막고 독자적 권력을 유지해 줄지 실효성 검증이 요구됩니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 종교 배경(Caritas) 특수성</span>
+                <p class="text-sm text-slate-700">
+                  스페인 패션 순환의 핵심 사례인 Moda re-는 세계적인 가톨릭 구호 연맹인 '카리타스(Caritas)'의 방대한 지자체 네트워크, 기부 공간 점유 능력, 종교적 공신력을 토대로 성장했습니다. 이러한 독점적이고 거대한 자원 획득 수단을 갖추지 못한 중소 규모나 비종교계 사회적 기업들에게도 본 연구에서 규명한 '교차 성찰성' 및 입법 로비 기전이 보편적으로 성립될 수 있을지 의구심이 생깁니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Social enterprises as key actors in the emergence of circular service ecosystems: A service-dominant logic approach</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

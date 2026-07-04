@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Measuring Value-in-Use Management from the Supplier's Perspective - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (No Top Navbar as per guidelines) -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Relationship Marketing</div>
+        <div class="badge badge-secondary text-white style-label">Methodology: Index Development</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Measuring value-in-use management<br>from the <span class="text-cyan-400">supplier's perspective</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Amit Mahimkar, John Hadjimarcou, Edward Ramirez
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            공급업체 관점에서의<br>
+            <span class="text-indigo-300">사용가치 관리(VIUM) 실행 측정</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            B2B 솔루션 공급사의 사후 가치창출 관리 루틴을 다차원(7개 하위차원, 26문항) 형성적 지표로 개발하고, 부서 협업 및 성과 인과관계를 실증함.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">공급사의 부서간 협업과 고객 지향성은 체계적인 사용가치 관리(VIUM)를 통해 최종 매출 비중 및 고객 중심성을 증대시킵니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2 bg-cyan-400 hover:bg-cyan-500 border-none">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase bg-indigo-600 border-none text-white">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Business-to-business (B2B) marketing is increasingly shifting from transactional exchanges to the long-term management of customer relationships. As suppliers offer complex, integrated solutions, the focus has shifted from product attributes to the value realized during usage. To manage this experienced value-in-use (VIU), suppliers are establishing organizational structures and processes dedicated to VIU management (VIUM). Despite its growing theoretical and managerial significance, no validated instrument currently exists to assess VIUM implementation from the supplier's perspective. This study develops and validates a second-order formative supplier-side index comprising seven VIUM subprocesses. Nomological evidence (based on survey data from B2B supplier managers, N = 284) shows that VIUM implementation is positively associated with cross-functional collaboration, customer orientation, customer centricity, and percentage sales, supporting the index's practical relevance. From a resource-based view (RBV) perspective, the study conceptualizes VIUM implementation as a supplier capability, and the validated index provides B2B firms with a diagnostic and benchmarking tool to assess VIUM implementation and prioritize improvements across customer accounts."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "기업간 거래(B2B) 마케팅은 거래적 교환에서 고객 관계의 장기적 관리로 점점 더 이동하고 있다. 공급업체가 복잡하고 통합된 솔루션을 제공함에 따라, 초점은 제품 속성에서 사용 중에 실현되는 가치로 전환되었다. 이러한 경험된 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">사용가치(Value-in-Use, VIU)</span>를 관리하기 위해 공급업체들은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">사용가치 관리(VIU Management, VIUM)</span> 전담 조직 구조와 프로세스를 구축하고 있다. VIUM의 이론적 및 관리적 중요성이 커지고 있음에도 불구하고, 현재 공급업체 관점에서 VIUM 실행(VIUM implementation)을 평가할 수 있는 검증된 도구는 존재하지 않는다. 본 연구는 7개의 VIUM 하위 프로세스로 구성된 2차 형성적(second-order formative) 공급업체 측 지표(index)를 개발하고 검증한다. B2B 공급업체 관리자(N = 284)의 설문조사 데이터를 기반으로 한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">법칙론적 증거(nomological evidence)</span>에 따르면, VIUM 실행은 부서 간 협업(cross-functional collaboration), 고객 지향성(customer orientation), <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">고객 중심성(customer centricity)</span> 및 매출 비중(percentage sales)과 긍정적인 관련이 있어 이 지표의 실질적인 유효성을 지지한다. 자원기반관점(RBV)에 따라 본 연구는 VIUM 실행을 공급업체 역량(supplier capability)으로 개념화하며, 검증된 지표는 B2B 기업들이 여러 고객 계정 전반에 걸쳐 VIUM 실행을 평가하고 개선 우선순위를 정할 수 있도록 진단 및 벤치마킹 도구를 제공한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table table-zebra w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Value-in-Use (VIU)</td>
+                  <td>사용가치</td>
+                  <td class="text-sm">단순 구매 가격이나 교환가치와 대비하여, 제품과 서비스를 실질적으로 사용 및 결합하는 과정에서 느끼는 가치입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Value-in-Use Management (VIUM)</td>
+                  <td>사용가치 관리</td>
+                  <td class="text-sm">고객이 실질적인 가치를 경험할 수 있도록 공급업체가 설계하고 조직화한 공식/비공식 관리 구조 및 이행 프로세스입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">VIUM Implementation</td>
+                  <td>VIUM 실행</td>
+                  <td class="text-sm">사용가치 관리 루틴(식별, 보고, 개선 성찰 등)이 현장 부서에서 구체적으로 실천되고 안착된 강도 및 범위입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Nomological Validity</td>
+                  <td>법칙론적 타당성</td>
+                  <td class="text-sm">어떤 가상의 지표나 척도가 이론적인 선행/결과 요인 간 관계에 대한 기대에 부합하는 분석 결과를 보여 타당함을 증명하는 것입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Formative Index</td>
+                  <td>형성적 지표</td>
+                  <td class="text-sm">측정하려는 세부 지표가 합산되어 상위 변수를 구성해 내는 지표입니다. 각 지표들은 상호 대체 불가능하며 독립적입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회 발표나 세미나에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 연구 배경과 핵심 메커니즘을 흐름별로 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">공급사 관점에서 사용가치 관리를 어떻게 정확히 진단할 것인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">26개 형성 항목으로 구성된 7개 루틴 구축</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">조직 역량화 지표 제시 및 경제적 유효성 실증</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B 마케팅이 거래에서 사후 관리로 이전하면서 사용가치 관리(VIUM)가 핵심 과제가 됨. 그러나 공급업체 관점에서 자사의 가치 관리 활동 이행도를 측정하고 비교할 만한 척도가 없던 문제 해결.</li>
+                  <li><strong>핵심 발견:</strong> 7개 차원(가치식별, 간접식별, 가치보고, 개선성찰, 개선전파, 가치정량화, 가치소통)의 총 26문항 형성적 지표가 통계적 공선성과 타당도를 완전 통과함. 선행 요인인 부서간 협업(CFC)과 고객 지향성(CO)에 의해 높게 발현됨을 확인.</li>
+                  <li><strong>이론/실무 기여:</strong> VIUM을 공급업체의 실질적 '조직 역량(Capability)'으로 조작화하여, 그것이 종속변수인 고객 중심성(CC) 및 매출 비중(Percentage Sales)의 성과 창출로 직접 전환됨을 법칙론적으로 규명. 현장 계정 관리자가 계정 상태 진단(Profile Heatmap)용으로 즉시 적용 가능한 진단 템플릿 제공.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "공급업체의 부서 간 협업과 고객 지향성은 다기능적 사용가치 관리(VIUM) 루틴들을 매개로 하여, 궁극적으로 고객 계정 내 매출 기여(Share of Wallet)를 확대하고 고객 친밀도를 극대화합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase text-white bg-teal-600 border-none">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 엄밀성을 검증하고자 각 핵심 가설 주장과 논문 내 실증 수치 및 인용구를 일대일 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">7개 하위 차원의 VIUM 형성 지표 타당성</td>
+                <td class="text-sm italic text-slate-600">
+                  "The index demonstrates strong content and construct validity for VIUM implementation as a second-order formative construct formed by seven subprocesses..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 11, Sec. 3.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">부서 간 협업(CFC)의 VIUM 강화 작용</td>
+                <td class="text-sm italic text-slate-600">
+                  "Consistent with expectations, cross-functional collaboration (β = 0.293, p = .000) ... was positively related to VIUM implementation."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9, Sec. 2.5.9.1 / Table 13</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">고객 지향성(CO)의 VIUM 영향력</td>
+                <td class="text-sm italic text-slate-600">
+                  "...customer orientation (β = 0.614, p = .000) was positively related to VIUM implementation."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9, Sec. 2.5.9.1 / Table 13</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">VIUM 실행에 따른 고객 중심성(CC) 고양</td>
+                <td class="text-sm italic text-slate-600">
+                  "VIUM implementation was positively related to customer centricity (β = 0.809, p = .000)"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9, Sec. 2.5.9.1 / Table 13</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">VIUM 실행에 따른 고객 매출 비중 증가</td>
+                <td class="text-sm italic text-slate-600">
+                  "VIUM implementation was positively related to ... percentage sales (β = 0.128, p = .036)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9, Sec. 2.5.9.1 / Table 13</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase bg-cyan-400 border-none">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 법칙론적 모델)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 450" class="w-full h-auto">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7"/>
+                </marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#047857"/>
+                </marker>
+                <marker id="arrow-dashed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+                </marker>
+              </defs>
+
+              <!-- Antecedents -->
+              <!-- CFC -->
+              <rect x="40" y="60" width="200" height="75" rx="10" fill="#f8fafc" stroke="#6366f1" stroke-width="2"/>
+              <text x="140" y="90" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="700" fill="#4f46e5" font-size="14">부서 간 협업 (CFC)</text>
+              <text x="140" y="112" text-anchor="middle" font-family="Pretendard, sans-serif" fill="#64748b" font-size="11">마케팅, 영업, 서비스 부서 간 협동</text>
+
+              <!-- CO -->
+              <rect x="40" y="205" width="200" height="75" rx="10" fill="#f8fafc" stroke="#6366f1" stroke-width="2"/>
+              <text x="140" y="235" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="700" fill="#4f46e5" font-size="14">고객 지향성 (CO)</text>
+              <text x="140" y="257" text-anchor="middle" font-family="Pretendard, sans-serif" fill="#64748b" font-size="11">개별 고객 요구의 이해 및 만족</text>
+
+              <!-- Core Mediator (VIUMI) -->
+              <rect x="300" y="120" width="220" height="110" rx="12" fill="#ecfeff" stroke="#06b6d4" stroke-width="2.5"/>
+              <text x="410" y="160" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="700" fill="#0891b2" font-size="15">사용가치 관리 실행</text>
+              <text x="410" y="182" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="700" fill="#0891b2" font-size="15">(VIUMI)</text>
+              <text x="410" y="208" text-anchor="middle" font-family="Pretendard, sans-serif" fill="#0e7490" font-size="11">7대 하위 프로세스로 구성된 형성 지표</text>
+
+              <!-- Outcomes -->
+              <!-- CC -->
+              <rect x="580" y="60" width="190" height="75" rx="10" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/>
+              <text x="675" y="90" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="700" fill="#059669" font-size="14">고객 중심성 (CC)</text>
+              <text x="675" y="112" text-anchor="middle" font-family="Pretendard, sans-serif" fill="#047857" font-size="11">고객 운영 통합 & 친밀감 형성</text>
+
+              <!-- Percentage Sales -->
+              <rect x="580" y="205" width="190" height="75" rx="10" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/>
+              <text x="675" y="235" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="700" fill="#059669" font-size="14">매출 비중 (% Sales)</text>
+              <text x="675" y="257" text-anchor="middle" font-family="Pretendard, sans-serif" fill="#047857" font-size="11">초점 고객사 계정의 매출 기여도</text>
+
+              <!-- Control Variables -->
+              <rect x="315" y="320" width="190" height="80" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="4" stroke-width="1.5"/>
+              <text x="410" y="350" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="700" fill="#475569" font-size="13">통제 변수 (Controls)</text>
+              <text x="410" y="372" text-anchor="middle" font-family="Pretendard, sans-serif" fill="#64748b" font-size="11">기업 연령 (Age), 기업 규모 (Size)</text>
+
+              <!-- Paths -->
+              <!-- CFC -> VIUMI -->
+              <path d="M 240 97.5 L 300 150" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+              <g>
+                <rect x="238.5" y="114.75" width="63" height="18" rx="3" fill="white" stroke="#e0f2fe" stroke-width="1"/>
+                <text x="270" y="127.75" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="700" fill="#0284c7" font-size="10">H1: 0.293***</text>
+              </g>
+
+              <!-- CO -> VIUMI -->
+              <path d="M 240 242.5 L 300 200" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+              <g>
+                <rect x="238.5" y="209.75" width="63" height="18" rx="3" fill="white" stroke="#e0f2fe" stroke-width="1"/>
+                <text x="270" y="222.75" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="700" fill="#0284c7" font-size="10">H2: 0.614***</text>
+              </g>
+
+              <!-- VIUMI -> CC -->
+              <path d="M 520 160 L 580 97.5" fill="none" stroke="#047857" stroke-width="2" marker-end="url(#arrow-green)"/>
+              <g>
+                <rect x="518.5" y="114.75" width="63" height="18" rx="3" fill="white" stroke="#d1fae5" stroke-width="1"/>
+                <text x="550" y="127.75" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="700" fill="#047857" font-size="10">H3: 0.809***</text>
+              </g>
+
+              <!-- VIUMI -> % Sales -->
+              <path d="M 520 190 L 580 242.5" fill="none" stroke="#047857" stroke-width="2" marker-end="url(#arrow-green)"/>
+              <g>
+                <rect x="518.5" y="209.75" width="63" height="18" rx="3" fill="white" stroke="#d1fae5" stroke-width="1"/>
+                <text x="550" y="222.75" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="700" fill="#047857" font-size="10">H4: 0.128*</text>
+              </g>
+
+              <!-- Controls -> CC -->
+              <path d="M 410 320 L 630 135" fill="none" stroke="#94a3b8" stroke-dasharray="3 3" stroke-width="1.5" marker-end="url(#arrow-dashed)"/>
+              <g>
+                <rect x="515" y="215" width="30" height="16" rx="3" fill="white" stroke="#f1f5f9" stroke-width="1"/>
+                <text x="530" y="226" text-anchor="middle" font-family="Pretendard, sans-serif" fill="#64748b" font-size="9">n.s.</text>
+              </g>
+
+              <!-- Controls -> % Sales -->
+              <path d="M 460 320 L 630 280" fill="none" stroke="#94a3b8" stroke-dasharray="3 3" stroke-width="1.5" marker-end="url(#arrow-dashed)"/>
+              <g>
+                <rect x="535" y="290" width="30" height="16" rx="3" fill="white" stroke="#f1f5f9" stroke-width="1"/>
+                <text x="550" y="301" text-anchor="middle" font-family="Pretendard, sans-serif" fill="#64748b" font-size="9">n.s.</text>
+              </g>
+            </svg>
+          </div>
+          <p class="text-xs text-slate-500">* p &lt; 0.05, *** p &lt; 0.001. 통제 변수의 세부 경로(실선/점선 무관)는 모두 통계적으로 유의하지 않음(n.s.). R² (VIUMI) = 0.73, R² (CC) = 0.65, R² (% Sales) = 0.02</p>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">선행변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">CFC</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">부서 간 협업 (Cross-functional Collaboration)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 공급업체 내부의 다양한 핵심 부서(마케팅, 영업, 사후 서비스 등)가 고객과의 접점에서 상호 정보를 조율하고 목표를 통합하기 위해 협력하는 행동적 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 타 부서와의 원활한 업무 공유도 및 공동 문제해결 노력 (7점 Likert 척도).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Kahn(1996)의 6문항 척도 (Cronbach's α = 0.840)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 사용가치는 단순 계약 단계뿐 아니라 복잡한 장기 수명주기에서 창출되므로 부서 간 협업이 사용가치 관리 역량 구축의 기본 토대다.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900 bg-cyan-400 border-none">선행변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">CO</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">고객 지향성 (Customer Orientation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 개별 고객의 비즈니스적 요구사항과 가치 동인을 명확히 파악하고, 이를 우선적으로 충족시켜주기 위해 작동하는 공급사 직원들의 태도와 정신적 기조.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 개별 고객의 기대에 부응하려는 직원의 노력도 및 맞춤화 지향도 (7점 Likert 척도).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Mahmood(2002)의 17개 항목 중 8문항 선별 (요인 적재치 0.65 이상 정제, Cronbach's α = 0.867)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 고객 지향성이 강한 조직문화를 가질 때, 조직 내에서 사용가치를 모니터링하고 가치 제안을 이행하는 체계적인 행동 체계(VIUM)가 강하게 활성화된다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white bg-emerald-600 border-none">매개 / 핵심변수</span>
+                <span class="text-xs text-slate-400 font-semibold">VIUMI</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">사용가치 관리 실행 (Value-in-Use Management Implementation)</h3>
+              <div class="divider my-1"></div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="md:col-span-2 text-sm text-slate-700 flex flex-col gap-2">
+                  <p><strong>개념 정의:</strong> 자원기반관점(RBV) 하에서 공급사가 지닌 독특한 조직적 역량으로서, 복잡한 B2B 솔루션 사용 중 고객이 실질적인 성과를 달성하도록 가이드하는 7가지 프로세스들의 집합.</p>
+                  <p><strong>조작 정의:</strong> 7대 하위 루틴(사용가치 식별, 간접 사용가치 식별, 가치 보고, 개선 성찰, 개선 전파, 가치 정량화, 가치 커뮤니케이션)으로 정제된 총 26문항의 2차 형성적 지표.</p>
+                  <p><strong>측정 및 출처:</strong> 본 논문 Appendix A 수록 26문항 자사 개발 (redundancy analysis R² = 0.86 수준의 완벽한 수렴 타당도 통과).</p>
+                </div>
+                <div class="bg-cyan-50 p-3 rounded-lg border border-cyan-100 text-xs text-cyan-800">
+                  <span class="font-bold block mb-1">💡 7대 하위차원 구성:</span>
+                  <ul class="list-disc pl-4 space-y-1">
+                    <li><strong>VI:</strong> 직접적인 사용 가치의 재무적 측정</li>
+                    <li><strong>IVI:</strong> 만족도/클레임 등 간접 데이터 분석</li>
+                    <li><strong>VR:</strong> 정기 미팅 및 데이터 보고</li>
+                    <li><strong>RVE:</strong> 현장 방문 등을 통한 원인 분석</li>
+                    <li><strong>DVE:</strong> 교육 및 워크숍을 통한 활용 확산</li>
+                    <li><strong>VQ:</strong> 사전 ROI 및 기대 효과 산출</li>
+                    <li><strong>VC:</strong> 투명한 가치 전달 및 리스크 보증</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white bg-indigo-600 border-none">종속변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">CC</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">고객 중심성 (Customer Centricity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 고객과의 장기적 파트너십과 가치 공동창출(Co-creation)을 촉진하며, 고객을 조직의 주요 의사결정 프로세스의 최중심에 통합하는 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 고객의 피드백을 실무 의사결정에 반영하는 정도 및 친밀도 (7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Osakwe(2020)의 6문항 척도 (Cronbach's α = 0.823)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 가치를 지속해서 관리하고 소통(VIUMI)함으로써, 기업은 임시방편적인 대응을 넘어 시스템으로서 고객 중심성을 내재화한다.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white bg-indigo-600 border-none">종속변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Percentage Sales</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">매출 비중 (Percentage Sales)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 공급업체의 연간 총 매출 규모 중 해당 초점 고객(Focal Account)과의 거래에서 얻어지는 매출이 차지하는 경제적 기여도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "지난 회계연도 기준, 전체 매출 중 해당 고객 계정으로부터 발생한 매출 비중(%)은 얼마인가?" 개방형 비율 척도.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Steiner & Brandhoff(2020), Homburg et al.(2012)의 단일 비율 문항.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> VIUM의 성공적 작동은 해당 고객 계정 내에서 타 벤더를 밀어내고 공급 점유율(share of wallet)을 확장시키는 직접적인 재무적 메커니즘을 반영한다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase bg-indigo-600 border-none text-white">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구를 그대로 <strong>추종 재현(Replication)</strong>하여 지표 개발 및 검증을 완료할 수 있도록 방법론적 설계 단계를 순차 구조화했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">PHASE I</time>
+                <div class="text-lg font-bold text-slate-800">도메인 식별 및 개념 정의</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  목표지향적 행동 이론(theory of goal-directed behavior) 및 자원기반관점(RBV) 하에 '사용가치 관리(VIUM)'를 공급사 역량으로 규정하고, 기존 B2B 판매/CSM 문헌 맵핑을 통해 7개 하위 프로세스를 확립함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 2, Sec. 2.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">PHASE II</time>
+                <div class="text-lg font-bold text-slate-800">초기 풀(Item Pool) 문항 생성</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Prohl & Kleinaltenkamp(2020)의 인터뷰 결과 및 CSM 문헌을 토대로 53개의 1차 지표 풀을 구축함. 질문의 복잡성과 이중 구조(double-barreled)를 정제하고 합리화하는 작업을 거침.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Sec. 2.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">PHASE III</time>
+                <div class="text-lg font-bold text-slate-800">전문가 패널 내용타당도 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  학계 교수 3명 및 실무 전문가 2인 패널(Lawshe 1975 방식)을 통해 중요도 평가를 시행하여 내용타당도비율(CVR) 0.99 미만인 27개 항목을 전격 삭제(26문항 보전). 추가로 69명 실무자의 예비 검증을 완료함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Sec. 2.3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">PHASE IV (Study 1)</time>
+                <div class="text-lg font-bold text-slate-800">1차 스크리닝 서베이 및 공선성 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  미국 B2B 영업/서비스/계정 관리자 161명으로부터 데이터를 수집해 SmartPLS 4로 분석함. 가중치(weights)의 유의성과 다중공선성(VIF 1.19~3.38 범위로 conservative 기준 3.0 주변 및 통과)을 진단해 26문항 최종 확정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4-5, Sec. 2.4</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">PHASE V (Study 2)</time>
+                <div class="text-lg font-bold text-slate-800">2차 서베이 및 구조경로·예측력 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  새로운 샘플 B2B 관리자 284명의 데이터를 바탕으로 SmartPLS 4의 disjoint 두 단계 접근법을 적용해 법칙론적 구조적 유의성(10,000회 부트스트래핑) 검정. PLSpredict 및 consistent PLS(PLSc)로 예측 타당성 점검.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5-10, Sec. 2.5</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">완전 재현 가능 (Fully Replicable)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            논문 부록(Appendix A)에 최종 26문항 척도가 완전하게 제공되어 있으며, 2단계 PLS-SEM 및 PLSpredict 등의 세부 평가 기준과 분석 가이드라인이 명료하여 외부 연구자가 B2B 응답 패널을 확보한다면 완전한 통계적 재현이 가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase bg-amber-500 border-none">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 4)에서 저자들이 명시한 연구 설계적 한계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>대안적 경로 구조 배제 가능성:</strong> parsimonious 모델 입증에 초점을 맞추었으나, 다른 직접 효과나 대안적 구조 경로가 실존할 수 있음을 배제하지 못해 후속 연구의 모델 검증을 권장함. (Page 11-12, Section 4)
+              </li>
+              <li>
+                <strong>횡단 데이터(Cross-sectional) 수집:</strong> 한 시점의 데이터로 경로 분석을 수행하여 시간적 선행성 증명이 불완전하며 역인과 우려가 존재하므로, 종단(longitudinal) 연구가 필요함을 역설. (Page 12, Section 4)
+              </li>
+              <li>
+                <strong>자기보고식 설문 및 CMB 리스크:</strong> 통계적 CMV 통제를 거쳤으나, 여전히 단일 정보원의 주관적 응답에서 발생하는 한계가 있으며, 아카이브 재무 지표나 다중 정보원 데이터의 부족을 인정함. (Page 12, Section 4)
+              </li>
+              <li>
+                <strong>솔루션 중심의 맥락 경계 조건:</strong> 사용 중인 가치 관리가 불필요한 고도의 표준화 제품 거래나 단순 거래적(transactional) 관계에서는 이 지표의 진단 강도가 저하될 수 있음을 고백함. (Page 12, Section 4)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문의 통계량 및 연구 설계를 바탕으로 제기할 수 있는 중요한 학술적 비판점들입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 매개 변수와 종속 변수의 역인과성 내생성 우려</span>
+                <p class="text-sm text-slate-700">
+                  모델은 'VIUMI -> 고객 중심성(CC)'을 가설로 제시하였으나, 상식적으로 <strong>"이미 조직이 극도로 고객 중심적이어서 사용가치 관리(VIUM)를 성실히 수행할 확률"</strong>이 훨씬 큽니다. 두 변수 간 경로 계수가 압도적으로 큰 수준(β = 0.809, f² = 1.800)인 것은 변수의 선후 관계가 뒤집혔거나 동일한 성향의 중복 측정 가능성(개념적 동시성 편향)이 큼을 의미합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 경제적 지표(Percentage Sales)의 초라한 설명력 (R² = 0.02)</span>
+                <p class="text-sm text-slate-700">
+                  VIUMI가 매출 비중에 미치는 효과가 통계적으로 유의(p = 0.036)하더라도, 설명된 분산(R²)은 고작 <strong>2%</strong>에 그칩니다. 이는 실무적으로 사용가치를 아무리 열심히 관리해도 개별 고객의 실제 추가 구매 및 지갑 점유율(share of wallet)에 미치는 영향은 극히 미미하다는 방증입니다. 가격 할인, 경제 불황, 경쟁 조건 등 통제되지 않은 외생 요인이 매출의 98%를 결정합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 공급사 응답자 본인의 자기 평가 편향 (Self-serving Bias)</span>
+                <p class="text-sm text-slate-700">
+                  자료가 공급업체의 영업/서비스 관리자들의 주관적인 답변만으로 수집되었습니다. 관리자들은 자신의 실적과 노력을 긍정적으로 포장하려는 경향(사회적 바람직성 편향)이 농후하므로, "우리는 고객의 가치를 보고하고, 식별하며, 소통하고 있다"고 과장했을 리스크를 배제할 수 없습니다. 고객이 실질적으로 느낀 관리 수준과의 매칭 검증이 누락되었습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 형성적 측정 문항들의 일반화 수준 문제</span>
+                <p class="text-sm text-slate-700">
+                  Appendix A에 명기된 몇몇 항목들, 예컨대 간접 식별의 "Our company is customer-oriented..."나 가치 커뮤니케이션의 "We instill a feeling of trust..."는 구체적인 '사용가치 관리 루틴(Activity)'이라기보다 일반적인 기업 지향성이나 추상적인 감정 전달 문항에 불과합니다. 이는 VIUM만의 독자적인 관리 행동을 정밀히 도려내 측정하기보다는 기존 관계 품질 변수들과의 경계를 혼탁하게 만듭니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Measuring value-in-use management from the supplier's perspective</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

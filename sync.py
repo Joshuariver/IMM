@@ -10,7 +10,7 @@ import shutil
 ROOT = Path(__file__).resolve().parent.parent
 APP = ROOT / "app"
 DEST = APP / "html"
-SOURCES = ["V01", "V73", "V75", "V76", "V92", "V100", "V101", "V102", "V103", "V104", "V105", "V106", "V107", "V108"]
+SOURCES = ["V01", "V73", "V75", "V76", "V92", "V100", "V101", "V102", "V103", "V104", "V105", "V106", "V107", "V108", "V109", "V135", "V136"]
 
 
 class Extractor(HTMLParser):

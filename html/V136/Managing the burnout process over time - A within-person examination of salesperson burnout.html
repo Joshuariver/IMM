@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Managing the Burnout Process over Time - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Salesperson Burnout</div>
+        <div class="badge badge-secondary text-white style-label">Within-Person Longitudinal Analysis</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Managing the burnout process over time:<br>
+            <span class="text-cyan-400">A within-person examination of salesperson burnout</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Dayle R.N. Childs, Belinda Dewsnap, Alec Pappas, Nick Lee, John W. Cadogan
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            시간의 흐름에 따른 소진 과정 관리:<br>
+            <span class="text-indigo-300">영업 사원 소진에 대한 개인 내(Within-person) 종단 연구</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            B2B 영업 사원 171명을 대상으로 한 4개월간의 월별 반복 측정 데이터를 기반으로 한 개인 내 소진 궤적과 조직·개인적 대처 자원의 효과 분석
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">소진은 단방향 순차 프로세스가 아니며, 성취감 저하 시에는 적극적 대처를, 탈인격화에는 관리자의 명확한 부정적 피드백을 매칭하여 개입해야 정서적 고갈을 막을 수 있습니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Burnout is highly prevalent in the sales force, and is a serious concern for sales managers. Salesperson burnout is a process that requires management over time, yet no longitudinal within-person evidence exists regarding how salesperson burnout evolves over time or how to best manage the process. Using a 4-month repeated measures study of 171 B2B salespeople, we present the first longitudinal evidence of the within-person salesperson burnout process, and examine how key sales manager and salesperson variables can shape this process as it evolves. Results show some support for the burnout process, but find no link between diminished personal accomplishment and depersonalization. Moreover, positive feedback plays no role in mitigating burnout's evolution, while active coping and negative feedback mitigate the impacts of diminished personal accomplishment and depersonalization on emotional exhaustion, respectively. Our work presents tangible interventions that can help to reduce burnout as it evolves within salespeople over time."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "직무 소진(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">Burnout</span>)은 영업 조직에서 매우 빈번하게 발생하며, 영업 관리자들에게 심각한 우려 사항입니다. 영업 사원의 소진은 시간의 흐름에 따라 관리되어야 하는 동적인 과정(Process)이지만, 소진이 어떻게 진화하는지 혹은 이 과정을 어떻게 가장 효과적으로 관리할 수 있는지에 대한 개인 내(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">Within-person</span>) 종단적 실증 증거는 존재하지 않았습니다. 본 연구는 171명의 B2B 영업 사원을 대상으로 한 4개월간의 반복 측정(Repeated measures) 조사를 통해, 영업 사원의 개인 내 소진 과정에 대한 최초의 종단적 증거를 제시하고, 소진이 전개됨에 따라 영업 관리자 및 영업 사원의 주요 변수들이 이 과정을 어떻게 변화시킬 수 있는지 조사하였습니다. 분석 결과, 기존에 제기된 소진 프로세스는 일부만 지지되었으며, 감소된 개인적 성취감(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">Diminished personal accomplishment</span>)과 탈인격화(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">Depersonalization</span>) 간의 직접적인 연결 고리는 발견되지 않았습니다. 나아가, 긍정적 피드백(Positive feedback)은 소진의 진행을 완화하는 데 아무런 역할을 하지 못한 반면, 적극적 대처(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">Active coping</span>)와 부정적 피드백(Negative feedback)은 각각 감소된 개인적 성취감과 탈인격화가 감정적 고갈(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">Emotional exhaustion</span>)로 이어지는 부정적 영향을 완화하는 것으로 나타났습니다. 본 연구는 시간의 흐름에 따라 영업 사원 내부에서 진화하는 소진을 줄이는 데 기여할 수 있는 구체적이고 실질적인 개입(Intervention) 방안을 제시합니다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Burnout</td>
+                  <td>직무 소진 / 번아웃</td>
+                  <td class="text-sm">단순한 업무 피로를 넘어 만성 스트레스로 인해 나타나는 다차원적 고갈 상태를 뜻하는 학술 표준 용어입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Within-person</td>
+                  <td>개인 내</td>
+                  <td class="text-sm">서로 다른 개인들을 비교하는 관점(Between-person)과 달리, 동일인의 시간 경과에 따른 심리 변동을 추적하는 종단 연구 설계를 가리킵니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Diminished Personal Accomplishment</td>
+                  <td>감소된 개인적 성취감</td>
+                  <td class="text-sm">업무 유능감과 가치 보람을 잃어버리는 소진의 인지적 자아 불일치 차원입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Depersonalization</td>
+                  <td>탈인격화 / 냉소성</td>
+                  <td class="text-sm">남은 감정 에너지를 보존하기 위해 업무 대상(고객, 동료)을 감정 없는 비인격적 존재로 취급하며 거리를 두려는 방어적 대처 태도입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Emotional Exhaustion</td>
+                  <td>감정적 고갈</td>
+                  <td class="text-sm">업무 요구 과부하로 인하여 자신이 보유한 감정적·심리적 자원이 완전히 고갈되었다고 느끼는 소진의 핵심이자 최종 상태입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Active Coping</td>
+                  <td>적극적 대처</td>
+                  <td class="text-sm">문제를 피하기보다 원인을 파악하고 계획적으로 해법을 마련하여 문제를 해결하려는 개인 내적 조절 자원입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 연구 질문과 차별적 발견을 수직 단계로 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">소진의 개인 내 종단 메커니즘과 통제 방안은?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">전통적 순차 붕괴 및 '부정적 피드백'의 역설적 효과</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">영업 사원 소진의 월별 추적 및 맞춤형 대처 기여</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B 영업 현장에서 소진의 세 가지 구성 요소(성취감 감소, 탈인격화, 감정적 고갈)는 시간 경과에 따라 실제로 어떻게 연쇄 작용하는가? 그리고 이들의 고조 흐름을 끊는 영업 관리자와 직원의 자원은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> 기존 횡단 연구들과 달리 **'감소된 성취감(DPA) $\rightarrow$ 탈인격화(DE)' 경로는 작동하지 않았습니다**(H2 기각). 즉, 두 요인은 병렬적으로 고갈(EE)을 직접 유발합니다. 또한, 긍정적 피드백은 소진 관리에 무효한 반면, **'부정적 피드백'은 냉소(DE)가 고갈(EE)로 폭발하는 경로를 버퍼링하며**, 사원의 **'적극적 대처'는 성취감 감소(DPA)가 고갈(EE)로 가는 것을 직접 통제**합니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 영업 학계 최초로 소진의 개인 내(within-person) 종단 효과를 분리 규명하여 COR 및 JD-R을 심화시켰습니다. 실무적으로 소진의 유형에 대응하는 '맞춤형 개입 장치(Coping / Negative Feedback)'를 최초 제안했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "소진은 단방향 순차 프로세스가 아니며, 성취감 저하에는 '적극적 대처'를, 냉소성 심화에는 '부정적 피드백'이라는 맞춤형 자원을 매칭해야 감정적 고갈을 물리칠 수 있습니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          실증적 신뢰도를 확인하기 위해 논문 내 주요 주장(가설)과 대응 데이터 수치, 원문 인용 및 페이지 위치를 연결 매핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">감소된 성취감(DPA)의 감정적 고갈(EE) 유발 (H1)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...supporting H1, increases in diminished personal accomplishment demonstrate a positive impact upon emotional exhaustion 2 months later (β = 38.71, SE = 20.53, P ≤0.05)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9 (Section 3)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">DPA와 탈인격화(DE) 간의 종단 연관성 부재 (H2 기각)</td>
+                <td class="text-sm italic text-slate-600">
+                  "However, no support is found for H2, in that increases in diminished feelings of personal accomplishment are not significantly related to levels of depersonalization 1 month later (β = −0.27, SE = 0.26, P = .92)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9 (Section 3)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">탈인격화(DE)의 감정적 고갈(EE) 가속 효과 (H3)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Concluding the burnout process, H3 finds increases in depersonalization to be positively related to levels of emotional exhaustion one month later (β = 15.53, SE = 6.57, P ≤0.05)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9 (Section 3)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">적극적 대처의 DPA $\rightarrow$ EE 완화 효과 (H4)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...results show that the use of active coping negatively moderates the impact of increases in diminished personal accomplishment on emotional exhaustion two months later (β = −4.88, SE = 2.73, P ≤0.05), supporting H4."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9 (Section 3)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">긍정적 피드백의 DPA $\rightarrow$ DE 조절 부재 (H5 기각)</td>
+                <td class="text-sm italic text-slate-600">
+                  "No support is found for H5, in that positive feedback does not influence the relationship between diminished personal accomplishment and depersonalization one month later (β = −0.01, SE = 0.05, P = .91)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9 (Section 3)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">부정적 피드백의 DE $\rightarrow$ EE 역설적 완화 (H6)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...individuals who received more negative feedback from their supervisor demonstrated reduced emotional exhaustion as a result of increases in depersonalization 1 month prior (β = −3.89, SE = 1.50, P ≤0.05), supporting H6."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9-10 (Section 3)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (시간적 개인 내 소진 역학 모형)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 420" class="w-full h-auto">
+              <!-- Definitions of arrow markers -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+
+              <!-- Background / Border Guide (Optional) -->
+
+              <!-- IV1: Diminished Personal Accomplishment -->
+              <rect x="40" y="180" width="200" height="80" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+              <text x="140" y="215" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">감소된 개인적 성취감</text>
+              <text x="140" y="235" text-anchor="middle" fill="#64748b" font-size="11">Diminished PA (IV1; T-2)</text>
+
+              <!-- Mediator / IV2: Depersonalization -->
+              <rect x="340" y="180" width="180" height="80" rx="8" fill="#ecfeff" stroke="#06b6d4" stroke-width="2"/>
+              <text x="430" y="215" text-anchor="middle" font-weight="700" fill="#0891b2" font-size="14">탈인격화 / 냉소성</text>
+              <text x="430" y="235" text-anchor="middle" fill="#0ea5e9" font-size="11">Depersonalization (Mod/IV2; T-1)</text>
+
+              <!-- DV: Emotional Exhaustion -->
+              <rect x="620" y="180" width="150" height="80" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="695" y="215" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">감정적 고갈</text>
+              <text x="695" y="235" text-anchor="middle" fill="#4338ca" font-size="11">Emotional Exhaustion (DV; T)</text>
+
+              <!-- Moderator 2: Positive Feedback -->
+              <rect x="200" y="50" width="160" height="60" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+              <text x="280" y="78" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">긍정적 피드백</text>
+              <text x="280" y="96" text-anchor="middle" fill="#b45309" font-size="10">Positive Feedback (Mod2)</text>
+
+              <!-- Moderator 3: Negative Feedback -->
+              <rect x="480" y="50" width="160" height="60" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+              <text x="560" y="78" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">부정적 피드백</text>
+              <text x="560" y="96" text-anchor="middle" fill="#b45309" font-size="10">Negative Feedback (Mod3)</text>
+
+              <!-- Moderator 1: Active Coping -->
+              <rect x="350" y="340" width="160" height="60" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+              <text x="430" y="368" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">적극적 대처</text>
+              <text x="430" y="386" text-anchor="middle" fill="#b45309" font-size="10">Active Coping (Mod1)</text>
+
+              <!-- Path H2 (DPA -> DE) - Dashed because non-significant -->
+              <path d="M 240 220 L 340 220" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="290" y="210" text-anchor="middle" fill="#dc2626" font-weight="700" font-size="11">H2: -0.27 (n.s.)</text>
+
+              <!-- Path H3 (DE -> EE) - Solid, Significant -->
+              <path d="M 520 220 L 620 220" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="570" y="210" text-anchor="middle" fill="#059669" font-weight="700" font-size="11">H3: 15.53*</text>
+
+              <!-- Path H1 (DPA -> EE Direct) - Curved below, Solid -->
+              <path d="M 140 260 C 140 310, 695 310, 695 260" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="350" y="303" text-anchor="middle" fill="#2563eb" font-weight="700" font-size="11">H1: 38.71*</text>
+
+              <!-- Moderation H5 (Positive Feedback on DPA -> DE) - Dashed -->
+              <path d="M 280 110 L 280 220" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+              <text x="290" y="145" text-anchor="start" fill="#64748b" font-weight="700" font-size="11">H5: -0.01 (n.s.)</text>
+
+              <!-- Moderation H6 (Negative Feedback on DE -> EE) - Solid -->
+              <path d="M 560 110 L 560 220" fill="none" stroke="#b45309" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="570" y="145" text-anchor="start" fill="#b45309" font-weight="700" font-size="11">H6: -3.89*</text>
+
+              <!-- Moderation H4 (Active Coping on DPA -> EE) - Solid (points to curve at x=430, y=298) -->
+              <path d="M 430 340 L 430 298" fill="none" stroke="#b45309" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="440" y="325" text-anchor="start" fill="#b45309" font-weight="700" font-size="11">H4: -4.88*</text>
+            </svg>
+          </div>
+        </div>
+
+        <h4 class="style-h3 text-slate-800 mt-6 mb-2">1. 소진 핵심 구성 요소 (Burnout Components)</h4>
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">DPA</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">감소된 개인적 성취감 (Diminished Personal Accomplishment)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자아 효능감의 심각한 저하로, 자신의 직무 유능성과 성과 보람에 대한 부정적 인지 평가.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 일에서 보람을 느끼거나 타인에게 긍정적 기여를 한다고 자각하는 수준 (7점 리커트 역코딩).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Rutherford et al. (2011) / 3문항 (T1 CR = 0.81, AVE = 0.66)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 고빈도 거절을 겪는 영업 사원에게 가장 먼저 발생하는 초기 위협 요인으로, 소진의 출발점으로 기능합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">매개/독립변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">DE</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">탈인격화 / 냉소성 (Depersonalization)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 대인관계 스트레스로부터 심리 자원을 지키기 위해 주변 대상(고객, 동료)을 기계적 물건처럼 냉소적으로 분리하는 도피 기제.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 고객이나 동료를 차갑게 대하고 냉대하며 감정을 섞지 않으려는 태도 정도 (7점 리커트).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Rutherford et al. (2011) / 3문항 (T1 CR = 0.90, AVE = 0.74)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 에너지 절약 목적이지만, 영업 본질인 관계 관리를 악화시켜 오히려 추가 피로(표면 연기)를 낳는 부메랑이 됩니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">EE</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">감정적 고갈 (Emotional Exhaustion)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 직무 요구의 만성적인 누적으로 인하여 보유한 물리적·심리적 활력과 자원이 한계를 초월하여 소진된 상태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 일과 종료 후 완전히 기력이 빠지고 다음 날 출근을 두려워하는 주관적 지침 자각 (0~100 슬라이딩).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Bande et al. (2021) / 3문항 (T1 CR = 0.95, AVE = 0.87)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 소진 프로세스의 종착점이자 가장 핵심적인 정서 상태로, 영업 사원의 이직 의도 및 성과 부진과 일직선으로 연계됩니다.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="style-h3 text-slate-800 mt-6 mb-2">2. 통제 및 소진 관리 자원 (Management Resources)</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+          <!-- Mod 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Active Coping</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">적극적 대처 스타일 (Active Coping)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 직무상의 장애 및 스트레스에 능동적으로 반응하여 계획을 짜고 대안을 실행함으로써 문제를 해결하려는 개인의 심리 자원.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 실패나 문제가 생길 때 계획을 수립하고 대안 행동을 취하려는 시도 수준 (9점 리커트).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Lewin & Sager (2009) / 3문항 (T1 CR = 0.75, AVE = 0.50)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>경로 완화:</strong> 성취감 감소(DPA) 국면에서 자아상 훼손을 '도전'으로 해석하여 정서적 붕괴(EE)로 직행하는 연결 통로를 방어합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mod 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Positive FB</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">긍정적 피드백 (Positive Feedback)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 부하 사원의 우수 수행과 성과 행동을 적극 발굴하고 지지함으로써 심리 안정을 보조하는 관리자의 관계 지원 자원.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 관리자가 좋은 실적을 내고 있음을 알려주거나 격려·칭찬하는 강도 빈도 (7점 리커트).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> George & Zhou (2001) / 3문항 (T1 CR = 0.96, AVE = 0.88)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>연구 결과:</strong> 단기 소진 상태(DPA $\rightarrow$ DE) 완화에는 유의미한 영향력이 없음이 입증됨(H5 기각). 장기 성과에 적합한 distal 자원이기 때문입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mod 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Negative FB</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">부정적 피드백 (Negative Feedback)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 직원의 성과나 업무 행동 태도가 기대 미만일 때, 표준 복구를 위해 잘못된 점을 지적하고 개선 행동을 요구하는 시정 자원.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 관리자가 성능 미달이거나 미흡한 점을 명확히 직설적으로 요구해 오는 정도 (7점 리커트).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Chung & Ding (2002) / 3문항 (T1 CR = 0.86, AVE = 0.67)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>경로 완화:</strong> 이미 탈인격화(냉소)에 빠진 직원에게 '정신을 차리게(snapping out)' 돕는 정보 자극으로 작용해 고갈 에스컬레이션을 버퍼합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 직접 읽지 않은 제3의 연구자가 동일한 분석 연구 모형을 복제하여 <strong>추종 재현</strong>할 수 있도록 연구 절차를 타임라인으로 분해하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">미국 온라인 영업 패널 모집 및 정화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Qualtrics 온라인 패널 조사 기관을 통해 현업 B2B 영업 사원을 모집. 스피더(완료 시간 6분 미만) 및 불성실 연속 응답자(straight-lining)를 즉각 수집 대상에서 배제하여 신뢰도 확보.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 8, Section 2.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">4개월 간격 다중 종단 시차 수집 (4-Wave Lagged)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  1개월 주기로 총 4회 반복 측정 조사. 무응답 탈락을 관리하기 위해 사전 동의를 구함. 외생 조절변수(적극적 대처, 피드백 등)는 안정을 가정해 T1에만 측정하고, T2~T4에는 소진 변수(DPA, DE, EE)만 집중적으로 월별 추적함. (T1: 171명, T4: 81명 생존)
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 8, Section 2.1 & Appendix A</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">종단 측정 불변성 및 요인 정화 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  CFA 분석에 앞서 시간 경과에 따른 척도 변동 오류를 막기 위해 종단 측정 불변성(Invariance) 검증을 실시. 불변성을 위배한 EE 1개 문항, 요인 적재치가 극히 나쁜 대처/부정적 피드백 문항을 정화하고 패키징(Parceling) 처리.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 8-9, Section 2.2 & Appendix B, C</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">다수준 회귀 구조 검증 (SPSS MLMED)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Rockwood & Hayes (2017)의 SPSS MLMED 매크로를 구동. 집단 평균 센터링(Group-mean centering)으로 개인 간 차이를 버리고 개인 내 변동만 순수 분리. T-2 시점 DPA가 T-1 시점 DE를 거쳐 T시점 EE에 도달하는 시차 설계(Lagged design) 회귀 분석 실행.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 9, Section 2.3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            사용한 모든 척도 구성 항목(Appendix C)과 다중 불변성 기준 수치가 논문에 정확히 공개되어 있고 분석용 SPSS 매크로 정보가 투명하여 수식과 통계 설계 재구성 자체는 온전히 가능합니다. 다만 Qualtrics 상업 패널을 수집하는 조사 환경의 제약으로 동일 표본을 확보하는 것은 한계가 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 4.3)에서 연구진들이 서술한 연구 설계 및 범위의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>자기보고식 설문 측정 의존 (Self-Report Assessments):</strong> 
+                정서적 고갈과 탈인격화 등은 주관적 심리 경험이므로 설문 측정이 유효하나, 상사의 '객관적 피드백 행태'나 실제 '대처 행동' 등도 모두 사원의 주관 인지로 측정되어 실제 상사의 의도 행동과 지각 격차가 있을 수 있습니다. (Page 11-12)
+              </li>
+              <li>
+                <strong>단기 4개월 관찰 기간 (Short Window):</strong> 
+                소진이 점진적으로 심화하여 만성화되는 과정을 관찰하기에 4개월은 짧은 시차입니다. 1개월 단위의 미세Fluctuation은 보았으나, 1년 이상 기간의 장기 진행에 따른 조절 효과의 장기성 검증에는 한계가 존재합니다. (Page 12)
+              </li>
+              <li>
+                <strong>인과적 추정(Causality)의 한계:</strong> 
+                지연 시차 회귀 모델(Lagged multilevel analysis)로 선후 관계를 추정해 인과를 강력히 유추했으나, 엄밀한 실험적 배정이 없는 서베이 데이터로 통계적 해석 범위를 벗어날 수는 없습니다. (Page 12)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">방법론적 설계 및 자원 역학의 논리를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 조절 변수의 시간적 불변성(Time-invariance) 가정 오류</span>
+                <p class="text-sm text-slate-700">
+                  연구진은 응답 누출을 줄이기 위해 조절변수(Active Coping, Positive/Negative Feedback)를 T1 시점에 단 1회만 수집하고 4개월 동안 고정된 값(Time-invariant resource)으로 모형에 적용하였습니다. 그러나 영업 환경의 실시간 압박(분기 말 마감 등)에 따라 직원의 대처 스타일이나 상사의 피드백 강도 역시 월별로 변동(Within-person dynamic)하는 가변적 요인입니다. 이를 고정값으로 다룬 것은 측정 편향을 낳았을 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 이탈 표본 마모에 따른 생존자 편향 (Survivor Bias)</span>
+                <p class="text-sm text-slate-700">
+                  T1 응답자 171명 중 T4까지 완수한 최종 잔류 영업 사원은 81명(47.4%)으로 탈락률이 약 53%에 달합니다. 비록 탈락자와 완료자 간 T1 소진 평균 차이는 통계적으로 무의미하다고 제시했으나(Appendix A), **실제로 소진 강도가 너무 극심해져서 업무를 아예 포기하거나 조사를 중단한 영업 사원들이 체계적으로 누락(Systematic attrition)**됨으로써, 심각한 상태의 소진 연결 고리 강도 및 완화 조절 효과가 과대 혹은 과소 추정되었을 개연성이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 부정적 피드백의 '부정성' 정의와 정보 격차</span>
+                <p class="text-sm text-slate-700">
+                  본 논문은 부정적 피드백이 냉소를 극복하게 하는 정보 자극(snapping out)으로 기능한다고 주장하지만, 상사의 부정적 피드백이 '인격 모독이나 비난형 부정적 피드백'인지 혹은 '행동 교정 및 진단성 정보형 부정적 피드백'인지 척도상으로 완전히 분리되지 않습니다. 피드백의 내용적 성격을 구분하지 않고 뭉뚱그려 분석한 것은 실무 적용 시 위험성을 동반합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 온라인 panel 조사 참여자들의 Satisficing 경향</span>
+                <p class="text-sm text-slate-700">
+                  Qualtrics 등 금전적 인센티브가 결부된 서베이 패널은 기계적으로 질문을 읽고 '사회적으로 바람직한' 응답(예: "나는 언제나 적극적으로 대처한다" 등)을 마킹할 가능성이 농후합니다. 9점 및 7점 척도의 과장 응답 편향이 혼입되었을 가능성에 대해 통제 변수 처리만으로는 한계가 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Managing the burnout process over time: A within-person examination of salesperson burnout</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

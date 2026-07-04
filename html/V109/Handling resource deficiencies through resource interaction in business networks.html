@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Handling Resource Deficiencies through Resource Interaction - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Network & Resources</div>
+        <div class="badge badge-secondary text-white style-label">Conceptual Study</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Handling resource deficiencies<br>
+            <span class="text-cyan-400">through resource interaction in business networks</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Annalisa Tunisini, Debbie Harrison, Roberta Bocconcelli
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            비즈니스 네트워크에서의<br>
+            <span class="text-indigo-300">자원 상호작용을 통한 자원 결핍 대응</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            공급망 중단 위기 시 나타나는 3대 자원 결핍(희소성, 품질, 가용성 부족)에 맞서 조직 간 동적 역량을 바탕으로 자원 인터페이스를 조정·재구성하는 메커니즘 고찰
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">급작스럽고 파괴적인 자원 결핍은 점진적 자원 개발을 넘어 조직 간 동적 역량을 통한 신속한 자원 인터페이스 재구성을 요구합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This paper conceptualizes how to handle resource deficiencies due to disruption and turbulence in supply chains from an Industrial Marketing and Purchasing (IMP) perspective. A conceptual framework explores how three resource deficiencies, resource scarcity, resource quality, and lack of availability, impacts upon, and is mitigated via, resource interaction. There is a need for reconfiguring resources to cope with both temporary and permanent disruptions in handling resource deficiencies in complex, turbulent contexts. The three deficiencies can occur within a business network both separately and in combination. The paper outlines a dynamic capabilities perspective on resource deficiencies in business networks by linking resource interaction and capabilities. The reality of resource deficiencies requires a sense of urgency; they are disruptive and most likely unplanned. This challenges mainstream IMP understanding about the dynamics of resource development."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 논문은 산업 마케팅 및 구매(IMP) 관점에서 공급망의 혼란과 불안정으로 발생하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">자원 결핍(resource deficiencies)</span>을 어떻게 해결할 것인지 개념화한다. 개념적 프레임워크를 통해 세 가지 자원 결핍인 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">자원 희소성(resource scarcity)</span>, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">자원 품질(resource quality)</span>, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">가용성 부족(lack of availability)</span>이 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">자원 상호작용(resource interaction)</span>에 미치는 영향과, 자원 상호작용을 통해 어떻게 완화되는지 탐색한다. 복잡하고 불안정한 맥락에서 자원 결핍을 처리할 때는 일시적 및 영구적 중단 모두에 대처하기 위해 자원을 재구성할 필요가 있다. 이 세 가지 결핍은 비즈니스 네트워크 내에서 개별적으로 또는 복합적으로 발생할 수 있다. 본 논문은 자원 상호작용과 역량을 연결함으로써 비즈니스 네트워크 내 자원 결핍에 대한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">동적 역량(dynamic capabilities)</span> 관점을 제시한다. 자원 결핍의 현실은 시급성을 요구한다. 즉, 그것들은 파괴적이며 대부분 계획되지 않은 상태에서 발생한다. 이는 자원 개발의 역학이 점진적으로 일어난다고 보는 주류 IMP 이론의 이해에 도전한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resource Deficiencies</td>
+                  <td>자원 결핍</td>
+                  <td class="text-sm">공급망 위기로 자원이 불충분해지는 정량적, 질적, 접근성 측면의 결함 상태를 통칭함.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resource Interaction</td>
+                  <td>자원 상호작용</td>
+                  <td class="text-sm">IMP의 기본 철학으로, 개별 자원의 고정된 가치를 넘어 비즈니스 관계를 통한 결합과 조율 과정을 의미함.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resource Scarcity</td>
+                  <td>자원 희소성</td>
+                  <td class="text-sm">수요에 비해 자원의 절대량이 부족한 정량적(Quantitative) 부족 상태.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resource Quality</td>
+                  <td>자원 품질</td>
+                  <td class="text-sm">자원 자체에 결함이 있거나 활용 맥락상 맞지 않는 질적(Qualitative) 적합도 결여 상태.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Lack of Resource Availability</td>
+                  <td>자원 가용성 부족</td>
+                  <td class="text-sm">소유권이나 지배 구조, 물리적 장벽 등으로 인해 네트워크 내에서 자원에 접근할 수 없는 가시성/접근성 결핍.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Inter-organisational Dynamic Capabilities</td>
+                  <td>조직 간 동적 역량</td>
+                  <td class="text-sm">기업 내부의 자원 재구성을 넘어 네트워크 참여자들과 공동으로 자원 인터페이스를 변경·통합하는 능력.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            세미나 또는 학술 발표 시 청중에게 이 논문의 중심 요지를 1분 내에 효과적으로 전달할 수 있도록 구성된 로드맵입니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">IMP 관점의 자원 결핍 규명 및 극복 역량 탐색</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">자원 결핍 시 시급성과 조직 간 동적 역량 요구됨</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">자원 상호작용의 어두운 면 규명 & 역량 이론 접목</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 주장 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B 비즈니스 네트워크에서 공급망 교란으로 발생하는 자원 결핍은 어떻게 자원 상호작용에 장애를 주는가? 그리고 이러한 결핍 상황을 관리하기 위한 주체들의 역량 관계는 어떻게 설정되는가?</li>
+                  <li><strong>핵심 발견:</strong> 자원 결핍(희소성, 품질, 가용성 부족)은 점진성을 강조하던 전통적 IMP 이론과 달리 즉시적인 시급성(Urgency)을 야기합니다. 이를 극복하려면 네트워크에 분산되어 있는 '조직 간 동적 역량'이 가동되어 자원 인터페이스의 조합을 빠르게 조정해야 합니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 그간 밝은 가치 창출에 집중하던 IMP 자원 연구를 위기/중단 상황의 어두운 면으로 확대했습니다. 실무적으로는 관리자가 결핍의 기간과 반복 여부에 근거한 4대 시나리오 포트폴리오를 활용하여 맞춤형 자원 조정 의사결정을 내릴 수 있는 가이드를 마련했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "공급망 교란으로 초래되는 갑작스러운 자원 결핍은 점진적 발전을 전제하던 기존의 네트워크 가정을 깨뜨리며, 결핍 시나리오 유형에 맞추어 파트너 기업들과 자원 인터페이스를 신속하게 재구성하는 조직 간 동적 역량에 의해 극복됩니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          개념적 프레임워크의 학술적 정당성을 확보하기 위해 논문 내 주요 주장들과 그를 뒷받침하는 원문 텍스트 인용을 직접 매핑하였습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">자원 결핍의 3대 요소 설정</td>
+                <td class="text-sm italic text-slate-600">
+                  "We conceptualise resource deficiencies as ‘resource scarcity’, ‘resource quality’ and ‘lack of resource availability’, respectively. When these three deficiencies occur... we can observe a dark side... of resource interaction within a business network."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 155 (Sec. 1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">전통적 IMP의 점진적 발전에 도전</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the reality of resource deficiencies requires a sense of urgency; they are disruptive and most likely unplanned, and in that way challenge the mainstream IMP understanding that the dynamics of embedding and disembedding resources are incremental..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 155 (Sec. 1)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">조직 간 동적 역량의 분산된 특성</td>
+                <td class="text-sm italic text-slate-600">
+                  "From an IMP perspective, capabilities must be based on existing inter-organisational resource combinations across the network. That is, they are interdependent and distributed... Dynamic capabilities can thereby be considered as the distributed ability across actors within a network..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 155 & Page 159 (Sec. 1 & 3.1)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">결핍의 4대 시나리오 분류 제안</td>
+                <td class="text-sm italic text-slate-600">
+                  "We propose four resource deficiency scenarios, based on the timing and repeatability of a deficiency, and discuss how to cope with these in terms of capabilities."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 155 (Sec. 1) & Page 160 (Sec. 3.2)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">시나리오별 행동 패턴 및 목표 매핑</td>
+                <td class="text-sm italic text-slate-600">
+                  "Table 1 Four resource deficiency scenarios... Scenario 1 (Exploiting...), Scenario 2 (Exploring...), Scenario 3 (Reorienting...), Scenario 4 (Transforming...)"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 160 (Table 1 & Sec. 3.2)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual Framework (개념 연구 흐름도)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 850 420" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <!-- Deficiencies Group -->
+              <rect x="20" y="40" width="230" height="250" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <text x="135" y="65" text-anchor="middle" font-weight="700" fill="#475569" font-size="13">1. 자원 결핍 (Resource Deficiencies)</text>
+              
+              <!-- Scarcity Box -->
+              <rect x="35" y="85" width="200" height="45" rx="6" fill="#ecfafc" stroke="#06b6d4" stroke-width="1.5"/>
+              <text x="135" y="105" text-anchor="middle" font-weight="700" fill="#0891b2" font-size="12">자원 희소성 (Scarcity)</text>
+              <text x="135" y="120" text-anchor="middle" fill="#0891b2" font-size="9.5">수요 대비 정량적 물량 부족</text>
+              
+              <!-- Quality Box -->
+              <rect x="35" y="145" width="200" height="45" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+              <text x="135" y="165" text-anchor="middle" font-weight="700" fill="#15803d" font-size="12">자원 품질 (Quality)</text>
+              <text x="135" y="180" text-anchor="middle" fill="#15803d" font-size="9.5">물리적·기술적 속성의 부적합</text>
+              
+              <!-- Availability Box -->
+              <rect x="35" y="205" width="200" height="45" rx="6" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+              <text x="135" y="225" text-anchor="middle" font-weight="700" fill="#b45309" font-size="12">가용성 부족 (Availability)</text>
+              <text x="135" y="240" text-anchor="middle" fill="#b45309" font-size="9.5">소유권·접근성 장벽으로 결여</text>
+
+              <!-- Interaction Box -->
+              <rect x="320" y="85" width="220" height="90" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+              <text x="430" y="115" text-anchor="middle" font-weight="700" fill="#334155" font-size="13.5">2. 자원 상호작용</text>
+              <text x="430" y="132" text-anchor="middle" font-weight="700" fill="#334155" font-size="11.5">(Resource Interaction)</text>
+              <text x="430" y="155" text-anchor="middle" fill="#475569" font-size="10">자원 결합 및 인터페이스의 조정</text>
+
+              <!-- Capabilities Box -->
+              <rect x="320" y="235" width="220" height="90" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="430" y="265" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13.5">3. 조직 간 동적 역량</text>
+              <text x="430" y="282" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="11.5">(Inter-org Dynamic Capabilities)</text>
+              <text x="430" y="305" text-anchor="middle" fill="#4338ca" font-size="10">Sensing / Seizing / Reconfiguring</text>
+
+              <!-- Scenarios Group -->
+              <rect x="580" y="40" width="250" height="285" rx="8" fill="#faf5ff" stroke="#c084fc" stroke-width="1.5"/>
+              <text x="705" y="65" text-anchor="middle" font-weight="700" fill="#7e22ce" font-size="13">4. 대응 시나리오 (Scenarios)</text>
+
+              <!-- S1 -->
+              <rect x="595" y="80" width="220" height="48" rx="6" fill="#ffffff" stroke="#e9d5ff" stroke-width="1"/>
+              <text x="605" y="98" font-weight="700" fill="#6b21a8" font-size="11">S1. 일회성 결핍 (One-off)</text>
+              <text x="605" y="115" fill="#701a75" font-size="10">→ 기존 네트워크 활용 (Exploiting)</text>
+
+              <!-- S2 -->
+              <rect x="595" y="138" width="220" height="48" rx="6" fill="#ffffff" stroke="#e9d5ff" stroke-width="1"/>
+              <text x="605" y="156" font-weight="700" fill="#6b21a8" font-size="11">S2. 시간한정 반복 (Recurrent)</text>
+              <text x="605" y="173" fill="#701a75" font-size="10">→ 새로운 옵션 탐색 (Exploring)</text>
+
+              <!-- S3 -->
+              <rect x="595" y="196" width="220" height="48" rx="6" fill="#ffffff" stroke="#e9d5ff" stroke-width="1"/>
+              <text x="605" y="214" font-weight="700" fill="#6b21a8" font-size="11">S3. 지속적 특정 (Durable Specific)</text>
+              <text x="605" y="231" fill="#701a75" font-size="10">→ 점진적 구조 재지향 (Reorienting)</text>
+
+              <!-- S4 -->
+              <rect x="595" y="254" width="220" height="48" rx="6" fill="#ffffff" stroke="#e9d5ff" stroke-width="1"/>
+              <text x="605" y="272" font-weight="700" fill="#6b21a8" font-size="11">S4. 구조적 결핍 (Structural)</text>
+              <text x="605" y="289" fill="#701a75" font-size="10">→ 급진적 네트워크 변혁 (Transforming)</text>
+
+              <!-- Connection Arrows & Labels -->
+              <!-- Deficiencies to Interaction -->
+              <path d="M250 130 L 310 130" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="280" y="120" text-anchor="middle" fill="#475569" font-size="10">영향</text>
+              <text x="280" y="145" text-anchor="middle" fill="#ef4444" font-size="9" font-weight="700">Dark Side</text>
+
+              <!-- Capabilities to Interaction (Upward) -->
+              <path d="M430 235 L 430 185" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="485" y="212" text-anchor="middle" fill="#4338ca" font-size="10" font-weight="700">조정 및 재구성</text>
+
+              <!-- Interaction to Scenarios -->
+              <path d="M540 130 L 570 130" fill="none" stroke="#7e22ce" stroke-width="2" marker-end="url(#arrow)"/>
+              
+              <path d="M430 325 L 430 355 L 705 355 L 705 335" fill="none" stroke="#7e22ce" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+              <text x="560" y="372" text-anchor="middle" fill="#6b21a8" font-size="10">결핍의 성격(타이밍/반복성)에 따른 역량 분화</text>
+
+              <!-- Arrow Marker Definition -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+          <!-- Scarcity Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">결핍 개념 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Deficiency 1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">자원 희소성 (Resource Scarcity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 특정 시점에 수요에 비해 공급량이 불충분하여 정량적으로 자원이 부족한 상태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 원자재, 에너지, 필수 부품 등의 정량적 부족 비율 및 공급 리드타임 지연 빈도.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Barney (1991), Salancik & Pfeffer (1978), Spieske et al. (2022)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론 배경:</strong> 단일 기업 관점의 RBV와 달리, IMP는 자원 우회 및 대체 인터페이스의 조직 간 형성을 대안으로 제시함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Quality Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">결핍 개념 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Deficiency 2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">자원 품질 (Resource Quality)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 비즈니스 네트워크 내에서 결합되는 자원의 물리적, 기술적, 혹은 사양(spec)상의 질적 결함.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 반입 품목의 규격 통과 실패율, 원료 이물 함유율, 서비스 및 전문 지식 제공 수준의 저하도.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Barney (1991), Alkhuzaim et al. (2022)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론 배경:</strong> 자원 이질성 가정에 기반해, 저품질 자원을 타 고품질 자원과 결합하여 인터페이스상에서 상쇄하는 조정 프로세스 연계.
+              </p>
+            </div>
+          </div>
+
+          <!-- Availability Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">결핍 개념 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Deficiency 3</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">자원 가용성 부족 (Availability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 네트워크 지배권, 물리적 공급로 차단 등으로 인해 행위자가 목표 자원에 합법적/물리적으로 접근할 수 없는 상태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 특정 자원의 소유권 통제 장벽 수준, 운송 네트워크 마비율, 특정 대안 거래처의 거래 거부도.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Pfeffer & Salancik (2003), Foss et al. (2021)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론 배경:</strong> 직접 소유(Ownership)하지 않더라도, 파트너 관계의 중복 및 인접 네트워크 연계를 통해 간접적인 접근권 확보 가능.
+              </p>
+            </div>
+          </div>
+
+          <!-- Interaction Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">조정 메커니즘</span>
+                <span class="text-xs text-slate-400 font-semibold">Mechanism 1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">자원 상호작용 (Resource Interaction)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 조직 경계를 넘나드는 heterogeneous(이질적) 자원 간의 연결 및 결합이 일어나는 동적 상호 작용 과정.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 제품-설비 간 기술적 인터페이스 수준, 비즈니스 단위 간 조직적 연계 및 관계 강도.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Håkansson & Snehota (1995), Baraldi et al. (2012a), Prenkert et al. (2022)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론 배경:</strong> 자원의 가치는 결합에서 나옴. 자원 결핍은 이 상호작용에 장애를 유발하고, 해결책 또한 새로운 인터페이스 조정에서 도출됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Dynamic Capabilities Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">동적 대응 역량</span>
+                <span class="text-xs text-slate-400 font-semibold">Mechanism 2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">조직 간 동적 역량 (Inter-organisational Dynamic Capabilities)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자원 결핍 위기에 맞서 네트워크의 자원 기반 및 파트너 관계 조합을 탐색(Sensing), 설계(Seizing), 재구성(Reconfiguring)하는 공동의 분산적 능력.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 위험 조기 감지 능력, 임시 대체 관계 신속 설정 능력, 비즈니스 관계의 단절 및 신규 파트너 융합 유연성.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Teece (2007), Helfat & Peteraf (2009), Forkmann et al. (2018), Qiu et al. (2022)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론 배경:</strong> 단일 기업의 자산 재배치 개념을 탈피하여, 공급망 전체에 분산된 자원 인터페이스를 공동으로 바꿀 수 있는 상호 역량 및 학습에 초점을 둠.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 논문은 문헌 고찰 및 논리적 추론을 주 방법론으로 채택한 개념 논문으로, 연구자가 핵심 Scenario Matrix 및 개념 프레임워크를 도출하는 논리 설계 과정을 단계별로 분해했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">문헌 격차 분석 및 문제 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  공급망 교란을 다루는 SCM 연구들과 점진적 적응만을 가정하는 전통 IMP 자원 상호작용 이론 간의 학술적 불일치를 규명하고, 자원 결핍의 시급한 문제를 해결할 기회를 포착함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 154-155, Sec. 1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">자원 결핍의 3대 요소 개념 설정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  자원 부족을 성격에 따라 정량적 부족(희소성), 질적 결함(품질), 지배구조/물리적 장벽(가용성 부족)의 세 가지 상이한 요인으로 분해하고 정의함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 156-158, Sec. 2.3</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">조직 간 동적 역량 메커니즘 접목</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  단일 기업 자산 조율 관점의 동적 역량을 네트워크적 분산 수준인 '조직 간 동적 역량'으로 재정립하여, 결핍 상황에서 자원 인터페이스를 바꾸는 수단으로 제안함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 158-159, Sec. 3.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">2x2 축 기반 시나리오 매트릭스 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  결핍 위기의 지속 기간을 뜻하는 '타이밍(단기/중기)'과 발생 빈도를 뜻하는 '반복성(일회성/반복성)'의 두 축을 설계하여 4대 시나리오 상황을 도출함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 160, Sec. 3.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">시나리오별 네트워크 행동 및 대처 양식 매핑</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  각 4대 상황에 대응해 동적 역량이 지향해야 하는 네트워크 변화 행동(기존 네트워크 활용, 옵션 탐색, 점진적 구조 지향, 급진적 네트워크 변혁)의 매트릭스를 완성함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 160-161, Sec. 3.2 & Table 1</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            문헌 합성 및 논리 전개 과정을 동일하게 따라가는 논리적 수준의 재현은 전적으로 가능하나, 본 연구는 실증 통계나 케이스 사례 데이터 분석이 없기 때문에 데이터 분석 관점의 기계적 재현은 발생하지 않습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        
+        <!-- Limitation A: Self-acknowledged (alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-red-50 border border-red-200 text-red-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-red-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-red-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Self-acknowledged)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 결론부(Section 4)에서 저자들이 인정한 한계점들입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>자원 결핍 유형의 한계:</strong> 본 논문은 3대 결핍(희소성, 품질, 가용성 부족)에만 전적으로 의존하여 프레임워크를 개발하였으므로, 현실 공급망 내에 있는 추가적인 형태의 자원 결핍을 충분히 포함하지 못했을 수 있음.
+              </li>
+              <li>
+                <strong>실증적 데이터의 결여:</strong> 연구의 성격이 개념적 모델 제안(conceptual model development)에 한정되어 있어, 제안된 4대 시나리오와 행동 양식을 검증할 구체적인 통계적 수치나 설문, 혹은 기업 사례 데이터가 없음.
+              </li>
+              <li>
+                <strong>산업별 특수성 반영 미흡:</strong> 비즈니스 네트워크 시장의 특성이나 산업군별(제조업, 하이테크, 서비스 등) 맥락에 따른 시나리오별 대응 역량의 구체적 차이를 연구 범위에 반영하지 못함.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문의 가정 및 프레임워크 타당성에 대해 학술적으로 의심해볼 수 있는 비판적 쟁점들입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 개념적 선후 인과 관계의 모호성</span>
+                <p class="text-sm text-slate-700">
+                  조직 간 동적 역량과 자원 상호작용 간의 구체적인 선후 관계가 명확하지 않습니다. 동적 역량이 자원 상호작용의 조합을 변경하는 '원인'으로 작동하는지, 아니면 자원들이 네트워크 내에서 상호작용을 겪으며 경험적으로 유도되어 나오는 '결과적 특징'인지 개념적으로 오버랩됩니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 권력 불균형(Power Asymmetry)의 간과</span>
+                <p class="text-sm text-slate-700">
+                  저자들은 동적 역량이 비즈니스 네트워크 참여자들에게 '분산되어(distributed)' 존재하며 대등하게 협동 작동한다고 가정합니다. 그러나 대다수의 B2B 수직적 공급망에서는 힘을 쥔 오케스트레이터(대기업 등)가 독점적으로 파트너 대체나 관계 단절을 집행하므로, 모든 행위자가 분산형 역량을 공평하게 발휘한다는 것은 비현실적입니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 전환 비용(Switching Costs)과 중력의 문제</span>
+                <p class="text-sm text-slate-700">
+                  구조적 결핍(S4) 해결책으로 기존 관계를 깨고 radical transformation(급진적 변혁)을 도모해야 한다고 주장하나, B2B 거래의 핵심 특성인 '관계 특유 자산(relation-specific assets)'의 가치 소멸과 높은 전환 비용, 기존 네트워크 구조가 지닌 무거움(heaviness)을 극복하고 기업들이 실제로 이러한 급격한 전환을 결행할 수 있을지 의구심이 남습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 변수 조작화 및 실증성 확보의 부담</span>
+                <p class="text-sm text-slate-700">
+                  '조직 간 수준에 분산된 동적 역량'이나 '자원 상호작용의 어두운 면' 같은 형이상학적인 개념들을 후속 연구자가 어떻게 수량화하여 신뢰성 있고 타당성 있는 설문 척도나 조작적 정의로 연결시킬지에 대한 구체적인 척도 설계의 힌트나 가이드를 거의 주지 못했습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Handling resource deficiencies through resource interaction in business networks</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

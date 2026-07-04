@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voices of the forest - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Network Governance</div>
+        <div class="badge badge-secondary text-white style-label">Alternative Accounts & Governmentality</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Voices of the forest:<br>
+            <span class="text-cyan-400">How do alternative accounts govern relationships?</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Leanne Johnstone, Debbie Harrison, Asta Salmi
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            숲의 목소리:<br>
+            <span class="text-indigo-300">대안적 어카운트는 스웨덴의 생물다양성 감소 관리를 위해 비즈니스 관계를 어떻게 거버닝하는가?</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            NGO, 활동가들의 대안적 보고서와 시각적 상징이 B2B 네트워크 내 비즈니스 멘탈리티와 관계적 관행을 넛징하고 변화를 사전 동원하는 과정의 규명
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">시민사회의 대안적 폭로(대안적 어카운트)는 강제력 없이도 감성적/윤리적 담론을 통한 '네트워크 넛징'으로 기업의 생각과 관행을 흔들고 실질적인 생물다양성 보호 행동을 사전 동원합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase text-white">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "While there is an increasing number of B2B studies about sustainability, few centre on the issue of biodiversity loss and the business network processes needed to address this. In this paper, we focus on the Swedish forestry sector to investigate the role of alternative accounts made by actors not typically considered as part of the business network (e.g. NGOs, individual activists, ecotourism organisations or investigative journalists), in governing business relationships towards managing biodiversity loss. Through a combination of the sustainability accounting literature and the Industrial Network Approach (INA), we provide a new lens for understanding how network change is pre-mobilised in issue-based nets. Specifically, we introduce the concept of network nudging. We further draw on governmentality to show how the alternative accounts use ethical and emotive discourses to challenge dominant business logics. The paper emphasises the importance of inclusive, dialogical engagement with marginalised voices to strengthen relational governance. We conclude by arguing how current understandings of how sustainability is managed within issue-based nets is enhanced by including the pre-mobilising efforts of alternative accounts."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "B2B 마케팅 학계에서 지속가능성에 대한 연구가 증가하고 있음에도 불구하고, 생물다양성 감소(biodiversity loss) 문제와 이를 해결하기 위해 요구되는 비즈니스 네트워크 프로세스에 초점을 맞춘 연구는 거의 없다. 본 논문에서는 스웨덴 임업 부문(forestry sector)에 초점을 맞추어, 일반적으로 비즈니스 네트워크의 일부로 간주되지 않는 비주류 행위자들(예: NGO, 개별 활동가, 생태관광 기구, 조사 저널리스트)이 생성하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">대안적 어카운트(alternative accounts)</span>가 생물다양성 감소를 관리하기 위한 비즈니스 관계를 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">거버닝(governing)</span>하는 데 수행하는 역할을 조사한다. 지속가능성 회계 문헌과 산업 네트워크 접근법(INA)을 결합하여, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">이슈 기반 넷(issue-based nets)</span> 내에서 네트워크 변화가 어떻게 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">'사전 동원(pre-mobilised)'</span>되는지 이해하는 새로운 렌즈를 제공한다. 구체적으로, 우리는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">'네트워크 넛징(network nudging)'</span>이라는 개념을 도입한다. 나아가 미셸 푸코의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">통치성(governmentality)</span> 개념을 끌어와 대안적 어카운트가 윤리적이고 감정적인 담론을 활용하여 지배적인 비즈니스 로직에 도전하는 방식을 보여준다. 본 논문은 관계적 거버넌스를 강화하기 위해 소외된 목소리와의 포용적이고 대화적인 참여의 중요성을 강조한다. 대안적 어카운트의 사전 동원 노력을 포함함으로써 이슈 기반 넷 내에서 지속가능성이 관리되는 방식에 대한 기존 이해가 어떻게 확장될 수 있는지를 논의한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Alternative Accounts</td>
+                  <td>대안적 어카운트 / 보고</td>
+                  <td class="text-sm">기업 자체 발간 공식 보고서나 재무 지표를 넘어 외부 이해관계자(시민사회, 활동가 등)가 독자적으로 작성한 비공식 고발 보고나 대안적 설명입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Network Nudging</td>
+                  <td>네트워크 넛징</td>
+                  <td class="text-sm">외부 행위자가 강제성 없이 윤리적/감성적 담론과 시각적 상징물(예: 벌목지의 토큰 트리 사진)을 활용해 스스로 변화하도록 유도하는 거버넌스 기법입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Issue-Based Net</td>
+                  <td>이슈 기반 넷</td>
+                  <td class="text-sm">기존 비즈니스 관계의 존부와 상관없이 생물다양성 감소 등 공동의 사회적·환경적 당면 문제를 중심으로 상호작용하는 다차원적 결집 네트워크입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Pre-mobilisation</td>
+                  <td>사전 동원</td>
+                  <td class="text-sm">자원이나 실질적 비즈니스 활동의 구체적 변화가 실행되기 전, 행위자들의 멘탈리티, 담론, 신념을 변화시키는 예비적 단계를 의미합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Governmentality</td>
+                  <td>통치성 (푸코)</td>
+                  <td class="text-sm">강압적 규제가 아닌, 규범과 합리성을 피치자(기업 등)가 내재화하도록 설계하여 스스로 행동을 통제하고 지배하도록 조종하는 미시적 권력 행사 방식입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase text-white">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">외부 단체의 대안적 고발은 어떤 역할을 하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">강제력 없는 '네트워크 넛징'으로 변화 사전 동원</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">B2B 거버넌스의 한계를 시민사회로 확장</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 비즈니스 네트워크 외부의 대안적 어카운터(NGO, 활동가 등)가 생성하는 대안적 고발(Alternative Accounts)은 스웨덴 임업 네트워크의 생물다양성 감소를 관리하기 위해 어떻게 변화를 유도하는가?</li>
+                  <li><strong>핵심 발견:</strong> 외부 단체들은 강압적인 규제나 비즈니스 거래 관계가 없지만, <strong>'네트워크 넛징(Network Nudging)'</strong>을 통해 임업 대기업들의 자발적 성찰(Mentalities)을 이끌어내고, 습지 복원, 보호림 자발적 배치 등의 실질적 행동(Behaviours) 변화를 <strong>사전 동원(Pre-mobilisation)</strong>합니다.</li>
+                  <li><strong>이론/실무 기여:</strong> INA 연구의 범위를 시민사회 외부 행위자들과 이슈 기반 넷의 비배제적 구조로 확장하고, 통치성과 넛징 이론을 결합했습니다. 실무적으로는 다주체 FSC 회의체의 유용성과 기관투자자(연기금)의 EU Taxonomy 연계 금융 규율을 강화하는 법을 제시합니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "시민사회의 도덕적/시각적 폭로는 강제력 없이도 '네트워크 넛징'을 발휘해 기업의 생각을 뒤흔들고, B2B 네트워크 내 생물다양성 보호 실천을 사전 동원한다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase text-white">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">대안적 어카운트의 관계 및 행동 넛징 효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "...our findings show that alternative accountors within an issue-based net may (i) present new ways of thinking about business relationship governance in terms of biodiversity loss, and (ii) directly govern these relationships by stimulating future action."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 16 (Sec. 1) / Page 28 (Sec. 4.3)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">법률 구멍에 대응한 '외로운 나무' 관행과 넛징 활용</td>
+                <td class="text-sm italic text-slate-600">
+                  "In practice, many forest owners technically comply with the law by leaving a few individual trees standing... they often leave isolated 'token' trees scattered across large clear-cut areas... The solitary tree hence resonates across a wide range of actors within and beyond the issue-based net as it symbolises biodiversity loss."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 25 (Sec. 4.1.2) / Page 29 (Sec. 4.3)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">독자적 매핑 툴 '숲 모니터(Skogsmonitor)' 개발 및 투명성</td>
+                <td class="text-sm italic text-slate-600">
+                  "The Forest monitor (Skogsmonitor) is a unique online map service that brings together important data and maps layers of valuable forest habitats in one place... update in order to increase precision and accuracy" (NGO30)
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 25-26 (Sec. 4.1.3)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">FSC 스웨덴의 3개 체임버 기반 민주적 의사결정</td>
+                <td class="text-sm italic text-slate-600">
+                  "FSC is a non-profit organisation structured around three chambers (environmental, social and economic) which are required to work together so reach solutions. It is based on a democratic governance structure" (NGO26)
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 24 (Fig 3) / Page 26 (Sec. 4.1.3)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">연기금 등 금융 투자 섹터의 규율 연계</td>
+                <td class="text-sm italic text-slate-600">
+                  "Pension funders have a strong voice and the financial sector see FSC is a credible tool for finance sector to be able to evaluate companies together with the EU taxonomy both on forest owners and along the chain of custody" (NGO26)
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 24 (Fig 3) / Page 26 (Sec. 4.1.3)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">임업 기업들의 습지 복원 및 보호 구역 자발적 자원 투입</td>
+                <td class="text-sm italic text-slate-600">
+                  "For example, Sveaskog and Holmen both invest in wetland restoration... Holmen designated 20% of its forest for environmental purposes and Sveaskog aims to formally protect 10% of its land."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 27 (Sec. 4.2) / Page 28 (Table 2)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (네트워크 넛징 및 사전 동원 모델)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 450" class="w-full h-auto">
+              <!-- Definitions -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+
+              <!-- IV: Alternative Accounts -->
+              <rect x="20" y="140" width="220" height="95" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="130" y="170" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">대안적 어카운트</text>
+              <text x="130" y="190" text-anchor="middle" fill="#64748b" font-size="11">Alternative Accounts</text>
+              <text x="130" y="210" text-anchor="middle" fill="#64748b" font-size="10">NGO 보고서, 독립 저널, SNS, 영상</text>
+              <text x="130" y="223" text-anchor="middle" fill="#94a3b8" font-size="9">(체계적, 파티잔, 반통치적, 대화적)</text>
+
+              <!-- Mediator: Network Nudging -->
+              <rect x="300" y="140" width="200" height="95" rx="8" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="400" y="170" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="14">네트워크 넛징</text>
+              <text x="400" y="190" text-anchor="middle" fill="#0284c7" font-size="11">Network Nudging</text>
+              <text x="400" y="210" text-anchor="middle" fill="#0284c7" font-size="10">윤리적/감성적 담론 전개</text>
+              <text x="400" y="223" text-anchor="middle" fill="#0284c7" font-size="9">시각적 상징(외로운 나무) 활용</text>
+
+              <!-- DV1: Mentalities -->
+              <rect x="560" y="50" width="220" height="85" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="670" y="80" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">비즈니스 멘탈리티 전환</text>
+              <text x="670" y="100" text-anchor="middle" fill="#047857" font-size="11">Mentalities & Rationalities</text>
+              <text x="670" y="118" text-anchor="middle" fill="#047857" font-size="10">생태주의 성찰, 세대교체 의식</text>
+
+              <!-- DV2: Behaviours -->
+              <rect x="560" y="250" width="220" height="85" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="670" y="280" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">관계적 관행/행동 변화</text>
+              <text x="670" y="300" text-anchor="middle" fill="#4338ca" font-size="11">Behaviours & Practices</text>
+              <text x="670" y="318" text-anchor="middle" fill="#4338ca" font-size="10">습지 복원, 보호림 확대, 원주민 협력</text>
+
+              <!-- Contextual/Indirect: Formal Governance -->
+              <rect x="300" y="340" width="200" height="75" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="400" y="365" text-anchor="middle" font-weight="700" fill="#78350f" font-size="13">공식/제도적 거버넌스</text>
+              <text x="400" y="382" text-anchor="middle" fill="#b45309" font-size="10">Forestry Act, EU Directive</text>
+              <text x="400" y="398" text-anchor="middle" fill="#b45309" font-size="9">EU Taxonomy 자산 평가 연계</text>
+
+              <!-- Out: Pre-mobilising -->
+              <rect x="560" y="375" width="220" height="50" rx="8" fill="#fae8ff" stroke="#c084fc" stroke-width="2"/>
+              <text x="670" y="405" text-anchor="middle" font-weight="700" fill="#6b21a8" font-size="13">네트워크 변화 사전 동원 (결과)</text>
+
+              <!-- Arrows -->
+              <!-- IV -> Mediator -->
+              <path d="M240 187 L 290 187" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="265" y="178" text-anchor="middle" fill="#64748b" font-weight="700" font-size="11">H1 (+)</text>
+
+              <!-- Mediator -> DV1 (Mentalities) -->
+              <path d="M450 140 L 510 140 L 510 90 L 550 90" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="515" y="125" text-anchor="middle" fill="#0284c7" font-weight="700" font-size="11">H2a (+)</text>
+
+              <!-- Mediator -> DV2 (Behaviours) -->
+              <path d="M450 230 L 510 230 L 510 290 L 550 290" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="515" y="270" text-anchor="middle" fill="#0284c7" font-weight="700" font-size="11">H2b (+)</text>
+
+              <!-- DV1 <-> DV2 Feedback loops -->
+              <path d="M660 135 L 660 240" fill="none" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <path d="M680 240 L 680 145" fill="none" stroke="#4f46e5" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <text x="705" y="195" text-anchor="middle" fill="#64748b" font-size="10">상호 피드백</text>
+
+              <!-- Mediator -> Formal Gov -->
+              <path d="M400 235 L 400 330" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="410" y="285" fill="#0284c7" font-weight="700" font-size="11">H3a (+)</text>
+
+              <!-- Formal Gov -> DV2 -->
+              <path d="M500 380 L 670 380 L 670 345" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="585" y="372" text-anchor="middle" fill="#b45309" font-weight="700" font-size="11">H3b (+)</text>
+
+              <!-- DVs -> Pre-mobilising -->
+              <path d="M780 90 L 795 90 L 795 400 L 785 400" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+              <path d="M780 290 L 790 290 L 790 400 Z" fill="none" stroke="#4f46e5" stroke-width="1.5" stroke-dasharray="3 3"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수</span>
+                <span class="text-xs text-slate-400 font-semibold">IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">대안적 어카운트 (Alternative Accounts)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 기업이 발간하는 공식 보고서에 맞대응하여, NGO나 활동가 등 외부 주체가 생물다양성 파괴의 현실을 고발하고 도덕적 책무를 묻는 비공식 정보 보고입니다.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> NGO 보고서, 독립 언론 뉴스, 블로그, 다큐멘터리 등 총 38개의 대안적 정보원 수집 (Thomson et al., 2015의 4대 유형학 적용).</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Thomson et al. (2015) / Laine & Vinnari (2017)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 공식 회계가 지워버린 자연과 원주민 사미족(Sami)의 권리를 복원하고 기업의 사회적 면죄부 내러티브를 전방위로 분쇄하는 해방적 잠재력을 지닙니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">매개 메커니즘</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">네트워크 넛징 (Network Nudging)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 공식적 규제력이나 계약 관계가 없는 주체가 도덕적 담론과 상징(예: 벌목지의 외로운 나무 사진)을 확산시켜 타인의 주의를 환기하고 자발적 행동 조정을 유도하는 부드러운 조정 기법입니다.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> '외로운 나무(lonely trees)' 이미지 유포, 소셜 미디어를 활용한 공적 토론 점화, 산림청 대상 서한 발송 및 입법 로비 활동.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Siipi & Koi (2022)의 넛지 개념을 B2B 네트워크로 최초 확장</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 강제가 아닌 자발적인 행동 설계와 성찰 자극을 통해 B2B 네트워크의 구조적 마비를 예방하고 변화를 유도하는 미시 거버넌스 수단입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">결과변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">DV1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">비즈니스 멘탈리티 전환 (Mentalities)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 산림을 단순히 소비적 목재 자원으로 파악하던 인간 중심적(Anthropocentric) 비즈니스 로직에서, 다세대적 보존과 자연의 내재 가치를 인정하는 생태 중심적(Ecocentric) 인식으로의 의식적 변화를 말합니다.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 임업 연구소 및 기업 관리자들의 진술에서 포착되는 생태 보호 의지 및 2세대로의 경영권 이전 시 나타나는 생물다양성 감수성 수준.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Foucault (1991)의 통치성 내지 주체화 기법</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 푸코의 '통치성' 관점에서 외부 지배력에 굴복하는 것이 아닌, 주체가 스스로 윤리적 가치를 내재화하여 스스로를 통제하도록 이끄는 변화입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">결과변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">DV2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">관계적 관행/행동 변화 (Behaviours)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 생물다양성 감소를 실질적으로 제어하기 위해 기업들이 비즈니스 공급망 관계 내에서 자발적/공동으로 실행하는 친환경적 조작 관행 및 자원 배치 활동입니다.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 기업들의 습지 복원 참여 여부, 산림 내 10~20% 자발적 보호림 영역 설정, 사미 원주민 순록 방목권 협의 채널 운영 및 continuous-cover 벌목 기법 도입.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Håkansson & Snehota (1995)의 자원/활동 네트워크 모델</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 네트워크 변화는 오랜 시차를 두고 incremental하게 전개되며, 관계적 신뢰와 포용적 협력을 바탕으로 관행이 체화됩니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">간접/조절 요인</span>
+                <span class="text-xs text-slate-400 font-semibold">Formal & Regulatory Governance</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공식/제도적 거버넌스 (Formal Governance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 법률(스웨덴 임업보존법, 환경법 등)이나 글로벌 조약, 혹은 FSC/PEFC와 같은 민간 위탁 삼자 기구에 의해 강제되거나 인증되는 제도적 규칙 및 유인 체계입니다.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> EU의 생물다양성 국가 가이드라인 지침, 스웨덴 국가 산림 정책, 그리고 연기금 등 금융 섹터가 ESG 투자 규율 수단으로 삼는 EU Taxonomy 부합 여부.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Cao & Lumineau (2015) / Patala et al. (2022)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase text-white">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 연구 모델 및 데이터 검증을 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 맥락 정의 및 단일 사례 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  목재 생산(경제)과 생태 보존(환경) 갈등이 극심하며, 국가적으로 지속가능성을 천명함에도 벌목 논란이 지배적인 스웨덴 임업 부문을 대상 단일 사례 연구(Single Case Study)로 선정함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 21-22, Section 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">데이터 삼각측정(Triangulation) 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  도발적인 시민 단체의 '대안적 어카운트'와 기업들의 공식 '비대안적 어카운트' 간의 담론 차이를 대조하기 위해 1차 인터뷰와 2차 문서 데이터를 다각도로 수집하는 설계 구축.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 21-22, Section 3.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">정보원 접촉 및 반구조화 인터뷰</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  이메일과 LinkedIn을 통해 약 150명 접촉. 스노볼 샘플링을 결합해 활동가, 에코투어 오너 등과 7건의 반구조화 인터뷰(16시간)를 진행하고, FSC 스웨덴 대표와 8시간에 달하는 회의 2회 실행.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 22, Section 3.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">대안적 어카운트 아카이빙</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Greenpeace, SSNC 등 환경 NGO 보고서, 활동가 웹사이트 포스팅, 고발 비디오 다큐멘터리, 독립 뉴스 보도 등 총 38개의 대안적 소스 분석 및 코딩.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 22, Section 3.2 & Appendix B</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">공식/비대안적 문서 데이터 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Sveaskog, SCA, Holmen 등 대기업들의 지속가능성 보고서, 국립 임업 연구소(SLU, Skogforsk) 연구 문서 등 총 37개의 비대안적 공식 아카이브 수집.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 22, Section 3.2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">Gioia Methodology 기반 질적 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  1차 로우 코딩으로 160개 초기 코드 생성 → 2차 themes 분류 (임업 관리 이슈, 통치성과 변화, 대안 거버넌스) → 3대 통합 차원 ('환경 정의의 위기', '권위의 경쟁', '대안 거버넌스')으로 추상화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 22-24, Section 3.3 & Fig. 3</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">삼각 검증 및 넛징 이론화 모델 완성</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  수집된 두 계열의 데이터를 귀추적으로 결합. 외부의 압박이 강제력이 없음에도 부드러운 '네트워크 넛징'을 발휘해 기업의 생각을 흔들고 변화를 '사전 동원'함을 입증해 최종 개념도 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 23-24, Section 3.3 & Fig. 5</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-900 p-6 rounded-xl border-l-4 border-cyan-400 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-cyan-400 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-400 max-w-md">
+            사용한 38개의 대안적 데이터 목록(Appendix B)과 Gioia 분석의 1, 2차 코딩 범주(Fig. 3)가 투명하게 공개되어 연구 설계 자체의 복사는 용이합니다. 다만, 심층 인터뷰 녹취 데이터의 비공개 보안 특성과 스웨덴의 사법·원주민 갈등 등 특수 지리적 지식에 대한 연구진의 에믹(emic) 해석에 의존하므로 타지 연구자가 동일한 질적 해석 결과를 백퍼센트 완벽하게 복제해내기는 제약이 따릅니다.
+          </p>
+        </div>
+      </section>
+      
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 연구진들이 직접 인정한 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>1차 인터뷰 대상의 제약:</strong> 데이터 대다수를 2차 자료로 충당했으며 정식 인터뷰는 7건과 회의 2회에 그쳤습니다. 특히 이해관계의 당사자인 대형 민간 임업사(SCA, Holmen 등) 관리자들의 직접 인터뷰는 거절 등으로 확보하지 못해 일방적 담론 분석에 치우쳤을 위험이 있습니다.
+              </li>
+              <li>
+                <strong>지리적/제도적 특수성:</strong> 조림 의무가 일찍이 확립되어 있고 사미족 원주민이 존재하는 스웨덴 고유의 정치·사회적 맥락 속에서 이루어진 연구이므로 다른 천연자원 산업이나 타 국가 생태계에 일반화(Generalise)하기에 한계가 큽니다.
+              </li>
+              <li>
+                <strong>공급망 파트너 간 다차원성 간과:</strong> B2B 비즈니스 공급망 내의 수많은 거래 특성(구매자 파워, 의존 기간 등)을 세부적으로 가르지 않고, 생물다양성 이슈를 '이슈 기반 넷'이라는 매크로 뭉텅이 단위로 단순화하여 거버넌스를 묶었습니다.
+              </li>
+              <li>
+                <strong>종단적 네트워크 실제 변화 관측의 결여:</strong> 넛징을 통한 '사전 동원(Pre-mobilise)'의 잠재력을 포착하는 것에 주안점을 두었을 뿐, 장기간 동안 실제 기업 간의 자원 연계(Resource ties)나 구체적인 활동 연계가 완벽히 재구조화되었는지 종단적으로 추적하지는 못했습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 횡단 분석 메커니즘을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 제도적 압박의 오귀인 (Attribution Error)</span>
+                <p class="text-sm text-slate-700">
+                  기업들이 실천한 습지 복원, 보호림 20% 확대 등의 조치는 활동가들의 부드러운 '넛징' 때문이라기보다, 연기금 등 금융 섹터가 대출 조건으로 강제하는 <strong>'EU Taxonomy 규제 및 CSRD 지침'에 순응한 생존용 행위</strong>일 가능성이 농후합니다. 이를 시민 단체의 사전 동원 성과로 묘사한 것은 인과관계 오귀인(Attribution error)의 소지가 다분합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 연구진의 이념적/도덕적 편향</span>
+                <p class="text-sm text-slate-700">
+                  연구진은 환경 단체의 생태 중심적(Ecocentric) 주장과 사미 원주민의 방목 권리를 '참된 가치'로 선제 설정하고, 기업 측의 바이오 연료 사용 논리나 경제적 변론을 '얄팍한 PR 핑계'로 취급하는 이분법적인 선악 구도를 취함으로써 질적 연구 특유의 이념적 편향(Ideological bias)이 작용했습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 생존자 편향 (Survivor Bias)</span>
+                <p class="text-sm text-slate-700">
+                  사례 내 대형 임업사들은 고도의 규범 압박 속에서 끝까지 적응해 성과를 발간하는 일종의 '생존 기업'들입니다. 환경 분쟁으로 이미 영업을 포기했거나 활동가들의 소송으로 사업을 폐쇄한 영세 지주들의 실패 사례는 다루어지지 않아, 넛징 거버넌스의 평화적 조율 시너지가 과대평가되었을 가능성이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 그린워싱(Greenwashing) 방치 조력</span>
+                <p class="text-sm text-slate-700">
+                  구속력이 없는 부드러운 넛징은 역설적으로 대기업에게 벌목 사업 본질의 포기 대신, '습지 소규모 복원'이나 '외로운 나무 듬성듬성 세워두기' 같은 표면적 조치만으로 환경 책임을 다했다며 세탁할 수 있는 <strong>그린워싱의 면죄부를 제공하는 기회주의적 회피</strong>로 변질될 수 있으나 이를 전혀 비판하지 않았습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Voices of the forest: (How) do alternative accounts govern relationships towards managing biodiversity loss in Sweden?</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

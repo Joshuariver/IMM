@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding Collaboration in Servitization Literature - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management 136 (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Servitization &amp; Collaboration</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Meta-synthesis</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Understanding collaboration in servitization literature:<br>
+            <span class="text-cyan-400">A meta-synthesis of qualitative research</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Beheshte Momeni, Rodrigo Rabetino, Marko Kohtamäki
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            서비스화 문헌에서의 협업 이해:<br>
+            <span class="text-indigo-300">질적 연구의 메타합성</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            57개 질적 사례 연구의 체계적 통합을 통해 서비스화 다자간 협업의 시간적 거버넌스 전개 모델과 메커니즘-결과 순환 프로세스를 규명
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">서비스화 협업은 정형화된 일회성 계약을 넘어, 계약(구조)·신뢰(관계)·비전(인지) 메커니즘이 상호작용의 결과에 맞춰 계속해서 재조합되는 동적 프로세스입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This study investigates how multi-actor collaboration unfolds over time in servitization, where manufacturers increasingly rely on networks of customers, suppliers, and technology partners. Although significant research has examined collaboration in the context of servitization, we still know little about how multi-actor collaboration evolves in this context. Through a qualitative meta-synthesis study of 57 qualitative case studies, our analysis identifies preconditions and three phases – initiation, routinization, and learning and adaptation – each shaped by shifting structural, relational, and cognitive mechanisms. The study contributes by developing a process model of multi-actor collaboration in servitization, showing how mechanisms generate consequences that reshape collaboration over time. It further advances a temporal view of collaboration governance by explaining how structural, relational, and cognitive mechanisms are repeatedly recombined as actor roles, dependencies, and value logics change. For managers, the findings suggest the need to clarify roles, value-sharing agreements, data access, and governance arrangements as servitization networks expand and mature."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 연구는 제조업체가 고객, 공급업체 및 기술 파트너의 네트워크에 점점 더 의존하게 되는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">서비스화(Servitization)</span><sup>1</sup> 과정에서 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">다자간 협업(multi-actor collaboration)</span><sup>2</sup>이 시간에 따라 어떻게 전개되는지 조사한다. 서비스화 맥락에서 협업을 다룬 기존 연구가 상당함에도 불구하고, 우리는 이 맥락에서 다자간 협업이 실제로 어떻게 진화하는지에 대해 여전히 잘 알지 못한다. 57개의 질적 사례 연구에 대한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">질적 메타합성(qualitative meta-synthesis)</span><sup>3</sup> 연구를 통해, 본 분석은 선행 요인(preconditions)과 세 가지 단계인 도입(initiation), 일상화(routinization), 그리고 학습 및 적응(learning and adaptation) 단계를 식별하며, 각 단계는 변화하는 구조적, 관계적, 인지적 메커니즘에 의해 형성된다. 본 연구는 서비스화에서의 다자간 협업에 대한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">프로세스 모델(process model)</span><sup>4</sup>을 개발하여, 다양한 메커니즘이 어떻게 결과(consequences)를 생성하고 이것이 시간에 따라 협업을 어떻게 재형성하는지 보여줌으로써 기여한다. 나아가 행위자의 역할, 의존성 및 가치 논리가 변화함에 따라 구조적, 관계적, 인지적 메커니즘이 어떻게 반복적으로 재조합(repeatedly recombined)되는지 설명함으로써 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">협업 거버넌스(collaboration governance)</span><sup>5</sup>에 대한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">시간적 관점(temporal view)</span><sup>6</sup>을 제시한다. 실무 관리자를 위해, 본 연구의 결과는 서비스화 네트워크가 확장되고 성숙해짐에 따라 역할, 가치 공유 합의, 데이터 액세스 및 거버넌스 배열을 명확히 할 필요가 있음을 시사한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table table-zebra w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Servitization</td>
+                  <td>서비스화</td>
+                  <td class="text-sm">제조업체가 전통적인 제품 중심에서 탈피하여 제품과 서비스가 결합된 통합 솔루션을 통해 고객 가치를 창출하는 비즈니스 모델 전환 전략입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Multi-actor Collaboration</td>
+                  <td>다자간 협업</td>
+                  <td class="text-sm">단일 1:1 관계(dyad)를 넘어 공급업체, 중개 대리점, 고객, IoT 및 AI 기술 파트너 등 다수의 주체들로 얽힌 네트워크 구조 내에서의 연합 활동을 지칭합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Qualitative Meta-synthesis</td>
+                  <td>질적 메타합성</td>
+                  <td class="text-sm">축적된 수많은 독립적인 개별 질적 사례(case study) 논문들을 정교한 코딩 절차를 통해 분석하고 통합하여 상위의 개념과 이론을 구축하는 질적 연구 합성 방법론입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Process Model</td>
+                  <td>프로세스 모델</td>
+                  <td class="text-sm">정적인 변수 간 영향 관계 입증보다는, 사건(event)의 흐름과 메커니즘의 피드백 작용에 의해 시간에 따라 조직의 행동이 성숙, 변화하는 역동적 궤적을 설명하는 모형입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Collaboration Governance</td>
+                  <td>협업 거버넌스</td>
+                  <td class="text-sm">다자간 네트워크 내에서 발생하는 역할 모호성, 무임승차, 기회주의를 통제하고 자원 공유를 촉진하기 위해 사용되는 계약적·관계적·인지적 규칙체계 및 통제 장치입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Temporal View</td>
+                  <td>시간적 관점</td>
+                  <td class="text-sm">조직 거버넌스나 신뢰가 시간이 흐름에 따라 고정된 것이 아니라, 파트너 간 권력 변화, 기술 성숙, 갈등 피드백 등에 따라 주기적으로 재조합(recombine)되고 변모한다고 보는 시간 의존적 이론 시각입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 논문 발표에서 <strong>1분 만에</strong> 연구의 본질을 설명하고 동료 학자들을 설득할 수 있도록 핵심 사항을 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">다자간 협업은 시간의 흐름에 따라 어떻게 진화하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">결과 피드백에 근거한 거버넌스의 반복적 재조합</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">비선형적 시간적 거버넌스 이론 확립</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 기존 단편적·정적 dyad 연구 한계를 극복하고, 다양한 주체가 참여하는 서비스화 생태계 내 다자간 협업이 시간의 흐름에 따라 어떻게 전개되고 재구조화되는가?</li>
+                  <li><strong>핵심 발견:</strong> 협업은 '선행 요인 → 도입 → 일상화 → 학습 및 적응' 단계를 밟습니다. 각 단계 메커니즘(계약, 신뢰, 정보 공유, 공동 학습 등)이 유발한 결과(신뢰 형성, 자율성 위협 인식, 성과 만족도)가 피드백 루프를 통해 다음 단계의 계약 개정이나 플랫폼 개방 등 거버넌스 메커니즘의 재조합(recombination)을 견인합니다.</li>
+                  <li><strong>이론/실무 기여:</strong> '계약에서 시작해 점진적으로 사회적 신뢰로 안착한다'는 정적/선형적 거버넌스 가정을 깨뜨리고, 데이터 소유권 및 생태계 팽창에 따라 거버넌스가 끊임없이 순환 재구성되는 '시간적 관점(temporal view)'을 정립했으며, 실무자들에게 파트너 변경과 확장 단계에 맞는 데이터 계약 및 가치 분배 정렬 지침을 제시했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "서비스화 협업은 일회적 계약에 머물지 않고, 오퍼레이션 결과 피드백에 반응하여 계약(구조), 신뢰(관계), 비전(인지) 거버넌스 메커니즘이 끊임없이 반복 재조합되는 동적 프로세스다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구 모델의 학술적 정당성을 확보하기 위해 논문의 주요 학술 주장과 이에 대응하는 원문 핵심 인용구 및 상세 위치를 연계했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">서비스화 다자간 협업의 3단계 정의</td>
+                <td class="text-sm italic text-slate-600">
+                  "To better understand the servitization collaboration process, we divided it into three phases: initiation, routinization, and learning and adaptation."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 4 (Sec. 3)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">비선형적 시간적 거버넌스 재구조화 (Prop 3)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Collaboration governance in servitization does not follow a linear path from structural to relational mechanisms but involves repeated reconfigurations driven by changing assessments of reliability, autonomy, vulnerability, and partner performance."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 10 (Sec. 5, Prop 3)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">메커니즘의 상호의존적 구성론 (Prop 2)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Collaboration in servitization is driven by configurations of interdependent mechanisms rather than by isolated collaboration practices, with changes in one mechanism triggering adjustments in others over time."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 10 (Sec. 5, Prop 2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">인지적 정렬의 핵심적 전제조건 (Prop 1)</td>
+                <td class="text-sm italic text-slate-600">
+                  "In servitization contexts, effective collaboration relies on cognitive alignment among actors, in addition to structural configuration and relational quality. Misalignment at the cognitive level can weaken collaboration..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9 (Sec. 5, Prop 1)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">공유와 보호의 긴장 구조</td>
+                <td class="text-sm italic text-slate-600">
+                  "Servitization requires firms to share data, capabilities, service knowledge, and customer access, yet these same resources shape power, control, and value capture. This context, therefore, reveals collaboration tensions..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 3 (Sec. 1)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 개념 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model &amp; Process</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Process Framework (서비스화 다자간 협업 프로세스 모델)</h3>
+          
+          <div class="w-full bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 960 420" class="w-full h-auto">
+              <!-- Definitions for Arrow Markers -->
+              <defs>
+                <marker id="arrow-slate" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+                </marker>
+                <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#06b6d4"/>
+                </marker>
+                <marker id="arrow-emerald" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+                </marker>
+                <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/>
+                </marker>
+                <marker id="arrow-pink" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#db2777"/>
+                </marker>
+              </defs>
+
+              <!-- Time Line Guide (Bottom) -->
+              <line x1="250" y1="390" x2="880" y2="390" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-slate)" stroke-dasharray="4 4"/>
+              <text x="560" y="412" text-anchor="middle" fill="#64748b" font-weight="700" font-size="12">시간의 전개 &amp; 프로세스 고도화 (Time, t)</text>
+
+              <!-- COLUMN 1: Preconditions (선행 요인) -->
+              <rect x="15" y="40" width="200" height="310" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+              <text x="115" y="70" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">선행 요인 (Preconditions)</text>
+              <line x1="30" y1="80" x2="200" y2="80" stroke="#cbd5e1" stroke-width="1"/>
+              
+              <!-- Structural Conditions -->
+              <rect x="25" y="90" width="180" height="70" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+              <text x="35" y="110" font-weight="700" fill="#475569" font-size="12">구조적 조건 (Structural)</text>
+              <text x="35" y="128" fill="#64748b" font-size="11">네트워크 안정성</text>
+              <text x="35" y="144" fill="#64748b" font-size="11">고객 접점 내 포지셔닝</text>
+
+              <!-- Relational Conditions -->
+              <rect x="25" y="170" width="180" height="70" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+              <text x="35" y="190" font-weight="700" fill="#475569" font-size="12">관계적 조건 (Relational)</text>
+              <text x="35" y="208" fill="#64748b" font-size="11">경험 기반 / 평판 기반 신뢰</text>
+              <text x="35" y="224" fill="#64748b" font-size="11">과거 거래 이력</text>
+
+              <!-- Cognitive Conditions -->
+              <rect x="25" y="250" width="180" height="85" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+              <text x="35" y="270" font-weight="700" fill="#475569" font-size="12">인지적 조건 (Cognitive)</text>
+              <text x="35" y="288" fill="#64748b" font-size="11">공유된 가치관 &amp; 전제</text>
+              <text x="35" y="304" fill="#64748b" font-size="11">상호주의 기대</text>
+              <text x="35" y="320" fill="#ef4444" font-weight="700" font-size="11">Prop 1: 인지 정렬 필수</text>
+
+              <!-- COLUMN 2: Phase 1 (Initiation) -->
+              <!-- Phase 1 Top Box: Mechanisms -->
+              <rect x="250" y="40" width="200" height="130" rx="8" fill="#ecfeff" stroke="#06b6d4" stroke-width="2"/>
+              <text x="350" y="65" text-anchor="middle" font-weight="700" fill="#0891b2" font-size="14">1. 도입 단계 (Initiation)</text>
+              <line x1="265" y1="75" x2="435" y2="75" stroke="#a5f3fc" stroke-width="1"/>
+              <text x="265" y="95" fill="#0369a1" font-size="11" font-weight="600">• Establishing the Network (구축)</text>
+              <text x="265" y="115" fill="#0369a1" font-size="11" font-weight="600">• Structural Foundation (계약/기반)</text>
+              <text x="265" y="135" fill="#0369a1" font-size="11" font-weight="600">• Defining Shared Vision (비전)</text>
+
+              <!-- Phase 1 Bottom Box: Consequences -->
+              <rect x="250" y="210" width="200" height="120" rx="8" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/>
+              <text x="350" y="232" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="13">도입 결과 (Consequences 1)</text>
+              <line x1="265" y1="240" x2="435" y2="240" stroke="#bae6fd" stroke-width="1"/>
+              <text x="265" y="260" fill="#334155" font-size="11">· 관계적 신뢰성 (역량 신뢰)</text>
+              <text x="265" y="278" fill="#334155" font-size="11">· 인지된 자율성 및 취약성</text>
+              <text x="265" y="296" fill="#334155" font-size="11">· 관계적 몰입 (Commitment)</text>
+
+              <!-- COLUMN 3: Phase 2 (Routinization) -->
+              <!-- Phase 2 Top Box: Mechanisms -->
+              <rect x="485" y="40" width="210" height="130" rx="8" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/>
+              <text x="590" y="65" text-anchor="middle" font-weight="700" fill="#059669" font-size="14">2. 일상화 단계 (Routinization)</text>
+              <line x1="500" y1="75" x2="680" y2="75" stroke="#a7f3d0" stroke-width="1"/>
+              <text x="500" y="95" fill="#065f46" font-size="11" font-weight="600">• Implementation Routines (실행)</text>
+              <text x="500" y="115" fill="#065f46" font-size="11" font-weight="600">• Info-Sharing Routines (정보 공유)</text>
+              <text x="500" y="135" fill="#065f46" font-size="11" font-weight="600">• Capability &amp; Learning (역량/학습)</text>
+
+              <!-- Phase 2 Bottom Box: Consequences -->
+              <rect x="485" y="210" width="210" height="120" rx="8" fill="#fff5f5" stroke="#f43f5e" stroke-width="2"/>
+              <text x="590" y="232" text-anchor="middle" font-weight="700" fill="#e11d48" font-size="13">일상화 결과 (Consequences 2)</text>
+              <line x1="500" y1="240" x2="680" y2="240" stroke="#fecdd3" stroke-width="1"/>
+              <text x="500" y="260" fill="#334155" font-size="11">· 관계적 신뢰성 (이행/보안 신뢰)</text>
+              <text x="500" y="278" fill="#334155" font-size="11">· 인지된 협업 효과성</text>
+              <text x="500" y="296" fill="#334155" font-size="11">· 기회주의 및 역량 불균형 평가</text>
+
+              <!-- COLUMN 4: Phase 3 (Learning & Adaptation) -->
+              <rect x="730" y="40" width="215" height="290" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+              <text x="837" y="65" text-anchor="middle" font-weight="700" fill="#6d28d9" font-size="14">3. 학습 &amp; 적응 (Learning)</text>
+              <line x1="745" y1="75" x2="930" y2="75" stroke="#ddd6fe" stroke-width="1"/>
+              <text x="745" y="95" fill="#4c1d95" font-size="11" font-weight="600">• Renewing Governance (거버넌스 갱신)</text>
+              <text x="745" y="115" fill="#4c1d95" font-size="11" font-weight="600">• Mobilizing Network Resources (자원)</text>
+              <text x="745" y="135" fill="#4c1d95" font-size="11" font-weight="600">• Cultivating Partnerships (관계 육성)</text>
+              <text x="745" y="155" fill="#4c1d95" font-size="11" font-weight="600">• Realigning Value Logics (가치 조정)</text>
+              <text x="745" y="175" fill="#4c1d95" font-size="11" font-weight="600">• Revising Shared Vision (비전 수정)</text>
+              <line x1="745" y1="195" x2="930" y2="195" stroke="#ddd6fe" stroke-width="1"/>
+              <text x="745" y="215" font-weight="700" fill="#581c87" font-size="12">최종 결과 (Outcomes)</text>
+              <text x="745" y="235" fill="#3b0764" font-size="11">· 최종 인지된 협업 효과성</text>
+              <text x="745" y="253" fill="#3b0764" font-size="11">· 오퍼레이션/재무 성과 개선</text>
+              <text x="745" y="271" fill="#3b0764" font-size="11">· 장기적 솔루션 경쟁력 확보</text>
+              <text x="745" y="295" fill="#ef4444" font-weight="700" font-size="11">Prop 3: 비선형적 거버넌스 갱신</text>
+
+              <!-- Connecting Paths (Arrows) -->
+              <!-- Preconditions -> Phase 1 -->
+              <path d="M 215 115 L 240 115" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-slate)"/>
+              
+              <!-- Phase 1 -> Consequences 1 -->
+              <path d="M 350 170 L 350 200" fill="none" stroke="#06b6d4" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              
+              <!-- Consequences 1 -> Phase 2 -->
+              <path d="M 450 270 L 465 270 L 465 115 L 475 115" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              
+              <!-- Phase 2 -> Consequences 2 -->
+              <path d="M 590 170 L 590 200" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-emerald)"/>
+              
+              <!-- Consequences 2 -> Phase 3 -->
+              <path d="M 695 270 L 710 270 L 710 185 L 720 185" fill="none" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow-emerald)"/>
+
+              <!-- Dashed Feedback Path (Phase 3 -> Phase 1 / 2) -->
+              <path d="M 730 290 C 600 370, 350 370, 350 180" fill="none" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-purple)"/>
+              <text x="510" y="360" text-anchor="middle" fill="#6d28d9" font-size="11" font-weight="700">순환 피드백 루프 (Reconfiguration &amp; Prop 2)</text>
+
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-4">
+          <!-- Preconditions Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-5 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">1. Preconditions</span>
+                <span class="text-xs text-slate-400 font-semibold">선행 조건</span>
+              </div>
+              <h3 class="style-h3 text-slate-900 border-b pb-1">초기 구조·관계·인지</h3>
+              <p class="text-xs text-slate-700"><strong>구조적:</strong> 기존 공급망의 안정도 및 제조업체와 대리점 간의 고객 접점 근접도(권력 구도).</p>
+              <p class="text-xs text-slate-700"><strong>관계적:</strong> 과거 평판 기반 초기 신뢰 수준.</p>
+              <p class="text-xs text-slate-700"><strong>인지적:</strong> 이익 균형에 대한 공유 가치.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2 rounded border border-indigo-100">
+                <strong>주요 제안(P1):</strong> 인지적 수준의 지향점 일치가 부재할 경우, 구조적 결속과 계약이 완벽해도 협업 동력이 취약해집니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Initiation Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-5 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">2. Initiation</span>
+                <span class="text-xs text-slate-400 font-semibold">도입 단계</span>
+              </div>
+              <h3 class="style-h3 text-slate-900 border-b pb-1">기반 수립 및 정렬</h3>
+              <p class="text-xs text-slate-700"><strong>네트워크 구축:</strong> 리더십 할당, 파트너 역량 평가(Raddats et al., 2017).</p>
+              <p class="text-xs text-slate-700"><strong>구조적 기반:</strong> 기본 계약, Gain/Pain sharing 룰, 시스템 아키텍처(Marelli &amp; Sbarba, 2024).</p>
+              <p class="text-xs text-slate-700"><strong>비전 정의:</strong> 공동 고객 가치 해석 정렬.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2 rounded border border-indigo-100">
+                <strong>도입 결과:</strong> 초기 프로세스를 거치며 파트너 간 권력 비대칭에 따른 자율성 위협 인지가 발생합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Routinization Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-5 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">3. Routinization</span>
+                <span class="text-xs text-slate-400 font-semibold">일상화 단계</span>
+              </div>
+              <h3 class="style-h3 text-slate-900 border-b pb-1">일상 운영의 고도화</h3>
+              <p class="text-xs text-slate-700"><strong>실행 루틴:</strong> 프로세스 문서화, 업무 플로우 매핑, KPI 통제, 정기 모니터링.</p>
+              <p class="text-xs text-slate-700"><strong>정보 공유:</strong> NDA 및 데이터 권한 합의, IoT/클라우드 실시간 데이터 연동 플랫폼 구축.</p>
+              <p class="text-xs text-slate-700"><strong>공동 학습:</strong> 파트너 교육 훈련, 노하우 이전.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2 rounded border border-indigo-100">
+                <strong>일상화 결과:</strong> 이행 신뢰(보안 및 리스크 이행)와 실질적 정보 공유 유효성 평가로 연결됩니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Learning Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-5 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">4. Learning</span>
+                <span class="text-xs text-slate-400 font-semibold">학습 및 적응</span>
+              </div>
+              <h3 class="style-h3 text-slate-900 border-b pb-1">거버넌스 동적 조정</h3>
+              <p class="text-xs text-slate-700"><strong>거버넌스 갱신:</strong> 데이터 독점 방지 플랫폼 구축, 계약 개정(T&oacute;th et al., 2022).</p>
+              <p class="text-xs text-slate-700"><strong>자원 동원/조율:</strong> 파트너 배제/영입.</p>
+              <p class="text-xs text-slate-700"><strong>가치/비전 재정렬:</strong> 상업화에 따른 이익 분배 재정의, BM 중심 목표 선회.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2 rounded border border-indigo-100">
+                <strong>주요 제안(P3):</strong> 위기나 위협(자율성 상실 등) 발생 시 거버넌스는 계약적 구조와 신뢰적 관계 장치를 재조합합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 논문의 체계적인 질적 메타합성 연구 절차를 외래 연구자가 그대로 추종하여 **재현**할 수 있도록 실증 단계를 표준화했습니다.
+        </p>
+
+        <!-- Timeline Component -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 질문 및 프레임 설정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  제조업 서비스화 생태계의 다자간(multi-actor) 협업 진화 프로세스 규명이라는 목표 수립.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">학술 데이터베이스 키워드 검색</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Scopus DB에서 서비스화 핵심 단어군(A) 및 협업/생태계/파트너십 단어군(B)의 정교한 조합 검색을 실행하여 255개 1차 논문 추출 후 참고문헌 스노볼링 검토.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3 &amp; Table 2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">선정 및 제외 기준 필터링</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  실증적 질적 사례(case study)를 포함하고, 제조업 외부 협업을 관찰한 논문만 선택. 순수 개념 논문, 정량 통계 분석, 사내 협업만 다룬 논문 제외. 최종 57개 논문 확정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 3-4, Section 3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">질적 1차 개방 코딩 (Within-case Coding)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  각 57개 사례별 원문 인용(quote)을 추출하여 60개 1차 코드를 구성하고, 이를 28개 2차 테마 및 13개 차원으로 귀납적 범주화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3 &amp; Appendix A</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">사례 내 인과 연결 경로 식별</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  각 개별 논문의 서사 내에서 메커니즘이 어떠한 결과 요인(consequence)을 낳고 그것이 다음 단계에 어떻게 작용하는지 선후 관계를 추적.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">교차 사례 링크 매트릭스 합성</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  연계 탐색 리뷰 매트릭스(linkage-exploring review matrix) 기법을 사용해 57개 전체 사례 내 메커니즘-결과 경로를 취합하여 지배적 패턴을 분류.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">통합 프로세스 모델 시각화 및 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  시간의 흐름에 따라 '선행 요인 → 도입 → 일상화 → 학습 및 적응' 단계별 루프를 시계열 프로세스로 구조화하여 통합 프레임워크 완성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3 &amp; Fig. 1</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">완전 재현 가능 (Fully Replicable)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            검색 키워드(Table 2) 및 논문 선정 프로세스가 투명하게 제공되며, 1차 개방 코딩(Appendix A)에 사용된 원문 텍스트 인용구가 완전히 개방되어 있습니다. 질적 메타합성 프로토콜(Hoon, 2013; Habersang &amp; Reihlen, 2025)에 맞춰 연구 과정을 밟을 시 외래 연구자도 동일한 코딩 스키마와 인과 연결을 재현할 수 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 7.3)에서 연구진들이 스스로 고백한 연구 범위의 한계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>원본 문헌 샘플의 지리적/맥락적 편향:</strong> 포함된 질적 사례 대다수가 유럽과 북미 등 특정 선진국 연구 위주로 이루어졌으며, 국가 간 문화적 격차나 로컬 규제 환경에 대한 독립적 분석이 배제되었습니다.
+              </li>
+              <li>
+                <strong>검색 키워드 및 terminology 한계:</strong> 서비스화와 협업 관련 용어의 학제간 스펙트럼이 매우 넓어, 교차 검색 및 스노볼링 보완책에도 불구하고 일부 누락 논문이 존재할 위험이 있습니다.
+              </li>
+              <li>
+                <strong>해석적 편향(Interpretive Bias) 가능성:</strong> 질적 연구를 재해석하는 2차 해석 과정에 의존하므로, 연구자의 주관적인 분석 렌즈가 코딩 프레임워크 도출에 개입되었을 가능성이 있습니다.
+              </li>
+              <li>
+                <strong>최신 트렌드 반영 시차:</strong> 데이터베이스 인덱싱 지연 문제로 인해 2025년 이후 급부상한 최신 디지털 생태계 메커니즘을 모델에 완벽히 포섭하지 못했을 수 있습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문이 다루지 않았으나 연구 설계와 방법론적 속성상 제기되는 본질적인 비판 지점입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 생존자 편향 (Success Bias)</span>
+                <p class="text-sm text-slate-700">
+                  57개 질적 사례의 다수는 협업이 성공적으로 정착되었거나 문제 해결 루프가 원활히 굴러간 '성공 중심' 연구입니다. 거버넌스 설계 미비로 협업이 파탄에 이르렀거나 파트너 간 소송 등 파국으로 끝나 서비스화 도중 낙오된 기업들의 '실패 궤적'은 학계 논문으로 발표되지 못해 표본에서 제외되었으며, 이에 따라 모델이 편향되게 미화되었을 소지가 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 개념의 등가성(Construct Equivalence) 상실</span>
+                <p class="text-sm text-slate-700">
+                  수십 년에 걸친 상이한 학제(공급망, 마케팅, 정보시스템)의 질적 텍스트를 분석하는 과정에서, 각 저자들의 '신뢰', '몰입' 정의 차이가 'Relational reliability' 등으로 뭉뚱그려졌습니다. 1990년대 전통적 B2B 유대 신뢰와 2020년대 데이터 유출 위협을 내재한 디지털 플랫폼 생태계 상의 '계약 및 데이터 보안 신뢰'는 개념적으로 성격이 상이함에도 통합 합성으로 인해 맥락적 미묘함이 소실되었습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 2차 텍스트 의존에 따른 정보 왜곡</span>
+                <p class="text-sm text-slate-700">
+                  메타합성은 인터뷰 녹취록 같은 로 데이터를 다루는 것이 아니라, 1차 저자들이 자신의 논리를 입증하기 위해 의도적으로 발췌/가공해 놓은 인용구(selected quotes)에 의존합니다. 따라서 1차 문헌 연구자가 자의적으로 축소하거나 편향되게 가공한 결론이 걸러지지 않고 메타 모델에 흡수되어 정보 왜곡이 증폭되었을 가능성이 농후합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 실무적 처방의 모호성</span>
+                <p class="text-sm text-slate-700">
+                  "데이터 주권을 점비하라", "이익/위험 배분을 재협상하라"는 방향적 제언은 가치 있으나, 실질적인 실무 관리자들에게 필요한 구체적 행동 기준(예: 파트너 변경을 결심해야 하는 갈등의 임계점(threshold), 위임할 데이터 통제권의 적정 % 등)에 대해 계량적이거나 명확한 가이드를 주지 못해 추상적인 선언에 그칩니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Understanding collaboration in servitization literature: A meta-synthesis of qualitative research</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

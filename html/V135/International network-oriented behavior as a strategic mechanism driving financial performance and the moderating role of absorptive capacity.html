@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>International Network-Oriented Behavior and Firm Performance - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 36px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Network Strategy</div>
+        <div class="badge badge-secondary text-white style-label">Vol. 135, pp. 137–150</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            International network-oriented behavior as a strategic mechanism driving financial performance:<br>
+            <span class="text-cyan-400 text-[0.8em] font-medium block mt-2">and the moderating role of absorptive capacity</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Mika Gabrielsson, Tomi Seppälä, Anisur Faroque, Peter Gabrielsson, Markus Raatikainen
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            재무 성과를 견인하는 전략적 메커니즘으로서의<br>
+            <span class="text-indigo-300">국제 네트워크 지향 행동 및 흡수 역량의 조절 효과</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            핀란드 B2B/제조업 186개 기업을 대상으로 한 설문 조사 및 감사 기반 회계 데이터 연계를 통해, 네트워크 행동이 성과로 전환되는 동적 학습 메커니즘 검증
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약 (1-Line Thesis)</p>
+            <p class="style-body font-semibold text-slate-200">
+              "해외 네트워크를 적극적으로 활용하는 행동(NOB)은 기업 자체의 학습 능력인 흡수 역량(ACAP)이 뒷받침될 때 비로소 국제화 확장 성과로 전환되며, 이를 통해 궁극적으로 직원당 이익이라는 재무적 성과로 이어집니다."
+            </p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan bg-cyan-400 hover:bg-cyan-500 text-slate-900 border-none btn-sm style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-12 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Although international networking has been recognized as a highly important aspect of industrial firms, the mechanisms contributing to firm performance are not well understood. Here, a strategic mechanism is the organizational network-oriented behavior enabling the firm to alter its position within its global business-network for positional advantage and gaining higher performance. We collected quantitative survey and accounting-based performance data from 186 firms. Our findings show that network-oriented behavior increases the firm's financial performance via internationalization, but the capacity to absorb new market knowledge is an important moderating mechanism. Hence, we contribute by finding that behavioral aspects of networking and absorptive capacity are critical for enhancing both internationalization and financial performance."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "국제 네트워크 구축(international networking)이 산업재 기업(industrial firms)의 매우 중요한 측면으로 인식되어 왔음에도 불구하고, 이것이 기업 성과에 기여하는 메커니즘에 대해서는 잘 이해되지 않고 있다. 본 연구에서 다루는 전략적 메커니즘은 기업이 글로벌 비즈니스 네트워크 내에서 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">지위적 우위(positional advantage)</span>를 얻고 높은 성과를 획득하기 위해 네트워크 포지션을 변경할 수 있도록 하는 조직적 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">네트워크 지향 행동(network-oriented behavior)</span>이다. 본 연구는 186개 기업으로부터 설문 조사 자료와 객관적인 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">회계 기반 성과(accounting-based performance)</span> 데이터를 수집하였다. 연구 결과에 따르면 네트워크 지향 행동은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">국제화(internationalization)</span>를 거쳐 기업의 재무적 성과를 증가시키지만, 새로운 시장 지식을 흡수하는 능력인 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">흡수 역량(absorptive capacity)</span>이 중요한 조절 메커니즘으로 작동하는 것으로 나타났다. 따라서 본 연구는 네트워크 구축의 행동적 측면과 흡수 능력이 국제화와 재무적 성과를 모두 향상시키는 데 대단히 중요하다는 점을 규명함으로써 기여한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 학술적 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">International Network-Oriented Behavior (NOB)</td>
+                  <td>국제 네트워크 지향 행동</td>
+                  <td class="text-sm">단순히 네트워크 상의 연결망(structure)만을 갖는 것을 넘어, 외부의 글로벌 비즈니스 관계를 전략적으로 활용하기 위해 수행하는 실질적인 행위 및 관리적 루틴을 지칭합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Absorptive Capacity (ACAP)</td>
+                  <td>흡수 역량 / 흡수 능력</td>
+                  <td class="text-sm">조직 외부의 새로운 지식을 탐색, 획득한 뒤 이를 기존 역량과 결합하여 내부적으로 체화하고 비즈니스에 실제 적용하는 능력입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Post-entry Internationalization</td>
+                  <td>진입 후 국제화 성과</td>
+                  <td class="text-sm">초기 해외 진입(Initial entry) 단계를 지나 해외 매출 성장, 진입 국가 다변화, 점유율 상승 등 질적·양적으로 성장을 추진해 나가는 동태적 과정입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Positional Advantage</td>
+                  <td>지위적 우위</td>
+                  <td class="text-sm">네트워크의 중심성(centrality)이나 구조적 틈새(structural holes) 선점 등을 통해 자원 유입 통로를 확보하여 동료 기업보다 갖게 되는 구조적 경쟁 우위입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Accounting-based Performance</td>
+                  <td>회계 기반 성과</td>
+                  <td class="text-sm">설문 응답자의 주관적인 성과 평가 오류를 통제하고자 Amadeus DB 등에서 직접 추출한 재무제표 기준의 객관적 성과 지표(본 논문에서는 직원당 이익 활용)입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-12 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회 및 세미나 발표 상황에서 <strong>1분 이내에</strong> 논문의 흐름을 관통하여 상대방을 이해시킬 수 있는 핵심 주장 요약입니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">동일한 네트워크망에서도 왜 성과 차이가 나는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">네트워크 행동은 흡수 역량이 이끌 때 성과로 전환된다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">객관적 재무 데이터 매칭과 내생성 검정 고도화</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B 기업들이 글로벌 비즈니스 네트워크 내에서 수행하는 관계 행동(NOB)이 어떠한 경로와 전이 과정을 거쳐 실질적인 기업 재무 성과(Financial Performance)로 전환되는가?</li>
+                  <li><strong>핵심 발견:</strong> 국제 NOB는 직접적으로 재무성과를 올리지 못하며, <strong>진입 후 국제화 성과</strong>를 매개로 하여서만 간접적으로 1년 뒤의 재무 성과(직원당 이익)를 유의미하게 개선합니다. 또한, 이 경로는 내부 지식 학습 역량인 <strong>흡수 역량(ACAP)</strong>에 의해 긍정적으로 조절되며, 특히 이질적인 시장 정보 유입 통로가 되는 '약한 관계' 동원 시에 흡수 역량의 중요성이 도드라집니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 네트워크 이론의 초점을 정적 구조(Structure)에서 행위 루틴(NOB)으로 전환시켰으며, 자원기반관점과 동적역량을 융합하여 외부 자원의 소유가 아닌 내부 학습 프로세스(ACAP)가 핵심 성공 트리거임을 보였습니다. 실무적으로는 단순 파트너십 구축보다 흡수 역량 강화에 동시 투자해야 함을 제안합니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "외부 네트워크를 전략적으로 활용하더라도(NOB), 내부 흡수 역량(ACAP)이 학습 필터 역할을 해 주지 못하면 실제 국제화 매출 확장 및 직원당 이익으로 이어지지 못합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-12 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label text-slate-900 uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구 모형에서 검증된 핵심 주장들의 사실적 근거가 되는 원문 텍스트 인용문 및 페이지 위치입니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">국제 NOB의 성과에 대한 국제화의 간접 매개 효과 (H1 지원)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the specific indirect effect of NOB via internationalization on financial performance is significant with small effect size (β̂ = 0.060; p = 0.042). Hence, we conclude that the relationship between NOB and financial performance is mediated by internationalization, thus providing support for Hypothesis 1."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9 (Sec. 4.2)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">네트워크 지향 행동의 직접적 재무성과 영향력 부재 (완전 매개)</td>
+                <td class="text-sm italic text-slate-600">
+                  "The direct path from NOB to financial performance shows an insignificant effect (β̂ = -0.137; p = 0.152)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9 (Sec. 4.2, Table 4)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">국제화 성과에 대한 흡수 역량(ACAP)의 조절 효과 (H2 지원)</td>
+                <td class="text-sm italic text-slate-600">
+                  "The model shows that the moderation effect is positive, statistically significant with small effect size (β̂ = 0.092; p = 0.017)... ACAP positively moderates the relationship between NOB and internationalization, such that the impact of NOB on internationalization is stronger when ACAP is high."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9 (Sec. 4.2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">흡수 능력 수준에 따른 조건부 간접 효과의 상승 패턴</td>
+                <td class="text-sm italic text-slate-600">
+                  "the conditional indirect effects (NOB → Internationalization → Financial Performance) derived from the copula-corrected moderated model increase with ACAP — being weak at low ACAP (β̂ = 0.092), moderate at mean ACAP (β̂ = 0.113), and strongest at high ACAP (β̂ = 0.134)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 10 (Sec. 4.3.3)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">흡수 역량이 약한 관계 자원 동원 경로에 미치는 핵심 조절 효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "results indicate that ... ACAP acts as a moderator only between weak-tie resource mobilization and internationalization."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9 (Sec. 4.3)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-12 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Model (가설 검증 모델)</h3>
+          
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 450" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0e766e"/>
+                </marker>
+                <marker id="arrow-success" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+                </marker>
+                <marker id="arrow-mod" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+                </marker>
+                <marker id="arrow-grey" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+                </marker>
+                <marker id="arrow-grey-small" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#cbd5e1"/>
+                </marker>
+              </defs>
+              
+              <!-- IV Box (International NOB) -->
+              <rect x="40" y="150" width="220" height="150" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+              <text x="150" y="178" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">국제 네트워크 지향 행동 (NOB)</text>
+              <text x="150" y="202" text-anchor="middle" fill="#64748b" font-size="11">· 정보 획득 (Info Acquisition)</text>
+              <text x="150" y="222" text-anchor="middle" fill="#64748b" font-size="11">· 기회 활성화 (Opp Enabling)</text>
+              <text x="150" y="242" text-anchor="middle" fill="#64748b" font-size="11">· 강한 관계 자원 동원 (Strong)</text>
+              <text x="150" y="262" text-anchor="middle" fill="#64748b" font-size="11">· 약한 관계 자원 동원 (Weak)</text>
+              <text x="150" y="285" text-anchor="middle" fill="#94a3b8" font-size="9">(2차 형성적 구성 개념)</text>
+
+              <!-- Moderator Box (ACAP) -->
+              <rect x="330" y="30" width="180" height="70" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="420" y="58" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">흡수 역량 (ACAP)</text>
+              <text x="420" y="80" text-anchor="middle" fill="#b45309" font-size="10.5">외부 해외 지식 동화 및 활용</text>
+
+              <!-- Mediator Box (Internationalization) -->
+              <rect x="330" y="185" width="180" height="80" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="420" y="215" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">국제화 성과 (진입 후)</text>
+              <text x="420" y="238" text-anchor="middle" fill="#047857" font-size="11">해외 시장 매출 성장 및 다변화</text>
+              <text x="420" y="255" text-anchor="middle" fill="#059669" font-size="9">R² = 0.224 (예측 가치)</text>
+
+              <!-- DV Box (Financial Performance) -->
+              <rect x="580" y="185" width="180" height="80" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="670" y="215" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">재무 성과 (1년 시차)</text>
+              <text x="670" y="238" text-anchor="middle" fill="#4338ca" font-size="11">직원당 이익 (Profit per employee)</text>
+              <text x="670" y="255" text-anchor="middle" fill="#4f46e5" font-size="9">객관적 공시 감사 데이터 활용</text>
+
+              <!-- Controls Box -->
+              <rect x="330" y="340" width="180" height="80" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+              <text x="420" y="370" text-anchor="middle" font-weight="700" fill="#475569" font-size="12">통제 변수</text>
+              <text x="420" y="392" text-anchor="middle" fill="#64748b" font-size="10">기업 규모, 연령, 산업/고객 유형</text>
+
+              <!-- Paths -->
+              <!-- IV -> Mediator -->
+              <path d="M 260 225 L 320 225" fill="none" stroke="#0ea5e9" stroke-width="3" marker-end="url(#arrow)"/>
+              <text x="290" y="215" text-anchor="middle" font-weight="700" fill="#0f766e" font-size="12">β = 0.328***</text>
+
+              <!-- Moderator ACAP pointing down to IV -> Mediator -->
+              <path d="M 390 100 L 390 145 L 290 145 L 290 215" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrow-mod)"/>
+              <text x="340" y="138" font-weight="700" fill="#b45309" font-size="11.5">H2 (조절): β = 0.092*</text>
+
+              <!-- Mediator -> DV -->
+              <path d="M 510 225 L 570 225" fill="none" stroke="#10b981" stroke-width="3" marker-end="url(#arrow-success)"/>
+              <text x="545" y="215" text-anchor="middle" font-weight="700" fill="#047857" font-size="12">β = 0.182*</text>
+              <text x="545" y="245" text-anchor="middle" font-weight="600" fill="#059669" font-size="10">H1 (매개)</text>
+
+              <!-- IV -> DV Direct Path (dashed) -->
+              <path d="M 150 300 L 150 325 L 670 325 L 670 273" fill="none" stroke="#94a3b8" stroke-dasharray="4 4" stroke-width="2" marker-end="url(#arrow-grey)"/>
+              <text x="410" y="318" text-anchor="middle" font-weight="600" fill="#64748b" font-size="11">직접 효과 (비유의적): β = -0.137</text>
+
+              <!-- Controls Paths -->
+              <path d="M 420 340 L 420 275" fill="none" stroke="#cbd5e1" stroke-dasharray="2 2" stroke-width="1.5" marker-end="url(#arrow-grey-small)"/>
+              <path d="M 510 380 L 670 380 L 670 273" fill="none" stroke="#cbd5e1" stroke-dasharray="2 2" stroke-width="1.5" marker-end="url(#arrow-grey-small)"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 (IV)</span>
+                <span class="text-xs text-slate-400 font-semibold">International NOB</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">국제 네트워크 지향 행동</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 외부 글로벌 비즈니스 네트워크 내에서 발생하는 직간접 자원을 파악 및 조율하여 사업적 목적에 활용하기 위한 관리 수준의 실행 루틴.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 정보 획득(3문항), 기회 활성화(3문항), 강한 관계 동원(4문항), 약한 관계 동원(4문항)으로 측정되는 2차 형성적 변수(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Thornton et al. (2014, 2015)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 단순한 네트워크 위치 소유와 구분되며, 실증 결과 그 자체로는 직접적 재무 이익을 거두지 못하고 오로지 국제화를 촉진시킴으로써 재무 성과를 거두는 행동적 기초입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 (Moderator)</span>
+                <span class="text-xs text-slate-400 font-semibold">Absorptive Capacity</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">흡수 역량 (ACAP)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 조직 외부에서 획득된 신규 정보/기술의 상업적 가치를 식별하고, 내부 지식 기반과 융합 및 활용하여 업무에 배포하는 동적 학습 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 새로 습득한 해외 지식의 실행 능력, 상업적 활용 경쟁력 등 3문항 측정(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Szulanski (1996), García-Morales et al. (2008)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 외부 네트워크 교류가 정보 과부하나 의사결정 혼선을 초래할 수 있는데, 이를 걸러내어 비즈니스 성장 전략으로 변환하는 수문장 역할을 합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수 (Mediator)</span>
+                <span class="text-xs text-slate-400 font-semibold">Internationalization</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">진입 후 국제화 성과</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 초기 해외 시장 진출 단계를 지나 비즈니스를 고도화하면서 해외 사업의 매출, 시장 점유율, 진출 지역 등을 확장하는 프로세스.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 첫 진입 이후 (1) 여러 해외 시장으로의 확장 성공, (2) 해외 매출 증대, (3) 해외 점유율 상승 수준 3문항 측정(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Weerawardena et al. (2015)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 본 모델에서 완전 매개 역할을 합니다. 네트워크 행동이 내부 학습 필터를 거쳐 매출 증가 등 구체적인 비즈니스 스케일업으로 표출되는 중간 기착지입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수 (DV)</span>
+                <span class="text-xs text-slate-400 font-semibold">Financial Performance</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">회계 기반 재무 성과 (직원당 이익)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 설문 조사와 1년 시차(Time lag)를 두고 공시된 감사 대상 재무제표에 근거하여 산출된 객관적인 기업 재무 영업 실적.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Amadeus DB로부터 연동된 2017년 기준 기업 전체 **직원당 영업 이익 (profit per employee)** (단위: 1,000 유로).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Amadeus Database (Bureau van Dijk)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 주관적 인지 척도 측정 한계 및 공동방법편향을 극복하기 위해 설계되었으며, 기업 규모 편향을 최소화하는 지표로 채택되었습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-12 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 논문과 동일한 연구 설계를 통해 데이터를 재획득하고 검증하고자 할 때 따라야 하는 실증 분석 절차입니다.
+        </p>
+
+        <!-- Timeline Component -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">핀란드 국제화 기업 표본 추출 및 전화 스크리닝</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  핀란드에 본사를 두고 실질적으로 해외 비즈니스 활동을 수행하고 있는 제조업 및 관련 서비스업 기업들을 대상으로 전화 스크리닝을 시행, 최종 적격한 1,039개 기업 목록을 구축합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6, Section 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">온라인 설문지 설계 및 배포 (2016년)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Webropol 도구를 사용해 영어 및 핀란드어 설문지를 발송합니다. 최종 342개의 유효한 완료 설문 응답을 획득합니다 (응답률 32.9%).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6, Section 3.1 & 3.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">1년 시차(2017년) 객관적 재무 데이터 연계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Bureau van Dijk의 Amadeus 데이터베이스를 검색하여 설문 응답사 중 2017년 감사 재무 실적(직원당 이익) 조회가 가능한 186개 기업을 선별하여 최종 분석 표본을 확보합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6, Section 3.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">무응답 및 공동방법편향(CMB) 사후 진단</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Mann-Whitney U 및 Kolmogorov-Smirnov test를 수행해 무응답 편향을 점검하고, '남녀 직원 고용 비율' 마커 변수 통제 검정 및 1년 시차 재무 매칭을 통해 CMB 가능성을 제어합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 8, Section 4.1.1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">도구 변수를 이용한 내생성(Endogeneity) 진단</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  NOB의 내생성 통제를 위해 '파트너십 관련 이펙추에이션 관리 행위'와 '관계 커뮤니케이션 빈도'를 도구변수로 확보하고 Durbin-Wu-Hausman 검정을 수행하여 focal variable의 외생성을 입증합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 8, Section 4.1.2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">측정 모델 검증 및 확인적 요인분석 (CFA)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  AMOS를 통해 요인 분석을 실시하여 모델 적합도(CFI=0.975, RMSEA=0.049)를 진단하고 Fornell-Larcker 기준에 기반해 판별 타당성을 통과시킵니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 8, Section 4.1</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">PLS-SEM 가설 검증 및 Copula 기반 강건성 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  SmartPLS 4를 구동해 5,000회 부트스트래핑으로 매개와 조절 효과를 검증합니다. 비정규 분포 성향의 NOB에 대해 Gaussian Copula 항을 구조 모델에 추가 투입해 최종 내생성이 제어된 2단계 조절 매개 안정성을 입증합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 9-10, Section 4.2 & 4.3.3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            척도 구성 요인(Appendix 1) 및 SmartPLS 4 분석 환경, 도구변수와 Gaussian Copula 통제 기법이 명세되어 있어 통계 기법 상의 재현은 매우 용이합니다. 그러나 핀란드에 소재한 특정 B2B 국제화 기업 표본(n=186)의 독자적 확보와 매칭 재무 데이터 획득을 외부 연구자가 완전히 똑같이 답습하는 것에는 제약이 따릅니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-12 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 연구진들이 직접 표명한 한계 영역입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>소규모 개방 경제(핀란드)로의 한정:</strong> 지리적 및 제도적 국한성으로 인해 핀란드 기업 고유의 '작은 내수 시장으로 인한 조기 해외 확장 압박' 성향이 반영되어 있어, 미국 등 대규모 내수 기반을 지닌 국가의 기업들로 일반화하기 어렵습니다.
+              </li>
+              <li>
+                <strong>거시 위기(코로나19 등) 시기의 환경 변화 미추적:</strong> 2016년 설문 수집 데이터에 기반하고 있어 팬데믹 시기의 격동하는 글로벌 가치 사슬 단절이나 물류 중단 상황 하에서도 NOB-ACAP 결합 메커니즘이 동일하게 생존력으로 승화되는지 추적하지 못했습니다.
+              </li>
+              <li>
+                <strong>내부 역량 조절 변수의 단일성:</strong> 흡수 능력(ACAP)만을 주요 조직 학습 중재 조건으로 평가하였으나, 실제 비즈니스 가동에서는 디지털 기술 배치 고도화 수준이나 최고경영자의 의사결정 논리(Effectuation 등)가 간섭 효과를 낼 가능성이 있습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 데이터 특성을 근거로 추론해 낼 수 있는 학술적 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 동시성 측정에 따른 역인과성 (Reverse Causality)</span>
+                <p class="text-sm text-slate-700">
+                  종속변수인 재무성과는 1년 뒤인 2017년에 확인했으나, 독립변수(NOB)와 매개변수(국제화 성과)는 **2016년 설문을 통해 동일 시점에 함께 측정**되었습니다. 즉, "네트워크 행동(NOB)을 왕성히 해서 국제화 성과를 거두었다"기보다 **"이미 성공적으로 해외 진출이 안착된 기업일수록 해외 바이어와의 정보 획득 및 약한 관계 개척(NOB)에 적극적으로 나서고 있을"** 역인과성 내지 동시성 편향을 내생성 진단 및 Copula 보정만으로 완벽히 제거했다고 단정하기 어렵습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 기업 생존자 편향 (Survivor Bias)</span>
+                <p class="text-sm text-slate-700">
+                  표본 추출 방식 상 2016년 시점에 여전히 건실하게 해외 사업을 운영하며 대행사 데이터베이스 내에 등록되어 있고 성실히 설문에 답할 수 있었던 **생존 기업**으로만 표본이 채워졌습니다. 초기에 무리하게 네트워크 활동(NOB)을 시도했으나 자금 잠식이나 비효율적 학습(ACAP 실패)으로 도산·청산한 실패 기업(Non-survivors)의 데이터는 누락되었기 때문에 모형의 메커니즘이 다소 낙관적으로 편향(overoptimistic bias)되었을 가능성이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 1인 응답자에 의존한 주관적 측정 한계</span>
+                <p class="text-sm text-slate-700">
+                  재무 성과를 제외한 핵심 메커니즘 변수들(NOB의 4대 차원, 흡수 역량, 국제화 성과)이 **한 명의 최고경영자(CEO)나 창업자의 주관적 인식**을 바탕으로 답해진 7점 척도로 측정되었습니다. 경영 실상을 가시화하는 정량적 운영 로그나 파트너 교류 빈도 등의 객관적 수치 대신 1인의 설문 인지에 의존함으로써 사회적 바람직성 편향 및 자기 행동 합리화가 개입되었을 여지가 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 북유럽 고신뢰 비즈니스 문화의 일반화 문제</span>
+                <p class="text-sm text-slate-700">
+                  조사 대상지인 핀란드는 사회적 제도 인프라가 대단히 투명하고 파트너 간 상호 호혜적 문화(social trust)가 기저에 깔려 있습니다. 이러한 환경은 약한 관계를 맺고 자원을 교환하는 행위적 신뢰 구축 비용을 크게 경감시킵니다. 그러나 제도적 공백(institutional voids)이 크고 계약 집행력이 취약해 파트너 간 불신과 기회주의가 팽배한 신흥국 시장에서도 과연 이러한 행동 루틴(NOB)이 위험 부담 없이 성과로 연계될지는 불확실합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>International network-oriented behavior as a strategic mechanism driving financial performance and the moderating role of absorptive capacity</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

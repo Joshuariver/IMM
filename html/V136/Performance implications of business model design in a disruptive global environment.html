@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance implications of business model design in a disruptive global environment - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 36px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Business Model Design</div>
+        <div class="badge badge-secondary text-white style-label">V136, Pages 130-145</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Performance implications of business model design<br>
+            <span class="text-cyan-400">in a disruptive global environment</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Irina Mihailova, Mika Gabrielsson, Timo Tammi
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            글로벌 격변 환경에서 비즈니스 모델<br>
+            <span class="text-indigo-300">설계가 경영성과에 미치는 영향</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            코로나19 팬데믹 하에서 핀란드 309개 수출 기업 데이터를 기반으로 한 내부 역량, 외부 격변, 그리고 비즈니스 모델 설계 간의 전략적 적합성 실증 분석
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">글로벌 위기 상황에서 효율성 지향 BM의 정렬은 재무 성과를 직접 보장하지만, 새로움 지향 BM은 시장 성과 강화를 돕는 장기 경로로 작용합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          분석 시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Business model (BM) design has been found to be important in explaining firms' performance. We applied the theoretical lens of contingency theory and the strategic fit approach to examine the optimal alignment between BM design and firm performance under the influence of internal and environmental contingency factors. We used empirical data from 309 Finnish firms collected during the COVID-19 pandemic. The findings showed that alignment between efficiency-centered BM, marketing, technological, and networking capabilities, and technological and institutional turbulence had positive performance implications. In contrast, the fit between novelty-centered BM and contingency factors is not associated with superior performance, suggesting that the performance implications of this BM design depend on the performance dimension considered. Furthermore, our results indicated that not all types of capabilities supported novelty-centered BM design, which contributes to a better understanding of its antecedents. These findings have important implications for BM research by offering novel insights into the drivers and performance implications of efficiency- and novelty-centered BM designs under conditions of global turbulence. Additionally, our study illustrates the explanatory power of the strategic fit approach in BM research, although it has previously been largely applied to the examination of other marketing aspects."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "비즈니스 모델(BM) 설계는 기업 성과를 설명하는 데 중요한 역할을 하는 것으로 밝혀져 왔다. 본 연구는 상황 이론(Contingency Theory)과 전략적 적합성(Strategic Fit) 접근법의 이론적 프레임워크를 적용하여, 내부적 및 환경적 상황 요인들의 영향 아래 비즈니스 모델 설계와 기업 성과 간의 최적의 정렬(Alignment)을 조사하였다. 우리는 코로나19 팬데믹 기간 동안 수집된 309개 핀란드 기업의 실증 데이터를 활용하였다. 분석 결과, 효율성 중심 비즈니스 모델(Efficiency-centered BM)과 마케팅, 기술 및 네트워킹 역량, 그리고 기술적 및 제도적 격변(Turbulence) 간의 정렬이 재무적 성과에 긍정적인 영향을 미친다는 것을 보여주었다. 이와 대조적으로, 새로움 중심 비즈니스 모델(Novelty-centered BM)과 상황 요인 간의 적합성(Fit)은 우수한 재무 성과와 유의한 연관성이 없었으며, 이는 이 비즈니스 모델 설계의 성과 함의가 고려되는 성과 차원(Performance Dimension)에 따라 달라질 수 있음을 시사한다. 나아가 우리의 연구 결과는 모든 유형의 역량이 새로움 중심 비즈니스 모델 설계를 지원하는 것은 아님을 나타내어, 비즈니스 모델의 선행 요인(Antecedents)에 대한 이해를 높이는 데 기여한다. 이러한 발견들은 글로벌 격변 환경 속에서 효율성 및 새로움 중심 비즈니스 모델 설계의 동인(Drivers)과 성과 함의에 대한 새로운 통찰을 제공함으로써 비즈니스 모델 연구에 중요한 기여를 한다. 아울러 본 연구는 기존에 주로 다른 마케팅 측면의 연구에 적용되었던 전략적 적합성 접근법이 비즈니스 모델 연구에서도 우수한 설명력을 가짐을 실증한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table table-zebra w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Business Model Design</td>
+                  <td>비즈니스 모델 설계 / 디자인</td>
+                  <td class="text-sm">단순한 기술적 채택이나 판매 제품의 다각화를 넘어, 가치 창출과 획득을 둘러싼 거래 구성원 간의 정보·제품·서비스 연결 방식을 규정하는 전략적 설계입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Strategic Fit (Fit-as-Matching)</td>
+                  <td>전략적 적합성 (매칭으로서의 적합성)</td>
+                  <td class="text-sm">기업의 내부 자원/역량과 외부 환경 요인의 상호 작용이 특정 전략적 방향과 일치해야 높은 성과를 낸다는 상황 이론적 적합성 모델입니다. 통계적으로는 1단계 회귀분석 예측값과 실제값 간의 절대 잔차를 활용해 정렬(Alignment) 수준을 구체화합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Efficiency-centered BM</td>
+                  <td>효율성 중심 비즈니스 모델</td>
+                  <td class="text-sm">Amit & Zott(2001)의 연구 계보를 이어받아, 거래비용 절감, 실행 과정에서의 오류 감소, 거래 정보의 투명성 및 거래 확장성(Scalability)을 극대화하려는 비즈니스 모델 지향점입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Novelty-centered BM</td>
+                  <td>새로움 중심 비즈니스 모델</td>
+                  <td class="text-sm">기존의 거래 방식을 탈피하여 새로운 참여자들을 연결하고, 독창적인 거래 인센티브를 제공하며, 새로운 정보·제품 결합 구조를 도입하려는 지향점입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Turbulence (Technological / Institutional)</td>
+                  <td>격변 / 격동 (기술적 / 제도적)</td>
+                  <td class="text-sm">코로나19 팬데믹처럼 거시 위기로 인해 초래된 비즈니스 환경 내 기술적 변화의 급진성 및 비예측성(Technological), 그리고 정부 방역 수칙이나 법/규제, 무역 금융 등 제도적 시스템의 급변(Institutional)을 뜻합니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 전략 보고 회의에서 <strong>1분 만에</strong> 연구의 요점을 파악하고 핵심 논리를 전달할 수 있도록 재구성하였습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">역량과 환경이 BM 선택을 어떻게 지배하며, 그 적합성이 성과로 이어지는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">효율성 BM은 재무 성과를, 새로움 BM은 시장 성과를 견인한다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">잔차 분석을 통한 BM의 다차원적 적합성 증명</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 기업의 3대 역량(마케팅, 기술, 네트워킹)과 코로나19 환경 격변이 효율성/새로움 중심 BM 설계를 유도하는 인과 경로와, 이들의 전략적 적합성(Fit)이 수출 성과에 미치는 영향은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> 효율성 중심 BM은 모든 역량(마케팅·기술·네트워킹)이 강할수록 잘 채택되며, 외부 상황 요인과의 전략적 적합성(Fit)이 높을 때 즉각적인 재무성과(FPER)로 직결됩니다. 반면 새로움 중심 BM은 네트워킹 역량과 기술 격변 상황에서만 선택되고, 단기 재무 성과보다는 기술 역량과의 상호 작용을 통해 해외 시장 점유율 및 글로벌 명성(시장 성과 MPER)을 크게 자극합니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 마케팅 전략론에 국한되었던 '매칭으로서의 적합성(fit-as-matching)' 잔차 분석법을 BM 연구로 이식하였고, 위기 속 리더들에게 당장 서툰 혁신(BNO)을 시도하기보다는 보유 자원에 정렬된 효율적 운영(BEF)을 추구하는 것이 즉각적 생존에 유리하다는 실무적 시사점을 줍니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "글로벌 격변기에는 역량에 최적화된 효율성 BM 정렬(Fit)이 기업 재무 생존을 직접 보장하며, 새로움 BM은 기술 역량과 결합하여 중장기적인 시장 입지 및 평판 확장을 유도합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구 모형의 신뢰도를 확실하게 파악하기 위해, 논문 본문의 핵심 실증 수치 및 구체적인 통계 검증(Table 3)을 원문 위치와 연결하여 맵핑하였습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote & Statistics)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">마케팅·기술·네트워킹 역량의 효율성 BM 촉진 효과</td>
+                <td class="text-sm italic text-slate-600 font-mono">
+                  "MCAP had a statistically significant positive association with BEF (β = 0.164, p = .007...). TCAP had a strong positive association with BEF (β = 0.416, p < .001...). NCAP showed a positive and statistically significant association with BEF (β = 0.233, p < .001...)"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9, Sec. 5.1 / Table 3 (Model 1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">제도적 격변의 효율성 BM 지향성 억제 효과</td>
+                <td class="text-sm italic text-slate-600 font-mono">
+                  "Finally, COIT had a significant negative association with BEF (β = −0.205, p = .005...)"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9, Sec. 5.1 / Table 3 (Model 1)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">네트워킹 역량 및 기술 격변의 새로움 BM 촉진 효과</td>
+                <td class="text-sm italic text-slate-600 font-mono">
+                  "NCAP (β = 0.279, p < .001...) had a positive and statistically significant association with BNO, ... COTT showed a strong positive and statistically significant association with BNO (β = 0.480, p < .001...)"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9-10, Sec. 5.1 / Table 3 (Model 2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">효율성 BM 정렬(Fit)의 재무 성과(FPER) 직접 견인 효과</td>
+                <td class="text-sm italic text-slate-600 font-mono">
+                  "The absolute residuals from the model in which the contextual regressors predicted BEF yielded a significant negative coefficient (β = −0.206, p = .018), indicating that smaller residuals were associated with stronger performance (and vice versa)." / "the coefficient for the squared absolute residuals was negative and significant (β = −0.158, p = .020)"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 10, Sec. 5.1 / Table 3 (Model 3 & 5)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">새로움 BM 정렬(Fit)의 재무 성과 연관성 부재</td>
+                <td class="text-sm italic text-slate-600 font-mono">
+                  "By contrast, Model 6 revealed no relationship between performance and the residual terms from the model predicting BNO... suggesting that the fit between contextual factors and novelty-centered BM design choices was not associated with international performance."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 10, Sec. 5.1 / Table 3 (Model 4 & 6)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">새로움 BM과 기술 역량(TCAP)의 상호작용을 통한 시장 성과(MPER) 견인</td>
+                <td class="text-sm italic text-slate-600 font-mono">
+                  "the interaction term BNO*TCAP was significant (β = 0.163, p = .008), indicating that BNO was associated with the relationship between TCAP and MPER. ... The results showed that TCAP had a positive impact on MPER at both average ... and high (marginal effect = 0.324, p < .001) levels of BNO."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 10-11, Sec. 5.3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (이단계 적합성 및 상호작용 검증 모델)</h3>
+          
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 850 500" class="w-full h-auto">
+              <!-- Definitions of arrow markers -->
+              <defs>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6"/>
+                </marker>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444"/>
+                </marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+                </marker>
+                <marker id="arrow-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+                </marker>
+              </defs>
+
+              <!-- Left Column: Contextual Contingency Factors -->
+              <!-- MCAP -->
+              <rect x="20" y="30" width="200" height="65" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="120" y="55" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">마케팅 역량 (MCAP)</text>
+              <text x="120" y="75" text-anchor="middle" fill="#64748b" font-size="10">가격/채널/세분화 실행 역량</text>
+
+              <!-- TCAP -->
+              <rect x="20" y="120" width="200" height="65" rx="8" fill="#f1f5f9" stroke="#3b82f6" stroke-width="2"/>
+              <text x="120" y="145" text-anchor="middle" font-weight="700" fill="#1d4ed8" font-size="13">기술 역량 (TCAP)</text>
+              <text x="120" y="165" text-anchor="middle" fill="#2563eb" font-size="10">공정/설비/R&D 고도화 기술</text>
+
+              <!-- NCAP -->
+              <rect x="20" y="210" width="200" height="65" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="120" y="235" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">네트워킹 역량 (NCAP)</text>
+              <text x="120" y="255" text-anchor="middle" fill="#64748b" font-size="10">파트너십 발굴 및 관계 유지 역량</text>
+
+              <!-- COTT -->
+              <rect x="20" y="300" width="200" height="65" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="120" y="325" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">기술적 격변 (COTT)</text>
+              <text x="120" y="345" text-anchor="middle" fill="#b45309" font-size="10">코로나19 디지털 기술 전환 압력</text>
+
+              <!-- COIT -->
+              <rect x="20" y="390" width="200" height="65" rx="8" fill="#fef2f2" stroke="#f87171" stroke-width="2"/>
+              <text x="120" y="415" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="13">제도적 격변 (COIT)</text>
+              <text x="120" y="435" text-anchor="middle" fill="#b91c1c" font-size="10">방역 규제 및 국제 비즈니스 관행 변화</text>
+
+              <!-- Middle Column: BM Design Choices -->
+              <!-- BEF -->
+              <rect x="330" y="90" width="200" height="90" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="430" y="120" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">효율성 중심 BM (BEF)</text>
+              <text x="430" y="145" text-anchor="middle" fill="#047857" font-size="11">거래 단순화, 오류 방지,</text>
+              <text x="430" y="163" text-anchor="middle" fill="#047857" font-size="11">확장성에 초점</text>
+
+              <!-- BNO -->
+              <rect x="330" y="290" width="200" height="90" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="430" y="320" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">새로움 중심 BM (BNO)</text>
+              <text x="430" y="345" text-anchor="middle" fill="#4338ca" font-size="11">신규 참여자 연결, 새로운</text>
+              <text x="430" y="363" text-anchor="middle" fill="#4338ca" font-size="11">인센티브 메커니즘 설계</text>
+
+              <!-- Right Column: Performance Outcomes -->
+              <!-- FPER -->
+              <rect x="630" y="90" width="200" height="90" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+              <text x="730" y="125" text-anchor="middle" font-weight="700" fill="#14532d" font-size="14">국제 재무 성과 (FPER)</text>
+              <text x="730" y="150" text-anchor="middle" fill="#15803d" font-size="11">해외 매출, 마진, ROI 만족도</text>
+              <text x="730" y="165" text-anchor="middle" fill="#16a34a" font-size="10">(1단계 잔차로 적합성 테스트)</text>
+
+              <!-- MPER -->
+              <rect x="630" y="290" width="200" height="90" rx="10" fill="#ecfeff" stroke="#06b6d4" stroke-width="2"/>
+              <text x="730" y="325" text-anchor="middle" font-weight="700" fill="#083344" font-size="14">국제 시장 성과 (MPER)</text>
+              <text x="730" y="350" text-anchor="middle" fill="#0e7490" font-size="11">시장 점유율, 글로벌 명성,</text>
+              <text x="730" y="368" text-anchor="middle" fill="#0e7490" font-size="11">해외 입지 확보 수준</text>
+
+              <!-- Fit Badges in between -->
+              <!-- BEF Fit Box -->
+              <rect x="555" y="120" width="50" height="30" rx="6" fill="#f8fafc" stroke="#10b981" stroke-width="1.5"/>
+              <text x="580" y="139" text-anchor="middle" font-weight="700" fill="#0f172a" font-size="11">Fit 1</text>
+
+              <!-- BNO Fit Box -->
+              <rect x="555" y="320" width="50" height="30" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="580" y="339" text-anchor="middle" font-weight="700" fill="#64748b" font-size="11">Fit 2</text>
+
+              <!-- Interaction Bubble for TCAP * BNO -->
+              <rect x="545" y="225" width="70" height="40" rx="8" fill="#e0f7fa" stroke="#00bcd4" stroke-width="1.5"/>
+              <text x="580" y="243" text-anchor="middle" font-weight="700" fill="#006064" font-size="10">상호작용</text>
+              <text x="580" y="257" text-anchor="middle" fill="#006064" font-size="8">TCAP * BNO</text>
+
+              <!-- Stage 1 Paths to BEF (Green paths mean supported positive, red is negative, gray is N.S.) -->
+              <!-- MCAP -> BEF -->
+              <path d="M220 62.5 L 270 62.5 L 270 110 L 320 110" fill="none" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+              <text x="290" y="102" fill="#2563eb" font-weight="700" font-size="9">H1a: 0.164**</text>
+
+              <!-- TCAP -> BEF -->
+              <path d="M220 152.5 L 320 135" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+              <text x="270" y="135" fill="#1d4ed8" font-weight="700" font-size="10">H1b: 0.416***</text>
+
+              <!-- NCAP -> BEF -->
+              <path d="M220 242.5 L 270 242.5 L 270 160 L 320 160" fill="none" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+              <text x="290" y="172" fill="#2563eb" font-weight="700" font-size="9">H1c: 0.233***</text>
+
+              <!-- COTT -> BEF -->
+              <path d="M220 332.5 L 290 332.5 L 290 175 L 320 175" fill="none" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#arrow-gray)"/>
+              <text x="295" y="210" fill="#64748b" font-size="8">H1d: 0.088 (N.S.)</text>
+
+              <!-- COIT -> BEF -->
+              <path d="M220 422.5 L 310 422.5 L 310 178 L 320 178" fill="none" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+              <text x="280" y="405" fill="#ef4444" font-weight="700" font-size="9">H1e: -0.205**</text>
+
+              <!-- Stage 1 Paths to BNO -->
+              <!-- MCAP -> BNO -->
+              <path d="M220 62.5 L 250 62.5 L 250 310 L 320 310" fill="none" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#arrow-gray)"/>
+              <text x="255" y="295" fill="#64748b" font-size="8">H2a: 0.089 (N.S.)</text>
+
+              <!-- TCAP -> BNO -->
+              <path d="M220 152.5 L 280 152.5 L 280 325 L 320 325" fill="none" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#arrow-gray)"/>
+              <text x="285" y="280" fill="#64748b" font-size="8">H2b: 0.096 (N.S.)</text>
+
+              <!-- NCAP -> BNO -->
+              <path d="M220 242.5 L 300 242.5 L 300 340 L 320 340" fill="none" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+              <text x="260" y="235" fill="#2563eb" font-weight="700" font-size="9">H2c: 0.279***</text>
+
+              <!-- COTT -> BNO -->
+              <path d="M220 332.5 L 320 360" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+              <text x="270" y="360" fill="#1d4ed8" font-weight="700" font-size="10">H2d: 0.480***</text>
+
+              <!-- COIT -> BNO -->
+              <path d="M220 422.5 L 290 422.5 L 290 375 L 320 375" fill="none" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#arrow-gray)"/>
+              <text x="240" y="445" fill="#64748b" font-size="8">H2e: -0.174 (p=.061)</text>
+
+              <!-- Stage 2 Paths (Fit -> Performance) -->
+              <!-- BEF -> Fit1 -> FPER -->
+              <path d="M530 135 L 555 135" fill="none" stroke="#10b981" stroke-width="2"/>
+              <path d="M605 135 L 620 135" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+              <text x="580" y="105" text-anchor="middle" fill="#047857" font-weight="700" font-size="10">H3: 정(+)의 적합성</text>
+              <text x="580" y="117" text-anchor="middle" fill="#047857" font-size="9">(β = -0.206* 잔차)</text>
+
+              <!-- BNO -> Fit2 -> FPER -->
+              <path d="M530 335 L 555 335" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <path d="M580 320 L 580 185 L 620 180" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-gray)"/>
+              <text x="585" y="200" text-anchor="start" fill="#64748b" font-size="8">H4: 적합성 효과 무 (N.S.)</text>
+
+              <!-- Interaction Pathway (TCAP + BNO -> MPER) -->
+              <path d="M220 160 L 260 160 L 260 190 L 545 240" fill="none" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <path d="M430 290 L 430 250 L 545 250" fill="none" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <path d="M615 245 L 670 245 L 670 282" fill="none" stroke="#06b6d4" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+              <text x="680" y="260" text-anchor="start" fill="#0891b2" font-weight="700" font-size="10">상호작용 효과</text>
+              <text x="680" y="272" text-anchor="start" fill="#0891b2" font-size="9">(β = 0.163**)</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">MCAP</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">마케팅 역량 (Marketing Capability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 고객의 요구 분석 및 광고·홍보·가격 수립, 세분화 실행을 통해 기업의 제품 및 브랜드 가치를 효율적으로 전달하는 총체적 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 통합적 마케팅 계획 실행, 타겟팅 및 세분화 능력, 가격 전략 실행력, 광고 활동의 효과성에 대한 7점 리커트 척도 만족 수준.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> DeSarbo et al. (2005) / 4개 항목 (CR = 0.884, AVE = 0.658)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 고객을 정밀하게 타겟팅하여 불필요한 거래 알력 및 정보 격차를 없애며, 가격 캠페인을 효율화하여 효율성 중심 BM(BEF)을 직접 촉진합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">TCAP</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기술 역량 (Technological Capability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 신제품 개발, 제조 및 서비스 공정의 표준화, 설비 자동화 및 품질 제어 기술과 기술 트렌드를 예측하는 전략적 능력.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 제조 공정 기술 우위, 가용 시설 수준, 품질 제어 및 R&D 스킬 우위 수준에 대해 타사 대비 점수로 평가한 3개 항목(7점 리커트).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> DeSarbo et al. (2005) / 3개 항목 (CR = 0.784, AVE = 0.548)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 한계 생산 원가 절감과 품질 오류율 통제에 크게 기여하므로 효율성 중심 BM에 가장 중요한 동인(β = 0.416)이 됩니다. 새로움 중심 BM 하에서는 기술 역량이 시장 만족을 이끄는 보완 도구로 작동합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 3</span>
+                <span class="text-xs text-slate-400 font-semibold">NCAP</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">네트워킹 역량 (Networking Capability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 정보의 상호 융합과 가치 공동 창출을 도모하고자 네트워크 내 잠재적 파트너를 식별하고 관계를 수립·조율해 나가는 능력.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 협력 목표 조율, 파트너 식별력, 전담 인력 지정, 파트너와의 건설적 협동 해결 경험 수준 등 4개 항목(7점 리커트).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Chen et al. (2009) / 4개 항목 (CR = 0.765, AVE = 0.453)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 효율성 지향(거래 조율) 및 새로움 지향(신규 파트너 발굴 및 독창적 가치 사슬 결합) BM 양쪽을 동시에 촉진하는 중요한 조율 역량입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 4 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">환경 요인</span>
+                <span class="text-xs text-slate-400 font-semibold">COTT & COIT</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">코로나19 환경 격변 (Turbulence)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>기술적 격변 (COTT):</strong> 코로나19로 유발된 업계 내 디지털 기술 사용 강도 및 제품/서비스 내 파괴적 기술 수준(CR = 0.860).</p>
+              <p class="text-sm text-slate-700"><strong>제도적 격변 (COIT):</strong> 정부 방역 가이드라인으로 인한 법규, 금융 시스템 및 비즈니스 관행 변화에 따른 예측 불가능성(CR = 0.741).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Jaworski & Kohli (1993); Tseng & Lee (2010) 기반으로 코로나19 맥락 연구진 자체 문항 개발.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 기술적 격변은 새로움 중심 BM 설계를 강하게 추동(β = 0.480)하는 기회 요인이 되나, 제도적 격동은 비용을 가중시켜 기본적인 거래 효율성조차 악화(β = -0.205)시킵니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">FPER & MPER</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">다차원적 성과 (International Performance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>국제 재무 성과 (FPER):</strong> 해외 매출 규모, 해외 매출 성장세, 해외 영업이익 수준, 전반적인 글로벌 성과 및 해외 투자수익률(ROI) 만족도의 복합 만족 지수(CR = 0.885).</p>
+              <p class="text-sm text-slate-700"><strong>국제 시장 성과 (MPER):</strong> 해외 시장 점유율, 글로벌 지리적 영토 확장력(Reach), 기업의 대외 명성, 국제 시장 내 정착 성공 수준에 대한 평가(α = 0.80).</p>
+              <p class="text-sm text-slate-700"><strong>객관적 재무 성과 (Profit Margin):</strong> 설문지 주관 평가의 한계를 극복하고자 매칭한 Amadeus 데이터베이스상의 실제 영업이익률.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Katsikeas et al. (2006) / Gerschewski et al. (2015) 및 Bureau van Dijk Amadeus 데이터베이스.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 연구 대상 표본 프레임을 구성하고 통계적 '매칭 적합성' 회귀 기법을 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 단계별로 구조화했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">질적 사전 인터뷰 및 설문 문항 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  CEO, 수출 임원 등 비즈니스 모델 설계 경험을 지닌 9인의 엘리트를 인터뷰하여 뼈대를 다진 뒤, 학계 기존 검증 척도를 결합하여 영문-핀란드어 역번역 설문지를 개발. 10명의 현직 관리자를 대상으로 사전 파일럿 조사를 시행해 문항 오류를 미세 수정함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 135, Sec. 4.1 & Sec. 4.3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">모집단 추출 및 전화 적격성 판별</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  핀란드 세무국(Tax Office)의 공식 과세 DB를 사용해 설립 10년 이하이고 해외 수출 거래 실적이 등록된 2,511개 사를 리스트업. 비핀란드 태생 및 수출 미진행 기업을 배제해 1,179개 사의 적격 프레임을 확정하고, 전화를 걸어 해외 파트 담당 적격 응답자를 식별.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 135-136, Sec. 4.1 & Sec. 4.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">설문 배포 및 복수 응답자(Dual Informants) 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  전화로 사전 참여 승인을 마친 542개 사에 무작위 이메일 설문을 발송하고, Total Design Method에 기초하여 정기 메일 독촉을 실행. 최종 309개 사의 유효 응답을 얻었으며(응답률 26%), 응답 왜곡 방지를 위해 72개 사에는 복수 응답자를 추가 배치해 가중 평탄화함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 135-136, Sec. 4.1 & Sec. 4.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">무응답 편향 진단 및 측정 타당성 요인 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  설문 회수 기간에 따라 세 개의 그룹(Early, Middle, Late waves)으로 쪼갠 뒤 t-test 및 ANOVA 분석을 거쳐 무응답 편향 우려를 기각. AMOS 확인적 요인분석(CFA)을 활용하여 모델 적합도 지수 달성도와 AVE 판별 기준치 통과를 정밀 검증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 136, Sec. 4.2 & Sec. 4.3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">이단계 적합성(Fit-as-Matching) 회귀분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  (1단계) 5대 상황 요인을 기반으로 BEF 및 BNO 예측 회귀식을 작동. (2단계) 각 예측치와 실제 값 간의 '표준화 절대 잔차(Absolute standardized residuals)'를 구한 뒤, 이를 종속변수 FPER에 대해 1차 절대 잔차항 및 2차 제곱 잔차항으로 투입하여 위계적 다중 회귀 분석 진행.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 137-138, Sec. 5.1 & Table 3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">Amadeus DB 매칭 및 도구변수(2SLS) 강건성 검정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  주관적 인지 평가 오류를 방지하기 위해 Amadeus DB에서 감사된 기업 영업이익률(Profit margin) 실데이터를 매칭해 통계 유의성을 크로스 체크함. 아울러 대안적 종속변수인 시장 성과(MPER)에 대해 기술 역량과 새로움 BM의 조절 효과 모형을 검증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 136, Sec. 4.3 / Page 138-139, Sec. 5.3 & 5.4</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            구체적인 설문 문항 및 요인 분석 통계값, 2단계 회귀 잔차 공식이 투명하게 명시되어 통계 기법의 재현은 누구나 가능합니다. 다만, 핀란드 세무국의 10년 이하 공식 기업 세무 원천 자료는 해외 일반 연구자의 접근에 제한이 있으므로 동일 표본을 독자적으로 발굴하여 검증하는 기획성 재현은 일부 국한됩니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문 결론부(Section 7.2)에서 연구진이 규정한 연구 한계 범위입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>횡단적 연구 설계 (Cross-sectional study):</strong> 데이터가 단일 시점에 차단 수집되어 인과 경로의 시간적 선후 관계를 완벽히 통제하지 못하므로, 향후 종단적 패널 연구를 통한 검증이 필요합니다.
+              </li>
+              <li>
+                <strong>소규모 개방 경제(SMOPEC) 및 소기업에 국한된 표본:</strong> 핀란드의 신생 수출 강소기업(10년 이하)을 표본으로 설정하여 연구 결과를 대기업 집단이나 대규모 내수 위주의 강대국에 직접 일반화하기 어렵습니다.
+              </li>
+              <li>
+                <strong>단순화된 비즈니스 모델 개념화:</strong> 본 연구는 BM의 지향성을 효율성과 새로움의 두 차원으로 단순화하여 검증했으며, 더 입체적이고 다각적인 밸류체인(예: 비즈니스 모델 캔버스 9요소 전체)을 포괄하지 못했습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 구조와 분석 절차를 기반으로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 역인과성 및 자원 풍요 편향</span>
+                <p class="text-sm text-slate-700">
+                  횡단 연구 설계 하에서, <strong>"역량과 환경에 맞는 BM의 정렬(Fit)이 경영 성과를 유도했는가"</strong>라는 물음은 정반대로 뒤집힐 수 있습니다. <strong>"원래 해외 재무 성과가 탁월하고 내부 여유 자원(Resource Slack)이 풍부했던 우량 신생 기업들이"</strong> 위기 중에도 마케팅, 기술, 네트워크 역량을 넉넉하게 가동하여 효율성 BM을 완벽하게 맞추고 유지(Fit)했을 가능성이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 위기 생존자 편향 (Survivor Bias)</span>
+                <p class="text-sm text-slate-700">
+                  데이터는 코로나19 충격이 본격화된 후인 2021년 상반기에 수집되었습니다. 이는 2020년 초반 위기 발생 시 비즈니스 모델 설계에 실패해 <strong>조사 시점 전에 이미 파산했거나 해외 사업을 중단한 '실패 기업'들은 모집단 세무 기록에서 필터링되어 조사 기회조차 갖지 못했음</strong>을 뜻합니다. 살아남은 우수한 309개 사의 응답만 거쳐 도출된 메커니즘은 위기 극복 효과를 과장시켰을 우려가 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 주관적 단일 정보원(Common Method Bias)</span>
+                <p class="text-sm text-slate-700">
+                  Amadeus DB를 통해 객관적인 이익률(Profit margin) 지표를 검증했음에도 불구하고, 핵심 전략 변수인 비즈니스 모델 설계나 환경적 격변 인식은 대다수 한 명의 대표/임원 주관에 의존합니다. 응답자가 자사의 위기 관리 역량이나 자사 기술 수준을 사후적으로 미화(Self-serving bias)하여 응답했을 위험이 존재합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 북유럽(Nordic Context) 제도 보호 효과의 누락</span>
+                <p class="text-sm text-slate-700">
+                  핀란드는 국가 차원의 막강한 기업 구제 금융 및 재정 지원이 빠르게 제공되었고 우수한 공공/법률적 투명성을 갖춘 국가입니다. 코로나19 충격 속에서도 기업이 안전망 안에서 적합성을 모색할 기회가 보장되었습니다. 정부의 특별 금융 보조금 등 거시적 매크로 보호막 변수를 모형에 통제하지 않았으므로, 신흥국이나 신자유주의 시장(예: 미국)의 B2B 거래 환경에 그대로 적용하기에는 한계가 존재합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Performance implications of business model design in a disruptive global environment</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

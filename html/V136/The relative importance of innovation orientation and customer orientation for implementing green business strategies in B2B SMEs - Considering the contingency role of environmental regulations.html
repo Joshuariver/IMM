@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IO &amp; CO for GBS in B2B SMEs - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 36px;
+      }
+      .style-h1 {
+        font-size: 28px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Green Business Strategy</div>
+        <div class="badge badge-secondary text-white style-label">Emerging Market context</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            The relative importance of innovation orientation and customer orientation for implementing GBS in B2B SMEs:<br>
+            <span class="text-cyan-400 text-3xl lg:text-4xl block mt-2">Considering the contingency role of environmental regulations</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Francisco Villegas, Stefan Markovic, Milena Micevski, Cristina Sancha, Leslier Valenzuela-Fernández
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            B2B 중소기업의 친환경 비즈니스 전략 이행을 위한<br>
+            혁신 지향성과 고객 지향성의 상대적 중요성:<br>
+            <span class="text-indigo-300 text-2xl lg:text-3xl block mt-2">환경 규제의 상황적 조절 역할을 고려하여</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            칠레 B2B 중소기업 140개 사의 설문 데이터와 사후 정성면접을 결합하여 자원과 제도적 압력의 상호작용 규명
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">규제가 옥죄는 B2B 환경일수록 혁신(IO)과 고객(CO)이라는 양날의 검을 균형 있게 벼려야 합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2 bg-cyan-400 border-none hover:bg-cyan-300">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase bg-cyan-600 text-white border-none">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Although innovation orientation (IO) and customer orientation (CO) may drive the adoption of green business strategies (GBS) in SMEs, previous research has mainly examined their influences separately. This study investigates their relative influence on GBS implementation, while also considering the moderating effect of environmental regulations (ER). Survey data from 140 Chilean B2B SMEs reveal that IO and CO have similarly strong, positive effects on GBS implementation. Regarding the moderating role of ER, stringent ER weaken the IO-GBS link, while they do not act as a moderator of the CO-GBS relationship. According to post-hoc qualitative evidence, this reflects the deeply intertwined nature of customer- and compliance-driven sustainability demands in the B2B SME context. The findings suggest that B2B SMEs can benefit from cultivating both strategic orientations (i.e., IO and CO) as independent organizational capital resources, while highlighting how regulatory stringency constrains innovation-driven sustainability and conditions the effectiveness of CO as a driver of GBS in resource-constrained emerging market contexts."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "혁신 지향성(IO)과 고객 지향성(CO)이 중소기업(SMEs)의 친환경 비즈니스 전략(GBS) 도입을 촉진할 수 있음에도 불구하고, 기존 연구는 주로 이들의 영향을 개별적으로 검토해 왔다. 본 연구는 환경 규제(ER)의 조절 효과를 고려하면서, GBS 이행에 대한 이 두 지향성의 상대적 영향을 조사한다. 140개 칠레 B2B 중소기업의 설문조사 데이터에 따르면, IO와 CO는 GBS 이행에 마찬가지로 강력하고 긍정적인 영향을 미치는 것으로 나타났다. ER의 조절 역할과 관련하여, 엄격한 ER은 IO-GBS 간의 관계를 약화시키는 반면, CO-GBS 관계에 대해서는 조절 효과를 보이지 않았다. 사후 정성적 증거에 따르면, 이는 B2B 중소기업 맥락에서 고객 중심의 지속가능성 요구와 규제 준수 중심의 지속가능성 요구가 매우 긴밀하게 뒤얽혀 있음을 반영한다. 본 연구 결과는 B2B 중소기업이 독립적인 조직 자본 자원으로서 두 가지 전략적 지향성(즉, IO와 CO)을 모두 육성함으로써 이익을 얻을 수 있음을 시사하는 동시에, 자원이 제약된 신흥 시장 맥락에서 규제의 엄격함이 혁신 주도의 지속가능성을 제약하고 GBS의 동인으로서 CO의 유효성을 어떻게 조건화하는지 강조한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Glossary)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table table-zebra w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-2/4">번역 선택 이유 및 학술적 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Innovation Orientation (IO)</td>
+                  <td>혁신 지향성</td>
+                  <td class="text-sm">단순한 기술 혁신에 머무르지 않고 조직의 관리적, 창의적 문화를 포괄하므로 널리 사용되는 '혁신 지향성'을 채택.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Customer Orientation (CO)</td>
+                  <td>고객 지향성</td>
+                  <td class="text-sm">고객 만족을 극대화하고 이에 기반해 가치를 창출하려는 관계적 마케팅 자원 성향.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Green Business Strategies (GBS)</td>
+                  <td>친환경 비즈니스 전략</td>
+                  <td class="text-sm">단순 규제 준수를 넘는 친환경 R&D, 공정 설계, 지속가능 가치 제안의 총합.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Environmental Regulations (ER)</td>
+                  <td>환경 규제</td>
+                  <td class="text-sm">공무원 단속, 준수 보조금, 처벌 엄격성을 통칭하는 제도적 coercive pressure 세트.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Strategic Equivalence</td>
+                  <td>전략적 등가성</td>
+                  <td class="text-sm">두 가지 상이한 전략적 자원이 종속변수(GBS)에 미치는 실질적인 촉진 효과의 통계적 크기가 동일함을 의미.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase bg-indigo-600 text-white border-none">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 임원진 발표 시 <strong>1분 만에</strong> 핵심 쟁점과 기여도를 명확히 전달할 수 있도록 논문의 메커니즘을 요약했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">어떤 지향성이 친환경 전략에 더 효과적인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">혁신과 고객은 동등하게 중요하나, 규제는 이를 방해한다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">포터 가설의 반례 및 이중 지향성 제시</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="flex-1 bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col justify-between gap-6">
+              <div class="grid grid-cols-1 gap-4">
+                <div>
+                  <h4 class="font-bold text-slate-900 style-small uppercase tracking-wider text-primary">Q. 연구 질문</h4>
+                  <p class="style-body text-slate-700 mt-1">자원 제약이 극심한 B2B 중소기업 환경에서 친환경 전략(GBS)을 이행할 때, 창의성에 기반한 '혁신 지향성(IO)'과 바이어 요구에 맞추는 '고객 지향성(CO)' 중 무엇을 우선해야 하며, 국가적 환경 규제(ER)는 이 효과를 강화시키는가?</p>
+                </div>
+                <div class="border-t pt-4">
+                  <h4 class="font-bold text-slate-900 style-small uppercase tracking-wider text-indigo-600">F. 핵심 발견</h4>
+                  <p class="style-body text-slate-700 mt-1">IO와 CO 모두 GBS 구현에 똑같이 강력한 기여를 보임(전략적 등가성). 그러나, 엄격한 규제(ER)는 포터 가설(Porter Hypothesis)과 달리 **혁신 지향성의 환경 전략 효과를 유의하게 약화시킴(부의 조절)**. 또한 규제 강도가 모형에 들어오면 고객 지향성(CO)의 직접 효과는 비유의화됨.</p>
+                </div>
+                <div class="border-t pt-4">
+                  <h4 class="font-bold text-slate-900 style-small uppercase tracking-wider text-emerald-600">C. 이론적/실무적 기여</h4>
+                  <p class="style-body text-slate-700 mt-1">IO와 CO의 이중 지향성(Dual Orientation) 및 자원기반관점에서의 동등 가치를 최초로 규명. 칠레라는 신흥 시장 맥락을 통해 국가 환경 규제가 중소기업의 혁신 리소스를 고갈시키고(Crowding Out) 바이어 반응성에 제약을 가함을 정성적으로 입증.</p>
+                </div>
+              </div>
+              
+              <div class="alert alert-info bg-indigo-50 border-indigo-200 text-indigo-900 style-body font-semibold">
+                한 줄 요약: 규제가 강한 신흥국 B2B 중소기업은 혁신(IO)과 고객(CO)을 독립적인 무형 자산으로 동시에 균형 육성하되, 대기업 파트너십을 이용해 규제 부담을 적극 우회해야 생존할 수 있습니다.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Evidence Table -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 핵심 주장별 실증 데이터 근거</h2>
+          <span class="badge badge-accent style-label uppercase bg-teal-600 text-white border-none">Evidence Table</span>
+        </div>
+        
+        <div class="overflow-x-auto border rounded-lg">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-50 text-slate-800">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장 (Core Claim)</th>
+                <th class="w-2/5">원문 근거 인용 (Direct Quote)</th>
+                <th class="w-1/4">원문 위치 및 세부 지표</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-bold">1</td>
+                <td class="font-semibold text-slate-900">IO와 CO 모두 GBS 촉진</td>
+                <td class="italic text-sm">"The results indicated that both IO (β = 0.215, ρ &lt; 0.01) and CO (β = 0.388, ρ &lt; 0.05) have a positive effect on GBS."</td>
+                <td>Page 6, Sec. 3.3<br><span class="text-xs text-slate-400">Model 1 direct effects</span></td>
+              </tr>
+              <tr>
+                <td class="font-bold">2</td>
+                <td class="font-semibold text-slate-900">영향력 크기 동등 (전략적 등가성)</td>
+                <td class="italic text-sm">"...the chi-square difference test indicated that there is no significant difference between the two effects (p &gt; 0.05)."</td>
+                <td>Page 6, Sec. 3.3<br><span class="text-xs text-slate-400">Chi-square difference test</span></td>
+              </tr>
+              <tr>
+                <td class="font-bold">3</td>
+                <td class="font-semibold text-slate-900">엄격한 환경 규제(ER)는 IO의 효과를 훼손 (부의 조절)</td>
+                <td class="italic text-sm">"Contra to our expectation in H3a, ER negatively moderate the relationship between IO and GBS (β = −0.05, ρ &lt; 0.05)... high levels of ER decrease the positive effect of IO on GBS."</td>
+                <td>Page 7, Sec. 3.3 &amp; Fig. 2<br><span class="text-xs text-slate-400">Model 2 interaction effect</span></td>
+              </tr>
+              <tr>
+                <td class="font-bold">4</td>
+                <td class="font-semibold text-slate-900">규제가 반영되면 CO의 직접 유의성 소실</td>
+                <td class="italic text-sm">"Regarding H3b, we found no support for the moderating effect of ER... CO loses its significant direct effect on GBS once the regulatory environment is included in the model."</td>
+                <td>Page 7, Sec. 3.3 (Table 5)<br><span class="text-xs text-slate-400">Model 2: CO➔GBS (β=0.359, t=1.557, ns)</span></td>
+              </tr>
+              <tr>
+                <td class="font-bold">5</td>
+                <td class="font-semibold text-slate-900">규제 비용이 혁신 자원을 고갈(Crowding-out)시킴</td>
+                <td class="italic text-sm">"...compliance costs absorb the financial and managerial resources that SMEs would otherwise direct toward innovation... R1 stated: 'high costs and administrative burdens associated with compliance can stifle innovation...'"</td>
+                <td>Page 8, Sec. 3.4 &amp; Page 9, Sec. 4<br><span class="text-xs text-slate-400">Qualitative findings (R1, R2, R5)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase bg-sky-500 border-none">Framework &amp; Variables</span>
+        </div>
+
+        <!-- Inline SVG DAG -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start font-bold">연구 실증 가설 모델 구조 (Research Model DAG)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 860 400" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4b5563"/>
+                </marker>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+                </marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/>
+                </marker>
+                <marker id="arrow-orange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+                </marker>
+              </defs>
+
+              <!-- Variables -->
+              <!-- IO Box -->
+              <rect x="40" y="110" width="220" height="75" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/>
+              <text x="150" y="138" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="14.5">혁신 지향성 (IO)</text>
+              <text x="150" y="158" text-anchor="middle" fill="#0284c7" font-size="11">창의성 및 신규 아이디어 지지</text>
+
+              <!-- CO Box -->
+              <rect x="40" y="250" width="220" height="75" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+              <text x="150" y="278" text-anchor="middle" font-weight="700" fill="#047857" font-size="14.5">고객 지향성 (CO)</text>
+              <text x="150" y="298" text-anchor="middle" fill="#059669" font-size="11">고객 요구 이해 및 가치 창출</text>
+
+              <!-- ER Box -->
+              <rect x="320" y="20" width="220" height="75" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="430" y="48" text-anchor="middle" font-weight="700" fill="#b45309" font-size="14.5">환경 규제 (ER)</text>
+              <text x="430" y="68" text-anchor="middle" fill="#d97706" font-size="11">법률 집행 및 위반 처벌의 엄격함</text>
+
+              <!-- GBS Box -->
+              <rect x="600" y="170" width="220" height="85" rx="10" fill="#fdf2f8" stroke="#db2777" stroke-width="2.5"/>
+              <text x="710" y="203" text-anchor="middle" font-weight="700" fill="#9d174d" font-size="14.5">친환경 비즈니스 전략 (GBS)</text>
+              <text x="710" y="223" text-anchor="middle" fill="#db2777" font-size="11">전략적 계획 내 환경 연계</text>
+
+              <!-- Paths -->
+              <!-- IO -> GBS -->
+              <path id="path-io-gbs" d="M 260 147 L 590 203" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue)"/>
+              <rect x="345" y="145" width="105" height="25" rx="4" fill="#ffffff" stroke="#2563eb" stroke-width="1"/>
+              <text x="397.5" y="161.5" text-anchor="middle" font-weight="700" fill="#1e3a8a" font-size="11">H1 (+) β=0.215**</text>
+
+              <!-- CO -> GBS -->
+              <path id="path-co-gbs" d="M 260 288 L 590 227" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrow-green)"/>
+              <rect x="345" y="255" width="105" height="25" rx="4" fill="#ffffff" stroke="#059669" stroke-width="1"/>
+              <text x="397.5" y="271.5" text-anchor="middle" font-weight="700" fill="#064e3b" font-size="11">H2 (+) β=0.388*</text>
+
+              <!-- ER -> GBS direct -->
+              <path id="path-er-gbs" d="M 430 95 L 600 178" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow-orange)"/>
+              <text x="535" y="130" text-anchor="middle" font-weight="700" fill="#b45309" font-size="10.5">β=0.105** (Model 2)</text>
+
+              <!-- Moderation Arrows -->
+              <!-- ER x IO -> GBS -->
+              <path d="M 410 95 L 410 162" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-orange)"/>
+              <rect x="360" y="105" width="90" height="22" rx="4" fill="#fffbeb" stroke="#d97706" stroke-width="1"/>
+              <text x="405" y="120" text-anchor="middle" font-weight="700" fill="#b45309" font-size="10.5">H3a (-) β=-0.05*</text>
+              <text x="465" y="145" fill="#b45309" font-size="10" font-weight="600">조절: 약화 효과</text>
+
+              <!-- ER x CO -> GBS -->
+              <path d="M 460 95 L 460 250" fill="none" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+              <rect x="420" y="215" width="95" height="22" rx="4" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1"/>
+              <text x="467.5" y="229.5" text-anchor="middle" font-weight="700" fill="#4b5563" font-size="10">H3b (ns) β=-0.141</text>
+              <text x="525" y="245" fill="#4b5563" font-size="10">조절: 비유의</text>
+
+              <!-- Controls -->
+              <rect x="320" y="325" width="220" height="60" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1"/>
+              <text x="430" y="343" text-anchor="middle" font-weight="700" fill="#374151" font-size="12">통제 변수 (Controls)</text>
+              <text x="430" y="362" text-anchor="middle" fill="#4b5563" font-size="10">기업 소득, 창업 동기, 교육 수준</text>
+              <path d="M 540 355 L 670 355 L 670 257" fill="none" stroke="#9ca3af" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+            </svg>
+          </div>
+          <p class="text-xs text-slate-500 self-start">※ 화살표는 가설 경로를 나타내며, 실선은 직접 효과, 점선은 조절/통제 경로입니다. 계수 수치는 Model 1(가설)과 Model 2(조절 포함) 결과치를 명기했습니다. (수준: * p &lt; 0.05, ** p &lt; 0.01)</p>
+        </div>
+
+        <!-- Concept Detail Cards (2x2 grid) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Variable 1: IO -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">독립변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold font-mono">Innovation Orientation</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">혁신 지향성 (IO)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 기업이 기회주의를 극복하고 새로운 기술, 관리 절차 및 아이디어를 실험하고 창의적으로 대처하도록 지원하는 무형의 조직적 기획·조정 시스템.</p>
+              <p class="text-sm text-slate-700"><strong>측정 문항 (3항목, 5점 척도):</strong> 기술·마케팅·관리 혁신을 자극하는가, 창의성과 실험 정신을 북돋는가, 경쟁사가 모방하기 어려운가 (Engelen et al., 2015).</p>
+              <p class="text-xs text-blue-700 bg-blue-50 p-2.5 rounded border border-blue-100">
+                <strong>학술적 맥락:</strong> 자원기반관점(RBV)에 의거, 기업의 고유한 학습 역사와 상호작용이 축적되어 경쟁자가 쉽게 관찰하거나 모방할 수 없는 '핵심 차별성'을 유지하는 데 기여함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Variable 2: CO -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">독립변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold font-mono">Customer Orientation</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">고객 지향성 (CO)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 비즈니스 고객(Buyer)의 만족을 기준으로 기업의 전략 목표를 삼고, 그 요구 사항을 상시 이해하며 고객 만족 가치를 일상의 업무 루틴에 구현하는 관계적 자원.</p>
+              <p class="text-sm text-slate-700"><strong>측정 문항 (3항목, 5점 척도):</strong> 고객 만족에 기반한 목표 설정, 고객 필요의 이해 여부, 고객 가치 창출의 일상화 (Frambach et al., 2016).</p>
+              <p class="text-xs text-emerald-700 bg-emerald-50 p-2.5 rounded border border-emerald-100">
+                <strong>학술적 맥락:</strong> B2B 거래 정당성(legitimacy) 확보의 주안점으로, 특히 대기업 바이어의 친환경 조달 입찰 조건(B Corp 인증 등)에 민감하게 반응하여 장기 협력 관계를 보존하게 유도함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Variable 3: ER -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950 bg-amber-200 border-none">조절변수</span>
+                <span class="text-xs text-slate-400 font-semibold font-mono">Environmental Regulations</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">환경 규제 (ER)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 기업이 사회적 및 법률적 합법성을 충족시키기 위해 강제받는 외부 제도적 coercive pressure의 총합(단속 강도, 법률 준수 지원, 가혹한 처벌).</p>
+              <p class="text-sm text-slate-700"><strong>측정 문항 (3항목, 5점 척도):</strong> 법률 집행의 엄격성, 기업의 법률 준수에 대한 공적 지원 정도, 위반 시 행정 처벌의 가혹성 (Roxas &amp; Coetzer, 2012).</p>
+              <p class="text-xs text-amber-800 bg-amber-50 p-2.5 rounded border border-amber-100">
+                <strong>학술적 맥락:</strong> 제도적 합법성을 이끄는 촉진제가 되기도 하지만, 신흥국 등 취약한 경영 여건 하에서는 중소기업의 혁신 비용과 에너지를 고갈시키는 핵심 위협 요인으로 작용함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Variable 4: GBS -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-secondary style-label text-white bg-pink-600 border-none">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold font-mono">Green Business Strategies</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">친환경 비즈니스 전략 (GBS)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 수동적 규제 순응을 넘어 기획, 조달, R&amp;D, 공정 개선 등 기업의 비즈니스 운영 전 영역에 환경 가치를 주도적으로 융합시키는 선제적 환경 경영 전략.</p>
+              <p class="text-sm text-slate-700"><strong>측정 문항 (7항목, 5점 척도):</strong> 전략 기획에 환경 이슈 반영, 제품/공정 품질 내 환경 훼손 절감 포함, 환경 목표와 사업 목표 연계(Leonidou et al., 2017).</p>
+              <p class="text-xs text-pink-700 bg-pink-50 p-2.5 rounded border border-pink-100">
+                <strong>학술적 맥락:</strong> 단순히 사회적 평판을 지키는 수준을 넘어 원가 절감(재활용) 및 친환경 차별화 마케팅 요소를 도입해 지속 가능한 경쟁 우위(Sustainable Competitive Advantage) 창출.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Methodology Reconstruction Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase bg-cyan-800 text-white border-none">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 실증 연구가 거친 핵심 데이터 획득 및 분석 과정의 6가지 단계입니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">이론 척도 번역 &amp; 칠레 스페인어 현지화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  기존에 검증된 영어 설문 항목들(Frambach et al., 2016 등)을 칠레 학자들에 의해 스페인어로 번역한 후, 역번역(Back-translation) 과정을 거쳐 문항의 타당성을 교차 검증하고 다듬음.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Sec. 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">이메일 설문 조사 실행 및 데이터 필터링</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  칠레 B2B 중소기업의 경영자 및 소유주에게 이메일을 발송하고, 최대 3회의 리마인더를 보내 참여율 극대화. 최종 140개의 완전히 기록된 유효 응답 획득 (유효 응답률 11.67%).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Sec. 3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">통계 편향 검정 (비응답 및 CMB)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Armstrong &amp; Overton(1977) 방식을 적용해 초기 응답자와 리마인더 후기 응답자 간 차이를 대조해 비응답 편향 유무 점검. 마커 변수("팬데믹 중 소득 감소 비율")를 사용해 공통방법분산(CMV)을 통제 및 보정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5-6, Sec. 3.1 &amp; 3.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">Confirmative Factor Analysis (CFA)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  LISREL 8.8 소프트웨어의 최대우도법(Maximum Likelihood)을 돌려 측정 모델 신뢰도 분석. Fit indices 검정(NNFI=0.96, CFI=0.987, RMSEA=0.055) 및 CR &gt; 0.7, AVE &gt; 0.5 판별 타당성 충족 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5-6, Sec. 3.1</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-indigo-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">구조방정식 모형(SEM) 가설 및 조절 효과 검정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  직접 효과 모델(Model 1)과 ER 조절 효과 곱셈 변수가 추가된 모델(Model 2)을 교차 분석. LISREL 카이제곱 차이 검정을 실시해 IO 효과와 CO 효과의 통계적 강도 등가 여부를 밝힘.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6-7, Sec. 3.3</span>
+              </div>
+              <hr class="bg-indigo-600"/>
+            </li>
+
+            <li>
+              <hr class="bg-indigo-600"/>
+              <div class="timeline-middle">
+                <span class="bg-teal-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">사후 질적 심층 인터뷰 (Post-hoc Qualitative Study)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  통계적으로 미입증되거나 반대 방향으로 나온 메커니즘을 구체적으로 캐묻기 위해 칠레 B2B 중소기업 경영인 5명을 선별하여 정성적 대면 면접을 실행, 맥락적 원인을 수집 및 해석.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 7-8, Sec. 3.4</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="alert bg-slate-50 border border-slate-200 mt-4 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span class="style-body font-semibold">재현 가능성 평정:</span>
+          </div>
+          <span class="badge badge-primary bg-indigo-600 text-white border-none py-3 px-4 style-label uppercase">부분 재현 가능 (Partially Replicable)</span>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critiques -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 및 비판적 해석)</h2>
+          <span class="badge badge-error style-label uppercase bg-red-600 text-white border-none">Critiques</span>
+        </div>
+
+        <!-- Part A: Self-acknowledged -->
+        <div class="collapse bg-red-50 text-red-950 border border-red-200 rounded-xl overflow-hidden mb-4">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title text-lg font-bold flex items-center gap-2 px-6 py-4 bg-red-100/50">
+            <span class="badge badge-error bg-red-600 text-white border-none style-label">A</span>
+            논문이 스스로 인정한 한계점 (Self-acknowledged)
+          </div>
+          <div class="collapse-content px-6 pb-6 pt-4 flex flex-col gap-4 text-sm">
+            <div class="flex flex-col gap-2">
+              <span class="font-bold text-red-800">1. 바이어 규모 세분화의 대리 측정 한계</span>
+              <p class="text-slate-800">중소기업의 연 소득을 통제하였으나, 이는 중소기업에 친환경 압력을 가하는 '대기업 바이어'의 상대적 규모나 영향력을 직접적으로 구분하는 완벽한 대용치가 되지 못함.</p>
+              <span class="text-xs text-red-700 italic">"First, while we controlled for SMEs' income... we acknowledge that income is not a perfect proxy for the customer sizes that SMEs serve." (Page 11)</span>
+            </div>
+            <div class="flex flex-col gap-2 border-t border-red-200/60 pt-3">
+              <span class="font-bold text-red-800">2. 공급망 통합 및 권력 비대칭성 미반영</span>
+              <p class="text-slate-800">B2B 공급망 내 주도권 비대칭성(Power Asymmetry)이나 공급 파트너 간의 실질적 통합 수준이 GBS에 가져올 효과를 통제하지 않았음.</p>
+              <span class="text-xs text-red-700 italic">"...we did not take into account how inter-firm influences, supply chain integration or dominant buyer pressures may affect GBS adoption." (Page 11)</span>
+            </div>
+            <div class="flex flex-col gap-2 border-t border-red-200/60 pt-3">
+              <span class="font-bold text-red-800">3. 조직 문화 및 CEO의 개인적 환경 의지 통제 부재</span>
+              <p class="text-slate-800">중소기업의 녹색 경영 실무에서 최고경영자의 의지(Managerial Commitment)는 절대적이나, 모형에 실증 통제 요인으로 편입시키지 못함.</p>
+              <span class="text-xs text-red-700 italic">"...previous research has found that other internal factors, such as organizational culture, management commitment... play a critical role..." (Page 11)</span>
+            </div>
+            <div class="flex flex-col gap-2 border-t border-red-200/60 pt-3">
+              <span class="font-bold text-red-800">4. 친환경 전략 속성(내부 공정 vs 외부 마케팅)의 미분류</span>
+              <p class="text-slate-800">GBS의 전략 내용이 내향적 공정 효율화에 치중하는지, 외향적 그린 마케팅에 치중하는지 분류하지 않아 규제의 정교한 파급력을 측정하는 데 한계를 지님.</p>
+              <span class="text-xs text-red-700 italic">"...it did not explicitly differentiate between inward-looking green aspects... and outward-looking green aspects..." (Page 12)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Part B: Unmentioned -->
+        <div class="collapse bg-amber-50 text-amber-950 border border-amber-200 rounded-xl overflow-hidden">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title text-lg font-bold flex items-center gap-2 px-6 py-4 bg-amber-100/50">
+            <span class="badge badge-warning bg-amber-500 text-amber-950 border-none style-label">B</span>
+            독자적으로 제기하는 비판적 의구심 (Critique of Unmentioned Limits)
+          </div>
+          <div class="collapse-content px-6 pb-6 pt-4 flex flex-col gap-4 text-sm">
+            <div class="flex flex-col gap-2">
+              <span class="font-bold text-amber-800">1. 설문 조사 설계상의 역인과성(Reverse Causality) 의구심</span>
+              <p class="text-slate-800">연구 모델은 전략 지향성이 먼저 존재하고 친환경 전략(GBS)이 도출된다고 가정하지만, 인과가 정반대일 가능성이 큽니다. 친환경 선제 전략을 채택한 중소기업이 생존을 위해 사후적으로 바이어 대상 고객 지향성을 가꾸고, 기술 혁신성(IO)을 육성하기 위해 리소스를 투자했을 수 있습니다. 횡단적 데이터 구조로 인해 명확한 시간적 인과 입증이 부재합니다.</p>
+            </div>
+            <div class="flex flex-col gap-2 border-t border-amber-200/60 pt-3">
+              <span class="font-bold text-amber-800">2. 사회적 바람직성 편향(Social Desirability Bias)의 위험성</span>
+              <p class="text-slate-800">설문은 전적으로 기업의 의사결정권자 1인(경영인/소유주)에 의해 자가 보고식으로 작성되었습니다. 친환경이나 ESG라는 사회적 명분에 맞춰 자신의 회사가 GBS나 혁신성을 긍정적으로 수행한다고 과장했을 편향의 위험이 매우 높으며, 실제로 종속변수(GBS) 문항들의 요인 적재치들이 0.90을 상회하며 비정상적으로 치우쳐 있습니다.</p>
+            </div>
+            <div class="flex flex-col gap-2 border-t border-amber-200/60 pt-3">
+              <span class="font-bold text-amber-800">3. 소표본(N=140) 분석에 따른 통계 검증력(Statistical Power) 부족</span>
+              <p class="text-slate-800">구조방정식(SEM)과 상호작용 조절 변수 분석을 다중으로 수행하면서 유효 표본 수가 140개인 것은 상당히 작습니다. 조절 효과는 큰 샘플에서 뚜렷이 나타나는 경향이 있으므로, 환경 규제의 CO에 대한 조절 효과가 실제로 존재함에도 통계적 오류(Type II Error)로 인해 감지되지 않았을 수 있습니다.</p>
+            </div>
+            <div class="flex flex-col gap-2 border-t border-amber-200/60 pt-3">
+              <span class="font-bold text-amber-800">4. 칠레라는 신흥 시장의 제도적 특수성과 일반화 한계</span>
+              <p class="text-slate-800">포터 가설의 붕괴(규제가 혁신을 방해)를 지목한 결론은 칠레의 급격한 친환경 정책(REP Law) 추진 과정 및 규제 단속의 모호함, 중소기업 지원 시스템의 부족이라는 남미 신흥 시장 특유의 조합에서 기인합니다. 규제 인프라가 전문적이고 바우처 지원이 탄탄한 EU 선진 시장이나 아시아 다른 국가의 B2B SME 환경에는 이 부정적인 규제 조절 효과가 다르게 나타날 가능성이 큽니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <aside>
+      <p class="font-bold text-slate-300">IMM V136 Research Paper Analysis Report</p>
+      <p class="text-xs">Prepared by Academic Research Assistant. Powered by Tailwind CSS &amp; DaisyUI.</p>
+    </aside>
+  </footer>
+
+</body>
+</html>

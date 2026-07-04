@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Salespeople Behave Unethically - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 36px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Vector Art Background (Stressor lines) -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <path d="M1600 100C1400 200 1200 -50 1000 120C800 290 600 50 400 180C200 310 0 150 -200 250" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Sales Ethics &amp; Control</div>
+        <div class="badge badge-secondary text-white style-label">Methodology: Multilevel Modeling</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Why salespeople behave unethically:<br>
+            <span class="text-cyan-400">The joint effects of control systems and role stress</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Anssi Tarkiainen, Nick Lee, John W. Cadogan, Sanna Sundqvist, John M. Rudd
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            영업사원이 비윤리적으로 행동하는 이유:<br>
+            <span class="text-indigo-300">통제 시스템과 역할 스트레스의 결합 효과</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            영업사원의 역할 스트레스 요인(모호성, 갈등)과 공식 통제 시스템(결과 기반 vs 행동 기반)이 비윤리적 행동에 미치는 다층적 상호작용 검증
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">역할이 모호할 때 결과만 다그치는 통제(OBC)는 비윤리성을 부추기고, 과정을 지원하는 통제(BBC)는 일탈을 막아줍니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "While sales control systems are intended to improve performance, under role stress they may also inadvertently increase the likelihood of unethical behavior. Despite growing evidence that stress is positively related to unethical behaviors, this perspective has not yet widely permeated sales management control research. The present study conceptualizes stress, induced by role stressors such as ambiguity and conflict, as positively related to unethical behaviors, and examines whether sales management controls moderate these relationships. Our study empirically tests the joint effects of role stressors and sales control systems on unethical sales behaviors, using multilevel models of data from both salespeople and their managers. The findings show that role ambiguity is positively related to unethical behaviors, and this effect is strengthened (weakened) by the presence of outcome-based (behavior-based) controls, while the effect of role conflict becomes non-significant when sales controls are added to the model. We discuss the findings and argue that future studies should simultaneously assess the effects of role stressors on both performance and unethical behaviors, to avoid the potential for unintended, harmful consequences."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "영업 통제 시스템은 성과를 개선하기 위해 설계되었지만, 역할 스트레스 상황 하에서는 의도치 않게 비윤리적 행동의 가능성을 높일 수 있다. 스트레스가 비윤리적 행동과 긍정적인 관계가 있다는 증거가 늘어나고 있음에도 불구하고, 이러한 관점은 아직 영업 관리 통제 연구에 널리 침투하지 못했다. 본 연구는 역할 모호성(role ambiguity) 및 역할 갈등(role conflict)과 같은 역할 스트레스 요인(role stressors)에 의해 유발되는 스트레스가 비윤리적 행동과 긍정적인 관계를 갖는다고 개념화하고, 영업 관리 통제가 이들 관계를 조절하는지 검증하였다. 본 연구는 영업사원과 그들의 관리자 모두로부터 수집한 데이터의 다층 모형(multilevel models)을 사용하여 역할 스트레스 요인과 영업 통제 시스템이 영업사원의 비윤리적 행동에 미치는 결합 효과를 실증 분석하였다. 분석 결과, 역할 모호성은 비윤리적 행동과 긍정적인 관계가 있으며, 이 효과는 결과 기반 통제(outcome-based controls)의 존재 하에 강화되고 행동 기반 통제(behavior-based controls) 하에 약화되는 반면, 역할 갈등의 효과는 영업 통제 변수가 모델에 추가되면 유의하지 않게 나타났다. 우리는 이 발견을 논의하고, 의도치 않은 해로운 결과를 방지하기 위해 향후 연구가 성과와 비윤리적 행동 모두에 미치는 역할 스트레스 요인의 효과를 동시에 평가해야 한다고 주장한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Glossary)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Sales Force Control System</td>
+                  <td>영업 통제 시스템</td>
+                  <td class="text-sm">Oliver &amp; Anderson (1987) 등의 문헌에서 영업 성과와 태도를 관리하기 위해 고안된 조직의 감독 프레임워크를 뜻합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Behavior-Based Control (BBC)</td>
+                  <td>행동 기반 통제</td>
+                  <td class="text-sm">영업사원의 업무 과정을 관리자가 모니터링하고 피드백하며, 고정급 비율이 높고 밀착 지도가 이루어지는 관리 형태입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Outcome-Based Control (OBC)</td>
+                  <td>결과 기반 통제</td>
+                  <td class="text-sm">과정은 영업사원의 자율에 맡기고, 오직 실적 결과만으로 평가하며 인센티브와 변동급 중심으로 보상하는 관리 형태입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Role Stressors (Ambiguity / Conflict)</td>
+                  <td>역할 스트레스 요인 (모호성 / 갈등)</td>
+                  <td class="text-sm">Boundary-spanning 직무 특성 상 요구사항이 모호하거나(Ambiguity) 모순될 때(Conflict) 발생하는 조직 행동론상의 전통적인 저해 스트레스 요인입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Unethical Behavior</td>
+                  <td>비윤리적 행동</td>
+                  <td class="text-sm">본 논문에서는 고객 계약 체결을 위해 실현 불가능한 서비스를 보장하거나 거짓말로 강매하는 행위를 가상 시나리오(vignettes)로 조작화했습니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 연구를 직관적으로 이해할 수 있도록 핵심 흐름과 가치 제안을 정리하였습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">스트레스가 윤리적 일탈을 만드는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">모호성(RA)과 결과통제(OBC)의 파괴적 결합</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">윤리 관리로서의 통제 시스템 가치 재정립</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 영업사원이 겪는 직무 역할 스트레스(모호성/갈등)가 비윤리적 행동으로 이어질 때, 조직의 공식 통제 제도인 행동 기반(BBC)과 결과 기반(OBC) 통제는 어떤 영향을 끼치는가?</li>
+                  <li><strong>핵심 발견:</strong> 역할 모호성은 영업사원의 비윤리적 행동을 자극하지만, 행동 과정을 동반하여 코칭하는 <strong>BBC</strong> 하에서는 이 부정적인 효과가 완화됩니다. 반면, 실적 결과만을 다그치는 <strong>OBC</strong>가 강해지면 역할 모호성과 파괴적 시너지를 일으켜 영업사원의 비윤리적 일탈이 훨씬 더 강화됩니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 합리적이고 의식적인 도덕적 선택만을 다루던 고전 윤리 모델에서 벗어나, 직무 스트레스에 의한 비의도적 방어 행동으로 윤리 이탈을 해석함. 성과 극대화용 통제 제도가 위기(스트레스) 상황 하에서 독약이 될 수 있음을 입증.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "직무 모호성 하에서 결과만을 다그치는 통제(OBC)는 비윤리적 꼼수를 가속하지만, 행동을 동행하는 코칭(BBC)은 이를 효과적으로 차단합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          실증적 분석을 기반으로 검증된 핵심 주장들과 이를 지지하는 본문의 실제 데이터, 원문 구절 및 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">역할 모호성(RA)의 비윤리적 행동 유발 효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "For RA the hypothesis H2 is supported at p &lt; 0.10 (Table 5: Model 3 for main effects: H2 t-value = 1.67, p = 0.096). ... H2 (RA) is supported by 90% confidence interval..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 185 (Sec. 3.2) / Table 5</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">역할 갈등(RC)의 직접 효과 소멸 메커니즘</td>
+                <td class="text-sm italic text-slate-600">
+                  "While RC has a hypothesized and significant positive association with unethical behavior in Model 2, it appears that this association becomes non-significant when direct effects of BBC and OBC are added (Model 3)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 185 (Sec. 3.2) / Table 5</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">행동 통제(BBC)의 모호성 완화(Buffer) 조절 효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "Hypothesis H4 asserts that BBC reduces the positive impact of RA on unethical behavior, and is supported at p &lt; 0.10 (Table 5: Model 4: H4 t-value = −1.89, p = 0.060, and confidence intervals at 90% in Table 7)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 185 (Sec. 3.2) / Table 7</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">결과 통제(OBC)의 모호성 악화(Strengthen) 조절 효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "Hypothesis H6, which asserts that OBC increases the positive impact of RA on unethical behavior is supported at p &lt; 0.05 (Table 5: Model 4: H6 t-value = 2.52, p = 0.013; Table 7: confidence interval at 95%)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 186 (Sec. 3.2) / Table 7</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">역할 갈등에 대한 상호작용 효과의 부재</td>
+                <td class="text-sm italic text-slate-600">
+                  "Hypothesis H3 asserts that BBC increases the positive impact of RC on unethical behavior. This hypothesis is not supported by the data (Table 5: Model 4: H3 t-value = 0.41, p = 0.680...)"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 185 (Sec. 3.2)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model &amp; Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (다층 조절 회귀 모델)</h3>
+          
+          <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 450" class="w-full h-auto">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6"/>
+                </marker>
+                <marker id="arrow-gray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#cbd5e1"/>
+                </marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+                </marker>
+                <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+                </marker>
+              </defs>
+
+              <!-- IV1: Role Conflict -->
+              <rect x="40" y="80" width="200" height="70" rx="8" fill="#fff5f5" stroke="#f87171" stroke-width="2"/>
+              <text x="140" y="112" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="13">역할 갈등 (Role Conflict)</text>
+              <text x="140" y="132" text-anchor="middle" fill="#ef4444" font-size="11">상충되는 직무 요구로 발생</text>
+
+              <!-- IV2: Role Ambiguity -->
+              <rect x="40" y="280" width="200" height="70" rx="8" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+              <text x="140" y="312" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="13">역할 모호성 (Role Ambiguity)</text>
+              <text x="140" y="332" text-anchor="middle" fill="#dc2626" font-size="11">기대·책임의 불명확성</text>
+
+              <!-- Moderator 1: BBC -->
+              <rect x="320" y="30" width="200" height="70" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="420" y="62" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">행동 기반 통제 (BBC)</text>
+              <text x="420" y="82" text-anchor="middle" fill="#10b981" font-size="11">과정 모니터링 &amp; 밀착 코칭</text>
+
+              <!-- Moderator 2: OBC -->
+              <rect x="320" y="330" width="200" height="70" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+              <text x="420" y="362" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">결과 기반 통제 (OBC)</text>
+              <text x="420" y="382" text-anchor="middle" fill="#b45309" font-size="11">인센티브 위주 실적 평가</text>
+
+              <!-- DV: Unethical Behavior -->
+              <rect x="560" y="180" width="210" height="80" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+              <text x="665" y="215" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="13">비윤리적 행동 (UB)</text>
+              <text x="665" y="235" text-anchor="middle" fill="#475569" font-size="11">고객 인터랙션 기만 행위</text>
+
+              <!-- Paths -->
+              <!-- IV1 -> DV (RC -> UB): Not Supported -->
+              <path d="M240 115 L 560 205" fill="none" stroke="#cbd5e1" stroke-dasharray="4 4" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+              <text x="290" y="130" fill="#64748b" font-weight="700" font-size="12">H1 (+)</text>
+              <text x="290" y="145" fill="#94a3b8" font-size="10">미지지 (p=0.102)</text>
+
+              <!-- IV2 -> DV (RA -> UB): Supported (p<0.10) -->
+              <path d="M240 315 L 560 235" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="290" y="295" fill="#1d4ed8" font-weight="700" font-size="12">H2 (+)</text>
+              <text x="290" y="310" fill="#2563eb" font-size="10">지지 (p=0.096)</text>
+
+              <!-- H3: BBC -> RC-UB path (Not Supported) -->
+              <path d="M350 100 L 350 146" fill="none" stroke="#cbd5e1" stroke-dasharray="4 4" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+              <text x="315" y="125" fill="#64748b" font-weight="700" font-size="11">H3 (+)</text>
+              <text x="315" y="138" fill="#94a3b8" font-size="9">미지지</text>
+
+              <!-- H4: BBC -> RA-UB path (Supported, weakens the positive effect) -->
+              <path d="M390 100 L 390 277" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+              <text x="400" y="160" fill="#047857" font-weight="700" font-size="11">H4 (-)</text>
+              <text x="400" y="175" fill="#059669" font-size="10">완화 지지 (p=0.060)</text>
+
+              <!-- H5: OBC -> RC-UB path (Not Supported) -->
+              <path d="M450 330 L 450 174" fill="none" stroke="#cbd5e1" stroke-dasharray="4 4" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+              <text x="460" y="250" fill="#64748b" font-weight="700" font-size="11">H5 (-)</text>
+              <text x="460" y="263" fill="#94a3b8" font-size="9">미지지</text>
+
+              <!-- H6: OBC -> RA-UB path (Supported, strengthens the positive effect) -->
+              <path d="M410 330 L 410 272" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrow-amber)"/>
+              <text x="355" y="300" fill="#b45309" font-weight="700" font-size="11">H6 (+)</text>
+              <text x="355" y="315" fill="#d97706" font-size="10">강화 지지 (p=0.013)</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Level-1 IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">역할 갈등 (Role Conflict)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 상사, 고객 등 둘 이상의 역할 이해관계자들로부터 동시에 완수하기 어렵거나 상충되는 업무 요구를 받을 때 느끼는 심리적 긴장 상태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "서로 상이하게 움직이는 두 개 이상의 집단과 일함", "모순된 요구사항을 동시에 받음" 등의 척도 (5점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Rizzo et al. (1970) / 3문항 (Cronbach's &alpha; = 0.760, AVE = 0.514)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술 논의:</strong> 갈등 봉합을 위한 기만적 거짓말을 유발하는 원인으로 해석되었으나, 통제 수단을 고려한 본 모형에서는 직접적인 비윤리 유발 효과가 희석되어 소멸함.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-error style-label text-white">독립변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Level-1 IV (Supported)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">역할 모호성 (Role Ambiguity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 직무 목표, 책임 범위, 본인이 지닌 재량 권한의 한계에 관한 가이드라인 및 정보가 불명확하여 겪는 직무 불확실성.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 상사의 성과 평가 기준, 직무 권한 및 업무 범위에 대해 알고 있는지를 측정하고 역코딩하여 획득 (5점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Rizzo et al. (1970) 기반에 1문항 추가 / 총 4문항 (Cronbach's &alpha; = 0.778, AVE = 0.503)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술 논의:</strong> 심리적 탈진과 위협을 겪게 만들어 의사결정 시 윤리적 숙고력을 상실시키며, 단기 성과를 지향하게 만들어 비윤리성을 촉발함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">조절변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Level-2 Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">행동 기반 통제 (Behavior-Based Control)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 영업 관리자가 영업사원의 영업 과정에 높은 개입을 하여 활동 방법론을 설계하고 지속적으로 코칭과 지도를 수행하는 통제 방식.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 관리자가 영업사원과 함께 field를 방문하고 동행 방문(joint calls)을 수행하는 빈도 및 정기 피드백 척도 (5점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Babakus et al. (1996) / 3문항 (Cronbach's &alpha; = 0.749, AVE = 0.588)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술 논의:</strong> 사회화 및 상시 교류를 증대시켜 윤리 가이드라인을 자극하므로, 모호성을 겪는 사원의 비윤리적 시행착오 방어막(Buffer)으로 작용함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Level-2 Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">결과 기반 통제 (Outcome-Based Control)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 행동 과정에는 자율을 부여하나 오직 성과 수치만을 근거로 보상을 매핑하며, 변동급(인센티브) 성격의 보상으로 동기를 조율하는 형태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 영업 실적 기반 포상 비율 및 인센티브 중심의 보상 관리 수준 (5점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Babakus et al. (1996) / 3문항 (Cronbach's &alpha; = 0.715, AVE = 0.468)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술 논의:</strong> 실적 만능주의를 배양할 우려가 있어, 모호한 역할로 갈등하는 직원에게 결합되면 결과만을 내기 위해 기만 전술을 채택하도록 유인함.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Dependent Variable (DV)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">비윤리적 행동 (Unethical Behavior)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> B2B/B2C 영업 영역에서 실적 달성이나 계약의 기회를 점하기 위해 고객에게 제공 불가능한 서비스를 보장하거나 제품 정보를 왜곡·과장하는 행동 양상.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "성사를 위해 제공 불가할 서비스를 보장하겠다고 계약함", "인기 제품에 비인기 품목을 강제로 bluffing 패키징함", "주문을 늘리기 위해 적재 문제를 과장함" 등의 시나리오 하에서 행동 가능성(0~10점).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Robertson &amp; Anderson (1993) / 3문항 (Cronbach's &alpha; = 0.750, AVE = 0.501)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구진이 아닌 제3의 독립 연구자가 이 실증 모형 검증 과정을 순차적으로 똑같이 <strong>추종 재현</strong>할 수 있도록 타임라인 형태로 절차를 명세했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">모집단 필터링 및 표본 추출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Kompass 데이터베이스로부터 영업 관리자 리스트(4,664개 사)를 다운로드함. 무작위 행에서 출발하여 매 5번째 행을 추출하는 체계적 샘플링(Systematic sampling)을 집행함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 183, Section 3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">유선 전화 스크리닝 및 서베이 참여 합의</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  3개월에 걸쳐 1,370개 사 영업 관리자에게 전화를 걸어 "필드 영업부와 전담 관리자가 동시에 포진한 조직"인지 스크리닝. 부적격 923개 사 차단, 최종 적격 390개 사 중 316개 사 참여 승인 확보.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 183, Section 3</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">우편물 식별 마킹 및 분산 배포</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  참여에 응한 관리자(BBC/OBC 응답용)와 하위 팀원(UB/RA/RC 응답용)에게 우편 패키지 발송. 무기명을 보장하되 회수 후 다층 매칭을 보장하고자 패키지 내 설문지 쌍마다 동일 식별 번호 코드(ID code)를 부착.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 183, Section 3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">응답 편향(Non-Response Bias) 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  관리자 135명(42.7%) 및 영업사원 248명(19.8%) 최종 회수. Armstrong &amp; Overton(1977) 절차에 따라 회수까지 걸린 일수 중앙값(median split)을 나눠 전후기 응답군 간 t-test 수행, 무응답 편향 부재 증명.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 183, Section 3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">CFA 요인 분석 및 신뢰성 진단</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  R Studio(lavaan 패키지)를 사용해 영업사원 및 관리자 측면 요인 분석 각각 수행. 적재치(&gt;0.7), 신뢰성(CR/&alpha;&gt;0.7), AVE(&gt;0.5) 판별 타당성 및 통계 적합도 지수를 충족시킴.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 183-184, Section 3.1 &amp; Table 3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">다층 위계적 조절 회귀 분석 실행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  R `lme4` 패키지로 2수준 랜덤 인터셉트 모형(two-level random intercept) 구동. 소집단 클러스터 보정을 위해 슬로프는 고정 슬로프(non-randomly varying)로 셋팅한 후, RA/RC의 직접 효과와 BBC/OBC 조절 결합 유의성 추정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 184, Section 3.2 &amp; Table 4 &amp; 5</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">종합 강건성 교차 분석 (Robustness Checks)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  결과 민감도 제어를 위해 GMC 집단 평균 센터링 모델링, LOCO(Leave-One-Cluster-Out) 클러스터 순차 제거 검증, 단일 수준 OLS 매칭 페어 구축 및 1,000회 부트스트래핑 시뮬레이션을 집행해 상호작용 신뢰도 입증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 186-188, Section 3.3 &amp; Appendix B</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            클래식 척도 문항 정보와 R 패키지(`lme4`, `lavaan`) 세팅 정보가 구체적으로 기재되어 있어 통계 분석 및 모델 설계의 재현은 수월합니다. 단, B2B 기업 리스트(Kompass DB)를 통해 일대다 매칭 설문 데이터(135명 관리자, 248명 사원)를 실제로 수집하는 과정은 국가적·물리적 조건에 종속됩니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700 font-semibold">본문 토론 섹션(Section 6)에서 밝힌 분석적 제약과 확장 한계선입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>직접적인 스트레스 척도 미반영:</strong> 본 연구는 역할 스트레스 요인(RA, RC)을 선행 요인으로 활용해 대처 작용으로 윤리 일탈을 검증했으며, 응답자가 느끼는 실제 심리적 탈진, 인지적 긴장 상태 등을 직접 측정하여 조절 모델에 대입하진 못함. (P188)
+              </li>
+              <li>
+                <strong>영업 성과 변수의 배제:</strong> 통제 시스템의 존재 목적은 결국 성과(Performance) 극대화이므로, 영업 성과와 비윤리적 행동 간에 발생할 수 있는 관리적 트레이드오프 관계를 함께 한 모형에 올려 동시에 검증하진 못함. (P188)
+              </li>
+              <li>
+                <strong>영업 통제 개념의 단순화:</strong> 통제를 전통적인 행동/결과(BBC/OBC)의 두 형태로 단순 구별함. 최근 학계의 역량 통제(capability control)나 활동 통제(activity control) 등 정교화된 통제 조합을 완전하게 다루지는 못함. (P188)
+              </li>
+              <li>
+                <strong>비윤리적 영업 행동 범위의 국한성:</strong> 비윤리성 측정이 오직 고객과의 거래 관계(기만 약속, 강매)에 한함. 역할 갈등(RC)이 유의하지 않게 소멸한 것은 갈등을 겪은 직원이 회사 내부(경비 청구, 보고 기만)를 향해 일탈을 표출했을 가능성이 있으나 측정되지 못함. (P189)
+              </li>
+              <li>
+                <strong>다층 모형 설계상의 통계 제약:</strong> 일대다 매칭 데이터 수집 시 관리자 1명당 영업사원 응답이 1명에 머무는 조직이 32개 사에 달해, cross-level 상호작용 검증에 보편 장려되는 GMC 센터링이나 random slope 모델을 최적으로 운용하지 못함. (P189)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700 font-semibold">설문 설계 및 횡단 다층 회귀 모형의 근본적인 한계에 근거한 학술적 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 역인과관계성 (Reverse Causality)</span>
+                <p class="text-sm text-slate-700">
+                  횡단적 데이터(Cross-sectional data) 구조상 <strong>"직무가 모호해서 비윤리적 행동을 저지르는가"</strong>의 경로가 아닌, <strong>"평소 실적 압박으로 꼼수를 자주 쓰거나 기만 영업을 저질러 온 영업사원이 인지부조화 해결 및 자기방어를 위해 상사의 직무 가이드라인과 평가 기준이 아주 모호했다(RA)고 사후 합리화하여 설문에 답변했을 역인과성"</strong>을 완전히 배제하기 어렵습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 동일방법편향 (Common Method Bias)</span>
+                <p class="text-sm text-slate-700">
+                  통제 시스템 변수(BBC, OBC)는 관리자에게 받았으나, 핵심 인과 메커니즘을 구성하는 '역할 모호성', '역할 갈등' 및 종속변수인 '비윤리적 영업 행동 개연성'은 **영업사원 1인의 동일 설문지**로 한 시점에 동시 측정되었습니다. 이로 인해 사후적인 인지 일관성 및 감정 상태가 변수 간 상관관계를 왜곡했을 소지가 잔존합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 시나리오 투사 기법의 실제 예측력</span>
+                <p class="text-sm text-slate-700">
+                  민감한 주제인 비윤리적 행동을 가상의 제3자 '존(John)'의 상황 시나리오에 응답하게 하는 방식으로 우회 조사했습니다. 하지만 이 투사 기법에 답하는 주관적 응답 개연성이, 실제 당장 생계와 결부된 인센티브 탈락 공포에 휩싸여 있을 현장 영업사원의 처절한 일탈 행위를 온전히 대변한다고 규정하기엔 일정한 괴리가 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 생존자 편향 (Survivor Bias)</span>
+                <p class="text-sm text-slate-700">
+                  실증 서베이는 조사 당시 이미 영업 조직 내에 활발히 적응하고 생존해 있는 영업사원들만을 대상으로 완료되었습니다. 심한 갈등과 성과 독촉, 애매한 직무 분담으로 극도의 비윤리적 탈선을 벌이다 이미 해고되었거나 이직한 '한계 일탈자'의 표본이 누락됨으로써, 통제 시스템-스트레스-비윤리 간의 부정적 인과 강도가 실태보다 과소 추정되었을 수 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Why salespeople behave unethically: The joint effects of control systems and role stress</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From Capabilities to Performance in AI-Driven B2B SaaS - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B SaaS Performance</div>
+        <div class="badge badge-secondary text-white style-label">Ambidexterity & Interactivity</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            From capabilities to performance in AI-driven B2B SaaS:<br>
+            <span class="text-cyan-400">Website interactivity and regional differences under digital transformation</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Hea Sun Lee, Margaret Jekanyika Matanda
+          </p>
+          <p class="style-small text-slate-400">University of Sydney Business School, The University of Sydney, Australia</p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            AI 기반 B2B SaaS의 역량과 성과 간 관계:<br>
+            <span class="text-indigo-300">디지털 전환 하에서 웹사이트 상호작용성과 지역적 차이</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            미국과 아시아 태평양 지역의 B2B SaaS 제공업체 362개 사 설문 조사를 통한 탐색 및 활용 역량의 차별적 성과 메커니즘 규명
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">미국 기업은 혁신과 효율을 다 추구해도 되지만, 아태 지역 기업은 웹사이트 상호작용성이라는 단일 경로에 집중해야 성과를 냅니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This study investigates the role of exploration and exploitation capabilities in driving B2B SaaS performance, emphasizing the mediating function of AI-enabled website interactivity and differences across regional markets in the United States and Asia Pacific. Using ambidexterity theory and analyzing survey data collected from 362 B2B SaaS providers, we find distinct regional patterns. Specifically, US-based providers achieve enhanced B2B SaaS performance through both direct relationships with exploration and exploitation capabilities, and indirectly via website interactivity. Conversely, Asia Pacific providers benefit solely through the indirect, mediating effect of website interactivity. The study further examines the moderating role of technological turbulence, revealing that higher levels of technological turbulence intensify the positive mediation effect of website interactivity. Additionally, by incorporating social interaction as a new, fourth dimension of website interactivity, the research presents a broader perspective on how SaaS providers can leverage AI-enabled website interactivity. This study enriches the B2B marketing literature by illustrating the critical mediating role of website interactivity in transforming organizational ambidexterity into enhanced performance outcomes. Practically, US providers should simultaneously pursue innovation and operational efficiency, whereas Asia Pacific providers should focus specifically on strengthening website interactivity as a strategic pathway to superior performance."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 연구는 B2B SaaS 성과를 견인하는 데 있어 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">탐색(Exploration) 및 활용(Exploitation) 역량</span>의 역할을 조사하며, AI 기반 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">웹사이트 상호작용성(Website interactivity)</span>의 매개 기능과 미국 및 아시아 태평양 지역 시장 간의 차이를 강조한다. <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">양손잡이 이론(Ambidexterity theory)</span>을 적용하고 362개 B2B SaaS 제공업체로부터 수집한 설문 데이터를 분석하여 차별화된 지역적 패턴을 발견했다. 구체적으로, 미국 기반 제공업체는 탐색 및 활용 역량과의 직접적인 관계와 웹사이트 상호작용성을 통한 간접적인 관계 모두를 통해 향상된 B2B SaaS 성과를 달성한다. 반면, 아시아 태평양 지역 제공업체는 웹사이트 상호작용성의 간접적인 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">매개 효과</span>만을 통해서만 혜택을 얻는다. 본 연구는 나아가 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">기술적 격변(Technological turbulence)</span>의 조절 역할을 조사하여, 기술적 격변 수준이 높을수록 웹사이트 상호작용성의 긍정적인 매개 효과가 강화됨을 밝혔다. 또한 웹사이트 상호작용성의 새로운 네 번째 차원인 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">사회적 상호작용(Social interaction)</span>을 통합함으로써, SaaS 제공업체가 AI 기반 웹사이트 상호작용성을 어떻게 활용할 수 있는지에 대한 더 넓은 관점을 제시한다. 본 연구는 조직의 양손잡이 성향을 향상된 성과 결과로 전환하는 데 있어 웹사이트 상호작용성의 핵심적인 매개 역할을 규명함으로써 B2B 마케팅 문헌을 풍부하게 한다. 실무적으로, 미국 제공업체는 혁신과 운영 효율성을 동시에 추구해야 하는 반면, 아시아 태평양 제공업체는 우수한 성과를 얻기 위한 전략적 경로로서 웹사이트 상호작용성을 강화하는 데 특별히 초점을 맞추어야 한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table table-zebra w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Exploration & Exploitation Capabilities</td>
+                  <td>탐색 및 활용 역량</td>
+                  <td class="text-sm">단순 채택을 넘어, 새로운 기회 및 미래 지향적인 혁신을 탐구하는 역량(Exploration)과 기존의 지식, 프로세스 및 품질을 정제하여 운영 효율을 제고하는 역량(Exploitation)을 의미합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Ambidexterity Theory</td>
+                  <td>양손잡이 이론</td>
+                  <td class="text-sm">조직이 탐색(Exploration)과 활용(Exploitation) 활동을 동시에 균형 있게 수행함으로써 성과를 극대화한다는 이론입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Website Interactivity</td>
+                  <td>웹사이트 상호작용성</td>
+                  <td class="text-sm">온라인 플랫폼이 고객 관여를 촉진하고 구매 의사결정을 도우며 비즈니스 관계를 조성하는 총체적 소통 능력을 의미합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Social Interaction</td>
+                  <td>사회적 상호작용</td>
+                  <td class="text-sm">웹사이트 상호작용성의 4번째 차원으로, 실시간 채팅, 고객 포럼 등을 통해 관계성과 친밀감을 제고하는 기능입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Technological Turbulence</td>
+                  <td>기술적 격변</td>
+                  <td class="text-sm">기술 발전의 빠른 속도와 시장의 예측 불가능성을 나타내는 조절 변수입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+ 
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">양손잡이 역량이 B2B SaaS 성과에 도달하는 경로는?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">미국은 직접/간접 모두 유의, 아태 지역은 오직 간접 매개만 유의</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">상호작용성에 사회적 차원 추가 & 자산 오케스트레이션 적용</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B SaaS 제공업체의 탐색 및 활용 역량은 성과에 어떻게 전이되는가? 웹사이트 상호작용성은 이 경로를 매개하고 기술적 격변은 조절하는가? 미국과 아태 지역 간 차이는 존재하는가?</li>
+                  <li><strong>핵심 발견:</strong> 미국 기업은 탐색/활용 역량이 성과에 직접 기여하며, 웹사이트 상호작용성을 통해서도 일부 기여합니다(부분 매개). 반면, 아태 지역 기업은 내부 역량이 성과에 직접 연결되지 않으며 오직 웹사이트 상호작용성을 거쳐야만 실제 판매 및 시장 성과로 나타납니다(완전 매개).</li>
+                  <li><strong>이론/실무 기여:</strong> AI 기반 웹사이트 상호작용성에 '사회적 상호작용' 차원을 도입하여 고객 접점 관리의 범위를 확장했고, 아태 지역 SaaS 제공업체 관리자에게 디지털 인터페이스 상호작용 강화를 통한 역량 시각화가 유일한 성과 창출 방안임을 밝혔습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "내부의 탐색 및 활용 역량이 성과를 내려면 외부 지향적 웹사이트 상호작용성(특히 사회적 교류)을 통해 구매자에게 노출되어야 하며, 특히 아시아 태평양 지역에서는 이 인터페이스 채널이 절대적인 통로입니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">미국 내 탐색/활용 역량의 유의미한 직접 성과 효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "In the United States, exploration capabilities had significant relationships with B2B SaaS sales performance (β = 0.19, t = 2.96, p &lt; 0.01) and marginally with B2B SaaS market performance (β = 0.13, t = 1.87, p &lt; 0.10)... Likewise, exploitation capabilities exhibited strong positive effects on sales (β = 0.36, t = 5.68, p &lt; 0.001) and market performance (β = 0.21, t = 3.16, p &lt; 0.01)..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 12, Sec. 5.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">아태 지역의 직접 효과 무효 및 매개 완전 의존성</td>
+                <td class="text-sm italic text-slate-600">
+                  "...However, the Asia Pacific sample revealed no significant associations, indicating that H1a, H1b, H2a, and H2b were not supported in that region... In contrast, for the Asia Pacific sample, indirect effects... were significant, but direct effects were not. This indicates that in the Asia Pacific context, website interactivity fully mediates the relationship..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 12, Sec. 5.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">탐색 및 활용 역량이 웹사이트 상호작용성을 강화함</td>
+                <td class="text-sm italic text-slate-600">
+                  "In both the United States (β = 0.43, t = 6.47, p &lt; 0.001) and Asia Pacific (β = 0.29, t = 3.49, p &lt; 0.001), exploration capabilities were positively associated with website interactivity... Exploitation capabilities similarly displayed positive associations in the United States (β = 0.39, t = 4.31, p &lt; 0.001) and Asia Pacific (β = 0.33, t = 3.82, p &lt; 0.001)..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 12, Sec. 5.1</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">웹사이트 상호작용성의 직접적 성과 기여</td>
+                <td class="text-sm italic text-slate-600">
+                  "Results showed significant positive associations in the United States for both sales (β = 0.27, t = 4.31, p &lt; 0.001) and market performance (β = 0.24, t = 3.38, p &lt; 0.01). Likewise, in Asia Pacific, website interactivity significantly influenced sales (β = 0.32, t = 4.11, p &lt; 0.001) and market performance (β = 0.34, t = 4.64, p &lt; 0.001)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 12, Sec. 5.1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">기술적 격변에 따른 조건부 간접 효과 증폭</td>
+                <td class="text-sm italic text-slate-600">
+                  "The mediated influence of exploration capabilities on B2B SaaS performance through website interactivity became more pronounced under elevated technological turbulence... Technological turbulence significantly increased the mediated effects of exploitation capabilities on both B2B SaaS sales and market performance through website interactivity."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 13-14, Sec. 5.2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 가설 모형)</h3>
+          
+          <div class="w-full max-w-4xl bg-slate-900 p-4 rounded-lg shadow-sm border border-slate-800">
+            <svg viewBox="0 0 960 440" class="w-full h-auto">
+              <!-- Definitions of Markers -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+                </marker>
+                <marker id="arrow-cyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#06b6d4" />
+                </marker>
+                <marker id="arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#fbbf24" />
+                </marker>
+              </defs>
+
+              <!-- Node 1: Exploration Capabilities (IV1) -->
+              <rect x="50" y="100" width="200" height="80" rx="8" fill="#1e1b4b" stroke="#6366f1" stroke-width="2"/>
+              <text x="150" y="135" text-anchor="middle" font-weight="700" fill="#ffffff" font-size="14">탐색 역량 (Exploration)</text>
+              <text x="150" y="158" text-anchor="middle" fill="#a5b4fc" font-size="11">새로운 기술/지식 획득, 실험성</text>
+
+              <!-- Node 2: Exploitation Capabilities (IV2) -->
+              <rect x="50" y="300" width="200" height="80" rx="8" fill="#1e1b4b" stroke="#6366f1" stroke-width="2"/>
+              <text x="150" y="335" text-anchor="middle" font-weight="700" fill="#ffffff" font-size="14">활용 역량 (Exploitation)</text>
+              <text x="150" y="358" text-anchor="middle" fill="#a5b4fc" font-size="11">기존 프로세스 개선, 품질/효율</text>
+
+              <!-- Node 3: Website Interactivity (Mediator) -->
+              <rect x="360" y="200" width="240" height="80" rx="8" fill="#083344" stroke="#06b6d4" stroke-width="2"/>
+              <text x="480" y="230" text-anchor="middle" font-weight="700" fill="#ffffff" font-size="14">웹사이트 상호작용성</text>
+              <text x="480" y="248" text-anchor="middle" font-weight="600" fill="#22d3ee" font-size="11">(Website Interactivity)</text>
+              <text x="480" y="265" text-anchor="middle" fill="#67e8f9" font-size="10">제어/양방향/실시간/사회적소통</text>
+
+              <!-- Node 4: Technological Turbulence (Moderator) -->
+              <rect x="380" y="20" width="200" height="70" rx="8" fill="#451a03" stroke="#d97706" stroke-width="2"/>
+              <text x="480" y="50" text-anchor="middle" font-weight="700" fill="#ffffff" font-size="13">기술적 격변 (Turbulence)</text>
+              <text x="480" y="70" text-anchor="middle" fill="#fcd34d" font-size="10">시장 내 기술 변화 속도 & 불확실성</text>
+
+              <!-- Node 5: B2B SaaS Sales Performance (DV1) -->
+              <rect x="710" y="100" width="200" height="80" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+              <text x="810" y="135" text-anchor="middle" font-weight="700" fill="#ffffff" font-size="14">B2B SaaS 판매 성과</text>
+              <text x="810" y="158" text-anchor="middle" fill="#6ee7b7" font-size="11">매출 성장, 수익성 (3개년)</text>
+
+              <!-- Node 6: B2B SaaS Market Performance (DV2) -->
+              <rect x="710" y="300" width="200" height="80" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+              <text x="810" y="335" text-anchor="middle" font-weight="700" fill="#ffffff" font-size="14">B2B SaaS 시장 성과</text>
+              <text x="810" y="358" text-anchor="middle" fill="#6ee7b7" font-size="11">고객 획득, 점유율, 만족도</text>
+
+              <!-- Paths -->
+              <!-- IV1 -> Mediator (H3) -->
+              <path d="M 250 140 L 350 220" fill="none" stroke="#818cf8" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <text x="290" y="172" fill="#a5b4fc" font-weight="700" font-size="12">H3 (+)</text>
+
+              <!-- IV2 -> Mediator (H4) -->
+              <path d="M 250 340 L 350 260" fill="none" stroke="#818cf8" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <text x="290" y="312" fill="#a5b4fc" font-weight="700" font-size="12">H4 (+)</text>
+
+              <!-- Mediator -> DV1 (H5a) -->
+              <path d="M 600 220 L 700 160" fill="none" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <text x="660" y="180" fill="#67e8f9" font-weight="700" font-size="12">H5a (+)</text>
+
+              <!-- Mediator -> DV2 (H5b) -->
+              <path d="M 600 260 L 700 320" fill="none" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <text x="660" y="300" fill="#67e8f9" font-weight="700" font-size="12">H5b (+)</text>
+
+              <!-- Direct paths (Dashed for US only / partial) -->
+              <!-- IV1 -> DV1 (H1a) -->
+              <path d="M 250 120 L 700 120" fill="none" stroke="#94a3b8" stroke-dasharray="5 5" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <text x="310" y="115" fill="#94a3b8" font-weight="700" font-size="11">H1a (+)</text>
+
+              <!-- IV1 -> DV2 (H1b) -->
+              <path d="M 250 150 L 700 310" fill="none" stroke="#94a3b8" stroke-dasharray="5 5" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <text x="325" y="200" fill="#94a3b8" font-weight="700" font-size="11">H1b (+)</text>
+
+              <!-- IV2 -> DV1 (H2a) -->
+              <path d="M 250 330 L 700 170" fill="none" stroke="#94a3b8" stroke-dasharray="5 5" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <text x="325" y="280" fill="#94a3b8" font-weight="700" font-size="11">H2a (+)</text>
+
+              <!-- IV2 -> DV2 (H2b) -->
+              <path d="M 250 360 L 700 360" fill="none" stroke="#94a3b8" stroke-dasharray="5 5" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <text x="310" y="355" fill="#94a3b8" font-weight="700" font-size="11">H2b (+)</text>
+
+              <!-- Moderating paths -->
+              <!-- Turbulence -> M-DV1 (H8a/H9a) -->
+              <path d="M 480 90 L 640 180" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-amber)"/>
+              <text x="575" y="130" fill="#fcd34d" font-weight="700" font-size="11">H8a, H9a (조절)</text>
+
+              <!-- Turbulence -> M-DV2 (H8b/H9b) -->
+              <path d="M 480 90 L 640 280" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-amber)"/>
+              <text x="575" y="210" fill="#fcd34d" font-weight="700" font-size="11">H8b, H9b (조절)</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">IV1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">탐색 역량 (Exploration Capabilities)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 정보 탐색, 새로운 시각과 아이디어의 실험, 혁신 도입, 그리고 위험 감수와 관련하여 기업이 지니고 있는 지식 및 자원 통합적 탐구 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> B2B SaaS 기업이 시장에서 생존하기 위해 최첨단 기술을 습득하고, 미래 지향적인 사업 모델을 모색하며, 지속적인 R&D와 새로운 마케팅 역량을 촉진하는 정도.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Zhang et al. (2016) / 최종 정제된 4개 측정 항목 (7점 Likert)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 기업이 기존 비즈니스의 효율성에만 집착하는 '성공의 덫(success trap)'에 빠지지 않도록 유도하며, 변화무쌍한 디지털 기술 생태계에서 파괴적 혁신을 수용하도록 유도합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">독립변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">IV2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">활용 역량 (Exploitation Capabilities)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 기존의 지식, 기술, 운영 기능 및 고객 관계를 정제하고, 점진적인 개선을 도모하며, 효율성을 높이기 위해 자원을 최적 배치하는 조직적 활용 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> B2B SaaS 기업이 제공하고 있는 클라우드 제품과 서비스의 질적 완성도를 높이고, 비즈니스 실행 오류를 최소화하며, 기존의 지식과 프로세스를 구조화하고 최적화하는 정도.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Zhang et al. (2016) / 최종 정제된 3개 측정 항목 (7점 Likert)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 단기적인 실행력을 제고하여 즉각적이고 안정적인 재무적 성과를 가져오는 역할을 하며, 탐색 역량과의 긴장 관계 속에서 '양손잡이 조직 설계'를 하도록 합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">웹사이트 상호작용성 (Website Interactivity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 온라인 서비스 채널에서 판매자와 구매자 간의 원활한 정보 전달, 고객의 자기 주도적 제어, 실시간 피드백 및 기성 거래 구조를 넘어 관계 구축과 인간적 친밀함을 생성하는 다차원적 매개 플랫폼 능력.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 4차원(능동적 제어: 3항목, 양방향 커뮤니케이션: 3항목, 동시성: 3항목, 사회적 상호작용: 3항목)의 2차 고차 요인(Second-order construct)으로 측정.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Song & Zinkhan (2008) 및 Lee (2024) / 총 12개 항목 (7점 Likert)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 본 논문은 기존 3대 차원 외에 AI 시대에 중요한 '사회적 상호작용' 차원을 새로이 추가하여 관계 마케팅에서의 실시간 소통과 신뢰 확보 채널로서의 역할을 강조하였습니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기술적 격변 (Technological Turbulence)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 기업이 직면한 산업 전반에서 신기술의 출현, 기존 기술의 쇠퇴 및 이를 둘러싼 시장 변화의 불예측성과 변화 속도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> B2B SaaS 시장에서 발생하고 있는 AI 기반 인프라 혁신, 데이터 보안 위협의 변화 강도 및 이에 발맞춰 신속히 제품과 서비스를 업그레이드해야 하는 압박의 크기.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Wilden & Gudergan (2015) / 최종 정제된 3개 항목 (7점 Likert)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 환경적 불확실성이 상호작용성 기반 관계 마케팅 효과를 어떻게 증폭시키는지 밝혀내는 외생적 억제 환경 요인으로 작용합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Dependent Variables (DV)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">B2B SaaS 성과 (판매 성과 & 시장 성과)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 경쟁사 대비 지난 3개년 동안 자사 비즈니스의 상대적인 재무적 이익 성장률(Sales Performance) 및 신규 고객 유치 및 서비스 만족도 제고 성과(Market Performance).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> </p>
+              <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+                <li><strong>판매 성과 (Sales Performance)</strong>: 경쟁사 대비 매출 성장, 수익성, 투자 이익률 등에 대한 상대적 비교 평가 (4개 항목)</li>
+                <li><strong>시장 성과 (Market Performance)</strong>: 경쟁사 대비 신규 고객 획득률, 점유율 성장률, 서비스 품질 수준, 고객 만족도 수준에 대한 상대적 비교 평가 (4개 항목)</li>
+              </ul>
+              <p class="text-sm text-slate-600 mt-2"><strong>측정 및 출처:</strong> Hooley et al. (2005), Venkatraman (1989), Merrilees et al. (2011) / 7점 Likert</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 연구 모델 및 데이터 검증을 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">표본 프레임 식별</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  CrunchBase 글로벌 데이터베이스로부터 연구 목적에 부합하는 private 및 public B2B SaaS 제공업체들의 리스트를 도출하고 필터링용 데이터셋을 생성함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 8, Sec. 4.2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">정보원 선정 및 설문 배포</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  B2B 마케팅 및 기업 전략 담당 중~고위 임원(CEO, CMO, Co-founder, Founder, Director, Manager 등)을 설문 수집 대상(Key Informant)으로 지정하고 Qualtrics 온라인 링크를 배포함. 1주 간격으로 3회 리마인더 발송.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 8, Sec. 4.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">필터 질문 및 제외 기준 적용</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  설문 시작 시 3대 스크리닝 질문(SaaS 임원, B2B 타겟, 구독모델 제공)을 적용해 부적격 응답을 실시간 제외함. 설립 후 3년 미만인 기업 또한 성과 평가가 불가능하므로 최종 데이터 분석 시 배제함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 8, Sec. 4.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">측정 척도 정제 및 EFA/CFA 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  SPSS Amos 29를 활용해 확인적 요인 분석(CFA)을 실시함. 요인 적재량이 낮거나 다중 적재되는 부적절한 측정 문항들을 제거하고(각 변수별 최소 3개 항목만 보존), 최종 도출된 척도의 집중 타당성(AVE > 0.5) 및 신뢰도(CR > 0.7, Cronbach's α > 0.7)를 확보함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 9-10, Sec. 4.5</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">지역 간 측정 불변성 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  미국 서브샘플(N=202)과 아태 지역 서브샘플(N=160) 간 형태 불변성(Configural), 계량 불변성(Metric), 스칼라 불변성(Scalar) 단계를 순차적으로 검증하여 다중 집단 분석의 타당성을 확보함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 10, Sec. 4.6</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">가설 및 조절된 매개 모형 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  SPSS PROCESS macro의 Model 14를 적용하여 독립변수 -> 매개변수 -> 종속변수 경로와 매개변수 -> 종속변수에 작용하는 기술적 격변의 조절 효과를 동시 분석함. 5,000회 부트스트랩 샘플링 지정을 통해 95% 신뢰구간을 획득함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 11, Sec. 5</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">강건성 및 내생성 민감도 진단</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  직원 수 대체 규모 통제, 종속변수 이분화 코딩 분석, 응답자 직책 더미 통제 분석 및 Yang et al. (2025) 기반의 도구변수 대안인 Copula 잔차 분석 방식을 활용해 내생성 이슈 완화 및 견고성을 입증함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 14-15, Sec. 5.3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partially Replicable)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            척도 구성, 요인 분석 결과, 분석 소프트웨어(PROCESS macro Model 14)가 완벽히 기술되어 있어 분석의 재현은 가능하나, CrunchBase 기반의 특정 시점의 기업 리스트 및 응답 기밀 데이터셋의 확보가 완전히 복제 불가능하므로 부분 재현으로 판정합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 저자들이 직접 한정 짓거나 서술한 설계상의 한계점들입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700 mt-2">
+              <li>
+                <strong>횡단면 조사 설계 및 내생성 제어:</strong> 데이터가 횡단면적(cross-sectional)으로 한 시점에 수집되어 역인과성이나 누락 변수 왜곡을 완벽히 소거하지 못함을 인정함. (Sec. 5.3, D.1, Sec. 6.3)
+              </li>
+              <li>
+                <strong>주관적/비교식 성과 측정:</strong> 윤리적 이유의 완전 익명성 설계를 고안함에 따라, 객관적 공시 재무 지표를 활용하지 못하고 전적으로 마케터의 주관적 비교식 설문 응답에 의존함. (Sec. 4.4.1.1, Sec. 6.3)
+              </li>
+              <li>
+                <strong>PROCESS macro 모델의 측정 오차 배제:</strong> 분석 시 구조방정식모델(SEM)처럼 측정 오차(measurement error)를 직접 제어하지 않고 복합 관측치를 투입하여 parameter를 측정함. (Sec. 6.3)
+              </li>
+              <li>
+                <strong>아태 지역 서브샘플 파워 한계 및 국가 간 통합성:</strong> 아태 서브샘플 수(N=160)가 파워 검정 기준인 200에 다소 미치지 못했으며, 개별 6개 국가의 미시적 제도 조건을 분해 분석하지 못함. (Sec. 4.2, Sec. 6.3)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 횡단 분석 메커니즘을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 생존자 편향 (Survivorship Bias)</span>
+                <p class="text-sm text-slate-700">
+                  표본 선정 시 '최소 3년 이상 영업한 활성 SaaS 기업'만 대상으로 함으로써, 디지털 전환 실패 및 공급망 중단 여파로 파산/도태된 '회복력이 부족했던 탈락 기업'이 원천 배제되어 양손잡이 역량과 성과의 유의성이 다소 과대 추정되었을 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 동일 정보원 편향 (Common Method Bias)</span>
+                <p class="text-sm text-slate-700">
+                  단일 설문지 내에서 1명의 마케팅 관리자가 독립변수인 탐색/활용 역량부터 매개변수인 웹사이트 상호작용성, 그리고 판매 및 시장 성과까지 모두 평가하여 사회적 바람직성 편향 및 응답 일관성 유지 경향이 작용했을 개연성이 높습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 'AI 상호작용성' 측정의 불명확성</span>
+                <p class="text-sm text-slate-700">
+                  'AI-driven'을 소구점으로 삼았으나 실질적인 측정 항목은 2008년의 Song & Zinkhan 척도 개작에 의존하여, 실제 AI 스택(LLM 적용 여부, 개인화 알고리즘 수준 등)의 기여도를 정교하게 통제하거나 물리적으로 측정하지 못한 개념적 모호함이 존재합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 아태(APAC) 분류 묶음의 과도한 이질성</span>
+                <p class="text-sm text-slate-700">
+                  싱가포르와 같은 선진국 시장 모델과 중국처럼 독자적 검열망을 가진 특수 국가 생태계, 베트남/인도네시아와 같은 개발도상국을 단일 집단으로 묶어 'USA vs. APAC' 이분법적 분석을 전개하여 미시적 규제 및 인터넷 문화 조건에 따른 편차를 희석시켰습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>From capabilities to performance in AI-driven B2B SaaS: Website interactivity and regional differences under digital transformation</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

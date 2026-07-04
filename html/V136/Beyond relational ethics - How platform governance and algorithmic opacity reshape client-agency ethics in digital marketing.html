@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyond Relational Ethics: Platform Governance and Client-Agency Ethics - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
+    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
+    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
+    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+    html { scroll-behavior: smooth; }
+    @media (max-width: 1024px) {
+      .style-display { font-size: 38px; }
+      .style-h1 { font-size: 30px; }
+      .style-h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management 136 (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Client-Agency Ethics</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Interview Study (N=21)</div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Beyond relational ethics:<br>
+            <span class="text-cyan-400">How platform governance and algorithmic opacity reshape client-agency ethics</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Sophie Iredale — Manchester Metropolitan University
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            관계적 윤리를 넘어서:<br>
+            <span class="text-indigo-300">플랫폼 거버넌스와 알고리즘 불투명성이 재구성하는 클라이언트-에이전시 윤리</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            영국 시니어 에이전시 실무자 14명·중소기업 클라이언트 7명 인터뷰(2025~2026)를 귀추적 주제 분석으로 검토한 질적 연구
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">플랫폼이 데이터와 알고리즘을 통제하는 순간, 클라이언트-에이전시 윤리는 '아무도 진실을 증명할 수 없는 구조'의 문제가 되어 전통적 관계 거버넌스가 작동을 멈춥니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Purpose: Client-agency ethics in digital marketing are increasingly shaped by platform governance. While prior research emphasises internal and relational ethical tensions, such as dyadic information asymmetry and bilateral opportunism, this study examines how platform governance and algorithmic opacity reconfigure the evidentiary and evaluative conditions of client-agency ethical judgement. Methodology: The study draws on 21 semi-structured interviews with 14 senior agency practitioners and 7 small-to-medium-sized clients in the UK (conducted between 2025 and 2026), analysed abductively using thematic analysis. Findings: Three interlinked dynamics are identified: platform-governed information asymmetry; attribution-accountability indeterminacy; and an answerability-adaptability impasse. Contributions: First, it reconceptualises the client-agency relationship as a platform-governed triad, positioning platforms as constitutive non-human actors. Second, it reframes key information asymmetries as structurally produced rather than relationally resolvable. Third, it identifies a boundary condition for relational governance."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "디지털 마케팅에서 클라이언트-에이전시 윤리는 점점 더 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">플랫폼 거버넌스</span>에 의해 형성되고 있다. 선행 연구가 양자 간 정보 비대칭과 쌍방향 기회주의 같은 관계적 윤리 긴장을 강조해 온 반면, 본 연구는 플랫폼 거버넌스와 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">알고리즘 불투명성</span>이 윤리적 판단의 증거적·평가적 조건을 어떻게 재구성하는지 검토한다. 영국의 시니어 에이전시 실무자 14명과 중소기업 클라이언트 7명 대상 21건의 반구조화 인터뷰(2025~2026)를 귀추적 주제 분석으로 분석한 결과, 서로 연결된 세 가지 역학이 확인되었다: 플랫폼이 인과 데이터와 알고리즘 업데이트 정보 접근을 제한하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">플랫폼 지배적 정보 비대칭</span>; 성과를 에이전시 활동 탓인지 플랫폼 변화 탓인지 귀인할 수 없는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">귀인-책임 불확정성</span>; 증거 제약 아래 전략을 정당화·조정해야 하며 클라이언트 회의와 전략적 마비를 유발하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">응답가능성-적응성 교착</span>. 본 연구는 클라이언트-에이전시 관계를 플랫폼 지배적 3자 구조로 재개념화하고, 정보 비대칭을 구조적으로 생산되는 것으로 재구성하며, 관계적 거버넌스의 경계 조건을 식별한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Glossary)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Platform Governance</td>
+                  <td>플랫폼 거버넌스</td>
+                  <td class="text-sm">플랫폼이 알고리즘, 데이터 접근 규칙, 정책 결정으로 시장 상호작용을 구조화하는 거시 수준의 통치 방식. 중립적 중개자가 아닌 자기 이익을 추구하는 다면 시장 시스템입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Algorithmic Opacity</td>
+                  <td>알고리즘 불투명성</td>
+                  <td class="text-sm">콘텐츠 가시성을 결정하는 알고리즘이 영업 비밀·규모·복잡성 때문에 감사가 어렵고 기저 논리가 부분적으로만 관찰 가능한 상태입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Platform-Governed Information Asymmetry</td>
+                  <td>플랫폼 지배적 정보 비대칭</td>
+                  <td class="text-sm">정보 비대칭이 양자 간 전문성 격차가 아니라 플랫폼의 성과 데이터·업데이트 정보 통제로 구조적으로 생산·유지되는 상태입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Attribution-Accountability Indeterminacy</td>
+                  <td>귀인-책임 불확정성</td>
+                  <td class="text-sm">성과 하락의 원인을 판별할 증거 기반 자체가 구조적으로 부재하여, 비난과 회의가 판결 불가능한 상태로 지속되는 조건입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Answerability-Adaptability Impasse</td>
+                  <td>응답가능성-적응성 교착</td>
+                  <td class="text-sm">에이전시는 설명할 수 없는 결과에 답변해야 하고(black box burden), 증거 없는 전략 수정 제안은 클라이언트의 투자 거부에 부딪히는 전략적 마비 상태입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">플랫폼은 클라이언트-에이전시 윤리를 어떻게 재구성하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">정보 비대칭 → 귀인 불확정 → 전략적 교착의 3단계 연쇄</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">양자에서 3자로 — 관계적 거버넌스의 경계 조건 규명</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 플랫폼 거버넌스와 알고리즘 불투명성은 디지털 마케팅 클라이언트-에이전시 관계의 윤리적 판단 조건(증거·평가 기반)을 어떻게 재구성하는가?</li>
+                  <li><strong>핵심 발견:</strong> Google 같은 플랫폼은 성과 데이터와 알고리즘 업데이트 정보를 통제하는 <strong>제3의 구성적 비인간 행위자</strong>입니다. 이로 인해 ① 플랫폼 지배적 정보 비대칭 → ② 귀인-책임 불확정성("블랙박스 안의 블랙박스") → ③ 응답가능성-적응성 교착이 연쇄적으로 발생하며, 책임 소재를 판별할 증거 자체가 구조적으로 사라집니다. 알고리즘 불투명성은 기회주의적 에이전시에게 <strong>인식론적 방패(epistemic shield)</strong>를 제공하는 동시에, 선의의 에이전시조차 투명하게 행동할 수 없게 만듭니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 클라이언트-에이전시 관계를 <strong>플랫폼 지배적 3자(triad) 구조</strong>로 재개념화하고, 정보 비대칭을 구조적·축소 불가능한 것으로 재구성하며, Agency Theory 등 관계적 거버넌스가 붕괴하는 <strong>경계 조건</strong>을 규명합니다. 실무적으로는 에이전시 가치의 '결과 제공 → 불확실성 하의 센스메이킹' 전환, 우발 예산·조기 해지 조항 등 계약 장치, 알고리즘 영향 인정 메커니즘 같은 규제 개입을 제안합니다.</li>
+                </ul>
+              </div>
+
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "플랫폼이 데이터와 알고리즘을 통제하는 순간, 클라이언트-에이전시 윤리는 '누가 거짓말을 했는가'의 문제가 아니라 '아무도 진실을 증명할 수 없는 구조'의 문제가 되며, 투명성과 모니터링에 기반한 전통적 관계 거버넌스는 작동을 멈춘다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 질적 근거의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">플랫폼은 성과 데이터의 게이트키퍼이자 수혜자로서 정보를 선택적으로 은폐한다</td>
+                <td class="text-sm italic text-slate-600">
+                  "They [Google] don't give us access to all of our own data and that's really problematic. But they don't care. They get the clicks; they get the traffic" (AG011)
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 202, Sec. 4.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">알고리즘 업데이트의 선택적 공개가 불확실성을 클라이언트-에이전시에 전가한다</td>
+                <td class="text-sm italic text-slate-600">
+                  "Google provides very little information about algorithm updates...There's hundreds of updates a year, if not more." (AG009)
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 202, Sec. 4.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">성과 귀인이 '불확정' 상태가 되어 비난 게임이 판결 불가능해진다</td>
+                <td class="text-sm italic text-slate-600">
+                  "You can kind of do the right things but it's actually something else that's changed...So there's definitely a little black box inside the black box" (AG012)
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 203, Sec. 4.2</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">알고리즘 불투명성은 책임 전가형 기회주의(platform-enabled opportunism)를 구조적으로 가능하게 한다</td>
+                <td class="text-sm italic text-slate-600">
+                  "They kept on saying it [performance] was to do with the algorithm and Google had changed all these things…That is when I went digging a bit more. I could find no evidence that an algorithm update had happened" (CL006)
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 201/203, Sec. 4.2 &amp; Table 3</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">에이전시는 '블랙박스 부담'을 지고, 적응 제안은 클라이언트 회의에 부딪혀 전략적 마비가 발생한다</td>
+                <td class="text-sm italic text-slate-600">
+                  "I was in that pressured position where the client is asking me for answers, and I really haven't got them…eventually the clients, they go elsewhere" (AG006) / "'we have to rewrite 1000 pages of content...you need to pay 5 grand' and then they are looking at you and going, 'this is just a way to get money out of me'" (AG011)
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 203-204, Sec. 4.3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Concepts -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 개념 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Framework &amp; Concepts</span>
+        </div>
+
+        <div class="alert bg-indigo-50 border border-indigo-200 text-indigo-900 text-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-indigo-500 shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span>본 논문은 질적 인터뷰 연구로, 통계적 인과 모형 대신 <strong>양자(dyad) → 플랫폼 지배적 3자(triad) 구조</strong>로의 전환을 설명하는 개념적 프레임워크(Fig. 1)와 3개의 이론적 명제를 제시합니다.</span>
+        </div>
+
+        <!-- Triadic Framework SVG -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Triadic Client-Agency-Platform Governance Model (Fig. 1 재구성)</h3>
+
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 860 480" class="w-full h-auto">
+              <!-- Platform (top, hierarchical) -->
+              <rect x="290" y="20" width="280" height="90" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="3"/>
+              <text x="430" y="52" text-anchor="middle" font-weight="700" fill="#92400e" font-size="15">플랫폼 (Platform)</text>
+              <text x="430" y="74" text-anchor="middle" fill="#b45309" font-size="11">구성적 비인간 행위자 (P1)</text>
+              <text x="430" y="92" text-anchor="middle" fill="#b45309" font-size="11">데이터 통제 · 알고리즘 불투명성 · 선택적 공개</text>
+
+              <!-- Mechanism box -->
+              <rect x="255" y="160" width="350" height="70" rx="10" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="430" y="190" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="13.5">플랫폼 지배적 정보 비대칭 (P2)</text>
+              <text x="430" y="212" text-anchor="middle" fill="#0284c7" font-size="10.5">데이터 접근 제한 · 부분/미공개 업데이트 · 조용한 재가중</text>
+
+              <!-- Client & Agency (bottom) -->
+              <rect x="60" y="290" width="230" height="90" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+              <text x="175" y="325" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">클라이언트 (Client)</text>
+              <text x="175" y="348" text-anchor="middle" fill="#64748b" font-size="10.5">중소기업 · 성과 평가자</text>
+              <text x="175" y="365" text-anchor="middle" fill="#64748b" font-size="10.5">검증 불가능한 설명에 의존</text>
+
+              <rect x="570" y="290" width="230" height="90" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+              <text x="685" y="325" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">에이전시 (Agency)</text>
+              <text x="685" y="348" text-anchor="middle" fill="#64748b" font-size="10.5">SEO/SEM/소셜 실무자</text>
+              <text x="685" y="365" text-anchor="middle" fill="#64748b" font-size="10.5">블랙박스 부담 · 이중 비대칭 압력</text>
+
+              <!-- Relational consequences -->
+              <rect x="255" y="400" width="350" height="66" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="3"/>
+              <text x="430" y="426" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">관계적 결과 (P3: 관계 거버넌스의 경계 조건)</text>
+              <text x="430" y="448" text-anchor="middle" fill="#4338ca" font-size="10.5">귀인-책임 불확정성 → 응답가능성-적응성 교착 → 전략적 마비</text>
+
+              <!-- Arrows -->
+              <!-- Platform -> Mechanism -->
+              <path d="M430 110 L 430 150" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrowT)"/>
+              <text x="443" y="138" fill="#b45309" font-weight="700" font-size="11">생산·유지</text>
+
+              <!-- Mechanism -> Client / Agency -->
+              <path d="M300 230 L 200 280" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrowT)"/>
+              <path d="M560 230 L 660 280" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrowT)"/>
+              <text x="215" y="250" fill="#0284c7" font-weight="700" font-size="11">하향 정보 통제</text>
+              <text x="565" y="250" fill="#0284c7" font-weight="700" font-size="11">하향 정보 통제</text>
+
+              <!-- Client <-> Agency dyad (dashed = old relational assumption) -->
+              <path d="M290 335 L 570 335" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrowT)" marker-start="url(#arrowT)"/>
+              <text x="430" y="325" text-anchor="middle" fill="#64748b" font-weight="700" font-size="11">기존 양자적(dyadic) 윤리 긴장 — 더 이상 충분치 않음</text>
+
+              <!-- Client/Agency -> Consequences -->
+              <path d="M220 380 L 300 400" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrowT)"/>
+              <path d="M640 380 L 560 400" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrowT)"/>
+
+              <!-- Data flows up to platform -->
+              <path d="M175 290 C 175 130 260 65 285 65" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 4" marker-end="url(#arrowT)"/>
+              <path d="M685 290 C 685 130 600 65 575 65" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 4" marker-end="url(#arrowT)"/>
+              <text x="130" y="150" fill="#94a3b8" font-size="10">캠페인 데이터 상납</text>
+              <text x="705" y="150" fill="#94a3b8" font-size="10">최적화 노동 제공</text>
+
+              <defs>
+                <marker id="arrowT" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="text-xs text-slate-500 self-start">※ 통계적 가설 모형이 아닌 질적 개념 프레임워크입니다. 실선 화살표는 구조적 영향, 점선은 기존 양자 가정 및 플랫폼으로의 데이터/노동 흐름을 나타냅니다.</p>
+        </div>
+
+        <!-- Concept Detail Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">구조적 메커니즘</span>
+                <span class="text-xs text-slate-400 font-semibold">Mechanism</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">플랫폼 지배적 정보 비대칭 (Platform-Governed Information Asymmetry)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 플랫폼이 성과 데이터 접근 제한, 업데이트의 부분적/미공개 공지, 랭킹 요인의 조용한 재가중을 통해 정보 권위를 위계적으로 재조직하는 상태.</p>
+              <p class="text-sm text-slate-700"><strong>연구 내 포착:</strong> '데이터 접근성'·'알고리즘 업데이트 정보' 2차 주제로 추상화. Table 5에서 4가지 메커니즘의 유형학 제시.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 양자 간 전문성 격차 기반 비대칭(Jayasimha, 2022)과 달리 투명성·정보 공유·모니터링으로 축소 불가능한 구조적 비대칭입니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">관계적 결과 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Consequence 1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">귀인-책임 불확정성 (Attribution-Accountability Indeterminacy)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 플랫폼 변화·에이전시 행위·성과 간 인과 연결이 불가능해져 책임이 구조적으로 할당 불가능해진 리미널한 윤리 상태.</p>
+              <p class="text-sm text-slate-700"><strong>연구 내 포착:</strong> 알고리즘 핑계, 플랫폼 희생양 삼기, 증명 부담 등 초기 코드에서 '책임'·'귀인' 2차 주제로 추상화.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 기회주의를 의도적 기만이 아닌 <strong>구조적으로 가능해진 가능성</strong>으로 재구성. 선의의 에이전시조차 인과를 증명할 수 없어 기회주의 여부 자체가 판별 불가능합니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-error style-label text-white">관계적 결과 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Consequence 2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">응답가능성-적응성 교착 (Answerability-Adaptability Impasse)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 알 수 없는 결과를 설명해야 하는 윤리적 요구(black box burden)와, 증거 없는 전략 수정 제안이 클라이언트의 투자 거부에 부딪히는 상태가 결합된 전략적 마비.</p>
+              <p class="text-sm text-slate-700"><strong>연구 내 포착:</strong> 계약상 불확실성 정상화, 필요적 실험, 검증 불가능한 변경에 대한 클라이언트 저항, 전략적 교착 코드에서 추상화.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 서비스 실패-회복 문헌이 가정하는 '진단 가능하고 해결 가능한 실패' 논리가 붕괴하며, 회복 자체가 사전 봉쇄될 수 있음을 보여줍니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">이론적 명제</span>
+                <span class="text-xs text-slate-400 font-semibold">Propositions</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">3개 명제 (P1~P3)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>P1:</strong> 플랫폼은 클라이언트-에이전시-플랫폼 3자 거버넌스 구조 내의 구성적 비인간 행위자로 개념화되어야 한다.</p>
+              <p class="text-sm text-slate-700"><strong>P2:</strong> 플랫폼 거버넌스는 정보 비대칭을 생산·유지하며, 이는 관계적으로 해소 가능한 것이 아니라 구조적이고 축소 불가능하다.</p>
+              <p class="text-sm text-slate-700"><strong>P3:</strong> 플랫폼 거버넌스는 가시성·귀인·평가가능성을 흐림으로써 관계적 거버넌스가 붕괴하는 경계 조건을 생성한다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 연구는 <strong>귀추적 주제 분석(Abductive Thematic Analysis)</strong>을 사용한 질적 인터뷰 연구입니다. 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">표본 설계 및 참여자 모집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  목적 표집으로 SEO/SEM/소셜미디어 실무자와 중소기업 오너 표적화(최소 1년 경험). 클라이언트는 비판적 사건 표집으로 리뷰 플랫폼에서 식별, 에이전시는 LinkedIn 접촉. 88명 접촉 → 23건 인터뷰 → 2건 제외 → 최종 21명(에이전시 14, 클라이언트 7). 비양자적 표집으로 관계 편향 축소.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 200-201, Sec. 3.1 &amp; Table 2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">데이터 수집 (반구조화 인터뷰)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  2025~2026년 온라인/대면으로 60~90분 인터뷰. 동의하에 녹음, 축어 전사, 익명화. 가이드는 플랫폼 거버넌스·정보 비대칭·클라이언트-에이전시 윤리 3개 감작 문헌 기반이며 Google을 도입 질문의 실증 사례로 사용.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 201, Sec. 3.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">귀추적 주제 분석 (1차 코딩)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Braun &amp; Clarke(2006)의 6단계 주제 분석을 NVivo로 수행. 선험적 범주 없이 귀납적으로 초기 코딩 시작(예: 'algorithm opacity blame', 'platform scapegoating'). 데이터와 감작 개념을 반복 비교하는 귀추적 논리 적용.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 201, Sec. 3.2 &amp; Table 3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">2차 주제 및 이론적 범주 추상화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  초기 코드 160개 → 2차 주제 6개(데이터 접근성, 알고리즘 업데이트 정보, 책임, 귀인, 응답가능성, 적응성) → 최종 이론적 범주 3개로 점진적 추상화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 201, Sec. 3.2 &amp; Table 4</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">신뢰성 확보 및 프레임워크 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  주 연구자 단독 코딩 + 2차 코더 디브리핑으로 개념 경계 정교화. 감사 추적 기록, Braun &amp; Clarke 15개 항목 체크리스트로 주제 일관성 평가. Alvesson &amp; Sandberg(2011)의 문제화 전략으로 3개 명제와 3자 모델(Fig. 1) 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 201, Sec. 3.2 &amp; Page 204-205, Sec. 5</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            표집 기준, 코딩 표본(Table 3·4), 분석 절차가 투명하게 공개되어 절차적 재현은 가능하지만, 데이터가 기밀로 비공개이고 단독 저자·단독 코딩 구조와 영국 디지털 마케팅 생태계에 대한 연구자의 에믹(emic) 지식에 의존하므로 동일한 해석적 결과의 재현은 제한적입니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 8)에서 저자가 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>관점의 제한:</strong> 클라이언트와 에이전시 관점만 반영하며, 플랫폼과 규제자를 포함하는 다중 이해관계자 설계가 필요합니다. <span class="text-xs text-slate-500">(Page 206-207, Section 8)</span>
+              </li>
+              <li>
+                <strong>맥락적 일반화 한계:</strong> 섹터, 조직 맥락, 지리, 특정 플랫폼별 비교 연구가 없어 윤리적 긴장이 어떻게 달라지는지 불명확합니다. <span class="text-xs text-slate-500">(Page 207, Section 8)</span>
+              </li>
+              <li>
+                <strong>대안적 책임 메커니즘 미검토:</strong> 관계적 거버넌스를 넘어서는 규제적·법적 책임 모델, 알고리즘 불투명성 하 시그널링 관행의 신뢰성 재평가가 향후 과제로 남았습니다. <span class="text-xs text-slate-500">(Page 207, Section 8)</span>
+              </li>
+              <li>
+                <strong>AI 행위자 미분해:</strong> AI 시스템이 3자 관계를 어떻게 더 복잡하게 만드는지(클라이언트-에이전시-AI-플랫폼 구성)는 다루지 못했습니다. <span class="text-xs text-slate-500">(Page 207, Section 8)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 질적 인터뷰 메커니즘을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 표본 선택 편향 (Sampling Bias)</span>
+                <p class="text-sm text-slate-700">
+                  클라이언트를 '리뷰 플랫폼에 불만을 남긴 사람'으로 비판적 사건 표집한 결과, 표본이 애초에 부정적 경험자로 기울어 있습니다. 만족스러운 관계에서는 알고리즘 불투명성이 문제로 인식조차 되지 않을 수 있어 '구조적 붕괴' 주장이 과장되었을 가능성이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 에이전시 측 자기이익 편향</span>
+                <p class="text-sm text-slate-700">
+                  에이전시 실무자(14명)가 표본의 2/3를 차지하는데, "우리 잘못이 아니라 구조가 문제"라는 결론은 에이전시의 이해관계와 정확히 일치합니다. 에이전시의 실제 역량 부족이 '구조적 불확정성' 서사로 세탁되었을 가능성이 통제되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 단독 저자·단독 코딩의 해석 편향</span>
+                <p class="text-sm text-slate-700">
+                  코딩을 주 연구자 1인이 수행하고 2차 코더는 디브리핑만 담당했습니다. 문제화(problematisation) 전략은 기존 이론의 결함을 찾도록 설계된 접근이므로, '관계적 거버넌스 붕괴'라는 결론을 향해 확증적으로 해석했을 위험이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. Google 중심성과 삼각검증 부재</span>
+                <p class="text-sm text-slate-700">
+                  인터뷰가 Google 사례로 시작되었고 인용 대부분이 검색 알고리즘 관련입니다. 다른 플랫폼(Meta, Amazon, TikTok 등)에는 '구조적 축소 불가능성' 주장이 그대로 성립하지 않을 수 있습니다. 또한 성과 하락을 객관적 데이터(트래픽 로그, 공개 업데이트 기록)와 대조하지 않아, '귀인 불확정성'이 구조적 사실인지 참여자의 인식일 뿐인지 구분되지 않습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Beyond relational ethics: How platform governance and algorithmic opacity reshape client-agency ethics in digital marketing</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

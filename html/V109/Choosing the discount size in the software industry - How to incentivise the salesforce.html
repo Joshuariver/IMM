@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choosing the Discount Size in the Software Industry - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Sales & Pricing</div>
+        <div class="badge badge-secondary text-white style-label">Method: Mixed-method Sequential</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Choosing the discount size in the software industry:<br>
+            <span class="text-cyan-400">How to incentivise the salesforce</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Dominic Bergers, Mahsa Ghaffari, Giampaolo Viglia, Raffaele Filieri
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            소프트웨어 산업에서의 할인 크기 결정:<br>
+            <span class="text-indigo-300">영업 조직 인센티브 설계 방안</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            정박 효과에 빠져 과도한 할인을 남발하는 B2B 영업사원들에게 성과급(금전적 인센티브)을 제공할 때 발생하는 합리적 의사결정의 완화적 메커니즘
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">생각없이 과거 할인 사례를 답습하는 영업사원들의 할인 편향을 깰 유일한 해법은 개인 성과급(금전 인센티브)입니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Despite the importance of pricing strategies in B2B sales, previous studies have devoted scarce attention to discount strategies. Drawing on anchoring theory and employing a mixed-method sequential research design (i.e., two experiments and a qualitative study), we explore whether previous discount information (i.e., a reference discount) of a B2B salesperson influences the decision about the amount of discount granted to a new customer. We also examine the role of incentives in this relationship. The findings show the importance of reference discounts in determining the discount level given to a new customer. Specifically, salespeople's incentives reduce this effect. Our qualitative efforts demonstrate that uncertainty reduction and self-interest are the main reasons behind reliance on reference discounts and the efficacy of incentives, respectively. The findings of this research highlight the consequential impacts of salespeople's past knowledge and monetary incentives on determining the discount level."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "B2B 영업에서 가격 책정 전략의 중요성에도 불구하고, 선행 연구들은 할인 전략에 거의 관심을 기울이지 않았다. 본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">정박 이론(anchoring theory)</span>에 기초하고 혼합 방법 순차적 연구 설계(즉, 두 차례의 실험과 하나의 질적 연구)를 활용하여, B2B 영업사원의 과거 할인 정보(즉, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">준거 할인</span>)가 새로운 고객에게 제공하는 할인 금액 결정에 영향을 미치는지 탐색한다. 또한 우리는 이 관계에서 인센티브의 역할을 검증한다. 분석 결과는 새로운 고객에게 제공되는 할인 수준을 결정하는 데 있어 준거 할인의 중요성을 보여준다. 구체적으로, 영업사원의 인센티브는 이러한 효과를 완화한다. 질적 연구 결과는 준거 할인에 대한 의존과 인센티브의 효과 뒤에 각각 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">불확실성 감소(uncertainty reduction)</span>와 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">자기 이익(self-interest)</span>이 주요 원인으로 작용하고 있음을 보여준다. 본 연구의 결과는 영업사원의 과거 지식과 금전적 인센티브가 할인 수준 결정에 미치는 중대한 영향력을 조명한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Reference Discount</td>
+                  <td>준거 할인</td>
+                  <td class="text-sm">소비자 행동 연구의 '준거 가격' 개념을 영업사원의 할인 규모 책정 상황으로 대입·변형하여 사용한 개념으로, 마인드 맵핑의 기준이 되는 과거 할인 이력 수치를 말합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Anchoring Effect / Theory</td>
+                  <td>정박 효과 / 이론</td>
+                  <td class="text-sm">어떤 미지의 가치를 평가할 때, 처음에 우연히 접한 임의의 숫자 정보에 뇌가 고정되어 그 범위를 벗어나지 못하고 왜곡을 유발하는 판단 휴리스틱의 일종입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Uncertainty Reduction</td>
+                  <td>불확실성 감소</td>
+                  <td class="text-sm">여러 요인이 얽힌 복잡한 가격 설정 상황에서 겪는 인지적 스트레스(불확실성)를 피하기 위해, 다루기 쉬운 정보(기존 할인 기준)에 기댈 때 발현되는 동기입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Self-interest</td>
+                  <td>자기 이익</td>
+                  <td class="text-sm">자신의 직접적인 이득(보수 등)과 연결될 때 극대화되는 개인주의적 행동 욕구로, 영업사원들이 할인 결정에 더 신중한 분석과 시간을 쏟게 하는 실질적 기제입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 임원 미팅에서 <strong>1분 이내에</strong> 전체 내용을 설득할 수 있도록 논문의 주요 가설 경로와 시사점을 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">영업사원은 과거의 할인 템플릿에 중독되는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">준거 할인 정보는 편향을 낳지만, 인센티브가 이를 제어한다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">금전 인센티브 활성화와 통제 승인 절차 고도화</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B 소프트웨어 영업사원들이 신규 고객에게 할인을 제공할 때 과거에 준 할인(준거 할인)에 영향을 받아 회사 수익성을 헤치는가? 성과 연계형 인센티브가 이 맹목적 앵커링 효과를 낮추어 줄 수 있는가?</li>
+                  <li><strong>핵심 발견:</strong> 과거 할인 기준점(준거 할인)이 존재하고 그것이 높을수록 신규 고객 제안 할인율이 급상승합니다(정박 효과). 하지만 성과 보상 인센티브가 주어질 경우, 영업사원들의 '자기 이익(Self-interest)' 동기가 활성화되어 앵커링에 의한 편향을 크게 축소시킵니다. 특히 회사 차 지급과 같은 비금전 보상보다 <strong>보너스/수수료 같은 금전 인센티브</strong>가 편향 완화에 월등한 지배력을 가집니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 개인 심리적 인지 왜곡을 조절하는 경계 요인(인센티브의 유무, 보상 성격, 개인 경험)을 실증적으로 설계하고 입증했습니다. 무분별한 기업 이익 누수를 제어하기 위해 CRM 시스템의 가이드 강화 및 승인 절차의 '악마의 대변인'화 필요성을 규명했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "모호함을 이기기 위해 과거 할인율에 정박하려는 영업사원의 편향은, 그들의 이기적 동기(자기 이익)를 활성화하는 금전적 성과급(인센티브)을 통해 효과적으로 억제할 수 있습니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구 모형 가설의 타당성을 입증하기 위해, 논문 내 보고된 통계 데이터 및 질적 인터뷰 결과의 구체적 인용구와 페이지 위치를 정리했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">준거 할인 정보의 양(+)의 정박 효과 (H1)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the level of a former (i.e., reference) discount positively influences the discount offered to that customer." (p. 234)<br>
+                  - Study 1: 준거 할인 없음(3.07%) vs 낮음(7.93%) vs 높음(25.55%) (p. 235)
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 234 (Sec. 2.3.1) & Page 235 (Table 2)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">인센티브에 의한 정박 왜곡의 완화 효과 (H2)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...both main effects and the interaction term were statistically significant (p < 0.05). This inferred that the use of a sales incentive moderated the relationship..." (p. 236)<br>
+                  - 높은 준거(86%) 상황 하에서 인센티브가 없을 때 평균 할인율 72.77%였으나 인센티브 제공 시 58.03%로 하락 (p. 237)
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 236 (Sec. 3.2.1) & Page 238 (Table 8)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">금전적 인센티브가 비금전적보다 강하다 (H3)</td>
+                <td class="text-sm italic text-slate-600">
+                  "In line with H3, monetary sales incentives induced a lower discount compared to non-monetary sales incentives, but only when the reference discount was high." (p. 237)<br>
+                  - 높은 준거(86%) 상황 하에서 비금전(회사 차) 지급 시 평균 할인율 54.70%인 반면, 금전(보너스) 지급 시 42.91%로 크게 감소 (p. 238)
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 237 (Sec. 3.2.1) & Page 238 (Table 10)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">정박의 기저(불확실성) 및 인센티브 기저(자기 이익)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...we found uncertainty reduction as the main process behind adopting reference discounts and self-interest due to incentives a pivotal motivation..." (p. 238)<br>
+                  - "When deciding about discount levels, you have to consider ... high uncertainty. Maybe this is the reason why we often tend to orient to information that is more certain..." (p. 239)
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 238 (Sec. 4.1.2) & Page 239 (Sec. 4.2)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 가설 모형 DAG)</h3>
+          
+          <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 330" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrow-indigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5" />
+                </marker>
+                <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706" />
+                </marker>
+                <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0d9488" />
+                </marker>
+              </defs>
+
+              <!-- IV Box -->
+              <rect x="50" y="120" width="220" height="80" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="2" />
+              <text x="160" y="155" text-anchor="middle" font-family="Pretendard" font-weight="700" fill="#334155" font-size="15">준거 할인 (IV)</text>
+              <text x="160" y="178" text-anchor="middle" font-family="Pretendard" fill="#64748b" font-size="12">Reference Discount</text>
+
+              <!-- DV Box -->
+              <rect x="530" y="120" width="220" height="80" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2" />
+              <text x="640" y="155" text-anchor="middle" font-family="Pretendard" font-weight="700" fill="#312e81" font-size="15">선택된 할인율 (DV)</text>
+              <text x="640" y="178" text-anchor="middle" font-family="Pretendard" fill="#4338ca" font-size="12">Chosen Discount Size</text>
+
+              <!-- W1/W2 Box (Sales Incentive) -->
+              <rect x="290" y="10" width="220" height="70" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2" />
+              <text x="400" y="40" text-anchor="middle" font-family="Pretendard" font-weight="700" fill="#78350f" font-size="14">영업 인센티브 (W1, W2)</text>
+              <text x="400" y="60" text-anchor="middle" font-family="Pretendard" fill="#b45309" font-size="11">금전적 vs. 비금전적 인센티브</text>
+
+              <!-- W3 Box (Salesperson Experience) -->
+              <rect x="290" y="240" width="220" height="70" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" />
+              <text x="400" y="270" text-anchor="middle" font-family="Pretendard" font-weight="700" fill="#115e59" font-size="14">영업 경력 (W3)</text>
+              <text x="400" y="290" text-anchor="middle" font-family="Pretendard" fill="#0f766e" font-size="11">Experience (질적 연구 도출)</text>
+
+              <!-- Connection Lines -->
+              <!-- IV -> DV Line -->
+              <path d="M 270 160 L 515 160" fill="none" stroke="#4f46e5" stroke-width="3" marker-end="url(#arrow-indigo)" />
+              <text x="310" y="148" font-family="Pretendard" font-weight="700" fill="#4f46e5" font-size="13">H1 (+ 정박 효과)</text>
+
+              <!-- W1/W2 Moderation Line -->
+              <path d="M 400 80 L 400 148" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-amber)" />
+              <text x="412" y="105" font-family="Pretendard" font-weight="700" fill="#b45309" font-size="12">H2, H3 (완화 -)</text>
+
+              <!-- W3 Moderation Line -->
+              <path d="M 400 240 L 400 172" fill="none" stroke="#0d9488" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-cyan)" />
+              <text x="412" y="215" font-family="Pretendard" font-weight="700" fill="#0f766e" font-size="12">경력 조절 (완화 -)</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수</span>
+                <span class="text-xs text-slate-400 font-semibold">IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">준거 할인 (Reference Discount)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 영업사원이 신규 가격 협상에 착수하거나 할인 규모를 산정할 때 내부의 기준 잣대로 작동하는 과거 거래의 할인율 값.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 실험 내에서 동료 혹은 본인이 유사 타사 거래(BMW 등)에 주었던 이력 정보로 제공된 특정 수치 (Study 1: 8%/26%, Study 2: 25%/86%).</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Di Domenico et al. (2022)의 참여형 가격 준거 설계 기법 준용.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 가치 산출이 어렵고 복잡한 소프트웨어 거래에서 인지적 지름길(Heuristics)로서 정박 효과 및 현상 유지 편향을 야기합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">DV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">선택된 할인율 (Chosen Discount Size)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 영업사원이 고객사의 예산, 협상 과정 등을 감안해 최종 서명하고자 결정한 가격 할인율 비율(0~100%).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 시나리오가 주어진 후 피험자가 슬라이더나 수치 타이핑을 통해 직접 입력한 신규 고객 할인 제안 수치.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Lo et al. (2016), Geiger (2017)의 가격 권한 부여 연구.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 기업의 매출 마진에 직결되는 성과 지표로, 비합리적으로 책정될 경우 회사 수익성에 막대한 해를 유발합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- W1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">W1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">영업 인센티브 (Sales Incentive)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 거래 성공 및 매출 최대화와 유기적으로 엮여서 영업 직원의 업무 노력을 이끌어내기 위한 대외적 보상 구조.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 실험 2에서 피험자에게 인센티브 지급 조건을 전달했는지의 여부 (Incentive vs. No Incentive).</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Widmier (2002)의 판매자 동기부여 메커니즘 프레임워크.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 인센티브는 자기 이익(Self-interest) 동기를 활성화시켜 무지성 정박 편향에서 벗어나 꼼꼼히 가치를 재평가하게 돕습니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- W2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">조절변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">W2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">인센티브 유형 (Incentive Type)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 영업 조직의 보상 설계 시 지급물이 현금인지(Monetary) 혹은 차량/휴가 등 비현금성 물질 자산인지(Non-monetary)에 대한 구성 형태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 금전 성과급(커미션/보너스) vs. 비금전 성과급(회사 소유 차량 제공).</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Kube et al. (2012)의 근로자 호혜성 및 현물 인센티브 가치 인지 연구.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 금전은 가장 순수한 형태의 이익 극대화 수단인 반면, 차량은 주관적 인지 가치가 낮거나 타 부서 비판을 피하려고 앵커에 안주하도록 유도해 완화력이 저하됩니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 논문과 동일한 설계 조건 하에서 피험자 실험 및 질적 탐색 연구를 정확하게 재추종할 수 있도록 절차를 분해했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">모집단 표본 필터링 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  온라인 서베이 패널 플랫폼(예: CINT)을 통해 미국 내 B2B 영업 사원 대상 풀을 수집하며, 스크리닝 질문("B2B 영업직군 여부" 및 "할인 권한 보유 여부")을 주어 필터링한다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 235, Section 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">Study 1 실험 자극물 배포</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  86명의 피험자를 무작위 배정한다. 가상 거래(Carrefour 대상 HR 소프트웨어 협상) 시나리오 상에서 1그룹(준거 없음), 2그룹(8% 할인 이력 준거), 3그룹(26% 할인 이력 준거) 정보를 제시한다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 235, Section 3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">Study 1 Welch's ANOVA 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  0~100% 범위 내에서 피험자가 수동 입력한 신규 할인율 평균을 비교 분석한다. 동분산성이 성립하지 않으므로 Welch's test를 수행하고 사후 분석으로 Tamhane's T2를 써서 H1을 검증한다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 235, Section 3.1.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">Study 2 다요인 설계 확장</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  569명을 대상으로 3 (준거 할인: 없음/25%/86%) x 2 (인센티브 유/무) x 2 (인센티브 종류: 금전/비금전) 요인 설계 그룹(12개 집단)에 무작위 배정한다. AUDI 대상 재무 소프트웨어 시나리오를 사용한다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 236, Section 3.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">인센티브 조작 및 할인율 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  "성공 시 보너스/커미션(금전)" 혹은 "회사 차량 제공(비금전)" 자극을 제공한 후 피험자로부터 최종 제안 할인 수치를 입력받는다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 236, Section 3.2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">이원 분산분석(Two-way ANOVA) 검정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  SPSS/R 선형 회귀 모형을 통해 상호작용 항(Incentive * Reference Discount)을 검증하고, Bonferroni 다중 비교를 써서 인센티브별 주변 평균 차이를 분석해 H2, H3를 통계 검증한다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 236-237, Section 3.2.1</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">질적 인터뷰 및 코딩 탐색</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  최소 3년 경력의 B2B 소프트웨어 영업사원 20명을 표집해 반구조화 인터뷰를 갖고, 근거이론(Open-Axial-Selective Coding) 분석을 거쳐 정박 효과 뒤의 심리적 기저를 도출한다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 238, Section 4.1</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">완전 재현 가능 (Fully Replicable)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            자극물로 사용된 시나리오 문구 전체와 피험자 모집 경로, 실험에 적용된 보상 조건이 투명하게 수록되어 있으며 분석용 요인 및 통계 기법(ANOVA 및 OLS 회귀) 또한 표준 기법이므로 동일 데이터를 획득 시 복사가 매우 용이합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations 및 비판적 분석</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Limitations</span>
+        </div>
+
+        <!-- Limitation A: Self-acknowledged (collapse with red background) -->
+        <div class="collapse collapse-arrow bg-red-50 border border-red-200 text-red-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-red-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-red-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Self-acknowledged)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.3)에서 연구진이 규정한 연구 한계 범위입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>단일 준거 정보 제공의 한계:</strong> 실제 다자간 협상 구도에서는 경쟁 가격, 본사 가이드, 동료들의 다수 딜 이력 등이 복합 앵커로 다차원 작동할 수 있으나 본 실험은 단 하나의 할인 앵커만 제시하였습니다.
+              </li>
+              <li>
+                <strong>정량 실험 내 영업 경력의 조절 효과 미검증:</strong> 질적 인터뷰에서 시니어와 주니어 사원 간의 앵커 의존 강도 차이(경험이 적을수록 준거 고집)를 찾아냈으나 정량 모형에 직접 설계해 실증하진 못했습니다.
+              </li>
+              <li>
+                <strong>회기말 마감 압박(Fiscal Pressure) 미반영:</strong> 세일즈 분기 마감 시점에 목표치를 달성하고자 비합리적인 준거 할인 비율을 무리하게 사용하는 등의 '시간적 압박' 요인이 배제되었습니다.
+              </li>
+              <li>
+                <strong>비금전 인센티브의 대표성 부족:</strong> 비금전 조건으로 단지 '회사 차(Company Car)' 자극 하나만 활용하여 포상 휴가나 복지 혜택과 같은 다른 비금전 보상의 세부적 질적 차이를 대변하기 어렵습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 구조 및 표본 성격 상 도출될 수 있는 깊이 있는 학술적 비판점입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 실험 상황의 낮은 생태적 타당성</span>
+                <p class="text-sm text-slate-700">
+                  피험자들은 가벼운 기프트카드를 보상으로 받으며 설문 상의 가상 시나리오(Vignette)에 서명했습니다. 실제 현업에서 계약 무산 시 인사 고과에 불이익을 당하거나 성과급이 수천만 원 깎이는 절체절명의 협상 테이블에서 느끼는 긴장감과 심리적 압박이 결여되어 실제 의사결정을 왜곡 모사했을 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 온라인 표본의 편향성 (Sample Bias)</span>
+                <p class="text-sm text-slate-700">
+                  CINT 플랫폼의 영업 사원 풀이 실제 고도화된 B2B 엔터프라이즈급 소프트웨어 패키지 계약을 체결해보았거나 그 권한을 강하게 흔들어 본 '핵심 영업 전문가'인지 의심스럽습니다. 일반 단순 소비재(B2C) 영업 성향의 패널 비중이 높을 경우, 추가 비용이 전혀 없고 협상 폭이 넓은 소프트웨어만의 특이점을 정확히 이해하지 못하고 극도로 편향되었을 가능성이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 인센티브 조절 후에도 남는 앵커링 잔존 편향</span>
+                <p class="text-sm text-slate-700">
+                  인센티브가 앵커의 왜곡을 '완화(reduce)'한다고 보았지만, 통계 결과(Study 2) 상 높은 준거(86%) 하에서 강력한 금전 인센티브를 제공하더라도 평균적으로 42.91%의 지나치게 높은 할인을 선택했습니다. 이는 대조군(7%대 할인율)에 비해 여전히 비정상적으로 높으며, 인센티브가 왜곡을 축소시킬 뿐 인지 정박 편향을 본질적으로 완전히 씻어내지는 못함을 간과했습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 소프트웨어 구독 모델(SaaS) 트렌드 미반영</span>
+                <p class="text-sm text-slate-700">
+                  2023년 시점의 글로벌 소프트웨어 산업은 이미 매달 혹은 매년 사용료를 내는 SaaS 구조가 지배적입니다. SaaS는 공인된 웹사이트에 티어별 구독 요금제(List Price)가 공표되며, 영업사원의 자유 재량에 따른 할인 권한이 강력하게 제어됩니다. 0%에서 100%까지 자유롭게 깎아줄 수 있는 온프레미스식 라이선스 구조를 상정한 본 연구의 기본 전제는 현대 B2B IT 비즈니스의 현실과 궤를 달리합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Choosing the discount size in the software industry: How to incentivise the salesforce</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

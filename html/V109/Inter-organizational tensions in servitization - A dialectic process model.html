@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inter-organizational Tensions in Servitization - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Servitization Tensions</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Single Case Study</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Inter-organizational tensions in servitization:<br>
+            <span class="text-cyan-400">A dialectic process model</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Xander Stegehuis, Ariane von Raesfeld, Lambert Nieuwenhuis
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            서비타이제이션에서의 조직 간 갈등:<br>
+            <span class="text-indigo-300">변증법적 프로세스 모델</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            네덜란드 건설 산업의 FaaS(서비스로서의 파사드) 순환 비즈니스 도입 사례를 통한 활동·자원·행위자(ARA) 차원의 모순 분석
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">서비타이제이션은 계획된 선형 과정이 아닌, 기존 거래(정)와 새로운 모델(반) 간 갈등을 통합(합)하거나 해체하며 나아가는 변증법 과정입니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This study investigates inter-organizational tensions in servitization and develops a dialectic process model to better understand the emergent nature of servitization. Inter-organizational tensions have gained increasing attention in servitization literature recently, but their role in the emergent nature of servitization requires further research. By combining dialectic theory and the ARA framework from the Industrial Marketing and Purchasing (IMP) tradition, we develop a dialectic process model that identifies inter-organizational tensions as generative forces in servitization. We present a single case study about the implementation of a circular service proposition in the construction industry called “Façade-as-a-Service.” Our results reveal multiple tensions in a servitization context and how they emerged as a result of contradictory relationship structures in the existing and envisioned situations. We found that the tensions may be either anticipated as a result from direct clash between the status quo and an envisioned situation or unanticipated because they are indirectly as a result of interdependent ARA dimensions. Our findings contribute to the existing literature by (i) extending knowledge on servitization tensions to a circular economy context, (ii) portraying servitization as a dialectic process that requires integration of competing interests, and (iii) opening the black box of inter-organizational tensions by adopting the ARA framework."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 연구는 서비타이제이션(제품의 서비스화) 과정에서 발생하는 조직 간 갈등을 조사하고, 서비타이제이션의 창발적 성격을 더욱 잘 이해하기 위한 변증법적 프로세스 모델을 개발한다. 최근 서비타이제이션 관련 문헌에서 조직 간 갈등이 점점 더 주목받고 있으나, 서비타이제이션의 창발적 특성에서 이러한 갈등의 역할은 추가적인 연구가 필요하다. 변증법 이론과 산업 마케팅 및 구매(IMP) 전통의 ARA 프레임워크를 결합하여, 본 연구는 조직 간 갈등을 서비타이제이션의 생성적 동력으로 식별하는 변증법적 프로세스 모델을 구축한다. 우리는 건설 산업에서 “Façade-as-a-Service(서비스로서의 파사드)”라 불리는 순환 서비스 제안의 구현에 관한 단일 사례 연구를 제시한다. 연구 결과는 서비타이제이션 맥락에서 발생하는 다양한 갈등을 밝히고, 이러한 갈등이 기존 상황(정, Thesis)과 구상된 상황(반, Antithesis) 사이의 모순된 관계 구조의 결과로 어떻게 발생하는지 보여준다. 우리는 갈등이 현 상태(status quo)와 구상된 상황 사이의 직접적인 충돌로 인해 예측될 수도 있고(anticipated), 상호 의존적인 ARA 차원의 간접적인 결과로 인해 예측되지 못할 수도 있음(unanticipated)을 발견했다. 본 연구의 결과는 (i) 서비타이제이션 갈등에 대한 지식을 순환 경제 맥락으로 확장하고, (ii) 서비타이제이션을 경쟁적 이해관계의 통합을 요구하는 변증법적 프로세스로 묘사하며, (iii) ARA 프레임워크를 채택함으로써 조직 간 갈등의 블랙박스를 개방하는 데 기여한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Servitization</td>
+                  <td>서비타이제이션 / 제품의 서비스화</td>
+                  <td class="text-sm">제조 기업이 물리적 제품 판매 모델에서 제품과 서비스를 결합한 고부가 가치 솔루션 판매 모델로 이행하는 비즈니스 모델 혁신입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Inter-organizational tensions</td>
+                  <td>조직 간 갈등 (텐션)</td>
+                  <td class="text-sm">다양한 네트워크 파트너들이 각자의 전략, 목표, 정체성을 보유하고 있어 새로운 가치 제안 실행 시 충돌하게 되는 다자간의 관계적 마찰입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Dialectic process model</td>
+                  <td>변증법적 프로세스 모델</td>
+                  <td class="text-sm">기존의 상태(정, Thesis)와 이를 변화시키려는 추진력(반, Antithesis)이 갈등을 유발하고, 이를 통해 타협(합, Synthesis)이나 관계 단절(해체, Dissolution)을 도출하는 동태적 모형입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">ARA framework</td>
+                  <td>ARA 프레임워크</td>
+                  <td class="text-sm">IMP 전통의 분석틀로, 비즈니스 관계를 활동 연계(Activity links), 자원 결합(Resource ties), 행위자 결속(Actor bonds)의 세 수준에서 다룹니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Façade-as-a-Service (FaaS)</td>
+                  <td>서비스로서의 파사드</td>
+                  <td class="text-sm">건물 외벽(파사드)을 판매하지 않고 제조사가 소유권을 유지하며, 15년 이상의 기간 동안 성능, 유지보수 및 폐기 후 재활용을 보장하는 장기 순환 서비스 제품군입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            B2B 세미나 및 학회 등에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 핵심 주장을 뼈대 위주로 시각화했습니다.
+          </p>
+          
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">서비타이제이션 과정에서 조직 간 갈등은 어떻게 나타나는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">정(기존 거래)과 반(FaaS)의 대립이 경로를 창발한다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">변증법 이론과 ARA 프레임워크의 미세 기초 융합</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 제조기업의 서비타이제이션 전략 수행이 네트워크 파트너들과 어떠한 관계적 불일치를 발생시키며, 이때 나타나는 갈등이 서비타이제이션의 경로를 어떻게 창발적으로 결정하는가?</li>
+                  <li><strong>핵심 발견:</strong> 갈등은 현 상태(정, Thesis)와 FaaS 모델(반, Antithesis) 간의 모순에서 시작된다. 이는 단순한 직접 마찰(1차 모순)뿐 아니라, 활동·자원·행위자(ARA) 차원의 고유한 상호의존성 때문에 파생되는 간접 마찰(2차 모순)로 이어져 예측할 수 없이 전개된다. 갈등 해결의 결과물로 상호 조율된 타협안(합, Synthesis)이 도출되거나 기존 관계가 깨지고 공급업체가 전면 교체(해체, Dissolution)되는 다이나믹을 규명했다.</li>
+                  <li><strong>이론/실무 기여:</strong> 서비타이제이션 갈등을 최초로 순환 경제(FaaS) 관점으로 확장하여 다자간 이해관계의 충돌을 해석했으며, 기존 정적 '역설(Paradox)' 연구를 넘어 역동적인 '변증법(Dialectics)'과 ARA 프레임워크를 정교하게 융합해 갈등의 미세 메커니즘을 밝혀냈다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "서비타이제이션은 계획된 선형 경로가 아니라, 기존 거래(정)와 새로운 FaaS 서비스 모델(반) 간의 활동·자원·행위자 차원의 모순으로 인해 발생하는 갈등을 해결(합) 또는 해체하는 창발적 변증법 프로세스이다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 논문에서 다루는 실증 사례(네덜란드 파사드 빌더 WinCo) 기반의 각 핵심 주장과 이를 뒷받침하는 원문 근거(Original Quote) 및 위치를 매핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">서비타이제이션의 변증법적 진행 과정</td>
+                <td class="text-sm italic text-slate-600">
+                  "...servitization involves inter-organizational tensions which emerge from contradictions between the thesis and an envisioned antithesis and drive servitization through synthesis."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 206 (Sec. 2.1), Page 215 (Sec. 5)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">1차 직접 모순 및 2차 파생 모순의 공존</td>
+                <td class="text-sm italic text-slate-600">
+                  "We found that the tensions may be either anticipated as a result from direct clash between the status quo and an envisioned situation or unanticipated because they are indirectly as a result of interdependent ARA dimensions."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 215 (Sec. 5)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">Financier와의 갈등과 JV 설립(Synthesis)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Second-order contradictions in the actor layer resulted in trust-related tensions. ... WinCo responded to these tensions by establishing 'Façade Service Company', a joint venture with another façade builder and one of its main suppliers."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 210-211 (Sec. 4.1.1)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">SysCo의 수동적 태도로 인한 해체(Dissolution)</td>
+                <td class="text-sm italic text-slate-600">
+                  "SysCo's reactive attitude ultimately led to the dissolution of the business relationship. ... WinCo realized that SysCo would not implement its requests and dissolved the relation with SysCo in the FaaS context. Instead, WinCo partnered with one of SysCo's competitors..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 211-212 (Sec. 4.2.1)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">Architect의 정체성 위협과 모듈 라이브러리 타협</td>
+                <td class="text-sm italic text-slate-600">
+                  "Enhanced façade standardization and modularity required architects to adapt their design activities to component assembly-based design. ... WinCo responded to this tension by... developing a modular façade concept and a digital 'module library'..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 212-213 (Sec. 4.3.1)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">GlassCo와의 리스크 배분 및 위험 모델 타협</td>
+                <td class="text-sm italic text-slate-600">
+                  "The outcome of this tension is that WinCo continued working with GlassCo's existing support activities and warranties but asked them for an elaborate risk model of their product."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 214-215 (Sec. 4.4.1)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (변증법적 서비타이제이션 갈등 모형)</h3>
+          
+          <div class="w-full bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 550" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+                </marker>
+                <marker id="arrow-cyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0891b2"/>
+                </marker>
+                <marker id="arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+                </marker>
+                <marker id="arrow-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/>
+                </marker>
+                <marker id="arrow-rose" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#e11d48"/>
+                </marker>
+              </defs>
+
+              <rect x="0" y="0" width="800" height="550" fill="#f8fafc" rx="16" />
+
+              <!-- Left: Thesis Box -->
+              <rect x="30" y="40" width="220" height="150" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+              <text x="140" y="70" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="16">정 (Thesis)</text>
+              <text x="140" y="92" text-anchor="middle" font-weight="600" fill="#475569" font-size="13">기존 전통적 관계 구조</text>
+              <line x1="50" y1="105" x2="230" y2="105" stroke="#cbd5e1" stroke-width="1"/>
+              <text x="50" y="125" fill="#475569" font-size="11">▪ 자원: 모기지 금융, 개별 자재 소유</text>
+              <text x="50" y="145" fill="#475569" font-size="11">▪ 활동: 단순 자재 납품, 10년 품질보증</text>
+              <text x="50" y="165" fill="#475569" font-size="11">▪ 행위자: 제품 판매 중심, 단기 협력</text>
+
+              <!-- Right: Antithesis Box -->
+              <rect x="550" y="40" width="220" height="150" rx="10" fill="#ecfeff" stroke="#06b6d4" stroke-width="2"/>
+              <text x="660" y="70" text-anchor="middle" font-weight="700" fill="#083344" font-size="16">반 (Antithesis)</text>
+              <text x="660" y="92" text-anchor="middle" font-weight="600" fill="#0891b2" font-size="13">구상된 FaaS 관계 구조</text>
+              <line x1="570" y1="105" x2="750" y2="105" stroke="#c5f2f7" stroke-width="1"/>
+              <text x="570" y="125" fill="#0e7490" font-size="11">▪ 자원: 서비스계약 담보, 잔존가치</text>
+              <text x="570" y="145" fill="#0e7490" font-size="11">▪ 활동: 장기 유지보수, 모듈형 설계</text>
+              <text x="570" y="165" fill="#0e7490" font-size="11">▪ 행위자: 성과 기반 동반자, 15년 보증</text>
+
+              <!-- Middle: Clash / ARA Dimensions -->
+              <rect x="290" y="40" width="220" height="150" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+              <text x="400" y="70" text-anchor="middle" font-weight="700" fill="#78350f" font-size="15">ARA 차원의 모순 (Clash)</text>
+              <line x1="310" y1="85" x2="490" y2="85" stroke="#fde68a" stroke-width="1"/>
+              <rect x="305" y="95" width="190" height="24" rx="4" fill="#fef3c7" />
+              <text x="400" y="111" text-anchor="middle" font-weight="600" fill="#92400e" font-size="11">자원 결합 (Resource Ties) 모순</text>
+              <rect x="305" y="125" width="190" height="24" rx="4" fill="#fef3c7" />
+              <text x="400" y="141" text-anchor="middle" font-weight="600" fill="#92400e" font-size="11">활동 연계 (Activity Links) 모순</text>
+              <rect x="305" y="155" width="190" height="24" rx="4" fill="#fef3c7" />
+              <text x="400" y="171" text-anchor="middle" font-weight="600" fill="#92400e" font-size="11">행위자 결속 (Actor Bonds) 모순</text>
+
+              <!-- Connectors from Left/Right to ARA Clash -->
+              <path d="M 250 115 L 282 115" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" />
+              <path d="M 550 115 L 518 115" fill="none" stroke="#0891b2" stroke-width="2" marker-end="url(#arrow-cyan)" />
+
+              <!-- Downward Arrow from Clash to Tensions -->
+              <path d="M 400 190 L 400 230" fill="none" stroke="#d97706" stroke-width="3" marker-end="url(#arrow-amber)" />
+              <text x="410" y="215" fill="#b45309" font-weight="700" font-size="12">1차 &amp; 2차 모순 발현</text>
+
+              <!-- Tensions (조직 간 갈등) Box -->
+              <rect x="150" y="240" width="500" height="130" rx="12" fill="#fff5f5" stroke="#f87171" stroke-width="2"/>
+              <text x="400" y="265" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="16">조직 간 갈등 (Inter-organizational Tensions)</text>
+              <g fill="#7f1d1d" font-size="11">
+                <text x="170" y="295">▪ Financier: 신뢰 부족 (잔존가치 불안), 가격산정 경직성, 규제 장벽</text>
+                <text x="170" y="315">▪ SysCo: FaaS에 대한 수동적 태도 (프로세스 미흡), 본사 규제 및 경직성</text>
+                <text x="170" y="335">▪ Architect: 모듈화 설계에 따른 정체성 위협, 그린워싱 의심, 표준 치수 제한</text>
+                <text x="170" y="355">▪ GlassCo: 장기 연장 보증 제공에 따른 위험 배분 및 보수적 가격 책정</text>
+              </g>
+
+              <!-- Branching Arrows from Tensions to Outcomes -->
+              <!-- Left Arrow to Synthesis -->
+              <path d="M 300 370 L 220 420" fill="none" stroke="#059669" stroke-width="2" stroke-dasharray="2 2" marker-end="url(#arrow-emerald)" />
+              <text x="215" y="395" fill="#047857" font-weight="700" font-size="12">합의 / 통합 (Synthesis)</text>
+
+              <!-- Right Arrow to Dissolution -->
+              <path d="M 500 370 L 580 420" fill="none" stroke="#e11d48" stroke-width="2" stroke-dasharray="2 2" marker-end="url(#arrow-rose)" />
+              <text x="565" y="395" fill="#be123c" font-weight="700" font-size="12">종료 / 해체 (Dissolution)</text>
+
+              <!-- Bottom Left: Synthesis Box -->
+              <rect x="50" y="430" width="320" height="100" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="210" y="452" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">합 (Synthesis) - 상호 적응 및 타협</text>
+              <line x1="70" y1="462" x2="350" y2="462" stroke="#a7f3d0" stroke-width="1"/>
+              <g fill="#047857" font-size="10.5">
+                <text x="65" y="480">▪ JV(Façade Service Company) 설립으로 신뢰 확보</text>
+                <text x="65" y="495">▪ 모듈러 라이브러리 제공 및 외벽 치수 피팅 피스 적용</text>
+                <text x="65" y="510">▪ 유리 공급사의 위험 평가 모델 활용한 내부 리스크 관리</text>
+              </g>
+
+              <!-- Bottom Right: Dissolution Box -->
+              <rect x="430" y="430" width="320" height="100" rx="8" fill="#fff1f2" stroke="#f43f5e" stroke-width="2"/>
+              <text x="590" y="452" text-anchor="middle" font-weight="700" fill="#9f1239" font-size="14">해체 (Dissolution) - 파트너 교체</text>
+              <line x1="450" y1="462" x2="730" y2="462" stroke="#ffe4e6" stroke-width="1"/>
+              <g fill="#be123c" font-size="10.5">
+                <text x="445" y="480">▪ 기존 시스템 공급사(SysCo)와 협업 종료</text>
+                <text x="445" y="495">▪ FaaS에 적극적인 경쟁사 파트너 신규 영입</text>
+                <text x="445" y="510">▪ 신규 파트너와 모듈형 외벽 공동 개발로 모델 혁신</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">변증법 단계 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Thesis</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">정 (Thesis: 기존 제품 판매 중심 관계 구조)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 기존 선형 경제 기반 하에 공고히 자리 잡은 일회성 자재 공급 및 판매 모델로, 유지 관리나 afterlife 가치는 구매자가 책임지는 상태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의 (ARA):</strong> 부동산/부지 저당에 근거한 모기지 대출(자원), 프로젝트 건별 생산 및 10년 표준 보증(활동), 거래 종결식 갑을 관계 및 설계자의 예술성 강조(행위자).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> IMP 학파의 Håkansson & Snehota (1995)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 시스템 공급업체, 금융권, 설계자 모두 현 상태의 효율성과 안정성에 의존하므로 관계적 '무게감(Heaviness)'과 마찰을 형성함.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">변증법 단계 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Antithesis</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">반 (Antithesis: 구상된 FaaS 순환 관계 구조)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 친환경 순환 경제 목적을 위해 소유권을 보유하고 장기 수명 보장, 상태 모니터링, 해체 후 모듈 재활용을 실현하려는 비즈니스 모형.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의 (ARA):</strong> 15년 이상의 긴 보증 및 서비스 계약서와 파사드 잔존가치 담보 금융(자원), 장기 LCC 및 조립/분해 중심의 모듈형 파사드 기술(활동), 공동 리스크 분담 파트너십(행위자).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Baines et al. (2009), Yang & Evans (2019a)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 포컬 펌(Focal firm)인 WinCo가 기존 질서에 도전하여 타 파트너의 서비스 역량 강화를 모색하는 '행위자 동원(Mobilization)' 단계입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">변증법 단계 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Tensions</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">갈등 (Tensions: 조직 간 모순의 발현)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 기존 관계 구조(정)와 새로운 전략 비전(반)이 맞물리며 발생하는 이해관계, 법적 규제, 보증 리스크, 직업적 정체성 간의 충돌 상태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의 (ARA):</strong> FaaS 잔존가치 측정 불가로 인한 신뢰 부족(Financier), 시스템 혁신 방향 차이에 의한 수동적 태도(SysCo), 표준화 모듈 디자인이 예술적 주권을 침해한다는 우려(Architect), 장기 보증 책임 및 보수적 가격 갈등(GlassCo).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Burton et al. (2016), Reim et al. (2019)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 자원이나 활동이 한쪽에서 변경될 때, 상호의존적인 다른 영역(예: 행위자 결속/정체성)까지 의도치 않게 모순이 전이(2차 모순)됨을 증명.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">변증법 단계 4</span>
+                <span class="text-xs text-slate-400 font-semibold">Synthesis / Dissolution</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">결과 (Outcomes: 합 또는 해체)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 갈등의 상호 작용 결과물로, 상호 적응을 통해 새로운 타협적인 구조로 통합(Synthesis)되거나 관계가 완전히 종료(Dissolution)되어 파트너가 대체되는 최종 종결 형태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 공동의 신뢰 확보를 위한 합작회사(JV) 설립, CAD 모듈러 도서관 배포, 유리의 기계적 손상 위험 분석 모델 제공에 합의(Synthesis). 또는 기존 프로필 공급업체인 SysCo와의 계약을 중단하고 신규 공급선 영입(Dissolution).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Hoholm & Olsen (2012), Farjoun & Fiss (2022)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 논문은 질적 탐색 및 사례 기술의 타당성을 극대화하기 위해 다단계 인터뷰와 워크숍, 2차 데이터를 이용해 삼각측량(Data Triangulation)을 접목한 <strong>귀납-연역적(Abductive) 사례 연구</strong>를 설계했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">사례 연구 설계 및 분석 맥락 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  유럽 내 온실가스 배출 및 에너지 소비의 30% 이상을 차지하여 순환 경제(CE) 압박이 높고, 서비타이제이션 경향이 뚜렷한 네덜란드 건설 산업을 타겟팅함. 건물 외벽 임대 비즈니스(FaaS)를 선도하는 120명 규모 중소 파사드 제작사인 WinCo 및 관련 생태계를 단일 사례 분석 대상으로 지정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 208, Section 3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">1단계 인터뷰 (전체 네트워크 구조 정의)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  2019년 12월~2020년 2월 진행. WinCo 관리자, 자재 공급사(GlassCo, SysCo), 금융회사, 설계소, 개발업체 임원 등과 약 1시간 분량의 반구조화 대면/온라인 인터뷰 진행. 전통적 조달 과정 및 FaaS의 잠재적 파급 효과 수집.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 208, Section 3.1 & Appendix A</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">2단계 인터뷰 (양자간 관계 및 갈등 심층 분석)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  2020년 8월~10월 수행. ARA 프레임워크(활동 연계, 자원 결합, 행위자 결속)에 맞춘 상세 가이드라인을 배포하여, 구체적인 자재 흐름, 연장 보증 요구, 리스크 부담에 대한 주관적 갈등 양상을 심도 있게 측정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 208-209, Section 3.1 & Appendix B</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">다자간 워크숍을 통한 공동 위험 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  2020년 10월 28일, 파사드 빌더, 유리사, 알루미늄 공급사, 블라인드 공급사, 시스템 통합업체 등 다자 파트너들이 모여 3.5시간 동안 브레인스토밍 및 토론 워크숍 수행. 네트워크 정렬 실패 요인과 공동 대처 방안 설계.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 209, Section 3.1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">3단계 인터뷰 및 2차 데이터 삼각측량</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  2021년 5월~6월 진행. FaaS 모델 진척 상황과 갈등 조정 상황을 추적하기 위해 추가 7회 인터뷰 진행. 산업 백서, 전문 보고서, 관련 전문지 기사 등의 2차 데이터를 함께 매칭하여 연구의 타당성(Triangulation) 보완. 2022년 12월 최종 점검 인터뷰 실행.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 209, Section 3.1 & Table 1</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">질적 전사 및 ARA 변증법적 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  모든 녹취록을 전사하고 코딩 진행. 기존 구조(정), FaaS 비전(반), 관계적 불일치로 발생한 텐션(갈등), 그리고 조정/해체 결과(합/해체)로 영역을 나누어 비교 분석. 다른 교차 분석 연구진의 상호 코딩 일치율 교차 검토.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 209, Section 3.2</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            인터뷰 가이드라인(Appendix A, B), 표본 구성(Table 1), 코딩 체계 및 분석 방법론이 상세히 서술되어 있어 질적 연구 기법 차원의 재현은 용이함. 하지만 특정 네덜란드 건설 프로젝트의 맥락적 특수성, 기밀에 부쳐진 질적 데이터 원본(Confidential Data)에 대한 외부 접근 불가성 및 특정 기업(WinCo)과의 장기적 신뢰 관계는 외부 연구자가 독립적으로 완전 재현하기 어려움.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계 및 비판적 검토)</h2>
+          <span class="badge badge-warning style-label uppercase">Limitations</span>
+        </div>
+        
+        <div class="bg-white p-6 lg:p-8 rounded-b-box border border-slate-200 pt-10 flex flex-col gap-6">
+          
+          <!-- Limitation A: Self-acknowledged -->
+          <div>
+            <h3 class="style-h3 text-slate-900 mb-3 flex items-center gap-2">
+              <span class="badge badge-error text-white style-label">A</span>
+              논문이 스스로 인정한 한계 (Self-acknowledged)
+            </h3>
+            
+            <div class="collapse collapse-arrow bg-red-50 border border-red-200 text-slate-800 rounded-box mb-4">
+              <input type="checkbox" /> 
+              <div class="collapse-title text-lg font-bold text-red-900">
+                1. 단일 사례 연구의 일반화 한계 (Generalizability)
+              </div>
+              <div class="collapse-content text-sm text-slate-700">
+                <p class="mb-2"><strong>원문 위치:</strong> Page 216, Section 7</p>
+                <p>네덜란드 건설 산업이라는 단일 프로젝트 기반 협력 생태계만을 분석했기 때문에, 장비 제조나 교통 시스템 등 연속적 공급망이나 타 국가/산업 맥락으로 직접 일반화하기 어렵습니다. 프로젝트 기반 산업의 단절적 특징이 본 결과에 많은 영향을 주었습니다.</p>
+              </div>
+            </div>
+
+            <div class="collapse collapse-arrow bg-red-50 border border-red-200 text-slate-800 rounded-box mb-4">
+              <input type="checkbox" /> 
+              <div class="collapse-title text-lg font-bold text-red-900">
+                2. 탐색적 성격에 따른 이론 검증 미흡
+              </div>
+              <div class="collapse-content text-sm text-slate-700">
+                <p class="mb-2"><strong>원문 위치:</strong> Page 216, Section 7</p>
+                <p>아브덕티브(Abductive) 및 탐색적 성격으로 인해, 사전에 정교하고 집중된 설문 문항을 설계하지 못했으며 결론의 타당성을 확보하기 위해 향후 연역적 연구(Deductive Validation)를 통한 추가 검증이 필요합니다.</p>
+              </div>
+            </div>
+
+            <div class="collapse collapse-arrow bg-red-50 border border-red-200 text-slate-800 rounded-box mb-4">
+              <input type="checkbox" /> 
+              <div class="collapse-title text-lg font-bold text-red-900">
+                3. 네트워크 전체 다자간 다이내믹 추적의 한계
+              </div>
+              <div class="collapse-content text-sm text-slate-700">
+                <p class="mb-2"><strong>원문 위치:</strong> Page 216-217, Section 7</p>
+                <p>주로 WinCo를 중심으로 한 양자 관계(Dyad) 내 갈등에 집중하였으며, 네트워크 내 여러 관계에서 갈등이 다발적으로 발생하고 전이되는 복잡한 네트워크 역학을 완전히 추적하지 못했습니다.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Limitation B: Critical / Unmentioned -->
+          <div>
+            <h3 class="style-h3 text-slate-900 mb-3 flex items-center gap-2">
+              <span class="badge badge-warning text-amber-950 style-label">B</span>
+              논문이 언급하지 않았지만 비판적으로 의심할 점
+            </h3>
+            
+            <div class="collapse collapse-arrow bg-amber-50 border border-amber-200 text-slate-800 rounded-box mb-4">
+              <input type="checkbox" /> 
+              <div class="collapse-title text-lg font-bold text-amber-900">
+                1. 포컬 펌(Focal Firm) 편향 (Respondent Bias)
+              </div>
+              <div class="collapse-content text-sm text-slate-700">
+                <p>데이터의 대부분이 연구의 중심 기업인 WinCo의 응답에 의존하고 있어, 파트너 기업의 실무적 고충은 다소 축소되었을 가능성이 큽니다. 예를 들어 SysCo의 '수동적인 반응(Reactive attitude)'이나 '조직적 경직성(Organizational rigidity)'은 오직 WinCo의 프레임에서 부정적으로 묘사되었으나, 대형 공급사 입장에서는 타당한 리스크 예방 프로세스일 수 있습니다.</p>
+              </div>
+            </div>
+
+            <div class="collapse collapse-arrow bg-amber-50 border border-amber-200 text-slate-800 rounded-box mb-4">
+              <input type="checkbox" /> 
+              <div class="collapse-title text-lg font-bold text-amber-900">
+                2. 원천 데이터 투명성 부족 (Confidentiality Issue)
+              </div>
+              <div class="collapse-content text-sm text-slate-700">
+                <p>논문은 연구 데이터의 기밀성(Confidentiality)을 이유로, 코딩 코퍼스나 상세 인터뷰 전사본을 완전히 비공개하였습니다. 타 학자들의 분석 검증 및 교차 코딩 신뢰성(Inter-coder reliability) 평가가 불가능합니다.</p>
+              </div>
+            </div>
+
+            <div class="collapse collapse-arrow bg-amber-50 border border-amber-200 text-slate-800 rounded-box mb-4">
+              <input type="checkbox" /> 
+              <div class="collapse-title text-lg font-bold text-amber-900">
+                3. 환경적 순환 가치(Circularity)의 실증 측정 결여
+              </div>
+              <div class="collapse-content text-sm text-slate-700">
+                <p>FaaS 비즈니스가 순환 경제(CE) 목적의 전략이라고 서술하고 있으나, 실제 파사드 해체 후 알루미늄이나 유리의 탄소 배출 저감량이나 재활용률 등 계량적 수치가 전혀 제시되지 않았습니다. 실질적인 환경 개선 효과보다는 전략을 정당화하기 위한 그린워싱적 수사(Greenwashing Rhetoric)로 활용될 우려가 존재합니다.</p>
+              </div>
+            </div>
+
+            <div class="collapse collapse-arrow bg-amber-50 border border-amber-200 text-slate-800 rounded-box mb-4">
+              <input type="checkbox" /> 
+              <div class="collapse-title text-lg font-bold text-amber-900">
+                4. 시차에 따른 종단적 모순 다이내믹 추적의 한계
+              </div>
+              <div class="collapse-content text-sm text-slate-700">
+                <p>3개년 데이터 수집 기간은 FaaS 모델이 도입 및 타협되는 시기까지만 다룹니다. 변증법적 이론에 따르면 타협(Synthesis)된 상태는 다시 새로운 현 상태(Thesis)가 되어 새로운 모순을 낳는 순환 구조를 가져야 하나, FaaS 상용화 이후에 파생된 새로운 텐션을 추적하는 사후 평가는 부재합니다.</p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-10 bg-slate-900 text-slate-400 style-small">
+    <div class="max-w-7xl w-full flex flex-col sm:flex-row justify-between items-center gap-4 border-t border-slate-800 pt-6">
+      <p>© 2026 B2B Servitization Dialectics Research. All rights reserved.</p>
+      <div class="flex gap-4">
+        <span class="hover:text-white">Industrial Marketing Management</span>
+        <span class="hover:text-white">University of Twente</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

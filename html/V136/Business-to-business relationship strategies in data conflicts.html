@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B2B Relationship Strategies in Data Conflicts - IMM 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
+    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
+    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
+    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+    html { scroll-behavior: smooth; }
+    @media (max-width: 1024px) {
+      .style-display { font-size: 38px; }
+      .style-h1 { font-size: 30px; }
+      .style-h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management 136 (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Data Conflicts &amp; Relationship Strategy</div>
+        <div class="badge badge-secondary text-white style-label">Conceptual Paper</div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Business-to-business relationship strategies<br>
+            <span class="text-cyan-400">in data conflicts</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Carsten Lund Pedersen, Thomas Ritter
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            데이터 갈등 상황에서의<br>
+            <span class="text-indigo-300">B2B 관계 전략</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            마찰-실패-해법(friction-failure-fix) 프레임워크로 데이터 갈등이 통제-신뢰 붕괴를 거쳐 6대 관계 전략 조정으로 구체화되는 메커니즘을 개념화
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">데이터 통제력을 잃었다고 느낀 기업은 '통제-신뢰 붕괴'에 진입하고, 관계를 종료·축소·유지·발전·수립·차단하는 전략적 조정에 나섭니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Increasing digitalization and interorganizational data exchange may not only contribute to value creation, but also create situations in which those who generate data feel threatened by those who utilize it. This paper conceptualizes and introduces the so-called friction-failure-fix framework of data conflicts, where conflict over data is seen as an intolerable dark-side friction that over time materializes in a control-trust collapse. To address this emerging state within a given business-to-business relationship, relationship strategies will typically require adjustment by the data generators. This study contributes by: (i) conceptualizing how data may affect relationship strategies, (ii) introducing the concept of control-trust collapse in light of data-related conflicts, (iii) conceptualizing the friction-failure-fix framework as a mechanism for linking intolerable friction, control-trust collapse and relationship strategies, and (iv) formulating a research agenda to guide future work."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "증가하는 디지털화와 조직 간 데이터 교환은 가치 창출에 기여할 뿐만 아니라, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">데이터 생성자</span>가 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">데이터 활용자</span>에 의해 위협받는다고 느끼는 상황을 만들어낼 수도 있다. 본 논문은 데이터 갈등의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">마찰-실패-해법(friction-failure-fix) 프레임워크</span>를 개념화하고 소개한다. 여기서 데이터를 둘러싼 갈등은 시간이 지나면서 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">통제-신뢰 붕괴(control-trust collapse)</span>로 구체화되는 견딜 수 없는 다크사이드 마찰로 간주된다. 주어진 B2B 관계 내에서 이러한 새로운 상태에 대처하기 위해, 관계 전략은 일반적으로 데이터 생성자에 의한 조정을 필요로 하게 된다. 본 연구는 (i) 데이터가 관계 전략에 미치는 영향의 개념화, (ii) 통제-신뢰 붕괴 개념 도입, (iii) 견딜 수 없는 마찰·통제-신뢰 붕괴·<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">관계 전략</span>을 연결하는 메커니즘으로서의 프레임워크 개념화, (iv) 향후 연구 의제 수립으로 기여한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Glossary)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Data Generator</td>
+                  <td>데이터 생성자</td>
+                  <td class="text-sm">대량의 데이터를 생성하며 그 데이터가 귀속되는 주체(Zwitter, 2014). 데이터를 전송하는 생산 설비를 쓰는 고객사, 실시간 물류 추적을 허용하는 물류업체 등이 해당됩니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Data Utilizer</td>
+                  <td>데이터 활용자</td>
+                  <td class="text-sm">생성된 데이터를 가치 창출(데이터 수익화 포함)에 사용하며 데이터 사용 목적을 (재)정의하는 행위자. 활용 허가를 보유할 수도, 보유하지 않을 수도 있습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Friction-Failure-Fix Framework</td>
+                  <td>마찰-실패-해법 프레임워크</td>
+                  <td class="text-sm">견딜 수 없는 마찰(friction) → 통제-신뢰 붕괴라는 관계 상태 실패(failure) → 관계 전략 조정(fix)으로 이어지는 인과적 개념 메커니즘입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Control-Trust Collapse</td>
+                  <td>통제-신뢰 붕괴</td>
+                  <td class="text-sm">데이터 통제력 상실 인식과 관계적 신뢰 침식이 동시에 발생·상호작용하는 새로운 관계 상태 평가. 두 요소의 상호작용이 특히 문제적입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Relationship Strategies</td>
+                  <td>관계 전략</td>
+                  <td class="text-sm">Ritter &amp; Geersbro(2015, 2018)의 6대 전략 — 유지·발전·축소·종료(기존 관계), 수립·차단(잠재 관계) — 을 데이터 갈등 맥락에 적용한 것입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">데이터 갈등은 어떻게 관계 전략 변화로 구체화되는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">마찰 → 통제-신뢰 붕괴 → 6대 전략 조정의 메커니즘</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">데이터를 B2B 관계 동요의 원천으로 이론화</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B 관계에서 데이터를 둘러싼 갈등(통제·정렬·신뢰 갈등)은 어떤 메커니즘을 통해 데이터 생성자의 관계 전략 변화로 구체화되는가?</li>
+                  <li><strong>핵심 발견:</strong> 데이터는 가치 창출의 원천일 뿐 아니라 <strong>관계 쇠퇴의 원천</strong>입니다(Zoom 보이콧, John Deere 소송, Coop-ACNielsen 결별). 데이터 갈등은 ① 견딜 수 없는 마찰(통제/정렬불일치/신뢰 갈등) → ② 통제-신뢰 붕괴 → ③ 관계 전략 조정(종료/축소/유지/발전/수립/차단)으로 전개되며, 건설적 관계 분위기가 ①→②를 조절합니다. 6개 전략은 병행·결합 가능하고(종료+차단), 기업 내부에서도 부서별로 상이한 전략이 경쟁할 수 있습니다(DeepSeek 사례).</li>
+                  <li><strong>이론/실무 기여:</strong> 데이터를 B2B 관계 동요의 간과된 원천으로 부각하고, '통제-신뢰 붕괴' 신개념과 마찰-전략을 연결하는 구성적(constitutive) 메커니즘을 제시합니다. 실무적으로는 허가(permission) 확보를 통한 선제 예방과, 양측 전략이 어긋날 때의 대응 흐름도(Fig. 3)를 제공합니다.</li>
+                </ul>
+              </div>
+
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "데이터 통제력을 잃었다고 느낀 기업은 신뢰 붕괴와 결합된 '통제-신뢰 붕괴' 상태에 진입하며, 관계를 종료·축소·유지·발전·수립·차단하는 전략적 조정에 나선다 — 데이터는 이제 B2B 관계의 전쟁터다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          각 핵심 주장과 개념적 근거의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">데이터 통제 상실은 B2B 관계 변화의 실제 동인이다</td>
+                <td class="text-sm italic text-slate-600">
+                  "After a data breach at Zoom Video Communications in 2020, numerous businesses and organizations, including Google and SpaceX, discontinued their relationships with Zoom."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 69, Sec. 1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">견딜 수 없는 마찰은 통제·정렬불일치·신뢰의 3가지 갈등 형태로 나타난다</td>
+                <td class="text-sm italic text-slate-600">
+                  "The intolerable frictions come in the form of control conflicts, misalignment conflicts or trust conflicts."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 72, Sec. 3</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">마찰은 통제-신뢰 붕괴라는 새로운 관계 상태로 귀결된다 (P1)</td>
+                <td class="text-sm italic text-slate-600">
+                  "These episodes entailing frictions over data may ultimately result in a novel assessment of the relationship state that we refer to as a control-trust collapse...It is the interaction between these elements that is particularly problematic."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 72, Sec. 3</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">통제-신뢰 붕괴는 데이터 생성자의 관계 전략 변화를 유도한다 (P3)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the novel relationship status of being in a control-trust collapse motivates the data generators to alter the relationship strategy in order to regain agency and control of their data."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 72, Sec. 3</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">프레임워크는 27개 유럽 조직 워크숍과 실제 사례로 안면 타당성이 확인되었다</td>
+                <td class="text-sm italic text-slate-600">
+                  "All participants recognized and agreed to the existence of these strategies in light of data conflict...While not an empirical study, the workshop discussions support the intuitiveness, face validity and practical relevance of the categories"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 74, Sec. 3 &amp; Table 3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 개념 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Framework &amp; Concepts</span>
+        </div>
+
+        <!-- Friction-Failure-Fix Framework SVG -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Friction-Failure-Fix Framework (Fig. 2 재구성, P1~P3)</h3>
+
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 860 420" class="w-full h-auto">
+              <!-- Friction group -->
+              <rect x="20" y="60" width="230" height="280" rx="12" fill="#fef2f2" stroke="#f43f5e" stroke-width="2" stroke-dasharray="6 4"/>
+              <text x="135" y="90" text-anchor="middle" font-weight="700" fill="#be123c" font-size="14">FRICTION: 견딜 수 없는 마찰</text>
+              <text x="135" y="108" text-anchor="middle" fill="#e11d48" font-size="10.5">(Intolerable Dark-Side Friction)</text>
+
+              <rect x="40" y="125" width="190" height="55" rx="8" fill="#ffffff" stroke="#f43f5e" stroke-width="2"/>
+              <text x="135" y="148" text-anchor="middle" font-weight="700" fill="#be123c" font-size="12.5">통제 갈등</text>
+              <text x="135" y="167" text-anchor="middle" fill="#e11d48" font-size="10">데이터 소유·수집·접근·사용 통제권</text>
+
+              <rect x="40" y="195" width="190" height="55" rx="8" fill="#ffffff" stroke="#f43f5e" stroke-width="2"/>
+              <text x="135" y="218" text-anchor="middle" font-weight="700" fill="#be123c" font-size="12.5">정렬불일치 갈등</text>
+              <text x="135" y="237" text-anchor="middle" fill="#e11d48" font-size="10">데이터에 대한 목표·이해관계 불일치</text>
+
+              <rect x="40" y="265" width="190" height="55" rx="8" fill="#ffffff" stroke="#f43f5e" stroke-width="2"/>
+              <text x="135" y="288" text-anchor="middle" font-weight="700" fill="#be123c" font-size="12.5">신뢰 갈등</text>
+              <text x="135" y="307" text-anchor="middle" fill="#e11d48" font-size="10">신뢰를 깨는 에피소드·신뢰 궤적 악화</text>
+
+              <!-- Failure: control-trust collapse -->
+              <rect x="330" y="150" width="210" height="100" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="3"/>
+              <text x="435" y="185" text-anchor="middle" font-weight="700" fill="#92400e" font-size="14">FAILURE: 통제-신뢰 붕괴</text>
+              <text x="435" y="207" text-anchor="middle" fill="#b45309" font-size="10.5">통제력 상실 인식 × 신뢰 침식의</text>
+              <text x="435" y="224" text-anchor="middle" fill="#b45309" font-size="10.5">상호작용 (새로운 관계 상태)</text>
+
+              <!-- Moderator -->
+              <rect x="300" y="20" width="270" height="60" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="435" y="45" text-anchor="middle" font-weight="700" fill="#065f46" font-size="12.5">건설적 관계 분위기</text>
+              <text x="435" y="65" text-anchor="middle" fill="#047857" font-size="10">문제를 선제적·건설적으로 논의·해결</text>
+
+              <!-- Fix: relationship strategies -->
+              <rect x="620" y="60" width="220" height="280" rx="12" fill="#eef2ff" stroke="#4f46e5" stroke-width="2" stroke-dasharray="6 4"/>
+              <text x="730" y="90" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">FIX: 관계 전략 조정</text>
+              <text x="730" y="108" text-anchor="middle" fill="#4f46e5" font-size="10.5">(데이터 생성자의 전략 변화)</text>
+
+              <rect x="640" y="125" width="85" height="46" rx="8" fill="#ffffff" stroke="#4f46e5" stroke-width="1.5"/>
+              <text x="682" y="152" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="11.5">종료</text>
+              <rect x="735" y="125" width="85" height="46" rx="8" fill="#ffffff" stroke="#4f46e5" stroke-width="1.5"/>
+              <text x="777" y="152" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="11.5">축소</text>
+              <rect x="640" y="181" width="85" height="46" rx="8" fill="#ffffff" stroke="#4f46e5" stroke-width="1.5"/>
+              <text x="682" y="208" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="11.5">유지</text>
+              <rect x="735" y="181" width="85" height="46" rx="8" fill="#ffffff" stroke="#4f46e5" stroke-width="1.5"/>
+              <text x="777" y="208" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="11.5">발전</text>
+              <rect x="640" y="237" width="85" height="46" rx="8" fill="#ffffff" stroke="#4f46e5" stroke-width="1.5"/>
+              <text x="682" y="264" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="11.5">수립</text>
+              <rect x="735" y="237" width="85" height="46" rx="8" fill="#ffffff" stroke="#4f46e5" stroke-width="1.5"/>
+              <text x="777" y="264" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="11.5">차단</text>
+              <text x="730" y="315" text-anchor="middle" fill="#4f46e5" font-size="10">병행·결합 가능 (예: 종료+차단, 축소+수립)</text>
+
+              <!-- Arrows -->
+              <path d="M250 200 L 320 200" fill="none" stroke="#f43f5e" stroke-width="2.5" marker-end="url(#arrowF)"/>
+              <text x="285" y="190" text-anchor="middle" fill="#be123c" font-weight="700" font-size="12">P1 (+)</text>
+
+              <path d="M540 200 L 610 200" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrowF)"/>
+              <text x="575" y="190" text-anchor="middle" fill="#b45309" font-weight="700" font-size="12">P3 (+)</text>
+
+              <!-- Moderator arrow onto P1 path -->
+              <path d="M370 80 L 300 190" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrowF)"/>
+              <text x="310" y="130" fill="#047857" font-weight="700" font-size="12">P2 조절</text>
+
+              <defs>
+                <marker id="arrowF" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="text-xs text-slate-500 self-start">※ 개념 논문의 명제(P1~P3) 기반 프레임워크입니다. 통계적으로 검증된 경로가 아니라 개념적 인과 메커니즘을 나타냅니다.</p>
+        </div>
+
+        <!-- Concept Detail Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-error style-label text-white">선행 요인</span>
+                <span class="text-xs text-slate-400 font-semibold">Friction</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">견딜 수 없는 마찰 (Intolerable Friction)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> "짜증스럽고, 종종 비용이 크며, 기회주의 우려를 증대시키는"(Abosag et al., 2016) 다크사이드 마찰. 견딜 수 있는 마찰과 달리 심각한 관계 반응을 유발합니다.</p>
+              <p class="text-sm text-slate-700"><strong>하위 유형:</strong> 통제 갈등(계약·법률의 회색지대에서 발생) / 정렬불일치 갈등(목표·이해관계 불일치) / 신뢰 갈등(신뢰 파괴 에피소드 또는 악화 중인 신뢰 궤적).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 'business dancing', 'relationship unrest', 'value co-destruction' 등 관계의 부정적 측면 문헌 계보 위에 데이터를 새로운 촉매로 위치시킵니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">핵심 신개념</span>
+                <span class="text-xs text-slate-400 font-semibold">Failure</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">통제-신뢰 붕괴 (Control-Trust Collapse)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 에피소드적 마찰로 인해 데이터 통제력 상실 인식과 관계적 신뢰 침식이 <strong>동시에 발생하고 상호작용</strong>하는 새로운 관계 상태 인식·평가.</p>
+              <p class="text-sm text-slate-700"><strong>이론적 위상:</strong> 마찰과 관계 전략을 연결하는 구성적(constitutive) 개념 메커니즘의 핵심 고리.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 데이터의 심리적 소유권이 법적 소유권과 다를 수 있다는 논의(Jayashankar et al., 2020)와 연결되며, 상실된 행위주체성 회복 동기가 전략 변화의 원동력이 됩니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">결과</span>
+                <span class="text-xs text-slate-400 font-semibold">Fix</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">6대 관계 전략 (Relationship Strategies)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>종료:</strong> 데이터 교환·거래 전면 중단 (Google→Scale AI) · <strong>축소:</strong> 데이터 공유 제한, 관여 축소 (유럽의 미국 클라우드 탈피) · <strong>유지:</strong> 의존성 때문에 강요된 수용 (ChatGPT 공유 기능 사태)</p>
+              <p class="text-sm text-slate-700"><strong>발전:</strong> 공동 문제 해결로 재구성 (Macquarie Bank) · <strong>수립:</strong> 활용자와 직접 관계 형성해 영향력 행사 · <strong>차단:</strong> 관계 (재)수립 저지 (Toyota·Mitsubishi의 DeepSeek 금지)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 전략들은 상호 배타적이지 않고 시간에 따라 결합되며, 기업 내부에서 부서별로 상이한 전략이 경쟁하다가 하나가 지배 전략으로 부상합니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">조절변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">건설적 관계 분위기 (Constructive Relationship Climate)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 문제를 선제적·건설적으로 논의하고 해결(settle)할 수 있는 관계 분위기.</p>
+              <p class="text-sm text-slate-700"><strong>역할:</strong> 견딜 수 없는 마찰이 통제-신뢰 붕괴로 이어지는 경로(P2)를 완화하는 조절 요인.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 관계 분위기(Wilkinson &amp; Young, 1994)와 관계 품질(Naudé &amp; Buttle, 2000)에 따라 협력적 협상 또는 경쟁적 대립으로 갈릴 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 논문은 <strong>개념적 연구(Conceptual Research)</strong>로서 실증 데이터 분석이 아니라 이론 통합과 개념화 절차를 따릅니다(Jaakkola, 2020의 개념 논문 설계 참조).
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">현상 관찰 및 이론적 공백 식별</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Zoom 보이콧, John Deere 소송, Coop-ACNielsen 결별 등 실제 데이터 분쟁 사례에서 출발하여, 기존 B2B 마케팅 문헌이 데이터 갈등과 관계 전략의 연결을 설명하지 못함을 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 69-70, Sec. 1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">이론적 기반 구축 (문헌 통합)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  ① B2B 디지털화 문헌(Ritter &amp; Pedersen, 2020), ② Zwitter(2014)의 데이터 생성자/활용자 역할론, ③ 관계 다크사이드 문헌(Abosag et al., 2016의 tolerable/intolerable 구분), ④ 관계 동요·관계 전략 문헌(Good &amp; Evans, 2001; Ritter &amp; Geersbro, 2015, 2018)을 통합.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 70-72, Sec. 2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">프레임워크 개념화 및 명제 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  마찰(3유형) → 통제-신뢰 붕괴 → 관계 전략 변화로 이어지는 friction-failure-fix 프레임워크(Fig. 2)를 구성하고 P1~P3 명제를 정식화. Cornelissen &amp; Werner(2026)의 유형론상 '구성적(constitutive) 메커니즘'으로 위치화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 72, Sec. 3 &amp; Fig. 2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">안면 타당성 검증 (워크숍)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  2025년 8월 약 2시간 경영자 교육 세션에서 27개 유럽 조직 대표 대상 프레임워크 소개 → 개별 분석 → 그룹 토론. 참가자 전원이 전략들의 존재를 인정, 지정학적 상황에서 축소·종료·수립 전략을 주로 다루고 있음을 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 74, Sec. 3 (각주 8)</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">사례 매핑 및 시사점·연구 의제 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  실제 사례(Google-Scale AI, 유럽의 미국 테크 탈피, GM, ChatGPT 롤백, Macquarie Bank, Coop)를 마찰 유형·관계 전략에 매핑(Table 3). 관리자용 흐름도(Fig. 3)와 향후 연구 의제(조작화·실증, 질적 종단 연구, 기술적 해법의 조절 효과, 리액턴스 이론 접목)를 정식화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 74-76, Sec. 3-6 &amp; Table 3, Fig. 3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">완전 재현 가능 (개념적 수준)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            개념 논문으로서 통합된 문헌, 논증 구조, 명제 도출 과정이 본문에 투명하게 제시되어 논리 자체의 추적·검증은 완전히 가능합니다. 다만 프레임워크의 경험적 타당성은 아직 검증되지 않았으며, 워크숍은 비공식 안면 타당성 확인에 불과합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 저자들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>실증 검증 부재:</strong> 워크숍은 실증 연구가 아니며, 초기 관찰은 추가적인 외부 타당화가 필요합니다. <span class="text-xs text-slate-500">(Page 74, Section 3)</span>
+              </li>
+              <li>
+                <strong>측정 도구 부재:</strong> 데이터 맥락에서 견딜 수 없는 마찰과 관계 전략을 측정할 타당하고 신뢰성 있는 척도가 아직 개발되지 않았습니다. <span class="text-xs text-slate-500">(Page 76, Section 6)</span>
+              </li>
+              <li>
+                <strong>경계 조건 미검증:</strong> 산업 유형, 관계 단계, 의존성 차이 등이 조절변수인지 실증적으로 확인되지 않았습니다. <span class="text-xs text-slate-500">(Page 76, Section 6)</span>
+              </li>
+              <li>
+                <strong>개인→조직 수준 전환 문제:</strong> 리액턴스 이론은 개인 심리 구성개념이므로 조직 수준으로 어떻게 '합산'되는지 엄밀한 개념화가 필요합니다. <span class="text-xs text-slate-500">(Page 76-77, Section 6)</span>
+              </li>
+              <li>
+                <strong>분석 수준의 한정:</strong> 데이터 수집자(data collector) 역할과 네트워크·생태계 수준 분석은 의도적으로 제외되었습니다. <span class="text-xs text-slate-500">(Page 70, 각주 6-7)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">개념적 연구 설계를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 일화적 사례의 선택 편향</span>
+                <p class="text-sm text-slate-700">
+                  Table 3의 사례들은 언론 보도 기반 스타일화된 사실로, 프레임워크에 부합하는 사례만 선별되었을 가능성이 있습니다. 데이터 갈등이 발생했지만 관계 전략이 변하지 않은 반증 사례(negative cases)는 탐색되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. '통제-신뢰 붕괴'의 변별력 문제</span>
+                <p class="text-sm text-slate-700">
+                  통제 상실 인식과 신뢰 침식의 '상호작용'이 기존 개념(관계 스트레스, 심각한 갈등)과 어떻게 다른지, 한 요소만 있을 때와 어떻게 구별되는지 조작적 기준이 없어 동어반복(마찰이 심하면 관계가 나빠진다) 위험이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 데이터 생성자 관점의 일방성</span>
+                <p class="text-sm text-slate-700">
+                  프레임워크가 데이터 생성자의 반응에 초점을 맞춰, 데이터 활용자의 전략적 대응(반격, 계약적 잠금, 플랫폼 권력 행사)과의 상호작용 동학이 이론화되지 않았습니다. 실제 갈등은 쌍방 게임입니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 자기인용 의존성과 시류 의존성</span>
+                <p class="text-sm text-slate-700">
+                  핵심 구성요소(6대 전략, 디지털화 역량, 허가 차원)가 상당 부분 저자들 자신의 선행 연구에 기반하여 대안적 분류 체계와의 비교가 부족합니다. 또한 2025년 미국-유럽 기술 긴장이라는 특정 시점의 사례가 많아, 지정학적 국면이 바뀌면 실무적 관련성 근거가 약화될 수 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Business-to-business relationship strategies in data conflicts</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

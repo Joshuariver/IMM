@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dark Side of AI-enabled Industrial Service Recovery - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 52px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 36px;
+      }
+      .style-h1 {
+        font-size: 28px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">AI & B2B Relationship</div>
+        <div class="badge badge-secondary text-white style-label">Dark Side of AI</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            The dark side of AI-enabled industrial service recovery:<br>
+            <span class="text-cyan-400">The erosion of trust and customer engagement</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Vik Naidoo
+          </p>
+          <p class="style-small text-slate-400">
+            University of Sydney, Australia / University of Canterbury, New Zealand
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            AI 기반 산업 서비스 회복의 어두운 면:<br>
+            <span class="text-indigo-300">신뢰의 잠식과 고객 관여도의 침식</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            B2B 산업 서비스 복구에서 AI의 성급한 도입이 가져오는 행동적 과의존, 무사안일(Complacency) 및 알고리즘 실패 발생 시의 혹독한 귀인 페널티 실증 분석
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">AI에 의존하다가 방심하게 된 고객은, AI로 인해 복구 실패가 일어났을 때 가장 분노하며 관계를 끊습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "AI is increasingly embedded in industrial service recovery processes. Yet its use in industrial contexts, especially regarding its potential dark side consequences for customer relationships, remains underexplored. This paper addresses this gap through a three-study investigation. Study 1, a field survey, shows that greater AI involvement increases customer over-reliance, which in turn reduces trust and customer engagement. Study 2, an experiment, demonstrates that customers penalise failures attributed to AI involvement more harshly than human-caused failures. Our analyses show that this penalty can be reduced when governance mechanisms are in place, particularly when human oversight is visible (e.g., human-in-the-loop interventions), with similar but smaller effects observed for algorithmic explanations. Study 3, a two-wave field survey over a 24-month period, shows that over-reliance evolves into complacency, which subsequently undermines trust and engagement, and that governance safeguards weaken this longitudinal pathway. Together, these findings advance theory by integrating automation bias, algorithm aversion, and relational governance into a unified process model of AI-enabled service recovery, showing that AI shapes customer relationships through both behavioural and attribution-based pathways over time. For managers, the results highlight that AI does not automatically enhance relationships; instead, firms must actively design governance mechanisms that maintain oversight, transparency, and accountability."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "인공지능(AI)은 산업 서비스 회복 프로세스에 점점 더 많이 도입되고 있다. 그러나 산업 맥락에서의 AI 사용, 특히 고객 관계에 미치는 부정적인(dark side) 잠재적 결과에 대해서는 여전히 연구가 미흡하다. 본 연구는 세 가지 연구를 통해 이 공백을 메우고자 한다. 현장 설문조사(field survey)인 연구 1(Study 1)은 더 큰 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">AI 개입</span>이 고객의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">과도한 의존(over-reliance)</span>을 증가시키고, 결과적으로 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">신뢰</span>와 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">고객 관여(customer engagement)</span>를 감소시킨다는 것을 보여준다. 실험 연구(experiment)인 연구 2(Study 2)는 고객들이 인간에 의해 유발된 실패보다 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">AI 개입에 기인한 실패</span>에 대해 더 가혹하게 처벌한다는 점을 실증한다. 분석 결과, 가시적인 인간 감독(예: <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">인간 협력 개입 / human-in-the-loop</span>)과 같은 거버넌스 메커니즘이 마련되어 있을 때 이러한 페널티가 줄어들 수 있으며, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">알고리즘 설명</span>에서도 유사하지만 더 작은 효과가 관찰되었다. 24개월 동안 2차례에 걸쳐 진행된 종단 현장 설문조사인 연구 3(Study 3)은 과도한 의존이 점차 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">무사안일(complacency)</span>로 발전하여 신뢰와 관여를 약화시키고, 거버넌스 안전장치가 이 종단적 경로를 약화시킨다는 것을 보여준다. 종합하면, 이 연구 결과들은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">자동화 편향(automation bias)</span>, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">알고리즘 혐오(algorithm aversion)</span>, 관계 거버넌스를 AI 기반 서비스 회복의 통합 프로세스 모델로 결합함으로써 이론을 발전시킨다. 관리적 측면에서, 이 결과는 AI가 자동으로 관계를 향상시키지 않음을 강조하며, 기업들이 감독, 투명성, 책임성을 유지하는 거버넌스 메커니즘을 적극적으로 설계해야 함을 시사한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Industrial Service Recovery</td>
+                  <td>산업 서비스 회복</td>
+                  <td class="text-sm">B2B 거래 환경에서 기계 고장, 배송 지연, 시스템 장애 등의 서비스 실패를 감지, 진단, 조치하는 일련의 공급망 복구 활동입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Over-reliance</td>
+                  <td>과도한 의존 / 과의존</td>
+                  <td class="text-sm">알고리즘 제안을 고객사 스스로 충분한 교차 검증이나 비판 없이 수용해 버리는 즉각적 인지 편향 행동입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Complacency</td>
+                  <td>무사안일 / 방심</td>
+                  <td class="text-sm">시스템의 반복적 성공으로 경계심을 완전히 늦추고 장기적 감시/모니터링 역할 자체를 전산에 유기하는 태만 상태입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Algorithm Aversion</td>
+                  <td>알고리즘 혐오 / 기피</td>
+                  <td class="text-sm">동일한 에러임에도 기계의 잘못을 인간의 잘못보다 덜 용서하고 더 가혹하게 페널티를 부과하려는 감정적 반응입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Human-in-the-Loop (HITL)</td>
+                  <td>인간 협력 루프 / 인간 개입 감독</td>
+                  <td class="text-sm">AI의 추천이나 처리 과정 중 핵심 의사결정 단계에서 인간 전문가의 검토 및 최종 승인을 거치게 하는 제어 방식입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회 및 세미나 등에서 <strong>1분 만에</strong> 연구 요체를 전달할 수 있도록 핵심 논점들을 단계별로 요약 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">AI 복구 도입이 B2B 신뢰를 깎는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">의사결정 과의존과 사고 시 책임 귀인 페널티</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">선호와 혐오의 시간적 통합 및 거버넌스 입증</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B 서비스 복구에서 AI의 높은 개입도가 고객 관계 품질(신뢰, 관여도)을 해치는 어두운 면(Dark Side)은 무엇이며, 어떤 거버넌스로 예방할 수 있는가?</li>
+                  <li><strong>핵심 발견:</strong> AI 개입도가 높아지면 고객사는 단기 과의존에 빠지고, 24개월 후 장기 무사안일(Complacency)로 심화되어 신뢰를 파괴합니다. 또한, 복구 중 사고가 터졌을 때 그 책임이 AI에 귀인되면(AI-attributed failure) 인간 실수 대비 극심한 공정성 감점을 받습니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 기존에 서로 독립적으로 다뤄지던 자동화 편향(Appreciation: 평상시)과 알고리즘 혐오(Aversion: 에러 시)를 하나의 관계적 시간 흐름 속에 통합하였으며, 인간 Oversight(HITL)가 설명서(XAI)보다 더 강력한 신뢰 보정(Calibration) 보호막이 됨을 증명했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "AI의 복구 개입은 평소 고객사의 무사안일(Complacency)을 낳고 에러 발생 시 더 가혹한 비난을 부르나, 눈에 보이는 인간 감독(HITL) 장치가 이를 차단합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구 결과의 통계적 타당성을 검증하기 위해 논문 원문의 수치와 주장의 출처 페이지를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">AI 의사결정 개입과 고객 과의존의 관계 (H1a)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Consistent with H1a, perceived AI involvement significantly predicted customer over-reliance (β = 0.28, SE = 0.04, p = .0002)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 211 (Sec. 3.1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">과도한 의존의 신뢰 및 관여도 저하 효과 (H1b)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Supporting H1b, over-reliance negatively predicted trust (β = −0.31, SE = 0.05, p = .0001) and customer engagement (β = −0.27, SE = 0.05, p = .0004)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 211 (Sec. 3.1)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">과도한 의존의 장기 무사안일 전이 (H1c)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Consistent with H1c and H1d, over-reliance at Time 1 predicted complacency at Time 2 (β = 0.34, p = .0004)..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 215 (Sec. 3.3)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">무사안일의 장기적 신뢰/관여 침식 (H1d)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...and complacency in turn negatively predicted both trust (β = −0.28, p = .0006) and engagement (β = −0.22, p = .0012)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 215 (Sec. 3.3)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">AI 기인 실패와 인간 실수 간의 공정성 차이 (H2a)</td>
+                <td class="text-sm italic text-slate-600">
+                  "AI-attributed vs. human-caused failure: M_AI = 3.42 vs. M_Human = 4.11; F(1, 608) = 34.6, p = .0002, η² = 0.05"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 213 (Table 2)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">안전장치(Safeguard)의 실패 감점 완화 효과 (H3a)</td>
+                <td class="text-sm italic text-slate-600">
+                  "M_Safeguard = 3.65 vs. M_No safeguard = 3.12; ΔM = +0.53, p = .006 ... Specifically, HITL oversight significantly improved justice perceptions relative to the no-safeguard condition (ΔM = +0.62, p = .004)..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 213 (Table 2 / Sec. 3.2)</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">안전장치에 의한 장기 방심 경로 차단 (H3b)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Governance safeguards moderated the over-reliance-complacency link (interaction β = −0.16, p = .008)..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 215 (Sec. 3.3)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (인과 관계 다이어그램)</h3>
+          
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 1000 380" class="w-full h-auto">
+              <!-- Grid & Background Guide -->
+              
+              <!-- IV 1 -->
+              <rect x="20" y="40" width="220" height="70" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="130" y="70" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">지각된 AI 의사결정 개입도</text>
+              <text x="130" y="90" text-anchor="middle" fill="#64748b" font-size="10.5">(Decision Involvement: IV1)</text>
+
+              <!-- IV 2 -->
+              <rect x="20" y="270" width="220" height="70" rx="8" fill="#fff5f5" stroke="#f43f5e" stroke-width="2"/>
+              <text x="130" y="300" text-anchor="middle" font-weight="700" fill="#9f1239" font-size="13">AI 실패 귀인 (vs. 인간)</text>
+              <text x="130" y="320" text-anchor="middle" fill="#be123c" font-size="10.5">(Failure Attribution: IV2)</text>
+
+              <!-- Mediator 1 -->
+              <rect x="320" y="40" width="180" height="70" rx="8" fill="#e6fcf5" stroke="#10b981" stroke-width="2"/>
+              <text x="410" y="70" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">고객 과의존</text>
+              <text x="410" y="90" text-anchor="middle" fill="#047857" font-size="10.5">(Over-reliance: M1)</text>
+
+              <!-- Mediator 2 -->
+              <rect x="560" y="40" width="180" height="70" rx="8" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="650" y="70" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="13">고객 무사안일 (방심)</text>
+              <text x="650" y="90" text-anchor="middle" fill="#0284c7" font-size="10.5">(Complacency: M2, T2)</text>
+
+              <!-- Mediator 3 -->
+              <rect x="320" y="270" width="180" height="70" rx="8" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+              <text x="410" y="300" text-anchor="middle" font-weight="700" fill="#15803d" font-size="13">공정성 지각</text>
+              <text x="410" y="320" text-anchor="middle" fill="#16a34a" font-size="10.5">(Justice Perceptions: M3)</text>
+
+              <!-- Moderator -->
+              <rect x="450" y="165" width="200" height="70" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="550" y="195" text-anchor="middle" font-weight="700" fill="#78350f" font-size="13">거버넌스 안전장치</text>
+              <text x="550" y="215" text-anchor="middle" fill="#b45309" font-size="10.5">(HITL / XAI: Mod)</text>
+
+              <!-- DV 1 -->
+              <rect x="790" y="95" width="180" height="65" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="880" y="125" text-anchor="middle" font-weight="700" fill="#312e81" font-size="13">신뢰 (Trust: DV1)</text>
+              <text x="880" y="142" text-anchor="middle" fill="#4338ca" font-size="10.5">전문성/도덕성 신념</text>
+
+              <!-- DV 2 -->
+              <rect x="790" y="235" width="180" height="65" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="880" y="265" text-anchor="middle" font-weight="700" fill="#312e81" font-size="13">고객 관여도 (DV2)</text>
+              <text x="880" y="282" text-anchor="middle" fill="#4338ca" font-size="10.5">인지/정서/행동적 투자</text>
+
+              <!-- Arrows & Labels -->
+              <!-- IV1 -> M1 -->
+              <path d="M 240 75 L 310 75" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <text x="280" y="65" fill="#64748b" font-weight="700" font-size="11" text-anchor="middle">H1a (+)</text>
+
+              <!-- M1 -> M2 -->
+              <path d="M 500 75 L 550 75" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <text x="525" y="65" fill="#047857" font-weight="700" font-size="11" text-anchor="middle">H1c (+)</text>
+
+              <!-- Mod -> (M1->M2) -->
+              <path d="M 550 165 L 525 85" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <text x="560" y="125" fill="#b45309" font-weight="700" font-size="11">H3b (-)</text>
+
+              <!-- IV2 -> M3 -->
+              <path d="M 240 305 L 310 305" fill="none" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <text x="280" y="295" fill="#be123c" font-weight="700" font-size="11" text-anchor="middle">H2a (-)</text>
+
+              <!-- Mod -> (IV2->M3) -->
+              <path d="M 450 220 L 290 295" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <text x="350" y="250" fill="#b45309" font-weight="700" font-size="11">H3a (+)</text>
+
+              <!-- M2 -> DVs -->
+              <path d="M 740 75 L 790 120" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <text x="755" y="95" fill="#0284c7" font-weight="700" font-size="11">H1d(a) (-)</text>
+
+              <path d="M 740 75 L 790 240" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <text x="740" y="165" fill="#0284c7" font-weight="700" font-size="11">H1d(b) (-)</text>
+
+              <!-- M3 -> DVs -->
+              <path d="M 500 305 L 790 145" fill="none" stroke="#22c55e" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <text x="645" y="235" fill="#15803d" font-weight="700" font-size="11">H2b(a) (+)</text>
+
+              <path d="M 500 305 L 790 265" fill="none" stroke="#22c55e" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <text x="645" y="300" fill="#15803d" font-weight="700" font-size="11">H2b(b) (+)</text>
+
+              <!-- M1 -> DVs (Dashed Direct) -->
+              <path d="M 500 75 L 790 130" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow-cyan)"/>
+              <text x="645" y="95" fill="#047857" font-weight="700" font-size="11">H1b(a) (-)</text>
+
+              <path d="M 500 75 L 790 260" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow-cyan)"/>
+              <text x="645" y="160" fill="#047857" font-weight="700" font-size="11">H1b(b) (-)</text>
+
+              <!-- Arrow Marker Definition -->
+              <defs>
+                <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Decision Involvement</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">지각된 AI 의사결정 개입도 (AI Involvement in Decisions)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 서비스 실패 관리 과정에서 고장 진단, 추천 수립, 복구 프로세스 자동 집행 등 AI가 자율적으로 기여하고 개입하는 지각 수준.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 공급사가 서비스 복구에 AI 툴을 쓴 빈도, AI 도구의 진단 비중 및 자율성 척도 (7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Ameen et al. (2025) 어댑션 / 3개 문항 (Cronbach's α = 0.82 in Study 1, 0.87 in Study 3).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 복구 자동화의 양적 차원을 포착하며, 이것이 과도해지면 인간 대 인간의 관계 조율 의무가 시스템으로 밀려나 관계 위기가 유발됩니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-error style-label text-white">독립변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Failure Attribution</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">AI 실패 귀인 (AI Involvement in Failure Cause)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 서비스 복구 도중 발생한 에러나 납기 중단의 2차 사고 책임이 전적으로 AI의 알고리즘 오작동 및 설계 결함에 귀속된다고 느끼는 고객사의 평가.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 사고 에피소드 책임 귀속 수준 (1 = 전적으로 인간 책임 ~ 7 = 전적으로 AI 책임).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Dietvorst et al. (2015) & Crolic et al. (2021) / 1개 단일 항목.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 알고리즘 혐오(Algorithm Aversion)의 관계적 정수를 보여줍니다. 사람들은 AI가 완벽하길 바라기 때문에 AI로 인한 에러를 인간 에러보다 덜 용서합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Over-reliance</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">고객 과의존 (Customer Over-reliance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 정보의 정확성이나 합리성에 대한 주관적 재검토 없이, AI 시스템의 추천을 즉각적이고 수동적으로 수용하여 대리 위임해 버리는 행동 경향.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 스스로 복구를 모니터링하기보다 기계 결과를 신용하고 검증을 면제하는 편향 지각 (7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Dzindolet et al. (2002) & Logg et al. (2019) 결합 / 4개 문항 (α = 0.85 in Study 1, 0.87 in Study 3).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 자동화 편향(Automation Bias)의 관계적 발현으로, 복구 의사결정의 Heuristic화를 부추겨 상호간 피드백 의무를 퇴화시킵니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">매개변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Complacency</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">고객 무사안일 (Customer Complacency)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 기술이 반복적으로 문제없이 작동한다고 느껴, 장기적으로 모니터링, 통제, 위협 감지 등의 상황 인지 활동에서 이탈해 타성에 젖은 상태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> AI가 다 잡아낼 것이라 단정하여 모니터링 빈도 축소, 수동 검증의 철회, 이의제기 및 교환 노력 철회 (7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Parasuraman & Riley (1997) 어댑션 / 4개 문항 (α = 0.89 in Study 3).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 단기 과의존(M1)이 관계 규범 상의 타성으로 굳어진(complacency) 형태로서, 24개월 시차 검증으로 입증된 이론의 중심축입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Governance Safeguards</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">거버넌스 안전장치 (Governance Safeguards)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> AI 시스템의 작동 투명성을 감시할 수 있는 알고리즘 설명성(XAI)과 최종 에스컬레이션 권한을 인간이 쥐는 인간 협력 통제(HITL)로 구현된 복합 보호망.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 고위험 단계의 인간 승인 강제, 고객 의견 불일치 시 인간 상담 창구 개설, AI 추론 로직 오디팅 자취 보장 (7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Ghazawneh & Henfridsson (2013) & Van Vaerenbergh et al. (2018) 통합 / 8개 문항 (α = 0.83 in Study 2, 0.86 in Study 3).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 거버넌스는 두 개의 경로를 동시 통제합니다. 평상시 과의존이 무사안일 타성으로 흘러가는 것(H3b)을 막고, 실패 시 AI 귀인에 의해 지각된 공정성이 망가지는 것(H3a)을 조절 완화합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구자들이 이 논문의 혼합 연구 방법론(Field Survey &rarr; Experiment &rarr; 2-Wave Panel)을 그대로 <strong>추종 재현</strong>할 수 있도록 단계를 도식화했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">표본 추출 및 필터링 기준 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Lucid(Cint) 패널을 사용해 제조, 물류, 에너지, 의료 기술 산업에 종사하는 의사결정권자(구매, 운영 매니저, 엔지니어) 모집단 설정. "최근 6개월 내 서비스 복구 과정에서 AI 도구가 개입한 사건을 경험했는가?" 조건으로 스크리닝 필터를 수립합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 210, Section 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">Study 1: 횡단 현장 설문 및 상관 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  452명의 유효 표본을 수집하여 CFA(확인적 요인 분석)와 Harman 단일요인 테스트를 통해 요인 적합성 및 CMB 편향 제어를 달성. AMOS/SPSS 회귀분석으로 `AI 개입 &rarr; 과의존 &rarr; 신뢰/관여` 간접 효과 부트스트래핑(20,000회) 유의성을 실증합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 210-211, Section 3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">Study 2: 2×2 집단간 시나리오 실험 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  612명의 B2B 응답자를 2(실패 주체: AI vs 인간) × 2(거버넌스 안전장치: 유 vs 무) 집단에 무작위 배정. 납기 지연 고장 발생 시 '기계 정비봇의 오류' vs '인간 기술자의 오판' 시나리오를 제시한 뒤, ANOVA와 Contrast 기법을 이용해 공정성 지각(Justice) 차이를 통계 검증합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 211-213, Section 3.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">Study 3: 24개월 2-Wave 종단 분석 수행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  중복되지 않는 488명(T1)을 24개월 후(T2)에 다시 면접하여 최종 412명(이탈률 16%)의 종단 데이터를 고정. T1 시점의 과의존이 T2 시점의 무사안일로 이어져 최종 신뢰와 관여도를 깎아버리는 시간적 궤적을 CLPM(교차 지연 패널 모델)으로 실증 검증합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 213-215, Section 3.3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">2SLS 도구변수 내생성 제어</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  조직 내 클라우드, 빅데이터, IoT, AI 등의 개별 기술 채택 여부를 도구변수(IV)로 정의하고 2단계 최소제곱법(2SLS) 회귀분석을 수행해, AI 개입과 신뢰 변수들 사이에 숨겨진 혼란 변수 효과와 내생성 편향을 차단하여 강건성을 증명합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 215-216, Section 3.3 & 4.3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            검증 도구(설문 문항)와 실험 설계 및 다단계 분석 로직(SEM, ANOVA, CLPM, 2SLS)은 논문과 부록에 완전히 공개되어 모델 복제는 매우 쉽습니다. 단, Lucid 패널의 고위 B2B 비즈니스 관리자 세부 데이터베이스를 동일 질량으로 다량 수급하는 것은 예산 및 조사 기관 협력 범위의 문제로 일반 연구자에게는 부분적 제약이 있을 수 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700 mt-2">논문 5절(Conclusion, limitations, and future directions)에서 직접 고백한 분석의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>자기보고(Self-report) 척도 및 CMB 한계:</strong> 비록 다양한 편향 진단을 거치고 요인 검증을 통과했으나, 응답자의 주관적 판단에만 의존한 설문 척도로 변수를 구성하여 회상 왜곡의 여지가 잔존합니다.
+              </li>
+              <li>
+                <strong>24개월 시차 주기의 임의성:</strong> B2B 관계의 타성 및 변환 속도를 관찰하기 위해 24개월을 선택했으나, 12개월이나 36개월 등 대안적 종단 주기를 적용했을 때 발생할 수 있는 세부적인 무사안일 속도 변화를 모형에 다각화하지 못했습니다.
+              </li>
+              <li>
+                <strong>개입도와 실패 원인 측정 도구의 비대칭:</strong> 의사결정 시 AI 개입도는 다문항 척도(Appendix A)로 쟀으나 실패 원인 귀인은 단일 문항 및 실험 조작(Study 2)으로 유도되어, 두 영역을 결합한 통합 고차 요인(Higher-order measurement model) 수립에 통계적 제약이 발생했습니다.
+              </li>
+              <li>
+                <strong>거버넌스 유형의 단순화:</strong> 실무의 B2B 복구는 SLA 보증 한도, 정기 합동 오디팅, 법적 에스컬레이션 등 다채로운 거버넌스 계약이 혼합되나 본 연구에서는 오직 HITL과 XAI만 집중 검토했습니다.
+              </li>
+              <li>
+                <strong>지리적/산업적 일반화 제약:</strong> 미국 내 관리자를 표본으로 삼아 4개 제조업/핵심 인프라 기술 업계만 측정했기에, 다른 국가의 문화적 신뢰 양상이나 타 서비스 산업(예: 금융, 예술 등)으로의 완전한 일반화는 장담하기 어렵습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700 mt-2">연구 설계의 구조와 산업적 역학을 기준으로 삼아 제기하는 비판적 추론입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200 shadow-sm">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 의심에 의한 귀인 편향 (Reverse Attribution)</span>
+                <p class="text-sm text-slate-700">
+                  CLPM으로 시차 인과 통제를 시도했으나, B2B 관계적 역인과를 완전히 배제하기 어렵습니다. <strong>"이미 공급사의 최근 잦은 실수로 평소 관계가 흔들려 신뢰를 잃고 있던 고객사"</strong>가, 복구 도중 사소한 전산 오차가 생겼을 때 공급사 본사를 비난하기 위한 방편으로 <strong>"AI 시스템 책임이 100%"</strong>라고 더 가혹하게 몰아세우는 '의심 유도형 귀인 편향'이 유입되었을 가능성이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200 shadow-sm">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. AI 기술 형태의 지나친 통합화 (Homogeneity Assumption)</span>
+                <p class="text-sm text-slate-700">
+                  단순 알람을 제공하는 규칙 기반 전산(Rule-based IT)과, 실시간으로 데이터를 판단하고 스스로 의사결정 경로를 학습하는 생성형 AI 에이전트는 고객이 느끼는 '사의존'과 'complacency'의 크기가 다를 수밖에 없습니다. 논문은 이를 'AI Involvement'라는 3문항 척도 하나로 뭉뚱그려 측정해, 기술 유형에 따른 미묘한 다크사이드를 검출하지 못했습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200 shadow-sm">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. B2B 갑을 권력 역학(Power Asymmetry)의 생략</span>
+                <p class="text-sm text-slate-700">
+                  B2B 파트너십 상호작용에서는 구매사와 공급사의 상대적 힘(Power)의 불균형이 강하게 작용합니다. 시장 지배력이 큰 슈퍼 갑(甲) 구매사라면, 공급사가 복구에 백엔드 AI를 100% 자율 가동하더라도 위기 시 즉각적인 human reviewer 소환과 SLA 위약금 청구를 통해 'trust'와 'complacency'를 인위적으로 제어(강제)할 수 있습니다. 모형에서 이 중요한 거시 권력 변수가 완전히 생략되었습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200 shadow-sm">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 실패의 심각성(Severity)에 대한 엄격한 공제 부족</span>
+                <p class="text-sm text-slate-700">
+                  단순 소프트웨어 일시 응답 지연과 같은 경미한 서비스 실패와 전체 제조 조립 라인이 멈추는 재앙적 조업 중단은 고객사가 가하는 'justice penalty'의 발현 강도가 상이합니다. 연구 1과 3의 현장 설문에서는 이러한 실패 심각성의 주관적 격차를 통계적 모형의 공변량(Covariate)으로 엄격하게 공제해 내지 못해 왜곡이 발생했을 수 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>The dark side of AI-enabled industrial service recovery: The erosion of trust and customer engagement</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

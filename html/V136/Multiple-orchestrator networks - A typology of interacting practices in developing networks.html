@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiple-Orchestrator Networks - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 36px;
+      }
+      .style-h1 {
+        font-size: 28px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Multiple Orchestrators</div>
+        <div class="badge badge-secondary text-white style-label">Special Issue: Governing Business Relationships</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Multiple-orchestrator networks:<br>
+            <span class="text-cyan-400">A typology of interacting practices in developing networks</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Ena Vejnovic, Sharon Purchase, Daniel Schepis, Liudmila Tarabashkina
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            다중 오케스트레이터 네트워크:<br>
+            <span class="text-indigo-300">개발 중인 네트워크에서 상호작용하는 관행의 유형학</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            호주 패션 및 섬유 산업의 순환 경제(CE) 네트워크 다중 사례 연구를 기반으로 조정성 및 영향력 중심의 2x2 관행 상호작용 프레임워크 도출
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">초기 네트워크 생태계 형성기에는 무조건적인 통일보다 독립적인 비조정 활동이 도달 범위를 넓히는 데 기여합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Developing and coordinating networks presents challenges, particularly when multiple organizations attempt to guide and lead the network simultaneously, potentially resulting in overlapping roles and conflicting priorities. Research has examined such lead organizations in business networks as orchestrators but has primarily focused on contexts involving a single orchestrator. Given many networks are not pre-designed around a central orchestrator, we need to better understand how multiple orchestrators interact through their governance practices and how these interactions shape network development. This study addresses this gap by exploring practice interactions in multiple-orchestrator networks, focusing on their influence in the early stages of network development. Using a multiple case study approach, we examine the practices employed by orchestrators in Australian fashion and textiles circular economy networks. A typology of practice interaction types is developed, illustrating how orchestrators engage in practices within the same network and how these interactions shape various orchestration dimensions. Findings highlight the complexities of multiple-orchestrator networks, demonstrating how coordinated and uncoordinated practices can act as benefits and drawbacks for network development. By identifying key interaction types and their effects, this study advances understanding of multiple-orchestrator networks and provides insights for orchestrators, policymakers, and industry stakeholders navigating these types of networks."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "네트워크를 개발하고 조정하는 것은 특히 여러 조직이 동시에 네트워크를 가이드하고 주도하고자 할 때 도전 과제를 제시하며, 이는 역할의 중복과 우선순위의 충돌을 초래할 수 있다. 선행 연구들은 비즈니스 네트워크에서 이러한 주도 조직을 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">오케스트레이터(orchestrators)</span>로 조사해 왔으나, 주로 단일 오케스트레이터가 존재하는 맥락에 초점을 맞추었다. 많은 네트워크가 중앙 오케스트레이터를 중심으로 미리 설계되지 않는다는 점을 고려할 때, 다중 오케스트레이터들이 그들의 거버넌스 관행을 통해 어떻게 상호작용하고, 이러한 상호작용이 네트워크 개발을 어떻게 형성하는지 더 잘 이해할 필요가 있다. 본 연구는 네트워크 개발의 초기 단계에서 그들의 영향력에 초점을 맞추어, 다중 오케스트레이터 네트워크에서의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">관행 상호작용(practice interactions)</span>을 탐색함으로써 이러한 공백을 메우고자 한다. 다중 사례 연구 접근법을 사용하여, 호주의 패션 및 섬유 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">순환 경제(circular economy)</span> 네트워크에서 오케스트레이터들이 채택한 관행을 분석한다. 이를 통해 동일한 네트워크 내에서 오케스트레이터들이 어떻게 관행에 관여하고 이러한 상호작용이 다양한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">오케스트레이션 차원(orchestration dimensions)</span>을 어떻게 형성하는지 보여주는 관행 상호작용 유형의 유형학(typology)을 개발한다. 연구 결과는 다중 오케스트레이터 네트워크의 복잡성을 강조하며, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">조정된 관행(coordinated practices)</span>과 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">조정되지 않은 관행(uncoordinated practices)</span>이 네트워크 개발에 어떻게 혜택(benefits)과 단점(drawbacks)으로 작용할 수 있는지 보여준다. 주요 상호작용 유형과 그 효과를 식별함으로써 다중 오케스트레이터 네트워크에 대한 이해를 증진시키고, 이러한 네트워크를 설계하고 촉진하는 실무자 및 정책가에게 유용한 통찰력을 제공한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Orchestrator</td>
+                  <td>오케스트레이터 / 네트워크 조정자</td>
+                  <td class="text-sm">단순한 물리적 관리자를 넘어 네트워크 내 자원을 결합하고 행위자 간 협력을 능동적으로 연출 및 지휘하는 주도 주체(Hub-firm)를 의미합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Practice Interactions</td>
+                  <td>관행 상호작용 / 활동 상호작용</td>
+                  <td class="text-sm">서로 다른 오케스트레이터들에 의해 동시에 실행되는 거버넌스 및 관리 행위들이 상호 미치는 순차적 영향력 및 충돌 역학입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Circular Economy (CE)</td>
+                  <td>순환 경제</td>
+                  <td class="text-sm">자원 낭비 최소화와 폐쇄 루프식 재순환을 핵심으로 하여, 가치사슬 참여자 간 고도의 조정(coordination)을 필요로 하는 신생 산업 패러다임입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Orchestration Dimensions</td>
+                  <td>오케스트레이션 차원</td>
+                  <td class="text-sm">Hurmelinna-Laukkanen et al. (2022)의 체계에 근거한 동원, 의제 설정, 지식 공유, 네트워크 안정화, 규범 설정, 행정 조정 등 6대 관리 번들입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            다중 리더 조직들이 동시에 이끌어가는 초기 순환 경제(CE) 생태계의 복잡한 역학과 관리 지침을 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">다중 조정자의 관행은 어떻게 상호작용하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">조정되지 않은 활동이 되려 외연을 넓힌다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">2x2 관행 상호작용 유형학과 순기능 입증</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 단일 허브 기업이 없는 다중 오케스트레이터 구조에서 각 조정 주체의 관행들은 어떻게 결합하고 충돌하며, 이것이 초기 네트워크 성장에 미치는 혜택과 단점은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> 조정성(Coordination)과 상호 영향성(Influence)을 기준으로 관행 상호작용을 평행(Parallel), 경쟁(Competing), 레버리지(Leveraging), 공동(Joint)으로 분류했습니다. 흥미롭게도, 초기 단계에는 사전에 조정되지 않은 평행 및 경쟁 활동이 다양한 산업 섹터로의 도달 범위(reach)를 늘리고 네트워크 가시성을 높이는 혜택을 줍니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 단일 기업 중심의 전통적 오케스트레이션 논의를 확장하여 분산된 거버넌스의 2x2 유형학을 확립했습니다. 실무적으로 리더들에게 무조건적인 공조 집착에서 벗어나, 동원과 지식 이동에는 평행 실행을, 아젠다 설정과 안정화에는 공동 공조를 행하는 이원적 전략을 제시했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "다중 오케스트레이터 생태계에서는 무조건적인 밀착 조정보다, 타겟별로 독립 활동(Parallel)을 행하면서 중요 보고서와 명성을 계승(Leveraging)하는 결합이 외연 확대와 자원 효율을 동시에 달성합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          이론적 주장과 질적 분석의 정합성을 확인하기 위해 핵심 쟁점에 대한 실제 원문 진술과 페이지 매핑을 진행했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">평행형 관행(Parallel)의 네트워크 성장 기여</td>
+                <td class="text-sm italic text-slate-600">
+                  "Through these parallel practices, each orchestrator mobilized different participants, contributing to network growth without directly influencing one another's practices."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 8, Section 4.2.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">경쟁형 관행(Competing)의 자원/주의 선점 충돌</td>
+                <td class="text-sm italic text-slate-600">
+                  "The overlapping practices of both orchestrators meant that once an organization was engaged by one, its time and resources were already committed, constraining its capacity to participate in other mobilizing practices."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9, Section 4.2.2</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">독자적 인증 경쟁으로 인한 정당성 약화</td>
+                <td class="text-sm italic text-slate-600">
+                  "Competing certification agendas promoted divergent goals and created confusion about the value of participation in the network. The lack of coordination between orchestrators also diminished the network's perceived legitimacy..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9, Section 4.2.2</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">선행 리더 자원의 레버리지형(Leveraging) 순차 상속</td>
+                <td class="text-sm italic text-slate-600">
+                  "...and for us, it has meant we can leverage a whole heap of knowledge and resources... By reusing NP1's data and framing, orchestrators were able to legitimize their own practices within the network..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9-10, Section 4.2.3</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">공동형 관행(Joint)의 아젠다 통합과 다원화 기여</td>
+                <td class="text-sm italic text-slate-600">
+                  "Was the one I was most intensely involved in... because there were weekly meetings for two years... we're tackling specific issues in one part of the value chain and had to consider all the dimensions around it."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 10, Section 4.2.4</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">초기 CE 생태계에서 비조정성 지지 반직관성</td>
+                <td class="text-sm italic text-slate-600">
+                  "Challenges existing assumptions in CE literature that orchestration primarily benefits from coordination and collaboration, instead highlighting how early-stage CE networks may also benefit from orchestrators operating independently within the same network..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 11, Section 5.2.1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 개념 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Practice Interactions Typology (관행 상호작용 2x2 유형학)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 460" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <!-- Define marker for arrows -->
+              <defs>
+                <marker id="arrow-slate" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+                </marker>
+                <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+                </marker>
+                <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0891b2"/>
+                </marker>
+                <marker id="arrow-indigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/>
+                </marker>
+                <marker id="axis-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+                </marker>
+              </defs>
+
+              <!-- Background grid or separation lines -->
+              <line x1="410" y1="40" x2="410" y2="400" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4" />
+              <line x1="110" y1="220" x2="710" y2="220" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4" />
+
+              <!-- Y-Axis (Influence) -->
+              <line x1="100" y1="390" x2="100" y2="50" stroke="#475569" stroke-width="3" marker-end="url(#axis-arrow)" />
+              <text x="75" y="220" fill="#475569" font-weight="700" font-size="14" text-anchor="middle" transform="rotate(-90 75 220)">상호 영향력 (Influence on other practices)</text>
+              <text x="115" y="70" fill="#334155" font-weight="600" font-size="12">Influence (영향 있음)</text>
+              <text x="115" y="380" fill="#334155" font-weight="600" font-size="12">No Influence (영향 없음)</text>
+
+              <!-- X-Axis (Coordination) -->
+              <line x1="100" y1="390" x2="730" y2="390" stroke="#475569" stroke-width="3" marker-end="url(#axis-arrow)" />
+              <text x="415" y="425" fill="#475569" font-weight="700" font-size="14" text-anchor="middle">조정 수준 (Coordination Level)</text>
+              <text x="255" y="380" fill="#334155" font-weight="600" font-size="12" text-anchor="middle">Uncoordinated (비조정)</text>
+              <text x="565" y="380" fill="#334155" font-weight="600" font-size="12" text-anchor="middle">Coordinated (조정)</text>
+
+              <!-- Cell 1: Competing (Top-Left) -->
+              <rect x="130" y="60" width="250" height="140" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="2" />
+              <text x="255" y="88" fill="#b45309" font-weight="700" font-size="16" text-anchor="middle">경쟁형 (Competing)</text>
+              <text x="255" y="108" fill="#d97706" font-size="11" text-anchor="middle">비조정 (Uncoordinated) × 영향 있음 (Influence)</text>
+              <text x="145" y="132" fill="#78350f" font-size="11">· 자원 및 주의(attention)의 충돌 발생</text>
+              <text x="145" y="150" fill="#78350f" font-size="11">· 메시지 비일관성으로 참여자 혼란 유발</text>
+              <text x="145" y="168" fill="#78350f" font-size="11">· 단점: 정당성 약화 / 혜택: 초기 인식 제고</text>
+              <!-- Mini Icon: Colliding Arrows -->
+              <path d="M 330 75 L 350 75" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-amber)"/>
+              <path d="M 365 75 L 345 75" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-amber)"/>
+
+              <!-- Cell 2: Leveraging (Top-Right) -->
+              <rect x="440" y="60" width="250" height="140" rx="10" fill="#ecfeff" stroke="#06b6d4" stroke-width="2" />
+              <text x="565" y="88" fill="#0f766e" font-weight="700" font-size="16" text-anchor="middle">레버리지형 (Leveraging)</text>
+              <text x="565" y="108" fill="#0891b2" font-size="11" text-anchor="middle">조정 (Coordinated) × 영향 있음 (Influence)</text>
+              <text x="455" y="132" fill="#115e59" font-size="11">· 선행 리더의 자원/명성을 순차적 활용</text>
+              <text x="455" y="150" fill="#115e59" font-size="11">· 타 오케스트레이터의 신뢰성을 전이</text>
+              <text x="455" y="168" fill="#115e59" font-size="11">· 혜택: 신속한 설득력 확보, 지식 확산</text>
+              <!-- Mini Icon: Sequential Step Arrow -->
+              <path d="M 645 80 L 655 80 L 655 70" fill="none" stroke="#0891b2" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+
+              <!-- Cell 3: Parallel (Bottom-Left) -->
+              <rect x="130" y="230" width="250" height="140" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="2" />
+              <text x="255" y="258" fill="#334155" font-weight="700" font-size="16" text-anchor="middle">평행형 (Parallel)</text>
+              <text x="255" y="278" fill="#64748b" font-size="11" text-anchor="middle">비조정 (Uncoordinated) × 영향 없음 (No Influence)</text>
+              <text x="145" y="302" fill="#475569" font-size="11">· 타겟 그룹이나 목적이 다르게 작동</text>
+              <text x="145" y="320" fill="#475569" font-size="11">· 리더 간 간섭 없이 독립적인 실행</text>
+              <text x="145" y="338" fill="#475569" font-size="11">· 혜택: 도달 범위(Reach) 및 가시성 확장</text>
+              <!-- Mini Icon: Parallel Arrows -->
+              <path d="M 335 245 L 355 245" stroke="#64748b" stroke-width="2" marker-end="url(#arrow-slate)"/>
+              <path d="M 335 253 L 355 253" stroke="#64748b" stroke-width="2" marker-end="url(#arrow-slate)"/>
+
+              <!-- Cell 4: Joint (Bottom-Right) -->
+              <rect x="440" y="230" width="250" height="140" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="2" />
+              <text x="565" y="258" fill="#3730a3" font-weight="700" font-size="16" text-anchor="middle">공동형 (Joint)</text>
+              <text x="565" y="278" fill="#4f46e5" font-size="11" text-anchor="middle">조정 (Coordinated) × 영향 없음 (No Influence)</text>
+              <text x="455" y="302" fill="#312e81" font-size="11">· 자원 및 역량을 공동 결합하여 집행</text>
+              <text x="455" y="320" fill="#312e81" font-size="11">· 개별 독립적 실행 관행이 없음</text>
+              <text x="455" y="338" fill="#312e81" font-size="11">· 혜택: 다차원 관점 반영 / 단점: 높은 조율비용</text>
+              <!-- Mini Icon: Overlapping Circles -->
+              <circle cx="645" cy="250" r="10" fill="none" stroke="#4f46e5" stroke-width="2"/>
+              <circle cx="653" cy="250" r="10" fill="none" stroke="#4f46e5" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">거버넌스 축 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Coordination Axis</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">조정성 (Coordination Axis)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 다중 오케스트레이터 간에 상호 소통, 정보 공유, 자원 풀링을 통해 거버넌스 행위를 인위적으로 동기화하고 연계하는 메커니즘 수준.</p>
+              <p class="text-sm text-slate-700"><strong>분석 및 도출:</strong> 사례 분석 내에서 오케스트레이터들의 '공동 기획(joint planning)', '위원회 회의(committee meetings)' 진술과 '독자 독립 추진(independent operations)' 진술에 따라 Coordinated와 Uncoordinated로 양분.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술적 배경:</strong> 기존 Hurmelinna-Laukkanen & Nätti (2018) 등의 단일 리더 중심 조정 개념을 다자적 관계 구조로 확장하고, '비조정(uncoordinated)'의 효용을 재평가하는 기준 축이 됩니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">거버넌스 축 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Mutual Influence Axis</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">관행 상호 영향력 (Mutual Influence Axis)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 어떤 오케스트레이터의 관행적 실행이 다른 오케스트레이터의 활동 경로, 순차적 방식, 혹은 이로 인한 참여 회원사의 활동 결과에 변경을 유발하는지 여부.</p>
+              <p class="text-sm text-slate-700"><strong>분석 및 도출:</strong> 타 리더가 발간한 자료를 자신의 활동에 후행적으로 투입(reusing reports)하여 혜택을 보거나, 타 리더의 행사 개최로 참여자들의 시간 배분을 잠식당하는 충돌 진술에 따라 Influence와 No Influence로 양분.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술적 배경:</strong> Perks et al. (2017)이 정의한 동일 리더 내 관행 상호의존성을 다자 리더 수준으로 높여 상호 간섭(interference)과 시너지를 포착하는 기준입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">유형학 모델</span>
+                <span class="text-xs text-slate-400 font-semibold">Typology Matrix</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">관행 상호작용 유형학 (Practice Interactions Typology)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 조정성과 상호 영향력 두 축의 상호작용 조합에 의해 발현되는 4대 관계 양태(Parallel, Competing, Leveraging, Joint).</p>
+              <p class="text-sm text-slate-700"><strong>분석 및 도출:</strong> Gioia의 1단계/2단계 코딩 구조에 근거해 오케스트레이터들의 실제 관리 에피소드를 2x2 매트릭스 셀에 대입 및 귀추화(Abductive Classification).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술적 배경:</strong> Klerkx & Aarts (2013)의 다중 챔피언 이론을 관행(practices) 수준에서 구체적 매트릭스로 정교화하여 복잡성을 체계화했습니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">영향 결과</span>
+                <span class="text-xs text-slate-400 font-semibold">Network Development</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">네트워크 개발 효과 (Network Development Effects)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 다중 조정자의 관행적 상호작용에 의해 초래되는 네트워크 차원의 범위 확장(reach), 참여 안정화, 정당성 형성, 및 참여자 혼란 등의 혜택과 단점.</p>
+              <p class="text-sm text-slate-700"><strong>분석 및 도출:</strong> 35명의 인터뷰이들이 평가하는 도달 범위의 다양성, 리더들의 충돌로 인한 아젠다 혼선, 그리고 실제 참여 유지율에 대한 주관적 평가를 다각도로 코딩.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술적 배경:</strong> 순환 경제(CE) 생태계 형성기에서 비조정적 활동의 순기능(도달 범위 및 다양성 확대)을 새롭게 조명함으로써, 기존의 무조건적 협력 지상주의를 보완했습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          후행 연구자가 호주 패션 및 섬유 CE 생태계에서의 질적 다중 사례 수집 및 코딩 분석을 그대로 복사하여 실행할 수 있도록 단계별로 재구성했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 맥락 및 사례 선정 기준 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  호주 패션 및 섬유 산업의 순환 경제(CE) 전환 초기 생태계를 대상으로 설정. (1) 2021년 4월 ~ 2022년 6월의 유사 시기 출범, (2) 다중 주도 조직 존재, (3) 가입 한계 유연성(loose boundaries) 조건의 2개 네트워크(NCC, SBI)를 다중 사례 대상으로 선정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Section 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">참여자 표집 및 스노우볼링</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  회의록 및 홈페이지 등으로 1차 리더를 파악해 LinkedIn 접촉. 이후 스노우볼 샘플링으로 대기업/SME, 브랜드, NGO, 교육, 기술 등 고르게 포괄하는 다원적 35인의 면접 참여자 확보.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Section 3.1 & Table 2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">반구조화 심층 인터뷰 & 참여 관찰</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  2023년 12월 ~ 2024년 6월까지 35건의 반구조화 인터뷰(50~120분) 진행 및 녹취록 전사. 이에 더해 연구진이 3회의 대면 워크숍 및 5회의 온라인 위원회 회의에 동석 관찰하여 현장 필드 노트 작성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Section 3.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">2차 데이터 확보 및 삼각검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  참여자의 사후적 회상 편향 통제를 위해 오케스트레이터 홈페이지, 관련 언론 보도 38건, 공식 간행물 18건, 2020년 2월 ~ 2024년 9월 사이의 소셜 미디어 게시글 12건을 수집하여 발언과 실체 타임라인 교차 검증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5-6, Section 3.1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">행동 기반 실질적 리더 정의</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  단순 직함 대신 행동을 기준으로 오케스트레이터를 선별. (1) 아젠다 설정, (2) 자원 분배, (3) 파트너 연결, (4) 정당성 구축의 4대 거버넌스 조건 중 3개 이상 정기적 수행 여부로 10대 오케스트레이터 획정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6, Section 3.1</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">Gioia 코딩 & 크로스 테이블 유형화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  NVivo 12를 사용해 Gioia et al. (2013)의 1/2차 코딩 수행 후 Hurmelinna-Laukkanen (2022)의 6대 오케스트레이션 차원과 결합. 이후 오케스트레이터별 관행 크로스테이블 비교를 통해 2x2 매트릭스 및 유형학 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6-7, Section 3.2 & Table 3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            질적 연구 사례 획득 기준, 참여자 구성, 행위 중심 리더 선별 조건, 코딩 체계 및 분석 매커니즘이 모두 개시되어 절차적 재현은 완전히 가능합니다. 다만, 익명 및 기밀로 묶인 35건의 인터뷰 축어록 원본에 대한 접근이 불가하고 연구진과 현지 업계 간 형성된 에믹(emic)한 관계 기반 해석에 의존하므로 100% 동일 해석 도출은 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.2.3)에서 연구진들이 한정한 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>초기(Formative) 단계 분석의 한계:</strong> 네트워크 형성 과정의 초기 사건들만을 다룸으로써, 규칙이 확립되고 행위자 역할이 고정되는 성숙 단계(mature stage)에서의 종단적 유형학 변화를 밝혀내지 못함.
+              </li>
+              <li>
+                <strong>순환 경제(CE)에 편향된 맥락:</strong> 자원 재순환과 가치사슬 긴장 완화에 특화된 CE의 특수성 때문에 일반적인 신제품 혁신 네트워크나 구매자-공급자 네트워크로 일반화하는 데는 한계가 존재함.
+              </li>
+              <li>
+                <strong>호주 단일 지리의 제도적 국한성:</strong> 정부의 순환 경제 규제 수준이 낮은 호주에서 수집되어, 강력한 정책 유도와 공적 자본이 네트워크 생태계를 견인하는 타 국가 맥락에 대입하기 어려울 수 있음.
+              </li>
+              <li>
+                <strong>차원 간 교차 상호작용의 누락:</strong> 동원, 아젠다 설정 등 6대 관리 차원 내부의 작용을 다루는 데 초점을 맞추어, 예컨대 모빌라이징 관행이 규범화(norming) 관행과 어떻게 교섭하는지 cross-dimension 역학을 다루지 않음.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 데이터 수집 방식을 바탕으로 비판적으로 제기하는 미언급 한계점입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 사후적 회상 편향 (Recall Bias)</span>
+                <p class="text-sm text-slate-700">
+                  인터뷰 수집은 2023년 말~2024년에 진행됐지만 대상 사건은 2021년~2022년의 네트워크 성립 과정을 다룹니다. 2차 데이터 교차 확인을 거쳤다고는 하나 리더 간 발생한 실제 전략 마찰, 소외의 고통, 비협조적 동기는 오랜 시간이 지나며 면접자 사후 합리화(retrospective rationalization) 과정을 거치며 미화됐을 개연성이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 권력/자본 격차 통제 부재 (Power Asymmetry)</span>
+                <p class="text-sm text-slate-700">
+                  자원과 자금이 풍부한 대형 교육기관(대학교)과 한정된 예산으로 움직이는 영세 NGO/컨설턴트를 동등한 '오케스트레이터'로 묶어 관행을 분석합니다. 어떤 오케스트레이터가 평행형(Parallel) 관행을 선택한 진짜 원인이 전략적 혜택 고려가 아닌 본질적 '자본력 격차'에 따른 불가피한 타협이나 소외였을 역학이 규명되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 오케스트레이터 편향 (Leader Bias)</span>
+                <p class="text-sm text-slate-700">
+                  표본의 고른 수집에도 불구하고 실질적 구성 서사(Quote)는 주도자(Mary, Jade, Ariane 등)의 대리적 기여와 정당성 해명 논리에 다소 경도되어 있습니다. 리더들의 비조정성 때문에 일선 브랜드 기업들이 겪어야 했던 시간 낭비, 중복 투자, 그리고 피로감 등 일반 참여자의 고통이 다소 축소되고 온정주의적으로 다뤄졌을 우려가 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 객관적 성과 지표와의 연결 부재</span>
+                <p class="text-sm text-slate-700">
+                  네트워크의 성과와 '혜택/단점'을 오직 제보자들의 주관적인 '만족 진술'에 의거해 분류했습니다. 로드맵 수립 이후 섬유 재활용 처리 톤수, 생태계 참여 기업 간 실제 성사된 B2B 거래 계약액 등 물리적인 '하드 성과 지표'와 매핑하지 않아 유형학의 실체적 효용을 계량적으로 입증하기 어렵습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Multiple-orchestrator networks: A typology of interacting practices in developing networks</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
