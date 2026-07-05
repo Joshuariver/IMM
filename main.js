@@ -3,10 +3,13 @@
   if (!data) throw new Error('IMM data not loaded');
 
   const { collections, documents } = data;
-  const state = { query: '', collection: 'ALL', selectedId: '' };
+  const state = { query: '', collection: 'ALL', selectedId: '', sort: 'relevance', sidebarCollapsed: false };
 
   const queryInput = document.getElementById('query');
   const clearButton = document.getElementById('clear');
+  const sortOrderSelect = document.getElementById('sortOrder');
+  const sidebarToggleButton = document.getElementById('sidebarToggle');
+  const sidebarEl = document.getElementById('sidebar');
   const volumeFilters = document.getElementById('volumeFilters');
   const resultsEl = document.getElementById('results');
   const resultCount = document.getElementById('resultCount');
@@ -18,13 +21,27 @@
   const copyApaButton = document.getElementById('copyApa');
   const doiSearchButton = document.getElementById('doiSearch');
 
-  const required = [queryInput, clearButton, volumeFilters, resultsEl, resultCount, selectedVolume, selectedTitle, selectedMeta, previewStatus, previewContent, copyApaButton, doiSearchButton];
+  const required = [queryInput, clearButton, sortOrderSelect, sidebarToggleButton, sidebarEl, volumeFilters, resultsEl, resultCount, selectedVolume, selectedTitle, selectedMeta, previewStatus, previewContent, copyApaButton, doiSearchButton];
   if (required.some((node) => !node)) throw new Error('app root not found');
 
   const order = new Map(collections.map((value, index) => [value, index]));
   const esc = (value) => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const citationLabel = (doc) => (doc.citations != null ? doc.citations : '—');
 
-  const sorted = (rows) => [...rows].sort((a, b) => (order.get(a.collection) - order.get(b.collection)) || a.title.localeCompare(b.title, 'ko'));
+  const collectionOrder = (a, b) => (order.get(a.collection) - order.get(b.collection)) || a.title.localeCompare(b.title, 'ko');
+
+  const sorted = (rows) => [...rows].sort((a, b) => {
+    if (state.sort === 'recent') {
+      const diff = (Number(b.year) || 0) - (Number(a.year) || 0);
+      return diff || collectionOrder(a, b);
+    }
+    if (state.sort === 'citations') {
+      const ac = a.citations == null ? -1 : a.citations;
+      const bc = b.citations == null ? -1 : b.citations;
+      return (bc - ac) || collectionOrder(a, b);
+    }
+    return collectionOrder(a, b);
+  });
   const doiSearchUrl = (doc) => doc.doi ? `https://doi.org/${doc.doi}` : `https://search.crossref.org/?q=${encodeURIComponent([doc.title, doc.authorsRaw, doc.year].filter(Boolean).join(' '))}`;
 
   // Safe search text highlighting function for card text fields
@@ -199,7 +216,7 @@
       doc.collection === 'V75' ? 'badge-accent' : 'badge-neutral'
     }`;
     selectedTitle.textContent = doc.title;
-    selectedMeta.textContent = [doc.authorsRaw || '\uC800\uC790 \uC815\uBCF4 \uC5C6\uC74C', doc.journal || 'Industrial Marketing Management', doc.pages ? `pp. ${doc.pages}` : '', doc.doi ? `DOI ${doc.doi}` : ''].filter(Boolean).join(' · ');
+    selectedMeta.textContent = [doc.authorsRaw || '\uC800\uC790 \uC815\uBCF4 \uC5C6\uC74C', doc.journal || 'Industrial Marketing Management', doc.pages ? `pp. ${doc.pages}` : '', doc.doi ? `DOI ${doc.doi}` : '', `Citations: ${citationLabel(doc)}`].filter(Boolean).join(' · ');
     previewStatus.textContent = '\uBCF8\uBB38 HTML\uC744 성공적으로 불러왔습니다.';
     
     // Render document cards directly to align with V01 design system
@@ -217,18 +234,8 @@
   };
 
   const renderFilters = () => {
-    volumeFilters.innerHTML = collections.map((item) => {
-      const isActive = state.collection === item;
-      return `
-        <button 
-          type="button" 
-          class="btn btn-xs ${isActive ? 'btn-primary' : 'btn-outline btn-neutral'}" 
-          data-collection="${item}"
-        >
-          ${item}
-        </button>
-      `;
-    }).join('');
+    volumeFilters.innerHTML = collections.map((item) => `<option value="${esc(item)}">${esc(item)}</option>`).join('');
+    volumeFilters.value = state.collection;
   };
 
   const renderResults = () => {
@@ -261,8 +268,9 @@
                 <span class="badge badge-outline badge-sm ${badgeClass}">
                   ${esc(doc.collection)}
                 </span>
-                <span class="text-xs text-base-content/60 font-medium">
-                  ${esc(doc.year || '')}
+                <span class="flex items-center gap-2 text-xs text-base-content/60 font-medium">
+                  <span title="Crossref 인용수">📈 ${esc(citationLabel(doc))}</span>
+                  <span>${esc(doc.year || '')}</span>
                 </span>
               </div>
               <div class="space-y-1">
@@ -294,6 +302,7 @@
 
   const applyState = () => {
     queryInput.value = state.query;
+    sortOrderSelect.value = state.sort;
     renderFilters();
     renderResults();
   };
@@ -310,12 +319,20 @@
     applyState();
   });
 
-  volumeFilters.addEventListener('click', (event) => {
-    const button = event.target.closest('[data-collection]');
-    if (!button) return;
-    state.collection = button.dataset.collection;
+  volumeFilters.addEventListener('change', () => {
+    state.collection = volumeFilters.value;
     state.selectedId = '';
     renderResults();
+  });
+
+  sortOrderSelect.addEventListener('change', () => {
+    state.sort = sortOrderSelect.value;
+    renderResults();
+  });
+
+  sidebarToggleButton.addEventListener('click', () => {
+    state.sidebarCollapsed = !state.sidebarCollapsed;
+    sidebarEl.classList.toggle('sidebar-collapsed', state.sidebarCollapsed);
   });
 
   resultsEl.addEventListener('click', async (event) => {

@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Knotted Paradox of Coopetition for Sustainability - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Coopetition &amp; Sustainability</div>
+        <div class="badge badge-secondary text-white style-label">Vol.110, pp.31–45</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            The knotted paradox of coopetition for sustainability:<br>
+            <span class="text-cyan-400">Investigating the interplay between core paradox properties</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Siarhei Manzhynski, Galina Biedenbach (Umeå University, Sweden)
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            지속가능성을 위한 협력경쟁의 매듭 역설:<br>
+            <span class="text-indigo-300">핵심 역설 속성 간 상호작용 탐구</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            벨라루스 주택 부문 170개 조직 응답 설문을 기반으로 한 협력경쟁 강도·균형과 지속가능성 성과 간 비선형 관계 분석
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">경쟁자와의 협력은 지속가능성 성과를 끌어올리지만, 지나치면 오히려 성과를 갉아먹는 "적정 강도"의 문제입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Despite the fact that many organizations must manage frequently multiple paradoxes in their operations, extant paradox studies have under-researched the phenomenon of a knotted paradox that emerges when actors navigate in conditions of contradicting demands, which stem from several paradoxes simultaneously. In this study, we explore the knotted paradox of coopetition for sustainability, a process in which competitors cooperate to address sustainability challenges, and examine the interplay between its intensity, balance, and outcome. The findings of a quantitative study conducted among organizational actors in the housing sector demonstrate that coopetition intensity has a significant yet complex impact on sustainability outcomes. In the relationship characterized by an inverted U-shaped curve, an increase in coopetition intensity and balance leads to an increase in sustainability outcomes, but only until a specific limit, after which sustainability outcomes decrease with further intensification of coopetition. The findings indicate that coopetition balance and sustainability balance do not have a significant relationship. The study provides insights for managers on how coopetition in different conditions can contribute to corporate sustainability. The study demonstrates that coopetition and sustainability can be knotted successfully, although the intensity of competing demands and the balance between them need to be cautiously managed."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              많은 조직이 운영 과정에서 여러 개의 역설을 동시에 관리해야 함에도 불구하고, 기존 역설 연구는 여러 역설에서 동시에 비롯되는 모순적 요구 상황을 행위자가 헤쳐 나갈 때 발생하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">매듭 역설(knotted paradox)</span> 현상을 충분히 다루지 않았다. 본 연구는 경쟁자들이 지속가능성 과제를 해결하기 위해 협력하는 과정인 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">지속가능성을 위한 협력경쟁</span>의 매듭 역설을 탐구하고, 그 강도·균형·결과 간 상호작용을 검토한다. 주택 부문의 조직 행위자들을 대상으로 한 정량적 연구 결과, 협력경쟁 강도는 지속가능성 성과에 유의하면서도 복잡한 영향을 미치는 것으로 나타났다. <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">역 U자형 곡선</span>으로 특징지어지는 관계에서, 협력경쟁의 강도와 균형이 증가할수록 지속가능성 성과도 증가하지만 이는 특정 한계점까지만 유효하며, 그 이후로는 협력경쟁이 더욱 심화될수록 지속가능성 성과가 오히려 감소한다. 또한 협력경쟁 균형과 지속가능성 균형 사이에는 유의한 관계가 나타나지 않았다. 본 연구는 다양한 조건에서의 협력경쟁이 기업의 지속가능성에 어떻게 기여할 수 있는지에 대한 경영자를 위한 시사점을 제공한다. 본 연구는 협력경쟁과 지속가능성이 성공적으로 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">"매듭지어질" </span>수 있음을 보여주지만, 경쟁하는 요구들의 강도와 그 사이의 균형은 신중하게 관리되어야 한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Knotted paradox</td>
+                  <td>매듭 역설</td>
+                  <td class="text-sm">단일 역설·중첩 역설과 구분되는 제3의 형태로, 여러 역설이 서로 얽혀(knotted) 상호 증폭하는 현상을 직역해 개념적 특수성을 살림.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Coopetition</td>
+                  <td>협력경쟁</td>
+                  <td class="text-sm">cooperation(협력)+competition(경쟁)의 합성어. 국내 경영학 문헌에서 통용되는 "협력경쟁"으로 번역하되 원어를 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Paradox intensity / balance / outcome</td>
+                  <td>역설의 강도 / 균형 / 결과</td>
+                  <td class="text-sm">파라독스 이론(Lewis, 2000; Smith &amp; Lewis, 2011)에서 차용한 3대 핵심 속성 개념어를 직역.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Inverted U-shaped relationship</td>
+                  <td>역 U자형 관계</td>
+                  <td class="text-sm">2차함수(포물선) 형태로 특정 지점까지 증가 후 감소하는 관계를 지칭하는 계량경제학 표준 용어.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">협력경쟁의 강도·균형은 지속가능성 성과에 어떻게 작용하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">강도는 역 U자형, 균형은 유의한 관계 없음</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">"매듭 역설"의 정량적 실증 최초 시도</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 협력경쟁(경쟁자와의 동시적 협력·경쟁)은 그 자체가 협력경쟁 역설과 지속가능성 역설이 얽힌 "매듭 역설"이다. 이 매듭의 핵심 속성인 강도·균형·결과는 서로 어떻게 상호작용하는가?</li>
+                  <li><strong>핵심 발견:</strong> 협력경쟁 강도는 지속가능성 성과와 <strong>유의한 역 U자형 관계</strong>를 가진다(H1 지지) — 낮은 강도에서는 강화할수록 성과가 개선되나 특정 임계점 이후로는 조정비용·갈등 위험이 편익을 압도해 성과가 하락한다. 반면 협력경쟁 균형(경쟁-협력의 유사성)은 지속가능성 균형(경제·환경·사회 성과의 유사성)에 유의한 영향을 주지 못했다(H2 기각).</li>
+                  <li><strong>이론/실무 기여:</strong> "역설적 요구의 강도"와 "역설 자체의 강도"를 개념적으로 구분하고 Griffin 공식을 응용해 정량화했으며, 협력경쟁(강도 결정)과 지속가능성(결과 결정)이 각각 별도의 균형을 갖는 매듭 구조임을 실증적으로 보여줌.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "경쟁자와의 협력은 무조건 강화한다고 좋은 것이 아니라, 적정 강도를 지나면 지속가능성 성과가 오히려 감소하는 역 U자형 관계를 가지며, 협력-경쟁의 균형이 곧 친환경·사회적 성과의 균형을 보장하지는 않는다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실증적 근거 데이터의 원문 인용 및 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">H1: 협력경쟁 강도-지속가능성 성과의 역 U자형 관계 (지지)</td>
+                <td class="text-sm italic text-slate-600">
+                  "The findings demonstrate that coopetition intensity and coopetition-based sustainability outcomes have a significant inverted U-shaped relationship. Therefore, Hypothesis 1 is supported."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.40 (Sec.4, Table 6)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">H2: 협력경쟁 균형-지속가능성 균형 관계 (기각)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Parameter α is not significant (α = −0.11, p = 0.16), which demonstrates that coopetition balance does not affect sustainability balance. Therefore, Hypothesis 2 is not supported."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.40 (Sec.4, Table 6)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">표본 및 응답률</td>
+                <td class="text-sm italic text-slate-600">
+                  "The survey was distributed to 248 potential respondents... In total, 174 respondents completed the survey. The response rate was 70.16%. After excluding four questionnaires with high levels of missing data, 170 responses were used..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.39 (Sec.3.1)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">동일방법편의(CMB) 없음</td>
+                <td class="text-sm italic text-slate-600">
+                  "We conducted the Harman's one-factor test... the total variance extracted for a single factor was 37.17%. Since the result was &lt;50%, a common method bias was not identified..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.39 (Sec.4)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">역인과성 없음 (내생성 점검)</td>
+                <td class="text-sm italic text-slate-600">
+                  "The results show that the effect of sustainability outcomes on coopetition intensity is insignificant (p &gt; 0.05), so we did not find evidence for a dual causality relationship..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.41 (Sec.5.1, Table 7)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">역 U자형 관계의 강건성 (Lind &amp; Mehlum 3단계 검정)</td>
+                <td class="text-sm italic text-slate-600">
+                  "The results demonstrate that both slope tests are significant (low – positive, high – negative)... the tipping point of the model is located well within the data range."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.42 (Sec.5.2, Table 7)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model &amp; Variables</span>
+        </div>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 이론 모형, Fig. 4 재구성)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 460" class="w-full h-auto">
+              <!-- ===== Left cluster: Coopetition side (IV) ===== -->
+              <!-- Competition -->
+              <rect x="20" y="230" width="150" height="60" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="95" y="255" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">경쟁 강도</text>
+              <text x="95" y="272" text-anchor="middle" fill="#64748b" font-size="10">Competition Intensity</text>
+
+              <!-- Cooperation -->
+              <rect x="20" y="310" width="150" height="60" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="95" y="335" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">협력 강도</text>
+              <text x="95" y="352" text-anchor="middle" fill="#64748b" font-size="10">Cooperation Intensity</text>
+
+              <!-- Competition & Cooperation intensities (combined box) -->
+              <rect x="220" y="270" width="180" height="60" rx="8" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="310" y="293" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="12">경쟁·협력 강도 결합</text>
+              <text x="310" y="309" text-anchor="middle" fill="#0284c7" font-size="10">Competition &amp; Cooperation Intensities</text>
+
+              <!-- Coopetition Balance (top-left) -->
+              <rect x="20" y="30" width="180" height="65" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+              <text x="110" y="55" text-anchor="middle" font-weight="700" fill="#1e40af" font-size="13">협력경쟁 균형</text>
+              <text x="110" y="72" text-anchor="middle" fill="#1d4ed8" font-size="10">Coopetition Balance</text>
+              <text x="110" y="87" text-anchor="middle" fill="#64748b" font-size="9">5–|경쟁강도−협력강도|</text>
+
+              <!-- Coopetition Intensity (composite IV, center) -->
+              <rect x="440" y="255" width="190" height="90" rx="8" fill="#c7d2fe" stroke="#4338ca" stroke-width="2.5"/>
+              <text x="535" y="288" text-anchor="middle" font-weight="700" fill="#312e81" font-size="15">협력경쟁 강도</text>
+              <text x="535" y="306" text-anchor="middle" fill="#3730a3" font-size="10">Coopetition Intensity (IV)</text>
+              <text x="535" y="322" text-anchor="middle" fill="#4338ca" font-size="9">=경쟁+협력+균형 (Griffin formula)</text>
+
+              <!-- ===== Right cluster: Sustainability side (DV) ===== -->
+              <!-- Economic / Societal / Environmental outcomes -->
+              <rect x="700" y="150" width="90" height="55" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+              <text x="745" y="172" text-anchor="middle" font-weight="700" fill="#166534" font-size="11">경제 성과</text>
+              <text x="745" y="188" text-anchor="middle" fill="#15803d" font-size="8">Economic</text>
+
+              <rect x="700" y="215" width="90" height="55" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+              <text x="745" y="237" text-anchor="middle" font-weight="700" fill="#166534" font-size="11">사회 성과</text>
+              <text x="745" y="253" text-anchor="middle" fill="#15803d" font-size="8">Societal</text>
+
+              <rect x="700" y="280" width="90" height="55" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+              <text x="745" y="302" text-anchor="middle" font-weight="700" fill="#166534" font-size="11">환경 성과</text>
+              <text x="745" y="318" text-anchor="middle" fill="#15803d" font-size="8">Environmental</text>
+
+              <!-- Sustainability outcome magnitude -->
+              <rect x="700" y="360" width="170" height="55" rx="8" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+              <text x="785" y="382" text-anchor="middle" font-weight="700" fill="#065f46" font-size="11">지속가능성 성과(크기)</text>
+              <text x="785" y="397" text-anchor="middle" fill="#047857" font-size="9">Sustainability Outcome (magnitude)</text>
+
+              <!-- Sustainability Outcomes (composite DV, center-right) - target of H1 -->
+              <rect x="440" y="60" width="190" height="90" rx="8" fill="#e9d5ff" stroke="#7c3aed" stroke-width="2.5"/>
+              <text x="535" y="93" text-anchor="middle" font-weight="700" fill="#5b21b6" font-size="15">지속가능성 성과</text>
+              <text x="535" y="111" text-anchor="middle" fill="#6d28d9" font-size="10">Sustainability Outcomes (DV)</text>
+              <text x="535" y="127" text-anchor="middle" fill="#7c3aed" font-size="9">=성과 크기 + 지속가능성 균형</text>
+
+              <!-- Sustainability Balance (top-right) -->
+              <rect x="700" y="30" width="180" height="65" rx="8" fill="#fce7f3" stroke="#db2777" stroke-width="2"/>
+              <text x="790" y="55" text-anchor="middle" font-weight="700" fill="#9d174d" font-size="13">지속가능성 균형</text>
+              <text x="790" y="72" text-anchor="middle" fill="#be185d" font-size="10">Sustainability Balance</text>
+              <text x="790" y="87" text-anchor="middle" fill="#64748b" font-size="9">경제·사회·환경 성과 유사도</text>
+
+              <!-- ===== Arrows ===== -->
+              <!-- Competition -> combined box -->
+              <path d="M170 260 L 220 290" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <!-- Cooperation -> combined box -->
+              <path d="M170 340 L 220 305" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <!-- Combined box -> Coopetition Intensity -->
+              <path d="M400 300 L 440 300" fill="none" stroke="#0ea5e9" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+              <!-- Coopetition Balance -> Coopetition Intensity (feeds composite formula) -->
+              <path d="M150 95 L 150 200 L 440 285" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Coopetition Intensity -> Sustainability Outcomes : H1 (inverted-U), solid curved -->
+              <path d="M535 255 C 535 210 535 150 535 150" fill="none" stroke="#4338ca" stroke-width="3" marker-end="url(#arrowBig)"/>
+              <text x="548" y="205" fill="#4338ca" font-weight="700" font-size="13">H1 (∩) 지지</text>
+
+              <!-- Economic/Societal/Environmental -> Sustainability outcome magnitude -->
+              <path d="M745 205 L 745 360" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M745 270 L 760 360" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M745 335 L 745 360" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Sustainability outcome magnitude -> Sustainability Outcomes (composite) -->
+              <path d="M785 360 C 785 250 630 130 630 105" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Sustainability Balance -> Sustainability Outcomes (composite) -->
+              <path d="M700 70 L 630 90" fill="none" stroke="#db2777" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Coopetition Balance -> Sustainability Balance : H2 (+), NOT SUPPORTED -> dashed -->
+              <path d="M200 62 L 700 62" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#arrowRed)"/>
+              <text x="450" y="52" text-anchor="middle" fill="#dc2626" font-weight="700" font-size="13">H2 (+) 기각 (n.s., p=0.16)</text>
+
+              <!-- SVG Arrow Markers -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+                <marker id="arrowBig" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4338ca"/>
+                </marker>
+                <marker id="arrowRed" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 self-start">
+            색상 기준: 회색/청색 계열 = 협력경쟁(강도를 결정하는 파트), 초록/보라/분홍 계열 = 지속가능성(결과를 결정하는 파트). 실선 굵은 화살표(H1)는 지지된 역 U자형 관계, 붉은 점선(H2)은 기각된 가설을 의미합니다.
+          </p>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 구성요소</span>
+                <span class="text-xs text-slate-400 font-semibold">IV component</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">경쟁 강도 (Competition Intensity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 행위자가 경쟁 관계의 요구를 지각하는 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 경쟁 폭(width, 경쟁 기업 수)과 경쟁 깊이(depth, 경쟁 근접성)의 평균.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 5점 Likert 2문항(CD2, CW2). Suhartanto(2017); Yim Yiu &amp; Xu(2012) 응용. 요인적재량 0.69~0.70.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 경쟁의 폭/깊이 구분은 혁신 탐색(Katila &amp; Ahuja, 2002), 이해관계자 커뮤니케이션(Pirson &amp; Malhotra, 2011) 연구에서도 활용되는 핵심 속성.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">독립변수 구성요소</span>
+                <span class="text-xs text-slate-400 font-semibold">IV component</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">협력 강도 (Cooperation Intensity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 행위자가 경쟁자와의 관계에서 협력 요구를 지각하는 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 협력 폭·협력 깊이·협력 빈도(frequency)의 평균. 경쟁과 달리 "빈도" 속성이 추가됨.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 5점 Likert 3문항(CD1, CW1, CF1). Cronbach's α=0.87, 적재량 0.54~0.61.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Bengtsson et al.(2016)의 협력경쟁 역설 연구가 제시한 경쟁·협력 강도 개념을 계량화.
+              </p>
+            </div>
+          </div>
+
+          <!-- Coopetition Balance Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge style-label text-white" style="background-color:#2563eb;">독립변수 (균형)</span>
+                <span class="text-xs text-slate-400 font-semibold">IV (Balance)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">협력경쟁 균형 (Coopetition Balance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 경쟁 강도와 협력 강도가 서로 얼마나 유사한(균형적인) 정도. Ambivalence theory(Bauman, 1990)의 균형 개념.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 협력경쟁 균형 = 5 − |경쟁 강도 − 협력 강도| (계산 변수).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Thompson, Zanna, &amp; Griffin(1995)의 태도 양가성 공식 응용.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Bengtsson &amp; Raza-Ullah(2017)의 불균형-경쟁지배형/불균형-협력지배형/균형-강함/균형-약함 4유형론과 연결.
+              </p>
+            </div>
+          </div>
+
+          <!-- Coopetition Intensity (composite IV) Card -->
+          <div class="card bg-white border-2 border-indigo-300 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">합성 독립변수 (H1 예측변수)</span>
+                <span class="text-xs text-slate-400 font-semibold">Composite IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">협력경쟁 강도 (Coopetition Intensity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 역설로서의 협력경쟁이 갖는 전체적 강도. 단순 합/평균이 아닌 양가성을 반영하는 함수.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 협력경쟁 강도 = 경쟁 강도 + 협력 강도 + 협력경쟁 균형 (Griffin formula).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Thompson et al.(1995) 공식을 협력경쟁 맥락에 최초 응용.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 단순 합 사용 시 "경쟁5·협력1"과 "경쟁3·협력3"이 동일 점수(6)가 되는 문제(무관심 vs 중립성 혼동, Gardner 1987)를 해결하기 위해 균형 항을 추가.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV components card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">종속변수 구성요소</span>
+                <span class="text-xs text-slate-400 font-semibold">DV component</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">지속가능성 성과(크기) (Sustainability Outcome Magnitude)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 협력경쟁 관계로부터 얻는 경제적·환경적·사회적 편익의 크기(Triple Bottom Line, Elkington 1998).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 경제(SO1)·사회(SO2)·환경(SO3) 편익 지각 3문항의 평균.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 5점 Likert 3문항. Kim, Taylor, Kim, &amp; Lee(2015); Lee(2020) 응용. Cronbach's α=0.81, 적재량 0.55~0.61.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 통합적 지속가능성 관점(Gao &amp; Bansal, 2013; Hahn et al., 2015)에 따라 세 축을 동시에 다루어야 한다는 이론적 배경.
+              </p>
+            </div>
+          </div>
+
+          <!-- Sustainability Balance (DV, H2 target) card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge style-label text-white" style="background-color:#db2777;">종속변수 (H2 예측대상)</span>
+                <span class="text-xs text-slate-400 font-semibold">DV (Balance)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">지속가능성 균형 (Sustainability Balance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 경제·환경·사회적 성과가 서로 얼마나 유사한(균형적인) 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 지속가능성 균형 = 5 − (|Econ−Soc| + |Econ−Env| + |Soc−Env|)/3 (계산 변수).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 위 공식으로 산출.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Van der Byl &amp; Slawinski(2015)의 "균형이 지속가능성 차원 간 더 동등한 가중치로 기울어질 수 있다"는 주장과 연결. 실제로는 H2가 기각되어 협력경쟁 균형이 지속가능성 균형으로 자동 전이되지 않음을 시사.
+              </p>
+            </div>
+          </div>
+
+          <!-- Sustainability Outcomes (composite DV) Card -->
+          <div class="card bg-white border-2 border-purple-300 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge style-label text-white" style="background-color:#7c3aed;">합성 종속변수 (H1 결과변수)</span>
+                <span class="text-xs text-slate-400 font-semibold">Composite DV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">지속가능성 성과 (Sustainability Outcomes)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 협력경쟁의 결과로서 나타나는 지속가능성 성과 전체. 크기(magnitude)와 균형(balance)을 모두 반영.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 지속가능성 성과 = 지속가능성 성과(크기) + 지속가능성 균형.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 위 두 하위 구성요소의 합.</p>
+            </div>
+          </div>
+
+          <!-- Control variables note -->
+          <div class="card bg-slate-50 border border-slate-200 shadow-sm rounded-xl overflow-hidden md:col-span-2">
+            <div class="card-body p-6 gap-2">
+              <h3 class="style-h3 text-slate-900">통제변수 (Control Variables)</h3>
+              <p class="text-sm text-slate-700"><strong>기업 연령(Firm age):</strong> 설립 연수의 자연로그값 &nbsp;|&nbsp; <strong>기업 규모(Firm size):</strong> 종업원 수의 상용로그값(base-10) &nbsp;|&nbsp; <strong>업종(Sector):</strong> 부동산중개/자산관리/건설(개발)/기타(리서치·평가)의 더미코딩.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문의 연구 방법 다이어그램(Fig. 6)을 그대로 단계화하여, 외부 연구자가 추종 재현할 수 있도록 타임라인으로 정리했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">사전 연구: 문헌검토·실무자 인터뷰·가설 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  파라독스/협력경쟁/지속가능성 문헌을 검토하고 실무자 인터뷰 및 미디어·업종 규범 문서를 검토하여 벨라루스 주택 부문의 협력경쟁 실태를 파악. 이를 바탕으로 연구 목적과 가설(H1, H2)을 수립.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.38, Section 3.1; Fig. 6</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">설문 설계 및 사전 테스트</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  구성개념·변수·척도를 결정(경쟁/협력의 폭·깊이·빈도, 지속가능성 3축)하고 설문지를 구성. 경영학 배경 학계 인사 5인을 대상으로 사전 테스트 실시 후 문항 조정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.38, Section 3.1; Appendix 1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">표집 및 데이터 수집 (1·2차)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  벨라루스 국립기술대학교 산학연수 프로그램 참여 주택기업의 CEO/관리자/전문가를 대상으로 종이 설문 248부 배포. 1차 회수 후 미응답자에게 리마인드 발송하여 2차 회수, 총 174부(응답률 70.16%) 확보 후 엑셀 데이터베이스화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.38-39, Section 3.1; Fig. 6</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">1차 분석 및 표본 대표성 점검</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  결측치가 많은 설문 4부를 제외(최종 n=170)하고 SPSS로 인구통계 특성 산출, 벨라루스 인구총조사 대비 성별·지역 분포의 표본 대표성 점검(Table 2, 3).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.39, Section 3.1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">척도 차원성 및 동일방법편의(CMB) 점검</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  SPSS 주성분분석(Varimax 회전)으로 협력·경쟁·지속가능성 성과 3요인 구조 확인(적재량 &gt;0.50, α 0.81~0.87). Stata로 상관분석 및 Harman 단일요인 검정(총분산 37.17% &lt;50%, CMB 없음) 실시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.39, Section 4; Table 4, 5</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">회귀분석 (H1, H2 검정)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Stata OLS 회귀. Model 1: 협력경쟁 강도 및 제곱항 → 지속가능성 성과(H1). Model 2: 협력경쟁 균형 → 지속가능성 균형(H2). 기업연령·규모·업종 통제.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.40, Section 4; Table 6</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">내생성 점검: 역인과성 &amp; 누락변수 편의</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  지속가능성 균형을 도구변수로 사용해 3단계 최소자승법(3SLS)으로 연립방정식(Model 3) 추정, 역방향 인과 비유의 확인. Stata 모듈 konfound로 ITCV(누락변수 영향 임계치) 산출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.40-41, Section 5.1-5.2; Table 7</span>
+              </div>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-900"/>
+              <div class="timeline-middle">
+                <span class="bg-rose-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">U자형 관계 보충 검정 &amp; 강건성 점검</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Lind &amp; Mehlum(2010) 3단계 절차(계수 유의성 → 양 끝단 기울기 → Delta method 극값 신뢰구간)로 역 U자형 강건성 확인. 3차/로그/지수 대안 함수형태, 비표준화·비로그변환·통제변수 조합 변경 등 강건성 점검 추가 실시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.41-42, Section 5.2; Table 7</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            측정 문항(Appendix 1)과 계산 공식(협력경쟁 강도·균형, 지속가능성 성과·균형)이 완전히 공개되어 계량적 절차는 재현 가능하나, 원 데이터는 "confidential"로 명시되어 있고 벨라루스 특정 산학연수 프로그램 참여 기업이라는 편의표본 특성상 동일 표본의 독립적 재확보는 불가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6.2, p.43)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>단일 실증 맥락:</strong> "we tested the hypotheses only in one empirical setting that is the housing sector in Belarus... other empirical settings including various sectors and different countries would be relevant for further validating our findings." 벨라루스 주택 부문 단일 표본으로만 검증되어 다른 산업/국가로의 일반화가 제한됨.
+              </li>
+              <li>
+                <strong>횡단면 데이터의 한계:</strong> "we used a cross-sectional quantitative study and assumed that respondents could identify causality at the time of their response to the survey... longitudinal studies... are also recommended." 시간에 따른 인과관계 변화를 포착하지 못함.
+              </li>
+              <li>
+                <strong>주관적 인식 기반 측정:</strong> "we used measurements, which were based on employees' perceptions about competition, cooperation, and sustainability... objective assessments based on historical data... would complement these insights." 객관적 성과 데이터가 아닌 응답자의 주관적 지각에 의존.
+              </li>
+              <li>
+                <strong>균형의 산술적 동등성 가정:</strong> "we assumed that the arithmetic equality of scores... expressed a 'golden mean' of balance (Aristotle, 1962). However, an optimal balance in both coopetition and sustainability can be evolving differently..." 균형을 산술적으로 동일한 값으로 정의한 것이 실제 최적 균형과 다를 수 있음을 인정.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 측정 공식을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 표본 선택 편향</span>
+                <p class="text-sm text-slate-700">
+                  응답자는 특정 산학연수 프로그램(Belarusian State Technological University trainee program) 참여 기업 소속으로, 인구통계학적 대표성만 점검되었을 뿐 <strong>협력경쟁에 적극적인 기업이 프로그램에 더 많이 참여했을 가능성</strong>과 같은 자기선택 편향은 검토되지 않음.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 측정식의 수리적 종속성</span>
+                <p class="text-sm text-slate-700">
+                  협력경쟁 강도(IV) = 경쟁 강도 + 협력 강도 + 협력경쟁 균형으로 정의되는데, 균형 항 자체가 경쟁·협력 강도의 함수여서 IV 내부에 수학적 상호 종속성이 내재함. 관찰된 역 U자형(2차) 관계가 <strong>측정식의 구조적 산물(mathematical artifact)</strong>일 가능성을 배제하기 어려움.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 사회적 바람직성 편향</span>
+                <p class="text-sm text-slate-700">
+                  본문에서 벨라루스와 같은 혼합경제 국가는 지속가능성을 "비용 유발 장애물"로 인식하는 경향이 있다고 서술함(Section 1). 그럼에도 설문은 "경쟁자와의 관계에서 경제적/사회적/환경적으로 이익을 얻는다"는 자기보고 문항으로만 측정되어, 응답자가 <strong>협력경쟁의 편익을 과장해 보고했을 가능성</strong>을 배제할 근거가 부족함.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 국가·시기 특수성</span>
+                <p class="text-sm text-slate-700">
+                  데이터는 2019년 벨라루스(권위주의적 정치체제, 국가주도 혼합경제)에서 수집되었으며, 이후 2020년 정치 위기·제재 등 구조적 변화가 이어졌다는 점에서 이 메커니즘이 시장경제가 성숙한 다른 국가나 이후 시기에도 동일하게 성립할지는 불확실함.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 역 U자형 결과의 통계적 취약성</span>
+                <p class="text-sm text-slate-700">
+                  ITCV 분석 결과 r=0.21 수준의 상관을 갖는 누락 변수만으로도 결과가 뒤집힐 수 있다고 자체 보고되었는데, 이는 그다지 높은 문턱값이 아니며(조직문화·리더십·규제압력 등 미측정 변수가 이 수준의 상관을 가질 개연성은 충분), "결과가 안정적"이라는 결론은 다소 낙관적으로 해석될 여지가 있음.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 소수 문항 척도의 타당도</span>
+                <p class="text-sm text-slate-700">
+                  경쟁 강도(2문항), 협력경쟁 균형·지속가능성 균형(계산변수, 실측 문항 없음) 등 핵심 구성개념이 2~3개 문항으로만 측정되어, <strong>판별타당도(AVE, CR 등)</strong>에 대한 보다 엄밀한 검증이 부재함.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>The Knotted Paradox of Coopetition for Sustainability: Investigating the Interplay between Core Paradox Properties</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

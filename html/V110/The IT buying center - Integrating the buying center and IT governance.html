@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The IT Buying Center - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Conceptual / Theory Synthesis</div>
+        <div class="badge badge-secondary text-white style-label">Buying Center &times; IT Governance &times; SNA</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            The IT buying center:<br>
+            <span class="text-cyan-400">Integrating the buying center and IT governance</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Carsten Lund Pedersen &mdash; IT University of Copenhagen
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            IT 구매센터:<br>
+            <span class="text-indigo-300">구매센터와 IT 거버넌스의 통합</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            구매센터 · IT 거버넌스 · 사회연결망분석(SNA)을 교차 융합한 개념적 통합 유형론과 발생적 명제 제시
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">IT 구매센터는 IT 거버넌스 구조와의 조정(coordination) 적합도에 따라 성과가 갈린다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "The construct of the &ldquo;buying center&rdquo; is arguably one of the most important concepts in the industrial-marketing literature. Despite many seminal studies, research into the buying center needs to take the many trends unfolding in the environmental context into account in order to remain relevant in the future. One particularly timely topic that has been overlooked by buying center research is IT governance. Against this backdrop, this study aims to examine how the dynamics of the buying center depends on the IT governance structure in the buying situation and the accompanying social networks. In so doing, the study contributes by: (i) cross-fertilizing the literature streams on the buying center, IT governance and social network analysis, (ii) proposing an integrative typology that provides a better understanding of the buying center from an IT-governance perspective, and (iii) outlining emerging propositions to guide future work."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">구매센터(buying center)</span> 개념은 산업재 마케팅 문헌에서 가장 중요한 개념 중 하나로 꼽힌다. 많은 선구적 연구가 존재함에도 불구하고, 구매센터 연구는 앞으로도 유의미성을 유지하기 위해 환경적 맥락에서 전개되는 다양한 트렌드를 반영할 필요가 있다. 구매센터 연구가 그동안 간과해 온 특히 시의적절한 주제가 바로 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">IT 거버넌스(IT governance)</span>이다. 이러한 배경 하에 본 연구는 구매 상황에서의 IT 거버넌스 구조 및 이에 수반되는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">사회연결망(social networks)</span>에 따라 구매센터의 동학이 어떻게 달라지는지를 검토한다. 이를 통해 본 연구는 (i) 구매센터, IT 거버넌스, 사회연결망분석(SNA) 문헌을 상호 교차·융합하고, (ii) IT 거버넌스 관점에서 구매센터를 더 잘 이해할 수 있도록 하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">통합 유형론</span>을 제안하며, (iii) 향후 연구를 이끌 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">발생적 명제(emerging propositions)</span>를 제시함으로써 기여한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Buying center</td>
+                  <td>구매센터</td>
+                  <td class="text-sm">Webster &amp; Wind(1972) 이후 국내 마케팅 학계에서 정착된 표준 역어. 구매 의사결정에 관여하는 조직 구성원 집합.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">IT governance</td>
+                  <td>IT 거버넌스</td>
+                  <td class="text-sm">국내 정보시스템(MIS) 학계에서 통용되는 표준 용어로 원어 그대로 사용.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Coordination (need for / actual)</td>
+                  <td>(필요/실제) 조정</td>
+                  <td class="text-sm">Malone &amp; Crowston(1994)의 "managing dependencies" 정의를 반영해 '조정'으로 번역, 문맥상 '협업'과 혼용.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Typology</td>
+                  <td>유형론</td>
+                  <td class="text-sm">두 축(dimension)을 교차시켜 유형(archetype)을 도출하는 개념적 통합 방법론을 의미.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Proposition</td>
+                  <td>명제</td>
+                  <td class="text-sm">Cornelissen(2017)에 따라 '가설'과 구분되는, 검증 가능하나 이론적으로 새로운 관계를 서술하는 진술.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Method theory / Domain theory</td>
+                  <td>방법론 이론 / 대상(도메인) 이론</td>
+                  <td class="text-sm">Jaakkola(2020)의 개념 논문 설계 용어로, 한 이론을 렌즈 삼아 다른 이론의 대상 영역을 재해석하는 구조를 지칭.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 논지와 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">IT 거버넌스와 구매센터를 어떻게 통합할 것인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Output</span>
+                  <p class="font-bold text-slate-800">조정 적합도 2&times;2 유형론과 두 개의 명제</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">세 문헌 흐름의 교차 융합 및 개념적 통합</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 논지 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 구매센터, IT 거버넌스, 사회연결망분석(SNA) 세 문헌은 각각 독립적으로 발전했으나 교차 연구는 전무하다(SCOPUS/WoS 검색 결과 0건). 이 공백을 어떻게 통합적으로 메울 것인가?</li>
+                  <li><strong>핵심 산출물:</strong> "필요 조정(IT 의사결정의 상호의존성)"과 "실제 조정(SNA로 측정되는 구매센터 내 커뮤니케이션)"의 2&times;2 매트릭스로 Complex·Calamitous·Complicating·Coordinating 네 유형을 정의하고, 조정의 불일치는 저성과(P1), 일치는 고성과(P2)로 귀결된다는 명제를 제시.</li>
+                  <li><strong>이론/실무 기여:</strong> IT 거버넌스를 방법론 이론, 구매센터를 대상 이론으로 삼아 개념적 통합(Jaakkola 2020; MacInnis 2011)을 수행했고, 실무자에게는 Who(구매센터)·What(IT 거버넌스)·How(SNA) 매핑 도구를 제공함.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "IT 구매는 구매센터만 봐서는 설명되지 않으며, 그 구매센터가 놓인 IT 거버넌스 구조와 구성원 간 실제 조정 수준이 서로 얼마나 맞아떨어지는지가 구매 성과를 좌우한다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 논문은 개념적 통합 논문이므로 "근거"는 실증 통계치가 아니라 문헌 인용 및 이론적 논증으로 구성됩니다. 각 핵심 주장과 원문 인용, 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">구매센터&middot;IT거버넌스&middot;SNA 교차연구의 문헌 공백</td>
+                <td class="text-sm italic text-slate-600">
+                  "no papers were found that included all search terms."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.47&ndash;48, Sec.1, Fig.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">IT 거버넌스는 구매센터의 맥락적 형식화</td>
+                <td class="text-sm italic text-slate-600">
+                  "IT governance... can be seen as the contextual formalization of buying centers in IT procurement."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.47, Sec.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">조정(coordination)은 두 이론의 공리적 초석</td>
+                <td class="text-sm italic text-slate-600">
+                  "coordination is an axiomatic cornerstone of both IT governance and buying centers... the foundational basis upon which to base a conceptual integration."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.52, Sec.3.1</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">필요-실제 조정의 조합에서 4개 유형 도출</td>
+                <td class="text-sm italic text-slate-600">
+                  "When the coordination dimensions described above are combined, four different scenarios emerge."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.52&ndash;53, Sec.3.1, Fig.4</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">P1: 조정 불일치 &rarr; 저성과</td>
+                <td class="text-sm italic text-slate-600">
+                  "The higher the mismatch between the need for coordination and actual coordination between buying center members, the lower the IT-related performance of the buying center."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.53, Sec.3.2</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">P2: 조정 일치 &rarr; 고성과</td>
+                <td class="text-sm italic text-slate-600">
+                  "The higher the match between the need for coordination and actual coordination between buying center members, the higher the IT-related performance of the buying center."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.53, Sec.3.2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Conceptual Model & Constructs -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델(유형론) 및 구성 요소 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Typology Model</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 논문은 설문 기반 인과 경로모델(가설 DAG)을 갖지 않는 개념적 통합 논문입니다. 대신 저자는 "필요 조정"과 "실제 조정"이라는 두 축을 교차시킨 <strong>2&times;2 유형론(typology matrix)</strong>을 연구 모델로 제시합니다(Fig. 4 재구성). 아래는 이를 인라인 SVG로 시각화한 것입니다.
+        </p>
+
+        <!-- Typology Matrix SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Integrative Typology (통합 유형론 매트릭스)</h3>
+
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 820 560" class="w-full h-auto">
+              <!-- Axis lines -->
+              <line x1="140" y1="60" x2="140" y2="470" stroke="#94a3b8" stroke-width="2"/>
+              <line x1="140" y1="470" x2="770" y2="470" stroke="#94a3b8" stroke-width="2"/>
+
+              <!-- Y axis label -->
+              <text x="40" y="270" text-anchor="middle" font-weight="700" fill="#334155" font-size="15" transform="rotate(-90 40 270)">필요 조정 (Needed Coordination)</text>
+              <text x="120" y="90" text-anchor="end" fill="#64748b" font-size="12">High</text>
+              <text x="120" y="455" text-anchor="end" fill="#64748b" font-size="12">Low</text>
+
+              <!-- X axis label -->
+              <text x="455" y="525" text-anchor="middle" font-weight="700" fill="#334155" font-size="15">실제 조정 (Actual Coordination, SNA 지표)</text>
+              <text x="220" y="497" text-anchor="middle" fill="#64748b" font-size="12">Low</text>
+              <text x="690" y="497" text-anchor="middle" fill="#64748b" font-size="12">High</text>
+
+              <!-- Quadrant: Calamitous (top-left, needed high / actual low, mismatch) -->
+              <rect x="140" y="60" width="315" height="205" fill="#fff7ed" stroke="#f59e0b" stroke-width="2"/>
+              <text x="297" y="100" text-anchor="middle" font-weight="700" fill="#92400e" font-size="16">CALAMITOUS</text>
+              <text x="297" y="122" text-anchor="middle" fill="#b45309" font-size="11">사일로화된 IT 의사결정,</text>
+              <text x="297" y="138" text-anchor="middle" fill="#b45309" font-size="11">조정 없이 분산된 구매센터</text>
+              <text x="297" y="160" text-anchor="middle" fill="#92400e" font-size="11" font-style="italic">예: 사업부별 독립 IT 결정 (USAA 초기)</text>
+              <rect x="255" y="225" width="85" height="26" rx="13" fill="#f59e0b"/>
+              <text x="297" y="242" text-anchor="middle" fill="#fff" font-weight="700" font-size="12">P1 (mismatch)</text>
+
+              <!-- Quadrant: Coordinating (top-right, needed high / actual high, match) -->
+              <rect x="455" y="60" width="315" height="205" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="612" y="100" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="16">COORDINATING</text>
+              <text x="612" y="122" text-anchor="middle" fill="#4338ca" font-size="11">상호의존적 IT 의사결정에</text>
+              <text x="612" y="138" text-anchor="middle" fill="#4338ca" font-size="11">충분히 조정되는 구매센터</text>
+              <text x="612" y="160" text-anchor="middle" fill="#3730a3" font-size="11" font-style="italic">예: Intel의 중앙-자율 균형 (Burgelman &amp; Grove 1996)</text>
+              <rect x="570" y="225" width="85" height="26" rx="13" fill="#4f46e5"/>
+              <text x="612" y="242" text-anchor="middle" fill="#fff" font-weight="700" font-size="12">P2 (match)</text>
+
+              <!-- Quadrant: Complex (bottom-left, needed low / actual low, match) -->
+              <rect x="140" y="265" width="315" height="205" fill="#ecfeff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="297" y="305" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="16">COMPLEX</text>
+              <text x="297" y="327" text-anchor="middle" fill="#0284c7" font-size="11">개인이 독립적으로 IT 결정,</text>
+              <text x="297" y="343" text-anchor="middle" fill="#0284c7" font-size="11">조정 불필요 &middot; 역할 겸직</text>
+              <text x="297" y="365" text-anchor="middle" fill="#0369a1" font-size="11" font-style="italic">예: 코로나19 재택근무 IT 자율구매</text>
+              <rect x="255" y="430" width="85" height="26" rx="13" fill="#0ea5e9"/>
+              <text x="297" y="447" text-anchor="middle" fill="#fff" font-weight="700" font-size="12">P2 (match)</text>
+
+              <!-- Quadrant: Complicating (bottom-right, needed low / actual high, mismatch) -->
+              <rect x="455" y="265" width="315" height="205" fill="#fff7ed" stroke="#f59e0b" stroke-width="2"/>
+              <text x="612" y="305" text-anchor="middle" font-weight="700" fill="#92400e" font-size="16">COMPLICATING</text>
+              <text x="612" y="327" text-anchor="middle" fill="#b45309" font-size="11">불필요하게 과도한 소통,</text>
+              <text x="612" y="343" text-anchor="middle" fill="#b45309" font-size="11">비효율적 관료화</text>
+              <text x="612" y="365" text-anchor="middle" fill="#92400e" font-size="11" font-style="italic">예: 'Mythical Man-Month' (Brooks 1975, IBM)</text>
+              <rect x="570" y="430" width="85" height="26" rx="13" fill="#f59e0b"/>
+              <text x="612" y="447" text-anchor="middle" fill="#fff" font-weight="700" font-size="12">P1 (mismatch)</text>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 max-w-2xl text-center">
+            대각선(Complex&ndash;Coordinating)은 필요&middot;실제 조정 수준의 <strong>일치(match)</strong>&mdash;명제 P2(고성과)&mdash;를, 반대 대각선(Calamitous&ndash;Complicating)은 <strong>불일치(mismatch)</strong>&mdash;명제 P1(저성과)&mdash;를 나타냅니다.
+          </p>
+        </div>
+
+        <!-- Construct Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Construct 1: IT Governance -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">방법론 이론</span>
+                <span class="text-xs text-slate-400 font-semibold">Method Theory</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">IT 거버넌스 (IT Governance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> "IT 사용에 있어 바람직한 행동을 유도하기 위한 의사결정 권한과 책임 프레임워크를 명시하는 것" (Weill &amp; Ross, 2004, p.8).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의(논문 내):</strong> 6개 아키타입 &mdash; business monarchy, IT monarchy, feudal, federal, IT duopoly, anarchy.</p>
+              <p class="text-sm text-slate-600"><strong>측정/출처:</strong> 별도 척도 없음(개념 논문). 정의 다양성은 Table 1(p.49)에 8개 문헌 비교로 요약.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 재무/기업 거버넌스에서 유추된 개념(CFO 투자포트폴리오 감독 유비, p.50); IT Governance Cube(Tiwana et al., 2013)로 확장.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 2: Buying Center -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">대상(도메인) 이론</span>
+                <span class="text-xs text-slate-400 font-semibold">Domain Theory</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">구매센터 (Buying Center)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> "특정 제품/서비스의 구매 프로세스에 관여하게 되는 조직의 모든 구성원" (Johnston &amp; Bonoma, 1981, p.143).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의(논문 내):</strong> 6개 역할 &mdash; initiator, gatekeeper, influencer, decider, purchaser, user.</p>
+              <p class="text-sm text-slate-600"><strong>측정/출처:</strong> vertical/lateral involvement, extensivity, connectedness, centrality (Johnston &amp; Bonoma, 1981).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> McWilliams et al.(1992) 평균 규모 4명(3&ndash;5명); Cabanelas et al.(2023) 2000년대 후반 이후 연구 쇠퇴 진단.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 3: Needed Coordination -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">유형론 Y축</span>
+                <span class="text-xs text-slate-400 font-semibold">Needed Coordination</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">필요 조정 (Needed Coordination)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> IT 의사결정 간 상호의존성(interdependency)에서 비롯되는, 구매 상황이 요구하는 조정의 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 논문에서 정량화되지 않음(고/저 이분법적 서술). 조정의 일반 정의는 Malone &amp; Crowston(1994, p.90) 차용.</p>
+              <p class="text-sm text-slate-600"><strong>측정/출처:</strong> 별도 척도 없음; Peterson(2004)의 IT 거버넌스 조정 필요성 논의 참조.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Tiwana et al.(2013) IT Governance Cube의 "Who/What/How is governed" 차원과 연결.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 4: Actual Coordination -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-secondary style-label text-white">유형론 X축</span>
+                <span class="text-xs text-slate-400 font-semibold">Actual Coordination</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">실제 조정 (Actual Coordination)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 구매센터 구성원 간 실제로 이루어지는 커뮤니케이션·상호작용의 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> SNA의 connectedness(직접 연결도), centrality(구매관리자 커뮤니케이션의 가중합)로 대리 측정 제안.</p>
+              <p class="text-sm text-slate-600"><strong>측정/출처:</strong> Johnston &amp; Bonoma(1981)의 구조적 차원; Burt(2005) 중심성-권력 대리지표.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Prior et al.(2021)의 정보 통제(information control)와 복잡한 조직구매 논의와 연결.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 5: Performance (implicit outcome) -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">잠재적 종속 개념</span>
+                <span class="text-xs text-slate-400 font-semibold">IT-related Performance of the Buying Center</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">IT 관련 구매센터 성과</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 논문에 명시적 조작 정의는 없음. USAA, Intel, IBM(mythical man-month), COVID-19 재택 IT구매 등 2차 사례를 통해 각 유형이 초래하는 효율적/비효율적 결과를 예시.</p>
+              <p class="text-sm text-slate-700"><strong>관련 논의:</strong> 저자 스스로 "향후 실증 연구가 이 개념을 조작화하여 P1&middot;P2를 검증해야 한다"고 명시(p.53&ndash;54) &mdash; 즉 이 논문은 성과 변수를 측정하지 않은 순수 개념 모델임.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method (Theory-Building) Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method(이론 구축 절차) 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Theory-Building Method</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 논문은 설문·통계 분석이 아닌 <strong>문헌 검색 &rarr; 이론 통합 &rarr; 유형론 구축 &rarr; 명제 도출</strong>의 개념적 통합(conceptual integration) 절차를 따릅니다. 이를 재현 가능한 타임라인으로 분해했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">예비 문헌 공백(gap) 확인: 체계적 키워드 검색</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  SCOPUS와 Web of Science(WoS)에서 'Buying center', 'IT Governance', 'SNA' 세 검색어의 단독 및 조합(A~G)을 초록·제목·키워드 범위로 검색(2022년 3월 11일 실시). 세 용어를 모두 포함한 논문 0건 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.47&ndash;48, 각주 2&middot;3, Fig.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">세 문헌 스트림 개별 리뷰(Background)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  (a) 구매센터 문헌(Robinson et al. 1967; Webster &amp; Wind 1972; Sheth 1973; Johnston &amp; Bonoma 1981 등)의 개념&middot;역할&middot;차원 정리, (b) IT 거버넌스 문헌(Weill &amp; Ross 2004; Tiwana et al. 2013 등)의 정의&middot;아키타입 정리(Table 1), (c) SNA 문헌(Freeman 2004; Scott 2011)의 방법론적 토대 정리.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.47&ndash;50, Sec.2.1&ndash;2.3</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">개념적 통합 전략 설계: Method / Domain theory 설정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Jaakkola(2020), MacInnis(2011)의 개념 논문 설계 가이드라인에 따라 IT 거버넌스를 "방법론 이론", 구매센터를 "대상(도메인) 이론"으로 설정하고 SNA를 두 이론의 방법론적 공통분모로 규정(Fig. 2).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.50&ndash;51, Sec.2.4, Fig.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">Cornelissen(2017) 가이드라인에 따른 유형론 구축</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  "필요 조정"&times;"실제 조정" 두 축을 교차한 2&times;2 매트릭스로 Complex/Calamitous/Complicating/Coordinating 4개 아키타입 정의. USAA, Intel, IBM, COVID-19 재택근무 등 실제 사례를 각 유형에 대응.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.51&ndash;53, Sec.3.1, Fig.3&middot;4</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">Ulaga et al.(2021) 가이드라인에 따른 명제 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  grounding &rarr; crafting &rarr; connecting &rarr; simplifying 절차와 clarity&middot;consistency&middot;conciseness&middot;contribution 기준을 적용해 P1(불일치&rarr;저성과), P2(일치&rarr;고성과)를 작성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.53, Sec.3.2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">이론적&middot;실무적 함의 및 향후 연구방향 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  유형론&middot;명제로부터 이론적 함의 3개, 실무적 함의 4개(Who-What-How 매핑 등)를 서술하고, AI/자동화가 유형론에 미칠 영향에 대한 사변적 후속 질문 제시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.53&ndash;54, Sec.4&ndash;6</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            STEP 1의 SCOPUS/WoS 키워드 검색은 검색일&middot;검색어가 명시되어 재현 가능하나, STEP 3&ndash;5의 개념 통합&middot;유형론 구축&middot;명제화는 저자 1인의 해석적 종합에 의존해 동일 결과 도출을 보장할 수 없음. 실증 데이터가 전혀 없어("No data was used", p.54) 통계적 재현은 해당 사항 없음.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 저자가 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>범위상의 제한:</strong> "Although it is limited in scope, the paper seeks to establish the foundations for such future work." &mdash; 완결된 실증 검증이 아니라 향후 연구의 첫걸음임을 명시. <span class="text-xs text-slate-400">(p.46, Sec.1)</span>
+              </li>
+              <li>
+                <strong>잠정적 명제:</strong> "two key tentative propositions can be made which can help guide further research." &mdash; P1, P2가 아직 실증 검증되지 않은 잠정적 성격임을 인정. <span class="text-xs text-slate-400">(p.53, Sec.3.2)</span>
+              </li>
+              <li>
+                <strong>연구의 첫 단계에 불과함:</strong> "this paper merely represents a first step towards reinvigorating research on the buying center and cross-fertilizing research from the buying center and IT governance." <span class="text-xs text-slate-400">(p.54, Sec.6)</span>
+              </li>
+              <li>
+                <strong>정의 다양성으로 인한 이론 종합의 어려움:</strong> "most of the definitions also entail idiosyncratic elements... they make it difficult to obtain theory synthesis on their own." <span class="text-xs text-slate-400">(p.49, Sec.2.2)</span>
+              </li>
+              <li>
+                <strong>미래 기술변화 논의의 사변성:</strong> "While answers to these questions are likely speculative currently, it is important that future research draws attention to these lines of inquiry." <span class="text-xs text-slate-400">(p.54, Sec.6)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">개념 통합 논문 특성상 검토가 필요한 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 실증 검증 부재(반증가능성)</span>
+                <p class="text-sm text-slate-700">
+                  P1&middot;P2는 "필요/실제 조정"을 조작화하는 구체적 척도나 임계값을 제시하지 않아, 어떤 사례든 사후적으로 네 유형 중 하나로 끼워 맞출 수 있는 <strong>반증불가능성(unfalsifiability)</strong>의 위험이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 예시 사례의 확증 편향</span>
+                <p class="text-sm text-slate-700">
+                  USAA, Intel, IBM(mythical man-month), COVID-19 사례는 모두 유형론에 맞춰 <strong>사후 선택된 2차 문헌 사례</strong>로, 유형론에 부합하지 않는 반례의 존재 가능성은 검토되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 구성 타당도 문제</span>
+                <p class="text-sm text-slate-700">
+                  규범적 IT 거버넌스와 서술적 구매센터를 하나의 매트릭스 축으로 병치하는 것이 개념적으로 동등한 결합인지, 두 축이 실제로 독립적인지에 대한 정당화가 부족합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 단일 저자 종합의 한계</span>
+                <p class="text-sm text-slate-700">
+                  문헌 통합과 유형론 도출이 저자 1인의 해석에 전적으로 의존하며, 교차검증(다수 코더/델파이) 절차가 없어 간주관적 신뢰도를 평가할 수 없습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 검색 전략의 협소성</span>
+                <p class="text-sm text-slate-700">
+                  SCOPUS/WoS 검색이 세 용어 조합에 국한되어(p.48, 각주 3), "IT procurement", "digital governance" 등 인접 개념을 포함했다면 주장하는 만큼의 완전한 문헌 공백이 아닐 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 경계조건 및 권력역학 미검토</span>
+                <p class="text-sm text-slate-700">
+                  대규모 다국적 기업, 비-IT 구매 상황으로의 일반화 가능성이 불명확하며, 실제 조정 실패가 정보흐름 부재가 아닌 조직 내 <strong>권력/정치적 역학</strong>에서 기인할 가능성도 SNA 지표만으로는 설명되지 않습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>The IT buying center: Integrating the buying center and IT governance</p>
+      <p class="text-xs mt-2">&copy; 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

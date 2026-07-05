@@ -10,7 +10,12 @@ import shutil
 ROOT = Path(__file__).resolve().parent.parent
 APP = ROOT / "app"
 DEST = APP / "html"
-SOURCES = ["V01", "V73", "V75", "V76", "V92", "V100", "V101", "V102", "V103", "V104", "V105", "V106", "V107", "V108", "V109", "V135", "V136"]
+SOURCES = ["V01", "V73", "V75", "V76", "V92", "V100", "V101", "V102", "V103", "V104", "V105", "V106", "V107", "V108", "V109", "V110", "V135", "V136"]
+
+CITATIONS_CACHE_PATH = APP / "citations_cache.json"
+CITATIONS_CACHE: dict[str, dict] = (
+    json.loads(CITATIONS_CACHE_PATH.read_text(encoding="utf-8")) if CITATIONS_CACHE_PATH.exists() else {}
+)
 
 
 class Extractor(HTMLParser):
@@ -161,6 +166,69 @@ def doi_from(text: str) -> str:
     return match.group(0).rstrip(".,;") if match else ""
 
 
+def citation_count(text: str) -> int | None:
+    match = re.search(r"Citations:\s*(\d+)", text, re.I)
+    return int(match.group(1)) if match else None
+
+
+VOID_TAGS = {"br", "hr", "img", "input", "meta", "link", "area", "base", "col", "embed", "source", "track", "wbr"}
+
+
+class NavbarStripper(HTMLParser):
+    """Removes <div class="navbar">...</div> blocks, tracking nested tag depth so void
+    elements (br/img/...) inside the navbar don't throw off the balance count."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.out: list[str] = []
+        self._skip_depth = 0
+
+    @staticmethod
+    def _attrs_text(attrs) -> str:
+        return " ".join(f'{k}="{htmlmod.escape(v, quote=True)}"' if v is not None else k for k, v in attrs)
+
+    def handle_starttag(self, tag, attrs) -> None:
+        if self._skip_depth:
+            if tag not in VOID_TAGS:
+                self._skip_depth += 1
+            return
+        classes = (dict(attrs).get("class") or "").split()
+        if tag == "div" and "navbar" in classes:
+            self._skip_depth = 1
+            return
+        attrs_text = self._attrs_text(attrs)
+        self.out.append(f"<{tag}{(' ' + attrs_text) if attrs_text else ''}>")
+
+    def handle_startendtag(self, tag, attrs) -> None:
+        if self._skip_depth:
+            return
+        attrs_text = self._attrs_text(attrs)
+        self.out.append(f"<{tag}{(' ' + attrs_text) if attrs_text else ''} />")
+
+    def handle_endtag(self, tag) -> None:
+        if self._skip_depth:
+            self._skip_depth -= 1
+            return
+        self.out.append(f"</{tag}>")
+
+    def handle_data(self, data) -> None:
+        if not self._skip_depth:
+            self.out.append(data)
+
+    def handle_comment(self, data) -> None:
+        if not self._skip_depth:
+            self.out.append(f"<!--{data}-->")
+
+    def result(self) -> str:
+        return "".join(self.out)
+
+
+def strip_navbar(body_html: str) -> str:
+    stripper = NavbarStripper()
+    stripper.feed(body_html)
+    return stripper.result()
+
+
 def excerpt_pair(text: str) -> tuple[str, str]:
     markers = ["한국어 번역", "번역 (한국어)", "한국어 요약", "요약 (한국어)"]
     for marker in markers:
@@ -246,7 +314,7 @@ for collection in SOURCES:
         title = " ".join(" ".join(parser.title).split()) or src.stem
         text = normalize(" ".join(parser.parts))
         excerpt_en, excerpt_ko = excerpt_pair(text)
-        body_html = extract_body_html(raw)
+        body_html = strip_navbar(extract_body_html(raw))
         authors_raw = extract_authors(text, body_html)
         volume, year, pages = volume_year(text + " " + raw, collection)
         doi = doi_from(raw + " " + text)
@@ -259,6 +327,10 @@ for collection in SOURCES:
             suffix += 1
         seen_ids.add(doc_id)
 
+        cached_citation = CITATIONS_CACHE.get(doc_id)
+        citations = cached_citation["citations"] if cached_citation else citation_count(text)
+        doi = (cached_citation.get("doi") if cached_citation else None) or doi
+
         doc = {
             "id": doc_id,
             "collection": collection,
@@ -269,6 +341,7 @@ for collection in SOURCES:
             "year": year,
             "pages": pages,
             "doi": doi,
+            "citations": citations,
             "path": f"./html/{collection}/{src.relative_to(src_root).as_posix()}",
             "charCount": len(text),
             "excerptEn": excerpt_en,

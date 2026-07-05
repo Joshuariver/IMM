@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning in Strategic Alliances - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Systematic Literature Review</div>
+        <div class="badge badge-secondary text-white style-label">198 Articles / Bibliographic Coupling</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Learning in strategic alliances:<br>
+            <span class="text-cyan-400">Reviewing the literature streams and crafting the agenda for future research</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Marko Kohtamäki, Rodrigo Rabetino, Tuomas Huikkola
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            전략적 제휴에서의 학습:<br>
+            <span class="text-indigo-300">문헌 흐름 검토와 향후 연구 의제 구축</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            198편의 논문에 대한 서지결합분석(Bibliographic Coupling)으로 제휴 학습 연구의 4개 하위 흐름을 식별한 체계적 문헌고찰
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">제휴 학습은 하나의 문헌이 아니라, 전략·관계·혁신·사회라는 네 개의 서로 다른 연구 흐름으로 구성됩니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "The present study examines the alliance learning literature in these uncertain times, which highlights the importance of alliance learning that takes place across organizational boundaries within a variety of business ecosystems. The study builds on a literature review of 198 articles and uses bibliographic coupling to identify four sub-streams of alliance learning research: 1) learning in strategic alliances, 2) relationship learning, 3) learning in innovation networks, and 4) learning in social networks. We review and analyze the alliance learning research streams, identify gaps, and develop a research agenda for alliance learning research."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 연구는 다양한 비즈니스 생태계 내에서 조직 경계를 넘나들며 이루어지는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">제휴 학습(alliance learning)</span>의 중요성이 부각되는 이 불확실한 시대에 제휴 학습 문헌을 검토한다. 본 연구는 198편의 논문에 대한 문헌 검토를 기반으로 하며, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">서지결합분석(bibliographic coupling)</span>을 사용하여 제휴 학습 연구의 네 가지 하위 흐름을 식별한다: 1) 전략적 제휴에서의 학습, 2) <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">관계 학습(relationship learning)</span>, 3) 혁신 네트워크에서의 학습, 4) 사회적 네트워크에서의 학습. 본 연구는 제휴 학습 연구 흐름들을 검토·분석하고, 연구 공백(gap)을 식별하며, 제휴 학습 연구를 위한 향후 연구 의제를 개발한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Alliance Learning</td>
+                  <td>제휴 학습</td>
+                  <td class="text-sm">전략적 제휴를 통해 조직 경계를 넘어 이루어지는 학습 현상을 지칭하는 이 분야의 표준 용어.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Bibliographic Coupling</td>
+                  <td>서지결합분석</td>
+                  <td class="text-sm">두 논문이 공통으로 인용하는 참고문헌 수를 기준으로 유사성을 측정하는 계량서지학 기법. Co-citation(동시인용) 분석과 구분하기 위해 원어를 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Relationship Learning</td>
+                  <td>관계 학습</td>
+                  <td class="text-sm">공급자-고객 이자관계에서 정보 공유·해석·통합을 통해 이루어지는 학습을 지칭하는 마케팅 분야 고유 개념(Selnes &amp; Sallis, 2003).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Learning in Innovation Networks</td>
+                  <td>혁신 네트워크에서의 학습</td>
+                  <td class="text-sm">지식 기반 제휴 및 혁신 지향 네트워크(예: R&amp;D 협력)에서의 학습을 다루는 군집.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Learning in Social Networks</td>
+                  <td>사회적 네트워크에서의 학습</td>
+                  <td class="text-sm">개인·집단·조직·네트워크 수준의 사회적 상호작용을 통한 학습(공공-민간 파트너십 등 포함)을 지칭.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Research Stream / Cluster</td>
+                  <td>(연구) 흐름 / 군집</td>
+                  <td class="text-sm">서지결합분석으로 도출된 4개의 하위 커뮤니티를 의미하며, 문헌에서 cluster와 stream을 혼용하므로 맥락에 따라 병기.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">198편의 산재한 제휴 학습 문헌을 어떻게 구조화할 것인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">제휴 학습은 단일 문헌이 아닌 4개의 뚜렷한 하위 흐름</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">4개 군집별 지도(map)와 향후 연구 의제 제시</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 제휴 학습 연구는 단일한 흐름인가, 아니면 서로 다른 이론·방법론을 가진 여러 하위 흐름으로 나뉘는가? 그렇다면 각 흐름의 공백과 향후 방향은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> VOSviewer 서지결합분석 결과, 제휴 학습 연구는 ① 전략적 제휴에서의 학습(전략/학습경쟁 관점), ② 관계 학습(마케팅/이자관계 관점), ③ 혁신 네트워크에서의 학습(혁신/양손잡이 관점), ④ 사회적 네트워크에서의 학습(사회적 배태성 관점)이라는 4개 군집으로 뚜렷이 분리된다.</li>
+                  <li><strong>이론/실무 기여:</strong> 4개 군집별 이론적 배경·선행요인·과정·결과·방법론을 종합(Table 2)하고, 디지털 전환·마이크로파운데이션·질적/서술적 접근 확대라는 공통 공백을 식별하여 구체적인 연구 의제(Table 3)를 제시하였다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "제휴 학습은 하나의 문헌이 아니라 전략·관계·혁신·사회라는 서로 다른 렌즈를 가진 네 개의 연구 흐름이며, 이 지도를 갖추어야 디지털 생태계 시대의 다음 연구 의제를 제대로 그릴 수 있다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 원문 인용, 페이지·절 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">198편 최종 표본 확정 (664건 검색 → 스크리닝)</td>
+                <td class="text-sm italic text-slate-600">
+                  "The first round of searching returned 664 hits... The resulting sample included 198 articles..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.70, Sec. 2; Fig. 1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">VOSviewer 서지결합분석으로 4개 군집 도출</td>
+                <td class="text-sm italic text-slate-600">
+                  "we used VOSviewer software... to conduct a bibliographic coupling of the 198 documents... the bibliometric exercise resulted in four clusters"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.70, Sec. 2</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">4개 하위 흐름 명명</td>
+                <td class="text-sm italic text-slate-600">
+                  "Based on bibliometric structuring, this study identifies four research communities: 1) learning in strategic alliances, 2) relationship learning, 3) learning in innovation networks, and 4) learning in social networks."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract; p.71, Sec. 3</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">군집별 이론·방법론적 이질성</td>
+                <td class="text-sm italic text-slate-600">
+                  "Different clusters of papers emphasize various central topics, adopt different theoretical underpinnings, and have different methodological emphases."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.80, Sec. 5; Table 2</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">전략적 제휴 학습: "학습 경쟁(learning race)" 프레임</td>
+                <td class="text-sm italic text-slate-600">
+                  "these studies often see alliances as a source of learning, conceptualizing learning as an opportunity to win the 'learning race'"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.71–73, Sec. 3.1</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">관계 학습: Selnes &amp; Sallis(2003) 측정도구의 지배력</td>
+                <td class="text-sm italic text-slate-600">
+                  "93% of all the papers in this cluster are empirical: 71% of these relationship learning studies use quantitative methods..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.74, Sec. 3.2.3</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">사회적 네트워크 학습: 질적 연구 우세 (57%)</td>
+                <td class="text-sm italic text-slate-600">
+                  "This cluster comprises mostly empirical articles (82%)... Most of the articles (57%) were qualitative studies."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.77, Sec. 3.4.3</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">디지털화 관련 공통 연구 공백</td>
+                <td class="text-sm italic text-slate-600">
+                  "alliance learning research has not emphasized the role of digitalization in alliances to the extent it should—there is an evident gap"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.78, Sec. 4.1; p.80, Sec. 5</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td class="font-semibold text-slate-900">혼합방법·서술적 접근의 부족</td>
+                <td class="text-sm italic text-slate-600">
+                  "only a few studies among the 207 reviewed alliance learning papers use mixed methods... research on learning in alliances seems to be missing subjectivist approaches"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.80, Sec. 4.2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Framework & Clusters (No DAG: literature review has no hypothesis model) -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 리뷰 프레임워크 및 4개 하위 연구 흐름 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Framework & Clusters</span>
+        </div>
+
+        <div class="alert bg-slate-50 border border-slate-200 text-slate-700 text-sm rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-slate-500 shrink-0 w-5 h-5" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span><strong>분석 노트:</strong> 본 논문은 가설 검증형 실증 연구가 아니라 체계적 문헌고찰 + 계량서지학(bibliometric) 분석을 수행한 리뷰 논문입니다. 따라서 독립·종속·매개·조절 변수로 구성된 연구 모형(DAG)은 존재하지 않으며, 대신 서지결합분석으로 도출된 <strong>4개 하위 연구 흐름(클러스터)</strong>이 핵심 분석 단위입니다.</span>
+        </div>
+
+        <!-- Review Process -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest">리뷰 프로세스 개요 (Fig. 1)</h3>
+          <div class="flex flex-col md:flex-row gap-4">
+            <div class="flex-1 bg-white p-4 rounded-lg border border-slate-200">
+              <span class="badge badge-neutral text-white style-label mb-2">1단계</span>
+              <p class="text-sm font-semibold text-slate-800">논문 데이터셋 구축</p>
+              <p class="text-xs text-slate-500 mt-1">Scopus 검색(664건) → 스크리닝 → 최종 198편</p>
+            </div>
+            <div class="flex-1 bg-white p-4 rounded-lg border border-slate-200">
+              <span class="badge badge-info text-slate-900 style-label mb-2">2단계</span>
+              <p class="text-sm font-semibold text-slate-800">계량서지학 분석</p>
+              <p class="text-xs text-slate-500 mt-1">VOSviewer 서지결합분석 → 4-클러스터 해 선정</p>
+            </div>
+            <div class="flex-1 bg-white p-4 rounded-lg border border-slate-200">
+              <span class="badge badge-success text-white style-label mb-2">3단계</span>
+              <p class="text-sm font-semibold text-slate-800">체계적 질적 내용분석</p>
+              <p class="text-xs text-slate-500 mt-1">클러스터별 정독·코딩 → 초점 주제·공백 식별</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cluster Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Cluster 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">군집 1</span>
+                <span class="text-xs text-slate-400 font-semibold">전략 관점</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">전략적 제휴에서의 학습 (Learning in Strategic Alliances)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>정의:</strong> 제휴/네트워크를 경쟁우위의 원천으로 보고, 파트너로부터 지식을 획득·흡수하는 "학습 경쟁(learning race)" 관점에서 접근.</p>
+              <p class="text-sm text-slate-700"><strong>이론적 배경:</strong> 조직학습, 자원기반관점, 동적역량, 거래비용이론, 신제도이론, IMP 상호작용 접근.</p>
+              <p class="text-sm text-slate-600"><strong>방법론:</strong> 71% 실증(46% 질적/25% 양적), 다중·단일 사례연구 다수. 대표: Hamel(1991), Powell et al.(1996), Gulati(1999).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 디지털 생태계 속 제휴 학습 연구가 부족하며, 암묵지(tacit knowledge) 코드화 프로세스에 대한 실증 근거가 필요함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Cluster 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">군집 2</span>
+                <span class="text-xs text-slate-400 font-semibold">마케팅/이자관계 관점</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">관계 학습 (Relationship Learning)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>정의:</strong> 공급자-고객 이자관계에서 정보 공유·해석·관계기억 통합이라는 공동 활동으로서의 학습(Selnes &amp; Sallis, 2003).</p>
+              <p class="text-sm text-slate-700"><strong>이론적 배경:</strong> 관계 학습, 관계적 거버넌스, 조직학습, IMP 상호작용 접근, 서비스지배논리(SDL).</p>
+              <p class="text-sm text-slate-600"><strong>방법론:</strong> 93% 실증 중 71% 정량(서베이·구조방정식 중심). 대표: Selnes &amp; Sallis(2003), Lusch et al.(2010).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 측정도구 표준화, 매개·조절요인에 대한 근거 확대, 정태적 접근을 넘어선 프로세스 연구 필요.
+              </p>
+            </div>
+          </div>
+
+          <!-- Cluster 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">군집 3</span>
+                <span class="text-xs text-slate-400 font-semibold">혁신 관점</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">혁신 네트워크에서의 학습 (Learning in Innovation Networks)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>정의:</strong> 지식·역량의 비대칭성이 양손잡이(ambidextrous) 혁신 과정의 학습을 형성한다고 보는 연구군.</p>
+              <p class="text-sm text-slate-700"><strong>이론적 배경:</strong> 조직학습(탐색-활용), 흡수역량, 자원의존이론, 슘페터 진화론, 제도이론.</p>
+              <p class="text-sm text-slate-600"><strong>방법론:</strong> 93% 실증, 79% 정량(대규모 DB·특허데이터). 대표: Baum et al.(2000), Rothaermel &amp; Deeds(2004).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 산업 경계가 흐려지는 생태계·플랫폼 맥락에서 파트너 간 경쟁·지식전유 연구 필요, AI/IoT 등 신기술 반영한 대안 이론 필요.
+              </p>
+            </div>
+          </div>
+
+          <!-- Cluster 4 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">군집 4</span>
+                <span class="text-xs text-slate-400 font-semibold">사회적/조직 관점</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">사회적 네트워크에서의 학습 (Learning in Social Networks)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>정의:</strong> 개인·집단·조직·네트워크의 다층적 수준에서 사회적 상호작용·배태성을 통해 이루어지는 학습.</p>
+              <p class="text-sm text-slate-700"><strong>이론적 배경:</strong> 자원기반관점, 제도이론의 미시적 기초, 지식경영이론, 조직정체성이론, 전염이론.</p>
+              <p class="text-sm text-slate-600"><strong>방법론:</strong> 82% 실증 중 57% 질적(타 군집 대비 질적 연구 우세). 대표: Borgatti &amp; Cross(2003), Jones &amp; Macpherson(2006).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 디지털 협업 도구 시대의 신뢰·개인적 유대 형성, 학습의 미시-거시 상호작용(microfoundations) 연구 필요.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method(리뷰 방법론) 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 동일한 문헌고찰·클러스터링 절차를 그대로 <strong>추종 재현</strong>할 수 있도록 리뷰 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">검색 전략 및 문자열 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  "strategic allianc*", "inter-organizational network*", "business network*", "relational*", "partnership*" 등과 "learning*"을 결합한 검색식을 설계하고, AJG3/AJG4(*) 등급의 경영·마케팅·전략·조직·창업·운영/공급관리·정보시스템 분야 저널로 범위를 한정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.70, Section 2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">Scopus 검색 및 1차 스크리닝</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Elsevier Scopus 검색으로 664건 확보. 로버스트니스 체크로 좁은 키워드 조합 검색(64건)도 별도 실시. 초록 검토를 통해 제휴/네트워크/관계 학습에 초점을 두지 않은 논문, 컨퍼런스 논문, 비상위 저널 논문 등을 제외.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.70, Section 2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">참고문헌 스크리닝을 통한 표본 보완</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  196편 사전선정 논문의 참고문헌을 스크리닝하여 검색어로는 발견되지 않은 논문 일부를 추가해 <strong>최종 198편</strong> 확정 (50개 저널에서 도출, Table 1: IMM 22편 최다).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.70, Section 2; Table 1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">VOSviewer 서지결합분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  VOSviewer로 198편 문서 간 서지결합분석 실시(공유 참고문헌 수 기반 유사성 측정). Co-citation 분석보다 현재의 연구 최전선을 잘 포착한다고 판단하여 채택. 결과적으로 <strong>4-클러스터 해</strong>를 도출(Fig. 3).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.70, Section 2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">클러스터별 질적 주제 내용분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  클러스터에 속한 논문 전체를 정독하고 중심 아이디어에 따라 코딩. 4개 클러스터에 "전략적 제휴 학습/관계 학습/혁신 네트워크 학습/사회적 네트워크 학습" 명칭 부여(경계의 모호성을 인정).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.70-71, Section 2 & 3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">클러스터별 비교표 및 연구 공백 종합</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  각 클러스터의 중심 주제·이론적 배경·선행요인·과정·결과·방법론적 강조점·최다 인용 5편을 Table 2로 종합. 클러스터별·방법론별 연구 공백과 향후 연구 방향을 Table 3으로 종합.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Table 2 (p.74-75); Table 3 (p.79)</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">논의 및 통합 (관리자 시사점 포함)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  4개 클러스터의 관계를 통합 논의하고, 디지털 전환·마이크로파운데이션·행위주체성·미시-거시 상호작용·해석주의적 접근 등 교차 클러스터 제언을 제시. 관리자를 위한 실무적 함의로 마무리.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.80, Section 5</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            검색식, 데이터베이스(Scopus), 저널 등급 기준(AJG3/4), 소프트웨어(VOSviewer)가 투명하게 공개되어 있어 검색·클러스터링 절차 자체는 재현 가능하나, 664건에서 198편으로 좁히는 수작업 스크리닝 기준과 4-클러스터 해 선택의 구체적 통계적 근거(해상도 파라미터 등)가 명문화되어 있지 않아 완전한 1:1 재현은 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>연구 범위의 의도적 제한:</strong> "we delimited the focus of this study on alliance learning, meaning that we had to cut off many related, interesting, and potential concepts (e.g., innovation)..." 혁신(innovation) 등 인접 개념을 의도적으로 제외하였음을 인정.
+              </li>
+              <li>
+                <strong>클러스터 경계의 모호성:</strong> "These clusters are broad and have blurry boundaries, and there is much variation around the central themes." 4개 군집이 상호배타적이지 않으며 명칭이 확정적 성격 규정이 아님을 명시.
+              </li>
+              <li>
+                <strong>경계선상 논문의 존재:</strong> Powell et al.(1996)의 사례처럼 알고리즘 결과와 저자들의 정성적 판단이 불일치할 수 있는 사례를 스스로 노출("some studies are located at the borderline between various clusters").
+              </li>
+              <li>
+                <strong>후속 리뷰의 필요성 언급:</strong> "Future studies should also continue reviewing specific conceptual fields within strategic alliance literature to improve the landscape map..." 본 리뷰가 완결판이 아니라 후속 세분화 리뷰가 필요함을 인정.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">체계적 문헌고찰 및 계량서지학 방법론을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 데이터베이스 단일원 편향</span>
+                <p class="text-sm text-slate-700">
+                  검색을 Elsevier Scopus 한 곳에만 의존하였습니다. Web of Science, Google Scholar 등과 색인 범위가 다르므로, Scopus 미색인 저널(특히 비영어권·지역 저널)의 관련 연구가 체계적으로 누락되었을 가능성이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 저널 등급 필터링에 따른 표본 편향</span>
+                <p class="text-sm text-slate-700">
+                  AJG3/AJG4(*) 등급 저널로 한정함으로써 서구·영어권·주류 이론(RBV, TCA, OL) 편향이 구조적으로 내재되어, 등급이 낮거나 지역 특화된 학술지의 대안적 관점이 배제되었을 위험이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 서지결합분석의 "과거 편향" 가능성</span>
+                <p class="text-sm text-slate-700">
+                  서지결합분석은 과거에 형성된 인용 유사성에 기반하므로, 아직 인용 네트워크가 형성되지 않은 최근 논문(디지털화 관련 신흥 연구)을 놓칠 수 있습니다. 저자들이 지적한 "디지털화 공백"이 방법론적 인공물일 가능성도 배제할 수 없습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 정성적 라벨링의 주관성</span>
+                <p class="text-sm text-slate-700">
+                  4개 클러스터 명칭과 경계는 알고리즘 출력물이지만 최종적으로 "저자들의 논문 정독에 기반한 타당성 지지"라는 정성적 해석에 의존합니다. 복수 코더 간 일치도 검증 없이 소수 저자의 해석만으로 라벨이 확정되어 확증편향의 위험이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 저자 자기인용 편향 가능성</span>
+                <p class="text-sm text-slate-700">
+                  교신저자 Kohtamäki의 선행 연구가 다수 인용되며, 방법론 정당화 근거로도 저자 자신의 이전 논문을 활용하는 등, 리뷰 논문 특유의 자기인용을 통한 프레이밍 편향 가능성이 존재합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 정의의 순환성</span>
+                <p class="text-sm text-slate-700">
+                  Selnes &amp; Sallis(2003)의 "관계 학습" 정의를 전체 리뷰의 상위 개념 정의로 채택함으로써, 본래 군집 2에 특화된 정의가 군집 1·3·4의 고유한 학습 개념(학습 경쟁, 사회적 학습 등)을 관계 학습 프레임에 종속시키는 개념적 편향을 낳을 수 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Learning in Strategic Alliances: Reviewing the Literature Streams and Crafting the Agenda for Future Research</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

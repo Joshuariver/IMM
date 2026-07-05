@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Individual Manager in the Spotlight - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Coopetition & Knowledge Protection</div>
+        <div class="badge badge-secondary text-white style-label">Upper Echelons Theory × RBV</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            The individual manager in the spotlight:<br>
+            <span class="text-cyan-400">Protecting sensitive knowledge in inter-firm coopetition relationships</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Tatbeeq Raza-Ullah, Lea Stadtler, Anne-Sophie Fernandez
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            스포트라이트를 받는 개인 관리자:<br>
+            <span class="text-indigo-300">기업 간 코피티션 관계에서 민감한 지식 보호하기</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            스웨덴 중소기업 176개 사 다출처·시차 데이터를 통한 상위계층이론(UET) 기반 지식 보호 결정요인 분석
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">재직기간이 길고 여성인 관리자가 코피티션에서 지식을 더 잘 지키며, 이는 실제로 기업 성과 향상으로 이어집니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "When firms collaborate with their competitors (i.e., engage in coopetition), individual managers play a pivotal role in protecting their firm's sensitive knowledge from potential misuse by partners. But which managers are more successful in performing this role? To better understand the senior-level human resources who help secure a firm's competitive advantage, we build on the Upper Echelons Theory and explore how managers' cognitions and values, as expressed in their demographic characteristics, influence knowledge protection in coopetitive relationships. To test our hypotheses, we use multi-source, time-lagged data on a sample of 176 small and medium-sized firms involved in coopetition. Our results suggest that managers' tenure and female gender relate positively to knowledge protection, which in turn contributes to subsequent firm performance, whereas managers' age and higher education impact knowledge protection negatively. On this basis, our study helps develop micro-macro linkages between the Upper Echelons Theory and the Resource-Based View, and reveals how different managerial characteristics influence knowledge protection, thereby threatening or securing sustainable firm performance. We discuss the implications for knowledge protection processes and human resource management."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              기업이 경쟁자와 협력할 때(즉, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">코피티션(Coopetition)</span>을 할 때), 개인 관리자는 자사의 민감한 지식이 파트너에 의해 오용될 가능성으로부터 보호하는 데 중추적인 역할을 한다. 그렇다면 어떤 관리자가 이 역할을 더 성공적으로 수행하는가? 기업의 경쟁우위 확보를 돕는 고위 인적자원을 더 잘 이해하기 위해, 본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">상위계층이론(Upper Echelons Theory)</span>을 기반으로 관리자의 인구통계학적 특성으로 표출되는 인지와 가치관이 코피티션 관계에서의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">지식 보호</span>에 어떻게 영향을 미치는지 탐구한다. 가설을 검증하기 위해, 코피티션에 관여하는 176개 중소기업 표본에 대한 다출처·시차(time-lagged) 데이터를 사용하였다. 분석 결과, 관리자의 재직기간과 여성 성별은 지식 보호와 정(+)의 관계를 가지며, 이는 다시 후속 기업 성과에 기여하는 반면, 관리자의 연령과 고학력은 지식 보호에 부(-)의 영향을 미치는 것으로 나타났다. 이를 바탕으로 본 연구는 상위계층이론과 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">자원기반관점(RBV)</span> 간의 미시-거시 연결고리를 개발하는 데 기여하며, 서로 다른 관리자 특성이 지식 보호에 어떻게 영향을 미쳐 지속가능한 기업 성과를 위협하거나 확보하는지를 밝힌다. 본 연구는 지식 보호 프로세스와 인적자원관리에 대한 시사점을 논의한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Coopetition</td>
+                  <td>코피티션 (협력적 경쟁)</td>
+                  <td class="text-sm">Cooperation+Competition의 합성어로, 국내 학계에서도 원어 음역이 일반적이며 괄호로 의미를 병기함.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Upper Echelons Theory (UET)</td>
+                  <td>상위계층이론</td>
+                  <td class="text-sm">Hambrick & Mason(1984)이 제안한 이론으로, 관리자의 인구통계적 특성이 인지·가치관을 대리(proxy)한다고 봄. 국내 경영학계의 표준 번역어.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resource-Based View (RBV)</td>
+                  <td>자원기반관점</td>
+                  <td class="text-sm">Barney(1991)의 핵심 이론으로 국내 표준 번역어를 그대로 사용.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Knowledge Protection</td>
+                  <td>지식 보호</td>
+                  <td class="text-sm">직역이 자연스럽고 국내 지식경영 문헌에서도 동일한 용어로 사용됨.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Demographic Characteristics</td>
+                  <td>인구통계학적 특성</td>
+                  <td class="text-sm">UET에서 관리자의 인지·가치관을 대리하는 관측 가능 변수(연령·성별·학력·재직기간)를 지칭.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">어떤 관리자 특성이 코피티션에서 지식 보호를 성공시키는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">긴 재직기간과 여성 성별이 지식 보호에 유리하다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">UET(개인)와 RBV(기업)의 미시-거시 연결</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 경쟁자와의 협력(코피티션)에서 민감한 지식을 효과적으로 지키는 것은 개인 관리자의 재량에 크게 좌우되는데, 어떤 인구통계학적 특성(연령·재직기간·성별·학력)을 가진 관리자가 이 역할을 더 잘 수행하는가?</li>
+                  <li><strong>핵심 발견:</strong> <strong>재직기간</strong>과 <strong>여성 성별</strong>은 지식 보호에 유의한 정(+)의 영향을 미치는 반면, <strong>연령</strong>과 <strong>고학력</strong>은 가설과 반대로 유의한 부(-)의 영향을 미쳤습니다. 지식 보호가 잘 될수록 후속 기업 성과(순매출)도 유의하게 향상되었습니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 개인 수준의 관리자 특성(UET)과 기업 수준의 경쟁우위·성과(RBV)를 지식 보호라는 매개 메커니즘으로 연결하였으며, 코피티션 프로젝트에 어떤 관리자를 배치·육성해야 하는지에 대한 실무적 함의를 제공합니다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "코피티션에서 지식을 잘 지키는 관리자는 재직기간이 길고 여성일수록 유리하며, 나이나 학력이 높다고 유리한 것은 아니고, 이렇게 지켜진 지식은 실제 기업 성과 향상으로 이어집니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">재직기간(Tenure) → 지식 보호 정(+)의 영향 (H2 지지)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Our second hypothesis is supported: organizational tenure affects knowledge protection positively and significantly (&beta; = 0.181, p &lt; 0.05)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.90, Sec. 4.1 (Table 3)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">여성 성별 → 지식 보호 정(+)의 영향 (H3 지지)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Hypothesis 3's suggestion that female managers contribute positively to knowledge protection is also supported (&beta; = 0.163, p &lt; 0.05)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.90, Sec. 4.1 (Table 3)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">연령 → 지식 보호 부(-)의 영향 (H1 기각, 예상과 반대)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...contrary to our expectation, the manager's age affects knowledge protection negatively (&beta; = -0.229, p &lt; 0.01). Hypothesis 1 is therefore not supported."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.90, Sec. 4.1</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">학력 → 지식 보호 부(-)의 영향, 약한 유의성 (H4 기각)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Surprisingly, however, higher education turned out to be a negative contributor to knowledge protection (&beta; = -0.140), but the effect was only significant at p &lt; 0.10."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.90, Sec. 4.1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">지식 보호 → 기업 성과 정(+)의 영향 (H5 지지)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Our fifth hypothesis suggesting that knowledge protection leads to better firm performance is supported (&beta; = 0.162, p &lt; 0.01)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.90, Sec. 4.1</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">성별의 재직기간→지식보호 경로 조절 (탐색적 발견)</td>
+                <td class="text-sm italic text-slate-600">
+                  "The interaction between gender and tenure...shows that tenure has a more important effect on male than female senior managers..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.90, Sec. 4.2 (Fig. 2)</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">모형의 예측타당성 확보</td>
+                <td class="text-sm italic text-slate-600">
+                  "the model demonstrates a good fit with an SRMR value of 0.02...Q&sup2; values greater than zero indicate that our path model has predictive relevance"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.90, Sec. 4.1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 가설 모형, Fig. 1 기반)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 480" class="w-full h-auto">
+              <!-- IV Boxes -->
+              <rect x="20" y="20" width="200" height="75" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="120" y="50" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">관리자 연령 (Age)</text>
+              <text x="120" y="70" text-anchor="middle" fill="#64748b" font-size="10">경험·위험회피 성향의 대리변수</text>
+              <text x="120" y="85" text-anchor="middle" fill="#94a3b8" font-size="10">IV1</text>
+
+              <rect x="20" y="110" width="200" height="75" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="120" y="140" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">조직 재직기간 (Tenure)</text>
+              <text x="120" y="160" text-anchor="middle" fill="#64748b" font-size="10">조직 사회화·고유성 이해도</text>
+              <text x="120" y="175" text-anchor="middle" fill="#94a3b8" font-size="10">IV2</text>
+
+              <rect x="20" y="200" width="200" height="75" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="120" y="230" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">성별 (Gender, 여성=1)</text>
+              <text x="120" y="250" text-anchor="middle" fill="#64748b" font-size="10">관계적 역량·낮은 위험감수</text>
+              <text x="120" y="265" text-anchor="middle" fill="#94a3b8" font-size="10">IV3</text>
+
+              <rect x="20" y="290" width="200" height="75" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="120" y="320" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">교육 수준 (Education)</text>
+              <text x="120" y="340" text-anchor="middle" fill="#64748b" font-size="10">인지능력·정보처리 역량</text>
+              <text x="120" y="355" text-anchor="middle" fill="#94a3b8" font-size="10">IV4</text>
+
+              <!-- Mediator -->
+              <rect x="400" y="155" width="220" height="100" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="510" y="190" text-anchor="middle" font-weight="700" fill="#065f46" font-size="15">지식 보호</text>
+              <text x="510" y="208" text-anchor="middle" fill="#065f46" font-size="12">(Knowledge Protection)</text>
+              <text x="510" y="228" text-anchor="middle" fill="#047857" font-size="10">파트너의 오용으로부터 핵심지식 방어</text>
+              <text x="510" y="243" text-anchor="middle" fill="#10b981" font-size="10">Mediator</text>
+
+              <!-- DV -->
+              <rect x="700" y="155" width="170" height="100" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="785" y="190" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">기업 성과</text>
+              <text x="785" y="208" text-anchor="middle" fill="#3730a3" font-size="12">(Firm Performance)</text>
+              <text x="785" y="228" text-anchor="middle" fill="#4338ca" font-size="10">t, t+1 순매출 평균 (로그)</text>
+              <text x="785" y="243" text-anchor="middle" fill="#4f46e5" font-size="10">DV</text>
+
+              <!-- Post-hoc Moderator note box -->
+              <rect x="470" y="15" width="260" height="65" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2" stroke-dasharray="4 3"/>
+              <text x="600" y="38" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">성별의 사후 조절효과 (Post-hoc)</text>
+              <text x="600" y="55" text-anchor="middle" fill="#b45309" font-size="10">재직기간→지식보호 경로: 남성 &gt; 여성</text>
+              <text x="600" y="70" text-anchor="middle" fill="#d97706" font-size="10">MGA, 경로차 = -0.50, p&lt;.05</text>
+
+              <!-- Arrows: IV -> Mediator -->
+              <!-- Age (H1, rejected, negative) -->
+              <path d="M220 57 L250 57 L250 175 L400 175" fill="none" stroke="#e11d48" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrowRed)"/>
+              <text x="255" y="120" fill="#be123c" font-weight="700" font-size="12">H1 (-) 기각</text>
+
+              <!-- Tenure (H2, supported, positive) -->
+              <path d="M220 147 L290 147 L290 190 L400 190" fill="none" stroke="#0ea5e9" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+              <text x="295" y="140" fill="#0369a1" font-weight="700" font-size="12">H2 (+) 지지</text>
+
+              <!-- Gender (H3, supported, positive) -->
+              <path d="M220 237 L330 237 L330 210 L400 210" fill="none" stroke="#0ea5e9" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+              <text x="335" y="255" fill="#0369a1" font-weight="700" font-size="12">H3 (+) 지지</text>
+
+              <!-- Education (H4, rejected, negative) -->
+              <path d="M220 327 L360 327 L360 230 L400 230" fill="none" stroke="#e11d48" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrowRed)"/>
+              <text x="365" y="345" fill="#be123c" font-weight="700" font-size="12">H4 (-) 기각</text>
+
+              <!-- Mediator -> DV (H5, supported) -->
+              <path d="M620 205 L700 205" fill="none" stroke="#4f46e5" stroke-width="2.5" marker-end="url(#arrowIndigo)"/>
+              <text x="625" y="197" fill="#3730a3" font-weight="700" font-size="12">H5 (+) 지지</text>
+
+              <!-- Moderator arrow into Tenure->Mediator path -->
+              <path d="M600 80 L600 115 L290 115 L290 147" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="3 3" marker-end="url(#arrowAmber)"/>
+
+              <!-- SVG Arrow Markers -->
+              <defs>
+                <marker id="arrowRed" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#e11d48"/>
+                </marker>
+                <marker id="arrowBlue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0ea5e9"/>
+                </marker>
+                <marker id="arrowIndigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/>
+                </marker>
+                <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 max-w-3xl text-center">
+            실선(파랑/남색) = 지지된 가설, 점선(빨강) = 예상과 반대 방향으로 나타나 기각된 가설. 우측 상단 주황 점선 박스와 화살표는 논문 본문의 사후 탐색분석(MGA)에서 발견된, 공식 가설에는 없던 성별의 조절효과를 나타냅니다.
+          </p>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">IV1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">관리자 연령 (Manager's Age)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 관리자의 인지적 경험 축적과 위험회피 성향을 대리하는 연령 특성 (Hambrick & Mason, 1984).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 관리자의 실제 나이(년), 설문에서 직접 기재.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Liu et al. (2018) 등 UET 문헌의 표준 인구통계 변수.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 지식 보호에 유리할 것으로 가설화(H1)했으나 유의한 부(-)의 효과. 노화에 따른 정보처리 속도 저하가 동적 코피티션 환경에서 불리하게 작용했을 가능성.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">독립변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">IV2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">조직 재직기간 (Organizational Tenure)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 현 기업에서의 근무 기간으로, 조직 사회화와 고유성 이해도를 대리 (North, 2019; Wiersema & Bantel, 1992).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 근무 연수, 로그 변환(log-transformed)하여 측정.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 설문 응답, 왜도 보정을 위한 로그변환.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> H2 지지. 판별력·위험회피·충성도가 높아 지식 보호에 유리. 이 효과는 남성 관리자에서 더 강함(성별의 사후 조절효과).
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 3</span>
+                <span class="text-xs text-slate-400 font-semibold">IV3</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">성별 (Gender)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 여성 관리자의 고유한 인지적 프레임(관계적 역량)과 낮은 전략적 위험감수 성향을 대리 (Post & Byron, 2015).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 남성=0, 여성=1의 이진 코딩.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 설문 응답(자기보고). 표본 내 여성 비율 28%.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> H3 지지. 능동적 경청 능력과 낮은 위험감수 성향이 모호한 상황에서 지식 보호를 촉진.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 4 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">독립변수 4</span>
+                <span class="text-xs text-slate-400 font-semibold">IV4</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">교육 수준 (Education)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 인지적 능력과 정보처리 역량, 복잡한 행정적 관행 활용도를 대리 (Hambrick & Mason, 1984).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 대학 학위 보유=1, 미보유=0의 이진 코딩.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 설문 응답. 표본 내 대졸 비율 65%.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> H4 기각(p&lt;0.10 부(-)효과). 행정적 복잡성 선호가 역동적 상황에서의 유연·직관적 대응을 저해했을 가능성.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">지식 보호 (Knowledge Protection)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 파트너 기업의 잠재적 오용으로부터 자사의 고유 지식이나 기술을 효과적으로 보호한 정도 (Norman, 2001; Yang et al., 2014).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> (i) 핵심 지식/기술 보호 정도, (ii) 파트너의 고유 역량 전유 방지 정도를 묻는 2문항, 7점 리커트.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 외적 적재값 &gt;0.70, AVE=0.87, Cronbach's &alpha;=0.86, CR=0.93.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 문제 인식→해석→의사결정/실행의 3단계 관리자 의사결정 프로세스(Cyert & March, 1963)의 산출물로 개념화됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Dependent Variable (DV)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기업 성과 (Firm Performance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 지식 보호를 통해 지속되는 경쟁우위가 반영된 기업의 전반적 재무 성과 (Barney, 1991).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> t시점과 t+1시점(2016, 2017년)의 순매출 평균값.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 2차 데이터베이스(Retriever Business), Rothaermel et al. (2006) 방식.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Control Variables Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">통제 변수 (Control Variables)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table table-bordered w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th>변수명</th>
+                  <th>정의 및 측정</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="font-semibold">기업 연령 (Firm Age)</td><td class="text-sm">창업 이후 존속 연수 (2차 데이터)</td></tr>
+                <tr><td class="font-semibold">기업 성장률 (Firm Growth)</td><td class="text-sm">설문 시행 이전 2년간 종업원 증가율 (2차 데이터)</td></tr>
+                <tr><td class="font-semibold">조직 슬랙 (Organizational Slack)</td><td class="text-sm">1 - (총부채/총매출) (2차 데이터)</td></tr>
+                <tr><td class="font-semibold">이전 성과 (Previous Performance)</td><td class="text-sm">법인세 차감 전 이익/자본 (ROCE 유사 지표, 2차 데이터)</td></tr>
+                <tr><td class="font-semibold">경쟁 강도 (Competitive Intensity)</td><td class="text-sm">파트너 기업 간 경쟁 정도를 묻는 단일문항 (설문)</td></tr>
+                <tr><td class="font-semibold">지식 공유 (Knowledge Sharing)</td><td class="text-sm">상호 지식·아이디어 교환 정도를 묻는 2문항 (&alpha;=0.85, CR=0.93, AVE=0.87, 설문)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 표본추출부터 가설 검증, 강건성 점검까지 그대로 <strong>추종 재현</strong>할 수 있도록 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">모집단 및 표본 프레임 정의</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  스웨덴 표준산업분류(SNI 2007) 코드를 이용해 하이테크·지식집약 산업군에서 900개 기업을 무작위 추출. 전화로 연구 소개 후 코피티션 관여 여부 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 89, Section 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">대상 필터링 및 설문 배포</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  코피티션 미관여·접촉불가·거부 기업 제외 후 404개 기업 확정. 2015년 5~12월 온라인 설문 링크 발송, 3회 리마인더 후 225건 완전 응답 회수(응답률 25%).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 89, Section 3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">무응답 편향 점검 및 2차 데이터 결합</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Armstrong & Overton(1977) 방식의 ANOVA로 응답/미응답 기업 간 차이 없음 확인. Retriever Business DB에서 조직번호를 매칭키로 1차·2차 데이터 병합.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 89, Section 3.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">최종 표본 확정 및 측정도구 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  결측치(28개사)·규모기준 초과(21개사, &gt;250명) 제외 후 최종 176개 SME 확정. 반영적 구성개념의 적재값·Cronbach's &alpha;·CR·AVE·판별타당도 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 89, Section 3.1-3.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">PLS-SEM 가설 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  정규성 이탈에 강건한 부분최소제곱 구조방정식모형(PLS-SEM)으로 경로계수·R²·Q²(블라인드폴딩, D=7)·SRMR 산출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 90, Section 4.1</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">강건성 점검 (CMV·내생성·비선형성)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Harman 단일요인검정(설명분산 20%)으로 동일방법편향 점검, Hult et al.(2018) 절차와 가우시안 코퓰라(Park & Gupta, 2012)로 내생성 점검, 제곱항 투입으로 비선형성 점검. 모두 우려 낮음으로 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 90, Section 4.2</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">다중집단분석(MGA) 및 조절효과 탐색</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  성별·학력 등 사전정의 집단 간 경로계수 차이 검정. 재직기간→지식보호 경로에서 성별 집단 간 유의차 발견(경로차=-0.50, p&lt;0.05) → 성별을 조절변수로 하는 상호작용 분석 추가 실시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 90, Section 4.2 & Fig. 2</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            측정문항의 심리측정 특성과 통계기법은 상세히 기술되어 절차상 재현은 가능하나, 스웨덴 SNI 코드 기반 모집단 및 상업적 2차 데이터베이스(Retriever Business)에 대한 접근권, 설문 원문항 전체 부록 미제공으로 완전 독립 재현은 제한적입니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.3)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>관리자 특성의 제한적 범위 및 단일국가 맥락:</strong> 기능적 경험, 산업·기술·지리적 배경 등 다른 인구통계 특성은 다루지 않았으며, 스웨덴이라는 단일 국가 맥락에 한정됨.
+                <blockquote class="text-xs italic text-rose-800 border-l-2 border-rose-300 pl-3 mt-1">"...enriching the analysis with managerial characteristics, such as the managers' functional experiences and their industry, technology, and geographical background, and by expanding the study context from Sweden to multiple locations." (p.93)</blockquote>
+              </li>
+              <li>
+                <strong>팀 역학(team dynamics) 미고려:</strong> 소기업 위주 표본으로 개인 관리자 역할에 초점을 맞췄으나, 기업 내/기업 간 팀 역학의 영향은 다루지 않음.
+                <blockquote class="text-xs italic text-rose-800 border-l-2 border-rose-300 pl-3 mt-1">"...the influence of team dynamics at the firm and inter-firm levels is an important area for future research." (p.93)</blockquote>
+              </li>
+              <li>
+                <strong>지식 공유와의 상호작용 미탐구:</strong> 지식 공유는 통제변수로만 사용(비유의)했을 뿐, 지식 보호-공유 간 역설적 상호작용은 탐구하지 않음.
+                <blockquote class="text-xs italic text-rose-800 border-l-2 border-rose-300 pl-3 mt-1">"We used knowledge sharing as a control variable, which, however, did not lead to any significant results." (p.93)</blockquote>
+              </li>
+              <li>
+                <strong>맥락 변수(contextual variables) 미고려:</strong> TMT 다양성, 시장 요인, 관계적 역량 등이 개별 관리자 특성 효과를 어떻게 조건화하는지는 향후 과제로 남김.
+                <blockquote class="text-xs italic text-rose-800 border-l-2 border-rose-300 pl-3 mt-1">"...future research can investigate the conditions such as TMT diversity..., market factors..., and relational capabilities..., under which the individual characteristics...would positively or negatively impact knowledge protection." (p.93)</blockquote>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 측정 방식을 근거로 제기하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 역인과관계 / 동시성 편향</span>
+                <p class="text-sm text-slate-700">
+                  관리자의 인구통계적 특성과 지식 보호는 <strong>동일 설문·동일 시점·동일 응답자</strong>에서 측정되어, 지식 보호를 잘하는 관리자의 재직기간이 긴 것인지 그 반대인지 시간적 선후관계가 확립되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 동일방법편향(CMV) 잔존 가능성</span>
+                <p class="text-sm text-slate-700">
+                  Harman 단일요인검정은 CMV의 필요조건일 뿐 충분조건이 아니라는 방법론적 비판이 있으며, 독립변수(인구통계)와 매개변수(지식 보호)가 동일 응답자·동일 출처에서 수집되어 공통방법분산 위험이 완전히 배제되지는 않습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 낮은 설명력과 약한 효과크기</span>
+                <p class="text-sm text-slate-700">
+                  지식 보호의 R²=0.11, 기업 성과의 R²=0.18로 설명되지 않는 분산이 크고, 유의한 경로계수(&beta;=0.14~0.23)도 절대 크기가 작아 통계적 유의성 대비 <strong>실무적 중요도</strong>에는 의문의 여지가 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 성별 표본 불균형 및 2문항 측정</span>
+                <p class="text-sm text-slate-700">
+                  여성 관리자 비율이 28%에 불과해 성별 관련 가설·조절효과 검정력이 제한적일 수 있으며, 지식 보호를 단 2개 문항으로 측정한 것은 개념의 다차원성을 온전히 포착하지 못할 가능성이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 단일 응답자 편향 및 자기선택 편향</span>
+                <p class="text-sm text-slate-700">
+                  기업당 1명의 고위 관리자 응답에 의존해 사회적 바람직성 편향 가능성이 있으며, 전화 스크리닝 단계에서 코피티션 관여를 자발적으로 인정한 기업만 표본화되어 자기선택 편향이 존재할 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 맥락 특수성 (스웨덴)</span>
+                <p class="text-sm text-slate-700">
+                  스웨덴은 WEF 성평등지수 세계 4위의 특수한 제도적 맥락을 가진 국가로, 성별-지식보호 관계나 성별의 조절효과가 성평등 수준이 낮은 다른 문화권에서도 동일하게 성립할지 불확실합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>The Individual Manager in the Spotlight: Protecting Sensitive Knowledge in Inter-firm Coopetition Relationships</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

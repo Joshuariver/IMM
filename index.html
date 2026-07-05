@@ -17,24 +17,71 @@
   </head>
   <body class="bg-base-200 text-base-content min-h-screen lg:h-screen lg:overflow-hidden flex flex-col antialiased">
     <!-- Navbar / Header -->
-    <header class="navbar bg-base-100 border-b border-base-300 shadow-sm px-6 py-4 flex items-center justify-between z-10 shrink-0">
-      <div class="flex items-center gap-3">
+    <header class="navbar bg-base-100 border-b border-base-300 shadow-sm px-6 py-4 flex items-center gap-4 z-10 shrink-0">
+      <div class="flex items-center gap-3 shrink-0">
+        <!-- Sidebar Toggle -->
+        <button
+          id="sidebarToggle"
+          type="button"
+          class="btn btn-sm btn-ghost btn-square"
+          aria-label="사이드바 접기/펼치기"
+          title="사이드바 접기/펼치기"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
         <!-- Logo / Icon -->
         <div class="p-2 bg-primary/10 rounded-xl text-primary border border-primary/20">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
           </svg>
         </div>
-        <div>
+        <div class="hidden md:block">
           <h1 class="text-base font-bold text-base-content tracking-tight flex items-center gap-2">
             논문 아카이브 <span class="badge badge-primary badge-xs py-1.5 px-2 font-bold tracking-wider uppercase">Explorer</span>
           </h1>
           <p class="text-xs text-base-content/60">
-            Industrial Marketing Management (IMM) HTML 검색 도구
+            <a
+              href="https://www.sciencedirect.com/journal/industrial-marketing-management/issues"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-primary hover:underline"
+            >Industrial Marketing Management</a> (IMM) HTML 검색 도구
           </p>
         </div>
       </div>
-      <div class="flex items-center gap-4">
+
+      <!-- Search & Sort (moved from sidebar so the header has a real function) -->
+      <div class="flex-1 flex items-center gap-2 min-w-0">
+        <div class="relative flex-1 max-w-xl">
+          <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-base-content/40">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </span>
+          <input
+            id="query"
+            type="search"
+            class="input input-bordered w-full input-sm pl-9"
+            placeholder="제목, 저자, 본문 키워드 검색..."
+          />
+        </div>
+        <button
+          id="clear"
+          type="button"
+          class="btn btn-sm btn-outline btn-neutral"
+        >
+          초기화
+        </button>
+        <select id="sortOrder" class="select select-bordered select-sm">
+          <option value="relevance">관련도</option>
+          <option value="recent">최신순</option>
+          <option value="citations">Citation 높은순</option>
+        </select>
+      </div>
+
+      <div class="flex items-center gap-4 shrink-0">
         <!-- Statistics Badge -->
         <div class="flex items-center gap-2 text-xs bg-base-200 border border-base-300 px-3.5 py-1.5 rounded-full">
           <span class="w-2 h-2 rounded-full bg-success animate-pulse"></span>
@@ -46,41 +93,14 @@
 
     <!-- Main Workspace -->
     <div class="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden">
-      <!-- Left Column: Search & Results (Width: ~450px) -->
-      <aside class="w-full lg:w-[450px] xl:w-[480px] flex flex-col border-b lg:border-b-0 lg:border-r border-base-300 shrink-0 lg:h-full lg:overflow-hidden bg-base-100">
-        <!-- Search & Filter Controls -->
-        <div class="p-4 border-b border-base-300 flex flex-col gap-4 bg-base-100">
-          <!-- Search Field -->
-          <div class="flex gap-2">
-            <div class="relative flex-1">
-              <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-base-content/40">
-                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </span>
-              <input 
-                id="query" 
-                type="search" 
-                class="input input-bordered w-full input-sm pl-9" 
-                placeholder="제목, 저자, 본문 키워드 검색..." 
-              />
-            </div>
-            <button 
-              id="clear" 
-              type="button" 
-              class="btn btn-sm btn-outline btn-neutral"
-            >
-              초기화
-            </button>
-          </div>
-
-          <!-- Volume Filters -->
-          <div class="flex flex-col gap-2">
-            <span class="text-[10px] font-bold text-base-content/60 tracking-wider uppercase">Volume 필터</span>
-            <div id="volumeFilters" class="flex flex-wrap gap-1.5">
-              <!-- Rendered by JS -->
-            </div>
-          </div>
+      <!-- Left Column: Volume Filter & Results (Width: ~450px) -->
+      <aside id="sidebar" class="w-full lg:w-[450px] xl:w-[480px] flex flex-col border-b lg:border-b-0 lg:border-r border-base-300 shrink-0 lg:h-full lg:overflow-hidden bg-base-100 transition-[width] duration-200">
+        <!-- Volume Filter (select dropdown — scales to any number of volumes without pushing the results list down) -->
+        <div class="p-4 border-b border-base-300 flex flex-col gap-2 bg-base-100">
+          <span class="text-[10px] font-bold text-base-content/60 tracking-wider uppercase">Volume 필터</span>
+          <select id="volumeFilters" class="select select-bordered select-sm w-full">
+            <!-- Rendered by JS -->
+          </select>
         </div>
 
         <!-- Results List Pane -->
@@ -143,9 +163,9 @@
           </div>
 
           <!-- Document content container (acts as spacing wrapper, the loaded cards sit here) -->
-          <div 
-            id="previewContent" 
-            class="flex-1 max-w-4xl mx-auto w-full space-y-6 animate-fade-in"
+          <div
+            id="previewContent"
+            class="flex-1 w-full space-y-6 animate-fade-in"
           >
             <!-- Rendered by JS -->
           </div>

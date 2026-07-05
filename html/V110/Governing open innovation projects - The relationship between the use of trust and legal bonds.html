@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Governing Open Innovation Projects - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Open Innovation Governance</div>
+        <div class="badge badge-secondary text-white style-label">203 UK OI Projects Survey</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Governing open innovation projects:<br>
+            <span class="text-cyan-400">The relationship between the use of trust and legal bonds</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Hanna Bahemia, Jens K. Roehrich
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            개방형 혁신 프로젝트의 거버넌스:<br>
+            <span class="text-indigo-300">신뢰와 법적 결속(계약)의 관계</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            영국 제조업 203개 OI 프로젝트 설문을 통해 밝힌 신뢰-계약의 대체·보완 전환 메커니즘
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">점진적 혁신은 신뢰만으로, 급진적 혁신은 신뢰+강한 계약을 함께 써야 만족도가 높아집니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "There is a growing interest in the open innovation (OI) literature to focus on the project level, and to explore the impact of project characteristics for realizing OI. We add to prior OI and governance studies by exploring the roles of, and relationship between, trust and legal bonds in maximizing the level of satisfaction with OI relationships. We conducted a survey of 203 firms and their OI projects in the UK. Our results indicated that there is a substitutional relationship between trust and the use of legal bonds, with trust being positively associated with the level of satisfaction with OI relationships, in incremental OI projects. In radical OI projects, high level of trust and strong legal bonds complement each other in enhancing the level of satisfaction with OI relationships. Our study contributes to the OI literature by showing the importance to shift from the firm to the project level. Our findings also indicate that firms need to calibrate governance mechanisms with external partners in relation to the level of innovativeness of the product's technology to the industry and market."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "개방형 혁신(OI) 연구 분야에서는 최근 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">프로젝트 수준</span>에 초점을 맞추어, 프로젝트 특성이 OI 실현에 미치는 영향을 탐구하려는 관심이 커지고 있다. 본 연구는 OI 관계에 대한 만족 수준을 극대화하는 데 있어 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">신뢰</span>와 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">법적 결속</span>의 역할과 그 관계를 탐구함으로써 기존 OI 및 거버넌스 연구에 기여한다. 우리는 영국의 203개 기업과 그들의 OI 프로젝트를 대상으로 설문조사를 실시하였다. 분석 결과, 점진적 OI 프로젝트에서는 신뢰와 법적 결속 사이에 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">대체적 관계</span>가 존재하였으며, 신뢰는 OI 관계 만족도와 정(+)의 관계를 보였다. 반면 급진적 OI 프로젝트에서는 높은 수준의 신뢰와 강한 법적 결속이 서로 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">보완</span>하여 OI 관계 만족도를 향상시켰다. 본 연구는 OI를 기업 수준에서 프로젝트 수준으로 전환하여 살펴보아야 할 중요성을 제시함으로써 OI 문헌에 기여한다. 또한 본 연구 결과는 기업이 외부 파트너와의 거버넌스 메커니즘을, 제품 기술이 해당 산업 및 시장에 대해 갖는 혁신성의 정도에 맞추어 조정할 필요가 있음을 시사한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Open Innovation (OI)</td>
+                  <td>개방형 혁신</td>
+                  <td class="text-sm">학계 표준 번역어. 외부의 다양한 행위자·자원을 활용해 혁신을 달성·지속하는 모델(Laursen &amp; Salter, 2006).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Legal Bonds</td>
+                  <td>법적 결속 (계약)</td>
+                  <td class="text-sm">단순 "계약"보다 역할·의무를 명시하는 구속력 있는 계약의 "강도"를 의미하므로 원어 뉘앙스를 살려 번역하고 괄호로 계약을 병기함.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Trust</td>
+                  <td>신뢰</td>
+                  <td class="text-sm">선의의 노력, 교환의 정직성, 제한된 기회주의를 전제로 한 관계적 거버넌스 메커니즘(Cummings &amp; Bromiley, 1996).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Substitutive / Complementary Relationship</td>
+                  <td>대체적 관계 / 보완적 관계</td>
+                  <td class="text-sm">거버넌스 문헌의 표준 이분법(Poppo &amp; Zenger, 2002). 한 메커니즘이 다른 것을 대신하면 대체, 서로의 약점을 메우면 보완 관계.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Radical vs. Incremental Innovation</td>
+                  <td>급진적 혁신 / 점진적 혁신</td>
+                  <td class="text-sm">제품 기술이 산업·시장에 얼마나 새로운지에 따른 혁신 유형 구분(Garcia &amp; Calantone, 2002).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">신뢰와 법적 결속은 어떤 관계이며, 혁신성은 이를 어떻게 바꾸는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">대체 관계(점진적 혁신) → 보완 관계(급진적 혁신)로 전환</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">OI 거버넌스 연구를 기업 수준에서 프로젝트 수준으로 전환</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> OI 프로젝트에서 신뢰(trust)와 법적 결속(legal bonds)의 역할과 관계는 무엇이며, 제품 기술의 산업·시장 대비 혁신성 정도(급진성)는 이 관계를 어떻게 변화시키는가?</li>
+                  <li><strong>핵심 발견:</strong> 신뢰는 OI 관계 만족도를 유의하게 높이지만 법적 결속 단독으로는 유의하지 않다. 신뢰와 법적 결속은 기본적으로 대체 관계(강한 계약이 신뢰의 긍정 효과를 약화)이나, 혁신성이 높아질수록(급진적 혁신) 이 관계는 보완 관계(신뢰+강한 계약이 함께 만족도를 극대화)로 전환된다.</li>
+                  <li><strong>이론/실무 기여:</strong> 신뢰-계약 관계에 대한 기존의 상반된 실증 결과(대체 vs. 보완)를 혁신성이라는 경계조건(3차 상호작용)으로 통합적으로 설명하였으며, 실무적으로 프로젝트의 혁신성 수준에 맞춰 거버넌스 전략을 조정(calibrate)해야 함을 제시하였다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "점진적 혁신 프로젝트에서는 신뢰만으로 충분하고 강한 계약은 오히려 해가 되지만, 급진적 혁신 프로젝트에서는 신뢰와 강한 법적 결속을 함께 사용해야 OI 관계 만족도가 극대화됩니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">신뢰(H1)의 만족도에 대한 정(+)의 효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "the results indicate a positive relationship between trust and the level of satisfaction with OI relationships (H1 β = 0.688, p = .000)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.25–26 (Sec. 5, Table 3)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">법적 결속(H2) 단독 효과는 비유의</td>
+                <td class="text-sm italic text-slate-600">
+                  "the coefficient between legal bonds and the level of satisfaction with OI relationships was negative, but it was statistically not significant (H2 β = − 0.031, p = .536)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.25–26 (Sec. 5, Table 3)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">신뢰×법적결속의 대체적 상호작용(H3)</td>
+                <td class="text-sm italic text-slate-600">
+                  "The coefficient of the interaction term between trust and legal bonds is negative and significant (H3 β = − 0.168, p = .001)... strong legal bonds... weaken the relationship between trust and level of satisfaction."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.26 (Sec. 5, Table 3, Fig. 2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">혁신성에 따른 대체→보완 전환(H4)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...a change from a negative and significant interaction... in Model 4 (β = − 0.173, p = .000) to a positive and significant relationship... (β = 0.109, p = .035) in the three-way interaction."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.26 (Sec. 5, Table 3, Fig. 3)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">급진적 혁신에서 신뢰+강한 계약의 최고 만족도</td>
+                <td class="text-sm italic text-slate-600">
+                  "The level of satisfaction with OI relationships is highest when trust, legal bonds, and level of innovativeness are all high, hence supporting H4."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.27 (Sec. 5, Fig. 3 해설)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 가설 모형, Fig. 1 기반)</h3>
+
+          <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 420" class="w-full h-auto">
+              <!-- IV1: Trust -->
+              <rect x="20" y="60" width="220" height="80" rx="8" fill="#f1f5f9" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="130" y="92" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="14">신뢰 (Trust)</text>
+              <text x="130" y="114" text-anchor="middle" fill="#0284c7" font-size="11">선의의 노력 & 정직성 & 제한된 기회주의</text>
+              <text x="130" y="130" text-anchor="middle" fill="#0284c7" font-size="11">(독립변수 1)</text>
+
+              <!-- IV2: Legal Bonds -->
+              <rect x="20" y="260" width="220" height="80" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="130" y="292" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">법적 결속 (Legal Bonds)</text>
+              <text x="130" y="314" text-anchor="middle" fill="#64748b" font-size="11">상세하고 구속력 있는 계약의 강도</text>
+              <text x="130" y="330" text-anchor="middle" fill="#64748b" font-size="11">(독립변수 2)</text>
+
+              <!-- Interaction node: Trust x Legal Bonds -->
+              <rect x="330" y="160" width="190" height="80" rx="8" fill="#fdf4ff" stroke="#a855f7" stroke-width="2" stroke-dasharray="5 3"/>
+              <text x="425" y="190" text-anchor="middle" font-weight="700" fill="#7e22ce" font-size="13">신뢰 &#215; 법적 결속</text>
+              <text x="425" y="210" text-anchor="middle" fill="#9333ea" font-size="11">(2차 상호작용, H3)</text>
+              <text x="425" y="226" text-anchor="middle" fill="#9333ea" font-size="10">대체적 관계 (β &lt; 0)</text>
+
+              <!-- DV -->
+              <rect x="610" y="160" width="170" height="90" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="695" y="192" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">OI 관계 만족도</text>
+              <text x="695" y="212" text-anchor="middle" fill="#4338ca" font-size="11">목표 달성 & 핵심역량 기여</text>
+              <text x="695" y="228" text-anchor="middle" fill="#4338ca" font-size="10">(종속변수)</text>
+
+              <!-- Moderator: Level of Innovativeness -->
+              <rect x="460" y="10" width="220" height="70" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="570" y="38" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">제품 기술의 혁신성 정도</text>
+              <text x="570" y="56" text-anchor="middle" fill="#b45309" font-size="10">(산업&#183;시장 대비, 급진적 vs 점진적)</text>
+              <text x="570" y="72" text-anchor="middle" fill="#b45309" font-size="10">(3차 상호작용 조절변수)</text>
+
+              <!-- Arrows: direct effects (solid = significant, dashed = non-significant) -->
+              <!-- Trust -> DV (H1, solid, significant positive) -->
+              <path d="M240 100 L 600 190" fill="none" stroke="#0ea5e9" stroke-width="2.5" marker-end="url(#arrow)"/>
+              <text x="380" y="130" fill="#0284c7" font-weight="700" font-size="12">H1 (+, 유의)</text>
+
+              <!-- Legal Bonds -> DV (H2, dashed, non-significant) -->
+              <path d="M240 300 L 600 220" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="380" y="290" fill="#64748b" font-weight="700" font-size="12">H2 (−, 비유의)</text>
+
+              <!-- Trust -> Interaction node -->
+              <path d="M240 130 L 330 185" fill="none" stroke="#0ea5e9" stroke-width="1.5" stroke-dasharray="2 2"/>
+              <!-- Legal Bonds -> Interaction node -->
+              <path d="M240 280 L 330 215" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="2 2"/>
+
+              <!-- Interaction -> DV (H3) -->
+              <path d="M520 200 L 605 200" fill="none" stroke="#a855f7" stroke-width="2.5" marker-end="url(#arrow)"/>
+              <text x="540" y="192" fill="#7e22ce" font-weight="700" font-size="12">H3 (−)</text>
+
+              <!-- Moderator -> Interaction path (H4, three-way interaction) -->
+              <path d="M550 80 L 480 160" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrow)"/>
+              <text x="560" y="120" fill="#b45309" font-weight="700" font-size="12">H4 조절 (3-way, +)</text>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="text-xs text-slate-500 max-w-2xl">
+            * H3은 신뢰&#215;법적결속의 2차 상호작용(대체적 관계, 계수 음수)을 나타내며, H4는 이 상호작용이 제품 혁신성이 높아질수록(급진적 혁신) 양(+)의 방향, 즉 보완적 관계로 전환됨을 보여주는 3차 상호작용입니다.
+          </p>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">독립변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">IV1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">신뢰 (Trust)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 선의의 노력(good-faith effort), 교환에서의 정직성, 제한된 기회주의에 기반한 관계적 거버넌스 메커니즘.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 외부 파트너가 협상에서 진실했는지, 약속을 지켰는지, 신뢰할 수 있었는지를 측정(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Cummings and Bromiley (1996) / 7문항 (Cronbach's α = 0.951)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 조직간 학습의 투명성·주도성을 높이고(Gulati, 1995), 흡수역량의 핵심 요소로서(Johnson et al., 1996) 과도한 계약적 모니터링의 필요성을 감소시킴.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">IV2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">법적 결속 (Legal Bonds)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 당사자들의 역할과 의무를 구체적으로 명시한 상세하고 구속력 있는 계약의 사용 강도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 관계가 서면 계약으로 주로 통제되는지, 의무·권리를 상세히 규정한 공식 합의가 있었는지 측정(이진 변수가 아닌 강도 척도, 7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Cannon et al. (2000), Jap and Ganesan (2000) / 3문항 (Cronbach's α = 0.87)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 상세한 계약은 기회주의를 억제하나(Williamson, 1996), 지나치게 능동적으로 사용되면 불신의 신호로 해석될 수 있고(Ghoshal &amp; Moran, 1996) 유연성을 저해할 수 있음.
+              </p>
+            </div>
+          </div>
+
+          <!-- Interaction / H3 explanation Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge style-label text-white" style="background-color:#a855f7;">2차 상호작용</span>
+                <span class="text-xs text-slate-400 font-semibold">H3</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">신뢰 &#215; 법적 결속</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 두 거버넌스 메커니즘이 함께 작용할 때 만족도에 미치는 한계효과(marginal benefit)를 나타내는 상호작용항.</p>
+              <p class="text-sm text-slate-700"><strong>결과:</strong> 상호작용 계수가 음수로 유의(β = −0.168, p = .001) → 강한 법적 결속이 신뢰의 긍정적 효과를 약화시키는 대체적 관계.</p>
+              <p class="text-sm text-slate-600"><strong>분석 방법:</strong> 평균중심화된 변수의 곱으로 산출, 위계적 회귀분석 Model 3에서 투입.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Poppo &amp; Zenger (2002), Cavusgil &amp; Zhang (2004) 등 대체·보완 논쟁의 핵심 검증 대상.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator (H4)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">제품 기술의 산업&#183;시장 대비 혁신성 정도</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 제품이 해당 산업 및 시장에 얼마나 새로운지(급진성)를 나타내는 연속적 척도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "업계에서 전례없는 기술 사용", "업계 전체 변화 유발", "시장 최초 제품", "시장에 완전히 새로운 제품" 등 4문항(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Cooper (1979), Song and Parry (1999) / 4문항 (Cronbach's α = 0.79)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 급진적 혁신은 불확실성·위험·전유가능성 요구가 높아(Holahan et al., 2014) 신뢰-법적결속의 대체 관계를 보완 관계로 전환시키는 경계조건으로 작용.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Dependent Variable (DV)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">OI 관계 만족도 (Level of Satisfaction with OI Relationships)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 조직간 교류가 목표를 달성하고, 프로젝트의 핵심 역량 및 경쟁 우위에 기여한 정도(초점기업 관점).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "전반적으로 외부 당사자와의 협력에 매우 만족했다", "협력이 목표를 실현했다", "협력이 핵심 역량·경쟁 우위에 기여했다" 3문항(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Saxton (1997) / 3문항 (Cronbach's α = 0.91)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 연구 모델 및 데이터 검증을 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">개념 모형 개발 및 파일럿 인터뷰</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  문헌 검토로 개념 모형을 개발하고, 영국 제조업 관리자 16명과 파일럿 인터뷰를 실시해 모형 피드백 및 설문지 검증. OI 연구자 5명에게 사전 테스트하며 여러 차례 반복 수정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.23, Section 4.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">표본 프레임 구성</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  "Manufacturing Database"에서 영국 제조업체 1,480개사 표본 확보. 대상 응답자는 혁신/R&D 및 엔지니어링 관리자. 계약 사용이 성숙한 법체계를 가진 영국을 조사 대상국으로 선정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.23, Section 4.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">응답자 프로젝트 선정 기준 및 배포</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  응답자가 직접 관여했고, 최근 5년 내 완료되었으며, 최소 1개 유형 이상의 외부 파트너가 관여한 신제품 개발(NPD) 프로젝트만 선택하도록 요청(서비스·프로세스 혁신 제외). 이메일로 1,480부 배포.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.23, Section 4.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">응답 회수 및 편향 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  211부 회수, 205부 유효(응답률 14%). 응답자·무응답자 간 프로젝트/기업 규모 비교로 무응답 편향 없음 확인(Armstrong &amp; Overton, 1977). 단일요인 vs 8요인 CFA 비교로 동일방법편향(CMB) 문제 없음 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.23, Section 4.1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">측정 문항 설계 및 CFA 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  모든 구성개념을 7점 Likert로 측정(기존 검증된 척도 응용). CFA 적합도(&chi;&sup2;/df=1.710, CFI=.92, TLI=.92, IFI=.93, RMSEA=.059), 표준화 적재값 &gt;0.50, Cronbach's &alpha; &gt;0.70 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.23–25, Section 4.2 &amp; 4.3, Table 1</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">이상치 제거 및 다중공선성 점검</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Cook's Distance로 이상치 2건 제거(205&rarr;203). Aiken and West (1991) 권고에 따라 상호작용항 계산 전 변수 평균중심화. VIF 1.08~2.52, 변수간 상관계수 대부분 &lt;0.80 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.25, Section 5</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">위계적 다중회귀분석 및 상호작용 시각화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Model 1(통제변수)&rarr;Model 2(주효과)&rarr;Model 3(2차 상호작용)&rarr;Model 4(3차 상호작용) 순으로 단계적 회귀분석 수행(R&sup2;=.612). 법적결속 강/약을 &plusmn;1SD로 정의(Cohen &amp; Cohen, 1975)하여 Fig.2·Fig.3로 시각화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.25–27, Section 5, Table 3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            척도 문항, Cronbach's α, CFA 적합도, 회귀분석 절차·계수가 투명하게 공개되어 통계적 절차의 재현은 가능하나, 원 데이터는 비공개("데이터는 기밀")이며 "Manufacturing Database"라는 특정 상업적 표본 프레임에 대한 접근이 필요해 동일 표본의 독자적 재현은 제한적입니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6.2 "Boundary conditions and future research", p.28)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>단일 국가·단일 산업 맥락:</strong> "Future research should compare our findings to other industries... and other countries (e.g., other legal and managerial practices... impact of a less mature legal system)" — 영국 제조업이라는 성숙한 법체계·특정 산업 맥락에 결과가 한정됨.
+              </li>
+              <li>
+                <strong>프로젝트 특정 단계 미분석:</strong> "we suggest future research into projects that implement OI for specific stages of rather than all stages of the project." — 프로젝트를 하나의 단위로만 다루었고 단계별 차이는 미반영.
+              </li>
+              <li>
+                <strong>횡단적 설문 데이터 의존:</strong> "This study leveraged mainly survey data... Future studies drawing more on scenario-based or field experiments, or longitudinal case studies, would further inform the literature." — 신뢰의 시간적 진화 과정은 다루지 못함.
+              </li>
+              <li>
+                <strong>단일 유형의 혁신만 검토:</strong> "we have examined one specific type of innovation, namely radical product innovation. Future research should examine... other types of innovation, such as incremental and process." — 프로세스 혁신 등은 제외됨.
+              </li>
+              <li>
+                <strong>초점기업의 단일 관점:</strong> "Future research could provide further insights by comparing the performance of the relationship... from the perspective of both the focal firm and (different) external partners." — 외부 파트너 관점의 만족도는 미측정.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">횡단적 설문·회고적 자기보고 설계를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 회고적 후광 효과 (역인과)</span>
+                <p class="text-sm text-slate-700">
+                  신뢰·법적결속·만족도가 모두 "완료된 지 5년 이내" 프로젝트에 대한 사후 회고로 측정되었다. 전반적 만족도가 높았던 응답자가 신뢰 수준도 더 높게 회고하는 <strong>halo effect</strong>가 있다면, "신뢰&rarr;만족"이 아니라 "만족&rarr;(신뢰에 대한 긍정적 회고)"의 역인과일 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 생존·선택 편향</span>
+                <p class="text-sm text-slate-700">
+                  응답자가 "직접 관여했고 완료된" 프로젝트만 표본이 되므로, 관계가 파탄나 응답자가 이직했거나 실패로 종료된 프로젝트는 체계적으로 배제되어 신뢰-만족도 관계가 실제보다 낙관적으로 편향되었을 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 단일 응답자 자기보고 한계</span>
+                <p class="text-sm text-slate-700">
+                  모든 변수가 한 명의 엔지니어링/혁신 관리자의 주관적 인식으로 측정됨. CMB 통계 검정은 분산 구조상의 문제만 포착할 뿐, 개인의 사회적 바람직성 편향이나 특정 파트너에 대한 개인적 호오는 통제하지 못한다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 법적 결속 조작화의 협소함</span>
+                <p class="text-sm text-slate-700">
+                  법적 결속을 "얼마나 상세·구속력 있는가"라는 단일 강도 척도로만 측정하여, 유연성 조항, IP 배분, 분쟁해결 메커니즘 등 계약의 다른 차원이 만족도에 미치는 차별적 영향은 포착하지 못한다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 낮은 응답률의 잔여 편향 위험</span>
+                <p class="text-sm text-slate-700">
+                  14%의 응답률은 저자들이 제시한 임계치(12%)를 근소하게 상회하는 수준으로, 초기/후기 응답자 비교만으로는 설문에 전혀 응하지 않은 86% 기업과의 체계적 차이를 완전히 배제하기 어렵다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 혁신성 측정의 사후합리화 가능성</span>
+                <p class="text-sm text-slate-700">
+                  혁신성(급진성) 역시 응답자의 회고적 평가로 측정되어, 프로젝트가 성공적(만족도 높음)이었기 때문에 제품을 사후적으로 더 "혁신적"이라 평가했을 가능성(사후합리화)을 배제하기 어렵다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Governing Open Innovation Projects: The Relationship Between the Use of Trust and Legal Bonds</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
