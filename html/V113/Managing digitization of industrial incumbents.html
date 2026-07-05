@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Managing digitization of industrial incumbents - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (Page flows naturally from here, no sticky/fixed navbar as requested) -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Digitization & Leadership</div>
+        <div class="badge badge-secondary text-white style-label">Incumbent Digital Transformation</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Managing digitization of industrial incumbents<br>
+            <span class="text-cyan-400">through innovation-oriented leadership</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Lukas Moschko, Vera Blažević
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            혁신 지향적 리더십을 통한<br>
+            <span class="text-indigo-300">산업 기성 기업의 디지털화 관리</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            독일 기계공업협회(VDMA) 최고 관리자 157개 사 설문조사 및 객관적 매출 성장 지표(Bureau van Dijk) 결합 실증 분석
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">기성 제조기업의 디지털 혁신은 리더의 직접 지시가 아닌, 부서 간 지식 결합과 외부 협력을 거쳐야만 비로소 매출 성장으로 귀결됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Industrial incumbents aim to foster their digitization by applying digital technologies in their innovation activities, either through process optimizations or via business model innovations. While firms agree on the importance of these digital innovation activities, they often struggle with implementing effective means to tackle it. We show the important role of innovation-oriented leadership in driving internal and external collaborations, which in turn prove essential to increase the digitization contribution to innovation activities. We surveyed top managers of established industrial companies to provide empirical evidence that innovation-oriented leadership does not have a direct influence on the digitization contribution to innovation activities, but is fully mediated by the impact of internal and external collaborations. Based on supplemental objective data, we show additionally that a high digitization contribution in business model innovation has a beneficial effect on firms’ sales performance."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "산업 기성 기업(incumbents)들은 프로세스 최적화(process optimizations) 또는 비즈니스 모델 혁신(business model innovations)을 통해 혁신 활동에 디지털 기술을 적용함으로써 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">디지털화</span>를 촉진하고자 한다. 기업들은 이러한 디지털 혁신 활동의 중요성에 동의하면서도, 이를 해결하기 위한 효과적인 수단을 실행하는 데 종종 어려움을 겪는다. 본 연구는 내부 및 외부 협력(internal and external collaborations)을 주도하는 데 있어 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">혁신 지향적 리더십</span>의 중요한 역할을 보여주며, 이는 결과적으로 혁신 활동에 대한 디지털화 기여도를 높이는 데 필수적임을 증명한다. 본 연구는 기성 산업 기업의 최고 관리자들을 대상으로 설문조사를 실시하여, 혁신 지향적 리더십이 혁신 활동에 대한 디지털화 기여도에 직접적인 영향을 미치지 않으며, 내부 및 외부 협력의 영향에 의해 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">완전 매개(fully mediated)</span>된다는 실증적 증거를 제공한다. 추가적인 객관적 데이터를 바탕으로, 비즈니스 모델 혁신에서의 높은 디지털화 기여도가 기업의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">매출 성과(sales performance)</span>에 유익한 영향을 미친다는 점을 추가로 보여준다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Glossary Table)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Industrial Incumbents</td>
+                  <td>산업 기성 기업 (기존 제조기업)</td>
+                  <td class="text-sm">스타트업과 대비하여 오랜 업력과 물리적 자산을 가졌으나 경로 의존성과 관성(Inertia)으로 기술 적응에 취약한 기존 제조 대기업들을 명명함.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Innovation-oriented Leadership</td>
+                  <td>혁신 지향적 리더십</td>
+                  <td class="text-sm">부하의 혁신 행동을 격려하고 가치를 인정하며 리더 스스로도 모범을 보이는 솔선수범형 변혁적 리더십의 세부 형태.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Business Model Innovation (BMI)</td>
+                  <td>비즈니스 모델 혁신</td>
+                  <td class="text-sm">디지털 기술을 활용한 스마트 제품화, 예지정비 솔루션 등 가치 제안 및 확보 메커니즘을 파괴적으로 혁신하는 행위.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Process Optimization (PO)</td>
+                  <td>프로세스 최적화</td>
+                  <td class="text-sm">생산 공정(스마트 공장 등), 백오피스 관리, 사내 소통의 효율화를 꾀하는 기존 비즈니스의 고도화 및 점진적 혁신.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Internal IT Expert Integration</td>
+                  <td>IT 전문가의 내부 통합</td>
+                  <td class="text-sm">조직 내부 R&D, 마케팅, 생산 등 전통적 부서의 개발팀에 IT 기술 전문가가 정합성 있게 포함되어 전략 의사결정에 기여하는 협업 체계.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">External Stakeholder Engagement</td>
+                  <td>외부 이해관계자 참여 (협력)</td>
+                  <td class="text-sm">파트너 네트워크(고객, 협력사)와의 지식 공유를 활성화하고, 위험과 가치를 합리적으로 분배하여 장기적 파트너십을 다지는 조율(오케스트레이션) 활동.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">리더십이 기존 제조업의 디지털 혁신에 기여하는 실질 경로가 무엇인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">직접 지시는 무효하며, 내·외부 협업을 장려해야 비로소 매개 효과가 작동한다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">경계 간 지식 통합의 중요성 실증 및 객관적 매출 성장 입증</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 기존 제조업에서 탑 리더의 혁신 리더십이 단순히 신기술 도입을 외치기만 하면 되는가? 실제로 기술이 프로세스(PO)와 비즈니스 모델(BMI)에 기여하도록 돕는 촉진 변수와 성과 동학은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> 혁신 지향적 리더십은 디지털 혁신에 미치는 직접 효과가 없습니다(H1a, H1b 기각). 오직 부서 간 <strong>IT 전문가 협력 통합(내부)</strong> 및 <strong>이해관계자 파트너십(외부)</strong>을 완벽히 이끌어내는 '완전 매개(Full Mediation)' 경로를 통해서만 혁신 가치가 발현됩니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 동적 역량 및 지식기반관점(KBV)을 토대로 디지털 전환에서의 리더십 경로 블랙박스를 해소했습니다. 또한, 디지털 성숙도가 낮은 기업은 외부 협력보다 내부 다기능 IT 협업 체계를 먼저 다져야 함을 제안합니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "기성 제조기업의 리더는 신기술에 직접 명령을 내리는 대신, 내부 IT 부서를 현업 혁신 팀에 정합시키고 외부 신뢰 생태계를 오케스트레이션하여 지식의 결합을 중개해야 디지털 혁신과 매출 성장을 달성할 수 있다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">리더십 직접 효과 부재 및 완전 매개 효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "...innovation-oriented leadership does not have a direct influence on the digitization contribution to innovation activities, but is fully mediated by the impact of internal and external collaborations." / "As the direct effect of innovation-oriented leadership on the digitization contribution to PO and to BMI both were insignificant, we obtain full mediation effects."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 236 (Sec. 4)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">내부 IT 전문가 통합의 유의한 매개 작용</td>
+                <td class="text-sm italic text-slate-600">
+                  "The indirect effects between innovation-oriented leadership and PO (β = 0.182; p &lt; 0.001) as well as BMI (β = 0.169; p &lt; 0.001) are positive and highly significant for the mediation with internal IT expert integration."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 236 (Sec. 4, Table 2)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">외부 파트너 조율 매개의 성숙도별 차별성</td>
+                <td class="text-sm italic text-slate-600">
+                  "For companies with a high degree of digitization, all these hypotheses (2a, 2b, 3a, 3b) were significant... on the other hand, for companies with a low level of digitization, we could confirm neither a mediated effect of innovation-oriented leadership via external stakeholder engagement..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 236 (Sec. 4.1, Table 3)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">BMI 디지털 기여의 객관적 매출 성장 입증</td>
+                <td class="text-sm italic text-slate-600">
+                  "...we observed that there is a significant positive relationship between companies with a high contribution of digitization in BMI and their sales performance (β = 0.326; p &lt; 0.05; f2 = 0.06)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 236-237 (Sec. 4.1)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 가설 모형)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 850 480" class="w-full h-auto">
+              <!-- Definition of marker for arrows -->
+              <defs>
+                <marker id="arrow-grey" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#94a3b8" />
+                </marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669" />
+                </marker>
+                <marker id="arrow-cyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0891b2" />
+                </marker>
+                <marker id="arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#d97706" />
+                </marker>
+                <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+                  <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.1" />
+                </filter>
+              </defs>
+
+              <rect x="5" y="5" width="840" height="470" rx="12" fill="#fafafa" stroke="#e2e8f0" stroke-width="1.5" />
+
+              <!-- Nodes -->
+              <!-- 1. Independent Variable (IV) -->
+              <g filter="url(#shadow)">
+                <rect x="25" y="195" width="200" height="70" rx="8" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2" />
+                <text x="125" y="225" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1e1b4b">혁신 지향적 리더십</text>
+                <text x="125" y="245" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4338ca">Innovation-oriented Leadership</text>
+              </g>
+
+              <!-- 2. Mediator 1 -->
+              <g filter="url(#shadow)">
+                <rect x="290" y="55" width="210" height="70" rx="8" fill="#d1fae5" stroke="#059669" stroke-width="2" />
+                <text x="395" y="85" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#064e3b">IT 전문가 내부 통합</text>
+                <text x="395" y="105" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#047857">Internal IT Expert Integration</text>
+              </g>
+
+              <!-- 3. Mediator 2 -->
+              <g filter="url(#shadow)">
+                <rect x="290" y="335" width="210" height="70" rx="8" fill="#cffafe" stroke="#0891b2" stroke-width="2" />
+                <text x="395" y="365" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#083344">외부 이해관계자 참여</text>
+                <text x="395" y="385" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#0e7490">External Stakeholder Engagement</text>
+              </g>
+
+              <!-- 4. Dependent Variable 1 -->
+              <g filter="url(#shadow)">
+                <rect x="580" y="55" width="230" height="70" rx="8" fill="#ffe4e6" stroke="#e11d48" stroke-width="2" />
+                <text x="695" y="85" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#4c0519">프로세스 최적화 기여도</text>
+                <text x="695" y="105" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#be123c">Digitization Contrib. to PO</text>
+              </g>
+
+              <!-- 5. Dependent Variable 2 -->
+              <g filter="url(#shadow)">
+                <rect x="580" y="335" width="230" height="70" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2" />
+                <text x="695" y="365" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1e3a8a">비즈니스 모델 혁신 기여도</text>
+                <text x="695" y="385" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#1d4ed8">Digitization Contrib. to BMI</text>
+              </g>
+
+              <!-- 6. Sales Performance -->
+              <g filter="url(#shadow)">
+                <rect x="580" y="195" width="230" height="70" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2" />
+                <text x="695" y="225" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#451a03">객관적 매출 성과</text>
+                <text x="695" y="245" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#b45309">Sales Growth (2017-2019)</text>
+              </g>
+
+              <!-- Paths -->
+              <!-- IV -> Med 1 -->
+              <path d="M 225 210 L 290 120" fill="none" stroke="#059669" stroke-width="2.5" marker-end="url(#arrow-green)" />
+              <text x="240" y="155" font-family="sans-serif" font-size="11" font-weight="bold" fill="#059669">β = 0.418***</text>
+
+              <!-- IV -> Med 2 -->
+              <path d="M 225 245 L 290 340" fill="none" stroke="#0891b2" stroke-width="2.5" marker-end="url(#arrow-cyan)" />
+              <text x="240" y="310" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0891b2">β = 0.396***</text>
+
+              <!-- Med 1 -> DV 1 -->
+              <path d="M 500 90 L 570 90" fill="none" stroke="#059669" stroke-width="2.5" marker-end="url(#arrow-green)" />
+              <text x="535" y="80" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#059669">H2a (+)</text>
+
+              <!-- Med 1 -> DV 2 -->
+              <path d="M 460 125 L 590 335" fill="none" stroke="#059669" stroke-width="2.5" marker-end="url(#arrow-green)" />
+              <text x="510" y="195" font-family="sans-serif" font-size="11" font-weight="bold" fill="#059669">H2b (+)</text>
+
+              <!-- Med 2 -> DV 1 -->
+              <path d="M 460 335 L 590 125" fill="none" stroke="#0891b2" stroke-width="2.5" marker-end="url(#arrow-cyan)" />
+              <text x="510" y="245" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0891b2">H3a (+)</text>
+
+              <!-- Med 2 -> DV 2 -->
+              <path d="M 500 370 L 570 370" fill="none" stroke="#0891b2" stroke-width="2.5" marker-end="url(#arrow-cyan)" />
+              <text x="535" y="360" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0891b2">H3b (+)*</text>
+
+              <!-- IV -> DV 1 (ns) -->
+              <path d="M 180 195 C 235 140, 500 35, 580 80" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow-grey)" />
+              <text x="270" y="65" font-family="sans-serif" font-size="11" fill="#64748b">H1a: β = 0.101 (n.s.)</text>
+
+              <!-- IV -> DV 2 (ns) -->
+              <path d="M 180 265 C 235 310, 500 445, 580 380" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow-grey)" />
+              <text x="270" y="435" font-family="sans-serif" font-size="11" fill="#64748b">H1b: β = -0.072 (n.s.)</text>
+
+              <!-- PO -> Sales (ns) -->
+              <path d="M 695 125 L 695 190" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow-grey)" />
+              <text x="705" y="155" font-family="sans-serif" font-size="11" fill="#64748b">β = -0.010 (n.s.)</text>
+
+              <!-- BMI -> Sales -->
+              <path d="M 695 335 L 695 270" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrow-amber)" />
+              <text x="705" y="305" font-family="sans-serif" font-size="12" font-weight="bold" fill="#d97706">β = 0.326*</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수</span>
+                <span class="text-xs text-slate-400 font-semibold">IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">혁신 지향적 리더십 (Innovation-oriented Leadership)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 부하직원의 혁신 마인드를 진작하고 자율성을 부여하며, 리더 스스로 새로운 성장의 모범을 행동으로 선도하는 리더십 성향.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 직원의 혁신 지원 격려, 혁신 성향에 대한 인정, 리더의 자기 혁신적 모범 행동 등 (7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> Stock & Zacharias (2011) / 3문항 (CR=0.949, AVE=0.861)</p>
+            </div>
+          </div>
+
+          <!-- MV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator 1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">IT 전문가 내부 통합 (Internal IT Expert Integration)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 사내 혁신 개발 활동 시 IT 전문 부서원이 전략 정의 및 팀 구성에서 타 부서원과 긴밀히 연계되어 의사결정에 기여하는 협업 수준.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> IT 전문가의 혁신 활동 전반 참여도, 개발 우선순위 협의 동참도, 혁신팀 내 조직적 대표성 등 (7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> Song & Parry (1997), De Luca & Gima (2007) / 3문항 (CR=0.961, AVE=0.892)</p>
+            </div>
+          </div>
+
+          <!-- MV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">매개변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator 2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">외부 이해관계자 참여 (External Stakeholder Engagement)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 외부 생태계 네트워크 구조를 기획하고 지식교환 촉진 및 공정한 분배를 통해 파트너들과 장기 신뢰 관계를 다지는 협력 기틀.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 혁신 네트워크 구조의 전략적 관리, 지식 유통 장려, 위험/기회의 공정 분배, 장기 신뢰 추구 정도 등 (7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> Dhanaraj & Parkhe (2006) / 4문항 (CR=0.866, AVE=0.620)</p>
+            </div>
+          </div>
+
+          <!-- DV 1 & 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수 1, 2</span>
+                <span class="text-xs text-slate-400 font-semibold">DVs</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">디지털화 기여도 (PO & BMI)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 디지털 신기술(IoT, 클라우드 등) 적용을 통한 생산·행정 효율 고도화(PO) 및 가치제안·수익원 다각화(BMI)의 기여 강도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 생산·행정 공정 자동화/협업화(PO), 지능형 제품 및 솔루션 개발 및 플랫폼 비즈니스 론칭 수준(BMI) 등 (7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> 자체 개발 및 선행 연구 결합 (PO: CR=0.882, AVE=0.714 / BMI: CR=0.905, AVE=0.762)</p>
+            </div>
+          </div>
+
+          <!-- post-hoc DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">사후 검증 종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Post-hoc DV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">객관적 매출 성과 (Sales Performance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 설문 조사의 주관적 응답 한계를 넘어 신빙성 있는 실증을 위해 매칭된 실제 기업의 3개년 매출 증가율.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 2017년부터 2019년까지 각 기업의 실제 매출 실적 변화율(%).</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> Markus Trade Register (Bureau van Dijk) 데이터베이스 매칭 (N=63)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 연구 모델 및 데이터 검증을 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">측정 도구 및 다항 척도 구성</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  혁신 지향적 리더십(IOL), 내부 IT 전문가 통합, 외부 이해관계자 협력 척도를 선행 학술지에서 역구조화하여 7점 Likert 스케일 설문 문항으로 구체화 및 번역 적용함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 235-236, Section 3.2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">제조 기성 기업 타겟 표본 추출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  독일의 대표적 기계공업협회(VDMA)에 등록된 기계 및 장비 제조업체들을 모집단 프레임워크로 설정하고, 최고 의사결정권자(CEOs, 대표이사)를 유효 응답자로 타겟팅함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 235, Section 3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">온라인 조사 실시 및 응답 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  이메일을 통해 온라인 설문을 배포하여 총 623명 중 157명의 유효 응답을 확보함(응답률 25.2%). 무응답 편향(Non-response bias) 방지를 위한 집단 간 특성 검정 수행.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 235, Section 3.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">외부 재무 정보 거래소 매칭</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  설문 참여 기업 식별 정보를 토대로 Moody's 산하 Markus Trade Register 디비에서 63개 사의 3개년 실제 매출 수치(2017-2019)를 추출하여 객관적 성장률 계산.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 235, Section 3.1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">신뢰성 및 판별 타당성 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Composite Reliability(CR), AVE, Fornell-Larcker 기준 검정 및 HTMT 비율 correlation을 계산해 판별 타당성을 최종 통과시킴. 요인 수준 VIF로 동일방법편향(CMB) 부재 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 235-236, Section 3.3 & Table 1</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">PLS-SEM 구조방정식 및 매개 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  SmartPLS 3 소프트웨어를 활용하여 10,000회 부트스트래핑 기반 구조적 경로 분석 및 매개 효과(IT 통합, 이해관계자 협력)의 유의값 도출(완전 매개 입증).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 236, Section 3.3 & Table 2</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">성숙도별 표본 분할 사후 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  디지털화 수준(Degree of Digitization) 중위수(x=15)를 기준으로 저그룹(N=81)과 고그룹(N=76)으로 서브 샘플을 나누어 구조 방정식을 재수행하고 결과를 대조함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 236, Section 4.1 & Table 3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            사용된 척도 문항 정보와 통계 분석 방법이 투명하게 명시되어 있어 도구 재구성이 용이하나, 응답을 준 VDMA 회원사 최고 관리자들의 원본 데이터 및 매칭에 사용된 외부 Markus Trade Register 상세 기업 매치 정보는 기밀(Confidential)로 묶여 있어 외래 연구자가 완전히 동일한 표본으로 검증 복제하는 것은 제약됩니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>횡단 연구 한계에 따른 인과성 확인 불가:</strong> 특정 시점에 이루어진 설문 응답(Cross-sectional data)을 통해 가설을 분석했기 때문에 모델이 가정한 방향의 종단적(Longitudinal)인 엄격한 인과성을 증명할 수는 없음.
+              </li>
+              <li>
+                <strong>생략된 매개 변수의 존재 가능성:</strong> 본 연구는 리더십과 디지털 성과 간의 매개자로 내부 IT 통합 및 외부 협력만을 모델링함. 기업의 사전 보유 지식(Prior knowledge)이나 비즈니스 유산(Corporate heritage)과 같이 경로 의존성을 일으킬 수 있는 다른 잠재 매개자들에 대한 추가 고려가 누락됨.
+              </li>
+              <li>
+                <strong>주관적 자기 설문 보고의 리스크:</strong> 최고 경영진의 주관적이고 인지적인 판단에 의존해 부서 간 협력 강도나 디지털화 기여도를 측정하였기 때문에, 실질 운영 수치와는 약간의 인지적 편향이 작용할 가능성이 있음.
+              </li>
+              <li>
+                <strong>독일 단일 국가 및 특정 제조업 집중:</strong> 독일 기계공업협회(VDMA) 소속의 기계 장비 제조업체들을 대상으로 표본이 고정되어 있어 타 국가나 서비스업 등의 이종 업계 생태계에 이 메커니즘을 섣불리 일반화하기 어려움.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 B2B 마케팅 관점을 기반으로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 매출 성장 지표 단일 사용의 결함</span>
+                <p class="text-sm text-slate-700">
+                  저자들은 프로세스 최적화(PO)의 디지털 기여가 매출 성장률(Sales Performance)에 효과가 없다고 단정함. 그러나 PO의 주목적은 매출 증대(Top-line)가 아닌 불량률 감소, 물류 최적화 등 <strong>비용 절감 및 효율화(Bottom-line)</strong>에 있음. 따라서 매출 증가율만이 아닌 영업이익률(Operating margin)이나 총자산이익률(ROA) 등 수익성/비용절감 지표를 결합하여 검증했어야 가설의 합당성을 제대로 검정할 수 있음.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 생존자 편향 (Survivor Bias)</span>
+                <p class="text-sm text-slate-700">
+                  설문 조사가 이루어진 2021년은 기성 제조업체들의 디지털 전환 성패가 이미 갈렸을 시기임. 혁신 리더십이나 디지털 전환에 실패하여 2020년 말 이전에 이미 파산했거나 VDMA 회원사 명부에서 제외된 '회복탄력성이 취약했던 실패 기업'들은 애초에 설문 샘플에서 탈락됨. 성공적으로 경영을 이어가는 생존 기업들의 데이터만 취합하여 편향이 내포되었을 위험이 큼.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. IT 전문가 통합의 질적 장애 요인 무시</span>
+                <p class="text-sm text-slate-700">
+                  논문은 IT 전문가가 회의에 참여하고 혁신팀에 배치되는 등의 물리적인 통합 구조(Representation)에만 천착함. 그러나 기성 제조업체 내에서 소프트웨어 전문가(IT)와 물리적 설비 설계자(전통 R&D) 간에는 심각한 언어적 격차와 부서 간 파워 게임(Tension)이 항시 수반됨. 이러한 질적인 지식 통합 프로세스의 어려움과 갈등 구조를 단순히 회업의 강도로 단순화하여 모형을 추상화한 것은 아쉬움.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 동시성 및 역인과관계 (Simultaneity Bias)</span>
+                <p class="text-sm text-slate-700">
+                  혁신 리더십이 협업 문화를 자극해 IT 통합을 이끌었다고 설정했으나, 실제 기성 기업 환경에서는 이미 내부적으로 IT 통합 솔루션 개발이 활발히 시도되거나 부서 간 자발적 커뮤니케이션이 성숙하여 리더(CEO)가 그 현장의 동력에서 영감을 얻어 거꾸로 "혁신 지향적 지지 선언 및 자기 모범행동"을 솔선수범하게 만드는 역인과성(Reverse causality)이 개입되었을 여지가 있음.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Managing digitization of industrial incumbents through innovation-oriented leadership</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

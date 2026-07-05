@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B2B Customer Journeys - IMM 2023 Research Brief</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+      border-left: 5px solid #3b82f6;
+      padding-left: 12px;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (Flows naturally from the top, no fixed navbar) -->
+  <header class="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white py-20 px-6 lg:px-12 relative overflow-hidden">
+    <!-- Abstract Vector Art Background representing customer journey path -->
+    <div class="absolute inset-0 opacity-15 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 200 C 150 400 350 -100 600 250 C 850 600 1050 50 1300 300 C 1550 550 1750 150 1900 350" stroke="#06b6d4" stroke-width="4" stroke-dasharray="10 10"/>
+        <circle cx="600" cy="250" r="12" fill="#4f46e5" filter="drop-shadow(0 0 8px rgba(79, 70, 229, 0.6))"/>
+        <circle cx="1300" cy="300" r="12" fill="#0d9488" filter="drop-shadow(0 0 8px rgba(13, 148, 136, 0.6))"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <span class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</span>
+        <span class="badge badge-outline border-indigo-400 text-indigo-300 style-label uppercase">B2B Customer Journey</span>
+        <span class="badge badge-secondary text-white style-label">Theoretical Synthesis</span>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8 mt-4">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            B2B customer journeys:<br>
+            <span class="text-cyan-400">Conceptualization and an integrative framework</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Arttu Purmonen, Elina Jaakkola, Harri Terho (University of Turku & Tampere University, Finland)
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-100 leading-tight border-none !pl-0">
+            B2B 고객 여정:<br>
+            <span class="text-indigo-300">개념화 및 통합 프레임워크</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            조직 구매 행동(OBB), 구매 및 사용 센터 구성원(BC/UC), 그리고 장기 비즈니스 관계적 맥락을 통합한 새로운 고객 중심적 여정 패러다임 제시
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300 mt-2">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">B2B 고객 여정은 구매 센터(Buying Center)와 사용 센터(Usage Center) 구성원들의 얽혀 있는 개별 경로들이며, 장기적 기업 관계의 지배를 받는 순환적 프로세스입니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-6 lg:px-12 py-16 flex-1 w-full flex flex-col gap-20">
+    
+    <!-- STEP 1 — Title & Abstract Translation -->
+    <section class="flex flex-col gap-8 bg-white p-8 lg:p-10 rounded-3xl shadow-sm border border-slate-100">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 1. 제목 및 초록 번역</h2>
+        <span class="badge badge-primary style-label uppercase text-white">Translation</span>
+      </div>
+      
+      <!-- Two-column Abstract Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-2">
+        <!-- English Abstract -->
+        <div class="bg-slate-50 p-6 rounded-2xl border-l-4 border-slate-400 flex flex-col gap-4">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+          <blockquote class="style-body text-slate-700 italic leading-relaxed">
+            "Marketing practitioners and consultants have widely adopted the concept of customer journeys for use in analyzing contemporary B2B customer behavior, but despite this concept's potential, research on B2B customer journeys remains in its infancy. This study conceptualizes the B2B customer journey by synthesizing research on customer journeys, B2B purchase processes and buying centers, and business relationships. The study contributes to the extant research by explicating the conceptual underpinnings and core elements of the B2B customer journey, as well as by providing a novel, customer-centric definition of the concept. The developed conceptual framework for B2B customer journeys connects the concept with goal-oriented buying and usage center members, placing equal importance on the purchase and usage stages of the journey and acknowledging its iterative nature and embeddedness in relationships. Thus, the conceptualization offers a comprehensive, up-to-date perspective on B2B customer behavior that is applicable in diverse areas of B2B marketing, such as customer experience management, digital marketing, sales, service management, and service design."
+          </blockquote>
+        </div>
+        <!-- Korean Translation -->
+        <div class="bg-cyan-50/40 p-6 rounded-2xl border-l-4 border-cyan-500 flex flex-col gap-4">
+          <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+          <blockquote class="style-body text-slate-800 leading-relaxed">
+            "마케팅 실무자와 컨설턴트들은 현대 B2B 고객 행동을 분석하기 위해 고객 여정(<span class="bg-cyan-100 px-1 font-semibold text-slate-950 rounded">customer journey</span>) 개념을 널리 도입해 왔으나, 이 개념의 잠재력에도 불구하고 B2B 고객 여정에 대한 연구는 아직 초기 단계에 머물러 있다. 본 연구는 고객 여정, B2B 구매 프로세스 및 구매 센터(<span class="bg-cyan-100 px-1 font-semibold text-slate-950 rounded">buying center</span>), 그리고 비즈니스 관계(<span class="bg-cyan-100 px-1 font-semibold text-slate-950 rounded">business relationships</span>)에 관한 연구를 통합함으로써 B2B 고객 여정을 개념화한다. 본 연구는 B2B 고객 여정의 개념적 기반(<span class="bg-cyan-100 px-1 font-semibold text-slate-950 rounded">conceptual underpinnings</span>)과 핵심 요소(<span class="bg-cyan-100 px-1 font-semibold text-slate-950 rounded">core elements</span>)를 규명하고, 개념에 대한 새롭고 고객 중심적인 정의를 제공함으로써 기존 연구에 기여한다. 개발된 B2B 고객 여정 개념적 프레임워크는 이 개념을 목표 지향적인 구매 및 사용 센터(<span class="bg-cyan-100 px-1 font-semibold text-slate-950 rounded">usage center</span>) 구성원들과 연결하며, 여정의 구매 및 사용 단계에 동일한 중요성을 부여하고 관계 내에서의 반복적 성격(<span class="bg-cyan-100 px-1 font-semibold text-slate-950 rounded">iterative nature</span>)과 임베디드성(<span class="bg-cyan-100 px-1 font-semibold text-slate-950 rounded">embeddedness</span>)을 인정한다. 따라서 이 개념화는 고객 경험 관리, 디지털 마케팅, 영업, 서비스 관리 및 서비스 디자인과 같은 B2B 마케팅의 다양한 분야에 적용할 수 있는 B2B 고객 행동에 대한 포괄적이고 최신의 관점을 제공한다."
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- Glossary Table -->
+      <div class="mt-6">
+        <h4 class="style-h3 text-slate-800 mb-4">핵심 번역 용어 사전</h4>
+        <div class="overflow-x-auto border border-slate-200 rounded-xl">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-100 text-slate-800">
+                <th class="w-1/4">원문 용어 (EN)</th>
+                <th class="w-1/4">한국어 번역</th>
+                <th class="w-2/4">번역 선택 이유 및 학술적 해설</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-bold text-slate-950">Customer Journey</td>
+                <td>고객 여정</td>
+                <td class="text-sm">학계와 실무에서 널리 합의된 번역어로, 고객이 제품/서비스를 탐색하고 구매하여 사용하는 전주기적 경로를 의미합니다.</td>
+              </tr>
+              <tr>
+                <td class="font-bold text-slate-950">Buying Center</td>
+                <td>구매 센터</td>
+                <td class="text-sm">의사결정자, 구매담당자, 인플루언서 등 조직적 구매 결정을 주도하는 공식/비공식적 다수 행위자 집단입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-bold text-slate-950">Usage Center</td>
+                <td>사용 센터</td>
+                <td class="text-sm">구매된 제품/솔루션을 현업에서 실제 작동하고 활용하여 기업적 가치를 만들어내는 현업 실무자 및 엔지니어 집단입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-bold text-slate-950">Value-in-use</td>
+                <td>사용 가치 / 사용 중 가치</td>
+                <td class="text-sm">단순 구매 소유 가치와 구별하여, 솔루션을 일상 업무 프로세스에 가동하면서 느끼는 경험적 가치(S-D Logic)입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-bold text-slate-950">Embeddedness</td>
+                <td>임베디드성 (관계 내재성)</td>
+                <td class="text-sm">B2B 여정이 일회성 교환에 그치지 않고 장기적인 파트너십과 거래의 역사(Relationship History) 속에 깊이 얽혀 있는 상태입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-bold text-slate-950">Direct &amp; Indirect Touchpoint</td>
+                <td>직접 및 간접 터치포인트</td>
+                <td class="text-sm">공급업체가 제어 가능한 소통 채널(직접)과 제3자 커뮤니티, 소셜 포럼, 동료 평판 등 공급업체 통제 밖의 채널(간접)의 구분입니다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2 — Core Claims (1-minute explanation) -->
+    <section class="flex flex-col gap-8 bg-white p-8 lg:p-10 rounded-3xl shadow-sm border border-slate-100">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+        <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+      </div>
+      
+      <div class="flex flex-col lg:flex-row gap-8 items-stretch mt-2">
+        <!-- Steps Visualization -->
+        <ul class="steps steps-vertical w-full lg:w-1/3 flex-shrink-0 bg-slate-50 p-6 rounded-2xl border border-slate-100">
+          <li class="step step-primary" data-content="Q">
+            <div class="text-left pl-4 py-2">
+              <span class="style-label text-slate-400 uppercase">Research Question</span>
+              <p class="font-bold text-slate-800">B2B 고객 여정의 고유한 개념 모델은 무엇인가?</p>
+            </div>
+          </li>
+          <li class="step step-primary" data-content="F">
+            <div class="text-left pl-4 py-2">
+              <span class="style-label text-slate-400 uppercase">Key Finding</span>
+              <p class="font-bold text-slate-800">BC/UC 구성원의 얽힌 경로와 관계 이력의 상호작용</p>
+            </div>
+          </li>
+          <li class="step step-primary" data-content="C">
+            <div class="text-left pl-4 py-2">
+              <span class="style-label text-slate-400 uppercase">Contribution</span>
+              <p class="font-bold text-slate-800">구매와 사용의 대등한 통합 및 무한 순환 루프 규명</p>
+            </div>
+          </li>
+        </ul>
+        
+        <!-- Detailed Text Card -->
+        <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50/50 p-6 lg:p-8 rounded-2xl border border-slate-200">
+          <div>
+            <h4 class="style-h3 text-slate-900 mb-4">학술적 논리 흐름 디코딩</h4>
+            <ul class="list-none space-y-4 text-slate-700 style-body">
+              <li class="flex gap-2">
+                <span class="text-cyan-500 font-bold">1.</span>
+                <span><strong>연구 질문:</strong> B2C와 달리 다수의 행위자가 개입하고, 장기적인 기업 간 관계 역사가 있으며, 단순 거래보다 설치 및 유지보수(사용)가 중요한 B2B 도메인에 적합한 고객 여정의 통합 프레임워크는 어떻게 구성되는가?</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-cyan-500 font-bold">2.</span>
+                <span><strong>핵심 발견:</strong> B2B 고객 여정은 <strong>구매 센터(BC)와 사용 센터(UC) 구성원들의 서로 얽혀 있고(intertwined) 목표 지향적인 개별 경로들의 조합</strong>이다. 이 경로는 공급업체가 직접 통제할 수 없는 간접 접점을 포괄하며, 장기 거래 역사에 의해 형성된 신뢰/유대와 같은 관계 분위기(atmosphere)의 큰 영향을 받는다.</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-cyan-500 font-bold">3.</span>
+                <span><strong>이론적 기여:</strong> 기존 거래 위주 모델에서 벗어나 <strong>구매(Need-Search-Comparison-Selection)와 사용(Deployment-Usage-Maintenance-Reassessment)의 전 과정을 무한 순환 루프로 개념화</strong>하여 B2B 고객 행동 이론의 지평을 전주기적으로 확장했다.</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- 1-line summary block -->
+          <div class="bg-gradient-to-r from-indigo-900 to-slate-900 text-indigo-100 p-5 rounded-xl shadow-md border-l-4 border-cyan-400">
+            <p class="style-label text-cyan-400 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+            <p class="style-body font-bold mt-1 text-slate-100">
+              "B2B 고객 여정은 관계적 맥락 속에서 구매 센터와 사용 센터의 개별 행위자들이 공유 및 개별 목표를 달성해 나가는 다차원적이고 반복적인 공동의 경로이다."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 3 — Claims and Evidence Table -->
+    <section class="flex flex-col gap-8 bg-white p-8 lg:p-10 rounded-3xl shadow-sm border border-slate-100">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+        <span class="badge badge-accent style-label uppercase text-slate-900">Evidence</span>
+      </div>
+      
+      <p class="style-body text-slate-600">
+        연구의 타당성을 입증하기 위해 논문의 핵심 주장별 원문 인용(Quotes)과 정확한 텍스트 위치를 연계했습니다.
+      </p>
+
+      <div class="overflow-x-auto border border-slate-200 rounded-xl shadow-inner">
+        <table class="table table-zebra w-full text-slate-700">
+          <thead>
+            <tr class="bg-slate-900 text-white">
+              <th class="w-12">#</th>
+              <th class="w-1/4">핵심 주장 (Claim)</th>
+              <th class="w-1/2">원문 근거 (Original Quote)</th>
+              <th class="w-1/6 text-right">원문 위치</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="font-bold text-slate-950">다수 구성원의 얽히고 상충하는 경로의 복합성</td>
+              <td class="text-sm italic text-slate-600">
+                "...the B2B customer journey is a complex entity that involves multiple intertwined paths by diverse organizational members, driven by their partly uniform but sometimes partly conflicting goals..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 4, Section 2.1</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="font-bold text-slate-950">구매(Purchase)와 사용(Usage) 단계의 동등한 비중</td>
+              <td class="text-sm italic text-slate-600">
+                "...the developed conceptualization highlights the purchase and usage stages as equally important elements of the B2B customer journey. These stages include steps, the number and depth of which are likely to differ depending on the complexity of the purchase task."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 10, Table 3</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="font-bold text-slate-950">여정의 순환적 및 반복적인 성격 (무한 루프)</td>
+              <td class="text-sm italic text-slate-600">
+                "Given that purchases addressing organizational and individual goals tend to recur, the process is depicted as an infinite loop, in which the usage stage ends with a reassessment that may initiate a new purchase cycle."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 8, Section 3.2</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="font-bold text-slate-950">공급업체 관측 시야의 한계성 (파편성)</td>
+              <td class="text-sm italic text-slate-600">
+                "Although suppliers can apply the developed framework to guide their customer journey analysis, we note that one supplier's view of a customer journey will inevitably remain incomplete, because suppliers can only obtain data and insights from some of the touchpoints..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 8, Section 3.3</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="font-bold text-slate-950">관계 역사 및 신뢰가 터치포인트에 주는 영향</td>
+              <td class="text-sm italic text-slate-600">
+                "...the interactions forming journey touchpoints with a certain supplier are affected by the interaction history, the bonds and routines formed affect B2B customer journeys." / "...trust between a supplier and customer is likely to affect interactions at touchpoints, as trust may reduce the customer's cognitive effort..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 6, Sec. 2.3 / Page 6-7, Sec. 3.1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- STEP 4 — Research Model & Variables Detailed Analysis -->
+    <section class="flex flex-col gap-8 bg-white p-8 lg:p-10 rounded-3xl shadow-sm border border-slate-100">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 핵심 구성 개념 분석</h2>
+        <span class="badge badge-info style-label text-slate-900 uppercase">Model &amp; Variables</span>
+      </div>
+      
+      <!-- Research Model SVG Block -->
+      <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col gap-6 items-center">
+        <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Integrative B2B Customer Journey Framework (통합 개념도)</h3>
+        
+        <div class="w-full bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+          <svg viewBox="0 0 900 520" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <marker id="arrow-html" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#475569" />
+              </marker>
+              <marker id="indigo-arrow-html" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#4f46e5" />
+              </marker>
+              <marker id="teal-arrow-html" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0d9488" />
+              </marker>
+            </defs>
+
+            <!-- Relational Context Box -->
+            <rect x="20" y="70" width="860" height="430" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="6 4" />
+            <text x="40" y="95" fill="#475569" font-family="sans-serif" font-size="14" font-weight="bold">관계적 맥락 (Relational Context)</text>
+            <text x="40" y="115" fill="#64748b" font-family="sans-serif" font-size="11">거래 역사 (History) · 관계 분위기 (Atmosphere: 신뢰, 몰입) · 표준화된 루틴 및 유대</text>
+
+            <!-- Goals Box (Top) -->
+            <rect x="250" y="10" width="400" height="50" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="2" />
+            <text x="450" y="32" text-anchor="middle" fill="#92400e" font-family="sans-serif" font-size="14" font-weight="bold">조직적 및 개인적 목표 (Organizational &amp; Individual Goals)</text>
+            <text x="450" y="48" text-anchor="middle" fill="#b45309" font-family="sans-serif" font-size="11">상위/하위 수준 목표들의 정렬 및 갈등 구조</text>
+
+            <!-- Buying & Usage Center Box (Bottom) -->
+            <rect x="250" y="445" width="400" height="50" rx="10" fill="#faf5ff" stroke="#9333ea" stroke-width="2" />
+            <text x="450" y="468" text-anchor="middle" fill="#6b21a8" font-family="sans-serif" font-size="14" font-weight="bold">구매 &amp; 사용 센터 구성원 (Buying &amp; Usage Center)</text>
+            <text x="450" y="484" text-anchor="middle" fill="#8b5cf6" font-family="sans-serif" font-size="11">다수 의사결정 주체들의 얽혀 있는 개별 경로 (Intertwined Paths)</text>
+
+            <!-- Purchase Stage Box -->
+            <rect x="40" y="140" width="360" height="230" rx="12" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2" />
+            <text x="220" y="165" text-anchor="middle" fill="#1e1b4b" font-family="sans-serif" font-size="15" font-weight="bold">구매 단계 (Purchase Stage)</text>
+            
+            <g transform="translate(60, 185)">
+              <rect x="0" y="0" width="140" height="50" rx="6" fill="#ffffff" stroke="#818cf8" stroke-width="1.5" />
+              <text x="70" y="22" text-anchor="middle" fill="#312e81" font-family="sans-serif" font-size="12" font-weight="bold">1. 필요 인식</text>
+              <text x="70" y="38" text-anchor="middle" fill="#4f46e5" font-family="sans-serif" font-size="10">Need Recognition</text>
+              
+              <rect x="180" y="0" width="140" height="50" rx="6" fill="#ffffff" stroke="#818cf8" stroke-width="1.5" />
+              <text x="250" y="22" text-anchor="middle" fill="#312e81" font-family="sans-serif" font-size="12" font-weight="bold">2. 정보 검색</text>
+              <text x="250" y="38" text-anchor="middle" fill="#4f46e5" font-family="sans-serif" font-size="10">Info Search</text>
+
+              <rect x="0" y="90" width="140" height="50" rx="6" fill="#ffffff" stroke="#818cf8" stroke-width="1.5" />
+              <text x="70" y="22" text-anchor="middle" fill="#312e81" font-family="sans-serif" font-size="12" font-weight="bold">3. 대안 비교</text>
+              <text x="70" y="38" text-anchor="middle" fill="#4f46e5" font-family="sans-serif" font-size="10">Comparison</text>
+
+              <rect x="180" y="90" width="140" height="50" rx="6" fill="#ffffff" stroke="#818cf8" stroke-width="1.5" />
+              <text x="250" y="22" text-anchor="middle" fill="#312e81" font-family="sans-serif" font-size="12" font-weight="bold">4. 공급업체 선택</text>
+              <text x="250" y="38" text-anchor="middle" fill="#4f46e5" font-family="sans-serif" font-size="10">Selection</text>
+              
+              <path d="M 140 25 L 180 25" fill="none" stroke="#4f46e5" stroke-width="1.5" marker-end="url(#indigo-arrow-html)" />
+              <path d="M 250 50 L 250 70 L 70 70 L 70 90" fill="none" stroke="#4f46e5" stroke-width="1.5" marker-end="url(#indigo-arrow-html)" />
+              <path d="M 140 115 L 180 115" fill="none" stroke="#4f46e5" stroke-width="1.5" marker-end="url(#indigo-arrow-html)" />
+            </g>
+
+            <!-- Usage Stage Box -->
+            <rect x="500" y="140" width="360" height="230" rx="12" fill="#ccfbf1" stroke="#0d9488" stroke-width="2" />
+            <text x="680" y="165" text-anchor="middle" fill="#042f2e" font-family="sans-serif" font-size="15" font-weight="bold">사용 단계 (Usage Stage)</text>
+
+            <g transform="translate(520, 185)">
+              <rect x="0" y="0" width="140" height="50" rx="6" fill="#ffffff" stroke="#2dd4bf" stroke-width="1.5" />
+              <text x="70" y="22" text-anchor="middle" fill="#0f766e" font-family="sans-serif" font-size="12" font-weight="bold">5. 도입 및 설치</text>
+              <text x="70" y="38" text-anchor="middle" fill="#0d9488" font-family="sans-serif" font-size="10">Deployment</text>
+
+              <rect x="180" y="0" width="140" height="50" rx="6" fill="#ffffff" stroke="#2dd4bf" stroke-width="1.5" />
+              <text x="250" y="22" text-anchor="middle" fill="#0f766e" font-family="sans-serif" font-size="12" font-weight="bold">6. 실제 사용</text>
+              <text x="250" y="38" text-anchor="middle" fill="#0d9488" font-family="sans-serif" font-size="10">Usage</text>
+
+              <rect x="0" y="90" width="140" height="50" rx="6" fill="#ffffff" stroke="#2dd4bf" stroke-width="1.5" />
+              <text x="70" y="22" text-anchor="middle" fill="#0f766e" font-family="sans-serif" font-size="12" font-weight="bold">7. 유지보수/보완</text>
+              <text x="70" y="38" text-anchor="middle" fill="#0d9488" font-family="sans-serif" font-size="10">Maintenance</text>
+
+              <rect x="180" y="90" width="140" height="50" rx="6" fill="#ffffff" stroke="#2dd4bf" stroke-width="1.5" />
+              <text x="250" y="22" text-anchor="middle" fill="#0f766e" font-family="sans-serif" font-size="12" font-weight="bold">8. 재평가</text>
+              <text x="250" y="38" text-anchor="middle" fill="#0d9488" font-family="sans-serif" font-size="10">Reassessment</text>
+
+              <path d="M 140 25 L 180 25" fill="none" stroke="#0d9488" stroke-width="1.5" marker-end="url(#teal-arrow-html)" />
+              <path d="M 250 50 L 250 70 L 70 70 L 70 90" fill="none" stroke="#0d9488" stroke-width="1.5" marker-end="url(#teal-arrow-html)" />
+              <path d="M 140 115 L 180 115" fill="none" stroke="#0d9488" stroke-width="1.5" marker-end="url(#teal-arrow-html)" />
+            </g>
+
+            <!-- Loop Connections -->
+            <path d="M 400 300 L 500 300" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow-html)" />
+            <text x="450" y="290" text-anchor="middle" fill="#475569" font-family="sans-serif" font-size="11" font-weight="bold">도입 실행</text>
+
+            <path d="M 750 370 L 750 400 L 150 400 L 150 370" fill="none" stroke="#475569" stroke-width="2.5" stroke-dasharray="4 2" marker-end="url(#arrow-html)" />
+            <text x="450" y="415" text-anchor="middle" fill="#475569" font-family="sans-serif" font-size="12" font-weight="bold">로열티 루프 / 재평가를 통한 새로운 필요 촉발 (Loyalty Loop)</text>
+
+            <!-- Driver Arrows -->
+            <path d="M 450 60 L 450 130" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-html)" />
+            <text x="460" y="100" fill="#92400e" font-family="sans-serif" font-size="12" font-weight="bold">의사결정 드라이버</text>
+
+            <path d="M 450 445 L 450 380" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-html)" />
+            
+            <!-- Overlays -->
+            <rect x="415" y="145" width="70" height="40" rx="4" fill="#ffffff" stroke="#3b82f6" stroke-width="1" />
+            <text x="450" y="162" text-anchor="middle" fill="#1d4ed8" font-family="sans-serif" font-size="10" font-weight="bold">직접 접점</text>
+            <text x="450" y="176" text-anchor="middle" fill="#1e40af" font-family="sans-serif" font-size="8">영업, 웹, 세미나</text>
+
+            <rect x="415" y="200" width="70" height="40" rx="4" fill="#ffffff" stroke="#f43f5e" stroke-width="1" />
+            <text x="450" y="217" text-anchor="middle" fill="#be123c" font-family="sans-serif" font-size="10" font-weight="bold">간접 접점</text>
+            <text x="450" y="231" text-anchor="middle" fill="#9f1239" font-family="sans-serif" font-size="8">구전, 포럼, 리뷰</text>
+
+            <rect x="730" y="80" width="130" height="50" rx="6" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1" />
+            <text x="795" y="100" text-anchor="middle" fill="#334155" font-family="sans-serif" font-size="11" font-weight="bold">조절변수: 구매 상황</text>
+            <text x="795" y="115" text-anchor="middle" fill="#475569" font-family="sans-serif" font-size="9">(신규/수정/단순 재구매)</text>
+            <path d="M 730 105 L 680 105 L 680 135" fill="none" stroke="#64748b" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-html)" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Variables Detail Cards -->
+      <div class="mt-4 flex flex-col gap-6">
+        <h3 class="style-h3 text-slate-900 border-b pb-2">핵심 프레임워크 구성요소 디테일 분석</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Card 1 -->
+          <div class="card bg-slate-50 border border-slate-200 shadow-xs">
+            <div class="card-body p-6 flex flex-col gap-3">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-purple-500"></span>
+                <h4 class="card-title text-slate-800 font-bold">BC &amp; UC 구성원의 개별 경로</h4>
+              </div>
+              <p class="text-sm text-slate-600"><span class="font-semibold text-slate-800">개념적 정의:</span> 제품/서비스의 구매(구매 센터, BC) 및 사용(사용 센터, UC)에 참여하는 개별 조직원들의 독자적이면서도 상호 얽혀 있는 상호작용 경로.</p>
+              <p class="text-sm text-slate-600"><span class="font-semibold text-slate-800">측정 도구:</span> 개별 심층 인터뷰, 종단적 다수 행위자 추적 조사, CRM 소셜 네트워크 분석(Johnston &amp; Bonoma, 1981b; Macdonald et al., 2016).</p>
+              <p class="text-sm text-slate-500 bg-white p-3 rounded-lg border border-slate-100"><span class="font-semibold">이론적 맥락:</span> B2B 고객 여정을 개별 소비자 수준이 아닌 다수 행위자(Multi-Actor) 협력 경로로 이해하기 위해 Buying Center 및 Usage Center 이론을 결합하여 분석을 정교화함.</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card bg-slate-50 border border-slate-200 shadow-xs">
+            <div class="card-body p-6 flex flex-col gap-3">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                <h4 class="card-title text-slate-800 font-bold">조직적 및 개인적 목표</h4>
+              </div>
+              <p class="text-sm text-slate-600"><span class="font-semibold text-slate-800">개념적 정의:</span> 여정을 추진하는 동인. 조직적 합리성 목표(예: 마진 확보, 생산 시간 단축)와 개인적 동기 목표(예: 업무의 용이성, 조직 평판)로 구성됨.</p>
+              <p class="text-sm text-slate-600"><span class="font-semibold text-slate-800">측정 도구:</span> 목표 위계 매핑(Goal Hierarchy Mapping), 수단-목적 사슬 분석(Means-end chain), 구매 페르소나 설정 (Becker &amp; Jaakkola, 2020).</p>
+              <p class="text-sm text-slate-500 bg-white p-3 rounded-lg border border-slate-100"><span class="font-semibold">이론적 맥락:</span> 구매 담당자와 엔지니어 간의 우선순위 갈등 등 부서 간 목표의 충돌이 여정의 복잡성을 키우는 구조적 메커니즘을 밝혀냄.</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card bg-slate-50 border border-slate-200 shadow-xs">
+            <div class="card-body p-6 flex flex-col gap-3">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+                <h4 class="card-title text-slate-800 font-bold">직접 및 간접 터치포인트</h4>
+              </div>
+              <p class="text-sm text-slate-600"><span class="font-semibold text-slate-800">개념적 정의:</span> 고객이 공급사 표현물과 접촉하는 지점. 공급업체가 제어 가능한 직접 접점과 제어 밖의 간접 접점(동료 구전, 소셜 평판 등)으로 나하어짐.</p>
+              <p class="text-sm text-slate-600"><span class="font-semibold text-slate-800">측정 도구:</span> 웹로그 다채널 기여도 분석(Attribution modeling), 소셜 포럼 감성 검색, 터치포인트 품질 매핑(Lemke et al., 2011; Lemon &amp; Verhoef, 2016).</p>
+              <p class="text-sm text-slate-500 bg-white p-3 rounded-lg border border-slate-100"><span class="font-semibold">이론적 맥락:</span> B2B 마케팅 환경에서 정보 접근성의 향상으로 인해 공급사 통제가 미치지 않는 외부 및 소셜 접점(간접 접점)의 전략적 중요성이 대두됨.</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card bg-slate-50 border border-slate-200 shadow-xs">
+            <div class="card-body p-6 flex flex-col gap-3">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-slate-600"></span>
+                <h4 class="card-title text-slate-800 font-bold">관계적 맥락 (Relational Context)</h4>
+              </div>
+              <p class="text-sm text-slate-600"><span class="font-semibold text-slate-800">개념적 정의:</span> 기업 간에 기존 형성된 상호작용의 분위기, 거래 역사, 상호 의존성 및 신뢰/몰입의 상태.</p>
+              <p class="text-sm text-slate-600"><span class="font-semibold text-slate-800">측정 도구:</span> Morgan &amp; Hunt(1994)의 신뢰-몰입 척도, IMP 그룹 상호작용 지표(Håkansson, 1982).</p>
+              <p class="text-sm text-slate-500 bg-white p-3 rounded-lg border border-slate-100"><span class="font-semibold">이론적 맥락:</span> B2B 여정은 단절된 사건이 아니라, 이전 거래 성과가 남긴 신뢰와 루틴의 틀 내에서 작동하여 인지적 노력과 위험 인식을 줄이는 관계 지배 구조를 지님.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 5 — Method Replication Steps -->
+    <section class="flex flex-col gap-8 bg-white p-8 lg:p-10 rounded-3xl shadow-sm border border-slate-100">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 5. 방법론 재현 절차 (Replication Guide)</h2>
+        <span class="badge badge-warning style-label uppercase text-slate-900">Methodology</span>
+      </div>
+      
+      <p class="style-body text-slate-600">
+        본 논문은 실증 수치 분석 대신 문헌을 합성하는 <strong>개념 연구(Conceptual Theory Synthesis)</strong> 방법론을 활용했습니다. 본 절차는 타 연구자가 동일한 설계를 타 도메인에 적용하여 재현할 수 있는 지침을 제공합니다.
+      </p>
+
+      <!-- Step Timeline -->
+      <div class="relative pl-6 border-l-2 border-slate-200 flex flex-col gap-8 my-4">
+        <!-- Step 1 -->
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-indigo-600 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold text-xs">1</div>
+          <h4 class="font-bold text-slate-900">B2B 고객 여정의 학술적 한계 제기 및 문제 정의</h4>
+          <p class="text-sm text-slate-600 mt-1">B2C 중심의 1인 선형 여정 패러다임이 B2B 특성(의사결정 복잡성, 장기 관계)을 수용하지 못하는 학술적 갭을 정의합니다.</p>
+          <span class="text-xs text-slate-400 font-semibold">위치: 1. Introduction</span>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-indigo-600 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold text-xs">2</div>
+          <h4 class="font-bold text-slate-900">3대 인접 학문 문헌의 입체적 이론 합성</h4>
+          <p class="text-sm text-slate-600 mt-1">고객 여정 연구, 조직 구매 행동(OBB/Buying Center/Usage Center), 관계 마케팅(IMP Group) 이론을 기반으로 B2B 여정의 핵심 구성 빌딩 블록을 추출합니다.</p>
+          <span class="text-xs text-slate-400 font-semibold">위치: 2. Foundations for understanding B2B customer journeys (Section 2.1 - 2.3)</span>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-indigo-600 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold text-xs">3</div>
+          <h4 class="font-bold text-slate-900">통합 B2B 고객 여정 프레임워크 모델링</h4>
+          <p class="text-sm text-slate-600 mt-1">구매의 4단계(필요-검색-비교-선택)와 사용의 4단계(도입-사용-유지보수-재평가)를 대등하게 배치한 순환 루프 프레임워크와 다자간 공급망 접점 경로 모델을 구축합니다.</p>
+          <span class="text-xs text-slate-400 font-semibold">위치: 3. Synthesis: a framework for B2B customer journeys (Section 3.1 - 3.3)</span>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-indigo-600 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold text-xs">4</div>
+          <h4 class="font-bold text-slate-900">가상 사례 시나리오 적용 및 타당성 분석</h4>
+          <p class="text-sm text-slate-600 mt-1">가상의 무선 기지국 모바일 기업인 'Alpha-Mobile' 시나리오를 설계하고, 마이크로프로세서 공급사 간의 다원적 경쟁 상황 및 사용 단계 피드백 루프를 모의 적용하여 모델 작동 기제를 매핑합니다.</p>
+          <span class="text-xs text-slate-400 font-semibold">위치: 4. Case illustration</span>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="relative">
+          <div class="absolute -left-[31px] top-1 bg-indigo-600 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold text-xs">5</div>
+          <h4 class="font-bold text-slate-900">학술적 후속 아젠다 및 마케팅 전략 가이드라인 도출</h4>
+          <p class="text-sm text-slate-600 mt-1">상황적 조절 요인(구매 복잡성)에 따른 여정 Typology 구축 방안 및 타깃 세분화 전략을 이론/실무적으로 정리하여 발표합니다.</p>
+          <span class="text-xs text-slate-400 font-semibold">위치: 5. Contributions and implications</span>
+        </div>
+      </div>
+
+      <!-- Feasibility Assessment Banner -->
+      <div class="alert alert-warning flex flex-col md:flex-row gap-4 items-start md:items-center bg-amber-50 border border-amber-200 text-slate-800 p-6 rounded-2xl">
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-600 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+        <div>
+          <h5 class="font-bold text-amber-800 style-body-large">재현 가능성 판정: 부분 재현 가능 (Partially Replicable)</h5>
+          <p class="style-small mt-1 text-slate-700 leading-relaxed">
+            본 연구는 개념 합성에 기반한 이론 모델 연구이므로, 연구가 제안한 논리적 도출 흐름 및 가상 시나리오 분석 구조는 다른 B2B 산업 도메인(예: 기계 설비 구매, IT 클라우드 마이그레이션 서비스)에 그대로 이식하여 개념적으로 재현하는 것이 매우 원활합니다. 다만, 정량적 통계 데이터 및 측정 모형이 부재하므로 실제 수치적 분석의 완벽한 기계적 재현은 불가능하며, 향후 실증 검증을 위해서는 연구자가 직접 질적 인터뷰나 설문 조사 설계를 보완해야 합니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 6 — Limitations -->
+    <section class="flex flex-col gap-8 bg-white p-8 lg:p-10 rounded-3xl shadow-sm border border-slate-100">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 6. 한계점 및 비판적 분석 (Limitations &amp; Critiques)</h2>
+        <span class="badge badge-error style-label uppercase text-white">Limitations</span>
+      </div>
+      
+      <div class="flex flex-col gap-6 mt-2">
+        <h3 class="style-h3 text-slate-800">A. 저자가 인정한 학술적 한계 (Admitted Limitations)</h3>
+        
+        <!-- Collapse 1 -->
+        <div class="collapse collapse-arrow bg-slate-50 border border-slate-200 rounded-xl">
+          <input type="checkbox" /> 
+          <div class="collapse-title font-bold text-slate-800">
+            1. 실증 데이터 검증의 부재 (Lack of primary empirical data)
+          </div>
+          <div class="collapse-content text-sm text-slate-600">
+            <p class="mb-2"><span class="font-semibold text-slate-800">원문 위치:</span> Page 12, Section 5.3 ("The key limitation of this study is the lack of primary empirical data...")</p>
+            <p>본 연구는 개념 합성 방식으로 전개되어 풍부한 기존 이론적 근거를 바탕으로 모델을 수립했으나, 이를 직접 증명할 현장 수치 분석이나 데이터 기반 실증적 분석 검증이 결여되어 있는 한계가 있습니다.</p>
+          </div>
+        </div>
+
+        <!-- Collapse 2 -->
+        <div class="collapse collapse-arrow bg-slate-50 border border-slate-200 rounded-xl">
+          <input type="checkbox" /> 
+          <div class="collapse-title font-bold text-slate-800">
+            2. 세부 이론적 통찰력의 희석 (Delimitation of detailed insights)
+          </div>
+          <div class="collapse-content text-sm text-slate-600">
+            <p class="mb-2"><span class="font-semibold text-slate-800">원문 위치:</span> Page 12, Section 5.3 ("...as our aim was to build a general framework, we could not include much of the detailed insights offered by the studies in the three research areas from which we drew.")</p>
+            <p>B2B 고객 여정의 표준적이고 보편적인 프레임워크 설계를 핵심 목표로 설정함에 따라, 각 참조 분야(구매 행동, 비즈니스 관계망, 고객 경험)가 가지고 있는 개별적이고 심층적인 학술적 뉘앙스들이 최종 통합 모델로 수렴되는 과정에서 다소 생략 및 단순화되었습니다.</p>
+          </div>
+        </div>
+
+        <!-- Collapse 3 -->
+        <div class="collapse collapse-arrow bg-slate-50 border border-slate-200 rounded-xl">
+          <input type="checkbox" /> 
+          <div class="collapse-title font-bold text-slate-800">
+            3. 상황 요인별 구체적 여정 유형화 부재 (Delimitation to a general framework)
+          </div>
+          <div class="collapse-content text-sm text-slate-600">
+            <p class="mb-2"><span class="font-semibold text-slate-800">원문 위치:</span> Page 12, Section 5.3 ("As our study was delimited to developing a general framework, future research should explore different types of B2B customer journeys...")</p>
+            <p>구매의 상황성(예: 신규 과업, 단순 재구매 등)이 여정의 형태를 지배한다는 점을 인식했음에도, 상황 변수에 따른 상세 여정 유형(Typology/Taxonomy)을 구축하여 세부 경로 차이를 유형별로 맵핑하지는 못했습니다.</p>
+          </div>
+        </div>
+        
+        <!-- Collapse 4 -->
+        <div class="collapse collapse-arrow bg-slate-50 border border-slate-200 rounded-xl">
+          <input type="checkbox" /> 
+          <div class="collapse-title font-bold text-slate-800">
+            4. 정서적 고객 경험(CX) 전략과의 직접적 논의 유보
+          </div>
+          <div class="collapse-content text-sm text-slate-600">
+            <p class="mb-2"><span class="font-semibold text-slate-800">원문 위치:</span> Page 12, Section 5.3 ("Another delimitation was our focus on the journey itself, refraining from discussing customer experiences...")</p>
+            <p>여정의 구조적 프레임워크와 터치포인트 매커니즘 정립에 매진하느라, 실제 실무에서 중요시되는 각 터치포인트별 세부 정서적/행동적 반응(고객 경험 관리)에 대한 세부 조치 방안은 다음 장기 연구로 넘겼습니다.</p>
+          </div>
+        </div>
+
+        <h3 class="style-h3 text-slate-800 mt-6">B. 본 연구에 대한 비판적 의문 (Critical Doubts)</h3>
+
+        <!-- Collapse 5 -->
+        <div class="collapse collapse-arrow bg-cyan-50/50 border border-cyan-200 rounded-xl">
+          <input type="checkbox" /> 
+          <div class="collapse-title font-bold text-cyan-900">
+            1. 다수 행위자 터치포인트 추적의 현실적 방법론 부족
+          </div>
+          <div class="collapse-content text-sm text-cyan-800">
+            <p>본 프레임워크는 구매 및 사용 센터 내의 수많은 의사결정자들이 개인적 경로(Intertwined Paths)를 거친다고 전제합니다. 그러나 실제 대기업 B2B 영업 환경에서 공급업체가 고객 기업 내에 분산된 영업 담당자, 재무 결정권자, 생산 설비 실무자 등의 터치포인트 정보를 완벽하게 통합 추적하여 하나의 데이터 셋으로 만드는 것은 방법론적 및 개인정보 보호 차원에서 극히 어렵고 비현실적입니다.</p>
+          </div>
+        </div>
+
+        <!-- Collapse 6 -->
+        <div class="collapse collapse-arrow bg-cyan-50/50 border border-cyan-200 rounded-xl">
+          <input type="checkbox" /> 
+          <div class="collapse-title font-bold text-cyan-900">
+            2. 간접 터치포인트(Uncontrolled Touchpoints)의 관측 한계로 인한 모델 파편성
+          </div>
+          <div class="collapse-content text-sm text-cyan-800">
+            <p>모델은 소셜 포럼, 동료 평판, 비공식 조언 등의 중요성을 강하게 설파하지만, 이러한 접점들은 공급업체의 데이터 레이더망 밖에 있습니다. 즉, 공급업체가 관측할 수 없는 불완전성에 대해 경고하면서도, 이를 보완할 수 있는 실질적인 데이터 연계 가이드나 극복 전술이 미비하여 모델의 구체성이 떨어집니다.</p>
+          </div>
+        </div>
+
+        <!-- Collapse 7 -->
+        <div class="collapse collapse-arrow bg-cyan-50/50 border border-cyan-200 rounded-xl">
+          <input type="checkbox" /> 
+          <div class="collapse-title font-bold text-cyan-900">
+            3. 가상 사례 'Alpha-Mobile' 시나리오의 확증 편향
+          </div>
+          <div class="collapse-content text-sm text-cyan-800">
+            <p>이론 타당성 검토를 위해 쓰인 Alpha-Mobile 사례는 저자들의 논리가 완벽하게 들어맞도록 조작된 일방적 가상 시나리오에 해당합니다. 실제 B2B 현장의 경우 정보의 완전한 비대칭성, 부서 간 비타협적 정치 투쟁, 규제적 외압, 최고경영자의 독단적 판단 등 비논리적 노이즈가 강하게 작용하여 프레임워크의 선형 및 순환 경로를 심각하게 교란할 수 있습니다.</p>
+          </div>
+        </div>
+
+        <!-- Collapse 8 -->
+        <div class="collapse collapse-arrow bg-cyan-50/50 border border-cyan-200 rounded-xl">
+          <input type="checkbox" /> 
+          <div class="collapse-title font-bold text-cyan-900">
+            4. 생존자 편향(Survivor Bias)의 지배와 이탈 프로세스 미비
+          </div>
+          <div class="collapse-content text-sm text-cyan-800">
+            <p>이 모델은 관계 역사 속에서 순환(Loyalty loop)이 원만하게 이뤄지는 긍정적인 루프만 지나치게 비중 있게 묘사합니다. 하지만 실제로는 기술 결함이나 납기 지연으로 인해 고객이 분노하여 관계를 완전 해지(Termination)하거나 공급업체를 신속 교체(Switching)하는 심각한 탈락 여정이 흔하게 일어나며, 이에 대한 이탈 대응 메커니즘이나 종료 과정의 흐름은 다소 경시되었습니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 py-12 px-6 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex flex-col gap-2">
+        <span class="text-white font-bold tracking-wider style-body-large text-cyan-400">IMM V113 PhD Research Brief</span>
+        <p class="text-sm">B2B Marketing &amp; Industrial Marketing Research Center</p>
+      </div>
+      <p class="style-small text-slate-500">&copy; 2026 PhD Prep Document. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

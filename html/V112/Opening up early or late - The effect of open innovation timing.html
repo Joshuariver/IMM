@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opening Up Early or Late? The Effect of Open Innovation Timing - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Open Innovation Timing</div>
+        <div class="badge badge-secondary text-white style-label">Digital Service Industry (Games)</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Opening up early or late?<br>
+            <span class="text-cyan-400 text-3xl lg:text-5xl">The effect of open innovation before and after product launch on new product market performance</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Seongsoo Jang, Max von Zedtwitz
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            일찍 개방할 것인가, 늦게 개방할 것인가?<br>
+            <span class="text-indigo-300">제품 출시 전후의 개방형 혁신이 신제품 시장 성과에 미치는 영향</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            한국 앱스토어의 536개 디지털 게임 신제품 성과 데이터를 활용하여, 인라이센싱(초기 개방)과 유저 피드백 기반 업그레이드(후기 개방)의 상업적 효과와 자사 역량에 따른 상황 요인을 규명합니다.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 핵심 요약</p>
+            <p class="style-body font-semibold">초기에 기술을 빌려 빠르게 진입하고 나중에 닫는(Open-Closed) 것이 유리하며, 복잡한 프로젝트나 뛰어난 마케팅 역량은 오히려 폐쇄적 통제(Closed-Closed)와 맞을 때 성공합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Despite a growing literature on open innovation in new product development (NPD), little is known about when openness is most beneficial during the innovation process. This study investigates the effectiveness of opening up NPD projects early or late, or before or after product launch, leading to four intertemporal NPD strategies: closed-closed, closed-open, open-closed, and open-open. Utilizing novel data of product innovation and market performance of 536 digital games, the authors study the effects of intertemporal NPD strategies on new product market performance under moderating effects of technological capability, marketing capability, and project complexity. The results indicate that the early open (open-closed) NPD strategy outperforms the late open (closed-open) strategy. Furthermore, the positive effect of open NPD strategies is stronger when technological capability is high, but weaker when marketing capability is high and when projects are complex."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "신제품 개발(NPD)에서 개방형 혁신에 관한 문헌이 증가하고 있음에도 불구하고, 혁신 프로세스 중 언제 개방성을 추구하는 것이 가장 유익한지에 대해서는 거의 알려져 있지 않다. 본 연구는 NPD 프로젝트를 일찍 또는 늦게, 즉 제품 출시 전 또는 후에 개방하는 것의 효과를 조사하여 네 가지 시점별 NPD 전략을 도출하였다: 폐쇄-폐쇄(closed-closed), 폐쇄-개방(closed-open), 개방-폐쇄(open-closed), 개방-개방(open-open). 536개 디지털 게임의 제품 혁신 및 시장 성과에 대한 독창적인 데이터를 활용하여, 저자들은 기술적 역량, 마케팅 역량, 프로젝트 복잡성의 조절 효과 하에서 시점별 NPD 전략이 신제품 시장 성과에 미치는 영향을 분석하였다. 연구 결과는 초기 개방(개방-폐쇄) NPD 전략이 후기 개방(폐쇄-개방) 전략보다 우수한 성과를 보임을 나타낸다. 또한, 개방형 NPD 전략의 긍정적인 효과는 기술적 역량이 높을 때 더 강해지지만, 마케팅 역량이 높거나 프로젝트가 복잡할 때는 오히려 약화된다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Glossary)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 학술적 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Intertemporal NPD Strategies</td>
+                  <td>시점별 NPD 전략</td>
+                  <td class="text-sm">출시 전 단계(기술 확보)와 출시 후 단계(유저 피드백)의 시간차를 두고 개방성을 다르게 적용한 동적 구성 전략입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">In-licensing / Product Upgrade</td>
+                  <td>기술 도입 / 제품 업그레이드</td>
+                  <td class="text-sm">본 논문의 주요 측정 도구로, 출시 전(Pre-launch) 개방성은 외부 IP 도입으로, 출시 후(Post-launch) 개방성은 사용자 주도 피드백 업그레이드로 조작화했습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Volume / Valence Performance</td>
+                  <td>판매량 / 매출가치 성과</td>
+                  <td class="text-sm">기본 앱 다운로드 수(Volume)는 시장 확산도를 나타내고, 유료/인앱 추가 상품 결제액(Valence)은 실제 수익 가치를 나타냅니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Project Complexity</td>
+                  <td>프로젝트 복잡성</td>
+                  <td class="text-sm">구조 및 인터페이스 상호작용의 복잡성으로, 단판성 게임 대비 수천 명이 실시간 연동되는 MMORPG 장르 여부로 대리 측정하였습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Technological / Marketing Capability</td>
+                  <td>기술적 역량 / 마케팅 역량</td>
+                  <td class="text-sm">기술 역량은 '동시 출시한 게임 수(다작)'로, 마케팅 역량은 '공식 게시판의 자사 피드백 글 수(소통 CS)'로 대리 측정하여 기업 고유 능력을 대변했습니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 피치용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-2">
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">개방형 혁신은 '언제' 해야 가장 유리한가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">초기에 개방하고 후기에 닫는 편이 이롭다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contingencies</span>
+                  <p class="font-bold text-slate-800">역량과 복잡성에 따른 조건부 성공 방정식</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 이론적/실무적 메커니즘 요약</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body text-sm lg:text-base">
+                  <li><strong>시간적 차원 확장:</strong> 기존 논문들은 신제품 출시(Launch) 시점에서 단편적인 지식 소싱에 집중하였으나, 본 논문은 출시 전과 출시 후를 아우르는 동적 시간 관점을 제시함.</li>
+                  <li><strong>초기 개방(Open-Closed)의 승리:</strong> 타사의 기술/IP를 도입하여 빠르게 제품화하되, 출시 후에는 내부 통제로 안정화하는 구조가 가장 강력한 성과를 보임.</li>
+                  <li><strong>조절 효과(상황 적합도):</strong> 기술력이 높을수록 외부 기술과의 결합 시너지가 크지만, 마케팅에 뛰어난 기업이나 프로젝트 구조가 복잡한 RPG 같은 대작은 개발 통제력을 전적으로 확보하는 '완전 폐쇄(Closed-Closed)' 전략이 생존에 훨씬 유리함.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1 text-sm lg:text-base">
+                  "초기에 기술을 빌려 속도를 확보하되(Open-Closed), 마케팅 역량이 이미 높거나 프로젝트가 지나치게 복잡하다면 외부 자원과의 연동 비용을 아끼기 위해 내부 조직 통제력(Closed)에 전적으로 의존하는 전략이 우월하다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 원문 근거 및 위치 매핑</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">초기 개방(Open-Closed) 전략의 성과 우수성</td>
+                <td class="text-xs italic text-slate-600">
+                  "...the early open (open-closed) NPD strategy outperforms the late open (closed-open) strategy." (Abstract)<br>
+                  "...open-closed (Model 1: 2.453...; Model 2: 2.691...) and open-open (Model 1: 2.380...; Model 2: 2.667...), than the late open NPD strategy, i.e., closed-open..."
+                </td>
+                <td class="text-right font-medium text-slate-500 text-xs">Abstract / Page 119-120 (Sec. 6)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">기술 역량의 긍정적 조절 효과 (H2 지지)</td>
+                <td class="text-xs italic text-slate-600">
+                  "...the positive effect of open NPD strategies is stronger when technological capability is high..." (Abstract)<br>
+                  "...technological capability has positive moderating effects on volume performance with open NPD strategies: open-closed (0.221), closed-open (0.300), or open-open (0.211)."
+                </td>
+                <td class="text-right font-medium text-slate-500 text-xs">Abstract / Page 120 (Sec. 6)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">마케팅 역량의 부정적 조절 효과 (H3 지지)</td>
+                <td class="text-xs italic text-slate-600">
+                  "...but weaker when marketing capability is high..." (Abstract)<br>
+                  "...our results indicate that it has a negative moderating effect on the relationship between open NPD strategies and market performance: (1) fully open strategy and volume... (2) early open... and (3) fully open..."
+                </td>
+                <td class="text-right font-medium text-slate-500 text-xs">Abstract / Page 120 (Sec. 6)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">프로젝트 복잡성의 부정적 조절 효과 (H4b 지지)</td>
+                <td class="text-xs italic text-slate-600">
+                  "...and when projects are complex." (Abstract)<br>
+                  "...it [project complexity] attenuates the positive effects of late open or fully open NPD strategy on volume performance... and early open, late open, or fully open NPD strategies on valence performance..."
+                </td>
+                <td class="text-right font-medium text-slate-500 text-xs">Abstract / Page 120 (Sec. 6)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 가설 모델 및 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (가설 경로 다이어그램)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 450" class="w-full h-auto">
+              <!-- Background panel -->
+              <rect width="800" height="450" rx="15" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+              
+              <!-- Title -->
+              <text x="400" y="35" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="18" font-weight="700" fill="#0f172a">
+                Opening up early or late? 연구 가설 및 분석 모형
+              </text>
+              
+              <!-- Variables Nodes -->
+              
+              <!-- Independent Variables Group -->
+              <rect x="30" y="80" width="220" height="280" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4"/>
+              <text x="140" y="105" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="13" font-weight="700" fill="#64748b">
+                시점별 NPD 개방형 혁신 전략
+              </text>
+              
+              <!-- IV1: Closed-Open -->
+              <rect x="50" y="130" width="180" height="60" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+              <text x="140" y="155" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="12" font-weight="700" fill="#334155">
+                Closed-Open (후기 개방)
+              </text>
+              <text x="140" y="175" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="10" fill="#64748b">
+                자체 개발 → 출시 후 업그레이드
+              </text>
+
+              <!-- IV2: Open-Closed -->
+              <rect x="50" y="210" width="180" height="60" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+              <text x="140" y="235" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="12" font-weight="700" fill="#1d4ed8">
+                Open-Closed (초기 개방)
+              </text>
+              <text x="140" y="255" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="10" fill="#2563eb">
+                IP 라이선스 → 출시 후 폐쇄 관리
+              </text>
+
+              <!-- IV3: Open-Open -->
+              <rect x="50" y="290" width="180" height="60" rx="6" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.5"/>
+              <text x="140" y="315" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="12" font-weight="700" fill="#6d28d9">
+                Open-Open (전면 개방)
+              </text>
+              <text x="140" y="335" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="10" fill="#7c3aed">
+                IP 라이선스 → 출시 후 업그레이드
+              </text>
+              
+              <text x="140" y="375" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="9" fill="#94a3b8" font-style="italic">
+                *기준집단: Closed-Closed (전면 폐쇄)
+              </text>
+
+              <!-- Dependent Variable Node -->
+              <rect x="560" y="170" width="210" height="100" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2.5"/>
+              <text x="665" y="200" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="14" font-weight="700" fill="#065f46">
+                신제품 시장 성과
+              </text>
+              <line x1="580" y1="212" x2="750" y2="212" stroke="#a7f3d0" stroke-width="1.5"/>
+              <text x="665" y="230" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="11" fill="#047857">
+                • LnVolume (앱 다운로드 수)
+              </text>
+              <text x="665" y="250" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="11" fill="#047857">
+                • LnValence (인앱 구매 결제액)
+              </text>
+
+              <!-- Moderators Group -->
+              <rect x="300" y="55" width="220" height="110" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="410" y="78" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="12" font-weight="700" fill="#78350f">
+                상황 조절 변수
+              </text>
+              <text x="410" y="100" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="10" fill="#b45309">
+                • 기술적 역량 (H2: + 조절)
+              </text>
+              <text x="410" y="120" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="10" fill="#b45309">
+                • 마케팅 역량 (H3: - 조절)
+              </text>
+              <text x="410" y="140" text-anchor="middle" font-family="'Pretendard', sans-serif" font-size="10" fill="#b45309">
+                • 프로젝트 복잡성 (H4b: - 조절)
+              </text>
+
+              <!-- Paths & Arrows -->
+              
+              <!-- Direct Path IV -> DV (Main Hypotheses) -->
+              <path d="M 250 220 L 550 220" fill="none" stroke="#0f172a" stroke-width="3" marker-end="url(#arrow-dark)"/>
+              <text x="360" y="210" font-family="'Pretendard', sans-serif" font-size="12" font-weight="700" fill="#0f172a">
+                H1: Open-Closed &gt; Closed-Open
+              </text>
+
+              <!-- Moderation Path (Moderators pointing to main path) -->
+              <path d="M 410 165 L 410 220" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-orange)"/>
+              <text x="420" y="195" font-family="'Pretendard', sans-serif" font-size="11" font-weight="700" fill="#d97706">
+                H2, H3, H4 조절 효과
+              </text>
+
+              <!-- Markers -->
+              <defs>
+                <marker id="arrow-dark" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+                </marker>
+                <marker id="arrow-orange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Independent Variable</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">시점별 NPD 개방형 혁신 전략 (Timing)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 및 조작적 정의:</strong> 출시 전(Pre-launch) 아웃사이드-인 기술 영입(IP 인라이센싱 여부)과 출시 후(Post-launch) 유저 피드백 기반 업그레이드 수행 여부의 결합.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 4개 더미 변수화 (Closed-Closed, Closed-Open, Open-Closed, Open-Open). 스토어 거래 이력 및 실행 화면 검토 (Jang & Chung, 2015; Miric et al., 2019).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100 font-medium">
+                <strong>노트:</strong> 본 연구는 일반적인 개방형 혁신의 탐색 범위(Breadth)와 깊이(Depth)의 정적 개념을 탈피하여, '시기(Timing)'의 상호 결합 효과를 다룬 동적 분석 모델입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Dependent Variable</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">신제품 시장 성과 (Market Performance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 및 조작적 정의:</strong> 제품 상용화 이후 보급의 확산도(Volume)와 추가 결제(Valence)를 통한 상업적 가치 포착의 두 가지 차원.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> (1) 월평균 기본 게임 다운로드 수의 자연로그(LnVolume), (2) 추가 아이템 결제 청구액의 자연로그(LnValence). 스토어 실제 트랜잭션 판매 원장.</p>
+            </div>
+          </div>
+
+          <!-- Mod 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator 1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기술적 역량 (Technological Capability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 및 조작적 정의:</strong> 기술 지식을 빠르게 해석·통합하고 신기술을 구현해내는 기업 고유의 지식 재산적 기민성.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 연구 대상 관측 기간 동안 개발사가 스토어에 출시한 총 신제품(게임) 개수. Coombs & Bierly (2006); Dutta et al. (1999) 인용.</p>
+            </div>
+          </div>
+
+          <!-- Mod 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator 2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">마케팅 역량 (Marketing Capability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 및 조작적 정의:</strong> 유저와의 대면 상호작용 채널을 유지하고 정보를 확산하여 교환 가치를 증진하는 관계 지향적 역량.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 스토어 포럼에서 개발사가 공식 계정으로 게시한 누적 고객 지원/공지 포스팅 수. Dutta et al. (1999); Jang & Chung (2015) 인용.</p>
+            </div>
+          </div>
+
+          <!-- Mod 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator 3</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">프로젝트 복잡성 (Project Complexity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 및 조작적 정의:</strong> 제품 기획 및 설계 과정에서 결합되는 서브컴포넌트의 다각적 상호의존성과 유저 환경 조율 난이도.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 대형 멀티플레이어 가상 월드 조율이 필요한 RPG 장르 여부에 따른 이진 변수(1: RPG, 0: 비RPG). Novak & Eppinger (2001) 및 Rezaei & Ghodsi (2014) 이론 적용.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. 실증 분석 방법론 재현 순서</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 실증 데이터의 구성과 모델 검증을 완전히 추종하여 재수집 및 분석할 수 있도록 단계를 도식화하였습니다.
+        </p>
+
+        <!-- Timeline Component -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">로컬 앱스토어의 트랜잭션 모집단 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  한국 내 이용자 약 4,900만 명 규모의 앱스토어 플랫폼에서 2016년 6월 ~ 2017년 4월(11개월) 사이 출시된 모든 디지털 게임(총 1,491개 품목, 1,047개 개발사) 리스트를 원천 수집함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 118, Sec. 5.2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">연구 대상 표본 정제 및 필터링</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  계정 미등록 상태의 단순 trial 개인 개발자 게임(591개) 및 인앱 유료 구매 기능이 일절 부재한 순수 무료 게임(364개)을 트랜잭션 미비의 사유로 분석 표본에서 전면 배제하여 최종 536개(265개사) 표본으로 정제함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 118, Sec. 5.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">출시 전/후 개방형 전략 더미 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  스토어 어카운트 매니저 7인이 메일/회의록 및 인게임 실행 로고를 체크하여 IP 인라이센싱 여부(Pre-launch Open/Closed)를 판단하고, 버전 패치 이력 대조를 통해 사후 업그레이드 여부(Post-launch Open/Closed)를 2진화 코딩함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 118, Sec. 5.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">역량, 복잡성 및 통제 요인 측정값 연계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  해당 관측 기간 중 출시 신작 수(기술력), 공식 포럼 CS 답글 수(마케팅력), RPG 장르 더미 여부(복잡성), 그리고 세부 장르 더미, 프로모션 쿠폰 집행비, 등급 제한(12세/15세/성인 여부) 데이터를 결합함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 119, Sec. 5.3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">위계적 OLS 다중회귀분석 실행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  다중공선성(VIF < 10) 및 잔차 독립성(Durbin-Watson 1.60~1.62)을 검증하고, 종속변수를 자연로그화(LnVolume, LnValence)한 뒤 통제 모형과 가설 상호작용 모형을 위계적으로 SPSS/R을 이용해 추정함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 119-120, Sec. 6</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">출시 전/후기 하위 표본 강건성 검정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  출시일 기준에 따라 전반기(268개) 및 후반기(268개)의 두 하위 표본(Subsamples)으로 분할하여 OLS 회귀 모델을 개별 재추정하고 가설 계수 효과의 통계적 일치성을 규명함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 120, Sec. 6 & Table 6</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            개념들의 조작 정의와 코딩 지침, SPSS 회귀 모델 명세는 극히 정밀하게 서술되어 동일 구조 분석은 가능합니다. 다만 실증에 사용된 스토어 플랫폼의 2016~2017년 비공개 내부 원자료(Confidential raw database)는 기밀 사항이므로 외부 연구자가 완전히 똑같이 복사하여 실증 데이터를 구득하는 것은 불가하며, 우회적 타 스토어 데이터셋 구축이 강제됩니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 및 비판적 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 저자들이 직접 밝힌 한계점과 극복 과제입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700 text-sm lg:text-base">
+              <li>
+                <strong>디지털 서비스 산업에 고정된 맥락:</strong> 물리적 재고, 공급망 물류 및 오프라인 대리점 관리가 핵심인 전통 제조업(Physical goods)에 모바일 게임의 시점별 개방형 혁신 모델을 무조건 일반화하기 어려움.
+              </li>
+              <li>
+                <strong>대리 변수(Proxy) 도구의 범위 제약:</strong> 출시 전 개방형 수단으로 오직 '기술 라이선싱'만, 출시 후 수단으로 '피드백 기반 버전 패치'만을 사용하여 타사 공동 개발, R&D 컨소시엄 등의 다변화된 도구를 담지 못함.
+              </li>
+              <li>
+                <strong>프로젝트 복잡성의 단일 장르 통제:</strong> 복잡성을 다각적으로 평가하는 대신 RPG 장르인지 여부에 따른 이진 변수(1/0)로만 반영하여 매니저 역량, 기술 모듈성, 조직 불확실성 등을 종합적으로 표현하지 못함.
+              </li>
+              <li>
+                <strong>개발 속도(Speed) 요인 배제:</strong> 오픈 이노베이션이 개발 주기(Speed to market)를 단축시켜 비용을 아껴주는 중요 매커니즘임에도 분석 모델의 수식에 통합하지 않음.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">분석의 방법론적 타당성과 연구 설계를 토대로 제기하는 독자적 비판입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 내생성 및 역인과관계 (Reverse Causality)</span>
+                <p class="text-sm text-slate-700">
+                  출시 후 개방성(업그레이드)이 성과를 이끈다고 주장하지만, 역으로 **초기 흥행 성적(LnVolume)이 좋아서 대량의 유저가 유입되고 평점이 쏟아진 인기작이기 때문에** 개발사가 추가 수익을 얻고자 필사적으로 유저 피드백을 반영해 사후 업그레이드(Post-launch Open)를 성실히 감행했을 가능성이 높습니다. 원인과 결과가 뒤바뀐 동시성 편향(Simultaneity Bias)이 의심됩니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 생존자 편향 (Survivor Bias)</span>
+                <p class="text-sm text-slate-700">
+                  스토어 내에 정산 및 거래 계약이 있는 법인 등록 개발사의 paid/freemium 게임 536개만 추출하고, 초기 진입에 완전히 실패해 버려진 미등록 개인작이나 완전 무료 광고형 버전은 제외되었습니다. 즉, 공급망 및 개발 위기로 조기 고사한 최하위권 실패작이 사전 필터링 과정에서 지워지고 **살아남아 정산 중인 비교적 우수한 게임들만으로 가설을 테스트한 편향**이 존재합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 측정 대리 지표의 타당성 결여</span>
+                <p class="text-sm text-slate-700">
+                  '기술적 역량'을 단지 '출시 신작 수(다작)'로, '마케팅 역량'을 '공식 포럼 자사 포스팅 개수(단순 운영 CS)'로 측정한 것은 핵심 조직 능력의 개념을 과도하게 단순화하고 왜곡한 것입니다. 하나의 명작을 긴 연구 끝에 내놓는 초격차 기술 기업이나, 거액의 브랜드 광고를 전개하는 마케팅 중심 기업의 본질적 역량을 본 프록시(Proxy)가 전혀 잡아내지 못합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 과도하게 단기적인 성과 관측 기간</span>
+                <p class="text-sm text-slate-700">
+                  전체 관측창이 11개월에 불과하고, 개별 제품의 성과는 출시 후 단 3개월의 월평균 수치만을 기준으로 산정되었습니다. 모바일 콘텐츠 상품군은 롱테일 효과로 6개월 이후 역주행하거나 장기 브랜드 로열티를 형성하여 우상향하는 경우가 많으나, 3개월의 짧은 모니터링은 사후 업그레이드가 창출하는 진정한 장기 회복탄력성의 가치를 충분히 추적하기 어렵습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        Industrial Marketing Management Academic Paper Research Brief
+      </p> 
+      <p>Opening up early or late? The effect of open innovation before and after product launch on new product market performance</p>
+      <p class="text-xs mt-2">© 2026 PhD research assistant. Structured Academic Brief Template. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

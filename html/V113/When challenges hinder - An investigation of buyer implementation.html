@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>When Challenges Hinder: An Investigation of Buyer-Imposed Stressors on Supplier Flexibility</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Buyer-Supplier Stressors</div>
+        <div class="badge badge-secondary text-white style-label">Scenario-based Experiment</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            When challenges hinder:<br>
+            <span class="text-cyan-400">An investigation of buyer-imposed stressors on supplier flexibility</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Chong Yu, Dionysius Ang, Zhaleh Najafi-Tavani, Eleni Zantidou
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            도전이 방해가 될 때:<br>
+            <span class="text-indigo-300">구매자가 부과한 스트레스 요인이 공급업체 유연성에 미치는 영향에 대한 조사</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            338명의 관리자 시나리오 실험을 기반으로 한 도전적/방해적 스트레스 요인의 상호작용 및 브리콜라주 역량의 차별적 조절 효과 규명
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">구매자가 부과한 도전적 요구사항(촉박한 기한)은 관료적 장애물(방해적 스트레스)이 없을 때만 공급업체의 유연한 대응을 이끌어내며, 자체적으로 해결책을 찾는 브리콜라주 역량이 뛰어난 공급업체에게는 오히려 무리한 압박이 유연성을 저해하는 역효과를 냅니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Working with buyers may drive business growth but can also induce supplier stress. Drawing on Job Demands – Resources (JD-R) theory, this study explored how buyer-imposed work stressors affect supplier flexibility. Employing a scenario-based experiment involving 338 managers, we found that the imposition of challenge stressors increases supplier flexibility when hindrance stressors are low. Conversely, when hindrance stressors are high, imposing challenge stressors reduces supplier flexibility. We also found that supplier bricolage negatively moderates the relationship between buyer-imposed challenge stressors and supplier flexibility. Specifically, we confirmed that suppliers with higher bricolage are less willing to provide flexibility in response to challenge stressors. For practitioners, our study not only identified the type of work stressors they should impose on suppliers to boost flexibility but also highlighted bricolage as an important moderating factor."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "구매자와의 협력은 비즈니스 성장을 견인할 수 있지만 공급업체의 스트레스를 유발할 수도 있다. 본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">직무 요구-자원(JD-R) 이론</span>에 기반하여 구매자가 부과한 업무 스트레스 요인이 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">공급업체 유연성</span>에 어떻게 영향을 미치는지 탐색하였다. 338명의 관리자를 대상으로 시나리오 기반 실험을 실시한 결과, 구매자가 부과하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">도전적 스트레스 요인</span>은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">방해적 스트레스 요인</span>이 낮을 때 공급업체의 유연성을 증가시키는 것으로 나타났다. 반면, 방해적 스트레스 요인이 높을 때 도전적 스트레스 요인을 부과하는 것은 공급업체의 유연성을 감소시킨다. 또한, 본 연구는 공급업체의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">브리콜라주</span>가 구매자 부과 도전적 스트레스 요인과 공급업체 유연성 간의 관계를 부정적으로 조절한다는 점을 발견하였다. 구체적으로, 높은 수준의 브리콜라주 능력을 가진 공급업체일수록 도전적 스트레스 요인에 대응하여 유연성을 제공하려는 의지가 더 낮아짐을 확인하였다. 실무적으로 본 연구는 공급업체의 유연성을 높이기 위해 어떤 유형의 업무 스트레스 요인을 부과해야 하는지 밝혔을 뿐만 아니라, 브리콜라주가 중요한 조절 요인임을 강조하였다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Glossary Table)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Job Demands-Resources (JD-R) theory</td>
+                  <td>직무 요구-자원 이론</td>
+                  <td class="text-sm">조직 내부의 업무 부하(요구)와 가용 가치(자원)가 직원의 심리와 성과에 미치는 영향을 다루는 조직 행동 표준 번역입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Challenge stressors</td>
+                  <td>도전적 스트레스 요인</td>
+                  <td class="text-sm">시간적 압박, 과업의 책임성 등 힘이 들지만 이를 완수할 시 개인/조직에 발전과 기회를 주는 긍정적 스트레스 유형입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Hindrance stressors</td>
+                  <td>방해적 스트레스 요인</td>
+                  <td class="text-sm">레드 테이프(관료적 복잡행정), 역할 모호성 등 해결하더라도 하등의 성과나 성장에 기여하지 못하고 좌절만 주는 스트레스원입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Supplier flexibility</td>
+                  <td>공급업체 유연성</td>
+                  <td class="text-sm">구매자의 긴급 요청에 맞춰 공급 계획, 리드타임, 사양 등을 탄력적으로 지원 및 조정하고자 하는 공급사의 수용 의향입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Bricolage</td>
+                  <td>브리콜라주</td>
+                  <td class="text-sm">외부에서 자원을 보충하기보다 수중에 가진 제한적인 내부 자원을 재조합하여 문제를 스스로 타개해 나가는 조직 능력을 뜻합니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            본 논문의 연구 설계와 핵심 결과를 학회 발표나 세미나에서 <strong>1분 만에</strong> 각인시킬 수 있도록 압축 정리했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">구매자 스트레스가 공급사 유연성에 미치는 영향은?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">관료적 장애가 없고, 자조 능력이 낮을 때만 순종한다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">JD-R 이론의 B2B 확장 및 브리콜라주의 이면 증명</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">핵심 메커니즘 요약</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 구매자가 부과하는 타이트한 일정과 복잡한 업무가 공급사의 유연한 협조를 이끌어내는가? 역할 모호성 및 행정적 난관(방해적 요인)과 공급사의 자립 능력(브리콜라주)은 이 관계를 어떻게 조건화하는가?</li>
+                  <li><strong>핵심 발견:</strong> 행정 서류가 적고 소통이 잘되는(방해 수준 낮음) 상황에선 빡빡한 기한(도전 스트레스)이 공급사 유연성을 <strong>향상</strong>시키지만, 레드 테이프가 많고 불명확한 지시(방해 수준 높음) 상태에선 기한 압박이 유연성을 오히려 <strong>감소</strong>시킵니다. 또한, 자체 자원 재조합 역량(브리콜라주)이 우수한 기업은 압박을 받을 때 거래처 유연성을 철회하고 <strong>독자 행동</strong>을 우선시합니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 심리학적 성격의 JD-R 이론을 기업 대 기업 공급망 수준으로 성공적으로 확장했으며, 공급사 경쟁력 확보의 긍정적 척도로만 인식되던 브리콜라주가 구매자 입장에선 '독립 의향을 촉진하여 순종 유연성을 낮추는' 관계적 장벽이 됨을 밝혔습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "구매자가 부과한 도전 압박은 행정적 방해(Red Tape)가 없을 때만 유연성을 촉진시키며, 자립 대안 수립이 가능한 브리콜라주 공급사에게는 역으로 유연성 거부를 야기한다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구 결과의 타당성을 객관적으로 입증하고자, 본문의 구체적인 통계적 수치 및 원문 인용구를 논문 내 위치와 정합시켰습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">낮은 방해 스트레스 시 도전 스트레스의 유연성 강화 효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "...managers under high (versus low) challenge stressors offered more flexibility to the buyer when the hindrance stressors were low (M_high CS = 5.08, SD = 0.77 vs. M_low CS = 4.80, SD = 1.27; F(1, 338) = 4.57, p = .03, η² = 0.01)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 7, Sec. 4. Results (Lines 890–899)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">높은 방해 스트레스 시 도전 스트레스의 유연성 철회 효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "Conversely, in line with H2, managers under high (versus low) challenge stressors offered less flexibility to the buyer when the hindrance stressors were high (M_high CS = 4.65, SD = 0.82 vs. M_low CS = 5.13, SD = 0.99; F(1, 338) = 7.95, p < .005, η² = 0.02...)"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 7, Sec. 4. Results (Lines 899–909)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">공급사 브리콜라주 역량의 음(-)의 조절 영향력</td>
+                <td class="text-sm italic text-slate-600">
+                  "In support of H3, bricolage negatively moderates the effect of challenge stressors on supplier flexibility (β = -0.36, t(334) = -3.52, p < .001)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 7, Sec. 4. Results (Lines 918–920)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">브리콜라주 수준별 효과 차이 (Floodlight 분석)</td>
+                <td class="text-sm italic text-slate-600">
+                  "When bricolage is low (3.79, b = 0.37, t(334) = 1.97, p = .05), challenge stressors increase supplier flexibility. When bricolage is high (i.e., 5.38, b = -0.20, t(334) = -2.07, p = .04), challenge stressors decrease supplier flexibility."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 7, Sec. 4. Results (Lines 923–927)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (인과 관계 모형 다이어그램)</h3>
+          
+          <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 400" class="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="800" height="400" rx="12" fill="#f8fafc"/>
+              <circle cx="400" cy="200" r="180" stroke="#f1f5f9" stroke-width="1.5" stroke-dasharray="4,4" />
+
+              <defs>
+                <marker id="arrow-main" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#475569"/>
+                </marker>
+                <marker id="arrow-mod-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#dc2626"/>
+                </marker>
+                <marker id="arrow-mod-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#9333ea"/>
+                </marker>
+              </defs>
+
+              <!-- Nodes -->
+              <!-- 1. IV -->
+              <rect x="50" y="160" width="220" height="80" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+              <text x="160" y="195" text-anchor="middle" font-weight="bold" fill="#0369a1" font-size="14">도전적 스트레스 요인</text>
+              <text x="160" y="218" text-anchor="middle" fill="#0369a1" font-size="11" font-family="monospace">Challenge Stressors</text>
+
+              <!-- 2. DV -->
+              <rect x="530" y="160" width="220" height="80" rx="10" fill="#cffafe" stroke="#0891b2" stroke-width="2"/>
+              <text x="640" y="195" text-anchor="middle" font-weight="bold" fill="#0e7490" font-size="14">공급업체 유연성</text>
+              <text x="640" y="218" text-anchor="middle" fill="#0e7490" font-size="11" font-family="monospace">Supplier Flexibility</text>
+
+              <!-- 3. Mod 1 -->
+              <rect x="290" y="30" width="220" height="70" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+              <text x="400" y="60" text-anchor="middle" font-weight="bold" fill="#991b1b" font-size="13">방해적 스트레스 요인</text>
+              <text x="400" y="80" text-anchor="middle" fill="#991b1b" font-size="10" font-family="monospace">Hindrance Stressors</text>
+
+              <!-- 4. Mod 2 -->
+              <rect x="290" y="300" width="220" height="70" rx="10" fill="#f3e8ff" stroke="#9333ea" stroke-width="2"/>
+              <text x="400" y="330" text-anchor="middle" font-weight="bold" fill="#6b21a8" font-size="13">공급업체 브리콜라주 역량</text>
+              <text x="400" y="350" text-anchor="middle" fill="#6b21a8" font-size="10" font-family="monospace">Supplier Bricolage</text>
+
+              <!-- Connections -->
+              <path d="M 270 200 L 515 200" stroke="#475569" stroke-width="3" marker-end="url(#arrow-main)"/>
+              <rect x="300" y="188" width="50" height="22" rx="4" fill="#64748b"/>
+              <text x="325" y="204" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="11">H1 (+)</text>
+
+              <path d="M 400 100 L 400 190" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-mod-red)"/>
+              <rect x="410" y="135" width="50" height="22" rx="4" fill="#ef4444"/>
+              <text x="435" y="150" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="11">H2 (-)</text>
+
+              <path d="M 400 300 L 400 210" stroke="#9333ea" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-mod-purple)"/>
+              <rect x="410" y="245" width="50" height="22" rx="4" fill="#a855f7"/>
+              <text x="435" y="260" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="11">H3 (-)</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Independent Variable</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">구매자 부과 도전적 스트레스 요인 (Challenge Stressors)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 공급업체에 주어지는 단기적 압박원이지만, 목표 완수 시 성과 향상과 파트너십 존속 등 성장 기회를 수반하는 직무 요구(예: 타이트한 일정, 높은 과업 난이도).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 마감기한 수준(Tight vs. Flexible), 할당 과업의 곤란도 및 개수, 구매자 지식/자원 습득 압박 수준의 고저로 설계된 실험 시나리오 조작.</p>
+              <p class="text-sm text-slate-600"><strong>근거 문헌:</strong> Cavanaugh et al. (2000), LePine et al. (2005) 기반 연구자가 시나리오 직접 설계.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론적 배경:</strong> 긍정적 자아 인식을 자극하여 파트너 거래 유지를 위한 자발적 과업 참여(Extra-role behavior) 및 유연성 조율의 강한 동기를 제공함.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Dependent Variable</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공급업체 유연성 제공 의지 (Supplier Flexibility)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 구매자의 사양 변경, 일정 단축, 주문 변동 등의 요구사항을 유연하게 수용하고 조율하여 조력하고자 하는 공급사의 적극적 참여 의사.</p>
+              <p class="text-sm text-slate-700"><strong>측정 정의:</strong> 리드타임 및 신제품 주기 단축 의지, 글로벌 생산 용량 조정, 품질 개선 등 8대 항목 경쟁사 대비 조력도 평가 (7점 리커트 척도, α = 0.82).</p>
+              <p class="text-sm text-slate-600"><strong>출처 및 문항:</strong> Gligor (2018) / 8개 항목 자가 평가식 질문지.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론적 배경:</strong> 유연성은 공급사에 단기적인 생산 변동 비효율 및 재배치 비용을 강요하므로, 거래 혜택에 관한 명확한 인지적 동기가 선행되어야 함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mod 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-secondary style-label text-white">조절변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator 1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">구매자 부과 방해적 스트레스 요인 (Hindrance Stressors)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 과업 수행 성과나 성장에 기여하지 않고 단순 의사결정 장애 및 소통 부재, 행정적 피로만 가중시켜 목표 달성을 훼방하는 스트레스원.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 관료주의 행정(Red Tape) 수준, 번거로운 문서 업무(paperwork), 소통 창구 불명확성 및 요청사항의 애매함 수준의 고저로 설계된 시나리오 조작.</p>
+              <p class="text-sm text-slate-600"><strong>조작 검증:</strong> Coelho et al. (2011), Johnston & Kristal (2008) 기반 4문항 자가 진단지 (α = 0.91).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론적 배경:</strong> 인지 자원을 고갈시키고 거래 관계의 공정성 인식을 해쳐, 도전적 압박 하에서도 순종하기보다 자기보호(이기적 회피)를 선택하게 만듦.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mod 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-accent style-label text-slate-900">조절변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator 2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공급업체 브리콜라주 역량 (Supplier Bricolage)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자본이나 원자재 등 자원이 핍절할 때, 현존하는 수중의 자원을 다각도로 재결합하여 즉흥적으로 문제를 해결하고 대안 기회를 도출해 내는 기업의 자생적 대처 역량.</p>
+              <p class="text-sm text-slate-700"><strong>측정 정의:</strong> 자원 한계 극복 자신감, 대체 목적 외 활용, 자원 결합을 통한 도전 완수 등 8개 자가 보고 문항 측정 (7점 리커트 척도, α = 0.90).</p>
+              <p class="text-sm text-slate-600"><strong>출처 및 문항:</strong> Senyard et al. (2014), Baker & Nelson (2005) 기반 8문항 설문.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론적 배경:</strong> 자체적으로 대안 솔루션을 강구할 역량이 풍부하기 때문에, 까다로운 대형 구매자가 기한 압박을 줄 때 굳이 헌신하며 굴복할 필요가 없음(의존성 해소).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          다른 연구진이 본 실험 연구와 동일한 연구 조건 하에서 실증 데이터를 <strong>재현 및 검증</strong>할 수 있도록 모든 조작 및 통계 절차를 프로토콜화했습니다.
+        </p>
+
+        <!-- Timeline Component -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">피실험자(관리자) 스크리닝 및 모집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Prolific Academic 조사 대행 플랫폼 이용. 영업, 공급망, 물류, 생산 부서의 의사결정권을 지닌 임원/매니저급 피실험자 400명 스크리닝 모집 실시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5-6, Sec. 3.2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">주의 확인(IMC) 필터 적용</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  불성실 응답 제거를 위해 시작 부분에 지시 기반 질문(보기 무시하고 'Fintech' 클릭), 끝부분에 사실 모순 체크 질문(영국 해협 매일 주파에 'Strongly Disagree' 클릭) 삽입. 오류 발견 시 62명 일괄 제외 (최종 N=338).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6, Sec. 3.2 & Appendix E</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">역할 극 이입 및 가상 환경 구축</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  중소 제조 공급사인 'GMZ'의 고위 의사결정권자로 본인을 이입하도록 지시함. 중요 구매자사와 2년 간 거래 중이며 전환비용이 높다는 기초 상황 제시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6, Sec. 3.3 & Appendix A</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">2×2 팩토리얼 실험 시나리오 처치</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  무작위 확률로 도전 압박(마감 타이트/루즈, 과업 난도 고/저) 및 방해 압박(관료주의 행정 많음/적음, 지시 명확/모호)의 조합 중 1가지 상황에 노출시킴.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6, Sec. 3.3 & Appendix B</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">에피소드 기억 연상 과제(Episodic Memory Task)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  실험 생동감 강화를 위해 피실험자에게 방금 시나리오와 유사한 개인 커리어 상의 실제 도전적/방해적 스트레스 순간을 텍스트로 자유 기입하게 함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6-7, Sec. 3.3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">종속변수 및 조절변수 설문 측정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Gligor (2018)의 8문항 유연성 지표 측정(경쟁사 대비 수용력, α=0.82), Senyard et al. (2014)의 8문항 브리콜라주 지표 자가 체크(자원 재조합 역량, α=0.90).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 7, Sec. 3.3 & Appendix C</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">이원 분산분석(Two-way ANOVA) 및 PROCESS Macro 조절 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  도전 × 방해 요인의 상호작용 검정 (ANOVA, F=12.28, p < .001). 이후 PROCESS Macro Model 1을 써서 브리콜라주의 조절 분석(F=27.35, p < .001) 및 Johnson-Neyman Floodlight 분석 수행.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 7, Sec. 4</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partially Replicable)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            실험용 가상 대조 지문과 척도 문항이 완벽하게 제공되어 유사성 실험을 재현하는 것은 대단히 수월합니다. 다만, 주관식 에피소드 작성란에 성의 없이 기입한 참여자들을 솎아내는 상세 필터링 검수 기준(정성 평가 필터)이 보고서 내에 명시되지 않아, 완벽히 동일한 품질의 정제된 데이터를 재생산해 내는 데에는 다소 오차가 발생할 수 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 밝힌 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문의 고찰 장(Section 5.3)에서 논증한 주요 한계 영역입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>다각적 결과 지표 누락:</strong> 스트레스 요인의 영향력을 '공급업체 유연성'이라는 한 가지 태도 결과물로만 묶어두어, 이것이 실질적인 기업 재무 성과나 관계 충성도, 번아웃 등 상위의 경영 결과에 어떤 형태로 도달하는지는 미처 밝히지 못함. (Page 9)
+              </li>
+              <li>
+                <strong>브리콜라주 역인과관계 배제 불완전성:</strong> 독립변수인 스트레스 조건은 실험으로 통제했으나, 조절변수인 브리콜라주는 피실험자가 응답하는 설문 측정 방식을 취함. 이로 인해 브리콜라주와 유연성 간의 미세한 역인과성(reverse causality)을 완벽히 규명하기에는 분석적 한계가 존재함. (Page 9)
+              </li>
+              <li>
+                <strong>표본 집단 크기적 제약:</strong> 통계적 강건성과 다중 조건부 분석을 실행하기에는 최종 수집된 338명의 관리자 수량이 다소 적을 수 있어, 통계적 검정력(statistical power) 제고를 위해 더 큰 표본이 권장됨. (Page 9)
+              </li>
+              <li>
+                <strong>영어권 중심의 지리적 한계:</strong> 본 실험의 지문과 평가는 모두 영어로 진행되어, 영어 소통이 서툴거나 비영어권(예: 아시아권)의 독특한 문화적 기업 거래 관습을 가진 환경에도 동일한 인지 편향이 성립하는지 알 수 없음. (Page 9)
+              </li>
+              <li>
+                <strong>태도적 주관적 측정치 의존:</strong> 종속변수가 실제 물량 변경이나 리드타임 감축 로그 같은 객관적 행동 수치가 아닌, "기꺼이 협조할 것"이라는 관리자의 주관적 의도(intentions)에 근거함. (Page 9)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">실험 통제 메커니즘과 학술적 정합성을 기초로 본 연구에 제기할 수 있는 강력한 의문입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 가상 역할극의 몰입성 왜곡 (Role-play Realism Bias)</span>
+                <p class="text-sm text-slate-700">
+                  피실험자들은 1회당 약 1.5파운드의 소액 보상을 대가로 참여한 온라인 매널러들입니다. 이들이 수억 달러 거래량과 직원 생계가 걸린 공급처 최고책임자로서의 계약 파기 기로와 전환 비용(switching costs) 압박을 진실되게 체감하며 유연성을 배제하는 무서운 실전적 의사결정을 가상 실험상에서 그대로 재현했는지는 상당히 의문스럽습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 에피소드 기억 환기에 따른 오염 (Episodic Recall Confounds)</span>
+                <p class="text-sm text-slate-700">
+                  현실감을 고취하기 위해 도입한 '개인의 실제 직무 스트레스 수기 기술(Episodic Memory Task)' 과제는 피실험자들 각자의 상이한 트라우마(예: 예전 직장 상사 및 바이어에 대한 개인적 반감 등)를 자극하게 됩니다. 이로 인해 유연성 측정값이 실험 시나리오가 아니라 개인의 내재된 극단적인 사적인 감정 기억에 의해 더 강하게 휘둘렸을 위험(Confounding)이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 측정 순서에 의한 조절항 왜곡 (Post-Treatment Measurement Confound)</span>
+                <p class="text-sm text-slate-700">
+                  브리콜라주 문항은 피실험자가 고강도 스트레스 지문을 다 읽고 과거의 쓰라린 실패 에피소드를 다 적은 '직후(Post-Treatment)'에 배치되었습니다. 스트레스 자극을 받아 심리적으로 탈진하거나 방어적으로 정서가 변한 상태에서 기업 고유의 성격을 묻는 브리콜라주 항목에 답하게 됨으로써, 조절변수 응답값 자체가 실험 자극에 의해 심각하게 오염되어 분석 결과가 왜곡되었을 가능성이 농후합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 관리자 직위 수준의 인지 편차</span>
+                <p class="text-sm text-slate-700">
+                  표본 내 주니어 매니저(34%), 미들 매니저(47%), 어퍼 매니저(18%) 간의 권한과 가용 리소스 인지는 근본적으로 상이합니다. 실질적으로 자생 대책(브리콜라주)을 논할 힘이 없는 주니어 매니저가 가상 시나리오를 바탕으로 유연성을 판단하는 것은 실제 기업 조직의 통합 결정 구조와 큰 괴리를 나타냅니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>When challenges hinder: An investigation of buyer-imposed stressors on supplier flexibility</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

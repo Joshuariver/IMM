@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Owner-managers failure experience and business model innovation - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Business Model Innovation</div>
+        <div class="badge badge-secondary text-white style-label">Failure & Coopetition</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight leading-tight">
+            Owner-managers failure experience and business model innovations in B2B firms:<br>
+            <span class="text-cyan-400 text-3xl lg:text-4xl block mt-2">The roles of coopetition, persistence, and financial slack</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Richard B. Nyuur, Francis Donbesuur, Diana Owusu-Yirenkyi, George O. A. Ampong, Ahmed A. Tantawy
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            B2B 기업의 오너 관리자 사업 실패 경험과 비즈니스 모델 혁신:<br>
+            <span class="text-indigo-300 text-2xl lg:text-3xl block mt-2">코옵티션, 관리자 지속성 및 재무적 여유 자원의 역할</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            가나의 B2B 중소기업 182개 사 설문 분석을 기초로 실패 경험이 역량 교류(코옵티션)를 통해 어떻게 BMI 성과로 번성하는가에 대한 실증적 분석
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">오너의 과거 사업 실패는 코옵티션 역량을 키워 비즈니스 모델을 바꿉니다. 단, 이를 성공시키는 열쇠는 재무적 여유 자원입니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase text-white">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This study proposes and tests a model of how and when previous failure experience can impact on subsequent business model innovation of business-to-business (B2B) SMEs. Analysis of survey data from a sample of 182 B2B SMEs in Ghana indicates that failure experience is positively related to business model innovation – and that coopetition capability mediates this failure experience. Further analysis of boundary condition effects reveals that high levels of financial resource slack strengthen the positive relationship between coopetition and business model innovation, while the level of managerial persistence has no effect on failure experience and coopetition relationship. We discuss the theoretical and managerial implications of these findings."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 연구는 이전의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">사업 실패 경험</span>이 B2B 중소기업의 후속 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">비즈니스 모델 혁신(BMI)</span>에 어떻게, 그리고 언제 영향을 미칠 수 있는지에 대한 모델을 제안하고 검증합니다. 가나의 182개 B2B 중소기업 표본으로부터 얻은 설문조사 데이터를 분석한 결과, 실패 경험은 비즈니스 모델 혁신과 긍정적인 관계가 있으며, 경쟁사와의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">코옵티션 역량</span>이 이 실패 경험을 매개하는 것으로 나타났습니다. 경계 조건 효과에 대한 추가 분석에 따르면, 높은 수준의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">재무적 여유 자원</span>은 코옵티션과 비즈니스 모델 혁신 간의 긍정적인 관계를 강화하는 반면, 오너의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">관리자 지속성</span> 수준은 실패 경험과 코옵티션 간의 관계에 아무런 영향을 미치지 않는 것으로 나타났습니다. 우리는 이러한 연구 결과의 이론적 및 관리적 시사점을 논의합니다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Business failure experience</td>
+                  <td>사업 실패 경험</td>
+                  <td class="text-sm">단순 파산(Bankruptcy)뿐만 아니라, 오너의 기대치 미달에 의한 자발적 폐업 및 사업 매각 등을 포괄하는 개념입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Coopetition capability</td>
+                  <td>코옵티션 역량</td>
+                  <td class="text-sm">동일 시장 내의 경쟁사들과 자원을 상호 교환 및 통합(Cooperate)하면서 동시에 가치를 점유하기 위해 대립(Compete)하는 역량입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Business model innovation (BMI)</td>
+                  <td>비즈니스 모델 혁신</td>
+                  <td class="text-sm">가치 제안(VOI), 가치 아키텍처(VAI), 수익 모델(RMI)의 세 가지 차원을 동시에 개선하고 통합하는 시스템 혁신입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Managerial persistence</td>
+                  <td>관리자 지속성</td>
+                  <td class="text-sm">어려움이나 외적 저항, 실패에도 끈기 있게 당초의 사업가적 목표를 완수하고자 하는 오너의 심리적 극복 자세입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Financial resource slack</td>
+                  <td>재무적 여유 자원</td>
+                  <td class="text-sm">일상 운영 자금 이외에 경영진이 임의의 전략 목적(혁신, 위기 돌파)을 위해 즉각적이고 유연하게 꺼내 쓸 수 있는 예비 재무 자산입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase text-white">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 논문 작성 준비 시 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 프레임을 체계화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">오너의 실패 경험이 BMI에 미치는 경로?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">코옵티션이 매개하고 재무 슬랙이 가속한다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">실패 자산화와 코옵티션의 결합</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 오너의 과거 사업 실패는 후속 사업의 비즈니스 모델 혁신(BMI)을 강화하는가? 이 과정에서 코옵티션 역량은 어떤 매개 역할을 하며, 지속성과 재무 슬랙은 어떠한 경계 조건을 형성하는가?</li>
+                  <li><strong>핵심 발견:</strong> 실패 경험은 비즈니스 모델 혁신에 긍정적인 자극으로 직접 작용하며, 경쟁사와의 적극적인 협업/경쟁 조율인 <strong>코옵티션 역량</strong>을 강화함으로써 혁신을 매개합니다. 이때, <strong>재무적 여유 자원</strong>은 코옵티션에서 BMI로 변환되는 성과를 강력히 증폭합니다. 반면, 오너의 <strong>지속성</strong> 조절 효과는 통계적으로 지지되지 않았습니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 실패를 단순한 손실(Liability)로 규정하던 전통적 프레임을 깨고, 학습 및 기회 포착의 자산(Asset)으로 규정함. 또한, B2B 맥락에서 경쟁사와 동맹을 맺어 위기를 헤쳐나가는 코옵티션 역량과 재무적 완충 기제의 중요성을 개도국(가나) 중소기업 실증을 통해 입증함.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "B2B 오너의 과거 실패 경험은 경쟁사와의 코옵티션 역량을 강화하여 BMI를 유발하며, 이는 윤활유 역할을 하는 재무 슬랙이 충분할 때 대폭 가속화됩니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase text-white">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문의 정량적 분석의 신뢰도를 확보하기 위해 학술 주장과 이에 대한 통계적 수치 및 원문 구절을 매핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">사업 실패 경험과 BMI의 직접 정(+)의 관계 (H1 지지)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...failure experience is positively related to business model innovation (β = 0.30, p < 0.001) – confirming H1."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 7, Section 4.3 (Table 3)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">실패 경험이 경쟁사 코옵티션에 미치는 효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "...failure experience is positively related to coopetition (β = 0.32, p < 0.001); and coopetition, on the other hand, is positively related to business model innovation (β = 0.21, p < 0.01)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 7-8, Section 4.3 (Table 3)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">코옵티션의 BMI 매개 효과 (H2 지지)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...coopetition mediates the relationship between failure experience and business model innovation (indirect effect = 0.09, 95% CI = 0.02 – 0.17)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 8, Section 4.3 (Table 4)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">지속성 조절 효과의 미유의성 (H3a 기각)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...we find no evidence for H3a that the positive relationship between failure experience and coopetition is strengthened when managerial persistence increases in magnitude (β = −0.04, p > 0.05)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 8, Section 4.3 (Table 3)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">재무 슬랙의 코옵티션-BMI 경로 조절 효과 (H3b 지지)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Lastly, there is support for H3b that high levels of financial resource slack strengthen the positive relationship between [coopetition]* and business model innovation (β = 0.28, p < 0.001)..."<br>
+                  <span class="text-xs text-rose-600 font-semibold block mt-1">*주의: 본문에는 failure experience라고 기재되었으나, 가설 H3b 및 Table 3(Model 7) 검증 결과에 비추어 볼 때 코옵티션과의 상호작용 항인 Coopetition*SLACK의 유의성을 의미하는 저자의 서술 오류입니다.</span>
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 8, Section 4.3 (Table 3 / Fig. 2)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 가설 모형)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+              <defs>
+                <marker id="arrow-gray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 2 L 8 5 L 0 8 z" fill="#475569" />
+                </marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 2 L 8 5 L 0 8 z" fill="#10B981" />
+                </marker>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 2 L 8 5 L 0 8 z" fill="#EF4444" />
+                </marker>
+              </defs>
+
+              <rect width="100%" height="100%" fill="#F8FAFC" rx="8"/>
+
+              <!-- IV: Failure Experience -->
+              <g transform="translate(40, 160)">
+                <rect width="180" height="80" rx="8" fill="#475569" stroke="#334155" stroke-width="2" />
+                <text x="90" y="32" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">독립변수 (IV)</text>
+                <text x="90" y="50" fill="#E2E8F0" font-family="sans-serif" font-size="13" text-anchor="middle">오너의 실패 경험</text>
+                <text x="90" y="66" fill="#94A3B8" font-family="sans-serif" font-size="10" text-anchor="middle">(Failure Experience)</text>
+              </g>
+
+              <!-- Mediator: Coopetition -->
+              <g transform="translate(310, 160)">
+                <rect width="180" height="80" rx="8" fill="#0EA5E9" stroke="#0284C7" stroke-width="2" />
+                <text x="90" y="32" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">매개변수 (MV)</text>
+                <text x="90" y="50" fill="#E0F2FE" font-family="sans-serif" font-size="13" text-anchor="middle">코옵티션 역량</text>
+                <text x="90" y="66" fill="#7DD3FC" font-family="sans-serif" font-size="10" text-anchor="middle">(Coopetition Capability)</text>
+              </g>
+
+              <!-- DV: Business Model Innovation -->
+              <g transform="translate(580, 160)">
+                <rect width="180" height="80" rx="8" fill="#6366F1" stroke="#4F46E5" stroke-width="2" />
+                <text x="90" y="32" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">종속변수 (DV)</text>
+                <text x="90" y="50" fill="#E0E7FF" font-family="sans-serif" font-size="13" text-anchor="middle">비즈니스 모델 혁신</text>
+                <text x="90" y="66" fill="#C7D2FE" font-family="sans-serif" font-size="10" text-anchor="middle">(BMI)</text>
+              </g>
+
+              <!-- Moderator 1: Managerial Persistence -->
+              <g transform="translate(160, 20)">
+                <rect width="160" height="70" rx="8" fill="#F97316" stroke="#EA580C" stroke-width="1.5" stroke-dasharray="4" />
+                <text x="80" y="26" fill="#FFFFFF" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">조절변수 1 (MOD 1)</text>
+                <text x="80" y="44" fill="#FFEDD5" font-family="sans-serif" font-size="12" text-anchor="middle">관리자 지속성</text>
+                <text x="80" y="58" fill="#FDBA74" font-family="sans-serif" font-size="9" text-anchor="middle">(Managerial Persistence)</text>
+              </g>
+
+              <!-- Moderator 2: Financial Resource Slack -->
+              <g transform="translate(440, 20)">
+                <rect width="160" height="70" rx="8" fill="#10B981" stroke="#059669" stroke-width="2" />
+                <text x="80" y="26" fill="#FFFFFF" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">조절변수 2 (MOD 2)</text>
+                <text x="80" y="44" fill="#D1FAE5" font-family="sans-serif" font-size="12" text-anchor="middle">재무적 여유 자원</text>
+                <text x="80" y="58" fill="#6EE7B7" font-family="sans-serif" font-size="9" text-anchor="middle">(Financial Slack)</text>
+              </g>
+
+              <!-- Paths -->
+              <!-- IV -> Mediator -->
+              <path d="M 220 200 L 300 200" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow-gray)" />
+              <text x="260" y="192" fill="#475569" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">β = 0.32***</text>
+
+              <!-- Mediator -> DV -->
+              <path d="M 490 200 L 570 200" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow-gray)" />
+              <text x="530" y="192" fill="#475569" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">β = 0.21**</text>
+
+              <!-- IV -> DV (Direct path curve) -->
+              <path d="M 130 240 C 240 320, 520 320, 670 240" fill="none" stroke="#6366F1" stroke-width="2" stroke-dasharray="4" marker-end="url(#arrow-gray)" />
+              <text x="400" y="305" fill="#6366F1" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">H1: 직접 효과 β = 0.30*** (간접 효과 = 0.09*)</text>
+
+              <!-- Mod 1 -> Path 1 -->
+              <path d="M 240 90 L 260 195" fill="none" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="2" marker-end="url(#arrow-red)" />
+              <text x="290" y="135" fill="#EF4444" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="left">H3a (n.s.): -0.04</text>
+
+              <!-- Mod 2 -> Path 2 -->
+              <path d="M 520 90 L 530 195" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#arrow-green)" />
+              <text x="545" y="135" fill="#10B981" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="left">H3b (+): 0.28***</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수</span>
+                <span class="text-xs text-slate-400 font-semibold">IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">사업 실패 경험 (Business Failure Experience)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 경영 악화 시 회복 불가능한 임계치를 지나 파산, 청산, 법정관리 등을 겪고 오너 관리자의 의사에 따라 영업을 폐쇄하거나 매각했던 일련의 경험 자산.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 조사대상 오너가 일생 동안 본인 책임 하에 설립 또는 운영했으나 위와 같은 사유로 실패 처리된 비즈니스의 총 개수(정수 기입).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Ucbasaran et al. (2010), p.6 / 단일 개방형 문항 자가보고식 측정.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론:</strong> 자원기반관점(RBV) 및 동적 역량 관점에서 실패는 비즈니스 미스스텝의 원인을 규명하고 unlearning, relearning을 통해 재기를 이끄는 핵심 인적 지식 자산으로 기능함.
+              </p>
+            </div>
+          </div>
+
+          <!-- MV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">매개변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">코옵티션 역량 (Coopetition Capability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 상호 공동의 가치 창출을 위해 동종 업종 경쟁업체들과 전략적 협력을 추진하면서도, 개별 가치 전유(appropriation)를 위해 서로 치열하게 경쟁하는 관계적 통제 능력.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 경쟁업체들과 상호 파트너십을 형성해 특정 제품을 론칭하거나 공동 목표를 이룬 척도 등 3개 문항 (7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Bouncken & Kraus (2013); Bouncken & Fredrich (2012) / CR = 0.83, AVE = 0.62</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론:</strong> 개별 중소기업이 가진 자원의 태생적 결핍을 경쟁사와 공동 연대로 완화함으로써, 서로의 실패 지식을 전수받고 프로세스를 혁신하는 가교 역할을 수행함.
+              </p>
+            </div>
+          </div>
+
+          <!-- MOD 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">MOD 1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">관리자 지속성 (Managerial Persistence)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 장애물, 타인의 부정적 시선, 심지어 연속된 실패의 공포가 눈앞에 있더라도 이에 굴하지 않고 끈기 있게 목적 완수를 도모하려는 오너 개인의 확고한 신념 태도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 남들이 만류하거나 포기할 때에도 어려운 프로젝트에 매진하며 끈질기게 목표를 추진하는 강도를 평가하는 3개 문항 (7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Cardon & Kirk (2015) / CR = 0.90, AVE = 0.75</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>실증 결과:</strong> 실패 경험과 코옵티션의 경로를 조절하지 못함(기각). 끈기의 강도가 과해지면 집착이나 과도한 매몰비용 에스컬레이션(escalation of commitment) 등 어두운 면이 발현할 수 있음이 해석됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- MOD 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">조절변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">MOD 2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">재무적 여유 자원 (Financial Resource Slack)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 정형화된 비즈니스 운영 활동에 고착화되지 않은 잉여 현금 자산으로, 회사가 신사업 실험, R&D 투자, 비즈니스 구조 조정을 추진할 때 재량껏 할당 가능한 유동 자본.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 외부 금융 시장을 통한 자본 조달 용이성 및 경영진의 재량적 사용 자금 만족도 등 3개 문항 (7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Boso et al. (2017) / CR = 0.84, AVE = 0.65</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론:</strong> 코옵티션을 통해 획득한 아이디어를 가치Offering, 인프라, 비용구조 변경(BMI)으로 구현해내는 과정에서 수반되는 고비용을 원활히 지원하는 완충 기제임.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">DV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">비즈니스 모델 혁신 (Business Model Innovation, BMI)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 복잡하고 변화무쌍한 B2B 시장 환경 하에서, 기업이 경쟁사와 차별화된 방식으로 가치를 설계하여 제안하고, 파트너 관계를 통해 구현하며, 궁극적인 비용-수익 구조를 혁신해 생존율을 높이는 전방위적 조직 아키텍처 개편 활동.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Value Offering Innovation(가치 제안 혁신, 3문항), Value Architecture Innovation(가치 아키텍처 혁신, 3문항), Revenue Model Innovation(수익 모델 혁신, 2문항)으로 이루어진 2차 고차 요인 모델 (총 8개 문항, 7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Klein et al. (2021)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase text-white">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          외부의 연구자가 본 논문의 실증적 성과를 있는 그대로 추적하여 <strong>재현 연구(Replication study)</strong>할 수 있도록 로드맵을 시각화했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">모집단 및 표본 리스트 정의</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  가나(Ghana)의 B2B 중소기업들을 타깃층으로 고정하고, Ghana Business Directory 및 Ghana Company Register의 기업 리스트를 확보한 전문 서베이 에이전시(Mailing list of 500 B2B SMEs)를 섭외합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Section 3.2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">스크리닝 및 다중 응답자 구조 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  설문 시 첫 질문으로 사업의 폐업 및 기대 미달 매각과 같은 '과거 실패경험 유무'를 필터로 설정합니다. 공통방법편향(CMB)을 제어하기 위해 회사 당 단일 응답이 아닌 다중 구성원 매칭 방식(CEOs, 오너, 재무, 혁신 매니저)을 채택합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Section 3.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">서베이 집행 및 유효 데이터 확정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  대면 설문, 온라인, 메일을 고루 활용하여 2개의 타임 포인트(two time points)에 걸쳐 데이터를 나란히 획득합니다. 500개 발송 대상 중 무응답 및 불완전 답변을 잘라내고 최종 182개 샘플(유효율 36.4%)을 획득합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Section 3.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">확인적 요인 분석 (CFA) 실행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  AMOS 27을 가동하여 요인적하량의 타당성 및 신뢰성을 입증합니다. 모델 적합도 지수치(&chi;&sup2;/df=1.32, RMSEA=0.04, CFI=0.97, TLI=0.96)를 획득하고 AVE(&gt;0.50)와 CR(&gt;0.70)이 컷오프를 넘기는지 대조합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6, Section 4.1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">공통방법편향(CMB) 적합도 대조</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  단일 요인 CFA(Model 1: &chi;&sup2;/df=17.16, CFI=0.25)의 적합도가 연구진의 다차원 모델(Model 2/3: CFI=0.97/0.98)에 비해 심각하게 불량함을 증명해 냄으로써 방법론적 편향성 지적을 방어합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 7, Section 4.2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">평균 중심화 및 위계적 회귀 모델 진입</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  기업 규모와 연령에 로그 변환을 적용하고, 독립-조절 변수들은 다중공선성(VIF &lt; 10) 차단을 위해 평균 중심화(Mean-Centering) 처리를 실행해 상호작용 항들을 각각 도출합니다. 이후 위계적 다중 회귀 분석을 실행합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 7, Section 4.3</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">SPSS PROCESS Macro 매개 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  PROCESS Macro Model 4를 실행하고 5000회의 부트스트랩 조건 하에 간접 효과의 신뢰 구간(95% CI: [0.02, 0.17])을 생성하여 유의한 매개 효과를 승인받습니다. 마지막으로 조절 상호작용 그래프를 매핑합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 7-8, Section 4.3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            사용한 모든 구성 개념의 원천 연구와 설문지가 Table 1에 공개되어 있어 통계 기법 모방은 완벽히 가능하지만, 가나라는 특정 국가 대행사의 프라이빗 메일 리스트(500개 사)를 근거로 삼았고 로데이터가 쉐어되지 않기 때문에 원작자와 100% 동등한 데이터를 구축하여 복제해내는 일은 실질적으로 불가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6)에서 연구진들이 직접 인정한 연구 범위와 경계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>지리적 국한성 및 일반화 제약:</strong> 제도적 수준과 사회문화적 규범이 상이한 가나(Ghana) 단일 국가의 중소기업 데이터만을 조사했기 때문에 서구권이나 타 문화권에 고스란히 이입하기는 어렵습니다. (Page 8)
+              </li>
+              <li>
+                <strong>혁신의 종류별 차별성 검증 누락:</strong> 비즈니스 모델 혁신(BMI) 전반의 성과만을 단일 고차 척도로 보았을 뿐, 리스크의 크기에 연동되는 점진적(incremental) 혁신과 급진적(radical) 혁신의 영향 차이를 구분하지 못했습니다. (Page 8)
+              </li>
+              <li>
+                <strong>다양한 대체 매개 메커니즘의 부재:</strong> 코옵티션을 유일한 매개체로 설정해 분석했으나, 전통적인 실패 연구의 필수 매개인 '실패로부터의 기업가적 학습(Entrepreneurial learning from failure)' 등을 변수로 통제하지 못해 효과가 집중되었을 여지가 있습니다. (Page 8)
+              </li>
+              <li>
+                <strong>횡단 데이터 구조에 의한 동적 파동 측정 한계:</strong> 2회 조사를 돌렸음에도 근원적 횡단 연구(Cross-sectional design)로서 인과관계의 선후를 시간의 선상에서 정교하게 트래킹하는 실시간 시계열성 검증은 행하지 못했습니다. (Page 8)
+              </li>
+              <li>
+                <strong>질적 분석의 부재:</strong> 정량적 서베이 분석에만 집중하여 오너가 겪은 실패 성격과 강도에 관한 질적 필드워크(Fieldwork) 및 심층 인터뷰 데이터가 포함되지 못했습니다. (Page 8)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계와 본문 텍스트 분석에 근거하여 제기하는 독자적 비판입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 치명적 생존자 편향 (Survivor Bias)</span>
+                <p class="text-sm text-slate-700">
+                  데이터는 2021년 기준 가나에서 엄연히 비즈니스를 가동 중인 '재기 성공 중소기업 오너'의 데이터만을 담고 있습니다. 이전 실패로 인해 경제적, 사회적으로 매장되어 신규 창업을 포기하거나 시장을 영구 퇴출당한 <strong>수많은 '부정적 실패 결과 오너들'의 데이터가 누락</strong>되어 실패의 순기능이 극도로 미화·과대평가되었을 가능성이 농후합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 실패 경험 척도 측정의 과도한 단순화</span>
+                <p class="text-sm text-slate-700">
+                  실패 경험을 오직 "소유했던 실패한 사업의 수(정수)"로만 측정했습니다. 소자본 1인 숍의 간단한 임대 폐업 1회와, 거액의 채무를 동반해 종업원과 공급망에 막대한 타격을 가했던 법인 파산 1회는 오너의 인지 발달 및 상흔의 크기 면에서 완전히 성격이 다름에도 불구, 동등한 수치로 평가된 한계가 존재합니다. 실패의 심각성(Severity)이 배제되었습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 회상 편향 및 사후 합리화 편향 (Recall & Hindsight Bias)</span>
+                <p class="text-sm text-slate-700">
+                  이미 후속 기업을 안정적으로 이끌며 활발한 비즈니스 모델 혁신을 수행하고 있는 우수 오너들이 답변 주체였으므로, 과거 자신들이 겪은 수치스러운 실패 행동조차 "현재 나의 훌륭함을 가능케 해준 전략적 훈련이었다"라고 미화하거나 과장하는 <strong>사후 귀인 편향(Self-serving bias)</strong>의 오류가 주관적 설문 응답 과정에 유입되었을 것입니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 본문 내 H3b 서술의 치명적인 오타 (Typo Error)</span>
+                <p class="text-sm text-slate-700">
+                  본문 7페이지 867~869라인에서 "financial resource slack strengthen the positive relationship between <strong>failure experience</strong> and business model innovation"이라고 기술했으나, 가설 H3b 본조항과 회귀 분석 모델(Table 3), 그래프(Fig. 2) 상의 실제 조절 작용점은 **Coopetition과 BMI 간의 관계**입니다. 이 서술 오류는 심사 과정의 허술함을 증명하는 지점입니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Owner-managers failure experience and business model innovations in B2B firms</p>
+      <p class="text-xs mt-2">© 2026 PhD research_assistant. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

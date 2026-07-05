@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Managing Appropriation Concerns and Coordination Costs - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+      color: #0f172a;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #1e293b;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (Flowing, non-sticky layout) -->
+  <header class="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <path d="M-50 300C200 150 350 400 600 250C850 100 1100 350 1350 200" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+        <circle cx="600" cy="250" r="7" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Alliance Governance</div>
+        <div class="badge badge-secondary text-white style-label">Method: Embedded Single Case Study</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Managing appropriation concerns and coordination costs in complex vendor relationships:<br>
+            <span class="text-cyan-400">Integration and isolation as governance strategies</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Henrik Agndal, Ala Arvidsson, Ulf Nilsson
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            복합 벤더 관계에서의 전유 우려 및 조정 비용 관리:<br>
+            <span class="text-indigo-300">거버넌스 전략으로서의 통합과 고립</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            글로벌 자동차 제조업체(OEM)와 3대 전략적 협력 업체 간의 30여 년 장기 파트너십 사례를 기반으로 한 질적 사례 분석
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">모든 파트너십 업무를 하나로 통합하려 하지 말고, 갈등 소지가 크거나 핵심 기술이 걸린 영역은 격리(Isolation)해야 합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- STEP 1 — Title & Abstract Translation -->
+    <section id="abstract" class="flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+        <span class="badge badge-primary style-label uppercase">Translation</span>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+        <!-- English Abstract -->
+        <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+          <blockquote class="style-body text-slate-700 italic">
+            "Many studies have shown that the inter-organizational governance mechanisms required to manage appropriation concerns come into conflict with the mechanisms needed to manage coordination costs. Research has, however, largely left unanswered the question of how client organizations govern complex vendor relationships that involve multiple categories, transactions, and activities where appropriation concerns and coordination costs must be managed simultaneously. We propose that this may be achieved by utilizing two strategies; while integrating some activities, transactions and categories, others can be isolated. Drawing on 23 interviews as well as procedural documents associated with vendor management, this study examines how a leading automotive manufacturer governs relationships with three vendors. The analysis reveals how corporate and operational-level staff combine formal and informal governance mechanisms as they pursue integration and isolation strategies, enabling the client organization to maintain and develop long-term complex relationships. Our findings lead us to question a tendency in the literature to regard isolation as negative and integration as an ideal strategy for managing long-term relationships. Only when utilized in tandem will isolation and integration strategies enable organizations to align the conflicting governance mechanisms required to manage appropriation concerns and coordination costs."
+          </blockquote>
+        </div>
+        <!-- Korean Translation -->
+        <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+          <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+          <blockquote class="style-body text-slate-800">
+            "많은 연구들은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">전유 우려</span>(appropriation concerns)를 관리하는 데 필요한 조직 간 거버넌스 메커니즘이 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">조정 비용</span>(coordination costs)을 관리하는 데 필요한 메커니즘과 충돌한다는 것을 보여주었다. 그러나 기존 연구는 구매자(고객) 기업이 전유 우려와 조정 비용을 동시에 관리해야 하는 다중 카테고리, 거래 및 활동을 포함하는 복합적인 벤더 관계를 어떻게 관리(govern)하는지에 대한 질문을 대부분 미해결 상태로 남겨두었다. 우리는 일부 활동, 거래 및 카테고리를 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">통합</span>(integrating)하는 동시에 다른 것들은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">고립</span>(isolating)시키는 두 가지 전략을 활용함으로써 이를 달성할 수 있다고 제안한다. 벤더 관리와 관련된 절차 규정 문서 및 23건의 인터뷰를 바탕으로, 본 연구는 선도적인 자동차 제조업체가 3개 벤더와의 관계를 어떻게 관리하는지 조사한다. 분석 결과, 기업(본사) 및 운영 수준의 직원들이 통합 및 고립 전략을 추구하면서 공식적 및 비공식적 거버넌스 메커니즘을 어떻게 결합하여 구매자 기업이 장기적인 복합 관계를 유지하고 발전시킬 수 있도록 하는지 밝혀냈다. 우리의 연구 결과는 고립을 부정적으로 바라보고 통합을 장기적 관계 관리를 위한 이상적인 전략으로 간주하는 문헌의 경향에 의문을 제기한다. 고립과 통합 전략이 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">동시에 병행(tandem)</span>될 때만, 조직은 전유 우려와 조정 비용을 관리하는 데 필요한 상충되는 거버넌스 메커니즘을 조율할 수 있을 것이다."
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- Glossary Table -->
+      <div class="mt-4">
+        <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Glossary)</h4>
+        <div class="overflow-x-auto border rounded-lg">
+          <table class="table w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-50 text-slate-800">
+                <th class="w-1/3">원문 용어 (EN)</th>
+                <th class="w-1/3">한국어 번역</th>
+                <th class="w-1/3">번역 선택 이유 및 학술적 해설</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-semibold text-slate-900">Appropriation concerns</td>
+                <td>전유 우려 (사후 지대 잠식 위협)</td>
+                <td class="text-sm">기밀 기술 유출이나 과도한 가격 협상 등으로 자사의 정당한 몫(Rents)을 빼앗길 수 있다는 우려를 뜻하는 학술 용어입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Coordination costs</td>
+                <td>조정 비용</td>
+                <td class="text-sm">다양한 개발 부서 및 벤더 간의 커뮤니케이션, 의사결정 프로세스를 맞추기 위해 소모되는 자원과 수고입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Integration vs. Isolation</td>
+                <td>통합 대 고립 (격리)</td>
+                <td class="text-sm">활동들을 유기적으로 엮어 시너지를 창출하는 전략(통합)과 갈등 차단을 위해 분리 관리하는 전략(고립)의 모순 관계입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Escalation process</td>
+                <td>에스컬레이션 절차</td>
+                <td class="text-sm">실무단에서 풀지 못한 상업적/품질 갈등을 공식 의사결정 라인을 통해 상위 임원 선으로 넘겨 해결하는 분쟁 조정 장치입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Procedural documents</td>
+                <td>절차서 / 규정 문서</td>
+                <td class="text-sm">구매 기업 내부에서 작동하는 부품 품질 관리 지침, 행동 강령, 환경 compliance 평가 등의 공식 가이드북입니다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2 — Core Claims (1-minute explanation) -->
+    <section id="claims" class="flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+        <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+      </div>
+      
+      <div class="py-4">
+        <div class="flex flex-col md:flex-row gap-8 items-stretch">
+          <!-- Steps Component -->
+          <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+            <li class="step step-primary" data-content="Q">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                <p class="font-bold text-slate-800">통제(전유 우려)와 협력(조정 비용)은 공존할 수 있는가?</p>
+              </div>
+            </li>
+            <li class="step step-primary" data-content="F">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                <p class="font-bold text-slate-800">통합과 고립 전략의 병행(Tandem)이 해답</p>
+              </div>
+            </li>
+            <li class="step step-primary" data-content="C">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                <p class="font-bold text-slate-800">고립(Isolation)의 전략적 정당성 확보</p>
+              </div>
+            </li>
+          </ul>
+          
+          <div class="divider divider-horizontal hidden md:flex"></div>
+          
+          <!-- Detailed content -->
+          <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <div>
+              <h4 class="style-h3 text-slate-900 mb-3">논문의 핵심 메커니즘 상세</h4>
+              <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                <li><strong>연구 질문:</strong> 구매 파트너십이 다중 거래 및 카테고리로 얽힐 때, 전유 우려(강압적 통제 필요)와 조정 비용(협력적 환경 필요)의 모순을 어떻게 해결할 수 있는가?</li>
+                <li><strong>핵심 발견:</strong> 구매자 기업은 전체 파트너십을 유기적으로 묶는 <strong>통합(Integration)</strong>과 갈등 소지가 많거나 혁신이 요구되는 특정 프로세스/부서(R&D, 협상단)를 의도적으로 격리하는 <strong>고립(Isolation)</strong>을 혼합 운영하여 상충을 완화한다.</li>
+                <li><strong>이론/실무 기여:</strong> 기존 문헌의 '고립 = 파트너십 저해 요인'이라는 프레임을 파괴하고, '고립이 있어야 실무의 긴밀한 신뢰를 지킬 수 있다'는 양면성(Ambidexterity) 거버넌스 이론을 확립하였다.</li>
+              </ul>
+            </div>
+            
+            <!-- 1-line summary block -->
+            <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+              <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+              <p class="style-body font-bold mt-1">
+                "갈등 요소를 물리적·조직적으로 격리(Isolation)하고 협력 시너지를 통합(Integration)하여 두 전략을 동시에 탠덤(Tandem)으로 운용할 때만 장기 복합 파트너십이 생존할 수 있다."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 3 — Claims and Evidence -->
+    <section id="evidence" class="flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+        <span class="badge badge-accent style-label uppercase">Evidence</span>
+      </div>
+      
+      <p class="style-body text-slate-600">
+        연구 모델의 타당성을 입증하는 각 핵심 주장과 이를 직접 뒷받침하는 영어 원본 인용문(Quote) 및 논문 내 위치 정보입니다.
+      </p>
+
+      <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+        <table class="table table-zebra w-full text-slate-700">
+          <thead>
+            <tr class="bg-slate-900 text-white">
+              <th class="w-12">#</th>
+              <th class="w-1/4">핵심 주장</th>
+              <th class="w-1/2">원문 근거 (Original English Quote)</th>
+              <th class="w-1/6 text-right">원문 위치</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="font-semibold text-slate-900">전유 우려 통제와 조정 비용 관리의 상충 관계</td>
+              <td class="text-sm italic text-slate-600">
+                "...mechanisms designed to enable firms to manage appropriation concerns and coordination costs shape inter-organizational relationships in opposite directions... Clients' efforts to manage appropriation concerns have therefore frequently been understood as conflict-oriented and intrusive... Managing coordination costs effectively, however, may require interaction that runs in the opposite direction..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 116 (Section 1)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="font-semibold text-slate-900">기업 수준의 고립(Isolation)을 통한 갈등 차단</td>
+              <td class="text-sm italic text-slate-600">
+                "A central purpose of isolation at the corporate level is to avoid cross-category interdependencies. This enables the client organization to implement sanctions in certain categories while maintaining good relations in other areas. It also enables the client to reduce the vendor's negotiating power that comes from being a supplier in multiple categories."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 123 (Section 5.1)</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="font-semibold text-slate-900">운영 수준에서의 협업 R&D와 상업 협상의 분리</td>
+              <td class="text-sm italic text-slate-600">
+                "Engineering activities that rely on joint cooperative work are also frequently isolated from tasks where substantially adversarial roles are played in response to appropriation concerns — such as purchasing negotiations. In this way, isolation preserves trust and communications needed to manage coordination costs..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 123 (Section 5.1)</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="font-semibold text-slate-900">에스컬레이션을 이용한 실무 관계 보호</td>
+              <td class="text-sm italic text-slate-600">
+                "...isolating controversial activities by pushing them up in the organizational hierarchy through the escalation process helps to preserve such an atmosphere [collaborative atmosphere]. ... letting them [purchasing] take the fight so that we can keep our good working relationship [R&D]."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 123 (Sec 5.1) & Page 122 (Quote B6)</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="font-semibold text-slate-900">기업 수준의 통합(Integration)을 통한 성과 감사 강제</td>
+              <td class="text-sm italic text-slate-600">
+                "Integrating across categories is also a key means of managing appropriation concerns. This involves leveraging power against vendors, e.g., by applying price pressure across categories and to force remedial action in specific categories when contractual terms are not met. An important formal integrating mechanism is the cross-category vendor audit."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 123 (Section 5.2)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- STEP 4 — Research Model & Variables -->
+    <section id="model" class="flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+        <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+      </div>
+      
+      <!-- Conceptual Model SVG Diagram -->
+      <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+        <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (개념적 관계 구조 모델)</h3>
+        
+        <div class="w-full max-w-4xl bg-white p-6 rounded-lg shadow-sm border border-slate-100">
+          <svg viewBox="0 0 960 450" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <marker id="arrow-slate" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+              </marker>
+              <marker id="arrow-rose" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#f43f5e"/>
+              </marker>
+              <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b"/>
+              </marker>
+              <marker id="arrow-emerald" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#16a34a"/>
+              </marker>
+            </defs>
+
+            <!-- Context: Relational Complexity Box -->
+            <rect x="30" y="130" width="200" height="170" rx="12" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+            <text x="130" y="165" font-family="'Pretendard', sans-serif" font-size="14" font-weight="bold" fill="#0f172a" text-anchor="middle">관계적 복잡성</text>
+            <text x="130" y="182" font-family="'Pretendard', sans-serif" font-size="11" fill="#64748b" text-anchor="middle">(Relational Complexity)</text>
+            <line x1="45" y1="195" x2="215" y2="195" stroke="#cbd5e1" stroke-width="1"/>
+            <text x="55" y="220" font-family="'Pretendard', sans-serif" font-size="11" fill="#334155">• 다중 카테고리 (Categories)</text>
+            <text x="55" y="245" font-family="'Pretendard', sans-serif" font-size="11" fill="#334155">• 다중 거래 (Transactions)</text>
+            <text x="55" y="270" font-family="'Pretendard', sans-serif" font-size="11" fill="#334155">• 다양한 활동 (Activities)</text>
+
+            <!-- Paths from Complexity to Challenges -->
+            <path d="M 230 180 Q 255 110, 280 110" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow-slate)"/>
+            <path d="M 230 250 Q 255 320, 280 320" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow-slate)"/>
+
+            <!-- Challenge 1: Appropriation Concerns -->
+            <rect x="280" y="60" width="230" height="100" rx="12" fill="#fff1f2" stroke="#f43f5e" stroke-width="2"/>
+            <text x="395" y="95" font-family="'Pretendard', sans-serif" font-size="14" font-weight="bold" fill="#9f1239" text-anchor="middle">전유 우려 (Appropriation Concerns)</text>
+            <text x="395" y="118" font-family="'Pretendard', sans-serif" font-size="11" fill="#be123c" text-anchor="middle">기회주의 방지 / 기술 유출 우려</text>
+            <text x="395" y="138" font-family="'Pretendard', sans-serif" font-size="10" fill="#e11d48" font-style="italic" text-anchor="middle">➔ 강압적 성격의 통제 유발</text>
+
+            <!-- Challenge 2: Coordination Costs -->
+            <rect x="280" y="270" width="230" height="100" rx="12" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+            <text x="395" y="305" font-family="'Pretendard', sans-serif" font-size="14" font-weight="bold" fill="#92400e" text-anchor="middle">조정 비용 (Coordination Costs)</text>
+            <text x="395" y="328" font-family="'Pretendard', sans-serif" font-size="11" fill="#b45309" text-anchor="middle">분업 구조 및 의사소통 비효율</text>
+            <text x="395" y="348" font-family="'Pretendard', sans-serif" font-size="10" fill="#d97706" font-style="italic" text-anchor="middle">➔ 협력적 성격의 신뢰 요구</text>
+
+            <!-- Lightning bolt for conflict -->
+            <path d="M 395 175 L 390 195 L 400 195 L 395 215 L 405 215 L 395 255" fill="none" stroke="#dc2626" stroke-width="2"/>
+            <text x="420" y="215" font-family="'Pretendard', sans-serif" font-size="11" font-weight="bold" fill="#dc2626">통제 수단의 상충</text>
+
+            <!-- Paths from Challenges to Strategies -->
+            <path d="M 510 110 Q 535 110, 560 170" fill="none" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#arrow-rose)"/>
+            <path d="M 510 320 Q 535 320, 560 250" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#arrow-amber)"/>
+
+            <!-- Strategies: Integration & Isolation -->
+            <rect x="560" y="135" width="220" height="160" rx="12" fill="#f0fdf4" stroke="#16a34a" stroke-width="2.5"/>
+            <text x="670" y="165" font-family="'Pretendard', sans-serif" font-size="14" font-weight="bold" fill="#14532d" text-anchor="middle">거버넌스 포트폴리오 전략</text>
+            <text x="670" y="190" font-family="'Pretendard', sans-serif" font-size="13" font-weight="bold" fill="#15803d" text-anchor="middle">통합 (Integration) &amp; 고립 (Isolation)</text>
+            <line x1="580" y1="205" x2="760" y2="205" stroke="#bbf7d0" stroke-width="1"/>
+            <text x="670" y="225" font-family="'Pretendard', sans-serif" font-size="11" fill="#166534" text-anchor="middle">• 본사 및 실무진 레벨의 동시적 병행</text>
+            <text x="670" y="245" font-family="'Pretendard', sans-serif" font-size="11" fill="#166534" text-anchor="middle">• 공식적 통제 &amp; 비공식 신뢰의 결합</text>
+            <text x="670" y="265" font-family="'Pretendard', sans-serif" font-size="10" fill="#15803d" font-weight="bold" text-anchor="middle">Tandem (병행) 관계</text>
+
+            <!-- Path to DV -->
+            <path d="M 780 215 L 820 215" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-emerald)"/>
+
+            <!-- DV: Relationship Maintenance -->
+            <rect x="820" y="150" width="120" height="130" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+            <text x="880" y="185" font-family="'Pretendard', sans-serif" font-size="13" font-weight="bold" fill="#1e40af" text-anchor="middle">장기 복합 관계</text>
+            <text x="880" y="205" font-family="'Pretendard', sans-serif" font-size="13" font-weight="bold" fill="#1e40af" text-anchor="middle">유지 및 발전</text>
+            <text x="880" y="235" font-family="'Pretendard', sans-serif" font-size="10" fill="#2563eb" text-anchor="middle">(DV: Relationship</text>
+            <text x="880" y="250" font-family="'Pretendard', sans-serif" font-size="10" fill="#2563eb" text-anchor="middle">Maintenance)</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Variable Detail Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+        <!-- IV 1: Integration -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+          <div class="card-body p-6 gap-3">
+            <div class="flex items-center justify-between">
+              <span class="badge badge-success style-label text-white">독립변수 1 (IV1)</span>
+              <span class="text-xs text-slate-400 font-semibold">Integration Strategy</span>
+            </div>
+            <h3 class="style-h3 text-slate-900">통합 전략 (Integration Strategy)</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 파트너십 내 정보 공유 촉진 및 조직적 시너지 실현을 위해, 카테고리나 활동들을 시스템적·커뮤니케이션 측면에서 정교하게 결합시키는 행동.</p>
+            <p class="text-sm text-slate-700"><strong>조작 정의 (질적 분석 지표):</strong> 구매팀 주도의 통합 가격 협상, 본사 차원의 크로스-카테고리 감사(Auditing) 체계 작동, 구매-R&D-품질(SQM) 합동 프로세스 기획 등.</p>
+            <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+              <strong>관련 학술 논의:</strong> 구매론 전반에서는 협업적 시너지를 달성하기 위한 이상적인 지향점으로 평가되지만, 본 논문은 무조건적인 통합은 관계 파탄의 도화선이 될 수 있음을 입증합니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- IV 2: Isolation -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+          <div class="card-body p-6 gap-3">
+            <div class="flex items-center justify-between">
+              <span class="badge badge-success style-label text-white">독립변수 2 (IV2)</span>
+              <span class="text-xs text-slate-400 font-semibold">Isolation Strategy</span>
+            </div>
+            <h3 class="style-h3 text-slate-900">고립 전략 (Isolation Strategy)</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 기회주의적 행동의 파급과 협상 갈등의 전이를 의도적으로 방어하기 위해 특정 부서, 카테고리, 거래 활동을 물리적·조직적·지리적으로 차단 분리하는 행동.</p>
+            <p class="text-sm text-slate-700"><strong>조작 정의 (질적 분석 지표):</strong> R&D 센터와 구매 부서의 분리(지리적 격리), 이원 소싱(Dual sourcing)을 통한 공급 권력의 격리, 에스컬레이션을 활용한 갈등의 상위 이전 등.</p>
+            <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+              <strong>관련 학술 논의:</strong> 전통적인 유통 채널 이론에서는 지식 단절을 유발하는 부정적 유산으로 취급되었으나, 복잡한 다중 관계에서는 부서 간의 고유 역할을 지켜주는 완충막(Buffer)으로 재발견됩니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Mediator 1: Appropriation Concerns -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+          <div class="card-body p-6 gap-3">
+            <div class="flex items-center justify-between">
+              <span class="badge badge-error style-label text-white">해결 과제 1 (Challenge 1)</span>
+              <span class="text-xs text-slate-400 font-semibold">Appropriation Concerns</span>
+            </div>
+            <h3 class="style-h3 text-slate-900">전유 우려 (Appropriation Concerns)</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자사 고유 자산(지적 재산, 노하우 등)에 대해 사후(ex-post) 벤더가 기회주의적으로 편승하거나 과도한 지대(Rents)를 빼앗아 갈 것에 대한 우려 수준.</p>
+            <p class="text-sm text-slate-700"><strong>조작 정의 (질적 분석 지표):</strong> 기밀 노하우 유출 불안, 가격 협상 시 비협조적 행동, 이로 인한 거래 중단 페널티 위협 유무.</p>
+            <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+              <strong>관련 학술 논의:</strong> Williamson의 거래비용이론(TCE)에 뿌리를 두고 있으며, 자산 특이성이 높은 동맹 관계일수록 전유 우려 해소를 위해 강압적 공식 계약 통제를 배치하는 요인이 됩니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Mediator 2: Coordination Costs -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+          <div class="card-body p-6 gap-3">
+            <div class="flex items-center justify-between">
+              <span class="badge badge-warning style-label text-amber-950">해결 과제 2 (Challenge 2)</span>
+              <span class="text-xs text-slate-400 font-semibold">Coordination Costs</span>
+            </div>
+            <h3 class="style-h3 text-slate-900">조정 비용 (Coordination Costs)</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 조직 간 협력 설계, 부서 매핑, 공동 의사결정 체계 유지 및 신호 오류 해결 과정에서 야기되는 행정적 비용과 소통 부하.</p>
+            <p class="text-sm text-slate-700"><strong>조작 정의 (질적 분석 지표):</strong> 상호 프로세스 적합화를 위한 미팅 빈도, 다부서 연계 복잡도, 소통 불일치로 인한 오작동 처리 시간.</p>
+            <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+              <strong>관련 학술 논의:</strong> Gulati & Singh(1998)의 조정 비용 이론을 계승하였으며, 조직적인 신뢰를 확보하고 원활하게 정보가 흐르도록 만드는 강력한 유인이 됩니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- DV: Relationship Maintenance -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+          <div class="card-body p-6 gap-3">
+            <div class="flex items-center justify-between">
+              <span class="badge badge-primary style-label text-white">종속변수 (DV)</span>
+              <span class="text-xs text-slate-400 font-semibold">Relationship Maintenance</span>
+            </div>
+            <h3 class="style-h3 text-slate-900">장기 복합 벤더 관계 유지 및 발전 (Long-term Complex Relationship Maintenance)</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 거래 전환 비용(Switching costs)과 상호 의존성이 극도로 높은 다부서·다중 채널의 복잡한 공급망 파트너십을 와해 없이 성과 지향적으로 유지하고 키워내는 관계적 역량.</p>
+            <p class="text-sm text-slate-700"><strong>조작 정의 (질적 분석 지표):</strong> 해당 벤더사와의 역사적인 거래 기간(사례의 경우 30년 이상 보존), 거래 볼륨 확대 여부, 분쟁 발생 시 무력화(Hold status) 극복 역량.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 5 — Method Replication Steps -->
+    <section id="method" class="flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+        <span class="badge badge-primary style-label uppercase">Methodology</span>
+      </div>
+      
+      <p class="style-body text-slate-600">
+        후속 연구자 또는 실무 분석가가 해당 논문의 임베디드 단일 사례 분석 연구 설계를 다른 대기업에 그대로 복사·재현할 수 있도록 정형화한 단계별 로드맵입니다.
+      </p>
+
+      <!-- Timeline Component -->
+      <div class="mt-4">
+        <ul class="timeline timeline-vertical timeline-snap-icon">
+          <!-- Step 1 -->
+          <li>
+            <div class="timeline-middle">
+              <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+              <div class="text-lg font-bold text-slate-800">사례 조사 기업(구매 대기업) 표집</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                글로벌 시장에서 고도로 중앙화된 구매 부서를 갖추고, 협력업체의 전환 비용 및 자산 특이성이 높은 완성차 OEM 또는 그에 상응하는 제조업 대기업을 구매 측 타겟으로 선정합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 120, Section 3.4</span>
+            </div>
+            <hr class="bg-primary"/>
+          </li>
+          
+          <!-- Step 2 -->
+          <li>
+            <hr class="bg-primary"/>
+            <div class="timeline-middle">
+              <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+              <div class="text-lg font-bold text-slate-800">복합 장기 벤더 샘플링</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                최소 3개 이상의 상이한 제품 카테고리에서 동시에 수천만 유로 규모의 거래를 수행하고 있으며, 구매자사와의 거래 연수가 20~30년 이상 보존된 전략적 핵심 협력업체 3곳을 필터링합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 119, Section 3.1 & Table 2</span>
+            </div>
+            <hr class="bg-secondary"/>
+          </li>
+
+          <!-- Step 3 -->
+          <li>
+            <hr class="bg-secondary"/>
+            <div class="timeline-middle">
+              <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+              <div class="text-lg font-bold text-slate-800">구매 규정 및 감사 절차 문서 확보</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                구매자사가 협력사를 감시하고 통제하는 데 사용하는 공급업체 품질 평가서(SQM), 공급업체 감사 매뉴얼(SEM), 지속가능성 가이드라인, 행동강령 등 사내의 공식적인 절차 문서(PD)들을 수집합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 119, Section 3.2</span>
+            </div>
+            <hr class="bg-accent"/>
+          </li>
+
+          <!-- Step 4 -->
+          <li>
+            <hr class="bg-accent"/>
+            <div class="timeline-middle">
+              <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+              <div class="text-lg font-bold text-slate-800">다층적 이해관계자(Boundary Spanners) 섭외</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                눈덩이 표집(Snowballing) 방식을 활용하여, 구매 본부장(CPO) 등 임원급 경영자부터 각 벤더별 카테고리 매니저, 현업 R&D 설계 엔지니어, 공장 실무 조달 담당자까지 관계의 전 수평·수직적 주체들을 섭외합니다 (총 23명 규모).
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 119, Table 1</span>
+            </div>
+            <hr class="bg-info"/>
+          </li>
+
+          <!-- Step 5 -->
+          <li>
+            <hr class="bg-info"/>
+            <div class="timeline-middle">
+              <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+              <div class="text-lg font-bold text-slate-800">반구조화 심층 인터뷰 실시</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                부록 1의 가이드를 기준으로 Respondent의 백그라운드, 벤더 역사, 주요 공동 활동, 내부 부서간 통제 기약 상충 사례, 타 영역 갈등 전이 수준 등을 질문하여 세션당 60~120분간 녹취 및 기록 작성을 진행합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 119, Section 3.2 & Appendix 1</span>
+            </div>
+            <hr class="bg-success"/>
+          </li>
+
+          <!-- Step 6 -->
+          <li>
+            <hr class="bg-success"/>
+            <div class="timeline-middle">
+              <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+              <div class="text-lg font-bold text-slate-800">Gioia 방법론을 활용한 질적 코딩 수행</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                녹취록 데이터를 바탕으로 1차 코딩(현장 날것의 경험 및 진술 정리), 2차 코딩(전유 우려/조정 비용/공식적-비공식적 거버넌스 분류), 3차 코딩(통합과 고립 전략 매핑)의 구조적 이론화 작업을 실행합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 119, Section 3.3 & Appendix 2</span>
+            </div>
+            <hr class="bg-neutral"/>
+          </li>
+
+          <!-- Step 7 -->
+          <li>
+            <hr class="bg-neutral"/>
+            <div class="timeline-middle">
+              <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+            </div>
+            <div class="timeline-start mb-4 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+              <div class="text-lg font-bold text-slate-800">자문 경험 및 교차 검증을 통한 신뢰 확보</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                인터뷰 원문, 구매사 내부 절차서, 그리고 연구진이 보유한 자동차 구매 시장에 대한 장기적 자문 경험 데이터를 대조하여 질적 연구의 타당성(Triangulation)을 교차 승인합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 119, Section 3.2</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Replication feasibility assessment block -->
+      <div class="bg-slate-100 p-6 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div>
+          <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Feasibility)</h4>
+          <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+        </div>
+        <p class="text-sm text-slate-600 max-w-xl">
+          제시된 7단계 분석 절차와 질적 코딩 체계(부록 2)는 완벽히 공개되어 있어 방법론적 모방은 충분히 가능합니다. 하지만, 연구의 핵심 뼈대인 완성차 OEM의 대외비 절차 문서(PD) 및 기업 비밀 서약에 묶인 23건의 현업 심층 인터뷰 녹취록 원문은 비공개(Page 124, Data availability) 상태이므로 타 학자가 데이터 셋을 완전하게 복제 검증하는 것은 불가능합니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- STEP 6 — Limitations & Critical Doubts -->
+    <section id="limitations" class="flex flex-col gap-6">
+      <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+        <h2 class="style-h2 text-slate-900">STEP 6. Limitations &amp; Critical Doubts</h2>
+        <span class="badge badge-neutral style-label text-white uppercase">Limitations</span>
+      </div>
+      
+      <!-- Accordion collapses -->
+      <div class="join join-vertical w-full shadow-sm">
+        <!-- Collapse 1: Admitted Limitations -->
+        <div class="collapse collapse-arrow join-item border border-slate-200 bg-white">
+          <input type="radio" name="my-accordion-4" checked="checked" /> 
+          <div class="collapse-title text-xl font-medium text-slate-800">
+            A. Admitted Limitations (저자들이 인정한 명시적 한계)
+          </div>
+          <div class="collapse-content text-slate-600 flex flex-col gap-4 text-sm">
+            <p><strong>1) 로데이터의 기밀성에 따른 외부 검증 불가능성 (Page 124, Data availability)</strong><br>
+            자동차 거래선 간의 밀접한 계약 및 가격 협상 기술을 규명하므로, 인터뷰 기초 기록물과 회사의 공급자 가이드북 등 핵심 로데이터가 극비로 묶여 있어 외부 검증이나 데이터 감사가 원천 봉쇄되어 있습니다.</p>
+            
+            <p><strong>2) 특정 단일 제조 산업 맥락의 편향 (Page 124, Section 6)</strong><br>
+            고도의 부품 전용성과 자산 특이성이 높은 자동차 제조 산업(OEM)의 거래 환경에만 치우쳐 있습니다. 거래 자산 특성이 낮거나 프로젝트 주기가 짧은 산업군(예: 유통, 미디어, 일반 서비스업)에서는 고립과 통합의 병행 패턴이 다른 방식으로 작동할 여지가 큽니다.</p>
+
+            <p><strong>3) 구매사 중심의 단편적 수집 바이어스 (Page 117, Section 1)</strong><br>
+            거버넌스는 양방향 프로세스임에도 불구하고 연구 데이터가 주로 구매 대기업(OEM) 측 관점으로만 채워져 있습니다. 공급사(Vendor)들이 이러한 격리(Isolation) 배치나 에스컬레이션 거절에 대해 사후에 어떠한 불만과 역-전술로 맞섰는지가 깊이있게 조명되지 못했습니다.</p>
+          </div>
+        </div>
+        
+        <!-- Collapse 2: Critical Doubts -->
+        <div class="collapse collapse-arrow join-item border border-slate-200 bg-white">
+          <input type="radio" name="my-accordion-4" /> 
+          <div class="collapse-title text-xl font-medium text-slate-800">
+            B. Critical Doubts (비판적 의구심 및 대안 시각)
+          </div>
+          <div class="collapse-content text-slate-600 flex flex-col gap-4 text-sm">
+            <p><strong>1) 표본의 극단적 생존자 편향 (Survivor Bias)</strong><br>
+            분석 대상인 벤더 A, B, C는 모두 **30년 이상(30+ Years)** 관계를 존속시킨 극도로 검증된 벤더들입니다. 고립 전략이나 과도한 계약 압박으로 인해 관계가 조기에 파탄 난 '실패 사례'나 '분쟁 도중 탈락한 벤더'를 대조군으로 삼지 않아, 이 전략이 관계 파국의 방지책인지 아니면 30년 신뢰가 먼저 바탕이 되어 작동 가능한 결과론적 혜택인지 인과관계가 불분명합니다.</p>
+            
+            <p><strong>2) 비대칭적 거대 권력(Buyer Power)에 대한 과소평가</strong><br>
+            구매사가 완성차 OEM으로 연간 EUR 7bn(약 10조 원) 규모의 구매력을 쥐고 있으므로 벤더들을 일방적으로 부서별 격리시키고(R&D 건물과 구매 건물 격리 등) 전사 감사로 압박하는 무리한 격리 조치가 작동 가능한 것입니다. 벤더가 핵심 기술을 독점한 환경(예: 반도체 장비사 ASML이나 칩 설계사 NVIDIA 등)이나 구매력이 약한 중견·중소기업 거래 상황에서 구매자가 고립(Isolation) 전략을 독자적으로 전개했다가는 벤더사로부터 거래 중지 보복을 유발할 가능성이 매우 농후합니다.</p>
+
+            <p><strong>3) 부서 격리에 의한 내부 고립화 소통 단절 비용 (Silo Effect)</strong><br>
+            R&D(혁신협력)와 구매부서( adversarial 단가 협상)를 지리적·조직적으로 가로막은 고립(Isolation) 전략이 우호적 신뢰 보존에 유용하다고 결론 내렸으나, 실제 현업 구매 담당자 A3의 분노 섞인 고백("R&D와 구매 부서의 물리적 공간을 떼어놓은 것은 최악의 결정이었다. 매일 얼굴 보고 대화하지 못해 효율성이 극도로 악화되었다")에서 보듯, 내부 부서 단절에 따라 파생되는 내부 소통 파괴(Silo 비용)와 조율 비효율이 관계 거버넌스의 장기 성과 방정식에서 간과된 측면이 존재합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 style-small">
+    <aside>
+      <p class="font-bold text-cyan-400">IMM B2B Research Briefing System</p> 
+      <p>Copyright © 2026 - All Rights Reserved.</p>
+    </aside>
+  </footer>
+
+</body>
+</html>

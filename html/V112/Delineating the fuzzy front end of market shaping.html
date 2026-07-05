@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delineating the fuzzy front end of market shaping - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Header & Hero Section -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Market Shaping &amp; FFE</div>
+        <div class="badge badge-secondary text-white style-label">Theoretical / Conceptual</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Delineating the fuzzy front end of market shaping
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Daniel Kindström, Hannu Makkonen, Valtteri Kaartemo
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="style-h1 text-slate-100 leading-tight">
+            시장 형성의 모호한 프론트 엔드<br>
+            <span class="text-cyan-400">(Fuzzy Front End) 규명</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            공식적 조정 개시 전, 비선형적이고 우연한 탐색적 시장 형성의 극초기 과정을 5대 시스템적 차원과 9가지 명제로 구체화한 개념적 프레임워크 연구
+          </p>
+        </div>
+      </div>
+      
+      <!-- 1-Minute summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300 mt-2">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold style-h3">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">시장 형성은 계획된 선형적 과정이 아닙니다. 극초기(FFE)의 분산되고 우연한 상호작용들이 수렴되어 지배적인 시장 비전이 출현할 때 비로소 본격적인 시장 형성이 작동합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- STEP 1 — Title & Abstract Translation -->
+    <section id="abstract" class="flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center gap-3 border-b pb-4">
+        <div class="w-3 h-8 bg-cyan-500 rounded-full"></div>
+        <h2 class="style-h2 text-slate-900">1. 초록 번역 및 학술 용어 해설 (Abstract &amp; Glossary)</h2>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
+          <h3 class="style-label text-slate-400 uppercase mb-3">English Abstract</h3>
+          <p class="style-body text-slate-700 italic">
+            Emerging perspectives define markets as continuous, malleable processes that can be shaped through various activities. In this research, the authors address the early phase of such market-shaping processes, developing a conceptual framework and linking the front-end phase to an overall market-shaping process. We propose and develop a fuzzy front end (FFE) concept centered around the market image to reflect market shaping’s less organized and more exploratory early phase. Nine propositions outline this critical phase and its fundamental dimensions, roles, and characteristics. Finally, by outlining the FFE of market shaping, this article reveals future research directions for elaborating on the concept.
+          </p>
+        </div>
+        <div class="bg-indigo-50/50 p-6 rounded-xl border border-indigo-100">
+          <h3 class="style-label text-indigo-400 uppercase mb-3">Korean Abstract (국문 번역)</h3>
+          <p class="style-body text-slate-800 font-medium">
+            최근 대두되는 관점에서는 시장을 다양한 활동을 통해 형성될 수 있는 연속적이고 가소성(malleable) 있는 과정으로 정의한다. 본 연구에서 저자들은 이러한 시장 형성 과정의 초기 단계를 다루며, 개념적 프레임워크를 개발하고 이 프론트 엔드(front-end) 단계를 전반적인 시장 형성 과정과 연결한다. 우리는 시장 형성의 덜 조직화되고 더 탐색적인 초기 단계를 반영하기 위해 '시장 이미지(market image)'를 중심으로 한 '모호한 프론트 엔드(fuzzy front end, FFE)' 개념을 제안하고 개발한다. 9가지 명제(propositions)가 이 중요한 단계와 그 기본적인 차원, 역할, 그리고 특성을 설명한다. 마지막으로, 시장 형성의 FFE를 개괄함으로써, 이 논문은 해당 개념을 더욱 구체화하기 위한 향후 연구 방향을 제시한다.
+          </p>
+        </div>
+      </div>
+      
+      <div class="mt-4">
+        <h3 class="style-h3 text-slate-800 mb-4">용어 Glossary</h3>
+        <div class="overflow-x-auto">
+          <table class="table table-zebra w-full border border-slate-200">
+            <thead>
+              <tr class="bg-slate-100 text-slate-800">
+                <th class="style-label">영어 학술 용어 (English Term)</th>
+                <th class="style-label">한국어 번역 (Korean Translation)</th>
+                <th class="style-label">번역 근거 및 주석 (Translation Note/Reason)</th>
+              </tr>
+            </thead>
+            <tbody class="style-body">
+              <tr>
+                <td class="font-bold">Fuzzy front end (FFE)</td>
+                <td>모호한 프론트 엔드 (극초기 단계)</td>
+                <td class="style-small text-slate-600">신제품 개발(NPD) 혁신 연구에서 유래한 메타포로, 공식적인 시장 형성 계획이나 조정 활동이 시작되기 전, 아이디어와 프로세스가 구체화되지 않고 탐색적인 시기를 지칭하기 위해 차용함.</td>
+              </tr>
+              <tr>
+                <td class="font-bold">Market shaping</td>
+                <td>시장 형성</td>
+                <td class="style-small text-slate-600">시장 자체를 고정된 실체가 아니라 행위자들의 실천(practices)에 의해 가변적이고 형성될 수 있는 '가소성(plasticity)'을 지닌 프로세스로 바라보는 동적인 관점을 반영함.</td>
+              </tr>
+              <tr>
+                <td class="font-bold">Market image</td>
+                <td>시장 이미지</td>
+                <td class="style-small text-slate-600">미래 시장이 어떻게 구성되고 작동해야 하는지에 대해 개별 행위자가 인지적으로 그리고 상상하는 '일시적 비전(tentative vision)' 또는 인지적 표상을 의미함.</td>
+              </tr>
+              <tr>
+                <td class="font-bold">Market system</td>
+                <td>시장 시스템</td>
+                <td class="style-small text-slate-600">서비스 지배 논리(S-D Logic)에 따라 자원 통합 행위자들, 가치 공동창출, 그리고 이를 안내하는 공유된 제도로 구성된 상호 연계된 시스템적 전체.</td>
+              </tr>
+              <tr>
+                <td class="font-bold">Multilinearity</td>
+                <td>다중선형성 (다선형성)</td>
+                <td class="style-small text-slate-600">단일한 경로를 따라 시장이 형성되는 것이 아니라, 여러 행위자가 독립적으로 각기 다른 비전을 추구함으로써 비선형적이고 여러 경로가 동시에 존재하는 상태를 지칭함.</td>
+              </tr>
+              <tr>
+                <td class="font-bold">Distributed agency</td>
+                <td>분산된 행위성</td>
+                <td class="style-small text-slate-600">시장 형성이 단일 주도자(focal actor)의 조직화된 지배력에 의해 이루어지는 것이 아니라, 다수 행위자들이 협조적이지 않은 방식으로 각자의 행위 능력을 개별적으로 표출하는 상태.</td>
+              </tr>
+              <tr>
+                <td class="font-bold">Loosely coupled resources</td>
+                <td>느슨하게 결합된 자원</td>
+                <td class="style-small text-slate-600">향후 시장을 구체화하는 데 기여할 수 있는 여러 행위자 보유의 이종 자원들이 아직 조율되거나 견고한 연계망을 형성하지 못한 초기 배치 형태.</td>
+              </tr>
+              <tr>
+                <td class="font-bold">Institutional arrangements</td>
+                <td>제도적 배치 (제도적 배열)</td>
+                <td class="style-small text-slate-600">시장 내 행위자들의 서비스 교환 및 자원 통합을 규율하고 조율하는 규칙, 규범, 가치 및 제도의 종합체.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2 & 3 — Core Claims & Evidence Table -->
+    <section id="claims" class="flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center gap-3 border-b pb-4">
+        <div class="w-3 h-8 bg-cyan-500 rounded-full"></div>
+        <h2 class="style-h2 text-slate-900">2. 연구 핵심 주장 및 근거 원문 (Core Claims &amp; Evidence)</h2>
+      </div>
+      
+      <p class="style-body text-slate-600">
+        본 논문이 제시하는 핵심 주장(Propositions)은 시장 시스템적 5대 차원과 FFE 프로세스 특징을 다루고 있으며, 원문의 핵심 인용구 및 상세 위치는 아래와 같습니다.
+      </p>
+
+      <div class="overflow-x-auto mt-2">
+        <table class="table table-zebra w-full border border-slate-200">
+          <thead>
+            <tr class="bg-slate-100 text-slate-800">
+              <th class="style-label w-12 text-center">#</th>
+              <th class="style-label w-1/3">핵심 주장 (Core Claim)</th>
+              <th class="style-label w-1/2">근거 (원문 인용 / Exact Quote)</th>
+              <th class="style-label">원문 위치</th>
+            </tr>
+          </thead>
+          <tbody class="style-body text-slate-700">
+            <tr>
+              <td class="font-bold text-center">RP1</td>
+              <td>FFE 단계는 창발적 프로세스 하에서 <strong>비체계적인 상호작용과 우연성(Serendipity)</strong>을 특징으로 한다.</td>
+              <td class="style-small italic">"RP1 – The FFE phase of market shaping features non-systematic interactions and serendipity in an emergent process."</td>
+              <td class="style-small text-slate-500 font-semibold">Page 4, Sec. 3.1.1</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-center">RP2</td>
+              <td>FFE 단계는 조정되지 않은 채 동시에 전개되는 <strong>다중선형성(Multilinearity)</strong>을 지닌다.</td>
+              <td class="style-small italic">"RP2 – The FFE phase of market shaping features uncoordinated multilinearity."</td>
+              <td class="style-small text-slate-500 font-semibold">Page 4, Sec. 3.1.1</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-center">RP3</td>
+              <td>FFE 단계에서는 <strong>다수의 조정되지 않고 잠정적인 시장 이미지</strong>들이 출현한다.</td>
+              <td class="style-small italic">"RP3 – The FFE phase of market shaping features the emergence of multiple, uncoordinated, tentative market images."</td>
+              <td class="style-small text-slate-500 font-semibold">Page 4, Sec. 3.1.1</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-center">RP4</td>
+              <td>FFE 단계는 <strong>공유되고 명확히 표현된 지배적 시장 이미지</strong>가 나타날 때 종료된다.</td>
+              <td class="style-small italic">"RP4 – The FFE phase of market shaping ends when a shared and expressed market image emerges."</td>
+              <td class="style-small text-slate-500 font-semibold">Page 4, Sec. 3.1.1</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-center">RP5</td>
+              <td>FFE 단계에서는 다수의, 주로 <strong>발견 지향적인 잠재적 시장 형성 행위자</strong>들이 관여한다.</td>
+              <td class="style-small italic">"RP5 - The FFE phase of market shaping features multiple, primarily discovery-oriented, potential market-shaping actors."</td>
+              <td class="style-small text-slate-500 font-semibold">Page 5, Sec. 3.1.2</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-center">RP6</td>
+              <td>FFE 단계는 <strong>조정되지 않고 분산된 행위성 및 조치</strong>를 특징으로 한다.</td>
+              <td class="style-small italic">"RP6 - The FFE phase of market shaping features uncoordinated, distributed agency and actions."</td>
+              <td class="style-small text-slate-500 font-semibold">Page 5, Sec. 3.1.2</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-center">RP7</td>
+              <td>FFE 단계는 조정되지 않은 개별 행위자들에 귀속된 <strong>느슨하게 결합된 자원</strong>들이 특징이다.</td>
+              <td class="style-small italic">"RP7 - The FFE phase of market shaping features loosely coupled resources tied to uncoordinated market actors."</td>
+              <td class="style-small text-slate-500 font-semibold">Page 5, Sec. 3.1.3</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-center">RP8</td>
+              <td>FFE 단계의 가치제안은 주로 <strong>단기적이고 행위자 중심의 가치(Direct exchange value)</strong>에 국한된다.</td>
+              <td class="style-small italic">"RP8 – The FFE phase of market shaping features value propositions primarily focused on actor-oriented short-term value."</td>
+              <td class="style-small text-slate-500 font-semibold">Page 6, Sec. 3.1.4</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-center">RP9</td>
+              <td>FFE 단계는 아직 내재화되지 않고 <strong>외부에 치우친 제도적 배치</strong>를 특징으로 한다.</td>
+              <td class="style-small italic">"RP9 – The FFE phase of market shaping features nascent and externally oriented institutional arrangements."</td>
+              <td class="style-small text-slate-500 font-semibold">Page 6, Sec. 3.1.5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- STEP 4 — Research Model & Variables Detailed Analysis -->
+    <section id="model" class="flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center gap-3 border-b pb-4">
+        <div class="w-3 h-8 bg-cyan-500 rounded-full"></div>
+        <h2 class="style-h2 text-slate-900">3. 개념적 프레임워크 및 구성 요인 상세 분석 (Conceptual Framework)</h2>
+      </div>
+
+      <p class="style-body text-slate-600">
+        본 논문은 정량 실증 데이터 분석이 아닌 <strong>개념 모델링 논문</strong>입니다. 따라서 독립/종속/매개/조절변수 대신 <strong>시장 시스템을 구성하는 5가지 개념적 구성요소</strong>가 FFE 시점에 취하는 형태를 분석합니다.
+      </p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-2">
+        
+        <!-- 1. Market Images -->
+        <div class="card bg-base-100 shadow-sm border border-slate-200 hover:border-indigo-300 transition-colors">
+          <div class="card-body">
+            <h3 class="card-title style-h3 text-indigo-900">
+              <span class="badge badge-indigo text-slate-900 bg-indigo-100 border-none style-label">Dimension 1</span>
+              시장 이미지 (Market Images)
+            </h3>
+            <div class="style-body mt-2 flex flex-col gap-2">
+              <p><strong>개념 정의:</strong> 자원 통합 및 가치 공동창출 구도를 보여주는 주관적/인지적 미래 시장 설계도.</p>
+              <p><strong>조작적 정의:</strong> SaaS, PaaS, IaaS 등 각 행위자들이 상호 조율되지 않은 채 제시하는 다수의 모순적이거나 상호보완적인 비전(RP3).</p>
+              <p><strong>출처/참조:</strong> Callon (1998); Rinallo &amp; Golfetto (2006).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Actors & Agency -->
+        <div class="card bg-base-100 shadow-sm border border-slate-200 hover:border-indigo-300 transition-colors">
+          <div class="card-body">
+            <h3 class="card-title style-h3 text-indigo-900">
+              <span class="badge badge-indigo text-slate-900 bg-indigo-100 border-none style-label">Dimension 2</span>
+              행위자와 행위성 (Actors &amp; Agency)
+            </h3>
+            <div class="style-body mt-2 flex flex-col gap-2">
+              <p><strong>개념 정의:</strong> 기존 질서에 의문을 제기하고 대안 비전을 제안하는 탐색 지향적 행위 주체들.</p>
+              <p><strong>조작적 정의:</strong> 스타트업, 대기업, 대학 학계, 정부가 각자 독자적으로 영향력을 행사하는 분산되고 비협조적인 행위성(RP5, RP6).</p>
+              <p><strong>출처/참조:</strong> Sprong et al. (2021); Flaig et al. (2021a).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Resources -->
+        <div class="card bg-base-100 shadow-sm border border-slate-200 hover:border-indigo-300 transition-colors">
+          <div class="card-body">
+            <h3 class="card-title style-h3 text-indigo-900">
+              <span class="badge badge-indigo text-slate-900 bg-indigo-100 border-none style-label">Dimension 3</span>
+              자원 (Resources)
+            </h3>
+            <div class="style-body mt-2 flex flex-col gap-2">
+              <p><strong>개념 정의:</strong> 새로운 시장 구현에 활용될 수 있는 유무형의 역량 및 자산.</p>
+              <p><strong>조작적 정의:</strong> 개별 기술 프로토콜(예: NFS, Globus)과 같이 파편화되어 존재하며 조율되지 않고 느슨하게 결합된 자원들(RP7).</p>
+              <p><strong>출처/참조:</strong> Normann (2001); Storbacka (2019).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Value Propositions -->
+        <div class="card bg-base-100 shadow-sm border border-slate-200 hover:border-indigo-300 transition-colors">
+          <div class="card-body">
+            <h3 class="card-title style-h3 text-indigo-900">
+              <span class="badge badge-indigo text-slate-900 bg-indigo-100 border-none style-label">Dimension 4</span>
+              가치 제안 (Value Propositions)
+            </h3>
+            <div class="style-body mt-2 flex flex-col gap-2">
+              <p><strong>개념 정의:</strong> 시스템 내 자원 공동 이용을 독려하기 위해 제시되는 가치 약속.</p>
+              <p><strong>조작적 정의:</strong> 단기적 비용 절감이나 부서별 특정 비즈니스 프로세스 효율화 등 행위자 지향적이고 직접 교환 혜택에 치우친 단기 가치제안(RP8).</p>
+              <p><strong>출처/참조:</strong> Nenonen et al. (2020); Storbacka &amp; Nenonen (2015).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Institutional Arrangements -->
+        <div class="card bg-base-100 shadow-sm border border-slate-200 hover:border-indigo-300 transition-colors">
+          <div class="card-body">
+            <h3 class="card-title style-h3 text-indigo-900">
+              <span class="badge badge-indigo text-slate-900 bg-indigo-100 border-none style-label">Dimension 5</span>
+              제도적 배치 (Institutional Arrangements)
+            </h3>
+            <div class="style-body mt-2 flex flex-col gap-2">
+              <p><strong>개념 정의:</strong> 행위자들의 교환과 협력을 규율하는 규칙, 규범, 가치 및 제도의 모음.</p>
+              <p><strong>조작적 정의:</strong> 독자적 산업 표준이 부재하여 타 분야의 외부 제도(예: HIPAA 의료 보안 규정, FISMA 연방 보안규정)에 의존하는 상태(RP9).</p>
+              <p><strong>출처/참조:</strong> Baker et al. (2019); Lawrence &amp; Suddaby (2006).</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SVG Diagram Container -->
+      <div class="mt-8 bg-slate-50 p-6 rounded-xl border border-slate-200">
+        <h3 class="style-h3 text-slate-800 text-center mb-6">시장 형성의 모호한 프론트 엔드(FFE) 개념적 관계도</h3>
+        
+        <svg viewBox="0 0 900 500" class="w-full h-auto max-w-4xl mx-auto rounded-xl shadow-lg border border-slate-200 bg-white" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Gradients -->
+            <linearGradient id="ffeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#312e81" />
+              <stop offset="100%" stop-color="#1e1b4b" />
+            </linearGradient>
+            <linearGradient id="transitionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0891b2" />
+              <stop offset="100%" stop-color="#0e7490" />
+            </linearGradient>
+            <linearGradient id="directedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0f172a" />
+              <stop offset="100%" stop-color="#1e293b" />
+            </linearGradient>
+            <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ffffff" />
+              <stop offset="100%" stop-color="#f1f5f9" />
+            </linearGradient>
+            <!-- Arrow markers -->
+            <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#0e7490" />
+            </marker>
+            <marker id="arrowDark" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569" />
+            </marker>
+          </defs>
+
+          <!-- Title Bar -->
+          <rect x="0" y="0" width="900" height="40" fill="#0f172a" />
+          <text x="20" y="25" fill="#f8fafc" font-size="14" font-weight="bold" font-family="'Pretendard', sans-serif">CONCEPTUAL FRAMEWORK: THE FUZZY FRONT END (FFE) OF MARKET SHAPING</text>
+
+          <!-- FFE Phase Container Box -->
+          <rect x="20" y="60" width="460" height="410" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="6 4" rx="12" />
+          <rect x="30" y="70" width="160" height="24" fill="#312e81" rx="4" />
+          <text x="40" y="86" fill="#ffffff" font-size="11" font-weight="bold" font-family="'Pretendard', sans-serif">1. FFE Phase (모호한 초기 단계)</text>
+
+          <!-- Dimension Blocks -->
+          <!-- 1. Market Images -->
+          <rect x="40" y="110" width="200" height="60" fill="url(#boxGrad)" stroke="#818cf8" stroke-width="1.5" rx="8" />
+          <text x="50" y="128" fill="#1e1b4b" font-size="12" font-weight="bold" font-family="'Pretendard', sans-serif">시장 이미지 (Market Images)</text>
+          <text x="50" y="145" fill="#4f46e5" font-size="11" font-weight="bold" font-family="'Pretendard', sans-serif">RP3: 일시적/다수의 이미지</text>
+          <text x="50" y="158" fill="#64748b" font-size="10" font-family="'Pretendard', sans-serif">(Tentative, competing, conflicting)</text>
+
+          <!-- 2. Actors & Agency -->
+          <rect x="40" y="180" width="200" height="60" fill="url(#boxGrad)" stroke="#818cf8" stroke-width="1.5" rx="8" />
+          <text x="50" y="198" fill="#1e1b4b" font-size="12" font-weight="bold" font-family="'Pretendard', sans-serif">행위자와 행위성 (Actors/Agency)</text>
+          <text x="50" y="215" fill="#4f46e5" font-size="11" font-weight="bold" font-family="'Pretendard', sans-serif">RP5, RP6: 분산/탐색지향 행위</text>
+          <text x="50" y="228" fill="#64748b" font-size="10" font-family="'Pretendard', sans-serif">(Uncoordinated, distributed)</text>
+
+          <!-- 3. Resources -->
+          <rect x="40" y="250" width="200" height="60" fill="url(#boxGrad)" stroke="#818cf8" stroke-width="1.5" rx="8" />
+          <text x="50" y="268" fill="#1e1b4b" font-size="12" font-weight="bold" font-family="'Pretendard', sans-serif">자원 (Resources)</text>
+          <text x="50" y="285" fill="#4f46e5" font-size="11" font-weight="bold" font-family="'Pretendard', sans-serif">RP7: 느슨하게 결합된 자원</text>
+          <text x="50" y="298" fill="#64748b" font-size="10" font-family="'Pretendard', sans-serif">(Loosely coupled, uncoordinated)</text>
+
+          <!-- 4. Value Propositions -->
+          <rect x="40" y="320" width="200" height="60" fill="url(#boxGrad)" stroke="#818cf8" stroke-width="1.5" rx="8" />
+          <text x="50" y="338" fill="#1e1b4b" font-size="12" font-weight="bold" font-family="'Pretendard', sans-serif">가치 제안 (Value Propositions)</text>
+          <text x="50" y="355" fill="#4f46e5" font-size="11" font-weight="bold" font-family="'Pretendard', sans-serif">RP8: 단기/행위자 중심 가치</text>
+          <text x="50" y="368" fill="#64748b" font-size="10" font-family="'Pretendard', sans-serif">(Short-term, actor-oriented)</text>
+
+          <!-- 5. Institutional Arrangements -->
+          <rect x="40" y="390" width="200" height="60" fill="url(#boxGrad)" stroke="#818cf8" stroke-width="1.5" rx="8" />
+          <text x="50" y="408" fill="#1e1b4b" font-size="12" font-weight="bold" font-family="'Pretendard', sans-serif">제도적 배치 (Institutions)</text>
+          <text x="50" y="425" fill="#4f46e5" font-size="11" font-weight="bold" font-family="'Pretendard', sans-serif">RP9: 미성숙/외부 제도 의존</text>
+          <text x="50" y="438" fill="#64748b" font-size="10" font-family="'Pretendard', sans-serif">(Nascent, externally oriented)</text>
+
+          <!-- FFE Process Box -->
+          <rect x="270" y="180" width="190" height="150" fill="#f5f3ff" stroke="#c084fc" stroke-width="1.5" rx="8" />
+          <text x="280" y="202" fill="#581c87" font-size="12" font-weight="bold" font-family="'Pretendard', sans-serif">FFE 프로세스 특징</text>
+          
+          <text x="280" y="228" fill="#6b21a8" font-size="11" font-weight="bold" font-family="'Pretendard', sans-serif">RP1: 창발적 &amp; 우연적 상호작용</text>
+          <text x="280" y="242" fill="#64748b" font-size="10" font-family="'Pretendard', sans-serif">(Serendipity &amp; emergence)</text>
+
+          <text x="280" y="275" fill="#6b21a8" font-size="11" font-weight="bold" font-family="'Pretendard', sans-serif">RP2: 비조정 다중선형성</text>
+          <text x="280" y="289" fill="#64748b" font-size="10" font-family="'Pretendard', sans-serif">(Uncoordinated multilinearity)</text>
+
+          <!-- Dotted Connectors -->
+          <line x1="240" y1="140" x2="270" y2="200" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="3 3" />
+          <line x1="240" y1="210" x2="270" y2="225" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="3 3" />
+          <line x1="240" y1="280" x2="270" y2="260" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="3 3" />
+          <line x1="240" y1="350" x2="270" y2="295" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="3 3" />
+          <line x1="240" y1="420" x2="270" y2="320" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="3 3" />
+
+          <!-- Transition Path -->
+          <path d="M 460 255 L 510 255" fill="none" stroke="#0e7490" stroke-width="3" marker-end="url(#arrow)" />
+          <text x="485" y="240" fill="#0e7490" font-size="10" font-weight="bold" font-family="'Pretendard', sans-serif" text-anchor="middle">RP4: 수렴/종료</text>
+
+          <!-- Shared Image Box -->
+          <rect x="520" y="195" width="160" height="120" fill="url(#transitionGrad)" stroke="#0891b2" stroke-width="2" rx="10" />
+          <text x="600" y="225" fill="#ffffff" font-size="13" font-weight="bold" font-family="'Pretendard', sans-serif" text-anchor="middle">공동의/명확화된</text>
+          <text x="600" y="245" fill="#ffffff" font-size="13" font-weight="bold" font-family="'Pretendard', sans-serif" text-anchor="middle">시장 이미지 출현</text>
+          <text x="600" y="270" fill="#cffafe" font-size="11" font-weight="bold" font-family="'Pretendard', sans-serif" text-anchor="middle">(Shared &amp; Expressed</text>
+          <text x="600" y="285" fill="#cffafe" font-size="11" font-weight="bold" font-family="'Pretendard', sans-serif" text-anchor="middle">Market Image)</text>
+          <text x="600" y="303" fill="#ffffff" font-size="9" font-family="'Pretendard', sans-serif" text-anchor="middle">-> FFE 종료 지점</text>
+
+          <!-- Path to Next Phase -->
+          <path d="M 680 255 L 720 255" fill="none" stroke="#475569" stroke-width="3" marker-end="url(#arrowDark)" />
+
+          <!-- Directed Phase Container -->
+          <rect x="730" y="90" width="150" height="340" fill="url(#directedGrad)" stroke="#334155" stroke-width="2" rx="12" />
+          <rect x="740" y="105" width="130" height="24" fill="#475569" rx="4" />
+          <text x="748" y="121" fill="#ffffff" font-size="10" font-weight="bold" font-family="'Pretendard', sans-serif">2. Directed Phase (조정 단계)</text>
+
+          <!-- Characteristics List in SVG -->
+          <circle cx="750" cy="165" r="4" fill="#38bdf8" />
+          <text x="760" y="169" fill="#e2e8f0" font-size="11" font-weight="bold" font-family="'Pretendard', sans-serif">조정된 행위성</text>
+          <text x="760" y="183" fill="#94a3b8" font-size="10" font-family="'Pretendard', sans-serif">(Orchestrated Agency)</text>
+
+          <circle cx="750" cy="225" r="4" fill="#38bdf8" />
+          <text x="760" y="229" fill="#e2e8f0" font-size="11" font-weight="bold" font-family="'Pretendard', sans-serif">밀접하게 결합된 자원</text>
+          <text x="760" y="243" fill="#94a3b8" font-size="10" font-family="'Pretendard', sans-serif">(Tightly Coupled Resources)</text>
+
+          <circle cx="750" cy="285" r="4" fill="#38bdf8" />
+          <text x="760" y="289" fill="#e2e8f0" font-size="11" font-weight="bold" font-family="'Pretendard', sans-serif">장기적/시스템적 가치</text>
+          <text x="760" y="303" fill="#94a3b8" font-size="10" font-family="'Pretendard', sans-serif">(Systemic Value Prop)</text>
+
+          <circle cx="750" cy="345" r="4" fill="#38bdf8" />
+          <text x="760" y="349" fill="#e2e8f0" font-size="11" font-weight="bold" font-family="'Pretendard', sans-serif">내재화된 제도적 배치</text>
+          <text x="760" y="363" fill="#94a3b8" font-size="10" font-family="'Pretendard', sans-serif">(Internalized Institutions)</text>
+
+          <circle cx="750" cy="405" r="4" fill="#38bdf8" />
+          <text x="760" y="409" fill="#e2e8f0" font-size="11" font-weight="bold" font-family="'Pretendard', sans-serif">시장 안정성 추구</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- STEP 5 — Method Replication Steps -->
+    <section id="method" class="flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center gap-3 border-b pb-4">
+        <div class="w-3 h-8 bg-cyan-500 rounded-full"></div>
+        <h2 class="style-h2 text-slate-900">4. 개념 프레임워크 개발 방법론 재현 절차 (Replication Guide)</h2>
+      </div>
+
+      <p class="style-body text-slate-600">
+        다른 산업 분야에서 시장 형성의 FFE를 모형화하고 재현할 수 있는 5단계의 구조적 분석 방법론적 가이드는 다음과 같습니다.
+      </p>
+
+      <!-- Vertical Timeline / Step List -->
+      <ul class="timeline timeline-vertical lg:timeline-horizontal mt-4">
+        <li>
+          <div class="timeline-start font-semibold style-label text-indigo-600">STEP 1</div>
+          <div class="timeline-middle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-indigo-600"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+          </div>
+          <div class="timeline-end timeline-box bg-slate-50 border-slate-200 p-4">
+            <h4 class="font-bold text-slate-800 style-body">메타포 차용 &amp; 문제 제기</h4>
+            <p class="style-small text-slate-500 mt-1">타 분야(NPD 등)의 선도적 개념을 마케팅 이론에 결합하여 기존 모형의 공백을 지적.</p>
+          </div>
+          <hr class="bg-indigo-300"/>
+        </li>
+        <li>
+          <hr class="bg-indigo-300"/>
+          <div class="timeline-start font-semibold style-label text-indigo-600">STEP 2</div>
+          <div class="timeline-middle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-indigo-600"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+          </div>
+          <div class="timeline-end timeline-box bg-slate-50 border-slate-200 p-4">
+            <h4 class="font-bold text-slate-800 style-body">시스템 5대 차원 설정</h4>
+            <p class="style-small text-slate-500 mt-1">S-D Logic 시스템 관점의 핵심 5대 차원(이미지, 주체, 자원, 가치, 제도)으로 프레임워크 뼈대 구축.</p>
+          </div>
+          <hr class="bg-indigo-300"/>
+        </li>
+        <li>
+          <hr class="bg-indigo-300"/>
+          <div class="timeline-start font-semibold style-label text-indigo-600">STEP 3</div>
+          <div class="timeline-middle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-indigo-600"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+          </div>
+          <div class="timeline-end timeline-box bg-slate-50 border-slate-200 p-4">
+            <h4 class="font-bold text-slate-800 style-body">명제(Propositions) 수립</h4>
+            <p class="style-small text-slate-500 mt-1">이론적 대비를 통해 FFE 단계 고유의 비선형적·분산적 관계를 나타내는 9대 명제 연역.</p>
+          </div>
+          <hr class="bg-indigo-300"/>
+        </li>
+        <li>
+          <hr class="bg-indigo-300"/>
+          <div class="timeline-start font-semibold style-label text-indigo-600">STEP 4</div>
+          <div class="timeline-middle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-indigo-600"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+          </div>
+          <div class="timeline-end timeline-box bg-slate-50 border-slate-200 p-4">
+            <h4 class="font-bold text-slate-800 style-body">역사적 사례 맵핑</h4>
+            <p class="style-small text-slate-500 mt-1">B2B 클라우드 컴퓨팅 등의 공개 역사적 문헌 자료와 9개 명제(RP)를 일치시켜 타당성 검증.</p>
+          </div>
+          <hr class="bg-indigo-300"/>
+        </li>
+        <li>
+          <hr class="bg-indigo-300"/>
+          <div class="timeline-start font-semibold style-label text-indigo-600">STEP 5</div>
+          <div class="timeline-middle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-indigo-600"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+          </div>
+          <div class="timeline-end timeline-box bg-slate-50 border-slate-200 p-4">
+            <h4 class="font-bold text-slate-800 style-body">이론적 범주화 &amp; 의제</h4>
+            <p class="style-small text-slate-500 mt-1">FFE 모호성을 맥락·과정·내용으로 범주화하고 연구 질문(FRD)으로 가이드라인 구축.</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="alert alert-info mt-6 bg-cyan-50 border-cyan-200 text-slate-800 shadow-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-cyan-600"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 111.08 1.058l-.04.041a.75.75 0 01-1.082-1.08l.002-.001zM12 6.75a.75.75 0 100-1.5.75.75 0 000 1.5zM22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z" /></svg>
+        <div>
+          <h4 class="font-bold style-body">재현 가능성 평가: 부분 재현 가능 (Partially Replicable)</h4>
+          <p class="style-small text-slate-600 mt-1">
+            이론의 연역적 수립 및 프레임워크 5대 차원 개념화 절차는 명확히 도식화되어 타 분야 적용이 가능합니다. 그러나 질적 예증에 활용된 B2B 클라우드 컴퓨팅 사례 분석은 기계적 데이터셋과 형식화된 코딩 프로토콜을 통하지 않고 저자들의 주관적 문헌 선별로 구성되었으므로, 구체적인 사례 서사의 기계적 재현은 보장할 수 없습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 6 — Limitations & Critical Doubts -->
+    <section id="limitations" class="flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center gap-3 border-b pb-4">
+        <div class="w-3 h-8 bg-cyan-500 rounded-full"></div>
+        <h2 class="style-h2 text-slate-900">5. 학술적 한계 및 비판적 분석 (Limitations &amp; Critiques)</h2>
+      </div>
+
+      <p class="style-body text-slate-600">
+        본 논문이 지닌 한계점을 저자가 인정한 부분과 독자 관점에서 제기할 수 있는 비판적 쟁점(Critical Doubts)으로 나누어 분석합니다.
+      </p>
+
+      <!-- DaisyUI Collapse for structured list -->
+      <div class="join join-vertical w-full bg-slate-50 border border-slate-200">
+        
+        <!-- Admitted Limitations -->
+        <div class="collapse collapse-arrow join-item border-b border-slate-200">
+          <input type="radio" name="limitations-accordion" checked="checked" />
+          <div class="collapse-title style-h3 text-slate-800 font-bold bg-slate-100">
+            저자가 제시한 자인적 한계점 (Admitted Limitations)
+          </div>
+          <div class="collapse-content bg-white p-6">
+            <ul class="list-disc list-inside style-body text-slate-700 flex flex-col gap-3">
+              <li>
+                <strong>실증 데이터의 미확보 (No Primary Data):</strong> 
+                본 연구는 정량 실증 데이터나 체계적 설문 데이터 기반 분석이 결여된 순수 개념 모델 개발 논문입니다. (Page 8, "Data availability")
+              </li>
+              <li>
+                <strong>사례의 예시적 활용 한계 (Illustrative Case Only):</strong> 
+                B2B 클라우드 컴퓨팅 사례는 1차 데이터가 아닌 2차 공개 문헌 기반의 서사 조각으로 수립되어 개념 입증 이상의 엄밀성을 갖추지 못했습니다. (Page 2, Footnote 1)
+              </li>
+              <li>
+                <strong>정량 측정 도구(Metrics)의 공백:</strong> 
+                개발된 5개 시스템적 구성 요소들이 FFE 내에서 얼마나 진척되었는지 판단할 수 있는 실질적 척도나 리커트 스케일이 제시되지 않았습니다. (Page 8, Future Research)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Critical Doubts -->
+        <div class="collapse collapse-arrow join-item">
+          <input type="radio" name="limitations-accordion" />
+          <div class="collapse-title style-h3 text-slate-800 font-bold bg-slate-100">
+            학술적 비판 및 의문점 (Critical Doubts)
+          </div>
+          <div class="collapse-content bg-white p-6">
+            <ul class="list-disc list-inside style-body text-slate-700 flex flex-col gap-4">
+              <li>
+                <strong class="text-indigo-900">생존자 편향 (Survivor Bias) 문제:</strong><br>
+                <span class="pl-5 inline-block text-slate-600 style-small">
+                  분석 대상인 클라우드 컴퓨팅 시장은 이미 글로벌 표준으로 대성공한 시장입니다. 저자들은 성공한 시장의 궤적을 사후적으로 추적하여 FFE의 유용성을 주장했으나, FFE 단계에서 모호하게 시작되어 완전히 소멸하거나 시장 형성에 실패한 다수의 타 정보통신 기술(예: P2P 웹 포털 프로젝트의 사장 등) 사례에 대해 교차 분석을 진행하지 않아 모형의 타당성이 성공 경로에 편향되어 있습니다.
+                </span>
+              </li>
+              <li>
+                <strong class="text-indigo-900">경계점 및 전환 국면(RP4)의 모호성:</strong><br>
+                <span class="pl-5 inline-block text-slate-600 style-small">
+                  명제 4(RP4)는 '공유되고 명확히 표현된 시장 이미지'의 등장이 FFE를 즉각 종료시킨다고 선언합니다. 그러나 실제 비즈니스 생태계에서 '시장 비전의 명확화'는 단일 시점에 발생하는 사건이 아니라 특정 연합 집단(cluster) 간의 점진적인 승인이 수반되는 다년간의 중첩적인 상호 과정입니다. FFE의 임종을 결정하는 종료 임계점이 지극히 자의적이고 주관적입니다.
+                </span>
+              </li>
+              <li>
+                <strong class="text-indigo-900">권력 및 헤게모니 관계(Power Dynamics) 배제:</strong><br>
+                <span class="pl-5 inline-block text-slate-600 style-small">
+                  이론 프레임워크는 여러 이미지와 가치제안이 유기적으로 경쟁·보완된다고 묘사합니다. 하지만 실제 B2B 시장에서 표준의 지위(예: AWS, Salesforce 등)를 획득하는 과정은 단순한 창발과 우연의 결과라기보다, 글로벌 빅테크 기업의 막강한 자본력을 통한 독점화 및 록인(Lock-in), 특허 선점, 스타트업 적대적 인수합병 등 강압적인 자원 통제 및 헤게모니 싸움의 산물입니다. 이에 대한 권력 구조적 비판 관점이 누락되어 있습니다.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 py-8 px-4 text-center border-t border-slate-800 style-small mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col gap-2">
+      <p class="font-bold text-slate-200">IMM Research Brief Series (Vol. 112)</p>
+      <p>© 2026 Academic Research Assistant. Compiled and analyzed from original publication. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

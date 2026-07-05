@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clearing the paradigmatic fog: A rejoinder - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Natural Flowing Header (Not Sticky/Fixed) -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Theoretical rejoinder</div>
+        <div class="badge badge-secondary text-white style-label">Vol. 113, pp. 295–299</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Clearing the paradigmatic fog:<br>
+            <span class="text-cyan-400">A rejoinder to responses</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Kristian Möller & Aino Halinen
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            패러다임의 안개 걷어내기:<br>
+            <span class="text-indigo-300">논평들에 대한 재반론</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            북미 주류(NAM) 학계와 유럽 IMP 그룹의 방법론 갈등, S-D Logic의 통합 한계점, 그리고 학계 내 보수적 제도 장벽에 대한 성찰
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">학계의 제도적 장벽(테뉴어, 저널 평가)을 깨고, 현상 기술을 넘어 맥락 중심의 설명 이론을 정립해야 B2B 연구가 진보합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Summary (EN - Reconstructed)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This rejoinder responds to the commentaries by Lilien and Wuyts (2022), Araujo (2023), and Brodie and Fehrer (2022) on our article 'Clearing the paradigmatic fog – How to move forward in business marketing research'. We address the controversies raised regarding the dominance of quantitative methods in North American mainstream (NAM) B2B marketing, the transition to network-oriented research, and the rigidity of Kuhn's paradigms. We clarify that our profile of NAM and IMP is an analytical simplification rather than a strict binary, advocating for Lakatosian co-evolution and friendly rapprochement where ideas are traded. Furthermore, we disagree that younger researchers have complete intellectual freedom, highlighting how academic socialization and institutional pressures (tenure, rankings) enforce paradigm conformity. Finally, we argue that Service-Dominant (S-D) logic, as a descriptive meta-lexicon, lacks explanatory power and cannot integrate different paradigms; instead, B2B marketing needs context-sensitive explanatory theories that explain why specific market forms and practices evolve."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Summary 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 재반론은 '패러다임의 안개 걷어내기 – 비즈니스 마케팅 연구의 발전 방향'에 대한 Lilien과 Wuyts(2022), Araujo(2023), 그리고 Brodie와 Fehrer(2022)의 논평에 대해 응답한다. 저자들은 북미 주류(NAM) B2B 마케팅 연구의 양적 방법론 지배성, 네트워크 연구로의 전환 여부, 쿤(Kuhn)의 패러다임 개념의 경직성 등과 관련해 제기된 쟁점들을 다룬다. 본 저자들은 NAM과 IMP의 프로파일이 분석적 명료성을 위한 단순화일 뿐 엄격한 이분법적 단절이 아니며, 서로 아이디어를 거래하고 발전하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">라카토슈(Lakatos)식 공동 진화</span>와 우호적 관계 개선(rapprochement)을 옹호함을 명확히 한다. 나아가 신진 연구자들이 완전한 학문적 자유를 누린다는 주장에 반박하며, 학계의 사회화 및 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">제도적 압박</span>(정년 보장, 저널 등급 등)이 패러다임 순응을 강제함을 강조한다. 마지막으로 서비스 지배(S-D) 논리는 묘사적인 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">메타 어휘(meta-lexicon)</span>에 불과하여 설명력이 부족하며 서로 다른 패러다임을 통합할 수 없다고 주장하며, B2B 마케팅 학계에는 특정 시장 형태와 관행이 왜 진화하는지 밝히는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">맥락 민감형 설명 이론</span>이 필요하다고 제안한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">North American Mainstream (NAM)</td>
+                  <td>북미 주류 B2B 마케팅</td>
+                  <td class="text-sm">북미 학계를 중심으로 발전한 실증주의 및 계량 통계 중심의 B2B 마케팅 연구 커뮤니티와 전통을 지칭합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Industrial Marketing & Purchasing (IMP)</td>
+                  <td>유럽 IMP 그룹</td>
+                  <td class="text-sm">유럽 중심의 관계, 네트워크, 상호작용 및 비판적 실재론에 기반하여 발전한 B2B 연구 학파입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Paradigm Prison</td>
+                  <td>패러다임 감옥</td>
+                  <td class="text-sm">특정 패러다임과 연구 관행(방법론, 주제)에 갇혀 타 학문의 유용한 시각을 차단하거나 혁신을 막는 학술적 갇힘 현상입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Friendly Rapprochement</td>
+                  <td>우호적 관계 개선</td>
+                  <td class="text-sm">두 패러다임이 무리한 완전한 결합보다는 상호 존중과 학습을 통해 공존하며 아이디어를 교환하는 평화적 공존을 말합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Meta-lexicon</td>
+                  <td>메타 어휘 / 개념 분류 체계</td>
+                  <td class="text-sm">현상을 체계적으로 묘사하고 표상하기 위해 약속된 최고 수준의 추상적 개념 어휘집을 의미합니다. (이론의 인과 관계나 원인 설명과는 구분됨)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-2">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회 발표나 연구 세미나에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 논쟁 지점과 솔루션을 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">B2B 패러다임 갈등을 극복할 대안은?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">제도적 구속과 S-D Logic의 통합 한계 규명</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">맥락 설명형 이론과 다원주의로의 도약</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논평에 대한 재반론 주요 요지</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>양적 도그마 비판:</strong> 북미 주류(NAM) 학계는 새로운 연구 주제(플랫폼 등)에 접근할 때도 여전히 협소한 양적 계량 분석 도구만을 고집하여 시장의 동적 와해 현상을 담아내지 못하고 있습니다.</li>
+                  <li><strong>학계의 제도적 장벽:</strong> 신진 연구자들은 자유로운 패러다임 이동이 불가능하며, 지도교수의 동조 압력 및 ABS 등 저널 등급 리스트, 정년 보장(Tenure) 심사 제도로 인해 기존 패러다임에 강제로 순응하고 있습니다.</li>
+                  <li><strong>S-D Logic의 통합 무용론:</strong> S-D Logic은 마케팅 현상을 잘 '묘사(Description)'하는 메타 언어체계(Meta-lexicon)일 뿐, 시장 시스템이 왜 특정 시점에 진화하고 발현하는지를 명확히 규명하는 '설명 이론(Explanatory Theory)'의 역할을 수행하지 못하므로 NAM과 IMP의 진정한 통합 프레임워크가 될 수 없습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "억지스러운 이론 통합이나 양적 만능주의에서 탈피하고 학계의 보수적 임용·출판 제도를 허물어야만 시장 진화를 해명하는 맥락 민감형 설명 이론이 자랄 수 있습니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 핵심 주장별 원문 근거 매핑</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          학술적 반론의 타당성을 확보하기 위해, 저자들이 밝힌 핵심 주장들을 논문 내 본문 텍스트 인용(English Quotes)과 페이지 및 섹션 정보로 연결했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">북미 주류(NAM)의 양적 분석 편중</td>
+                <td class="text-sm italic text-slate-600">
+                  "...unfortunately, the culture encompassing the guiding heuristics of NAM research and publication is still predominantly natural science oriented."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 2, Sec. 2.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">B2B 네트워크의 단순 계량분석의 한계</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the complexity of networks does not make them easily amenable to quantitative analyses or to drawing managerial implications, which are the probable reasons for the modest progress."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 2, Sec. 2.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">라카토슈(Lakatos) 연구 프로그램의 공존 가능성</td>
+                <td class="text-sm italic text-slate-600">
+                  "This thinking is closer to Lakatos's view of research programs, which can co-exist and co-evolve, each producing good science according to its own premises..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 3, Sec. 3.1</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">우호적 화해 및 상호 학습 옹호</td>
+                <td class="text-sm italic text-slate-600">
+                  "We do not argue for or believe in strong incommensurability... we suggest that NAM and IMP, by lessening some of their core cultural barriers, could separately approach what we have identified as the research GAP..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 3, Sec. 3.1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">학계의 보수적 저널/임용 심사 제도 비판</td>
+                <td class="text-sm italic text-slate-600">
+                  "We are afraid that the more the faculty underlines top rankings, the less freedom doctoral students have with respect to the methods that they use, the journals they must target, and whose criteria they must pass."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 3, Sec. 3.2</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">S-D Logic의 일반적 묘사 언어 성격과 한계</td>
+                <td class="text-sm italic text-slate-600">
+                  "However, because of this generality and descriptiveness, it does not offer any explanatory theories of markets, their emergence, and development..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 4, Sec. 4.3</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">B2B 마케팅의 궁극적인 '왜(Why)' 질문 지향성</td>
+                <td class="text-sm italic text-slate-600">
+                  "...to start to ask more complex contextual 'why questions,' extending the dominant 'how to manage' orientation typical for the MB2B. For example, what kinds of market forms exist in different industries... and why?"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 4, Sec. 5</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 학술적 개념 정의 및 개념 논쟁 구도</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Debate Model & Concepts</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 논문은 개념적 재반론이므로 계량 변수 대신, 논쟁의 축을 이루는 5가지 핵심 개념(Academic Constructs)을 학술적으로 정비하였습니다.
+        </p>
+
+        <!-- Core Concepts Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-2">
+          <!-- Card 1 -->
+          <div class="card bg-slate-50 border border-slate-200 shadow-xs">
+            <div class="card-body p-5">
+              <h3 class="style-h3 text-slate-900">NAM / MB2B Paradigm</h3>
+              <p class="style-small text-slate-600"><strong>개념:</strong> 북미 주류 B2B 마케팅</p>
+              <div class="divider my-1"></div>
+              <p class="style-small text-slate-700">실증주의 과학철학에 기반하여 계량 통계(서베이, 구조방정식) 분석을 핵심으로 하며, 개별 관리 중심의 B2B 거래 형태를 주로 파악하는 학풍입니다.</p>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="card bg-indigo-50/50 border border-indigo-100 shadow-xs">
+            <div class="card-body p-5">
+              <h3 class="style-h3 text-indigo-900">IMP Group Paradigm</h3>
+              <p class="style-small text-indigo-700"><strong>개념:</strong> 유럽 IMP 네트워크 학파</p>
+              <div class="divider my-1"></div>
+              <p class="style-small text-slate-700">비판적 실재론에 기초하여 복잡한 비즈니스 관계 및 장기 네트워크 구조를 질적 사례 연구를 통해 탐색하는 유럽 기반 학파입니다.</p>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="card bg-sky-50 border border-sky-100 shadow-xs">
+            <div class="card-body p-5">
+              <h3 class="style-h3 text-sky-900">Service-Dominant Logic</h3>
+              <p class="style-small text-sky-700"><strong>개념:</strong> 서비스 지배 논리</p>
+              <div class="divider my-1"></div>
+              <p class="style-small text-slate-700">자원의 유기적 조율을 통한 공동 가치 창출을 행위자 중심 생태계에서 묘사하기 위한 거대 이론적 범주화 체계입니다.</p>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="card bg-red-50/50 border border-red-100 shadow-xs">
+            <div class="card-body p-5">
+              <h3 class="style-h3 text-red-900">Institutional Constraints</h3>
+              <p class="style-small text-red-700"><strong>개념:</strong> 학계 내 제도적 장벽</p>
+              <div class="divider my-1"></div>
+              <p class="style-small text-slate-700">저널 등급 제한(ABS 등), 정년 심사 및 독창적 연구보다 지배적 패러다임 순응을 유도하는 학과의 보수성 등 외적 압박 요인입니다.</p>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div class="card bg-emerald-50 border border-emerald-100 shadow-xs md:col-span-2">
+            <div class="card-body p-5">
+              <h3 class="style-h3 text-emerald-900">Context-Sensitive Explanatory Theories</h3>
+              <p class="style-small text-emerald-700"><strong>개념:</strong> 맥락 민감형 설명 이론 (궁극적 솔루션)</p>
+              <div class="divider my-1"></div>
+              <p class="style-small text-slate-700">단순히 현상을 분류·기술(How)하는 데 그치지 않고, 특정 상황적 환경 아래 "왜(Why) 특정 형태의 비즈니스 시스템과 생태계 진화가 야기되는가"를 규명하여 설명력을 보강한 이론입니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SVG Conceptual Map -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mt-6 flex flex-col gap-4">
+          <h4 class="style-label text-slate-500 uppercase tracking-widest">B2B 마케팅 학술 대담 개념도 (Conceptual Flow Diagram)</h4>
+          <div class="w-full bg-white p-4 rounded-lg border border-slate-100">
+            <svg viewBox="0 0 800 500" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+              <defs>
+                <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%" filterUnits="userSpaceOnUse">
+                  <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.1" flood-color="#0f172a"/>
+                </filter>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1 L 10 5 L 0 9 z" fill="#64748b"/>
+                </marker>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1 L 10 5 L 0 9 z" fill="#3b82f6"/>
+                </marker>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1 L 10 5 L 0 9 z" fill="#ef4444"/>
+                </marker>
+              </defs>
+
+              <rect width="800" height="500" fill="#f8fafc" rx="16"/>
+
+              <!-- Node 1: NAM Paradigm -->
+              <g filter="url(#shadow)">
+                <rect x="30" y="120" width="220" height="110" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
+                <text x="140" y="145" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="bold" font-size="14" fill="#1e293b">NAM / MB2B 패러다임</text>
+                <text x="140" y="170" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="11" fill="#475569">실증주의 (Positivism)</text>
+                <text x="140" y="188" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="11" fill="#475569">양적 분석 지배 (Quantitative)</text>
+                <text x="140" y="206" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="11" fill="#475569">의사결정/단독 기업 중심 (Dyad)</text>
+              </g>
+
+              <!-- Node 2: IMP Paradigm -->
+              <g filter="url(#shadow)">
+                <rect x="550" y="120" width="220" height="110" rx="8" fill="#e0e7ff" stroke="#a5b4fc" stroke-width="2"/>
+                <text x="660" y="145" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="bold" font-size="14" fill="#312e81">IMP 그룹 패러다임</text>
+                <text x="660" y="170" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="11" fill="#4338ca">비판적 실재론 (Critical Realism)</text>
+                <text x="660" y="188" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="11" fill="#4338ca">질적 연구 &amp; 상호작용 (Qualitative)</text>
+                <text x="660" y="206" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="11" fill="#4338ca">비즈니스 네트워크 관점 (Network)</text>
+              </g>
+
+              <!-- Node 3: S-D Logic (Top Center) -->
+              <g filter="url(#shadow)">
+                <rect x="290" y="20" width="220" height="80" rx="8" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="2"/>
+                <text x="400" y="45" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="bold" font-size="14" fill="#0369a1">S-D Logic (서비스 지배 논리)</text>
+                <text x="400" y="65" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="11" fill="#0284c7">통합적 거대이론 제안 (Brodie &amp; Fehrer)</text>
+                <text x="400" y="80" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="10" fill="#0284c7">가치 공동 창출 &amp; 행위자 네트워크</text>
+              </g>
+
+              <!-- Node 4: Institutional Constraints (Bottom Left) -->
+              <g filter="url(#shadow)">
+                <rect x="30" y="320" width="220" height="90" rx="8" fill="#fee2e2" stroke="#fca5a5" stroke-width="2"/>
+                <text x="140" y="345" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="bold" font-size="13" fill="#991b1b">학계의 제도적 장벽 (Constraints)</text>
+                <text x="140" y="365" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="10" fill="#b91c1c">· 박사과정 사회화 &amp; 지도교수 문화</text>
+                <text x="140" y="380" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="10" fill="#b91c1c">· 저널 평가 기준 (ABS) &amp; 정년 보장</text>
+                <text x="140" y="395" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="10" fill="#b91c1c">→ 패러다임 감옥 (Paradigm Prison) 강화</text>
+              </g>
+
+              <!-- Node 5: Research Gaps / White Areas (Center) -->
+              <g filter="url(#shadow)">
+                <rect x="290" y="170" width="220" height="90" rx="8" fill="#fef9c3" stroke="#fde047" stroke-width="2"/>
+                <text x="400" y="195" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="bold" font-size="13" fill="#854d0e">연구 공백 / White Areas</text>
+                <text x="400" y="215" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="10" fill="#a16207">· 시장 형성 (Market Shaping) 프로세스</text>
+                <text x="400" y="230" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="10" fill="#a16207">· 비즈니스 생태계 및 네트워크 진화</text>
+                <text x="400" y="245" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="10" fill="#a16207">· 사업 영역의 와해 (Field Disruption)</text>
+              </g>
+
+              <!-- Node 6: Context-Sensitive Explanatory Theories (Bottom Center) -->
+              <g filter="url(#shadow)">
+                <rect x="290" y="340" width="220" height="110" rx="8" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+                <text x="400" y="365" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="bold" font-size="13" fill="#166534">맥락 민감형 설명 이론</text>
+                <text x="400" y="385" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="11" font-style="italic" fill="#15803d">Context-Sensitive Explanatory</text>
+                <text x="400" y="405" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="10" fill="#15803d">단순 묘사(Lexicon)를 넘는 설명력 구축</text>
+                <text x="400" y="420" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="10" fill="#15803d">"왜 특정 시장 형태와 관행이 진화하는가?"</text>
+                <text x="400" y="435" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="10" fill="#15803d">이론적 혁신 &amp; 다원주의 연구 방식</text>
+              </g>
+
+              <!-- Arrows and Labels -->
+              <path d="M 400 100 L 400 160" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="405" y="130" font-family="Pretendard, sans-serif" font-size="9" fill="#0284c7">설명력 부족 지적</text>
+
+              <path d="M 250 175 L 280 175" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <path d="M 550 175 L 520 175" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+              <path d="M 400 260 L 400 330" stroke="#166534" stroke-width="2" marker-end="url(#arrow-blue)"/>
+              <text x="410" y="300" font-family="Pretendard, sans-serif" font-weight="bold" font-size="10" fill="#166534">학문 발전의 대안 경로</text>
+
+              <path d="M 140 230 L 140 310" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+              <text x="145" y="275" font-family="Pretendard, sans-serif" font-size="10" fill="#ef4444" font-weight="bold">사회화 및 제도적 압박</text>
+
+              <path d="M 250 200 C 350 290, 450 290, 550 200" stroke="#475569" stroke-width="1" stroke-dasharray="2 2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+              <text x="400" y="282" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="10" fill="#475569">우호적 화해 (Detente) / 아이디어 거래</text>
+
+              <path d="M 550 140 Q 400 130 250 140" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+              <text x="400" y="125" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="9" fill="#d97706">공약불가능성 vs 아이디어 교환 논란</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. 메타이론적 질적 분석 재현 절차</h2>
+          <span class="badge badge-warning text-slate-900 style-label uppercase">Replication Steps</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          개념적 질적 에세이 및 반론 연구 방식에 근거하여, 타 연구자가 본 연구를 학술적으로 재구성하고 재현할 수 있는 절차를 구성했습니다.
+        </p>
+
+        <!-- Vertical Step List -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-2">
+          <div class="flex flex-col gap-4">
+            <h3 class="style-h3 text-slate-800">재현 절차 (Step-by-Step)</h3>
+            
+            <div class="flex gap-4 items-start">
+              <div class="bg-indigo-900 text-white rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center font-bold style-small">1</div>
+              <div>
+                <h4 class="font-bold text-slate-900 style-body">대상 타겟 논문 및 논평(Commentaries) 선정</h4>
+                <p class="style-small text-slate-600">메타이론적 비교를 다룬 타겟 연구와 이에 대해 발간된 동료 학술평 3편을 수집해 메타 분석 DB를 구축합니다.</p>
+                <span class="text-xs text-slate-400 font-semibold uppercase">위치: Introduction (Page 1)</span>
+              </div>
+            </div>
+            
+            <div class="flex gap-4 items-start">
+              <div class="bg-indigo-900 text-white rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center font-bold style-small">2</div>
+              <div>
+                <h4 class="font-bold text-slate-900 style-body">논평별 비판 요지 코딩 (질적 콘텐츠 분석)</h4>
+                <p class="style-small text-slate-600">수집된 논평들을 방법론, 과학철학적 포지션, 대안적 통합 모델 등 3가지 범주로 분류 및 질적 코딩을 진행합니다.</p>
+                <span class="text-xs text-slate-400 font-semibold uppercase">위치: Section 2, 3, 4 (Page 1–4)</span>
+              </div>
+            </div>
+
+            <div class="flex gap-4 items-start">
+              <div class="bg-indigo-900 text-white rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center font-bold style-small">3</div>
+              <div>
+                <h4 class="font-bold text-slate-900 style-body">과학철학 모델(라카토슈) 매핑</h4>
+                <p class="style-small text-slate-600">쿤의 경직된 단절적 관점과 달리 학파별 '연구 프로그램'이 병행 공존하며 진화할 수 있는지 과학철학적 정위를 맵핑합니다.</p>
+                <span class="text-xs text-slate-400 font-semibold uppercase">위치: Section 3.1 (Page 2–3)</span>
+              </div>
+            </div>
+
+            <div class="flex gap-4 items-start">
+              <div class="bg-indigo-900 text-white rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center font-bold style-small">4</div>
+              <div>
+                <h4 class="font-bold text-slate-900 style-body">학계의 제도적 종속 장벽 분석</h4>
+                <p class="style-small text-slate-600">연구자들의 패러다임 이동을 막는 정년 제도, 지도교수 도종, 저널 등급 리스트 등 외적 구속력을 유목화합니다.</p>
+                <span class="text-xs text-slate-400 font-semibold uppercase">위치: Section 3.2 (Page 3)</span>
+              </div>
+            </div>
+
+            <div class="flex gap-4 items-start">
+              <div class="bg-indigo-900 text-white rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center font-bold style-small">5</div>
+              <div>
+                <h4 class="font-bold text-slate-900 style-body">대안 프레임워크의 설명력 한계 검증</h4>
+                <p class="style-small text-slate-600">S-D Logic 등의 대안 이론이 변수 간 발생 원인(Why)을 설명하는지 단순 현상 분류(Lexicon)에 그치는지 규명합니다.</p>
+                <span class="text-xs text-slate-400 font-semibold uppercase">위치: Section 4.3 (Page 4)</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col justify-between">
+            <div>
+              <h3 class="style-h3 text-slate-900 mb-2">Replication Feasibility Assessment</h3>
+              <div class="flex items-center gap-2 mb-4">
+                <span class="badge badge-warning font-semibold text-slate-900">부분 재현 가능 (Partially Replicable)</span>
+              </div>
+              <p class="style-body text-slate-700">
+                <strong>판정 사유:</strong><br>
+                논평 데이터 수집 및 질적 코딩 기준 설정 등의 연구 프로세스는 절차대로 수행하면 완전히 재현할 수 있습니다.<br><br>
+                그러나 각 패러다임의 과학철학적 조율 상태를 판단하고, 정년 보장 및 박사과정 문화가 신진 학자들의 연구 방법론과 학풍 선택에 미치는 구속도를 해석하는 것은 <strong>저자들의 50년 B2B 학계 경력 및 IMM 저널 편집장 이력</strong> 등 장기 실무적 식견에 의존합니다. 이에 따라 연구자의 성향과 배경에 따라 주관적 판단 격차가 발생할 수 있어 완전한 동일 재현은 다소 한계가 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 6. 한계점 및 비판적 회의</h2>
+          <span class="badge badge-error style-label uppercase">Limitations</span>
+        </div>
+        
+        <div class="py-2">
+          <!-- Collapse Component 1 -->
+          <div class="collapse collapse-plus bg-slate-50 border border-slate-200 rounded-xl mb-4">
+            <input type="radio" name="limitations-accordion" checked="checked" /> 
+            <div class="collapse-title style-h3 text-slate-900">
+              A. Admitted Limitations (저자들이 시인한 한계점)
+            </div>
+            <div class="collapse-content style-body text-slate-700 flex flex-col gap-4">
+              <div>
+                <h4 class="font-bold text-slate-900">1. 분석을 위한 극단적 추상화와 세부 학파 배제</h4>
+                <p class="style-small text-slate-600">북미 주류(NAM)와 IMP 패러다임의 명확한 대비를 위해 개별 학파들의 세세한 변이와 예외 사례들을 의도적으로 무시하고 단일 범주로 묶어 분석했습니다.</p>
+                <p class="text-xs text-slate-400 font-semibold mt-1">원문 근거: "...ignore many detailed features and even branches in the vast NAM research." (Page 4, Sec. 5)</p>
+              </div>
+              <div class="divider my-1"></div>
+              <div>
+                <h4 class="font-bold text-slate-900">2. 개념 대조를 위해 의도적으로 정확성 포기</h4>
+                <p class="style-small text-slate-600">두 패러다임의 개념적 명료성을 확보하고 비판적 토론을 유발하기 위해 문헌의 엄밀한 사실적 정확성보다는 단순화(Simplification)를 기치로 삼았습니다.</p>
+                <p class="text-xs text-slate-400 font-semibold mt-1">원문 근거: "We consciously abandoned detailed representational accuracy for comparative clarity..." (Page 3, Sec. 3.1)</p>
+              </div>
+              <div class="divider my-1"></div>
+              <div>
+                <h4 class="font-bold text-slate-900">3. 과학철학 이론의 실용주의적 도구화</h4>
+                <p class="style-small text-slate-600">쿤, 라카토슈 등의 과학철학 본연의 방대한 철학사적 지식을 다룬 것이 아니라 마케팅에 필요한 부분만 실용적으로 차용해 해석의 깊이에 다소 한계가 있습니다.</p>
+                <p class="text-xs text-slate-400 font-semibold mt-1">원문 근거: "We are not experts of philosophy of science debates... Therefore, we apologize for the pragmatic application..." (Page 3, Sec. 3.1)</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Collapse Component 2 -->
+          <div class="collapse collapse-plus bg-slate-50 border border-slate-200 rounded-xl">
+            <input type="radio" name="limitations-accordion" /> 
+            <div class="collapse-title style-h3 text-slate-900">
+              B. Critical Doubts (연구진이 보는 비판적 시각)
+            </div>
+            <div class="collapse-content style-body text-slate-700 flex flex-col gap-4">
+              <div>
+                <h4 class="font-bold text-slate-900">1. 제도적 장벽 주장에 대한 객관적 데이터 결여</h4>
+                <p class="style-small text-slate-600">테뉴어 제도나 ABS 등의 저널 등급 리스트가 신진 연구자들의 다원적 방법론을 가로막는다고 소리치고 있으나, 이를 뒷받침할 구체적인 통계 수치나 설문조사 등의 데이터 없이 저자들의 학계 내 주관적 인상에만 기대어 논리를 전개하고 있습니다.</p>
+              </div>
+              <div class="divider my-1"></div>
+              <div>
+                <h4 class="font-bold text-slate-900">2. S-D Logic의 중범위 이론 성과에 대한 과소평가</h4>
+                <p class="style-small text-slate-600">S-D Logic을 현상 분류 기구(Lexicon)로 규정하며 설명력을 깎아내렸으나, 최근 해당 진영에서 활발한 가치 공동 저해(Co-destruction), 제도적 가공(Institutional Work) 등의 중범위 인과 이론들의 구체적 학술 성과를 무시하는 자파 중심의 학술 필터링이 작용했습니다.</p>
+              </div>
+              <div class="divider my-1"></div>
+              <div>
+                <h4 class="font-bold text-slate-900">3. 지리적 서구 중심 구도의 한계</h4>
+                <p class="style-small text-slate-600">전적으로 북미(NAM) 대 유럽(IMP)이라는 도식으로만 B2B 마케팅 생태계를 가두었습니다. 고속 성장하는 아시아 국가(한국, 중국, 일본 등) 고유의 B2B 거래 네트워크 역학이나 이 지역 신진 연구자들이 직면한 로컬 제도적 압박은 철저히 배제되어 있습니다.</p>
+              </div>
+              <div class="divider my-1"></div>
+              <div>
+                <h4 class="font-bold text-slate-900">4. 실현 대안 없는 무책임한 독려</h4>
+                <p class="style-small text-slate-600">신진 학자들에게 "패러다임 감옥을 깨고 맞서라(young brains to stand up to this challenge)"고 격려하지만, 방법론적 도그마를 어기고 다른 학문을 시도했을 때 직면하는 고용 상실, 논문 게재 거절 등의 구체적인 리스크를 해결할 학계 차원의 보완 매뉴얼이나 커리어 보호 장치는 일체 제공하지 않는 상징적 구호에 머물러 있습니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 py-8 px-4 text-center border-t border-slate-800">
+    <div class="max-w-7xl mx-auto style-small">
+      <p class="font-semibold text-slate-300">Industrial Marketing Management Research Brief</p>
+      <p class="mt-2">This report is prepared for academic research and préparatif préparation de thèse.</p>
+      <p class="mt-4 text-xs text-slate-600">© 2026 PhD Prep B2B Theme. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

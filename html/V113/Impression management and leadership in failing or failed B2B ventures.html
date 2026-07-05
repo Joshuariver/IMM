@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impression Management & Leadership in Failing B2B Ventures - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (Naturally flowing, no fixed/sticky navs) -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Venture Failure &amp; Resilience</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Insights from Africa</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Impression management and leadership in failing or failed B2B firms:<br>
+            <span class="text-cyan-400">Insights from Africa</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Obinna Alo, Imran Ali, Nadia Zahoor, Ahmad Arslan, Ismail Golgeci
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            실패 위기 또는 실패한 B2B 기업의<br>
+            <span class="text-indigo-300">인상 관리와 리더십에 관한 실증 연구</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            가나와 나이지리아 20개 B2B 기업가들의 심층면접을 기반으로, 코로나19 외부 위기에 대응하는 시장 전략(리더십) 및 비시장 전략(인상 관리)의 혼합 메커니즘을 규명합니다.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">공적 자금 지원이 없는 신흥 시장 B2B 기업들은 거래적·변혁적 리더십(시장)과 평판 지향적 인상 관리(비시장)의 하이브리드 조합으로 위기를 넘겼습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- STEP 1 — Title & Abstract Translation -->
+    <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 1. 논문 초록 번역 및 학술 용어</h2>
+        <span class="badge badge-primary style-label uppercase">Translation</span>
+      </div>
+      
+      <!-- Two-column layout (blockquote style) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+        <!-- English Abstract -->
+        <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+          <blockquote class="style-body text-slate-700 italic">
+            "This paper is one of the pioneering studies to specifically link COVID-19 pandemic with business failures in African B2B firms and the role of leadership and impression management in mitigating business failures. Based on the qualitative data from Ghana and Nigeria, our findings show that although B2B firms in emerging markets are agile and proactive, the COVID-19 pandemic triggered the process of business decline leading to failure in some cases. Particularly, the lack of technological know-how and the absence of online business activities made it difficult for B2B firms to continue operations. Further, we found that case B2B African firms needed a balance of market and non-market strategies to avoid failure caused by the pandemic. Study findings also indicate that despite the challenges, the COVID-19 pandemic presented opportunities to B2B firms in emerging markets. Flexible working and employee management are found to be instrumental in avoiding business failure. Finally, our findings show that, despite the absence of institutional support in African emerging markets, several case B2B firms quickly adopted digital technologies to communicate with partners and manage online business operations."
+          </blockquote>
+        </div>
+        <!-- Korean Translation -->
+        <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+          <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+          <blockquote class="style-body text-slate-800">
+            "본 논문은 코로나19 팬데믹을 아프리카 B2B 기업의 사업 실패와 구체적으로 연결하고, 사업 실패를 완화하는 과정에서 리더십과 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">인상 관리(Impression management)</span>의 역할을 규명한 개척자적인 연구 중 하나이다. 가나와 나이지리아의 질적 데이터를 바탕으로 분석한 결과, 신흥 시장의 B2B 기업들이 민첩하고 주도적임에도 불구하고 코로나19 팬데믹이 사업 쇠퇴 과정을 촉발하여 일부 사례에서는 실패로 이어졌음을 보여준다. 특히 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">기술적 노하우</span>의 부족과 온라인 비즈니스 활동의 부재는 B2B 기업들이 운영을 지속하는 데 어려움을 주었다. 또한, 아프리카 B2B 기업 사례들이 팬데믹으로 인한 실패를 피하기 위해서는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">시장 전략</span>과 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">비시장 전략</span>의 균형이 필요하다는 것을 발견했다. 본 연구 결과는 이러한 도전 과제에도 불구하고 코로나19 팬데믹이 신흥 시장 B2B 기업들에게 기회를 제공했음을 나타낸다. <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">유연 근무</span>와 직원 관리는 사업 실패를 방지하는 데 유용한 역할을 한 것으로 나타났다. 마지막으로, 아프리카 신흥 시장의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">제도적 지원</span> 부재에도 불구하고, 여러 B2B 사례 기업들이 파트너와 소통하고 온라인 비즈니스 운영을 관리하기 위해 디지털 기술을 신속하게 도입했음을 보여준다."
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- Glossary Table -->
+      <div class="mt-4">
+        <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Glossary)</h4>
+        <div class="overflow-x-auto border rounded-lg">
+          <table class="table w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-50 text-slate-800">
+                <th class="w-1/3">원문 용어 (EN)</th>
+                <th class="w-1/3">한국어 번역</th>
+                <th class="w-1/3">번역 선택 이유 및 해설</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-semibold text-slate-900">Impression Management</td>
+                <td>인상 관리</td>
+                <td class="text-sm">타인이 자신에게 형성하는 인상을 인위적 혹은 전술적으로 규제하고, 신뢰성이나 호의적 평판을 획득하고자 의도적으로 행하는 소통 행동입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Market / Non-market Strategies</td>
+                <td>시장 / 비시장 전략</td>
+                <td class="text-sm">비즈니스 가격, 납기 등 시장 지향적 성과를 극대화하는 '시장 전략'과 평판 관리, 사적인 정치/사회적 인맥 네트워크 확보 등 '비시장 전략'의 대비 개념입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Institutional Voids</td>
+                <td>제도적 공백</td>
+                <td class="text-sm">공식 금융 보호, 소상공인 구제금융, 전산 정보망 등 시장 성장을 뒷받침하는 사회적 공적 제도가 미비하여 발생한 시장의 결함 상태입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Bricolage</td>
+                <td>브리콜라주</td>
+                <td class="text-sm">위기 속에서 추가 자금 수혈이 불가능할 때, 기업가가 수중에 가진 한정된 자원들(예: 원격 통신망, 오토바이 등)을 어떻게든 즉흥 재조합해 당면 문제를 해소하는 행동입니다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2 — Core Claims (1-minute explanation) -->
+    <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+        <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+      </div>
+      
+      <div class="py-4">
+        <p class="style-body-large text-slate-600 mb-8">
+          학회나 워크숍 발표를 위해 본 논문이 갖는 핵심 가설과 의의를 <strong>1분 분량</strong>으로 구조화했습니다.
+        </p>
+        
+        <!-- Vertical Steps Component -->
+        <div class="flex flex-col md:flex-row gap-8 items-stretch">
+          <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+            <li class="step step-primary" data-content="Q">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                <p class="font-bold text-slate-800">팬데믹에 직면한 B2B 쇠퇴와 완화 방안은?</p>
+              </div>
+            </li>
+            <li class="step step-primary" data-content="F">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                <p class="font-bold text-slate-800">시장 및 비시장 대응의 하이브리드 균형</p>
+              </div>
+            </li>
+            <li class="step step-primary" data-content="C">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                <p class="font-bold text-slate-800">결정론과 자발론의 유기적 프레임워크 융합</p>
+              </div>
+            </li>
+          </ul>
+          
+          <div class="divider divider-horizontal hidden md:flex"></div>
+          
+          <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <div>
+              <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘</h4>
+              <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                <li><strong>연구 질문:</strong> 코로나19가 유도하는 B2B 기업의 생존 실패 경로를 어떻게 설명하며, 공적 구제책이 부재한 신흥 시장 환경에서 리더십 행동과 인상 관리는 어떻게 위기를 경감시키는가?</li>
+                <li><strong>핵심 발견:</strong> 신흥 시장 B2B 기업들은 코로나19의 직접 격변(결정론적 한계)을 극복하기 위해, **시장 전략**(거래적/변혁적 리더십을 활용한 직원 목표 관리 및 유연 재택근무)과 **비시장 전략**(무상 식료품 기부, 신용 외상 허용 등 파트너 인상 관리 및 사적 네트워크)을 하이브리드로 결합하여 대처했습니다.</li>
+                <li><strong>학술적 기여:</strong> 외부 거시 파동에 따른 실패 쇠퇴(결정론)와 최고경영진의 리더십 및 조정(자발론)을 하나의 통합 회복탄력성 메커니즘으로 연계하였으며, 서구식 제도 혜택을 받지 못하는 아프리카 특수한 상황 하에서 생존 지침을 구축했습니다.</li>
+              </ul>
+            </div>
+            
+            <!-- 1-line summary block -->
+            <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+              <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+              <p class="style-body font-bold mt-1">
+                "정부 구제금융이 결여된 아프리카 신흥 시장에서 B2B 기업들은 시장 전략(목표 관리 및 디지털 전환)과 비시장 전략(인상 관리 및 평판 네트워크 형성)을 상호 결합함으로써 파산을 예방했습니다."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 3 — Claims and Evidence -->
+    <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 3. 핵심 주장별 원문 근거 연결</h2>
+        <span class="badge badge-accent style-label uppercase">Evidence</span>
+      </div>
+      
+      <p class="style-body text-slate-600">
+        연구의 엄격성을 검증하기 위해 본문의 주요 핵심 질적 진술과 이에 매칭되는 원문 영어 인용(Quote) 및 위치를 매핑했습니다.
+      </p>
+
+      <!-- Table-zebra style -->
+      <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+        <table class="table table-zebra w-full text-slate-700">
+          <thead>
+            <tr class="bg-slate-900 text-white">
+              <th class="w-12">#</th>
+              <th class="w-1/4">핵심 주장 (KR)</th>
+              <th class="w-1/2">원문 근거 (Original English Quote)</th>
+              <th class="w-1/6 text-right">원문 위치</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="font-semibold text-slate-900">인터넷 인프라 부재와 오프라인 접촉 차단에 따른 영업 붕괴</td>
+              <td class="text-sm italic text-slate-600">
+                "...most people in Nigeria cannot operate the computer. So, during the lockdown, we lose the income that we could have generated from this category of buyers... clients who prefer to meet you face to face..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 6 (Sec. 4.1)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="font-semibold text-slate-900">국경 폐쇄로 인한 공급망 수입 중단 및 급격한 가격 인상</td>
+              <td class="text-sm italic text-slate-600">
+                "Since the pandemic, if I order a specific quantity, the manufacturer will only give me 25% of it. Also, the cost of the goods have just skyrocketed."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 6 (Sec. 4.1)</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="font-semibold text-slate-900">목표 달성 유도를 위한 당근과 채찍의 거래적 리더십 발현</td>
+              <td class="text-sm italic text-slate-600">
+                "We have to do more target-based management, where each staff is given a specific target to achieve, and I reward them for a well-done job... when they are not following my instructions, carrots and sticks."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 9 (Sec. 4.3)</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="font-semibold text-slate-900">급여 삭감 합의 도출과 사재 출연 등 변혁적 리더십의 감정 지지</td>
+              <td class="text-sm italic text-slate-600">
+                "I actually called a general meeting…and the staff themselves decided to take a pay cut to help people keep their jobs... I also injected more funds into the business... reduced the number of working days..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 8 &amp; 9 (Sec. 4.2 &amp; 4.3)</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="font-semibold text-slate-900">외상 신용 기간 연장 및 무상 생필품 배포를 통한 고객 인상 관리</td>
+              <td class="text-sm italic text-slate-600">
+                "...Then to ensure that I retain my customers, I now allow them to purchase the goods, then pay later... I gave COVID-19 palliative [i.e., free groceries] to the suffering masses in Nigeria. This helped us to maintain our relationships..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 9 (Sec. 4.3)</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td class="font-semibold text-slate-900">아프리카 Emerging Markets의 공공 자금 안전망 결여(제도적 공백)</td>
+              <td class="text-sm italic text-slate-600">
+                "In Africa, this situation is intensified by the pre-existing general economic and social insecurities and institutional voids..., which puts the government [as well as businesses and society] in a tough position to respond."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 11 (Sec. 5.2)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- STEP 4 — Research Model & Variables -->
+    <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모형 및 핵심 변수 정밀 분석</h2>
+        <span class="badge badge-info style-label text-slate-900 uppercase">Model &amp; Variables</span>
+      </div>
+      
+      <!-- Research Model SVG Block -->
+      <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+        <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (인과 경로 모형)</h3>
+        
+        <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+          <svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+              </marker>
+            </defs>
+
+            <!-- Background Canvas -->
+            <rect width="100%" height="100%" fill="#f8fafc" rx="12"/>
+
+            <!-- IV Box -->
+            <rect x="30" y="160" width="220" height="90" rx="8" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+            <text x="140" y="190" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="14">독립변수 (IV)</text>
+            <text x="140" y="210" text-anchor="middle" font-weight="700" fill="#7f1d1d" font-size="13">코로나19 외생적 충격</text>
+            <text x="140" y="230" text-anchor="middle" fill="#991b1b" font-size="11">봉쇄조치, 물류차단, 자원제약</text>
+
+            <!-- Mediator 1: Market Strategy -->
+            <rect x="310" y="40" width="220" height="95" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+            <text x="420" y="65" text-anchor="middle" font-weight="700" fill="#1e3a8a" font-size="14">시장 전략 (Market Strategy)</text>
+            <text x="420" y="85" text-anchor="middle" font-weight="700" fill="#172554" font-size="13">변혁적 및 거래적 리더십</text>
+            <text x="420" y="105" text-anchor="middle" fill="#1e3a8a" font-size="11">목표관리, 성과보상, 감정케어, 비용절감</text>
+
+            <!-- Mediator 2: Non-Market Strategy -->
+            <rect x="310" y="270" width="220" height="95" rx="8" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
+            <text x="420" y="295" text-anchor="middle" font-weight="700" fill="#0f766e" font-size="14">비시장 전략 (Non-Market)</text>
+            <text x="420" y="315" text-anchor="middle" font-weight="700" fill="#115e59" font-size="13">인상 관리 &amp; 네트워크</text>
+            <text x="420" y="335" text-anchor="middle" fill="#0f766e" font-size="11">구호품 지원, 신용판매, 비즈니스 외적 소통</text>
+
+            <!-- DV Box -->
+            <rect x="590" y="160" width="180" height="90" rx="8" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+            <text x="680" y="190" text-anchor="middle" font-weight="700" fill="#166534" font-size="14">종속변수 (DV)</text>
+            <text x="680" y="210" text-anchor="middle" font-weight="700" fill="#14532d" font-size="13">B2B 기업 생존 &amp; 학습</text>
+            <text x="680" y="230" text-anchor="middle" fill="#166534" font-size="11">원격근무 구축, 운영효율성</text>
+
+            <!-- Path Arrows -->
+            <!-- Direct Path IV -> DV (Negative Impact) -->
+            <path d="M250 205 L 580 205" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+            <text x="410" y="198" text-anchor="middle" fill="#b91c1c" font-weight="700" font-size="11">위기 충격 (주요 실패 요인)</text>
+
+            <!-- IV -> Market Strategy -->
+            <path d="M140 160 L 140 90 L 300 90" fill="none" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <text x="210" y="80" text-anchor="middle" fill="#1d4ed8" font-size="11">대응 촉발</text>
+
+            <!-- Market Strategy -> DV -->
+            <path d="M530 90 L 680 90 L 680 150" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="610" y="80" text-anchor="middle" fill="#1d4ed8" font-weight="700" font-size="12">대응 효과 (+)</text>
+
+            <!-- IV -> Non-Market Strategy -->
+            <path d="M140 250 L 140 320 L 300 320" fill="none" stroke="#0d9488" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <text x="210" y="340" text-anchor="middle" fill="#0f766e" font-size="11">대응 촉발</text>
+
+            <!-- Non-Market Strategy -> DV -->
+            <path d="M530 320 L 680 320 L 680 260" fill="none" stroke="#0d9488" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="610" y="340" text-anchor="middle" fill="#0f766e" font-weight="700" font-size="12">완화 효과 (+)</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Variable Detail Cards in Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+        <!-- IV Card -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+          <div class="card-body p-6 gap-3">
+            <div class="flex items-center justify-between">
+              <span class="badge badge-neutral style-label text-white">독립변수</span>
+              <span class="text-xs text-slate-400 font-semibold">IV</span>
+            </div>
+            <h3 class="style-h3 text-slate-900">코로나19 외생적 충격 (COVID-19 Shock)</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 거시 환경 변동으로 인해 비즈니스 역량과 무관하게 생존 위협을 강제하는 불확실성 파동.</p>
+            <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 물리적 락다운, 국경 폐쇄로 인한 조달 차단, 대면 상호작용 불가능, 직원들의 감정적 붕괴 수준.</p>
+            <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 반구조화 면접 문항 Q11-14를 통해 수집된 서술 데이터.</p>
+            <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+              <strong>관련 이론:</strong> Mellahi &amp; Wilkinson (2004)의 결정론적 관점(Deterministic perspective). 환경 제약이 조직 생존을 지배한다는 시각.
+            </p>
+          </div>
+        </div>
+
+        <!-- Mediator 1 Card -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+          <div class="card-body p-6 gap-3">
+            <div class="flex items-center justify-between">
+              <span class="badge badge-info style-label text-slate-900">매개/조절변수 (시장)</span>
+              <span class="text-xs text-slate-400 font-semibold">Mediator 1</span>
+            </div>
+            <h3 class="style-h3 text-slate-900">시장 지향적 리더십 행동 (Leadership Behaviors)</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 구성원들의 목표 달성을 거래적으로 보상하거나(거래적), 감정적 신뢰 관계를 통해 자생적 헌신을 유도하는(변혁적) 리더십.</p>
+            <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 주간 성과 목표 설정 및 당근과 채찍 보상, 전사 회의를 통한 급여 삭감 합의 도출, 사재 자금 투입.</p>
+            <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 면접 문항 Q4-7, Q29-31. 코딩 테이블의 '리더십 조정(N=20)' 및 '타겟 보상(N=19)'.</p>
+            <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+              <strong>관련 이론:</strong> 자발론적 관점(Voluntaristic perspective) 및 Bass (1985)의 변혁적 리더십 이론, Deichmann &amp; Stam (2015)의 거래적 리더십.
+            </p>
+          </div>
+        </div>
+
+        <!-- Mediator 2 Card -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+          <div class="card-body p-6 gap-3">
+            <div class="flex items-center justify-between">
+              <span class="badge badge-success style-label text-white">매개/조절변수 (비시장)</span>
+              <span class="text-xs text-slate-400 font-semibold">Mediator 2</span>
+            </div>
+            <h3 class="style-h3 text-slate-900">관계 관리적 인상 관리 (Impression Management)</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 외부 이해관계자(고객, 파트너)가 자신에게 긍정적 평판을 부여하도록 사적·정서적 신뢰를 관리하는 상호 커뮤니케이션 활동.</p>
+            <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 고객 이탈을 통제하기 위해 신용 외상 기한 제공, 주민 대상 식료품 기부(palliatives)를 통한 지역사회 평판 확보.</p>
+            <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 면접 문항 Q23-24, Q32-33. 코딩 테이블의 '외상 허용(N=16)', '구호품 기부(N=16)'.</p>
+            <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+              <strong>관련 이론:</strong> Rodgers et al. (2021)의 비시장 전략(Non-market strategy). 제도적 안전망 결여 시 사적 평판이 거래를 통제하는 대체 기제임을 강조.
+            </p>
+          </div>
+        </div>
+
+        <!-- DV Card -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+          <div class="card-body p-6 gap-3">
+            <div class="flex items-center justify-between">
+              <span class="badge badge-primary style-label text-white">종속변수</span>
+              <span class="text-xs text-slate-400 font-semibold">DV</span>
+            </div>
+            <h3 class="style-h3 text-slate-900">B2B 기업 생존 및 학습 (Venture Survival &amp; Learning)</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 격변 시기 파산 및 폐업을 회피하고 핵심 거래 관계를 유지하며 새로운 적응 역량을 획득하는 상태.</p>
+            <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 파트너십 복구, 원격 디지털 근무 인프라 정착, 비용 대비 고효율 프로세스 확보 수준.</p>
+            <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 면접 문항 Q18-22 ("무엇이 우리 비즈니스를 작동하게 만들었는가"). Fig 1의 'Survival of B2B firms'.</p>
+            <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+              <strong>관련 이론:</strong> 조직 및 공급망 회복탄력성(Resilience) 문헌 및 Teece et al. (2016)의 동적 역량 관점.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 5 — Method Replication Steps -->
+    <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 5. 방법론 재현 프로토콜 deconstruction</h2>
+        <span class="badge badge-primary style-label uppercase">Methodology</span>
+      </div>
+      
+      <p class="style-body text-slate-600">
+        후행 연구자가 이 아프리카 B2B 실증 질적 모형을 그대로 복제하여 검증할 수 있도록 9단계로 해체하였습니다.
+      </p>
+
+      <!-- Timeline Component with color flow -->
+      <div class="mt-4">
+        <ul class="timeline timeline-vertical timeline-snap-icon">
+          <!-- Step 1 -->
+          <li>
+            <div class="timeline-middle">
+              <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+              <div class="text-lg font-bold text-slate-800">연구 질문 및 범위 설정</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                서아프리카 신흥국의 B2B 기업들을 모집단으로 삼고, 팬데믹 충격에 대응하는 시장/비시장 생존 대처 방안을 질문으로 정의합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3</span>
+            </div>
+            <hr class="bg-primary"/>
+          </li>
+          
+          <!-- Step 2 -->
+          <li>
+            <hr class="bg-primary"/>
+            <div class="timeline-middle">
+              <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+              <div class="text-lg font-bold text-slate-800">목적 및 스노볼 표본 추출</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                팬데믹 실패 유경험 기업가들로 제한하는 '목적 표집'을 시행하고, 연구진의 연고 기업가 2명을 허브로 삼아 '스노볼 기법'으로 38명을 추천받습니다. 등록 기업 가중치에 맞춰 가나 6명, 나이지리아 14명으로 구성합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3.1 &amp; Table 2</span>
+            </div>
+            <hr class="bg-secondary"/>
+          </li>
+
+          <!-- Step 3 -->
+          <li>
+            <hr class="bg-secondary"/>
+            <div class="timeline-middle">
+              <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+              <div class="text-lg font-bold text-slate-800">반구조화 화상 면접 수행</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                코로나 이동 제약에 따라 온라인 화상 면접을 시행하며, 개입을 최소화하면서 33개 문항(Table 3)을 질의합니다. 평균 시간은 55분으로 총 1,106분을 진행하고 포화점에서 모집을 마칩니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3.1 &amp; Table 3</span>
+            </div>
+            <hr class="bg-accent"/>
+          </li>
+
+          <!-- Step 4 -->
+          <li>
+            <hr class="bg-accent"/>
+            <div class="timeline-middle">
+              <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+              <div class="text-lg font-bold text-slate-800">데이터 전사 및 익숙화</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                오디오 녹음본을 완전 전사하고 텍스트 정밀 대조를 통과해 원 자료의 신뢰도를 최종 확보합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Section 3.3.1</span>
+            </div>
+            <hr class="bg-info"/>
+          </li>
+
+          <!-- Step 5 -->
+          <li>
+            <hr class="bg-info"/>
+            <div class="timeline-middle">
+              <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+              <div class="text-lg font-bold text-slate-800">주제 분석 질적 코딩</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                Braun &amp; Clarke (2006) 6단계 기법을 채택하여 유사 의미 코드를 묶고 Fig 1의 코딩 프레임워크(예: N=20 리더십 조정 등)를 정립합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Section 3.3.2 &amp; Fig. 1</span>
+            </div>
+            <hr class="bg-success"/>
+          </li>
+
+          <!-- Step 6 -->
+          <li>
+            <hr class="bg-success"/>
+            <div class="timeline-middle">
+              <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+              <div class="text-lg font-bold text-slate-800">전문가 집단 동료 검토 (Vetting)</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                외부 숙련 학자 3명을 감사자(Auditors)로 위임하여 도출된 코드 체계에 대해 Vetting을 받고 구조적 오류를 조정합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Section 3.3.4</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Replication assessment block -->
+      <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+          <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+        </div>
+        <p class="text-xs text-slate-500 max-w-md">
+          면접 표준 문항(Table 3)과 질적 주제 코딩(Fig 1)이 완벽히 개방되어 타국 신흥 시장 연구 설계에는 수월하게 복제 적용이 가능합니다. 다만 특정 허브 기업가 2명으로부터 스노볼링 표집된 아프리카 지역 기업 표본 및 질적 감정 상태는 완벽한 동일 복제가 제한적입니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- STEP 6 — Limitations & Critical Doubts -->
+    <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+      <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+        <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+        <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+      </div>
+      
+      <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+      <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+        <input type="checkbox" checked /> 
+        <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <span>Limitation A. 논문이 스스로 밝힌 한계 (Admitted)</span>
+        </div>
+        <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+          <p class="style-body text-slate-700">논문 본문의 결론 부분에서 저자들이 인정한 학술적 한계입니다:</p>
+          <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+            <li>
+              <strong>지리적 국한성:</strong> 가나와 나이지리아라는 특정 아프리카 국가의 두 신흥국으로 제한되어 동아시아나 선진국 시장의 B2B 기업에 일반화하기에 무리가 있음. (Page 11)
+            </li>
+            <li>
+              <strong>리더십 배합 한계:</strong> 거래적 리더십과 변혁적 리더십이 위기에 병용된다고 보았으나, 구체적으로 어떤 최적 비율로 배합해야 성과를 내는지 정량 분석이 없음. (Page 11)
+            </li>
+            <li>
+              <strong>표본 크기 한계:</strong> 20명 대상의 정성 연구는 이론 포화에는 도달했으나 통계적 검증력이 부족해 Large-scale 설문 기반의 추가 계량 연구가 요구됨. (Page 11)
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+      <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+        <input type="checkbox" checked /> 
+        <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <span>Limitation B. 논문이 규명하지 못한 비판적 의구심 (Critical)</span>
+        </div>
+        <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+          <p class="style-body text-slate-700">논문 설계의 허점을 파고들어 도출해 낸 비판점입니다:</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+            <div class="bg-white p-4 rounded-xl border border-amber-200">
+              <span class="badge badge-warning style-label text-amber-950 mb-2">1. 심각한 생존자 편향 (Survivor Bias)</span>
+              <p class="text-sm text-slate-700">
+                조사가 수행된 시점은 2021년 후반기입니다. 즉, 리더십과 평판 관리 능력이 부족해 2020년에 이미 **폐업하고 파산한 한계 B2B 기업가들은 조사 대상에서 원천 배제**되었습니다. 오직 생존한 기업가들의 회고만 들었기 때문에 도출된 대응 메커니즘이 실제 생존을 가르는 핵심 요인인지 과대평가되었을 가능성이 큽니다.
+              </p>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-amber-200">
+              <span class="badge badge-warning style-label text-amber-950 mb-2">2. 사후적 합리화 (Post-hoc Bias)</span>
+              <p class="text-sm text-slate-700">
+                인터뷰 대상이 오직 최고 의사결정자(Owner-managers)에만 국한되어 있습니다. 위기에서 "나는 엠퍼시를 보였고, 당근과 채찍을 정교하게 썼다"고 답하는 것은 사후적 경영 성과의 합리화에 지나지 않을 수 있으며, 직원의 시선에서 실제 리더십 실효성을 증명하는 교차 검증(Triangulation)이 누락되었습니다.
+              </p>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-amber-200">
+              <span class="badge badge-warning style-label text-amber-950 mb-2">3. 인상 관리 비용의 잠재적 재무 부작용</span>
+              <p class="text-sm text-slate-700">
+                지역사회에 무료 식료품 기부를 하거나, 고객을 잡기 위해 외상 신용 기간을 연장(Pay later)해 준 것은 평판 인상 관리에는 유리할지 모르나, 현금 흐름 적자가 발생한 실패 위기 기업에는 부실 채권을 증가시켜 도산을 자초했을 위험도 큽니다. 이에 대한 역풍 위험성이 무시되었습니다.
+              </p>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-amber-200">
+              <span class="badge badge-warning style-label text-amber-950 mb-2">4. 서아프리카 특수 제도의 일반화 제약</span>
+              <p class="text-sm text-slate-700">
+                전력 수급 불안정, 비공식 연고가 강한 서아프리카 특유의 '제도적 공백' 상황 하에서의 조사 결과이므로, 공공 보조금 융자가 확실하고 제도가 투명하게 정착된 서구 선진국의 위기 공급망에 이 메커니즘을 동일하게 투사하기에는 상당한 간극이 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Impression management and leadership in failing or failed business-to-business firms during and post-COVID-19: Empirical insights from Africa</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

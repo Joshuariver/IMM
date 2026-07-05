@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neuroscience in B2B Marketing Research - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Co-citation Analysis & Review</div>
+        <div class="badge badge-secondary text-white style-label">Academic Bridging & Neuromarketing</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Neuroscience in business-to-business marketing research:<br>
+            <span class="text-cyan-400">A literature review, co-citation analysis and research agenda</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Christina Öberg (Linnaeus University / The Ratio Institute, Sweden)
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            B2B 마케팅 연구에서의 신경과학:<br>
+            <span class="text-indigo-300">문헌 고찰, 공동인용 분석 및 연구 어젠다</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            경영학 내 신경과학 융합 네트워크 구조를 최초로 해부하고, 다중 에이전트·AI 상호작용 신뢰·예측 코딩 등 B2B 특화 3대 미래 연구 방향 제시
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">단순 구매 자극 분석(뉴로마케팅)을 넘어 다중 에이전트 시스템과 AI 상호작용 등 거시적 의사결정에 신경과학을 결합해야 합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Neuroscience has led the way in bridging the gap between the social and natural sciences. The ongoing transformations in the business landscape have brought human-machine interaction and multi-agent systems to the forefront. This underscores the importance of theories that bridge the gap between human brain processes and business-to-business marketing practices. Despite the potential of neuroscience in business-to-business marketing, such interdisciplinary research is extensively lacking. This paper employs systematic literature reviews and co-citation analyses to: a) establish the absence of business-to-business marketing – neuroscience research; b) investigate the ways in which the broader business and management discipline has bridged with neuroscience to inspire such integration between business-to-business marketing and neuroscience; c) describe bridging approaches; and d) propose a research agenda for business-to-business marketing. The co-citation analyses show that the business and management discipline has focused on the ‘within-brain’ or behavioural aspects of neuroscience. In addition, the discipline has continually integrated new neuroscience insights or increasingly developed theories that are internalised within the discipline, independent of neuroscience. The paper's main contributions are the reviews and co-citation analyses, as well as an account of bridging in interdisciplinary research. Furthermore, the proposed research agenda enhances our understanding of the potential of neuroscience in business-to-business marketing."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "신경과학(neuroscience)은 사회과학과 자연과학 간의 간극을 좁히는 길을 선도해 왔다. 비즈니스 환경에서 진행 중인 변화들은 인간-기계 상호작용(human-machine interaction)과 다중 에이전트 시스템(multi-agent systems)을 전면으로 부각시켰다. 이는 인간의 뇌 과정(brain processes)과 B2B(business-to-business) 마케팅 실무 간의 간극을 메우는 이론의 중요성을 강조한다. B2B 마케팅에서 신경과학이 지닌 잠재력에도 불구하고, 이러한 학제간 연구(interdisciplinary research)는 크게 부족한 실정이다. 본 논문은 체계적 문헌 고찰(systematic literature reviews)과 공동인용 분석(co-citation analyses)을 활용하여 다음과 같은 작업을 수행한다: a) B2B 마케팅과 신경과학을 통합한 연구의 부재를 확인하고, b) B2B 마케팅과 신경과학 간의 통합을 고취하기 위해 더 넓은 비즈니스 및 경영 학문 분야가 신경과학과 어떻게 연결되었는지 조사하며, c) 이러한 학제간 연결 접근법(bridging approaches)을 기술하고, d) B2B 마케팅을 위한 연구 어젠다(research agenda)를 제안한다. 공동인용 분석 결과에 따르면, 경영학 분야는 신경과학의 '뇌 내부(within-brain)' 또는 행동적 측면에 초점을 맞추어 왔다. 또한, 이 분야는 새로운 신경과학적 통찰을 지속적으로 통합하거나, 신경과학과는 독립적으로 경영학 분야 내부로 내재화(internalised)된 이론들을 점진적으로 개발해 왔다. 본 논문의 주요 기여는 문헌 고찰과 공동인용 분석뿐만 아니라, 학제간 연구에서의 연결 방식에 대한 설명이다. 나아가, 제안된 연구 어젠다는 B2B 마케팅에서 신경과학이 지닌 잠재력에 대한 이해를 증진시킨다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Neuroscience</td>
+                  <td>신경과학</td>
+                  <td class="text-sm">뇌의 구조, 뉴런 활동 및 생리적 신호 반응 등을 생물학적·물리적 관점에서 연구하는 자연과학 분야입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Co-citation analysis</td>
+                  <td>공동인용 분석</td>
+                  <td class="text-sm">두 개의 참고문헌이 다른 논문들에 의해 동시에 인용된 패턴을 찾아내어 문헌 간의 의미론적 학문망을 구성하는 계량서지학 기법입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Multi-agent systems</td>
+                  <td>다중 에이전트 시스템</td>
+                  <td class="text-sm">서로 독립적인 전략적 의도와 이해관계를 가진 의사결정 주체들(부서, 협력 기업, 인공지능 등)이 복잡하게 얽혀 있는 거래 협업 체계입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Within-brain</td>
+                  <td>뇌 내부 / 물리적 뇌 반응</td>
+                  <td class="text-sm">단순히 외부 관찰 가능한 인간의 행동이 아닌, 뇌 속 생리적 과정(생체파동, 혈류 변화, 뉴런 점화 등) 자체를 뜻합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Internalisation vs. Continuous integration</td>
+                  <td>내재화 vs. 지속적 통합</td>
+                  <td class="text-sm">타 학문 지식을 경영학 내부 이론으로 고착시켜 독자적으로 계승하는 전략(내재화)과 최신 신경과학적 생리학적 연구 결과를 지속해서 수혈받는 전략(지속적 통합)입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Predictive coding</td>
+                  <td>예측 코딩</td>
+                  <td class="text-sm">인간의 뇌가 과거 경험적 지각 모델을 활용하여 다가올 물리적 자극을 미리 코딩하여 준비한다는 인지 신경과학 핵심 이론입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학술 발표 또는 연구 기획 시 청중을 빠르게 설득하기 위해 논문의 논리 흐름을 3단계 핵심 메커니즘으로 분해했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">B2B 마케팅에 신경과학을 어떻게 접목할 것인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">경영학 내 5대 융합 군집과 학제간 연결 격차 확인</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">B2B 특화 연구 어젠다 및 방법론 다각화 수립</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 배경 및 질문:</strong> B2B 마케팅에서의 신경과학 접목 수준을 확인하고, 사회과학(B2B)과 자연과학(신경과학)의 융합 구조를 밝혀 향후 나아갈 학술적 돌파구를 발굴하고자 함.</li>
+                  <li><strong>공동인용 분석 발견:</strong> 경영학 내 융합 문헌들은 인지, 뉴로마케팅, 조직신경과학 등 5대 군집을 이루고 있으며, 지식을 계속 업데이트하는 '지속적 통합'과 독자화시키는 '내재화' 전략으로 연결되어 있음. 이 중 물리적 뇌 프로세스를 직접 보며 다학제 인용을 활발히 하는 영역은 연구 공백(Empty Quadrant)임.</li>
+                  <li><strong>제안 및 기여:</strong> 일회성 소비 행동 연구에서 벗어나 B2B 고유 맥락인 다중 에이전트 의사결정(생리적 동조성), AI 상호작용(신뢰 형성 기전), 예측 코딩(위기 판단 오류 극복)으로 확장을 제안함.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "일회성 구매 반응에 머문 뉴로마케팅을 넘어, 다중 의사결정 집단파동 측정, AI 신뢰 형성 생리 반응, 예측 코딩 위기 오류 극복을 위해 신경과학과 지속적으로 소통해야 합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문의 핵심 논지들에 대한 원문 인용(Original Quote) 및 위치를 엄밀하게 매칭했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">기존 B2B-신경과학 연구의 부재와 일회성 거래 편향</td>
+                <td class="text-sm italic text-slate-600">
+                  "Despite the potential of neuroscience in business-to-business marketing, such interdisciplinary research is extensively lacking... The few recent studies that have combined neuroscience with B2B marketing research have focused on episodes of sales and pricing..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p. 168 (Abstract) & p. 169 (Sec. 1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">경영학 내 융합 네트워크의 5대 군집 및 연결 성격 분류</td>
+                <td class="text-sm italic text-slate-600">
+                  "The co-citation analyses show that the business and management discipline has focused on the ‘within-brain’ or behavioural aspects of neuroscience. In addition, the discipline has continually integrated new neuroscience insights or increasingly developed theories that are internalised within the discipline..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p. 168 (Abstract) & p. 173-174 (Sec. 4.2)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">물리적 뇌 연구와 다학제 직접 인용 간의 사분면상 공백 구역</td>
+                <td class="text-sm italic text-slate-600">
+                  "As shown in the figure, the upper-right quadrant is notably underrepresented. Interdisciplinary research has not yet delved into incorporating ‘into-the-brain’ neuroscience within a business context, while directly drawing from neuroscience sources."
+                </td>
+                <td class="text-right font-medium text-slate-500">p. 174 (Sec. 4.2, Fig. 5)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">다자간 의사결정(B2B Buying Center) 분석을 위한 EEG 동조화 측정 적용 제안</td>
+                <td class="text-sm italic text-slate-600">
+                  "Social neuroscience... has great potential to capture decision-making on inter-organisational bases in business-to-business marketing... Social neuroscience helps provide answers through quantitative electroencephalogram (EEG) to measure brain activity and capture individuals' attention in organised multi-agent systems."
+                </td>
+                <td class="text-right font-medium text-slate-500">p. 175 (Sec. 6.1)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">인간-기계(AI) 상호작용 시 뇌 신뢰 메커니즘 규명의 필요성</td>
+                <td class="text-sm italic text-slate-600">
+                  "Beyond their research, questions remain about trust in human–machine and potentially, machine–machine interactions. How can managers work with machines’ mimicking behaviour to establish trust, and why would a customer trust a machine?"
+                </td>
+                <td class="text-right font-medium text-slate-500">p. 176 (Sec. 6.1)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">전략적 미래 계획 시 인지 트랩 극복 도구로서 예측 코딩 지적</td>
+                <td class="text-sm italic text-slate-600">
+                  "Knowledge of brain functions in relation to prediction... can inform business-to-business marketing research on decision-making and how to deal with complex changes in an uncertain future... Predictive coding describes the brain's activation of a future different from the past..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p. 175-176 (Sec. 6.1)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 개념 모델 및 관련 변수군 해부</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">B2B Neuroscience Integration Framework (통합 연구 모형)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <!-- Inline SVG Diagram -->
+            <svg viewBox="0 0 800 500" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="ivGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0f172a" />
+                  <stop offset="100%" stop-color="#334155" />
+                </linearGradient>
+                <linearGradient id="medGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#d97706" />
+                  <stop offset="100%" stop-color="#b45309" />
+                </linearGradient>
+                <linearGradient id="dvGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0369a1" />
+                  <stop offset="100%" stop-color="#0284c7" />
+                </linearGradient>
+                <linearGradient id="modGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7c3aed" />
+                  <stop offset="100%" stop-color="#6d28d9" />
+                </linearGradient>
+                <linearGradient id="outGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#059669" />
+                  <stop offset="100%" stop-color="#047857" />
+                </linearGradient>
+                
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+                </marker>
+                <marker id="arrowPrimary" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7"/>
+                </marker>
+              </defs>
+
+              <rect width="100%" height="100%" fill="#f8fafc" rx="16" />
+              <rect x="10" y="10" width="780" height="480" fill="none" stroke="#e2e8f0" stroke-width="2" rx="12" />
+
+              <text x="140" y="45" font-family="'Pretendard', sans-serif" font-size="12" font-weight="800" fill="#64748b" letter-spacing="1">학제간 융합 차원 (INPUTS)</text>
+              
+              <!-- IV 1 -->
+              <rect x="30" y="65" width="220" height="90" rx="8" fill="url(#ivGrad)" stroke="#1e293b" stroke-width="1.5" />
+              <text x="140" y="95" font-family="'Pretendard', sans-serif" font-size="14" font-weight="700" fill="#f8fafc" text-anchor="middle">학제간 연결 전략</text>
+              <text x="140" y="118" font-family="'Pretendard', sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">지속적 통합 vs. 내재화</text>
+              <text x="140" y="135" font-family="'Pretendard', sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">(Continuous Integration vs. Internalisation)</text>
+
+              <!-- IV 2 -->
+              <rect x="30" y="275" width="220" height="90" rx="8" fill="url(#ivGrad)" stroke="#1e293b" stroke-width="1.5" />
+              <text x="140" y="305" font-family="'Pretendard', sans-serif" font-size="14" font-weight="700" fill="#f8fafc" text-anchor="middle">신경과학 초점 수준</text>
+              <text x="140" y="328" font-family="'Pretendard', sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">행동/인지 vs. 물리적 뇌 반응</text>
+              <text x="140" y="345" font-family="'Pretendard', sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">(Behavioural vs. Physical/Into-the-Brain)</text>
+
+              <!-- Moderator -->
+              <rect x="290" y="25" width="220" height="65" rx="8" fill="url(#modGrad)" stroke="#5b21b6" stroke-width="1.5" />
+              <text x="400" y="50" font-family="'Pretendard', sans-serif" font-size="13" font-weight="700" fill="#f5f3ff" text-anchor="middle">B2B 맥락적 특성 (조절)</text>
+              <text x="400" y="70" font-family="'Pretendard', sans-serif" font-size="11" fill="#ddd6fe" text-anchor="middle">장기 관계, 다자 의사결정, 디지털화</text>
+
+              <!-- Mediator/Methods -->
+              <rect x="290" y="195" width="220" height="110" rx="8" fill="url(#medGrad)" stroke="#92400e" stroke-width="1.5" />
+              <text x="400" y="225" font-family="'Pretendard', sans-serif" font-size="14" font-weight="700" fill="#fffbeb" text-anchor="middle">신경과학 방법론 (도구)</text>
+              <text x="310" y="252" font-family="'Pretendard', sans-serif" font-size="11" fill="#fef3c7">• EEG &amp; 다중뇌파(Hyperscanning)</text>
+              <text x="310" y="272" font-family="'Pretendard', sans-serif" font-size="11" fill="#fef3c7">• fMRI &amp; 뇌 영상 촬영(Neuroimaging)</text>
+              <text x="310" y="292" font-family="'Pretendard', sans-serif" font-size="11" fill="#fef3c7">• 안구 추적(Eye-tracking)</text>
+
+              <!-- DVs -->
+              <text x="660" y="45" font-family="'Pretendard', sans-serif" font-size="12" font-weight="800" fill="#64748b" letter-spacing="1">제안된 B2B 연구 영역 (DVs)</text>
+
+              <!-- DV 1 -->
+              <rect x="550" y="65" width="220" height="70" rx="8" fill="url(#dvGrad)" stroke="#075985" stroke-width="1.5" />
+              <text x="660" y="92" font-family="'Pretendard', sans-serif" font-size="12" font-weight="700" fill="#f0f9ff" text-anchor="middle">다중 에이전트 시스템 내 협업</text>
+              <text x="660" y="112" font-family="'Pretendard', sans-serif" font-size="10" fill="#bae6fd" text-anchor="middle">지속가능성 vs. 수익성 등 의사결정 갈등</text>
+
+              <!-- DV 2 -->
+              <rect x="550" y="165" width="220" height="70" rx="8" fill="url(#dvGrad)" stroke="#075985" stroke-width="1.5" />
+              <text x="660" y="192" font-family="'Pretendard', sans-serif" font-size="12" font-weight="700" fill="#f0f9ff" text-anchor="middle">디지털화 &amp; AI 인간-기계 신뢰</text>
+              <text x="660" y="212" font-family="'Pretendard', sans-serif" font-size="10" fill="#bae6fd" text-anchor="middle">기계 의사대행에 대한 뇌의 반응 연구</text>
+
+              <!-- DV 3 -->
+              <rect x="550" y="265" width="220" height="70" rx="8" fill="url(#dvGrad)" stroke="#075985" stroke-width="1.5" />
+              <text x="660" y="292" font-family="'Pretendard', sans-serif" font-size="12" font-weight="700" fill="#f0f9ff" text-anchor="middle">예측 코딩 기반 미래 전략</text>
+              <text x="660" y="312" font-family="'Pretendard', sans-serif" font-size="10" fill="#bae6fd" text-anchor="middle">과거 인지 트랩 극복 및 미래 시각화</text>
+
+              <!-- Outcome -->
+              <rect x="550" y="380" width="220" height="85" rx="8" fill="url(#outGrad)" stroke="#064e3b" stroke-width="1.5" />
+              <text x="660" y="408" font-family="'Pretendard', sans-serif" font-size="13" font-weight="700" fill="#ecfdf5" text-anchor="middle">B2B 마케팅 이론 혁신 &amp;</text>
+              <text x="660" y="426" font-family="'Pretendard', sans-serif" font-size="13" font-weight="700" fill="#ecfdf5" text-anchor="middle">전략적 의사결정 역량 강화</text>
+              <text x="660" y="448" font-family="'Pretendard', sans-serif" font-size="10" fill="#a7f3d0" text-anchor="middle">(Academic &amp; Practical Value)</text>
+
+              <!-- Arrows -->
+              <path d="M 250 110 L 270 110 L 270 230 L 290 230" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)" />
+              <text x="278" y="170" font-family="'Pretendard', sans-serif" font-size="11" font-weight="700" fill="#475569" text-anchor="middle">H1</text>
+
+              <path d="M 250 320 L 270 320 L 270 270 L 290 270" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)" />
+              <text x="278" y="305" font-family="'Pretendard', sans-serif" font-size="11" font-weight="700" fill="#475569" text-anchor="middle">H2</text>
+
+              <path d="M 400 90 L 400 195" fill="none" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="3 3" />
+              <text x="415" y="140" font-family="'Pretendard', sans-serif" font-size="11" font-weight="700" fill="#7c3aed">B2B 맥락 조절</text>
+
+              <path d="M 510 215 L 530 215 L 530 100 L 550 100" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrowPrimary)" />
+              <path d="M 510 250 L 550 250" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrowPrimary)" />
+              <path d="M 510 285 L 530 285 L 530 300 L 550 300" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrowPrimary)" />
+
+              <path d="M 760 135 L 780 135 L 780 370 L 730 370 L 730 380" fill="none" stroke="#059669" stroke-width="1.5" stroke-dasharray="2 2" />
+              <path d="M 760 235 L 770 235 L 770 370 L 730 370 L 730 380" fill="none" stroke="#059669" stroke-width="1.5" stroke-dasharray="2 2" />
+              <path d="M 760 335 L 760 380" fill="none" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Card 1 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">프레임워크 차원 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Bridging Strategy</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">학제간 연결 전략 (Bridging Strategy)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 사회과학인 B2B 연구가 자연과학인 신경과학의 이론적 지식을 수혈하여 자산화하는 연결 방식의 성격.</p>
+              <p class="text-sm text-slate-700"><strong>측정 방법:</strong> 신경과학 저널의 지식을 직접 인용하는 비중(지속적 통합, Continuous Integration) 대 경영학 내 융합 선행문헌을 인용하는 비중(내재화, Internalisation).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론적 배경:</strong> 학제간 융합(Interdisciplinary bridging) 연구에서 지식 확장의 흐름을 설명하는 핵심 서지학적 분류축 (Markovic et al., 2021).
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">프레임워크 차원 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Neuroscience Focus Level</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">신경과학 초점 수준 (Neuroscience Focus Level)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 융합 연구 진행 시 뇌의 생리적 뉴런 반응 메커니즘 자체를 추적하는지 혹은 외부 인지적 행동 결과물에 집중하는지의 범위.</p>
+              <p class="text-sm text-slate-700"><strong>측정 방법:</strong> 설문이나 인지 테스트 기반의 행동 데이터(Behavioural/Cognition) 분석 대 fMRI/EEG/안구추적 등 물리적 생체 반응(Physical/Into-the-brain)의 분석.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론적 배경:</strong> 인지 신경과학(Banich & Compton, 2018) 및 물리 신경생태 모델(Bassett & Sporns, 2017)의 구분을 차용.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">제안된 연구 영역 1</span>
+                <span class="text-xs text-slate-400 font-semibold">DV1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">다중 에이전트 시스템 내 협업 및 갈등</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 복수의 의사결정자들이 얽힌 B2B 생태계(구매센터, 유통 네트워크 등)에서 지속가능성과 수익성 등 이해관계가 부딪힐 때의 조율 과정.</p>
+              <p class="text-sm text-slate-700"><strong>신경과학적 결합:</strong> 뇌파 측정(EEG)을 동원한 협상 당사자 간의 상호 interbrain 조율 측정(Hyperscanning) 및 사회신경과학(Social neuroscience) 접목.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 선행지식:</strong> 집단 의사결정 시 비합리적 감정 유입과 사회적 동조성 기전을 실시간 생리 신호로 감지할 수 있습니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">제안된 연구 영역 2</span>
+                <span class="text-xs text-slate-400 font-semibold">DV2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">디지털화 및 AI 상호작용 신뢰 (Trust in AI)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 인공지능(AI), 챗봇, 알고리즘 툴이 의사결정을 자동 대행 및 권고할 때 인간 관리자가 이를 수용하고 신뢰를 구축하는 기전.</p>
+              <p class="text-sm text-slate-700"><strong>신경과학적 결합:</strong> 뇌 영상 촬영(fMRI) 및 신뢰 유발 호르몬(옥시토신 등) 검사를 활용하여 기계가 뇌를 모방하는 흉내를 낼 때 인지 감정 반응 분석.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 선행지식:</strong> NeuroIS 연구와 정보시스템 신뢰 이론(Dimoka, 2010; Zak, 2017)의 B2B 거래 환경 확장.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">제안된 연구 영역 3</span>
+                <span class="text-xs text-slate-400 font-semibold">DV3</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">예측 코딩 기반 미래 전략 (Predictive Futures)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 파괴적 환경 변화나 금융 위기 상황에서 관리자들이 과거 데이터의 안주 편향을 깨고 미래 비전을 다각화하는 뇌 인지 프로세스.</p>
+              <p class="text-sm text-slate-700"><strong>신경과학적 결합:</strong> 예측 코딩(Predictive coding)과 인근 해마-복내측 전두엽 신경역학(vmPFC-hippocampal dynamics) 이론을 기반으로, 환경에 대응한 뇌의 선제 행동 패턴 규명.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>이론적 합의:</strong> 예측적 뇌 모델(Clark, 2016)을 전략 경영 및 B2B 파트너 간 미래 비전 조율 메커니즘에 대입.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 논문의 문헌 스크리닝 및 계량 서지학(공동인용 분석) 기법을 타 연구자가 그대로 추종 복제할 수 있도록 단계별 순서를 가시화했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">DB 설정 및 검색어 프로토콜 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Web of Science 데이터베이스를 기반으로 신경과학 관련 키워드(neuroscience OR "cognitive science" OR "cognitive psychology" OR "neurology" OR "neuropsychology")를 추출하고, B2B 마케팅(B2B marketing, industrial marketing 등)과의 결합 융합 수준을 1차 진단함(최종 9편 확인).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p. 170, Sec. 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">분석 표본 검색 범위 확장</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  융합 B2B 연구의 부족함에 따라 영감을 위해 광범위한 Web of Science 'Business' 및 'Management' 학술 카테고리 전체로 확장. 문서 유형을 Article/Review로 한정하여 총 674개의 최종 분석 대상 논문 리스트 확보.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p. 170, Sec. 3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">공동인용 참고문헌 메타 데이터 추출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  선별된 674개 아티클 내부의 전체 인용 참고문헌(41,922개 참조 목록)을 텍스트 파일로 다운로드하여 데이터 가공 준비를 마침.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p. 171, Sec. 3.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">VOSviewer 구동 및 임계치 설정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  다운로드된 인용망 데이터를 VOSviewer 소프트웨어에 로드. 동시 인용 묶음 분석을 위해 "최소 5회 이상 같이 인용된 문헌 조합"을 임계 조건으로 지정하여 노이즈를 필터링(최종 830개 노출 저널 확정).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p. 171, Sec. 3.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">군집화 코딩 및 학제적 성격 분류</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  소프트웨어를 바탕으로 5가지 군집(Cluster I ~ V)을 자동 획득. DOI 검색을 결합하여 각 군집 대표 저널들의 학문 영역(신경과학 vs 경영학) 비율을 분석 및 전략 매핑 완성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p. 171-174, Sec. 3.2 & 4.2</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">완전 재현 가능 (Fully Replicable)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            사용 키워드 프로토콜 및 데이터베이스의 조건, 소프트웨어(VOSviewer) 파라미터가 구체적 수치(최소 5회 동시 인용)로 드러나 있고, 공동인용 원천 데이터 엑셀 파일을 보충 자료로 공개하고 있으므로 외부의 독립 연구자가 재현하는 것이 100% 가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">본 논문 10장(Section 7.1)에서 연구진들이 서술한 탐색적 제약 사항입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>Web of Science 데이터베이스 단일 채널 사용:</strong> 질 높은 동료 평가(Peer-reviewed) 연구 수집에는 우수하였으나 최신 아이디어가 유통되는 그레이 문헌이나 실무자 리포트 수집이 배제되었습니다.
+              </li>
+              <li>
+                <strong>개념적 키워드의 인위적 필터링:</strong> 뇌 활동 관련 본질 단어 검색에 초점을 두며 '뉴로마케팅', '뉴로이코노믹스' 등 사회과학 응용 키워드를 제외함에 따라 실무 중심 마케팅 저널의 유실 가능성이 존재합니다.
+              </li>
+              <li>
+                <strong>B2B 적용 논의의 추론적 한계:</strong> 공동인용 군집 패턴으로부터 B2B 어젠다를 이끌어 낸 논의는 저자의 개념적 매핑(Interpretative) 결과이므로 후속 실증 데이터로의 추가 증명이 완결되어야 합니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 B2B 상업적 구조 한계를 근거로 제기하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 누적 인용 특성에 따른 시간 지체 편향 (Time-lag Bias)</span>
+                <p class="text-sm text-slate-700">
+                  공동인용의 네트워크 분석 기법 특성상 '최소 5회 이상 인용'이라는 기준을 맞추기 위해, 군집의 뼈대들은 수십 년 전의 고전 문헌(예: Kahneman & Tversky 등) 중심으로 정렬될 수밖에 없습니다. 이에 따라 최근 2~3년간 발현된 최첨단 물리 신경 기술(예: 가상 현실 결합 뉴로 마케팅 기법 등)이 구조적으로 포착되지 못하는 시각적 지체 오류가 존재합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. B2B 구매센터 내 다자간 생리 측정의 실무적 비현실성</span>
+                <p class="text-sm text-slate-700">
+                  저자는 다중 에이전트 시스템 협업 규명을 위해 바이어 간 EEG(뇌파) 동조화 측정 등을 권유합니다. 그러나 실제 B2B 비즈니스에서는 보안과 정치적 역학, 다국적 관리자 간 미팅 등의 제약이 따르므로, 민감한 협상 현장에서 바이어들에게 뇌파 캡 센서를 씌우고 모니터링을 허용받는 것은 현실적인 장벽(Ethical & Security barriers)이 너무나 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. VOSviewer 임계 파라미터 조절의 강건성 검증 부족</span>
+                <p class="text-sm text-slate-700">
+                  동시 인용 기준선 '5회' 설정에 대해 강건성(Robustness) 검증이 명시되지 않았습니다. 만약 임계값을 3회나 8회 등으로 변화시켰을 때 사분면 매핑 프레임워크(Fig. 5)의 격자 구조 및 학제간 연결 전략 군집 배치가 어떻게 굴절되고 재편성되는지에 대한 비교 수치를 결여하고 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 질적 연구 검증 단계(Expert Verification)의 주관성</span>
+                <p class="text-sm text-slate-700">
+                  분석 방법론에서 "5명의 학계 연구자들에게 분류의 적합성을 확인받았다"고 적혀 있으나, 검증인들의 학술적 배경이나 평가 체크리스트, 합의 도달 기준 등이 불명확하여 질적 타당성 확보 과정에서 주관성과 합의 편향(Consensus bias)이 침투했을 위험이 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Neuroscience in business-to-business marketing research: A literature review, co-citation analysis and research agenda</p>
+      <p class="text-xs mt-2">© 2026 PhD B2B Marketing Research Group. Developed under Premium Academic Template. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
