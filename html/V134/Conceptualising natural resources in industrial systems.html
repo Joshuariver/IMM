@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conceptualising Natural Resources in Industrial Systems - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Industrial Systems</div>
+        <div class="badge badge-secondary text-white style-label">Resource Interaction</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Conceptualising natural resources<br>
+            <span class="text-cyan-400">in industrial systems</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Debbie Harrison, Frans Prenkert
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            산업 시스템 내 자연 자원의 개념화:<br>
+            <span class="text-indigo-300">자원 상호작용(Resource Interaction)의 확장</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            지구적 한계 시대에 Penrose(1959)의 무상 서비스 개념을 차용해 소유권이 없는 공공 자원을 B2B 자원 상호작용 모델 내에 융합한 연구
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">자연 자원의 소유권이 없어도 공정이 제공받는 무상 생산 서비스와 3대 자연 인터페이스를 통해 자연 자원을 산업 시스템 분석에 포착해야 합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Natural resource use is core to society yet assumptions of (super)abundance are no longer appropriate because they disregard planetary boundaries. Natural resources have received only limited consideration in the management literature (George, Schillebeeckx, & Lit Liak, 2015, 2018). In this paper, we conceptualise the inclusion of natural resources in analyses of industrial systems using Resource Interaction within the Industrial Network Approach (INA). An extension of Penrose's (1959) distinction between free resources and the services rendered by free resources is developed and used to discuss air as an illustrative example of natural resources. We address three challenges regarding classifying resources, the status of resource interfaces, and the suitability of core assumptions. The contribution is in proposing natural resources as a previously overlooked resource class by including their ‘free services rendered’ within Resource Interaction. We also add to existing understandings of natural resources through using a different resource perspective than the NRBV (Natural Resource Based View) and RDT (Resource Dependency Theory)."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "자연 자원의 사용은 사회의 핵심이지만, (초)풍요로움(superabundance)을 가정한 기존 전제는 지구적 한계(planetary boundaries)를 무시하기 때문에 더 이상 적절하지 않다. 자연 자원은 경영학 문헌에서 극히 제한적으로만 다루어졌다. 본 논문에서 우리는 산업 네트워크 접근법(INA, Industrial Network Approach) 내의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">'자원 상호작용(Resource Interaction)'</span> 관점을 사용하여 산업 시스템 분석에 자연 자원을 포함시키는 것을 개념화한다. Penrose(1959)의 무상 자원(free resources)과 무상 자원이 렌더링하는 서비스(services rendered) 간의 구분을 확장하여 개발하고, 공기(air)를 자연 자원의 설명적 예시로 사용하여 논의한다. 우리는 자원의 분류, 자원 인터페이스의 상태, 그리고 핵심 가정의 적절성과 관련된 세 가지 과제를 다룬다. 본 연구의 기여는 자연 자원의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">'제공되는 무상 서비스(free services rendered)'</span>를 자원 상호작용 내에 포함시킴으로써 자연 자원을 이전에 간과되었던 자원 클래스(resource class)로 제안하는 데 있다. 또한 우리는 NRBV(자연자원기반관점) 및 RDT(자원의존이론)와는 다른 자원 관점을 사용하여 자연 자원에 대한 기존의 이해에 추가적인 기여를 한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Superabundance</td>
+                  <td>(초)풍요로움 / 초과잉</td>
+                  <td class="text-sm">과거 경제학에서 공기나 물처럼 공급 한계가 없고 비용을 매길 필요가 없어 무제한으로 공짜로 소비 가능하다고 간주하던 상태입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Planetary Boundaries</td>
+                  <td>지구적 한계 / 지구 임계치</td>
+                  <td class="text-sm">기후 변화, 질소 순환 등 인류가 안전하게 머무를 수 있는 지구 환경 시스템의 생태학적 한계선(9가지)입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Free services rendered</td>
+                  <td>제공되는 무상 서비스</td>
+                  <td class="text-sm">Penrose(1959)의 개념으로, 자원 자체를 구매하지 않더라도 그 자원이 기업의 조업이나 공정 활동에 무상으로 기여하는 생산적 기여 효과입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resource Interaction</td>
+                  <td>자원 상호작용</td>
+                  <td class="text-sm">기업 내 단일 자원을 넘어, inter-firm 네트워크를 가로질러 복수의 자원들이 어떻게 결합되고 공동의 가치를 창출하는지 다루는 IMP 학파의 핵심 개념입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            세미나 및 포럼 발표를 위해 본 논문이 제시하는 혁신적인 이론 논점을 3단계로 정비했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">소유권 없는 자연 자원을 어떻게 산업 네트워크 분석에 결합할 것인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">Penrose의 무상 서비스 개념 및 3대 자연 인터페이스 도입</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">외생 변수가 아닌 INA 모형 내부의 자원으로 개념화</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 지구 한계 임계치를 무시하는 '초풍요(Superabundance)' 가정을 폐기하고, 소유권이 불분명한 공기·물 등의 자연 자원을 B2B 자원 상호작용(Resource Interaction) 분석 틀 안에 유기적으로 내재화하는 방법은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> Penrose(1959)의 무상 서비스 이론을 확장하여, 공짜로 제공되는 자연의 기능적 서비스(free services rendered)를 모형화합니다. 또한, 자연 자원 결합을 나타내는 **3대 자연 인터페이스(물리-자연, 조직-자연, 자연-자연)**를 정의하고, 규제 강화에 따라 무상 서비스가 점차 유상(unfree/chargeable)으로 변환되는 동학을 규명하며, 나아가 기후 역공에 따라 자연이 **'자연 행위자(Natural Actor)'**로 전환되는 동학을 제시합니다.</li>
+                  <li><strong>학술 기여:</strong> 기존 전략 경영(NRBV, RDT)의 단순 외생 요인 관점을 극복하고, B2B 네트워크 내부의 미시 자원 결합 메커니즘으로 자연 자원을 편입시킴으로써 IMP 이론의 녹색 전환을 유도했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "지구 한계 시대의 자연 자원은 Penrose의 무상 서비스 및 3대 자연 인터페이스를 통해 B2B 자원 상호작용 내재 모델로서 명시적으로 규명되어야 한다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 개념 논증의 논리적 엄밀성을 위해 주요 주장들을 유도하는 원문 진술과 페이지 위치를 연결했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">무상 자원이 렌더링하는 생산적 서비스 개념의 도입</td>
+                <td class="text-sm italic text-slate-600">
+                  "The contribution is in proposing natural resources as a previously overlooked resource class by including their ‘free services rendered’ within Resource Interaction."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 4 (Sec. 2.2)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">3대 자연 자원 인터페이스의 정립</td>
+                <td class="text-sm italic text-slate-600">
+                  "...resource combinations which include natural resources would logically result in the following resource interfaces: (i) physical-natural resource interfaces, (ii) organisational-natural resource interfaces, and (iii) natural resource-natural resource interfaces."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 3 (Sec. 2.1) / Page 4 (Sec. 3)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">무상에서 규제 유상 서비스(Chargeable)로의 전환 동학</td>
+                <td class="text-sm italic text-slate-600">
+                  "The dynamics proposed are indicated in Fig. 2 by the arrows from freely available natural resources to not freely available... and from free uses to chargeable uses..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 5-6 (Sec. 4 & 5, Fig. 2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">자연 자원의 '자연 행위자(Natural Actor)' 위상 전환</td>
+                <td class="text-sm italic text-slate-600">
+                  "Considering natural actors as emergent actors in industrial systems would potentially expand the variety of actors... It would imply awarding a natural actor an identity that is based on some mixture of property rights and/or agency."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 8 (Sec. 6.1)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Natural Resources Interaction Framework (자원 분류 및 제공-사용의 규제 전환 모델)</h3>
+          
+          <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 450" class="w-full h-auto">
+              <!-- Definition of markers -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+                </marker>
+              </defs>
+
+              <!-- Left Side: Penrosean Resource Classification (Material vs Human) -->
+              <rect x="15" y="15" width="350" height="420" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+              <text x="30" y="38" font-weight="700" fill="#334155" font-size="13">자원 분류 체계 (Resource Classification)</text>
+
+              <!-- Material Box -->
+              <rect x="30" y="55" width="150" height="150" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="105" y="78" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">물질적 자원 (Material)</text>
+              <text x="105" y="105" text-anchor="middle" fill="#475569" font-size="11">설비 (Facilities)</text>
+              <text x="105" y="125" text-anchor="middle" fill="#475569" font-size="11">제품 (Products)</text>
+              <text x="105" y="150" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="11">자연 자원 (Natural)</text>
+              <text x="105" y="170" text-anchor="middle" fill="#0284c7" font-size="10">공기, 물, 토지, 바다</text>
+
+              <!-- Human Box -->
+              <rect x="200" y="55" width="150" height="150" rx="6" fill="#eef2ff" stroke="#818cf8" stroke-width="2"/>
+              <text x="275" y="78" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="12">인적 자원 (Human)</text>
+              <text x="275" y="105" text-anchor="middle" fill="#4f46e5" font-size="11">인력 (Human resources)</text>
+              <text x="275" y="125" text-anchor="middle" fill="#4f46e5" font-size="11">부서 (Business units)</text>
+              <text x="275" y="150" text-anchor="middle" fill="#4f46e5" font-size="11">관계 (Relationships)</text>
+
+              <!-- 3 Resource Interfaces -->
+              <rect x="30" y="240" width="320" height="170" rx="6" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="190" y="265" text-anchor="middle" font-weight="700" fill="#78350f" font-size="13">3대 자연 자원 인터페이스</text>
+              
+              <text x="45" y="295" font-weight="700" fill="#b45309" font-size="11">1. 물리-자연 인터페이스 (Physical-Natural)</text>
+              <text x="55" y="315" fill="#78350f" font-size="10">예: 항공기 날개 ↔ 대기 공기 (양력 획득)</text>
+
+              <text x="45" y="340" font-weight="700" fill="#b45309" font-size="11">2. 조직-자연 인터페이스 (Organisational-Natural)</text>
+              <text x="55" y="360" fill="#78350f" font-size="10">예: 항공 통제사 ↔ 영공 재산권 규제</text>
+
+              <text x="45" y="385" font-weight="700" fill="#b45309" font-size="11">3. 자연-자연 인터페이스 (Natural-Natural)</text>
+              <text x="55" y="405" fill="#78350f" font-size="10">예: 생태 임계치 내 기후-공기-바다 순환</text>
+
+
+              <!-- Right Side: Provision-Use Dynamics (Transition Map) -->
+              <rect x="385" y="15" width="400" height="420" rx="8" fill="#fcf6f6" stroke="#f43f5e" stroke-width="1.5"/>
+              <text x="405" y="38" font-weight="700" fill="#9f1239" font-size="13">자연 자원의 역사적 전환 동학</text>
+
+              <!-- Provision Domain -->
+              <rect x="405" y="65" width="360" height="150" rx="6" fill="#fff5f5" stroke="#f87171" stroke-width="2"/>
+              <text x="420" y="90" font-weight="700" fill="#991b1b" font-size="12">제공 차원 (Provision Domain)</text>
+              
+              <rect x="420" y="105" width="130" height="45" rx="4" fill="#fee2e2" stroke="#ef4444" stroke-width="1"/>
+              <text x="485" y="123" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="11">초풍요 / 무한공급</text>
+              <text x="485" y="138" text-anchor="middle" fill="#b91c1c" font-size="9">(1950s Penrose 기점)</text>
+
+              <path d="M 555 128 L 605 128" fill="none" stroke="#ef4444" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <rect x="615" y="105" width="130" height="45" rx="4" fill="#fecdd3" stroke="#e11d48" stroke-width="1.5"/>
+              <text x="680" y="123" text-anchor="middle" font-weight="700" fill="#9f1239" font-size="11">지구적 한계 / 희소</text>
+              <text x="680" y="138" text-anchor="middle" fill="#be185d" font-size="9">(현대 절대적 고갈압박)</text>
+              <text x="585" y="200" text-anchor="middle" fill="#991b1b" font-size="10.5">※ Availability의 생태 임계치 돌파</text>
+
+              <!-- Use Domain -->
+              <rect x="405" y="245" width="360" height="170" rx="6" fill="#fff5f5" stroke="#f87171" stroke-width="2"/>
+              <text x="420" y="270" font-weight="700" fill="#991b1b" font-size="12">사용 차원 (Use Domain)</text>
+
+              <rect x="420" y="285" width="130" height="45" rx="4" fill="#fee2e2" stroke="#ef4444" stroke-width="1"/>
+              <text x="485" y="303" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="11">무상 서비스</text>
+              <text x="485" y="318" text-anchor="middle" fill="#b91c1c" font-size="9">(Free services rendered)</text>
+
+              <path d="M 555 308 L 605 308" fill="none" stroke="#ef4444" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <rect x="615" y="285" width="130" height="45" rx="4" fill="#fecdd3" stroke="#e11d48" stroke-width="1.5"/>
+              <text x="680" y="303" text-anchor="middle" font-weight="700" fill="#9f1239" font-size="11">유상/규제 서비스</text>
+              <text x="680" y="318" text-anchor="middle" fill="#be185d" font-size="9">(Chargeable services)</text>
+              <text x="585" y="380" text-anchor="middle" fill="#991b1b" font-size="10.5">※ 탄소거래제(EU ETS), 탄소세 등 세입화</text>
+
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Classification Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">자원 유형 (Type & Class)</span>
+                <span class="text-xs text-slate-400 font-semibold">Classification</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">물질 자원으로서의 자연 자원</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자연(Nature)에서 유래하여 기업의 생산 공정이나 조업 활동에 경제적 편익(서비스)을 제공하는 물리적 실체.</p>
+              <p class="text-sm text-slate-700"><strong>세부 구성:</strong> 공기(Air), 토지(Land), 수자원(Water), 해양(Sea) 등. 기존 INA의 설비, 제품 외에 신규 자원 클래스로 편입.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>차별적 논의:</strong> RDT(자원의존이론)나 NRBV(자연자원기반관점)와 달리, 자원의 사적 소유권 유무에 고착되지 않고 B2B 네트워크 내의 상호결합적 '인터페이스' 상태로 분석합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Services Rendered Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">핵심 메커니즘 (Productive Services)</span>
+                <span class="text-xs text-slate-400 font-semibold">Services</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">제공되는 무상 서비스 (Free Services Rendered)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자원 자체에 비용이 부과되지 않더라도(예: 공용 대기), 해당 자원이 기업의 조업에 기여하는 실질적 편익.</p>
+              <p class="text-sm text-slate-700"><strong>유상 전환 동학:</strong> 지구 생태 임계치 고갈 및 국가간 규제 거버넌스(배출권 거래제) 도입에 따라, 무상 제공에서 규제 요금을 내야 하는 유상 서비스(Chargeable)로 전환되는 추세.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>Penrose(1959) 응용:</strong> Penrose가 1950년대 풍요로운 시대에 제시했던 '무상 자원론'을 현대 지구 온난화 및 절대 희소성(Planetary boundaries)의 위기 맥락에 맞춰 inter-firm 네트워크 차원으로 재해석 및 확장하였습니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Natural Interfaces Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">결합 구조 (Interfaces)</span>
+                <span class="text-xs text-slate-400 font-semibold">Interfaces</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">3대 자연 자원 인터페이스</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>물리-자연 (Physical-Natural):</strong> 항공기 제트 연소나 날개 유선형 설계가 대기 공기 강도와 결합하는 물리적 경계.</p>
+              <p class="text-sm text-slate-700"><strong>조직-자연 (Organisational-Natural):</strong> 영공 재산권이나 탄소배출권 한계를 획득하여 배분하는 국가 거버넌스와 기업 간 법적 경계.</p>
+              <p class="text-sm text-slate-700"><strong>자연-자연 (Natural-Natural):</strong> 산업 배출가스가 지구 질소 순환 및 대기 청정도 임계치에 가하는 생태계 상호간 경계.</p>
+            </div>
+          </div>
+
+          <!-- Natural Actor Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">미래 위상 (Future Status)</span>
+                <span class="text-xs text-slate-400 font-semibold">Actor</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">자연 행위자 (Natural Actor)로의 전환</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 단순한 착취/소비 대상인 '자원(Resource)' 상태를 넘어, 기후 변화 등의 생태적 역공 피드백을 통해 역으로 기업 시스템에 행동 조정을 요구하는 주체성(Agency) 획득 현상.</p>
+              <p class="text-sm text-slate-700"><strong>실무 적용:</strong> 최근 마케팅 및 경영 연구(Helkkula & Arnould, 2022)에서 제시되는 신네오아니미즘(Neo-animist) 관점에 따라, 자연 생태계에 권리와 대리권을 부여하는 대안적 거버넌스 논의로 연동됨.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 개념적 모형의 논리 유도와 프레임워크 수립 과정을 복제 재현할 수 있도록 절차화했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">기존 전략경영 자원론의 한계 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  기존 문헌(NRBV, RDT 등)이 자연 자원을 조직 외부의 거시 리스크나 단순 원자재 희소 요인으로만 한정하고, 조직간 '상호작용 결합선' 내부에 개념화하지 못한 학술 공백을 식별합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 1-2, Section 1 & 2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">IMP 학파(INA) 3대 도전과제 설정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  자원 상호작용 이론을 자연 자원에 이식하기 위해 (1) 자원 분류 보강, (2) 자연 관련 결합 인터페이스 정의, (3) 소유권(Proprietary) 가정의 부적절성 해결이라는 3대 개념적 챌린지를 선언합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 3, Section 2.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">Penrosean 무상 자원-서비스 기제 수혈</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Penrose(1959)의 고전 프레임워크를 수혈하여, 자원 자체의 획득 비용(무상)과 무상 자원으로부터 공정이 취하는 '생산적 서비스(Free services rendered)' 간의 구분을 B2B 네트워크 수준으로 재설계합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 2.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">항공 산업(Air) 사례 기반 논리 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  항공기 운항 날개 양력, 압축 공기 MRO 공정, 영공 슬롯 재산권 매매, 배기가스 수용 등의 예시를 3대 자연 인터페이스(물리-자연, 조직-자연, 자연-자연) 분류 틀에 맞추어 모델의 정성적 작동을 설명합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4-5, Section 4</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">제공-사용 동학 맵핑 및 자연 행위자성 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  지구적 한계와 규제 요인(EU ETS, CSRD) 하에 자연 자원 사용이 무상에서 점차 유상(unfree/chargeable)으로 강제 변환되는 전이 동학을 가시화하고, 자연 행위자(Natural Actor)로의 격상 논리를 정립합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6-8, Section 5 & 6</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            개념 논증적 성격의 문헌 유도이므로 통계 수치 복제는 해당 사항이 없으나, Penrose(1959) 분류 체계에 자연 자원을 대입하고 3대 인터페이스로 나누는 이론 전개 로직은 타 자원군(물, 수산 자원)에 그대로 재구성 적용할 수 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 저자들이 명시한 제한점입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>개념적 접근의 한계:</strong> 본 논문은 실증적인 설문조사 데이터 분석이나 현장 기업 질적 면접 조사가 동반되지 않은 순수 100% 이론 도출형 논문으로 실증 유효성을 확보하지 못했습니다. (Page 8, Section 6.1)
+              </li>
+              <li>
+                <strong>단일 자연 자원 클래스 국한성:</strong> 지면 제약상 자연 자원(공기, 토지, 해양) 중 '공기(air)'만을 설명 사례로 채택하여 분석했으므로, 물리적 형체나 배타적 소유 거래 성격이 매우 뚜렷한 '토지'나 '광물' 자원의 다채로운 인터페이스 특성을 충분히 반영하지 못했습니다. (Page 8, Section 6.1)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">이론적 정교함과 실무 가동성을 시험하기 위해 제기되는 비판들입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 거래 원자재와 공유재 자원의 부실한 분리</span>
+                <p class="text-sm text-slate-700">
+                  석유, 석탄, 철광석처럼 시장에서 소유권이 거래되는 일반 원자재(Proprietary natural resources)와 공기, 기후, 글로벌 생물다양성처럼 소유권이 없는 '글로벌 공유재(Common-pool resources)'의 조직간 상호작용 기제의 차이가 면밀히 격리되어 설명되지 못했습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 자연 행위자(Natural Actor)의 낭만적 은유 한계</span>
+                <p class="text-sm text-slate-700">
+                  자연이 기후 피드백으로 역공하며 주체성(agency)을 획득한다는 주장은 낭만적이지만, 법적 계약이나 B2B 관계 조율 테이블에서 '자연'의 이익을 과연 어떤 인간 대행자가, 무슨 민주적 정당성을 근거로 서명 대행할 것인지의 구체적 거버넌스 프로토콜이 결여되어 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 절대 희소성(Planetary Boundaries)의 계량 실패</span>
+                <p class="text-sm text-slate-700">
+                  지구 임계치를 자원 모형에 결합하라고 권고하나, INA 방법론 자체의 한계(자원의 이질성이라는 질적 서술에 치중)로 인해, 실무에서 기업이 활용할 수 있는 이산화탄소 톤수, 생태 훼손 계수 등 구체적인 물리학적 계량(Quantification)을 인터페이스 공식에 집어넣지 못했습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 자원 불평등과 지정학적 마찰 배제</span>
+                <p class="text-sm text-slate-700">
+                  자연 자원의 획득과 규제(unfree/chargeable 전환) 과정은 고도의 국가 간 지정학적 자원 무기화(예: 희토류 통제)나 다국적 기업 간 권력 투쟁이 개입됩니다. 이러한 정치경제학적 자원 권력 마찰이 단순 법적/조직적 인터페이스로만 순치되어 기술되었습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Conceptualising natural resources in industrial systems</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

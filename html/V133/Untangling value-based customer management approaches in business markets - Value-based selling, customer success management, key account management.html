@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untangling Value-based Customer Management Approaches - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 36px;
+      }
+      .style-h1 {
+        font-size: 28px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Customer Management</div>
+        <div class="badge badge-secondary text-white style-label">Special Issue: Value-Based Selling Research</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Untangling value-based customer management approaches in business markets:<br>
+            <span class="text-cyan-400">Value-based selling, customer success management, key account management</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Stefan Wengler, Michael Kleinaltenkamp, Nima Heirati, Katharina Prohl-Schwenke
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            비즈니스 시장에서 가치 기반 고객 관리 접근 방식의 규명:<br>
+            <span class="text-indigo-300">가치 기반 판매(VBS), 고객 성공 관리(CSM), 핵심 고객 관리(KAM)의 구체적 활동 분석</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            고객 지각 가치의 세 영역(기대 사용 가치, 경험 사용 가치, 관계 가치)을 축으로 삼아 분절된 영업 및 관계 관리 기능들의 상호 관계를 구조화한 통합 개념 모델 제시
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">VBS는 기대 가치를 심고, CSM은 경험 가치를 실현하며, KAM은 누적된 관계 가치를 관리하는 상호 지원적 순환 구조입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Although there has been increasing research attention to value-based selling, customer success management, and key account management over the last decade, these concepts have largely been explored in independent streams of literature. As a result, the boundaries and relationships between these customer management approaches remain blurred, and their implementation in business practice often leads to unclear responsibilities and conflicts across organizational units, which may adversely affect customer satisfaction and loyalty. Drawing on recent conceptualizations of customer-perceived value in business markets that build an overarching goal shared by value-based selling, customer success management, and key account management, this article unravels the existing conceptual understandings of these approaches at the specific activity level. We develop an integrated conceptual model that not only articulates the three approaches' conceptual distinctions but also illuminates their interrelationships and complementarities. This study contributes theoretical insights, offers actionable management implications, and identifies promising avenues for future research."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "지난 10년 동안 가치 기반 판매(VBS), 고객 성공 관리(CSM), 핵심 고객 관리(KAM)에 대한 학술적 관심이 증가해 왔음에도 불구하고, 이러한 개념들은 대개 독립적인 문헌 스트림에서 개별적으로 탐구되어 왔다. 그 결과, 이들 고객 관리 접근 방식 간의 경계와 관계는 모호한 상태로 남아 있으며, 기업 실무에서의 구현은 종종 조직 부서 간의 불명확한 책임과 갈등을 초래하여 고객 만족도와 충성도에 부정적인 영향을 미칠 수 있다. 본 연구는 VBS, CSM, KAM이 공유하는 궁극적인 목표를 설정하는 비즈니스 시장의 고객 지각 가치(customer-perceived value)에 관한 최근의 개념화를 바탕으로, 구체적인 활동(activity) 수준에서 이들 접근 방식의 기존 개념적 이해를 규명한다. 우리는 세 가지 접근 방식의 개념적 차이를 명확히 할 뿐만 아니라 이들의 상호관계와 상호 보완성을 조명하는 통합 개념 모델을 개발한다. 본 연구는 이론적 통찰력을 기여하고, 실행 가능한 경영상의 시사점을 제공하며, 향후 연구를 위한 유망한 경로를 제시한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Glossary Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Value-based Selling (VBS)</td>
+                  <td>가치 기반 판매</td>
+                  <td class="text-sm">단순한 제품 기능 중심이 아닌, 고객의 재무적 손익 개선(TCO, ROI 등)을 실증적으로 연계하여 정량화하고 제안하는 영업 기법을 나타냅니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Customer Success Management (CSM)</td>
+                  <td>고객 성공 관리</td>
+                  <td class="text-sm">구매 후 고객의 실질적인 제품 활용과 목표 가치 수확(Value-in-use)을 선제적으로 지원하여 고객 이탈을 낮추고 성장을 유도하는 직무 형태를 지칭합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Key Account Management (KAM)</td>
+                  <td>핵심 고객 관리</td>
+                  <td class="text-sm">전략적 위상이 높은 주요 고객사들과의 조직 전반에 걸친 상호 협력 및 장기적 신뢰 관계를 조율하는 상위 관계 기구입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Expected/Experienced Value in Use</td>
+                  <td>기대 사용 가치 / 경험 사용 가치</td>
+                  <td class="text-sm">계약 체결 전의 가상의 가치 기대치(Expected)와 계약 체결 후 운영 과정에서 자원 통합을 거쳐 확인하는 실질 가치(Experienced)를 구분하여 분석합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Relationship Value</td>
+                  <td>관계 가치</td>
+                  <td class="text-sm">단일 트랜잭션 차원을 넘어서 지속적인 협력과 경험을 토대로 고객이 파트너십 전반에 축적한 평가와 신뢰 수준을 총칭합니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학술 토론이나 실무 보고 시 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 요지와 기여도를 핵심 흐름으로 구성했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">서로 겹치고 혼란스러운 B2B 가치 관리의 경계는 무엇인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">각 접근법은 서로 다른 고객 가치 영역을 다루는 상호 보완체이다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">활동 수준에서의 유기적 핸드오버와 협업 지점 명확화</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B 시장에서 '가치 창출'을 외치며 등장한 영업(VBS), 관리(CSM), 관계 기구(KAM)가 실무적으로 부딪히는 책임 갈등의 해결책은 무엇이며, 이들의 개념적 실체는 어떻게 구별되는가?</li>
+                  <li><strong>핵심 발견:</strong> 세 가지는 구별된 고객 가치를 표방한다. **VBS**는 구매 단계의 *Expected Value-in-use*를 목표하고, **CSM**은 실질적인 솔루션 가동 단계의 *Experienced Value-in-use*를 모니터링/개선하며, **KAM**은 계정 전체의 *Relationship Value*를 담당한다. 이들은 독립적이지 않고 서로의 활동을 밀어주고 당겨주는 피드백 구조를 형성한다.</li>
+                  <li><strong>이론/실무 기여:</strong> 흩어져 연구되던 세 개념을 '고객 지각 가치' 렌즈로 단일화해 융합했으며, 실무자들에게는 부서간 역할 충돌을 방지할 수 있도록 활동별 오너십(Ownership) 매핑 기준을 명쾌히 세워주었다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "VBS는 기대치 가치를 계약하고, CSM은 그 기대치가 실현되도록 사용 가치를 밀착 관리하며, KAM은 이를 누적된 관계 자산으로 전환하는 연속적 환류 메커니즘을 가진다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 논리성과 엄밀성을 기하기 위해 논문 내 주요 주장들과 이를 뒷받침하는 실증 문헌적 인용구 및 상세 위치를 연계했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">가치 개념 분리를 통한 VBS/CSM/KAM 획정</td>
+                <td class="text-sm italic text-slate-600">
+                  "...VBS aims to provide a high expected value in use so that the customer agrees to a (contractual) exchange agreement... CSM activities focus on experienced value in use, ensuring that the value promised in a CVP... is realized. KAM focuses on relationship value to maintain long-term relationships..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 168 (Sec 3.3)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">VBS의 가치제안(CVP)과 CSM 가치실현의 관계</td>
+                <td class="text-sm italic text-slate-600">
+                  "Expected value in use is thus a point-in-time assessment of future value at the time the (formal) exchange agreement is made during the buying process... expected value in use represents the yardstick for experienced value in use to be realized in the post-purchase phase..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 166 (Sec 3.1) & Page 168 (Sec 3.3)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">CSM 활동의 KAM 지원 효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "In turn, the core CSM activities of value-in-use monitoring and value-in-use enhancement may contribute to KAM activities, specifically to those of account performance/health check and strategic alignment."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 168 (Sec 3.3)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">KAM 핵심 역량의 CSM 실행력 보강</td>
+                <td class="text-sm italic text-slate-600">
+                  "...four of the core KAM activities (trust building, inter-organizational coordination, strategic alignment, and account performance/health check) may also contribute to the performance of CSM because they can facilitate supplier firms to realize the value in use within a transaction."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 168 (Sec 3.3)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">CSM 데이터의 VBS 유입 및 옹호 작용</td>
+                <td class="text-sm italic text-slate-600">
+                  "In addition, the CSM activity adapting customer value proposition can support both VBS and KAM... Finally, the CSM activity of customer advocacy can support VBS by identifying new prospects and generating new leads."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 168 (Sec 3.3)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (통합 개념적 환류 모형)</h3>
+          
+          <div class="w-full bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 480" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+              
+              <!-- Background / Guide Zones -->
+              <rect x="15" y="240" width="870" height="220" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="5 5"/>
+              <text x="30" y="258" font-size="11" font-weight="700" fill="#64748b" uppercase>개별 거래 수준 (Transaction Level)</text>
+
+              <rect x="15" y="10" width="870" height="150" rx="10" fill="#faf5ff" stroke="#f3e8ff" stroke-width="1" stroke-dasharray="5 5"/>
+              <text x="30" y="28" font-size="11" font-weight="700" fill="#7c3aed" uppercase>전략적 관계 수준 (Relationship Level)</text>
+
+              <!-- KAM Node (Top) -->
+              <rect x="310" y="35" width="280" height="105" rx="8" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2"/>
+              <text x="450" y="65" text-anchor="middle" font-weight="700" fill="#5b21b6" font-size="14">핵심 고객 관리 (KAM)</text>
+              <text x="450" y="85" text-anchor="middle" fill="#7c3aed" font-size="11" font-weight="600">초점: 관계 가치 (Relationship Value)</text>
+              <text x="450" y="103" text-anchor="middle" fill="#6d28d9" font-size="10">계정기획 | 신뢰구축 | 조직조정 | 전략적정렬</text>
+              <text x="450" y="118" text-anchor="middle" fill="#6d28d9" font-size="10">내부 자원 오케스트레이션 및 점검</text>
+
+              <!-- VBS Node (Bottom Left) -->
+              <rect x="45" y="275" width="320" height="145" rx="8" fill="#ecfeff" stroke="#06b6d4" stroke-width="2"/>
+              <text x="205" y="305" text-anchor="middle" font-weight="700" fill="#0e7490" font-size="14">가치 기반 판매 (VBS) [구매 단계]</text>
+              <text x="205" y="325" text-anchor="middle" fill="#0891b2" font-size="11" font-weight="600">초점: 기대 사용 가치 (Expected Value in Use)</text>
+              <text x="205" y="348" text-anchor="middle" fill="#0369a1" font-size="10">가치 기회 포착 (고객 비즈니스 조사)</text>
+              <text x="205" y="365" text-anchor="middle" fill="#0369a1" font-size="10">고객 가치 제안(CVP) 설계 (TCO/ROI 분석)</text>
+              <text x="205" y="382" text-anchor="middle" fill="#0369a1" font-size="10">CVP 전달 및 커뮤니케이션 (사례 검증)</text>
+              <text x="205" y="399" text-anchor="middle" fill="#0369a1" font-size="10">내외부 인적 네트워킹 및 계약 성사</text>
+
+              <!-- CSM Node (Bottom Right) -->
+              <rect x="535" y="275" width="320" height="145" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="695" y="305" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">고객 성공 관리 (CSM) [사용 단계]</text>
+              <text x="695" y="325" text-anchor="middle" fill="#059669" font-size="11" font-weight="600">초점: 경험 사용 가치 (Experienced Value in Use)</text>
+              <text x="695" y="348" text-anchor="middle" fill="#047857" font-size="10">솔루션 실현 (온보딩 및 초기 셋업)</text>
+              <text x="695" y="365" text-anchor="middle" fill="#047857" font-size="10">사용 가치 모니터링 (KPI 보고서 제공)</text>
+              <text x="695" y="382" text-anchor="middle" fill="#047857" font-size="10">사용 가치 개선 및 확장 (업셀링 기회 발굴)</text>
+              <text x="695" y="399" text-anchor="middle" fill="#047857" font-size="10">CVP 조정(재도입 유도) 및 고객 옹호 확보</text>
+
+              <!-- Connection Arrows -->
+              <!-- VBS -> CSM -->
+              <path d="M 365 320 L 535 320" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="450" y="310" text-anchor="middle" fill="#0284c7" font-weight="700" font-size="10">H1: CVP 설정 (기대치 기준 제공)</text>
+
+              <!-- CSM -> VBS -->
+              <path d="M 535 380 L 365 380" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="450" y="400" text-anchor="middle" fill="#059669" font-weight="700" font-size="10">H2: CVP 조정 피드백 & 옹호 (신규 리드 전달)</text>
+
+              <!-- CSM -> KAM -->
+              <path d="M 695 275 L 695 180 L 590 120" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="695" y="195" text-anchor="middle" fill="#047857" font-weight="700" font-size="10">H3: 가치 모니터링 데이터 (계정 점검 보조)</text>
+
+              <!-- KAM -> CSM -->
+              <path d="M 450 140 L 450 205 L 535 290" fill="none" stroke="#8b5cf6" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="410" y="210" text-anchor="middle" fill="#6d28d9" font-weight="700" font-size="10">H4: 신뢰 & 조직 조정 (가치 실현 환경 보장)</text>
+
+              <!-- VBS -> KAM -->
+              <path d="M 205 275 L 205 180 L 310 120" fill="none" stroke="#06b6d4" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="205" y="195" text-anchor="middle" fill="#0891b2" font-weight="700" font-size="10">H5: 단일 계약 체결의 관계 자산화</text>
+
+              <!-- KAM -> VBS -->
+              <path d="M 380 140 L 310 205 L 260 275" fill="none" stroke="#8b5cf6" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="290" y="235" text-anchor="middle" fill="#6d28d9" font-weight="700" font-size="10">H6: 누적 관계 신뢰 이전 (차기 계약 유도)</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+          <!-- VBS Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">가치 기여: 기대치</span>
+                <span class="text-xs text-slate-400 font-semibold">VBS</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">가치 기반 판매 활동 (VBS)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>핵심 임무:</strong> 고객의 문제점을 발굴하여 해결 솔루션을 제안하고, 재무적 비즈니스 영향력을 입증하여 초기 계약 체결을 이끌어 냄.</p>
+              <p class="text-sm text-slate-700"><strong>주요 활동:</strong> 가치 기회 포착(Needs 식별), CVP 정량화 설계(TCO/ROI 분석), 가치 메시징 전달(Reference 활용).</p>
+              <p class="text-sm text-slate-600"><strong>축적 가치:</strong> 기대 사용 가치 (Expected Value in Use)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술 토의:</strong> VBS는 고객의 미래 편익 기대를 높여 구매를 성공시키지만, 실현 불가능한 과도 약속 시 CSM 단계에서 이탈을 촉발하는 부작용이 있어 통제가 요구됩니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- CSM Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">가치 기여: 실현</span>
+                <span class="text-xs text-slate-400 font-semibold">CSM</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">고객 성공 관리 활동 (CSM)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>핵심 임무:</strong> 계약 체결 이후 고객이 솔루션을 실질적으로 운영하여 비즈니스 가치를 수확하고 기대치를 달성하도록 지원함.</p>
+              <p class="text-sm text-slate-700"><strong>주요 활동:</strong> 솔루션 실현(온보딩/셋업), 가치 모니터링 및 주기 보고, 가치 개선 및 확장(업셀링 발굴), 고객 옹호 수렴.</p>
+              <p class="text-sm text-slate-600"><strong>축적 가치:</strong> 경험 사용 가치 (Experienced Value in Use)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술 토의:</strong> CSM은 기존 사용 단계에 한정되었으나, 본 연구에 의해 CVP 재조정과 고객 추천서(Advocacy) 전달을 통해 VBS와 KAM을 영양 공급하는 허브 역할을 수행함이 확인되었습니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- KAM Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-secondary style-label text-white">가치 기여: 누적</span>
+                <span class="text-xs text-slate-400 font-semibold">KAM</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">핵심 고객 관리 활동 (KAM)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>핵심 임무:</strong> 최상위 중요 고객사들과 다차원적(C-suite 포함) 신뢰 관계를 심고 비즈니스 로드맵을 정렬하여 장기 관계 영속성을 보호함.</p>
+              <p class="text-sm text-slate-700"><strong>주요 활동:</strong> 핵심 고객 선정 및 전략 수립, 대외 신뢰성 빌딩, 조직 간 다채널 조정, 양사간 전략적 동기화, 계정 헬스 체크.</p>
+              <p class="text-sm text-slate-600"><strong>축적 가치:</strong> 관계 가치 (Relationship Value)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술 토의:</strong> 단일 영업의 범주를 넘는 상위 조직 자산이며, 강력한 KAM 네트워크와 신뢰 자산은 CSM의 원활한 개입과 VBS의 후속 영업에 거시적인 보호 장벽이 됩니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 연구는 체계적 문헌 검토(Systematic Literature Review)와 개념 모델링을 사용한 논문입니다. 후속 연구자가 문헌 수집 및 분석 절차를 그대로 따라 할 수 있도록 방법론 단계를 구조화했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">검색 엔진 및 타깃 분야 정의</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-md md:ml-auto">
+                  Web of Science 데이터베이스를 기반으로 검색을 구성하며 연구 대상을 비즈니스 경제학(Business Economics) 및 영어 문헌으로 국한합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 163 (Sec 2)</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">분야별 세부 키워드 쿼리 실행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-md">
+                  VBS(value-based sell* 등 5개), CSM(customer success manage* 등 3개), KAM(key account manage* 등 3개) 키워드를 독립 쿼리로 구동하여 1차 문헌 Pool을 확보합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 172 (Appendix A)</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">학술지 등급 품질 필터링 (AJG 2컷)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-md md:ml-auto">
+                  영국 학술지 등급 가이드(Academic Journal Guide, AJG) 기준 **Rank 2 이상** 저널 게재작만을 유효 논문으로 필터링하여 일차적으로 244편을 확정합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 163 (Sec 2)</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">수동 검색 및 스노우볼링(Snowballing)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-md">
+                  B2B 마케팅 대표 저널(IMM, JAMS, JPSSM 등) 수동 탐색과 Litmaps를 이용한 인용 네트워크 검토를 진행해 5편을 수동으로 긴급 보강합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 163 (Sec 2)</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">최종 데이터셋 확정 및 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-md md:ml-auto">
+                  중복 및 관련성 스크리닝을 완료하여 최종 **총 132편(KAM 80, CSM 14, VBS 38)**의 정합 데이터셋을 수립하여 분석에 착수합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 172 (Appendix A)</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">활동 분류 코딩 및 개념 통합</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-md">
+                  수집된 문헌을 바탕으로 세 접근 방식의 핵심 활동들을 속성 정의하고(Table 1), 이를 가치 메커니즘 렌즈(Table 2) 및 통합 구조도(Fig 2)로 맵핑합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Pages 164-168 (Sec 2.1-3.3)</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">완전 재현 가능 (Fully Replicable)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            문헌 검색을 위한 타깃 연도, 대상 DB, 구체적인 키워드 쿼리 수식, 품질 통제용 저널 등급 필터 기준 및 세부 분석 매트릭스가 완벽하게 정형화되어 제공되므로, 동일 조건 탐색 시 100% 동일한 학술 샘플을 재생산해 낼 수 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 저자들이 스스로 고백한 한계점과 원문 위치 정보입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>Relational Selling(관계 판매)의 전략적 배제:</strong> 
+                개념의 분석적 간결성을 유지하고자 중소형 장기 고객 관리에 주요한 '관계 판매' 이론을 모델에서 제외하여, B2B 영업의 전체 범위를 아우르지는 못했습니다.
+                <div class="text-xs text-rose-700 mt-1 italic">
+                  "...Although our study intentionally excluded relational selling to maintain conceptual clarity, future work could address..." (Page 171, Section 4.3)
+                </div>
+              </li>
+              <li>
+                <strong>B2B 의사결정 집단의 다중 주체성(Multi-actor) 미반영:</strong>
+                실제 B2B 여정에서는 구매를 결정하는 집단(Buying Center, 기대 가치 초점)과 실제 운영에 투입하는 집단(Usage Center, 경험 가치 초점)의 인원들이 파편화되어 있으나 본 개념 모델은 이를 단순 단일 거래 체계로 간소화했습니다.
+                <div class="text-xs text-rose-700 mt-1 italic">
+                  "...buying center – who typically assess expected value in use – and the usage center – who typically assess experienced value in use – are often not the same people..." (Page 171, Section 4.3)
+                </div>
+              </li>
+              <li>
+                <strong>디지털/AI 기술 도입에 따른 전통적 활동 교란 미반영:</strong>
+                AI, 챗봇, 자동화 시스템이 전통적으로 사람이 담당하던 가치 분석, 가치 제안 작성, 사용 가치 보고를 전산화(Rescale)할 때 일어나는 인적 상호작용의 파괴를 고려하지 않았습니다.
+                <div class="text-xs text-rose-700 mt-1 italic">
+                  "...examine how AI-enabled tools reshape traditional activities, such as monitoring value in use or crafting customer value propositions..." (Page 171, Section 4.3)
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">개념적 모형의 현실 적용성 및 논리적 완결성을 근거로 추론해 낼 수 있는 날카로운 비판 지점들입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 조직 정치 및 부서 이기주의</span>
+                <p class="text-sm text-slate-700">
+                  개념도(Fig 2)에서는 VBS, CSM, KAM 활동이 물 흐르듯 가치 데이터를 피드백하며 서로를 보완한다고 되어 있으나, 실제 현업에서는 **부서간 예산 확보 경쟁, 인센티브 편향(영업의 신규 매출 vs CS의 기존 유지율), 고객 정보 독점욕** 등의 부서 정치적 장벽 때문에 협업 루프가 끊어지는 고질적 병폐가 있으며 논문은 사내 정치를 과소평가했습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 솔루션 복잡도 상황성 부재</span>
+                <p class="text-sm text-slate-700">
+                  비즈니스의 복잡성에 따라 적용 한계가 다릅니다. 복잡성이 낮은 제품군에서는 굳이 CSM과 VBS를 칼로 무 자르듯 나눌 필요 없이 한 영업 부서가 몰아서 하는 것이 효율적입니다. 반대로 극도로 복잡한 초대형 SI 사업에서는 역할 분절이 오히려 신속한 대처를 저해하는데, 솔루션의 복잡도 상황론(Contingency)에 관한 단서가 부족합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 비공식적 역할 교차(Role Blurring)</span>
+                <p class="text-sm text-slate-700">
+                  실무의 최전선에서는 영업사원이 기술 설치나 트러블슈팅(CSM 활동)을 담당하고, CS 매니저가 현업 상담 중 업셀링 기회를 포착하여 즉석에서 계약서에 서명하게 만드는(VBS 활동) 비공식적 역할 전이가 빈번히 일어납니다. 현실의 유동적이고 복잡한 하이브리드 상황을 지나치게 기계적으로 도식화하여 실천성을 낮췄을 우려가 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Untangling value-based customer management approaches in business markets: Value-based selling, customer success management, key account management</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

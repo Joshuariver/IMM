@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaling Outcome-based Business Models: A Maturity Framework - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (Navbar EXCLUDED per instructions) -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Outcome-Based Business Model (OBM)</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Multiple Case Study</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Scaling outcome-based business models:<br>
+            <span class="text-cyan-400">A maturity framework</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Eveliina Lakka, Joona Keränen, Joel Mero, Matti Leppäniemi
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            성과 기반 비즈니스 모델 스케일링:<br>
+            <span class="text-indigo-300">성숙도 프레임워크</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            9개 B2B 제조 대기업의 29회 심층 인터뷰를 근거로 도출한 4대 확장 논리(규모, 범위, 학습, 구조)와 성숙도별 스케일링 장벽의 동적 맵핑
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">성과 비즈니스 확장은 단순 역량 축적이 아니라, 성숙도 단계(초기-중간-선진)에 맞춰 규모·범위·학습·구조의 긴장 관계를 조율해 가는 과정입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase text-white">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Delivering outcome-based offerings has gained traction in many industries, but firms often struggle to scale them into a repeatable and profitable business. While prior research has explored the transition from selling products and services to selling customer outcomes, it does not unpack the key requirements and challenges for scaling at different stages of outcome-based business models (OBMs). To address this gap, we apply an abductive multiple case study approach and draw insights from 29 interviews with senior managers from nine industrial firms at different stages of scaling their OBMs. Our analysis identifies three maturity levels (early, intermediate, and advanced) that reflect progressively more structured approaches to OBMs, showing how four scaling logics (economies of scale, scope, learning, and structure) manifest differently across each level. The findings of this study contribute to the extant literature by illustrating how scaling challenges and opportunities vary across OBM maturity stages. For managers, it provides guidance on aligning scaling strategies with their firm's maturity level."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "많은 산업에서 성과 기반 제공물(outcome-based offerings)을 제공하는 방식이 주목을 받고 있지만, 기업들은 이를 반복 가능하고 수익성 있는 비즈니스로 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">확장(scale)</span>하는 데 종종 어려움을 겪는다. 기존 연구들은 제품 및 서비스 판매에서 고객 성과 판매로의 전환을 탐구해 왔으나, 성과 기반 비즈니스 모델(OBM)의 다양한 단계에서 확장을 추진할 때 발생하는 핵심 요구사항과 도전 과제를 제대로 밝히지 못하고 있다. 이러한 연구 공백을 해결하기 위해, 본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">귀추적 다중 사례 연구</span> 방식을 적용하여 OBM을 다양한 단계에서 확장하고 있는 9개 산업재 기업의 고위 관리자들과의 29회 인터뷰를 통해 통찰을 도출하였다. 분석 결과, OBM에 대한 점진적으로 구조화된 접근 방식을 반영하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">세 가지 성숙도 수준</span>(초기, 중간, 선진 단계)을 식별하였으며, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">네 가지 확장 논리</span>(규모, 범위, 학습, 구조의 경제)가 각 수준에서 어떻게 다르게 나타나는지 보여준다. 본 연구의 결과는 OBM 성숙도 단계에 따라 확장 과제와 기회가 어떻게 달라지는지 설명함으로써 기존 문헌에 기여한다. 관리자 측면에서는 기업의 성숙도 수준에 맞춰 확장 전략을 정렬할 수 있는 실무적 지침을 제공한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Outcome-based Business Models (OBMs)</td>
+                  <td>성과 기반 비즈니스 모델</td>
+                  <td class="text-sm">제품 소유권이나 시간/자재 투입이 아닌, 실제 구현된 결과(예: 설비 가동율, 비용 절감치)에 연계해 수익을 정산하는 구조입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Scaling / Scaling-up</td>
+                  <td>비즈니스 확장 (스케일링)</td>
+                  <td class="text-sm">단순한 물리적 성장(Growth)과 대비하여, 프로세스의 표준화를 통해 한계 비용을 제어하며 사업을 복제·확산시키는 능력입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Abductive Case Study</td>
+                  <td>귀추적 사례 연구</td>
+                  <td class="text-sm">정성 연구법의 하나로, 실증적 관찰 데이터와 기성 이론(4대 확장 논리) 간의 끊임없는 지적 피드백 루프를 반복하여 이론을 발전시킵니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Scaling Logics (Scale, Scope, Learning, Structure)</td>
+                  <td>4대 확장 논리 (규모, 범위, 학습, 구조)</td>
+                  <td class="text-sm">성공적인 스케일링을 위해 레버리지해야 하는 비용 우위 및 조직 설계상의 다차원적 지향 가치들을 정의합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Maturity Framework</td>
+                  <td>성숙도 프레임워크</td>
+                  <td class="text-sm">기업들의 OBM 역량 성숙 수준에 따라 진화 단계를 분류하여, 현재 자원 상태와 다음 이행 로드맵을 식별하기 위한 구조화 모형입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase text-white">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">OBM을 어떻게 마진 붕괴 없이 확장하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">성숙도별로 핵심 확장 논리와 한계가 이동함</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">자산 오케스트레이션과 대기업 스케일링 융합</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B 제조 기업들은 성과 기반 비즈니스 모델(OBM)을 일회성 파일럿을 넘어 글로벌/대규모 비즈니스로 어떻게 확장(Scale)하고 고도화하는가?</li>
+                  <li><strong>핵심 발견:</strong> OBM의 성숙도를 3단계(초기: 프로젝트, 중간: 서비스 계약, 선진: 프로세스 최적화)로 분류하고, 4대 확장 논리(규모, 범위, 학습, 구조)가 각 단계에서 상이한 가치와 긴장을 가짐을 규명했습니다. 또한 스케일링의 장벽이 '표준화 부족'에서 '고객 통제력 한계', 그리고 '생태계 조정 복잡성'으로 질적으로 이동함을 실증했습니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 스타트업 위주의 스케일업 이론을 자산 오케스트레이션(Asset Orchestration) 렌즈를 통해 물리 자산을 운영하는 B2B 제조업 맥락으로 재구축하고, 최고 단계(Advanced)로 무리하게 전진하지 않고 중간 단계(Intermediate)에 머물며 안정적인 마진을 구축하는 스윗스팟(Sweet spot)의 전략적 존재를 조명했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "OBM 확장은 선형적인 역량 축적이 아니라, 성숙도 수준에 맞춰 규모·범위·학습·구조의 네 가지 확장 논리를 조율하고 각 단계별 고유한 장벽을 극복하는 동적 프로세스이다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase text-slate-900">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 이론적 주장과 다중 사례 실증 연구 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">OBM 성숙도 3단계 범주 도출</td>
+                <td class="text-sm italic text-slate-600">
+                  "Our analysis identifies three maturity levels (early, intermediate, and advanced) that reflect progressively more structured approaches to OBMs..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 4 (Sec. 3.4), Page 5 (Sec. 4)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">4대 확장 논리의 차별적 표출</td>
+                <td class="text-sm italic text-slate-600">
+                  "...showing how four scaling logics (economies of scale, scope, learning, and structure) manifest differently across each level."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 5 (Table 3), Page 7 (Sec. 5.1)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">확장 논리 간 트레이드오프와 긴장</td>
+                <td class="text-sm italic text-slate-600">
+                  "Importantly, these logics are not additive but involve trade-offs. ... Tensions suggest that scaling OBMs is not simply about reaching a more advanced stage but about continuously negotiating which logics to prioritize..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 7 (Sec. 5.1)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">성숙도별 스케일링 장벽 전이 현상</td>
+                <td class="text-sm italic text-slate-600">
+                  "Our findings explain why scalability is so difficult to achieve by showing how the barriers shift across maturity levels: from lack of standardization in the early stage, to limited customer control in the intermediate stage, to coordination complexity in the advanced stage."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 8-9 (Sec. 6.1)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">중간 단계에서의 지속 가능한 스윗스팟 존재</td>
+                <td class="text-sm italic text-slate-600">
+                  "Third, managers should be mindful that advancing to a higher maturity stage is not always the optimal choice. Some firms may achieve sustainable positions by remaining at the intermediate stage, where standardized service contracts deliver predictable revenue..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9 (Sec. 6.2)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">OBM Maturity Framework (성숙도 프레임워크 맵핑)</h3>
+          
+          <div class="w-full bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 420" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+                </marker>
+              </defs>
+
+              <line x1="50" y1="210" x2="850" y2="210" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="4 4" />
+
+              <!-- Column 1: Early Stage -->
+              <rect x="30" y="30" width="250" height="360" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" />
+              <rect x="30" y="30" width="250" height="50" rx="12" fill="#e2e8f0" />
+              <text x="155" y="62" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">초기 단계 (Early Stage)</text>
+              <text x="155" y="105" text-anchor="middle" font-weight="700" fill="#475569" font-size="13">Customized Project Deliveries</text>
+              <text x="155" y="122" text-anchor="middle" fill="#64748b" font-size="11">일회성 맞춤형 프로젝트 위주</text>
+              
+              <text x="45" y="160" font-weight="700" fill="#475569" font-size="12">규모 (Scale):</text>
+              <text x="125" y="160" fill="#64748b" font-size="11">일회성 고도 맞춤 파일럿</text>
+              <text x="45" y="185" font-weight="700" fill="#475569" font-size="12">범위 (Scope):</text>
+              <text x="125" y="185" fill="#64748b" font-size="11">요청에 따른 ad-hoc 맞춤</text>
+              <text x="45" y="210" font-weight="700" fill="#475569" font-size="12">학습 (Learning):</text>
+              <text x="125" y="210" fill="#64748b" font-size="11">개별 전문가에 종속된 지식</text>
+              <text x="45" y="235" font-weight="700" fill="#475569" font-size="12">구조 (Structure):</text>
+              <text x="125" y="235" fill="#64748b" font-size="11">독립 부서 부재, 일반직원</text>
+
+              <line x1="45" y1="260" x2="265" y2="260" stroke="#cbd5e1" stroke-width="1" />
+              
+              <rect x="45" y="275" width="220" height="95" rx="8" fill="#fff5f5" stroke="#fecaca" stroke-width="1" />
+              <text x="55" y="295" font-weight="700" fill="#b91c1c" font-size="11">핵심 스케일링 장벽</text>
+              <text x="55" y="315" fill="#7f1d1d" font-size="10">• 체계적 표준화 부재</text>
+              <text x="55" y="332" fill="#7f1d1d" font-size="10">• 데이터 수집 인프라 결여</text>
+              <text x="55" y="349" fill="#7f1d1d" font-size="10">• 고객사의 데이터 공유 거부</text>
+
+              <!-- Arrow 1 -> 2 -->
+              <path d="M 290 210 L 315 210" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" />
+
+              <!-- Column 2: Intermediate Stage -->
+              <rect x="325" y="30" width="250" height="360" rx="12" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2" />
+              <rect x="325" y="30" width="250" height="50" rx="12" fill="#e0f2fe" />
+              <text x="450" y="62" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="14">중간 단계 (Intermediate)</text>
+              <text x="450" y="105" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="13">Long-term Service Agreements</text>
+              <text x="450" y="122" text-anchor="middle" fill="#0284c7" font-size="11">표준화된 서비스 계약 모델</text>
+              
+              <text x="340" y="160" font-weight="700" fill="#0369a1" font-size="12">규모 (Scale):</text>
+              <text x="420" y="160" fill="#0284c7" font-size="11">표준화 'as-a-service' 번들</text>
+              <text x="340" y="185" font-weight="700" fill="#0369a1" font-size="12">범위 (Scope):</text>
+              <text x="420" y="185" fill="#0284c7" font-size="11">수평 다각화 (부가정비 등)</text>
+              <text x="340" y="210" font-weight="700" fill="#0369a1" font-size="12">학습 (Learning):</text>
+              <text x="420" y="210" fill="#0284c7" font-size="11">대시보드화, 팀 단위 교육</text>
+              <text x="340" y="235" font-weight="700" fill="#0369a1" font-size="12">구조 (Structure):</text>
+              <text x="420" y="235" fill="#0284c7" font-size="11">CSM/솔루션 전담 협업</text>
+
+              <line x1="340" y1="260" x2="560" y2="260" stroke="#bae6fd" stroke-width="1" />
+              
+              <rect x="340" y="275" width="220" height="95" rx="8" fill="#fffbeb" stroke="#fde68a" stroke-width="1" />
+              <text x="350" y="295" font-weight="700" fill="#b45309" font-size="11">핵심 스케일링 장벽</text>
+              <text x="350" y="315" fill="#78350f" font-size="10">• 공급망 협업 귀속성 한계</text>
+              <text x="350" y="332" fill="#78350f" font-size="10">• 고객 현장 작업 통제력 부재</text>
+              <text x="350" y="349" fill="#78350f" font-size="10">• 성과 측정 및 매출 변동성</text>
+
+              <!-- Arrow 2 -> 3 -->
+              <path d="M 585 210 L 610 210" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" />
+
+              <!-- Column 3: Advanced Stage -->
+              <rect x="620" y="30" width="250" height="360" rx="12" fill="#f5f3ff" stroke="#6366f1" stroke-width="2" />
+              <rect x="620" y="30" width="250" height="50" rx="12" fill="#ede9fe" />
+              <text x="745" y="62" text-anchor="middle" font-weight="700" fill="#4338ca" font-size="14">선진 단계 (Advanced)</text>
+              <text x="745" y="105" text-anchor="middle" font-weight="700" fill="#4338ca" font-size="13">Process Optimization Agreements</text>
+              <text x="745" y="122" text-anchor="middle" fill="#4f46e5" font-size="11">공정 최적화 및 성과 기반 과금</text>
+              
+              <text x="635" y="160" font-weight="700" fill="#4338ca" font-size="12">규모 (Scale):</text>
+              <text x="715" y="160" fill="#4f46e5" font-size="11">글로벌 계약 포트폴리오</text>
+              <text x="635" y="185" font-weight="700" fill="#4338ca" font-size="12">범위 (Scope):</text>
+              <text x="715" y="185" fill="#4f46e5" font-size="11">수직 통합 (Process Islands 대행)</text>
+              <text x="635" y="210" font-weight="700" fill="#4338ca" font-size="12">학습 (Learning):</text>
+              <text x="715" y="210" fill="#4f46e5" font-size="11">예측 모델/알고리즘 내재화</text>
+              <text x="635" y="235" font-weight="700" fill="#4338ca" font-size="12">구조 (Structure):</text>
+              <text x="715" y="235" fill="#4f46e5" font-size="11">독립 OBM 사업부, 전문가 정렬</text>
+
+              <line x1="635" y1="260" x2="855" y2="260" stroke="#ddd6fe" stroke-width="1" />
+              
+              <rect x="635" y="275" width="220" height="95" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1" />
+              <text x="645" y="295" font-weight="700" fill="#15803d" font-size="11">핵심 스케일링 장벽</text>
+              <text x="645" y="315" fill="#14532d" font-size="10">• 고도의 재무/운영 위험 책임</text>
+              <text x="645" y="332" fill="#14532d" font-size="10">• 복잡한 다자 생태계 파트너십</text>
+              <text x="645" y="349" fill="#14532d" font-size="10">• 기존 유산 조직과의 갈등</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+          <!-- Card 1 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">연구 차원 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Maturity</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">OBM 성숙도 단계 (OBM Maturity Levels)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 성과 제공물을 정의, 가치 입증 및 과금하는 운영 방식의 조직적 체계성과 성숙 수준.</p>
+              <p class="text-sm text-slate-700"><strong>식별 기준:</strong> customized project(초기), long-term service agreements(중간), process optimization agreements(선진)의 세 영역 구분.</p>
+              <p class="text-sm text-slate-600"><strong>근거 및 출처:</strong> Baines et al. (2020), Martinez et al. (2017)의 서비타이제이션 이행 모형 개정.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 성과 비즈니스를 단일한 종착지가 아닌 성숙 궤적에 따른 다차원적 비즈니스 구성체로 다룰 필요가 있음을 시사합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">연구 차원 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Logics</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">4대 확장 논리 (Four Scaling Logics)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 비즈니스 확장 시 비용을 통제하고 신뢰성 있는 가치를 대량 복제할 수 있는 네 가지 동력 메커니즘.</p>
+              <p class="text-sm text-slate-700"><strong>식별 기준:</strong> 규모(Scale), 범위(Scope), 학습(Learning), 구조(Structure)의 세부 실증 차원이 성숙도 수준에 대응되어 나타나는 상태.</p>
+              <p class="text-sm text-slate-600"><strong>근거 및 출처:</strong> Jansen et al. (2023), Palmié et al. (2023)의 조직 스케일업(scaling-up) 이론.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> IT 스타트업에 한정되었던 스케일링 경제 개념을 물리적 설비와 복잡한 위험을 다루는 산업재 대기업의 자산 오케스트레이션 맥락으로 확장했습니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">연구 차원 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Challenges</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">이동하는 스케일링 장벽 (Scaling Challenges)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 성숙도 수준별로 OBM 비즈니스의 대규모 적용 및 수익성 확보를 가로막는 병목 요인.</p>
+              <p class="text-sm text-slate-700"><strong>식별 기준:</strong> 표준화 결여(초기), 고객 현장 통제력 결여(중간), 다자 생태계 조정 복잡성(선진)으로 발현됨.</p>
+              <p class="text-sm text-slate-600"><strong>근거 및 출처:</strong> Sun & Oliva (2025), Korkeamäki et al. (2021)의 서비스화 실패 분석.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 제조 서비스화 패러독스(paradox)의 실체를 정적 기술 한계가 아닌, 성숙도 증가에 따라 진화하는 조직·관계적 장벽으로 정교화하여 규명했습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase text-white">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 질적 귀추적 사례 연구 프로세스를 그대로 <strong>추종 재현</strong>할 수 있도록 절차를 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">사례 선정 및 목적적 표본 추출 (Purposive Sampling)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  연례 보고서 및 공시 자료 분석을 통해 OBM(일회성 파일럿, 가용성 계약, 성과 연계 계약) 후보 B2B 기업들을 선발. 업종(목재가공, 건설, 라이팅, 에너지, 케미컬 등) 및 자산 특성의 다양성을 보장하기 위해 최종 9개 사(A~I)를 타겟 선정함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3.2 & Table 2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">내부 의사결정권자 접촉 및 정보원 확보</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  비즈니스 인맥 포털(LinkedIn 등)을 검색하여 각 사례사 내부에서 OBM 개발, 디지털 솔루션 마케팅, 서비스 사업부를 총괄 기획하는 고위 임원 및 관리자들과 접촉하여 연구 참여 수락을 획득함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">반구조화 인터뷰 설계 및 실시</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Appendix A의 thematic guide(OBM 성과, 스케일링 요건, 단계별 한계)에 의거하여 평균 60분 내외의 개별 면담을 진행(총 29명). 오디오 녹음 및 텍스트 녹취록(verbatim transcription)을 작성하며 새로운 인사이트가 포착되지 않는 데이터 포화 상태에 이를 때까지 수집함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3.3 & Appendix A, B</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">케이스 내 분석 (Within-case Analysis)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  1단계 질적 코딩. 각 사례별 도입 역사, 서비스 제공 형태, 수익 정산 방식, 고객 상호주의 정도, 기술적 수준을 단일 템플릿 문서로 개별 분석하여 맥락을 체계적으로 이해함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3.4</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">교차 사례 비교 및 성숙도 범주 도출 (Cross-case Comparison)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  9개 사의 공통점과 차이점을 매칭하여 성과 계약의 유형, 가동 인프라, 조직의 정렬 형태에 부합하는 세 단계 성숙도 수준(초기, 중간, 선진)을 귀납적으로 식별하여 구분함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3.4 & Table 2, 3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">4대 확장 논리 기반의 귀추적 코딩 (Abductive Coding)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  이론적 Sensitizing Lens인 규모(Scale), 범위(Scope), 학습(Learning), 구조(Structure)의 4대 경제 프레임을 텍스트 코딩에 매핑하여 사례 내의 실증 증거들을 구조적으로 맵핑하고 수정 반복함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3.4</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">최종 프레임워크 통합 및 매트릭스 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  성숙도 단계(3레벨)와 확장 논리(4종), 각 단계의 고유 스케일링 장벽을 조합하여 본 질적 귀추적 사례 연구를 최종 완성(Table 3 매트릭스 도식화).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3.4 & Table 3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            사례 선정 원칙과 인터뷰 가이드, 코딩 프로세스가 상세히 밝혀져 있어 동일 연구 설계의 재추종은 완벽히 가능합니다. 그러나 질적 분석 데이터의 핵심인 9개 대기업 소속 29명 실무 임원들과의 기밀 인터뷰 녹취 데이터 자체는 공개되어 있지 않으므로 데이터 대조를 통한 직접 재현은 제한적입니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6.3)에서 연구진이 학술 바운더리로 명시한 연구 한계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>정적 횡단 연구 설계(Static snapshot):</strong> 다중 사례 연구이나, 이는 특정 시점의 종적 데이터가 아닌 정적인 스냅샷 분석이므로 기업들이 한 성숙도 수준에서 다른 수준으로 진화해 나가는 실제 동적 행동 메커니즘을 상세히 포착하는 데에는 한계가 있습니다.
+              </li>
+              <li>
+                <strong>공급업체 단일 중심 시각(Supplier-centric perspective):</strong> OBM은 공급사와 고객사 간의 relational alignment가 가장 중요함에도 불구하고, 수집된 인터뷰 데이터가 전적으로 공급사 의사결정권자들의 진술에만 기대고 있어 고객의 반응이나 가치 공동 창출 장벽을 다각도로 조사하지 못했습니다.
+              </li>
+              <li>
+                <strong>정성 연구 결과의 양적 검증 결여(Qualitative constraint):</strong> 본 연구가 제안하는 3단계 성숙도 분류와 4대 스케일링 논리의 맵핑이 실제 기업의 구체적 재무 성과(예: 매출 증가율, 수익 마진 증대, 고객 유지율)에 어떤 유의한 인과를 갖는지 양적(Quantitative)으로 검증하지는 못했습니다.
+              </li>
+              <li>
+                <strong>맹목적인 스케일링 욕구 전제(Assumed scaling drive):</strong> 샘플에 포함된 일부 기업들과 마찬가지로 모든 기업이 OBM 확장을 추구하지는 않습니다. 높은 리스크와 복잡성 때문에 의도적으로 규모를 줄이거나 소수 계약에 머무는 '디스케일링(de-scaling)'의 조건과 합리성은 다루지 않았습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 논리적 전개를 바탕으로 제기하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 정보원 편향과 회고적 합리화</span>
+                <p class="text-sm text-slate-700">
+                  인터뷰 대상이 각 기업에서 OBM 사업부를 직접 런칭하고 방어해야 하는 직접적 이해관계자(고위 임원 및 실무 실무자)로만 국한되어 있습니다. 이들은 자신의 프로젝트가 "스케일업 단계에 이르렀으며 타당한 경로를 밟고 있다"고 사후 정당화(post-hoc rationalization)하고, 치명적 실패 과정이나 마찰은 축소 왜곡하는 사회적 바람직성 편향(social desirability bias)을 보였을 위험이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 대기업 표본 편향 및 생존자 편향</span>
+                <p class="text-sm text-slate-700">
+                  샘플에 참여한 9개 기업(A~I)은 직원 1,000명에서 10만 명 이상에 달하는 든든한 글로벌 제조 대기업들입니다. 막강한 자금력과 자산 정비 능력을 지닌 대기업들의 성공적 궤적만을 선별 취합하였기에 리소스가 영세한 중소기업(SMEs)에는 일반화하기 어렵습니다. 또한, OBM 스케일링을 감당하다 부도가 났거나 대규모 적자로 철수한 '실패 사례'들이 완전히 제외된 생존자 편향(Survivor Bias)의 여지가 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 무리한 자산 이종성의 병합</span>
+                <p class="text-sm text-slate-700">
+                  목재 가공 설비(CapEx 중장비), 서비스용 화학 케미컬(OpEx 소모자재), SaaS 형태의 소프트웨어 모니터링 플랫폼이 성숙도 프레임워크 상에서 동일한 '자산(Asset)'으로 취급되어 하나의 스펙트럼으로 병합되어 있습니다. 감가상각과 한계 비용의 형태가 질적으로 완전히 상이한 비즈니스 모델을 성숙도라는 단일 선형 테이블에 매핑하는 것은 세부 산업별 고유 메커니즘을 흐릴 우려가 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 평가 기준의 자의성과 동의반복 오류</span>
+                <p class="text-sm text-slate-700">
+                  사례 기업들을 초기, 중간, 선진 단계로 할당하는 정량적 지표가 부족하며 연구진의 정성적 해석에 상당 부분 의존하고 있습니다. 이는 "해당 기업이 전담 OBM 전문가가 많고 성과 정산 계약을 활발히 맺기 때문에 Advanced 단계이다"로 정의한 뒤, 분석 결과로 "Advanced 단계의 특징은 OBM 부서 신설과 성과 정산 계약의 활용이다"라고 주장하는 학술적 동의반복(Tautology)의 덫에 빠질 위험이 큽니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Scaling outcome-based business models: A maturity framework</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

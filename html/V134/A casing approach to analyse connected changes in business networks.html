@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Casing Approach to Analyse Connected Changes in Business Networks - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Methodology & Casing</div>
+        <div class="badge badge-secondary text-white style-label">B2B Network Change</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            A casing approach to analyse connected changes<br>
+            <span class="text-cyan-400">in business networks</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Sandra Brüel Grönberg, Anna Dubois, Kajsa Hulthén, Ann-Charlott Pedersen
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            비즈니스 네트워크 내 연결된 변화 분석을 위한<br>
+            <span class="text-indigo-300">케이싱(casing) 접근법</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            이커머스 패키징 빈 공간 감축 이니셔티브와 포장/분류 자동화, 친환경 포장재 규제 대응 변화가 상호작용하는 스웨덴 물류 생태계의 단일 사례 확장 연구
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">주변의 변화들을 단순 배경 맥락으로 배제하지 말고, 인과적 우발성을 근거로 삼아 하위 사례로 사례 범위를 확장해야 합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "The paper addresses methodological challenges in conducting case studies of changes in business networks. Capturing change in business networks is difficult in case research since every change relates to many activities, resources, and actors that are subject to other changes. The aim is to develop a casing approach that supports researchers in capturing and determining which connected changes are analytically relevant to include in a case study and why. The approach is illustrated by a case study exploring how business actors address sustainability challenges by considering various changes of activities and resources. The approach suggests that a single case can be expanded by incorporating connected changes as embedded sub-cases, rather than ignoring them or treating them as background context. Furthermore, case boundaries are expanded during the research process, as data is continuously analysed. The approach shows how the distinction between context and causal contingencies can be elaborated and supports researchers in decisions related to this. A key implication is that aspects initially viewed as contextual may later be considered as contingent, and central to the case. The paper thus offers insights into how multiple changes co-evolve, helping researchers avoid simplistic explanations of why certain change initiatives succeed or fail."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 논문은 비즈니스 네트워크의 변화에 대한 사례 연구를 수행할 때 발생하는 방법론적 과제를 다룬다. 비즈니스 네트워크에서의 변화를 포착하는 것은 사례 연구에서 어려운 일인데, 왜냐하면 모든 변화가 다른 변화의 영향을 받는 수많은 활동, 자원, 행위자들과 연결되어 있기 때문이다. 본 연구의 목적은 연구자가 어떤 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">연결된 변화(connected changes)</span>가 사례 연구에 포함되기에 분석적으로 유의미한지, 그리고 그 이유는 무엇인지를 포착하고 결정할 수 있도록 지원하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">케이싱(casing)</span> 접근법을 개발하는 것이다. 이 접근법은 비즈니스 행위자들이 활동과 자원의 다양한 변화를 고려하여 지속가능성 과제에 대응하는 방식을 탐구한 사례 연구를 통해 설명된다. 이 접근법은 단일 사례 연구를 배경 맥락으로 무시하거나 처리하기보다는, 연결된 변화들을 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">내포된 하위 사례(embedded sub-cases)</span>로 통합함으로써 확장할 수 있음을 제안한다. 또한 데이터가 지속적으로 분석됨에 따라 연구 과정 중에 사례 경계가 확장된다. 이 접근법은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">맥락(context)</span>과 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">인과적 우발성(causal contingencies)</span> 간의 구분을 어떻게 정교화할 수 있는지 보여주며, 이와 관련된 의사결정에서 연구자들을 지원한다. 핵심 시사점은 처음에 맥락적인 것으로 간주되었던 측면들이 나중에는 우발적인 것으로 간주되어 사례의 핵심이 될 수 있다는 점이다. 따라서 본 논문은 여러 변화가 어떻게 공동 진화하는지에 대한 통찰력을 제공하여 연구자가 특정 변화 이니셔티브가 왜 성공하거나 실패하는지에 대한 단순화된 설명을 피할 수 있도록 돕는다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Casing</td>
+                  <td>케이싱</td>
+                  <td class="text-sm">Ragin(1992)의 개념으로, 연구 대상(현상)을 이론적 틀 안에서 하나의 사례로 정의하고 경계를 설정해나가는 능동적이고 반복적인 과정입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Connected changes</td>
+                  <td>연결된 변화</td>
+                  <td class="text-sm">비즈니스 네트워크 내의 활동 링크, 자원 결합, 행위자 유대에 걸쳐 상호 관련되어 공동 진화하는 변화들을 의미합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Embedded sub-cases</td>
+                  <td>내포된 하위 사례</td>
+                  <td class="text-sm">단일 사례 연구의 경계 내부에 직접 포함되어 분석 대상이 되는 하위 요소들입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Causal contingencies</td>
+                  <td>인과적 우발성 / 조건성</td>
+                  <td class="text-sm">비판적 실재론에서 특정 메커니즘이 실제 결과를 도출하는 과정에 직접 간섭하는 실질적인 조건들을 가리킵니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 세미나 발표를 위해 핵심 논점을 3단계의 수직 흐름으로 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">복잡한 네트워크 내 변화들을 어떻게 '사례화' 할 것인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">맥락의 우발성 전환 및 하위 사례 통합</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">비판적 실재론 기반의 단일 사례 확장 기법 제안</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 비즈니스 네트워크와 같이 이해관계가 밀접하게 얽힌 시스템에서, 연구자가 특정 초점 변화 이니셔티브와 연관된 변화들을 어떻게 파악하고 사례 경계를 설정할 것인가?</li>
+                  <li><strong>핵심 발견:</strong> 외부 환경이나 타 부서의 변화를 단순 배경 맥락(Context)으로 두는 것이 아니라, 자원 인터페이스와 활동 수준의 상호의존성을 따라 <strong>인과적 우발성(Causal Contingency)</strong>으로 정의하고 단일 사례 내 <strong>내포된 하위 사례(Embedded sub-cases)</strong>로 포함시켜 사례를 계속 확장해야 합니다.</li>
+                  <li><strong>방법론적 기여:</strong> 비판적 실재론과 IMP ARA 모델을 적용해, 질적 사례 연구 중 데이터 분석과 병행하여 사례 경계를 지속해서 확장할 수 있는 구체적 케이싱 방법론을 제시하였고, 개별 혁신의 성공/실패를 공동 진화(Co-evolution) 관점에서 다층적으로 이해하도록 돕습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "비즈니스 네트워크의 특정 변화를 연구할 때 주변의 얽힌 변화들을 배경 맥락으로 버리지 말고, 우발성 판단 하에 내포된 하위 사례로 점차 통합·확장해나가는 케이싱 기법을 적용해야 한다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 방법론의 타당성을 증명하기 위해 논문 내의 주요 주장과 그것을 뒷받침하는 핵심 원문 인용 및 페이지 위치를 연결했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">하위 사례를 통한 단일 사례 연구의 확장성</td>
+                <td class="text-sm italic text-slate-600">
+                  "The approach suggests that a single case can be expanded by incorporating connected changes as embedded sub-cases, rather than ignoring them or treating them as background context."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 4 (Sec. 4)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">케이싱 과정 중의 가변적인 사례 경계</td>
+                <td class="text-sm italic text-slate-600">
+                  "Furthermore, case boundaries are expanded during the research process, as data is continuously analysed." / "By the time the research is complete; both the cases and their casing may have shifted substantially."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 3 (Sec. 2)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">맥락(Context)과 우발성(Contingency)의 구체화</td>
+                <td class="text-sm italic text-slate-600">
+                  "Connected changes are to be considered contingent rather than contextual when they affect the same ‘components’ in underlying network structures... The choices made regarding context and contingency... relate to identifying causal mechanisms..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 8-9 (Sec. 6 & 7)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">공동 진화 분석을 통한 단순한 성패 판별 극복</td>
+                <td class="text-sm italic text-slate-600">
+                  "This, in turn, supports description and understanding of how multiple changes co-evolve and affect each other, and thus helps to avoid simplistic explanations of why certain change initiatives succeed or fail."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9 (Sec. 7)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Connected Changes Framework (사례 내 4가지 연결된 변화의 자원 인터페이스 구조)</h3>
+          
+          <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 400" class="w-full h-auto">
+              <!-- Definitions of arrow markers -->
+              <defs>
+                <marker id="arrow-bidirectional" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#6366f1"/>
+                </marker>
+                <marker id="arrow-focal" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0ea5e9"/>
+                </marker>
+              </defs>
+
+              <!-- Central Node: Focal Change A -->
+              <rect x="275" y="140" width="250" height="90" rx="10" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="3"/>
+              <text x="400" y="175" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="14">초점 변화 A</text>
+              <text x="400" y="195" text-anchor="middle" font-weight="700" fill="#0284c7" font-size="14">이커머스 택배 빈 공간 감축</text>
+              <text x="400" y="215" text-anchor="middle" fill="#64748b" font-size="11">LOG-PACK-RET의 과도한 공기 최소화 시도</text>
+
+              <!-- Top Node: Change C -->
+              <rect x="275" y="15" width="250" height="70" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="400" y="40" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">연결된 변화 C: 친환경 포장재 전환</text>
+              <text x="400" y="58" text-anchor="middle" fill="#047857" font-size="10.5">EU 규제 대응 (플라스틱 → 판지), 부피 증가 유발</text>
+
+              <!-- Left Node: Change B -->
+              <rect x="15" y="150" width="210" height="70" rx="8" fill="#fdf2f8" stroke="#db2777" stroke-width="2"/>
+              <text x="120" y="175" text-anchor="middle" font-weight="700" fill="#9d174d" font-size="13">연결된 변화 B</text>
+              <text x="120" y="193" text-anchor="middle" fill="#be185d" font-size="13">포장 자동화 도입</text>
+              <text x="120" y="208" text-anchor="middle" fill="#64748b" font-size="10">RET의 고정 박스 규격 사용</text>
+
+              <!-- Right Node: Change D -->
+              <rect x="575" y="150" width="210" height="70" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="680" y="175" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">연결된 변화 D</text>
+              <text x="680" y="193" text-anchor="middle" fill="#b45309" font-size="13">분류 자동화 확대</text>
+              <text x="680" y="208" text-anchor="middle" fill="#64748b" font-size="10">LOG의 컨베이어 낙하 압박</text>
+
+              <!-- Connections (Arrows) -->
+              <!-- C <-> A -->
+              <path d="M 400 85 L 400 140" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="3 3" marker-end="url(#arrow-bidirectional)"/>
+              <text x="410" y="115" fill="#4f46e5" font-weight="700" font-size="11">C-A 인터페이스</text>
+
+              <!-- B <-> A -->
+              <path d="M 225 185 L 275 185" fill="none" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow-bidirectional)"/>
+              <text x="235" y="200" fill="#4f46e5" font-weight="700" font-size="11" text-anchor="middle">B-A</text>
+
+              <!-- D <-> A -->
+              <path d="M 575 185 L 525 185" fill="none" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow-bidirectional)"/>
+              <text x="550" y="200" fill="#4f46e5" font-weight="700" font-size="11" text-anchor="middle">D-A</text>
+
+              <!-- C <-> B -->
+              <path d="M 275 50 L 120 50 L 120 150" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-bidirectional)"/>
+              <text x="130" y="90" fill="#475569" font-size="11">C-B 결합 (판지 활용)</text>
+
+              <!-- D <-> B -->
+              <path d="M 680 220 L 680 300 L 120 300 L 120 220" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow-bidirectional)"/>
+              <text x="400" y="320" fill="#475569" font-size="11" text-anchor="middle">D-B 미스매치 (분류 규격 vs 패킹 자동화 규격 충돌)</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Focal Change Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">초점 변화 이니셔티브 (A)</span>
+                <span class="text-xs text-slate-400 font-semibold">Focal Change</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">빈 공간 줄이기 (Reducing excessive air in e-commerce parcels)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 이커머스 유통 물량 증가 상황에서 택배 박스 내 과도하게 충진된 공기(평균 30% 이상 추정)를 감소시켜 운송 효율과 환경 지속가능성을 달성하는 것.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> LOG-PACK-RET의 3사 연구 컨소시엄을 구성하여, 소매업체의 패킹 노하우 공유 및 적정 박스 선택 지침을 조율하는 활동.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> LOG 자체 운송 효율성 지표 및 2020~2022 종단사례 인터뷰.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>자원 결합 논의:</strong> 수동 패킹 단계의 완충재 구성과 박스 선택 유연성에 의존하나, 자동화 및 포장재 규제라는 타 주체들의 변화와 충돌함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Change B Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">연결된 변화 1 (B)</span>
+                <span class="text-xs text-slate-400 font-semibold">Change B</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">포장 자동화 도입 (Introducing automation in e-commerce packing)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 소매업체 물류 센터의 과도한 패킹 인력 의존 및 비용 문제를 해결하기 위해, 패킹 속도를 비약적으로 올리는 기계 자동화를 전개하는 것.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> RET의 중앙 허브에 네 가지 규격의 박스 밑판(footprint) 사양만을 활용해 포장하는 자동 패킹 설비 구축.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> RET 내부 물류 공정 설계 문서 및 자동 기기 조달 명세.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>자원 결합 논의:</strong> 포장 속도 향상은 가져오나 박스 크기 선택의 피팅 유연성을 차단하여 오히려 과도한 빈 공간을 고착시키는 원인으로 작용함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Change C Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">연결된 변화 2 (C)</span>
+                <span class="text-xs text-slate-400 font-semibold">Change C</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">친환경 포장재 전환 (Changing packaging materials)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 플라스틱 폐기물 억제 및 재활용성 확대를 목표로, 유통 포장재 원재료 자체를 친환경 종이 및 판지(Cardboard) 계열로 변경하는 움직임.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> EU 2030 포장 규제 예고에 대응하기 위해, PACK과 RET가 기존 플라스틱 에어백 완충재와 포장 랩을 모두 종이 충진재로 설계 전환.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> EU의 포장재 규제 개정 예고문 및 PACK의 컴플라이언스 기준 문서.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>자원 결합 논의:</strong> 지속가능성 규제 요건은 달성되나 종이 포장재의 기하학적 형태 유연성 저하 및 벌크성 확대로 인해 운송 시 빈 공간 적재율은 반대로 늘어나 효율성이 감소함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Change D Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">연결된 변화 3 (D)</span>
+                <span class="text-xs text-slate-400 font-semibold">Change D</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">택배 분류 자동화 확대 (Increasing automation in sorting of parcels)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 근로자의 물리적 작업 안정 환경을 개선하고 대용량 허브 분류 효율을 늘리기 위해 터미널 분류 공정을 고도 자동화하는 변화.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 스웨덴 노동환경청의 유통 현장 관리 감독 지침 준수를 위해 LOG가 도입한 컨베이어 낙하식 자동 분류 시스템의 가동 범위.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 스웨덴 노동환경청(2022) 프로젝트 보고서 및 LOG Claims 부서 면접.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>자원 결합 논의:</strong> 컨베이어 분류 시 가해지는 기계적 충격에 견디기 위해 RET는 과잉 에어 및 보다 견고한 포장 규격을 유지할 수밖에 없게 되어 빈 공간 줄이기 목적에 역행함.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          비즈니스 네트워크 변화 연구에 케이싱 방법론을 적용할 수 있도록 질적 사례 확장 단계를 구체화했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">초점 변화 이니셔티브 및 핵심 행위자 식별</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  연구 대상 비즈니스 네트워크 내에서 중심이 되는 변화(예: 택배 내 빈 공간 축소 이니셔티브)를 설정하고 관련된 메인 주체들(LOG, RET, PACK)을 파악하여 연구를 시작합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 5.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">다기능 심층 면접 및 현장 실사</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  메인 주체들의 부서별 관계자(구매, 환경, 영업, 컴플라이언스 등) 총 49명을 대상으로 질적 면접을 가동하며 실제 물류 적재 현장 방문을 통한 1차 자료 관찰을 실시합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 5.2 & 5.3</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">주변의 연결된 변화 포착</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  인터뷰 대상자들이 언급하는 업무적 압박 요인(포장 기계화, 친환경 법안 대응, 터미널 분류 자동화)의 물리적 자원 인터페이스 연동성을 추적하여 공동 진행되는 타 변화들을 발굴합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4-5, Section 5.3 & Table 1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">우발성 평가 및 하위 사례화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  단순 외생 맥락과 실질 우발성(Causal Contingency)을 구분하여, 공정 효율과 상호 간섭성이 뚜렷한 세 가지의 변화를 사례 범위 내 '내포된 하위 사례(Embedded sub-cases)'로 수용하고 사례 범위를 확장합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5-6, Section 5.4</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">네트워크 다층 분석 수행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  (1) 다중 변화 네트워크 전체, (2) 개별 변화 간 상호 피드백 루프, (3) 자원 결합 및 구체적 물리 인터페이스 3단계 분석 차원을 통해 변화 공동 진화의 인과 기제를 설명합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 8-9, Section 6 & 7</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            질적 방법론의 특성상 연구자와 피면접자 간의 상호작용 및 당시 북유럽 물류 네트워크의 일시적 상황에 기반하여 분석 경로가 유도되었기 때문에, 완벽히 고정된 데이터의 직접 재현은 어렵지만 분석 가이드라인(자원-활동 매핑 흐름)의 동일 설계 추종은 가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 연구진이 인정하고 설정한 연구의 한계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>지리적 및 국가적 국한성:</strong> 연구 대상 생태계가 북유럽(스웨덴/노르웨이) 유통 네트워크 구조에 완전히 한정되어 있어, 다른 대륙이나 아시아권 등 타 물류 환경 및 문화 생태계에 이 케이싱을 일차적으로 바로 대입하기 힘듭니다. (Page 4, 5.1 & Page 8, Section 6)
+              </li>
+              <li>
+                <strong>경계 편입의 주관성 문제:</strong> 특정 변화 요인을 사례 내에 넣거나 단순히 배제(Context로 방치)할 것인지에 대한 판별이 연구자 본인의 주관과 인터뷰 응답자의 1차 인지에 의존해 왜곡의 가능성이 있습니다. (Page 8, Section 6)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">방법론적 완성도와 엄밀성을 위해 제기할 수 있는 추가적인 비판 지점입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 소비자 반응 측면의 결여</span>
+                <p class="text-sm text-slate-700">
+                  포장의 변화 및 빈 공간 문제가 유발하는 최종 배송 과정의 파손율과 이커머스 소비자(End consumer)의 반응 및 반품 물류(Reverse logistics) 네트워크 상의 자원/활동 변화가 모형 범위에서 완전히 배제되어 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 장기 종단 데이터의 단절</span>
+                <p class="text-sm text-slate-700">
+                  사례가 2022년에 종료되어, 유럽연합의 포장 폐기물 법안(Revision of the packaging and packaging waste directive)이 현실화되어 가동되는 2030년 시점까지 해당 자원 인터페이스 결합이 최종적으로 어떻게 조절 또는 실패했는지에 대한 장기 확인이 불가능합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 방법론적 엄밀성 기준의 기술 미비</span>
+                <p class="text-sm text-slate-700">
+                  방법론 중심 논문임에도 불구하고, 수집한 질적 데이터의 신뢰성(Trustworthiness)을 입증할 상세 코딩 프레임워크나 질적 분석 보장 프로토콜(예: Member checking, 연구자 간 교차 코딩)에 대한 세부 명세가 부족하여 연구자의 주관성에 지나치게 관대하게 설계되었을 우려가 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 자원 획득 불균형 통제 배제</span>
+                <p class="text-sm text-slate-700">
+                  네트워크 내 행위자 간 권력 불균형(예: 대형 물류사 LOG 대비 영세 소매업체들의 기계 교체 자본 격차)이 이러한 변화 연쇄 반응을 감당하는 능력에 미치는 영향을 충분히 고려하지 않아, 실무 정책 제안의 실현 가능성이 불분명합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>A casing approach to analyse connected changes in business networks</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

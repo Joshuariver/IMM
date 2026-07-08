@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigating Role Conflict in Customer Success Management - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Customer Success Management</div>
+        <div class="badge badge-secondary text-white style-label">Method: PLS-SEM (n = 142)</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Navigating role conflict:<br>
+            <span class="text-cyan-400">Implications for service sabotage in customer success management</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Amit Mahimkar, John Hadjimarcou, Edward Ramirez
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            역할 갈등 관리:<br>
+            <span class="text-indigo-300">고객 성공 관리에서 서비스 사보타주에 미치는 영향</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            B2B CSM이 겪는 역할 스트레스(부서간 갈등, 무리한 업무 전가)가 직무 불만족을 거쳐 고객 대응을 고의 지연/방해하는 사보타주로 발현되는 심리적 과정과 감정 지능(EQ) 및 경력의 조절 통제 규명.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">CSM이 겪는 직무 역할 갈등은 고의적인 고객 서비스 방해(사보타주)를 유발하지만, 고감정지능(EQ)과 노련한 경력은 이를 차단합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- STEP 1 — Title & Abstract Translation -->
+    <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+        <span class="badge badge-primary style-label uppercase">Translation</span>
+      </div>
+      
+      <!-- Two-column layout (blockquote style) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+        <!-- English Abstract -->
+        <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+          <blockquote class="style-body text-slate-700 italic">
+            "Drawing on the self-determination, conservation of resources, and self-regulation theories, this research examines the impact of role conflict faced by customer success managers (CSMs) in regard to service sabotage through a structural equation modeling (SEM) analysis. Results from testing a moderated mediation model provide support for the relationship between this role-stressor and service sabotage, the mediating effects of job dissatisfaction on this relationship, and the moderating effects of the respondent's emotional intelligence on the mediated relationship. As such, business-to-business (B2B) suppliers should develop strategies to mitigate role conflict faced by CSMs by aligning internal teams to prevent excessive task delegation to CSMs, promoting open communication that could encourage discussions regarding role-related issues, and a potential restructuring of the hiring process. These actions could engender a stress-free work environment that helps companies champion customer success and catalyze a resounding positive impact on the company's financial performance."
+          </blockquote>
+        </div>
+        <!-- Korean Translation -->
+        <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+          <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+          <blockquote class="style-body text-slate-800">
+            "자아결정성 이론, 자원보존 이론, 그리고 자기조절 이론에 기반하여, 본 연구는 구조방정식 모델링(SEM) 분석을 통해 고객 성공 매니저(CSM)가 겪는 역할 갈등이 서비스 사보타주에 미치는 영향을 검증하였습니다. 조절된 매개 모델(moderated mediation model)을 테스트한 결과, 이러한 역할 스트레스 요인(role-stressor)과 서비스 사보타주 간의 관계, 이 관계에 대한 직무 불만족(job dissatisfaction)의 매개 효과, 그리고 매개된 관계에 대한 응답자의 감정 지능(emotional intelligence)의 조절 효과가 지지되었습니다. 이에 따라, B2B 공급업체는 CSM에게 과도한 업무가 위임되는 것을 방지하기 위해 내부 팀을 정렬하고, 역할 관련 문제에 대한 토론을 장려하는 열린 커뮤니케이션을 촉진하며, 채용 프로세스의 잠재적 재구성을 통해 CSM이 직면하는 역할 갈등을 완화하기 위한 전략을 개발해야 합니다. 이러한 조치는 기업이 고객 성공을 옹호하고 기업의 재무 성과에 지대한 긍정적 영향을 미치도록 돕는 스트레스 없는 업무 환경을 조성할 수 있습니다."
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- Glossary Table -->
+      <div class="mt-4">
+        <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+        <div class="overflow-x-auto border rounded-lg">
+          <table class="table w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-50 text-slate-800">
+                <th class="w-1/3">원문 용어 (EN)</th>
+                <th class="w-1/3">한국어 번역</th>
+                <th class="w-1/3">번역 선택 이유 및 해설</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-semibold text-slate-900">Role Conflict</td>
+                <td>역할 갈등</td>
+                <td class="text-sm">서로 조화되기 어려운 직무 요건이 동시에 부과되어 우선순위 지정이나 충족에 심각한 애로를 겪는 상황을 뜻합니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Service Sabotage</td>
+                <td>서비스 사보타주</td>
+                <td class="text-sm">고객 만족도 제고라는 본분을 고의적으로 지연, 방해, 훼손하려는 고객 접점 직원의 반사회적/태만 행위입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Job Dissatisfaction</td>
+                <td>직무 불만족</td>
+                <td class="text-sm">현 직무 환경이나 역할 경험에 대해 느끼는 전반적이고 부정적인 정서적 평가 상태입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Emotional Intelligence (EQ)</td>
+                <td>감정 지능</td>
+                <td class="text-sm">본인 및 타인의 감정을 인지하고 효과적으로 정서적 조절을 하여 합리적 대안 행동을 찾는 개인적 통제력입니다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2 — Core Claims (1-minute pitch) -->
+    <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+        <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+      </div>
+      
+      <div class="py-4">
+        <div class="flex flex-col md:flex-row gap-8 items-stretch">
+          <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+            <li class="step step-primary" data-content="Q">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                <p class="font-bold text-slate-800">CSM의 역할 갈등이 서비스 사보타주로 연결되는 기제는?</p>
+              </div>
+            </li>
+            <li class="step step-primary" data-content="F">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                <p class="font-bold text-slate-800">직무 불만족이 매개하고, 감정 지능이 이 유해한 전이를 제어함</p>
+              </div>
+            </li>
+            <li class="step step-primary" data-content="C">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                <p class="font-bold text-slate-800">SDT-COR-SRT의 통합 및 B2B 사보타주 최초 실증</p>
+              </div>
+            </li>
+          </ul>
+          
+          <div class="divider divider-horizontal hidden md:flex"></div>
+          
+          <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <div>
+              <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘</h4>
+              <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                <li><strong>역할 갈등의 고통:</strong> 영업과 관계 유지 사이의 모순적인 명령을 받는 CSM들은 심리적 욕구 충족이 차단되어 강력한 스트레스를 겪습니다.</li>
+                <li><strong>직무 불만족 매개:</strong> 심리적 자원이 고갈되면 직무 전반에 큰 불만(Job Dissatisfaction)을 가지게 되고, 이 상태를 회피/보존하고자 고객 서비스 고의 지연(사보타주)이라는 극단적인 대처를 취합니다.</li>
+                <li><strong>EQ의 구원:</strong> 뛰어난 감정 지능(EQ)을 가진 CSM은 직무에 매우 불만족하더라도 이를 인내하고 합리화하는 자기조절력을 지녀, 고객에 대한 사보타주로 이어지는 악순환을 차단합니다.</li>
+              </ul>
+            </div>
+            
+            <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+              <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+              <p class="style-body font-bold mt-1">
+                "B2B 고객과의 전담 창구인 CSM이 역할 갈등으로 직무 불만을 느끼면 고의로 서비스를 방해할 가능성이 높지만, 감정 지능(EQ)과 풍부한 경력은 이를 방지합니다."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 3 — Claims and Evidence -->
+    <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+        <span class="badge badge-accent style-label uppercase">Evidence</span>
+      </div>
+      
+      <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+        <table class="table table-zebra w-full text-slate-700">
+          <thead>
+            <tr class="bg-slate-900 text-white">
+              <th class="w-12">#</th>
+              <th class="w-1/4">핵심 주장</th>
+              <th class="w-1/2">원문 근거 (Original Quote)</th>
+              <th class="w-1/6 text-right">원문 위치</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="font-semibold text-slate-900">역할 갈등의 서비스 사보타주 직접 유발</td>
+              <td class="text-sm italic text-slate-600">
+                "Results from testing a moderated mediation model provide support for the relationship between this role-stressor and service sabotage..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Abstract / Results (PAGE 9)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="font-semibold text-slate-900">직무 불만족의 유의한 매개 역할</td>
+              <td class="text-sm italic text-slate-600">
+                "...the mediating effects of job dissatisfaction on this relationship... Results of the mediation analysis supported H2: Job dissatisfaction mediated the relationship..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Abstract / Sec. 4.2 (PAGE 9)</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="font-semibold text-slate-900">감정 지능(EQ)의 조절 완화 효과</td>
+              <td class="text-sm italic text-slate-600">
+                "...and the moderating effects of the respondent's emotional intelligence on the mediated relationship... EQ dampens the positive relationship between job dissatisfaction and service sabotage."
+              </td>
+              <td class="text-right font-medium text-slate-500">Abstract / Sec. 4.2 (PAGE 9-10)</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="font-semibold text-slate-900">경력(Work Experience)의 사보타주 억제 효과</td>
+              <td class="text-sm italic text-slate-600">
+                "Results also indicate a negative relationship between CSMs' work experience and their likelihood of engaging in service sabotage behaviors."
+              </td>
+              <td class="text-right font-medium text-slate-500">Sec. 4.1 (PAGE 8) / Sec. 4.3 (PAGE 11)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- STEP 4 — Research Model & Variables -->
+    <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+        <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+      </div>
+      
+      <!-- Research Model SVG Block -->
+      <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+        <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 가설 모형)</h3>
+        
+        <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+          <svg viewBox="0 0 800 400" class="w-full h-auto">
+            <!-- IV Box -->
+            <rect x="50" y="150" width="180" height="80" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+            <text x="140" y="190" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">역할 갈등</text>
+            <text x="140" y="210" text-anchor="middle" fill="#64748b" font-size="11">Role Conflict</text>
+
+            <!-- Mediator Box -->
+            <rect x="350" y="50" width="180" height="80" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+            <text x="440" y="90" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">직무 불만족</text>
+            <text x="440" y="110" text-anchor="middle" fill="#047857" font-size="11">Job Dissatisfaction</text>
+
+            <!-- DV Box -->
+            <rect x="570" y="150" width="180" height="80" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+            <text x="660" y="190" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">서비스 사보타주</text>
+            <text x="660" y="210" text-anchor="middle" fill="#4338ca" font-size="11">Service Sabotage</text>
+
+            <!-- Moderator Box -->
+            <rect x="470" y="270" width="180" height="80" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+            <text x="560" y="310" text-anchor="middle" font-weight="700" fill="#92400e" font-size="14">감정 지능 (EQ)</text>
+            <text x="560" y="330" text-anchor="middle" fill="#b45309" font-size="11">Emotional Intelligence</text>
+
+            <!-- Control Box (WE) -->
+            <rect x="250" y="270" width="180" height="80" rx="8" fill="#faf5ff" stroke="#a855f7" stroke-width="1" stroke-dasharray="2 2"/>
+            <text x="340" y="310" text-anchor="middle" font-weight="700" fill="#6b21a8" font-size="13">직무 경력 (WE)</text>
+            <text x="340" y="330" text-anchor="middle" fill="#701a75" font-size="10">Work Experience</text>
+
+            <!-- Arrows -->
+            <!-- IV -> Mediator -->
+            <path d="M230 160 L 350 110" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="290" y="125" fill="#047857" font-weight="700" font-size="12">H2a (+)</text>
+
+            <!-- Mediator -> DV -->
+            <path d="M510 130 L 600 160" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="565" y="130" fill="#047857" font-weight="700" font-size="12">H2b (+)</text>
+
+            <!-- IV -> DV Direct -->
+            <path d="M230 190 L 560 190" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="390" y="180" fill="#1d4ed8" font-weight="700" font-size="12">H1: 0.692***</text>
+
+            <!-- Moderator pointing to Mediator -> DV path -->
+            <path d="M560 270 L 560 160" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="570" y="220" fill="#b45309" font-weight="700" font-size="12">H3 조절 (-0.329**)</text>
+
+            <!-- Control -> DV -->
+            <path d="M380 270 L 570 200" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+            <text x="460" y="255" fill="#701a75" font-weight="700" font-size="11">WE -> SS (-0.119*)</text>
+
+            <!-- SVG Arrow Marker -->
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+              </marker>
+            </defs>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Variable Detail Cards in Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+        <!-- IV Card -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+          <div class="card-body p-6 gap-3">
+            <div class="flex items-center justify-between">
+              <span class="badge badge-neutral style-label text-white">독립변수</span>
+              <span class="text-xs text-slate-400 font-semibold">IV</span>
+            </div>
+            <h3 class="style-h3 text-slate-900">역할 갈등 (Role Conflict)</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 직무를 영위하는 과정에서 양립 불가능하거나 상호 모순되는 다차원의 업무 요구나 외부 기대를 받음으로써 겪는 인지적 스트레스 수준.</p>
+            <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Rizzo, House, and Lirtzman (1970)의 척도 6개 문항 (Cronbach's &alpha; = 0.828)</p>
+          </div>
+        </div>
+
+        <!-- Mediator Card -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+          <div class="card-body p-6 gap-3">
+            <div class="flex items-center justify-between">
+              <span class="badge badge-success style-label text-white">매개변수</span>
+              <span class="text-xs text-slate-400 font-semibold">MV</span>
+            </div>
+            <h3 class="style-h3 text-slate-900">직무 불만족 (Job Dissatisfaction)</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자신이 속한 기업 및 담당하고 있는 세부 업무 가치에 대해 주관적으로 평가해 느끼는 부정적이고 불평 섞인 정서 상태.</p>
+            <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Cammann et al. (1983)의 MOAQ 3개 문항 (Cronbach's &alpha; = 0.872)</p>
+          </div>
+        </div>
+
+        <!-- Moderator Card -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+          <div class="card-body p-6 gap-3">
+            <div class="flex items-center justify-between">
+              <span class="badge badge-warning style-label text-amber-950">조절변수</span>
+              <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+            </div>
+            <h3 class="style-h3 text-slate-900">감정 지능 (Emotional Intelligence)</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 직장 스트레스 상황에서 감정이 비합리적인 사보타주 행동으로 분출되지 못하도록 정서를 차단, 통제, 승화시키는 개별 정서 지각 및 통제력.</p>
+            <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Davies et al. (2010)의 BEIS-10 10개 문항 (Cronbach's &alpha; = 0.856)</p>
+          </div>
+        </div>
+
+        <!-- DV Card -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+          <div class="card-body p-6 gap-3">
+            <div class="flex items-center justify-between">
+              <span class="badge badge-primary style-label text-white">종속변수</span>
+              <span class="text-xs text-slate-400 font-semibold">DV</span>
+            </div>
+            <h3 class="style-h3 text-slate-900">서비스 사보타주 (Service Sabotage)</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 직원이 보복성 심리나 리소스 아끼기 목적 하에 고객에 대응을 의도적으로 지연하고, 필요한 기밀 스펙 제공을 누락시키는 등 의도적으로 서비스 가치를 깎는 일탈 행위.</p>
+            <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Harris and Ogbonna (2006) 척도 적용 (Cronbach's &alpha; = 0.901)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 5 — Method Replication Steps -->
+    <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+        <span class="badge badge-primary style-label uppercase">Methodology</span>
+      </div>
+      
+      <p class="style-body text-slate-600">
+        B2B Frontline 환경의 CSM을 대상으로 한 연구의 재현 타임라인 정보입니다.
+      </p>
+
+      <div class="mt-4">
+        <ul class="timeline timeline-vertical timeline-snap-icon">
+          <!-- Step 1 -->
+          <li>
+            <div class="timeline-middle">
+              <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+              <div class="text-lg font-bold text-slate-800">모집단 필터링 및 패널 선정</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                미국의 학술 전문 온라인 패널 플랫폼인 Centiment를 채널로 삼아 B2B 'Customer Success Manager' 직무에 종사하는 현업 실무자를 타겟팅함.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">PAGE 6-7</span>
+            </div>
+            <hr class="bg-primary"/>
+          </li>
+          
+          <!-- Step 2 -->
+          <li>
+            <hr class="bg-primary"/>
+            <div class="timeline-middle">
+              <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+              <div class="text-lg font-bold text-slate-800">신뢰성 제어 타이머 및 질문 이식</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                무성의한 응답 차단을 위해 서베이 질문 블록마다 최소 30초 대기 타이머를 지정하고, 인지 수준 테스트용 주의 환기 질문(Attention Check)을 무작위로 2회 믹스 삽입함.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">PAGE 7</span>
+            </div>
+            <hr class="bg-secondary"/>
+          </li>
+
+          <!-- Step 3 -->
+          <li>
+            <hr class="bg-secondary"/>
+            <div class="timeline-middle">
+              <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+              <div class="text-lg font-bold text-slate-800">데이터 수집 및 정제</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                온라인으로 취합된 수집 샘플 중 불완전한 작성이나 함정 질문을 통과하지 못한 무효 응답을 제외하여 총 142개($n=142$)의 고품질 유효 설문 표본 구축.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">PAGE 6-7</span>
+            </div>
+            <hr class="bg-accent"/>
+          </li>
+
+          <!-- Step 4 -->
+          <li>
+            <hr class="bg-accent"/>
+            <div class="timeline-middle">
+              <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+              <div class="text-lg font-bold text-slate-800">측정 신뢰도 및 타당도 검사 (CFA)</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                SmartPLS 4를 활용해 4대 변수의 신뢰도(&alpha; > 0.7, CR > 0.7, AVE > 0.5) 및 HTMT 지표 평가를 통한 판별 타당성 충족 검증 실시.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">PAGE 6, Table 4</span>
+            </div>
+            <hr class="bg-info"/>
+          </li>
+
+          <!-- Step 5 -->
+          <li>
+            <hr class="bg-info"/>
+            <div class="timeline-middle">
+              <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+            </div>
+            <div class="timeline-start mb-4 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+              <div class="text-lg font-bold text-slate-800">구조방정식 및 매개·조절 분석</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                SmartPLS PROCESS 매크로 분석 실행. 5,000회 부트스트래핑(bootstrapping) 및 단순 경사(simple slope) 분석을 적용해 직접 경로(&beta;=0.692***), 간접 매개(&beta;=0.549*), 상호작용(&beta;=-0.329**) 효과 입증.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">PAGE 9, Table 6</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Replication assessment block -->
+      <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+          <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+        </div>
+        <p class="text-xs text-slate-500 max-w-md">
+          사용된 측정도구가 널리 알려진 외래 척도로 구성되었고, 분석 기법과 세부 수치들이 명확하여 방법론적으로는 즉시 재현 가능하나, Centiment의 특정 CSM 응답자 풀에 접근해야 하는 샘플 획득 장벽이 있습니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- STEP 6 — Limitations & Critical Doubts -->
+    <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+      <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+        <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+        <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+      </div>
+      
+      <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+      <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+        <input type="checkbox" checked /> 
+        <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+        </div>
+        <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+          <p class="style-body text-slate-700">논문 본문에서 연구진들이 직접 인정한 한계점입니다:</p>
+          <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+            <li>
+              <strong>횡단 연구 설계의 시점 문제 (Cross-sectional Data):</strong> 모든 독립, 매개, 종속 변수들이 동시점에 측정되어 엄밀한 인과 메커니즘을 밝혀내는 데 한계가 있습니다. (PAGE 11, Section 5)
+            </li>
+            <li>
+              <strong>사회적 바람직성 편향 (Social Desirability Bias):</strong> 고의적 사보타주와 같은 부정적 일탈 행위를 자가 진단하는 주관적 답변의 성격 상 편향 가능성이 여전히 잔존합니다. (PAGE 11)
+            </li>
+            <li>
+              <strong>지리적 한계성:</strong> 미국 지역 CSM 패널에만 국한되어 다양한 고용 조건과 문화를 가진 아시아, 유럽 B2B 현장에 일반화하기 어렵습니다. (PAGE 11)
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+      <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+        <input type="checkbox" checked /> 
+        <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+        </div>
+        <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+          <p class="style-body text-slate-700">외부 연구 설계 시각에서 바라본 비판점입니다:</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+            <div class="bg-white p-4 rounded-xl border border-amber-200">
+              <span class="badge badge-warning style-label text-amber-950 mb-2">1. 역인과관계 (Reverse Causality)</span>
+              <p class="text-sm text-slate-700">
+                역할 갈등이 불만족과 사보타주를 낳는다기보다, <strong>"원래 업무 태도가 불성실하고 파괴 행위를 일삼는 불량 CSM이 직장 내 동료들과 잦은 불화(역할 갈등)를 유발하고 직무에 불만을 가지게 된다"</strong>는 역인과 가능성을 완벽히 차단할 장치가 부재합니다.
+              </p>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-amber-200">
+              <span class="badge badge-warning style-label text-amber-950 mb-2">2. 생존자 편향 (Survivor Bias)</span>
+              <p class="text-sm text-slate-700">
+                조사 시점에 활발히 활동하고 설문에 참여할 만한 물리적, 정신적 여유를 가진 CSM만이 응답했습니다. 역할 갈등이 극에 달해 이미 퇴직해버린 CSM들은 표본에서 삭제되었기에, 사보타주의 실제 빈도가 다소 과소 추정되었을 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Navigating role conflict: Implications for service sabotage in customer success management</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

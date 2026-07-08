@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Value chains, knowledge isolation, and performance - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    .style-display {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 32px;
+      }
+      .style-h1 {
+        font-size: 26px;
+      }
+      .style-h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">SME Global Value Chains</div>
+        <div class="badge badge-secondary text-white style-label">CB-SEM (AMOS)</div>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Value chains, knowledge isolation, and performance<br>
+            <span class="text-cyan-400">in internationalizing SMEs</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Mika Gabrielsson, Tomi Seppälä, Peter Gabrielsson, Elizabeth L. Rose, Sylvie K. Chetty
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-2xl lg:text-3xl font-bold text-slate-100 leading-tight">
+            국제화 중소기업의 가치 사슬,<br>
+            <span class="text-indigo-300">지식 고립 및 성과</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            288개 핀란드 국제화 중소기업 설문과 Amadeus 회계 데이터를 결합하여 TIF(점진적 기업)와 EIF(급진적 기업)의 상이한 가치사슬 및 지식 격리 메커니즘 입증
+          </p>
+        </div>
+      </div>
+      
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">전통기업(TIF)은 분산/조정을 결합한 현지 지식(지리적 우위)으로, 초기기업(EIF)은 사슬 조정을 통한 국제화 지식(신속성 우위)으로 성과를 방어합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- STEP 1 — Title & Abstract Translation -->
+    <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+        <span class="badge badge-primary style-label uppercase">Translation</span>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+        <!-- English Abstract -->
+        <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+          <blockquote class="style-body text-slate-700 italic">
+            "We examine various forms of foreign knowledge generation and their impact on performance through geographic dispersion and coordination of value chains in internationalizing small and medium-sized enterprises (SMEs), particularly in traditionally internationalizing firms (TIFs) and early internationalizing firms (EIFs). Building on the knowledge isolation mechanism, we develop a model and hypotheses and examine it using structural equation methodology based on a survey of 288 internationalizing SMEs. We find that both dispersion and coordination generate foreign knowledge in TIFs, while coordination is key for EIFs. Another important finding is that TIFs benefit from enhanced performance through local knowledge, while EIFs benefit from internationalization knowledge. These results are apparently attributable to the existence of an underlying isolation mechanism affecting knowledge."
+          </blockquote>
+        </div>
+        <!-- Korean Translation -->
+        <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+          <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+          <blockquote class="style-body text-slate-800">
+            "본 연구는 국제화 중소기업(SMEs), 특히 전통적 국제화 기업(TIFs)과 초기 국제화 기업(EIFs)의 가치 사슬의 지리적 분산(dispersion)과 조정(coordination)을 통해 다양한 형태의 해외 지식 생성 및 그것이 재무 성과에 미치는 영향을 조사합니다. 지식 고립 메커니즘을 바탕으로 모델과 가설을 개발하고 288개 국제화 중소기업의 설문조사를 기초로 구조방정식 방법론을 사용하여 이를 검증합니다. 분석 결과, TIF의 경우 분산과 조정 모두가 해외 지식을 생성하는 반면, EIF의 경우에는 조정이 핵심 동인인 것으로 나타났습니다. 또 다른 중요한 발견은 TIF는 현지 지식을 통해 성과 향상을 얻는 반면, EIF는 국제화 지식을 통해 혜택을 얻는다는 점입니다. 이러한 결과는 지식에 영향을 미치는 잠재적 고립 메커니즘의 존재 때문인 것으로 해석됩니다."
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- Glossary Table -->
+      <div class="mt-4">
+        <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+        <div class="overflow-x-auto border rounded-lg">
+          <table class="table w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-50 text-slate-800">
+                <th class="w-1/3">원문 용어 (EN)</th>
+                <th class="w-1/3">한국어 번역</th>
+                <th class="w-1/3">번역 선택 이유 및 해설</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-semibold text-slate-900">Value chain dispersion</td>
+                <td>가치 사슬 분산</td>
+                <td class="text-sm">R&D, 생산, 조달, 유통 등 기업의 기능적 활동을 단일 국가가 아닌 글로벌 여러 거점에 분산 배치하는 지리적 너비입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Value chain coordination</td>
+                <td>가치 사슬 조정</td>
+                <td class="text-sm">서로 다른 국가에 배치된 여러 거점 간 정보를 조율하고 프로세스를 시스템적으로 동기화하는 강도입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Knowledge isolation mechanism</td>
+                <td>지식 고립 메커니즘</td>
+                <td class="text-sm">고유 지식의 애매모호함(Causal Ambiguity)이나 국가적 특수성 등으로 경쟁사의 모방을 방어하는 격리 장치입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">TIF vs EIF</td>
+                <td>전통적 vs 초기 국제화 기업</td>
+                <td class="text-sm">TIF는 3년 이후 서서히 해외 진출을 시도하는 대기만성형 중소기업, EIF는 3년 내 해외매출 25%를 달성하는 급진형 중소기업(Born Global)을 의미합니다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2 — Core Claims -->
+    <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+        <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+      </div>
+      
+      <div class="py-4">
+        <div class="flex flex-col md:flex-row gap-8 items-stretch">
+          <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+            <li class="step step-primary" data-content="Q">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                <p class="font-bold text-slate-800">가치 사슬 배치와 조율이 어떻게 모방 방지 우위로 전환되는가?</p>
+              </div>
+            </li>
+            <li class="step step-primary" data-content="F">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                <p class="font-bold text-slate-800">TIF는 현지 지식(지리 우위), EIF는 국제 지식(신속 우위)이 성과 보장</p>
+              </div>
+            </li>
+            <li class="step step-primary" data-content="C">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                <p class="font-bold text-slate-800">가치사슬 설계와 지식 격리 메커니즘의 결합 및 객관적 재무 검증</p>
+              </div>
+            </li>
+          </ul>
+          
+          <div class="divider divider-horizontal hidden md:flex"></div>
+          
+          <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <div>
+              <h4 class="style-h3 text-slate-900 mb-2">논문의 이론적 전개 및 성과</h4>
+              <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                <li><strong>연구 개요:</strong> 해외 진출 중소기업이 가치사슬 설계(분산/조정)를 통해 지식을 획득하고 성과를 내는 방식을 비교 연구했습니다.</li>
+                <li><strong>집단별 차별성:</strong> 
+                  TIF는 널리 펴고 조율함으로써 획득하는 **현지 지식(국가 특화)**이 성과를 돕습니다. 반면 EIF는 펴는 효과가 극히 낮으며 오직 내부 조정으로만 **국제화 지식(운영 역량)**을 얻어 신속성 우위로 성과를 냅니다.
+                </li>
+                <li><strong>재무 검증:</strong> 설문에만 의존하지 않고 기업 회계 원장 매칭(EBIT margin 2개년 변화율)을 사용해 객관적인 생존력을 증명했습니다.</li>
+              </ul>
+            </div>
+            
+            <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+              <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+              <p class="style-body font-bold mt-1">
+                "TIF는 가치사슬 분산/조정을 통한 현지 지식(지리적 고립 우위)으로 살아남고, EIF는 가치사슬 조정을 통한 국제화 지식(신속성 고립 우위)으로 성과를 창출합니다."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 3 — Claims and Evidence -->
+    <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+        <span class="badge badge-accent style-label uppercase">Evidence</span>
+      </div>
+
+      <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+        <table class="table table-zebra w-full text-slate-700">
+          <thead>
+            <tr class="bg-slate-900 text-white">
+              <th class="w-12">#</th>
+              <th class="w-1/4">핵심 주장</th>
+              <th class="w-1/2">원문 근거 (Original Quote)</th>
+              <th class="w-1/6 text-right">원문 위치</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="font-semibold text-slate-900">TIF의 분산 지식 획득 효과</td>
+              <td class="text-sm italic text-slate-600">
+                "...value chain dispersion contributes to the development of both local (b = 0.02, p = 0.04) and internationalization knowledge (b = 0.04, p &lt; 0.01) for TIFs..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 112 (Sec. 4, Table 4 Panel A)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="font-semibold text-slate-900">EIF의 분산 효과 부재</td>
+              <td class="text-sm italic text-slate-600">
+                "...we find no statistically significant relationships for EIFs between value chain dispersion and neither local (b = 0.00, p &lt; 0.87) nor internationalization knowledge..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 112 (Sec. 4, Table 4 Panel B)</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="font-semibold text-slate-900">조정(Coordination)의 강한 지식 효과</td>
+              <td class="text-sm italic text-slate-600">
+                "...value chain coordination contributes substantially to both types of knowledge for TIFs... and the same applies for EIFs (b = 0.16 (local); b = 0.33 (internationalization))."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 112 (Sec. 4, Table 4)</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="font-semibold text-slate-900">TIF의 현지 지식 성과 유의성</td>
+              <td class="text-sm italic text-slate-600">
+                "...TIFs benefit from local knowledge (Panel A: b = 1.98, p = 0.05), while EIFs do not..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 112 (Sec. 4, Table 4)</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="font-semibold text-slate-900">EIF의 국제 지식 성과 유의성</td>
+              <td class="text-sm italic text-slate-600">
+                "...internationalization knowledge contributes to the financial performance of EIFs (Panel B: b = 1.72, p = 0.01) but not TIFs..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 112 (Sec. 4, Table 4)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- STEP 4 — Research Model & Variables -->
+    <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+        <span class="badge badge-info style-label text-slate-900 uppercase">Comparative Model</span>
+      </div>
+      
+      <!-- Side-by-Side comparative SVGs in one box -->
+      <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-8 items-center">
+        <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">TIF vs EIF 경로 비교 (CB-SEM 검증 결과)</h3>
+        
+        <div class="w-full bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+          <svg viewBox="0 0 1000 500" class="w-full h-auto">
+            <!-- Left Half: TIF Model -->
+            <text x="240" y="30" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="16">1. 전통적 국제화 기업 (TIF, n=171)</text>
+            <line x1="20" y1="40" x2="460" y2="40" stroke="#94a3b8" stroke-width="1"/>
+
+            <!-- IVs TIF -->
+            <rect x="30" y="70" width="160" height="50" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+            <text x="110" y="100" text-anchor="middle" font-weight="700" fill="#334155" font-size="11">가치 사슬 분산 (Dis)</text>
+            
+            <rect x="30" y="180" width="160" height="50" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+            <text x="110" y="210" text-anchor="middle" font-weight="700" fill="#334155" font-size="11">가치 사슬 조정 (Co)</text>
+
+            <!-- Mediators TIF -->
+            <rect x="250" y="70" width="180" height="50" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+            <text x="340" y="100" text-anchor="middle" font-weight="700" fill="#14532d" font-size="11">현지 지식 (Local K)</text>
+            
+            <rect x="250" y="180" width="180" height="50" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+            <text x="340" y="210" text-anchor="middle" font-weight="700" fill="#0c4a6e" font-size="11">국제 지식 (Int K)</text>
+
+            <!-- DV TIF -->
+            <rect x="130" y="300" width="220" height="60" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+            <text x="240" y="335" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="12">재무 성과 (EBIT margin 변동)</text>
+
+            <!-- Arrows TIF -->
+            <path d="M 190 95 L 240 95" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <text x="215" y="88" fill="#14532d" font-size="9" font-weight="700">0.02*</text>
+
+            <path d="M 190 205 L 240 205" fill="none" stroke="#0284c7" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <text x="215" y="198" fill="#0c4a6e" font-size="9" font-weight="700">0.22**</text>
+
+            <path d="M 190 100 L 250 190" fill="none" stroke="#0284c7" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <text x="210" y="150" fill="#0c4a6e" font-size="9" font-weight="700">0.04**</text>
+
+            <path d="M 190 200 L 250 110" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <text x="210" y="170" fill="#14532d" font-size="9" font-weight="700">0.15**</text>
+
+            <!-- TIF Mediators -> DV -->
+            <path d="M 340 120 L 250 300" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="310" y="270" fill="#14532d" font-size="10" font-weight="700">1.98* (지리 우위)</text>
+
+            <path d="M 340 230 L 270 300" fill="none" stroke="#e11d48" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+            <text x="320" y="250" fill="#9f1239" font-size="9">-1.31 (제어/부정)</text>
+
+
+            <!-- Center Splitter Line -->
+            <line x1="500" y1="20" x2="500" y2="480" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="5 5"/>
+
+
+            <!-- Right Half: EIF Model -->
+            <text x="740" y="30" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="16">2. 초기 국제화 기업 (EIF, n=117)</text>
+            <line x1="540" y1="40" x2="980" y2="40" stroke="#94a3b8" stroke-width="1"/>
+
+            <!-- IVs EIF -->
+            <rect x="550" y="70" width="160" height="50" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+            <text x="630" y="100" text-anchor="middle" font-weight="700" fill="#334155" font-size="11">가치 사슬 분산 (Dis)</text>
+            
+            <rect x="550" y="180" width="160" height="50" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+            <text x="630" y="210" text-anchor="middle" font-weight="700" fill="#334155" font-size="11">가치 사슬 조정 (Co)</text>
+
+            <!-- Mediators EIF -->
+            <rect x="790" y="70" width="180" height="50" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+            <text x="880" y="100" text-anchor="middle" font-weight="700" fill="#14532d" font-size="11">현지 지식 (Local K)</text>
+            
+            <rect x="790" y="180" width="180" height="50" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+            <text x="880" y="210" text-anchor="middle" font-weight="700" fill="#0c4a6e" font-size="11">국제 지식 (Int K)</text>
+
+            <!-- DV EIF -->
+            <rect x="660" y="300" width="220" height="60" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+            <text x="770" y="335" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="12">재무 성과 (EBIT margin 변동)</text>
+
+            <!-- Arrows EIF -->
+            <path d="M 710 95 L 780 95" fill="none" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+            <text x="745" y="88" fill="#94a3b8" font-size="9">0.00 (insig)</text>
+
+            <path d="M 710 205 L 780 205" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="745" y="195" fill="#0c4a6e" font-size="9" font-weight="700">0.33**</text>
+
+            <path d="M 710 100 L 790 190" fill="none" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+            <text x="730" y="150" fill="#94a3b8" font-size="9">0.02 (insig)</text>
+
+            <path d="M 710 200 L 790 110" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="730" y="170" fill="#14532d" font-size="9" font-weight="700">0.16**</text>
+
+            <!-- EIF Mediators -> DV -->
+            <path d="M 880 120 L 790 300" fill="none" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+            <text x="850" y="270" fill="#94a3b8" font-size="9">-1.76 (insig)</text>
+
+            <path d="M 880 230 L 800 300" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="850" y="250" fill="#0c4a6e" font-size="10" font-weight="700">1.72** (신속 우위)</text>
+
+            <!-- Arrow marker template -->
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+              </marker>
+            </defs>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Variables Detail cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden">
+          <div class="card-body p-6 gap-3">
+            <span class="badge badge-success style-label text-white">TIF 지식 보호 메커니즘</span>
+            <h3 class="style-h3 text-slate-900">지리적 지식 고립 우위 (Geography Advantage)</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>핵심:</strong> 점진적으로 특정 국지 시장에 깊이 파고들어, 가치사슬 분산과 협업을 통해 현지화된 <strong>현지 지식(Local Knowledge)</strong>을 확보합니다.</p>
+            <p class="text-sm text-slate-700"><strong>효과:</strong> 경쟁 대기업이 현지 밀착형 지식을 쉽사리 카피할 수 없어 2년 장기 마진율(EBIT margin)을 안전하게 방어해 줍니다.</p>
+          </div>
+        </div>
+
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden">
+          <div class="card-body p-6 gap-3">
+            <span class="badge badge-info style-label text-slate-900">EIF 지식 보호 메커니즘</span>
+            <h3 class="style-h3 text-slate-900">신속성 지식 고립 우위 (Rapidness Advantage)</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>핵심:</strong> 설립 초기부터 전 세계 니치 마켓에 빠르게 가치 사슬을 꽂고 <strong>국제화 지식(Internationalization Knowledge)</strong>을 획득합니다.</p>
+            <p class="text-sm text-slate-700"><strong>효과:</strong> 타 경쟁사가 EIF 특유의 속도 기반 글로벌 네트워크 통합(Coordination) 및 진입 속도를 따라잡지 못해 모방 장벽이 형성됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 5 — Method Replication Steps -->
+    <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+        <span class="badge badge-primary style-label uppercase">Methodology</span>
+      </div>
+      
+      <p class="style-body text-slate-600">
+        가치가 높은 객관적 재무 연동 실증 연구를 수행하기 위한 모방 절차입니다.
+      </p>
+
+      <div class="mt-4">
+        <ul class="timeline timeline-vertical timeline-snap-icon">
+          <li>
+            <div class="timeline-middle">
+              <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+              <div class="text-lg font-bold text-slate-800">모집단 필터링 및 전화 동의</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                1984년 이후 설립되고 해외 거래 실적이 있으며 2개국 이상의 가치사슬을 가진 핀란드 중소기업 885개사를 선별해 참여를 권유합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 110, Section 3.1</span>
+            </div>
+            <hr class="bg-primary"/>
+          </li>
+          
+          <li>
+            <hr class="bg-primary"/>
+            <div class="timeline-middle">
+              <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+              <div class="text-lg font-bold text-slate-800">설문 발포 및 회수 (3단계 푸시)</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                경영진 대상 설문을 온라인 발송하고 3단계 리마인더 기법을 동원하여 유효 응답 345건을 회수합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 110, Section 3.1</span>
+            </div>
+            <hr class="bg-secondary"/>
+          </li>
+
+          <li>
+            <hr class="bg-secondary"/>
+            <div class="timeline-middle">
+              <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+              <div class="text-lg font-bold text-slate-800">Amadeus 재무 데이터 매칭</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                설문 완료 기업의 사업자코드를 활용하여 t0~t2 개년도 실제 EBIT Margin 변화율을 조회해 DB를 통합합니다 (최종 288개사 매칭).
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 110, Section 3.2.1</span>
+            </div>
+            <hr class="bg-accent"/>
+          </li>
+
+          <li>
+            <hr class="bg-accent"/>
+            <div class="timeline-middle">
+              <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+              <div class="text-lg font-bold text-slate-800">EIF vs TIF 그룹 분할</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                설립 연도 대비 최초 수출 성과 도달에 3년 이내이면서 비율 25% 도달 여부를 확인해 집단을 117개(EIF)와 171개(TIF)로 나눕니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 110, Section 3.1</span>
+            </div>
+            <hr class="bg-info"/>
+          </li>
+
+          <li>
+            <hr class="bg-info"/>
+            <div class="timeline-middle">
+              <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+            </div>
+            <div class="timeline-start mb-4 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+              <div class="text-lg font-bold text-slate-800">AMOS 25 다중 집단 CB-SEM 실행</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                측정 모델의 적합도(CFI=0.94 등) 통과 후 가치사슬 형성 변수 VIF 점검을 통과시켜 두 그룹 간 경로계수 크기를 최종 대조 검증합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 111-112, Section 4</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가</h4>
+          <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+        </div>
+        <p class="text-xs text-slate-500 max-w-md">
+          이론 검증 프로토콜은 완벽히 개방되었으나, 핀란드 SMOPEC 환경 하에 축적된 중소벤처기업들의 내부 회계 정보(EBIT Margin)와 설문 결과를 일대일 삼각 결합하는 고비용 DB를 외래 연구원이 온전히 똑같이 모으는 것은 매우 어렵습니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- STEP 6 — Limitations & Critical Doubts -->
+    <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+      <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+        <h2 class="style-h2 text-slate-900">STEP 6. Limitations 및 비판적 분석</h2>
+        <span class="badge badge-warning style-label uppercase">Limitations</span>
+      </div>
+
+      <!-- Limitation A -->
+      <div class="collapse collapse-arrow bg-red-50 border border-red-200 rounded-none">
+        <input type="radio" name="limitation-accordion" checked="checked" /> 
+        <div class="collapse-title text-lg font-bold text-red-950 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-700"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+          A. 논문이 스스로 인정한 한계 (Self-Acknowledged Limitations)
+        </div>
+        <div class="collapse-content text-slate-800 text-sm flex flex-col gap-2">
+          <p><strong>1. SMOPEC 국가 표본 편향:</strong> 핀란드라는 소규모 개방경제 특성상 좁은 국내 내수시장 압박 때문에 빠르게 나가야 하는 특수 유인이 강력하여 대국형 SME에 일반화하는 것은 제한적입니다.</p>
+          <p><strong>2. 지식/가치사슬 변수의 설문 의존:</strong> 종속변수인 재무 정보만 Amadeus 회계장부에서 추출하였고, 가치 사슬 분산 및 시장 지식 수준은 경영자 1인의 자기 평가에 의존하여 주관성을 가집니다.</p>
+          <p class="italic text-xs text-red-700 bg-red-100/50 p-2 rounded">"First, caution is warranted in generalizing beyond similar empirical contexts... Second, while EBIT was obtained objectively, other constructs rely on perceptual survey response..." (Page 112, Sec. 5)</p>
+        </div>
+      </div>
+
+      <!-- Limitation B -->
+      <div class="collapse collapse-arrow bg-amber-50 border border-amber-200 rounded-b-box">
+        <input type="radio" name="limitation-accordion" /> 
+        <div class="collapse-title text-lg font-bold text-amber-950 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-amber-700"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 21l8.904-.813a18.593 18.593 0 0010.08-10.08L21 9l-5.096 5.096a18.59 18.59 0 00-6.09 6.09z" /><path stroke-linecap="round" stroke-linejoin="round" d="M11.667 8.333L15.667 12.333" /></svg>
+          B. 논문이 언급하지 않은 비판적 의심 (Critical/Unmentioned Issues)
+        </div>
+        <div class="collapse-content text-slate-800 text-sm flex flex-col gap-3">
+          <div>
+            <span class="font-bold text-slate-900">1. EIF와 TIF를 가르는 자의적인 3년 컷오프:</span>
+            <p class="mt-1">창업 3년 만에 수출 비중 25% 도달을 기준으로 이분법(binary split) 분류를 하였으나, 4~5년 내 급팽창한 기업(Gradual Accelerators)도 많습니다. 인위적 경계 처리가 기업의 연속적 국제화 행위의 동력을 노이즈로 뭉개버릴 우려가 있습니다.</p>
+          </div>
+          <div>
+            <span class="font-bold text-slate-900">2. 영업이익률 변동(EBIT Margin Change)의 외생적 충격 미통제:</span>
+            <p class="mt-1">영업이익률의 2개년 변동($t_0 \to t_2$)은 개별 중소기업의 '지식 격리 우위'보다 원자재가 인상, 환율 급변, 업계 사이클 등의 거시 경제 충격에 훨씬 취약합니다. 외생적 거시 요인 통제가 충실치 않아 경로 계수의 노이즈가 존재할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-8 px-4 text-center border-t border-slate-800 mt-16 style-small">
+    <div class="max-w-7xl mx-auto">
+      <p>© 2026 B2B Research Briefing - Journal of Industrial Marketing Management</p>
+      <p class="mt-2 text-slate-600">Created for preparation of B2B Theme Research and Writing</p>
+    </div>
+  </footer>
+
+</body>
+</html>

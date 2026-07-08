@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exploring the Intensity of Power Asymmetry in Food Supply Systems - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Power Dynamics & Systems Thinking</div>
+        <div class="badge badge-secondary text-white style-label">Expert Panel: N=50</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Exploring the intensity of power asymmetry in food supply systems:<br>
+            <span class="text-cyan-400">An application of systems thinking</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Svetlana Bogomolova, Laura Lesar, Nicole Baum, Bryony Jardine, Larry Lockshin, Adam Loch, Jonathan Buckley
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            식품 공급 시스템 내 권력 비대칭성의 강도 탐색:<br>
+            <span class="text-indigo-300">복잡계 적응 시스템(CAS) 관점의 적용</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            호주의 생산자, 유통업체, 정책 입안자 50인 전문가 심층 인터뷰를 통한 수준별 권력 강도 변화 분석 및 교차 시스템 완화 전략 규명
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">대기업의 가격 횡포를 피하려면 납품 비중을 30% 이하로 묶고, 식당·관광과의 직거래로 숨통을 터야 합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          분석 시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Power asymmetry in food supply systems can restrict local producers' access to mainstream distribution impacting their growth and that of local economies. While prior research acknowledges this challenge, it overlooks how the intensity of power asymmetry varies across system levels. This study applies a systems theory perspective, and in particular complex adaptive system (CAS) lens to explore: (1) how power asymmetry intensity varies across food supply system levels, and (2) what strategies might mitigate power asymmetry for local producers within and across systems. Through 50 in-depth expert interviews with Australian producers, retailers, and policymakers, findings indicate that power asymmetry intensifies on a continuum from micro (e.g., farm-gate sales, farmers markets), through meso (e.g., national) to macro levels (e.g., global). Cross-system opportunities, in hospitality and tourism systems, can diversify distribution channels for local producers, reducing reliance on dominant retailers. The study challenges uniform views of power asymmetry and identifies solution-focused mitigation strategies that could be utilized within and beyond a food supply system. It extends systems theory, in particular CAS, and power asymmetry frameworks in B2B marketing, mapping intensity variations and cross-system leverage. Practically, the findings suggest actionable strategies for local food producers, retailers and policymakers to develop more equitable and resilient local food systems."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "식품 공급 시스템에서의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">권력 비대칭성</span>(power asymmetry)은 로컬 생산자의 주류 유통 경로 진입을 제한하여 그들의 성장과 지역 경제에 영향을 미칠 수 있다. 선행 연구들은 이러한 어려움을 인지하고 있으나, 권력 비대칭성의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">강도</span>(intensity)가 시스템 수준에 따라 어떻게 달라지는지는 간과하고 있다. 본 연구는 시스템 이론 관점, 특히 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">복잡계 적응 시스템</span>(complex adaptive system, CAS)의 렌즈를 적용하여 (1) 권력 비대칭성의 강도가 식품 공급 시스템 수준에 따라 어떻게 달라지는지, (2) 시스템 내부 및 시스템 간 전반에 걸쳐 로컬 생산자를 위해 권력 비대칭성을 완화할 수 있는 전략이 무엇인지 탐색한다. 호주의 생산자, 유통업체 및 정책 입안자들과의 50회에 걸친 심층 전문가 인터뷰 결과, 권력 비대칭성은 마이크로(micro, 예: 농장 직판, 파머스 마켓), 메조(meso, 예: 국가/연방 수준), 매크로(macro, 예: 글로벌 수준)에 이르기까지 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">연속선상</span>(continuum)에서 점차 강해지는 것으로 나타났다. 환대(hospitality) 및 관광(tourism) 시스템과의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">교차 시스템</span>(cross-system) 기회는 로컬 생산자의 유통 경로를 다각화하여 지배적인 소매 유통업체에 대한 의존도를 줄일 수 있다. 본 연구는 권력 비대칭성에 대한 일률적인 시각에 의문을 제기하고, 식품 공급 시스템 내부와 그 너머에서 활용될 수 있는 해결책 중심의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">완화 전략</span>을 식별한다. 이는 B2B 마케팅에서 시스템 이론(특히 CAS)과 권력 비대칭성 프레임워크를 확장하고 강도 변화 및 교차 시스템 레버리지를 매핑한다. 실무적으로 본 연구의 결과는 로컬 식품 생산자, 유통업체, 정책 입안자들에게 보다 공정하고 회복탄력성 있는 로컬 식품 시스템을 개발하기 위한 실행 가능한 전략을 제시한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Power Asymmetry</td>
+                  <td>권력 비대칭성</td>
+                  <td class="text-sm">B2B 채널에서 자원 통제력이나 시장 내 협상 지위의 격차로 발생하는 일방적 힘의 격차입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Complex Adaptive System (CAS)</td>
+                  <td>복잡계 적응 시스템</td>
+                  <td class="text-sm">독립적이고 다양한 주체(agents)가 고정된 중앙 제어 없이 상호 작용하며 환경에 적응하는 동적 시스템 구조입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Continuum</td>
+                  <td>연속선상 / 연속체</td>
+                  <td class="text-sm">권력 강도가 이분법적이 아니라 규모가 커짐에 따라 점진적으로 변화하고 강화되는 일련의 스펙트럼입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Cross-system opportunities</td>
+                  <td>교차 시스템 기회</td>
+                  <td class="text-sm">단일 식품 공급 시스템의 경계를 넘어 인접 영역(외식업, 관광)의 자원과 네트워크를 활용하는 다각화 창구입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Mitigation strategies</td>
+                  <td>완화 전략</td>
+                  <td class="text-sm">권력 불균형 상태에서 파생되는 대기업의 횡포나 리스크로부터 약자 행위자가 자율성을 방어하는 전략적 솔루션입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 핵심 주장을 세부적으로 도출했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">식품 공급망 수준별 권력 격차와 완화책은?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">연속적 강화 구조와 교차 시스템 우회로 존재</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">CAS 이론을 통한 약자 행위자 중심 생존 전략</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 식품 공급 시스템의 수준(마이크로-메조-매크로)별로 권력 비대칭성의 강도가 어떻게 달라지며, 로컬 농가들은 독과점 대기업의 가격 압박에 대응해 어떤 완화 전략을 전개할 수 있는가?</li>
+                  <li><strong>핵심 발견:</strong> 힘의 불균형은 마이크로(대등/낮음) &rarr; 메조(높음/대형 소매상 독점) &rarr; 매크로(가장 높음/글로벌 단가 및 규제) 순으로 연속적으로 강화된다. 이에 로컬 농가는 메조(국가) 수준에서 **단일 마트 납품 한도를 30% 이하**로 묶고 고유 품종 IP를 개발해 방어하는 동시에, **인접 관광(에그리투어리즘) 및 환대(식당/카페 직결망) 시스템으로 유통을 우회**해 의존성을 완화해야 한다.</li>
+                  <li><strong>이론/실무 기여:</strong> 힘을 고정된 것으로 보던 기존 B2B 시각을 비틀어 복잡계 적응 시스템(CAS) 관점의 '다계층 스펙트럼' 및 '교차 시스템 통섭' 구조를 입증했고, 생존 농가 포트폴리오 관리를 위한 직관적인 30% 규정 및 채널 다각화 실무 프레임워크를 선물했다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "로컬 농가는 대형 마트의 권력 폭거를 피하기 위해 납품 비중을 30% 이하로 제어하고, 인접한 관광 및 식음료 시스템과의 직거래 경로를 통해 생존력을 확보해야 합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 핵심 주장들과 실증적 근거 데이터의 원문 인용 및 본문 페이지 위치를 매핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">수준별 비대칭성 강도의 연속체 변화</td>
+                <td class="text-sm italic text-slate-600">
+                  "...findings indicate that power asymmetry intensifies on a continuum from micro (e.g., farm-gate sales, farmers markets), through meso (e.g., national) to macro levels (e.g., global)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 59</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">메조(국가) 수준에서 대형유통사의 가격 통제</td>
+                <td class="text-sm italic text-slate-600">
+                  "The other major problem is that farmers are price takers, not price givers. Even though your inputs go up every single year, because [national retailers] have these contracts with the big farms and the price just stays the same all the time."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 59 (Table 2)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">대형마트 단일 채널 고착화의 퇴출 위험</td>
+                <td class="text-sm italic text-slate-600">
+                  "... if you end up with a big contract with, say [national retailer], then if you're locked into that, you've got all your eggs in one basket, so to speak... then if they decide for whatever reason they don't want you anymore, they just cut you off..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 59</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">유통 대기업 납품 비중 상한(30%) 제한 통제</td>
+                <td class="text-sm italic text-slate-600">
+                  "...we battle hard to try and keep their percentage in check, so we set a target to say we don't want either one of those accounts to exceed 30% of the business. It's just about not having all of your eggs in one basket."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 60</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">독점 브랜드/지식재산(IP) 개발을 통한 협상력</td>
+                <td class="text-sm italic text-slate-600">
+                  "...whereas if you've got a proprietary product, that A) is more attractive to consumers, and B) you're the only one who can produce... then you're able to have a more commercially viable business... You've got more negotiating power..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 60</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">환대 시스템과의 교차 연계 (비규격품 소진)</td>
+                <td class="text-sm italic text-slate-600">
+                  "To sell it [fresh produce] in store it has to been 100%. But in a restaurant, even if it's half bad, they can still use it."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 61</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">관광 시스템의 고마진 현지 특산물 수요 활용</td>
+                <td class="text-sm italic text-slate-600">
+                  "People these days are looking for local produce especially when they're travelling ... they want to know what the local food is like… They're looking at what do you produce? What sort of homemade artisan products they produce?"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 61</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (수준별 권력 변화 및 대안 유통 경로)</h3>
+          
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 850 480" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+                </marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#16a34a"/>
+                </marker>
+                <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+                </marker>
+                <linearGradient id="gradient-continuum" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#38bdf8" />
+                  <stop offset="50%" stop-color="#3b82f6" />
+                  <stop offset="100%" stop-color="#1e3a8a" />
+                </linearGradient>
+              </defs>
+
+              <!-- Left Side: Power Asymmetry Continuum Bar -->
+              <rect x="20" y="50" width="16" height="380" rx="4" fill="url(#gradient-continuum)"/>
+              <text x="12" y="240" transform="rotate(-90 12 240)" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="11">권력 비대칭성 강도 증가 (Continuum)</text>
+              <text x="45" y="65" fill="#0284c7" font-weight="700" font-size="11">낮음 (Low)</text>
+              <text x="45" y="425" fill="#1e3a8a" font-weight="700" font-size="11">매우 높음 (High)</text>
+
+              <!-- Left Column: System Levels (Nested Elements) -->
+              <!-- Micro Level Box -->
+              <rect x="90" y="50" width="220" height="80" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+              <text x="200" y="78" text-anchor="middle" font-weight="700" fill="#14532d" font-size="13">마이크로 수준 (Micro Level)</text>
+              <text x="200" y="98" text-anchor="middle" fill="#166534" font-size="10.5">농장 직판, 파머스 마켓, 독립 마트</text>
+              <text x="200" y="115" text-anchor="middle" fill="#15803d" font-weight="700" font-size="10">자율성 높음 / 신뢰 & 호혜적 관계</text>
+
+              <!-- Meso Level Box -->
+              <rect x="90" y="200" width="220" height="80" rx="8" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/>
+              <text x="200" y="228" text-anchor="middle" font-weight="700" fill="#0c4a6e" font-size="13">메조 수준 (Meso Level)</text>
+              <text x="200" y="248" text-anchor="middle" fill="#0369a1" font-size="10.5">전국구 대형 유통 체인 (독과점)</text>
+              <text x="200" y="265" text-anchor="middle" fill="#0284c7" font-weight="700" font-size="10">수요 집중 / 단가 후려치기 & 퇴출 위험</text>
+
+              <!-- Macro Level Box -->
+              <rect x="90" y="350" width="220" height="80" rx="8" fill="#fff5f5" stroke="#dc2626" stroke-width="2"/>
+              <text x="200" y="378" text-anchor="middle" font-weight="700" fill="#7a1515" font-size="13">매크로 수준 (Macro Level)</text>
+              <text x="200" y="398" text-anchor="middle" fill="#991b1b" font-size="10.5">글로벌 무역 및 해외 유통 네트워크</text>
+              <text x="200" y="415" text-anchor="middle" fill="#c53030" font-weight="700" font-size="10">엄격한 수출입 규제 / 대규모 자본 장벽</text>
+
+              <!-- Center Column: Focal SME Actor -->
+              <rect x="360" y="200" width="160" height="80" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="2.5"/>
+              <text x="440" y="235" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">로컬 생산자</text>
+              <text x="440" y="255" text-anchor="middle" fill="#334155" font-size="14" font-weight="700">(SME Farmers)</text>
+              <text x="440" y="272" text-anchor="middle" fill="#64748b" font-size="9.5">채널 및 포트폴리오 관리 주체</text>
+
+              <!-- Right Column: Cross-System / Adjacent Systems (Mitigation Pathways) -->
+              <!-- Hospitality System Box -->
+              <rect x="580" y="90" width="230" height="90" rx="8" fill="#fdf2f8" stroke="#db2777" stroke-width="2"/>
+              <text x="695" y="118" text-anchor="middle" font-weight="700" fill="#831843" font-size="13">환대 시스템 (Hospitality)</text>
+              <text x="695" y="138" text-anchor="middle" fill="#9d174d" font-size="10">레스토랑, 카페, 케이터링 직거래</text>
+              <text x="695" y="155" text-anchor="middle" fill="#c2185b" font-size="9.5">비규격 흠과(Ugly produce) 소비</text>
+              <text x="695" y="170" text-anchor="middle" fill="#db2777" font-weight="700" font-size="10">상생적 원가 절감 (윈-윈)</text>
+
+              <!-- Tourism System Box -->
+              <rect x="580" y="300" width="230" height="90" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="695" y="328" text-anchor="middle" font-weight="700" fill="#78350f" font-size="13">관광 시스템 (Tourism)</text>
+              <text x="695" y="348" text-anchor="middle" fill="#92400e" font-size="10">에그리투어리즘, 현지 체험 프로그램</text>
+              <text x="695" y="365" text-anchor="middle" fill="#b45309" font-size="9.5">푸드 페스티벌 및 현지 직판 부스</text>
+              <text x="695" y="380" text-anchor="middle" fill="#d97706" font-weight="700" font-size="10">관광객 대상 프리미엄 가공품 판매</text>
+
+              <!-- Arrows & Paths (Mitigation & Exposure Relations) -->
+              <!-- Producer to Micro -->
+              <path d="M 390 200 C 370 170, 360 140, 310 100" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green)"/>
+              <text x="320" y="155" fill="#16a34a" font-weight="700" font-size="10.5">자율적 진입</text>
+
+              <!-- Producer to Meso (Exposure & Threat) -->
+              <path d="M 360 240 L 320 240" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="340" y="235" fill="#0284c7" font-weight="700" font-size="10.5">종속 위협</text>
+
+              <!-- Meso to Producer (Mitigation Loop: Max 30% / IP) -->
+              <path d="M 310 260 C 330 280, 370 290, 390 280" fill="none" stroke="#0284c7" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="350" y="295" fill="#0284c7" font-weight="700" font-size="9.5">포트폴리오 30% 한도 & 고유IP 개발</text>
+
+              <!-- Producer to Macro (High Barrier) -->
+              <path d="M 390 280 C 370 310, 360 340, 310 375" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="320" y="335" fill="#dc2626" font-weight="700" font-size="10.5">수출/자본 장벽</text>
+
+              <!-- Cross-System Pathway 1: Producer to Hospitality -->
+              <path d="M 500 200 C 530 160, 550 140, 580 135" fill="none" stroke="#db2777" stroke-width="2" stroke-dasharray="2 2" marker-end="url(#arrow-green)"/>
+              <text x="545" y="175" fill="#db2777" font-weight="700" font-size="10.5">흠과 우회로</text>
+
+              <!-- Cross-System Pathway 2: Producer to Tourism -->
+              <path d="M 500 280 C 530 320, 550 340, 580 345" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="2 2" marker-end="url(#arrow-amber)"/>
+              <text x="545" y="315" fill="#d97706" font-weight="700" font-size="10.5">프리미엄 우회로</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Element 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">마이크로 수준 채널</span>
+                <span class="text-xs text-slate-400 font-semibold">Micro-level</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">마이크로 수준 유통 (농장 직판 & 파머스 마켓)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 지리적 격차가 없는 로컬 범위 내에서 대면 협상과 커뮤니티적 신뢰를 축으로 가동되는 분산형 유통 경로.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 농가 게이트(farm-gate) 직판, 가판대, 파머스 마켓, 지역 독립 슈퍼마켓과의 상호 거래 및 계약의 자율성 수준.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 50개 전문가 인터뷰 코딩 / 본문 Section 4.2.1.1 및 Table 2 'High Autonomy', 'Trust' 테마 적용.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 거래 대칭성이 높고 이익율이 가장 높으나, 물류 및 수요 규모를 확장하는 능력이 구조적으로 제한됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Element 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">메조 수준 채널</span>
+                <span class="text-xs text-slate-400 font-semibold">Meso-level</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">메조 수준 유통 (국가구 소매 유통 체인)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 주 단위 및 전국 단위로 통합된 중앙집중적 대량 유통 경로로, 극소수 거대 소매 기업에 의해 관리되는 영역.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 호주의 Coles 및 Woolworths와 같은 양대 대형 유통업체와의 거래 여부 및 이에 유입되는 압박 가격 수준.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 50개 전문가 인터뷰 코딩 / 본문 Section 4.2.1.2 및 Table 2 'Coercive Tactics', 'Low Autonomy' 테마 적용.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 생산자가 완전한 '가격 수용자(price taker)'로 전락해 이윤 압박과 불시 퇴출(delisting) 피해를 보기 쉬움.
+              </p>
+            </div>
+          </div>
+
+          <!-- Element 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-error style-label text-white">매크로 수준 채널</span>
+                <span class="text-xs text-slate-400 font-semibold">Macro-level</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">매크로 수준 유통 (글로벌 수출 시장)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 국내를 초과하는 글로벌 식량 유통 구조로, 거시 규제 및 글로벌 농업 경쟁업체가 엮여 있는 유통망.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 중국, 홍콩 등 해외 소매/대행 체인 수출 실적, 국가 간 통관 검역 승인 시간과 콜드체인 물류 기준 충족성.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 50개 전문가 인터뷰 코딩 / 본문 Section 4.2.1.3 및 Table 2 'Resource Imbalance' 테마 적용.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 거대 영농으로 가기 위한 필수 코스지만, 중소 생산자는 단독으로 글로벌 통관 기준 및 단가 경쟁력을 감당하기 불가능함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Element 4 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-secondary style-label text-white">교차 연계 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Hospitality Link</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">환대(Hospitality) 시스템 연계</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 기존 식료품 소매업과 차별화되어 조리/가공 능력을 지닌 지역 레스토랑 및 카페 서비스망과의 직접 연계망.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 지역 셰프/식당과의 직접 납품 계약 비중, 대형마트 규격에 미달한 흠과(ugly produce)의 셰프용 납품 비율.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 50개 전문가 인터뷰 코딩 / 본문 Section 4.2.2.1 및 Table 2 'Hospitality System' 테마 적용.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 가공/조리 단계에서 외형 흠집이 상쇄될 수 있어 비규격 잉여 농산물의 손실을 최소화하는 훌륭한 윈-윈 우회 경로.
+              </p>
+            </div>
+          </div>
+
+          <!-- Element 5 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">교차 연계 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Tourism Link</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">관광(Tourism) 시스템 연계</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 지역을 방문한 외부 레저 수요 및 미식 투어리즘(culinary tourism) 생태계와 로컬 브랜드 제품의 결합.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 에그리투어리즘(agritourism) 체험 농장 방문객 매출 비율, 푸드 페스티벌 및 지역 관광 거점 입점 유효성.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 50개 전문가 인터뷰 코딩 / 본문 Section 4.2.2.2 및 Table 2 'Tourism System' 테마 적용.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 관광객들은 가격 흥정이 없고 독특성(artisan/local)에 비용을 대거 지불하므로 고부가가치 고마진 창출의 교두보가 됨.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 연구 설계 및 데이터 분석을 그대로 <strong>추종 재현</strong>할 수 있도록 절차를 단계별로 명시했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 대상 맥락 및 경계 조건 설정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Coles와 Woolworths 대형마트 2개 사가 전체 마트 시장의 70%를 통제하여 가장 권력 불균형이 극단적으로 나타나는 '호주 식품 유통 시장'을 조사 대상 환경으로 선정함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 56, Section 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">목적적 및 최대 변화 표본 추출(Maximum Variation)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  다중 행위자(multi-agent) 관점을 기하기 위해 연구 대상을 (1) 로컬 생산자, (2) 소매 마트 지점장/디렉터, (3) 농정/관광 정책가 등 3개 그룹으로 양분하고 취급 품목과 지역을 고르게 배분 설계함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 56, Section 3.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">눈덩이 표본 추출(Snowball Sampling) 병행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  최초 모집된 업계 핵심 전문가 면담 종료 시마다 이들의 전문 네트워크 내에 소속된 타 주(state) 로컬 농업 리더나 지자체 정책 담당자를 추가 추천받아 참여 풀을 확대함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 56, Section 3.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">준구조화 면접지 설계 및 윤리위원회 승인</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  생산자의 거래 자율성, 마트의 로컬 소싱 검토 장애물, 정책 담당자의 지역 육성 수단 등 각 그룹 특화 문항으로 구성된 준구조화 가이드를 개발하고 연구 윤리 승인(No. 0000035460) 획득.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 56, Section 3.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">심층 인터뷰 및 전사(Transcription)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  대면/전화로 면담을 진행해 682페이지의 텍스트 축적. 더 이상 면담에서 새로운 요인(themes)이 발견되지 않는 이론적 포화(theoretical saturation)에서 수집 종결(최종 N=50).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 56, Section 3.2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">NVivo 귀납적 테마 분석 및 이중 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  확보된 전사본을 2회 이상 정독 후 NVivo에 탑재. 두 명의 독립된 코더(공동저자)가 교차 코딩을 진행하며 (1) 권력 비대칭성 강도 스펙트럼, (2) 내적 방어 전술, (3) 외적 우회 경로 코드를 통합 도출함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 57, Section 3.3 & Table 2</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">피어 리뷰 및 분석자 삼각측량 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  초기 조사에 2명의 연구원이 배석하여 인터뷰 조작 일관성을 맞추고, 도출된 질적 테마들에 대한 동료 학자 피어 평정(peer evaluation)을 실행하여 신뢰도와 타당성을 제고함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 57-58, Section 3.3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            준구조화 가이드 요령 및 NVivo 분류 체계표(Table 2)가 투명하게 공개되어 기법적 절차 재현은 완전하지만, 호주 정부의 농정 담당 고위 관료, 국회의원, 대형 독과점 마트의 주(state) 디렉터 등 실력자 50인을 임의 연구자가 독자적으로 섭외하여 그들의 솔직한 애로사항과 사적 유통 계약 맥락을 완전 동일하게 고백받기는 현실적 장벽이 높습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.4)에서 연구진이 고백한 분석 범위의 한정 조건들입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>소비자 집단 조사 배제:</strong> 과거 소비자 인식 연구가 다수 존재했다는 이유로 식품 유통의 핵심 축인 일반 소비자의 의견은 구하지 않고 전원 생산자/유통자/정책가 등 전문가 패널로만 조사함.
+              </li>
+              <li>
+                <strong>표본의 지리적 불완전 포괄성:</strong> 호주 8개 주 중 4개 주(South Australia, New South Wales, Victoria, Queensland) 데이터만 포함되어 호주 전체 및 타 문명국가로의 성급한 일반화에 무리가 있음.
+              </li>
+              <li>
+                <strong>사회적 바람직성 편향 유입:</strong> "로컬 생산자를 돕고 지원한다"는 명제 자체가 사회적으로 호감도가 높은 선행으로 작동하기 때문에, 일부 소매업 관리자 및 공무원들이 자비로운 형태의 거래 관계를 과장해서 설명했을 여지가 있음.
+              </li>
+              <li>
+                <strong>정량적 인과 통계 분석 누락:</strong> 인터뷰 진술 코딩 방식에 머물렀기 때문에, 권력 비대칭성의 강도 변화나 우회 유통 다각화가 실제 기업 농가 매출 성장 및 부도 저감에 기여하는 정량적 효과 크기는 통계적으로 산출하지 못함.
+              </li>
+              <li>
+                <strong>Coles/Woolworths 독과점이 극단적인 특수 상황:</strong> 호주의 식품 소매 duopoly(70%)는 세계적으로도 대단히 예외적인 독과점이다. 유통 채널이 좀 더 다양하게 분산된 미국이나 유럽 등지에 본 결론들을 동일하게 정합하기엔 제약이 존재함.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구의 표본 구성과 방법론적 논리를 면밀히 들여다볼 때 도출되는 구조적 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 데이터의 심각한 남호주(South Australia) 편중 편향</span>
+                <p class="text-sm text-slate-700">
+                  논문은 호주 내 4개 주를 두루 조사했다고 밝히지만 부록 A의 실제 명단을 뜯어보면 **생산자 16명 중 8명, 유통업자 16명 중 11명, 정책 입안자 18명 중 15명(총 50명 중 34명, 68%)이 남호주(South Australia)** 한 곳에 집중되어 있습니다. 남호주는 호주 내에서 유독 Drakes나 Foodland 등 로컬 독립 슈퍼마켓의 시민 충성도와 채널 점유율이 가장 강력한 곳입니다. 즉, "마이크로 독립 슈퍼마켓과의 수월한 거래 및 자율성 획득"이라는 분석 결과는 남호주만의 극히 예외적인 로컬 친화적 소매 생태계 덕분일 수 있으며, 시드니(NSW)나 멜버른(VIC) 등 대도시 중심의 타 지역 농가에는 적용되지 않을 가능성이 매우 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 사망자 침묵에 따른 생존자 편향 (Survivor Bias)</span>
+                <p class="text-sm text-slate-700">
+                  인터뷰에 기꺼이 응하여 "대형 마트 납품을 30% 이하로 제어하라"는 지혜로운 전술을 늘어놓은 16명의 로컬 생산자들은 이미 다양한 우회 경로를 뚫고 영업을 정상 지속 중인 '생존 및 성공 중소기업'들입니다. 대형마트의 강압적인 가격 인하 압박이나 갑작스러운 delisting 통보를 버티지 못하고 몇 해 전 파산해 버린 '진짜 파멸한 농가'들의 참담한 목소리는 수집 풀에서 원천 차단되었습니다. 실패 사례가 배제됨으로써 생존 농가가 누리는 자율성과 우회 경로의 용이성이 과도하게 미화되고 부각되었을 가능성이 농후합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 지리적 격오지(Remote Rural) 농가의 우회 한계</span>
+                <p class="text-sm text-slate-700">
+                  논문은 관광이나 레스토랑 연계를 핵심 대안 우회로로 제시합니다. 그러나 이 우회로는 도시 근교(peri-urban) 및 유명 와이너리와 명승지가 있는 지리적 행운을 갖춘 지역 농가들에게만 가당한 전술입니다. 호주 내륙 깊숙한 아웃백이나 격오지(Remote areas)에서 밀, 옥수수 등을 대량으로 트럭 단위 벌크 판매하는 오지 농가들에겐 직접 배달을 반갑게 맞아줄 고급 식당도 없으며 농장 체험을 하러 올 배후 관광객 풀도 전혀 없습니다. 운송비가 제품 단가를 초과하는 격오지 농가들의 유통 고립을 풀기에는 본 우회로의 실행 가능성(feasibility)이 턱없이 부족합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 객관적 지표 대조 없는 주관적 진술 합리화</span>
+                <p class="text-sm text-slate-700">
+                  권력 비대칭성의 존재 유무와 자율성의 척도가 거래 데이터나 실제 마진 계약 서류, 검역 통과 소요 시간과 같은 객관적 증빙 검토(documentary check) 없이 전적으로 구술자의 기억과 주관적 느낌 진술에 의존해 코딩되었습니다. 대기업에 불만을 품은 농가의 감정 섞인 과장이나 자사를 친화적인 상생 기업으로 브랜딩하고 싶은 유통 담당 지점장의 인지 왜곡이 여과 없이 그대로 학술적 결과로 포장되었을 위험이 큽니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Exploring the intensity of power asymmetry in food supply systems: an application of systems thinking</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

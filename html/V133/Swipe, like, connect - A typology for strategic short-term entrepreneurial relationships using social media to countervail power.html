@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swipe, like, connect - IMM 2026 Academic Report</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Relationship & Social Media</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Typology Study</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Swipe, like, connect:<br>
+            <span class="text-cyan-400 text-3xl lg:text-5xl">A typology for strategic short-term entrepreneurial relationships using social media to countervail power</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Helen McGrath, Thomas O'Toole, Conor Drummond
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            스와이프, 좋아요, 연결:<br>
+            <span class="text-indigo-300 text-2xl lg:text-3.5xl font-semibold">소셜 미디어를 활용하여 권력 불균형에 대응하는 전략적 단기 창업 관계의 유형학</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            아일랜드 수제 식품 및 음료 산업(33개 사) 실증 데이터를 바탕으로 한 12가지 소셜 미디어 B2B 권력 대항 관계 모델 분석
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">대기업과의 기존 관계를 직접 고치려 하지 않고, 소셜 미디어를 활용해 단기적이고 유연한 대안 관계들을 형성함으로써 권력 불균형에 대응합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "While studies of power in business networks are well-established, research on how digitalisation influences power asymmetry in entrepreneurial firm contexts remains limited. This study focuses on understanding how social media (SM) can reshape power asymmetries in entrepreneurial relationship and network development. Using the craft food and drink industry as an empirical base, our study employs an abductive qualitative approach with 33 entrepreneurial firms (includes data from personal interviews in each firm, and 4000 SM posts) to develop a classification scheme for SM power asymmetries, and 12 SM power typologies for strategically responding to power imbalances. Our findings suggest entrepreneurial craft firms employ SM to challenge power imbalances. However, rather than altering their position in existing relationships, entrepreneurs develop new relationship types using SM. We contribute a SM power asymmetry classification scheme that demonstrates how short-term relationships function as strategic power countervailing mechanisms and provide a novel typology of relationship types that entrepreneurs use to address power asymmetries through SM."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "비즈니스 네트워크 내 권력에 대한 연구는 잘 확립되어 있지만, 디지털화가 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">창업 기업 맥락</span>에서 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">권력 비대칭</span>에 어떻게 영향을 미치는지에 대한 연구는 여전히 제한적이다. 본 연구는 소셜 미디어(SM)가 창업 관계 및 네트워크 개발에서 어떻게 권력 비대칭을 재형성할 수 있는지 이해하는 데 초점을 맞춘다. 수제 식품 및 음료 산업을 실증적 기반으로 삼아, 본 연구는 33개 창업 기업(각 기업과의 개인 인터뷰 및 4,000건의 소셜 미디어 게시물 데이터 포함)을 대상으로 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">귀추적(abductive) 질적 접근법</span>을 적용하여 SM 권력 비대칭 분류 체계와 권력 불균형에 전략적으로 대응하기 위한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">12가지 SM 권력 유형</span>을 개발하였다. 연구 결과에 따르면, 창업 수제 기업들은 권력 불균형에 도전하기 위해 SM을 활용한다. 그러나 기존 관계 내에서 자신의 위치를 바꾸기보다는, 창업가들은 SM을 활용하여 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">새로운 관계 유형</span>을 개발한다. 본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">단기 관계(short-term relationships)</span>가 전략적 권력 대항(countervailing) 메커니즘으로 어떻게 작동하는지 입증하는 SM 권력 비대칭 분류 체계를 기여하고, 창업가들이 SM을 통해 권력 비대칭을 다루기 위해 사용하는 소셜 미디어 관계 유형의 참신한 유형학을 제공한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Power Asymmetry</td>
+                  <td>권력 비대칭</td>
+                  <td class="text-sm">조직 간 관계(B2B)에서 한 파트너가 다른 파트너에 비해 의존성 및 자원 통제력 우위를 점하여 일방적인 영향력을 행사하는 불균형 상태를 의미합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Countervail Power</td>
+                  <td>권력에 대항하다 / 상쇄하다</td>
+                  <td class="text-sm">대형 유통업체의 지배적 권력에 직면하여, 약자인 창업 기업이 자율성을 확보하거나 권력 작용을 무력화하기 위한 전략적 저항 메커니즘을 뜻합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Abductive Approach</td>
+                  <td>귀추적 접근법</td>
+                  <td class="text-sm">실증적 데이터와 이론적 프레임워크를 계속해서 대조하며 개념을 귀납적으로 정교화하는 질적 분석 방법론입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Personal Contact Networks (PCNs)</td>
+                  <td>개인적 접촉 네트워크</td>
+                  <td class="text-sm">창업가 개인의 사적인 인간관계 및 비공식적 지역사회 인맥으로 구성된 관계망입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Digital Rules</td>
+                  <td>디지털 규칙 / 규범</td>
+                  <td class="text-sm">대형 유통업체가 협력사에게 요구하는 소셜 미디어 상의 태깅이나 게시물 작성 등 일방적 행동 규범입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 기여와 메커니즘을 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">소셜 미디어가 창업가의 권력 대응을 돕는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">새로운 대안적 단기 관계 형성이 열쇠다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">단기 관계의 전략적 가치와 RDT의 디지털 확장</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 자원이 극히 제한된 창업 기업이 소셜 미디어를 사용해 대형 유통업체의 일방적인 권력 지배에 어떻게 대응하고 생존을 도모하는가?</li>
+                  <li><strong>핵심 발견:</strong> 창업가들은 기존 강자와의 관계 자체를 직접 개혁하여 권력을 확보하기보다는, 소셜 미디어를 통해 <strong>제3의 새로운 관계(주로 유연한 단기적 연대)</strong>를 신속히 형성함으로써 기존 불균형을 회피하고 우회한다.</li>
+                  <li><strong>이론/실무 기여:</strong> 기존 B2B 문헌이 집착하던 '장기적 신뢰 관계' 프레임을 탈피하여, 소셜 미디어가 제공하는 '단기 관계(short-term relationships)'가 유연성 확보 및 의존성 분산에 유효한 전략적 도구임을 최초로 규명했다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "창업 기업은 대기업에 종속되는 대신, 소셜 미디어를 도구 삼아 단기적이고 다각화된 12가지 대안 관계를 신속히 구축하여 권력 비대칭에 효과적으로 대항합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase text-slate-900">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 신뢰성을 지탱하는 실증 인터뷰 및 소셜 미디어 분석 결과의 원문 데이터와 논문 내 물리적 위치를 대조 매핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">창업 기업의 새로운 관계 형성을 통한 대항</td>
+                <td class="text-sm italic text-slate-600">
+                  "...entrepreneurial craft firms employ SM to challenge power imbalances. However, rather than altering their position in existing relationships, entrepreneurs develop new relationship types using SM."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Sec. 4.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">RDT 전략의 디지털화 및 확장</td>
+                <td class="text-sm italic text-slate-600">
+                  "These types extend traditional RDT strategies by creating potential alternative dependency configurations rather than managing existing ones. While RDT's application typically constrains entrepreneurial firms to accepting unfavourable dependencies, our findings indicate how SM enables innovative variations..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 71 (Sec. 4)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">원거리 파트너십을 통한 유통 권력 우회</td>
+                <td class="text-sm italic text-slate-600">
+                  "Such interactions via SM countervails power by enabling small producers to access international markets and knowledge that would otherwise be controlled by larger, resource-rich organisations."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 73 (Sec. 4.2.2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">정보 비대칭성 조율을 통한 권력 상쇄</td>
+                <td class="text-sm italic text-slate-600">
+                  "This is achieved through SM's ability to be used as a resource to affect the information asymmetry dimension in the theory of the power dominant relationship (Siemieniako & Mitręga, 2018)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 77 (Sec. 6)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">단기 관계의 전략적 가치 발굴</td>
+                <td class="text-sm italic text-slate-600">
+                  "In an era of SM, we argue for a shift toward examining short-term relationships as strategic tools rather than merely transactional exchanges. Hence, short-term relationships deserve greater theoretical attention..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 77 (Sec. 6)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Social Media Power Asymmetry Classification Matrix (분류 매트릭스)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 600" class="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Background Grid -->
+              <rect x="0" y="0" width="800" height="600" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+              
+              <!-- Axis Dividers -->
+              <line x1="400" y1="80" x2="400" y2="540" stroke="#94a3b8" stroke-width="3" stroke-dasharray="6 4"/>
+              <line x1="100" y1="310" x2="700" y2="310" stroke="#94a3b8" stroke-width="3" stroke-dasharray="6 4"/>
+              
+              <!-- Vertical Axis Labels -->
+              <text x="50" y="310" font-weight="700" fill="#1e293b" font-size="14" text-anchor="middle" transform="rotate(-90 50 310)">관계 개발 전략 (Relationship Focus)</text>
+              <text x="390" y="70" font-weight="700" fill="#0f172a" font-size="13" text-anchor="end">네트워크 개발 (Network Development)</text>
+              <text x="390" y="550" font-weight="700" fill="#0f172a" font-size="13" text-anchor="end">개인적 인맥 (PCNs / Interpersonal)</text>
+              
+              <!-- Horizontal Axis Labels -->
+              <text x="400" y="585" font-weight="700" fill="#1e293b" font-size="14" text-anchor="middle">소셜 미디어를 통한 의존성 관리 및 권력 영향 방식 (SM Use to Manage Dependencies)</text>
+              <text x="110" y="300" font-weight="700" fill="#0f172a" font-size="13">적대적 / 독립적 (Adversarial / Independent)</text>
+              <text x="690" y="300" font-weight="700" fill="#0f172a" font-size="13" text-anchor="end">협력적 / 상호의존적 (Cooperative / Interdependent)</text>
+              
+              <!-- Top-Left Q1: Adversarial & Network Development -->
+              <rect x="110" y="90" width="270" height="200" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="2"/>
+              <text x="245" y="115" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="13">Q1. 적대적 네트워크 개발</text>
+              <g transform="translate(130, 135)">
+                <rect x="0" y="0" width="110" height="35" rx="4" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+                <text x="55" y="22" text-anchor="middle" font-size="12" font-weight="600" fill="#ef4444">수용적 (Accepting)</text>
+                
+                <rect x="120" y="0" width="110" height="35" rx="4" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+                <text x="175" y="22" text-anchor="middle" font-size="12" font-weight="600" fill="#ef4444">원거리 (Long-distance)</text>
+                
+                <rect x="0" y="45" width="110" height="35" rx="4" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+                <text x="55" y="67" text-anchor="middle" font-size="12" font-weight="600" fill="#ef4444">임시적 (Temporary)</text>
+                
+                <rect x="120" y="45" width="110" height="35" rx="4" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+                <text x="175" y="67" text-anchor="middle" font-size="12" font-weight="600" fill="#ef4444">실험적 (Experimental)</text>
+                
+                <text x="115" y="110" text-anchor="middle" font-size="11" fill="#7f1d1d" font-weight="600">RDT 전략: 자원 다각화 (Diversifying)</text>
+              </g>
+
+              <!-- Top-Right Q2: Cooperative & Network Development -->
+              <rect x="420" y="90" width="270" height="200" rx="8" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+              <text x="555" y="115" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">Q2. 협력적 네트워크 개발</text>
+              <g transform="translate(440, 135)">
+                <rect x="0" y="10" width="230" height="35" rx="4" fill="#ffffff" stroke="#10b981" stroke-width="1"/>
+                <text x="115" y="32" text-anchor="middle" font-size="12" font-weight="600" fill="#047857">균형적 관계 (Balanced)</text>
+                
+                <rect x="0" y="55" width="230" height="35" rx="4" fill="#ffffff" stroke="#10b981" stroke-width="1"/>
+                <text x="115" y="77" text-anchor="middle" font-size="12" font-weight="600" fill="#047857">몰입적 관계 (Committed)</text>
+                
+                <text x="115" y="115" text-anchor="middle" font-size="11" fill="#064e3b" font-weight="600">RDT: 자원 다각화 / 의존성 변환</text>
+              </g>
+
+              <!-- Bottom-Left Q3: Adversarial & PCN/Interpersonal -->
+              <rect x="110" y="330" width="270" height="200" rx="8" fill="#fffbeb" stroke="#fde68a" stroke-width="2"/>
+              <text x="245" y="355" text-anchor="middle" font-weight="700" fill="#854d0e" font-size="13">Q3. 적대적 인맥 강화 (PCN)</text>
+              <g transform="translate(130, 375)">
+                <rect x="0" y="0" width="110" height="35" rx="4" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+                <text x="55" y="22" text-anchor="middle" font-size="12" font-weight="600" fill="#d97706">틴더식 (Tinder)</text>
+                
+                <rect x="120" y="0" width="110" height="35" rx="4" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+                <text x="175" y="22" text-anchor="middle" font-size="12" font-weight="600" fill="#d97706">스토커식 (Stalker)</text>
+                
+                <rect x="0" y="45" width="230" height="35" rx="4" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+                <text x="115" y="67" text-anchor="middle" font-size="12" font-weight="600" fill="#d97706">독성 관계 (Toxic)</text>
+                
+                <text x="115" y="110" text-anchor="middle" font-size="11" fill="#78350f" font-weight="600">RDT 전략: 내부 대안 개발 (Internal Alt)</text>
+              </g>
+
+              <!-- Bottom-Right Q4: Cooperative & PCN/Interpersonal -->
+              <rect x="420" y="330" width="270" height="200" rx="8" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+              <text x="555" y="355" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">Q4. 협력적 인맥 강화 (PCN)</text>
+              <g transform="translate(440, 375)">
+                <rect x="0" y="0" width="110" height="35" rx="4" fill="#ffffff" stroke="#4f46e5" stroke-width="1"/>
+                <text x="55" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#4f46e5">상부상조 (Friends w/ ben)</text>
+                
+                <rect x="120" y="0" width="110" height="35" rx="4" fill="#ffffff" stroke="#4f46e5" stroke-width="1"/>
+                <text x="175" y="22" text-anchor="middle" font-size="12" font-weight="600" fill="#4f46e5">트로피 (Trophy)</text>
+                
+                <rect x="0" y="45" width="230" height="35" rx="4" fill="#ffffff" stroke="#4f46e5" stroke-width="1"/>
+                <text x="115" y="67" text-anchor="middle" font-size="12" font-weight="600" fill="#4f46e5">플라토닉 (Platonic)</text>
+                
+                <text x="115" y="110" text-anchor="middle" font-size="11" fill="#312e81" font-weight="600">RDT: 내부 대안 / 의존성 변환</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Dimension 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">매트릭스 축 1</span>
+                <span class="text-xs text-slate-400 font-semibold">X-Axis</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">의존성 관리 및 권력 영향 방식 (SM use to manage dependencies)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 창업 기업이 대형 유통망의 지배권력에 직면하여 취하는 소셜 미디어 활용의 전략적 의도와 성향.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 일방적 대형 유통 기업에 순응하지 않고 독자성을 띠려는 적대적/독립적 노선(Adversarial/Independent)과, 파트너십 내 공유 및 결속을 도모하는 협력적/상호의존적 노선(Cooperative/Interdependent)으로 분류.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Cox (2001); Chicksand (2015) 이론에 기반한 질적 에피소드 분류.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술적 의의:</strong> 창업가가 단순히 힘의 균형에 굴복하는 소극적 태도에서 벗어나, 기술적 수단을 이용해 독립과 연합을 오가며 힘의 작용을 무력화하는 능동성을 조망함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Dimension 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">매트릭스 축 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Y-Axis</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">전략적 관계 범위 (Strategic relationship focus)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 소셜 미디어를 사용해 관계를 맺고 자원을 교환하려는 외부 환경의 전략적 경계.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 지연·지역 친분 및 동종 창업가들과의 사적 유대를 공고히 하려는 관계/PCN 개발 전략(Relationship/PCN Development)과, 대안 자원 및 해외 시장 판로 등을 위해 공식적 파트너를 탐색하려는 네트워크 개발 전략(Network Development)으로 분류.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Drummond et al. (2020); McGrath & O'Toole (2013) 연구에 기반한 질적 에피소드 분류.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술적 의의:</strong> 창업 기업이 사적인 친분에 머물지 않고 넓은 시장 네트워크를 동태적으로 모색하는 방향으로 소셜 미디어가 쓰이는 과정을 가시화함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Typology Outcomes Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">결과 프레임워크</span>
+                <span class="text-xs text-slate-400 font-semibold">Outcome Framework</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">12가지 권력 대항 B2B 소셜 관계 모델 (12 Typologies)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자원 제약형 창업 기업이 두 개의 전략적 차원(X축, Y축)을 조율하며 생성하는 12가지 B2B 협력/방어 모델.</p>
+              <p class="text-sm text-slate-700"><strong>핵심적 발견:</strong> 기존 B2B 학계가 신봉하던 '장기적 신뢰 관계'에 국한되지 않고, 소셜 미디어를 활용해 빠르게 기동하는 <strong>단기 관계(short-term relationships)</strong>가 위기 극복 및 우회에 핵심적인 기여를 함.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>RDT(자원의존이론)와의 결합:</strong> 12가지 유형은 RDT의 자원 다각화(Long-distance, Temporary, Experimental, Balanced), 내부 대안 개발(Friends with benefits, Platonic, Tinder, Stalker, Toxic), 의존성 변환(Accepting, Committed, Trophy) 전략과 긴밀히 결합되어 작용함.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 연구 과정 및 데이터 분석을 그대로 **추종 재현**할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">대상 맥락 정의 및 잠재 표본 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  대형 유통 대기업의 힘이 독단적으로 작용하는 아일랜드 수제 식품 및 음료 산업(craft food and drink sector)을 대상 연구 분야로 규정. 온라인 마케팅 데이터베이스 및 박람회/축제 참가 이력을 바탕으로 총 87개의 잠재적 표본 창업 기업 리스트 작성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 70, Section 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">다각적 질적 데이터 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  최종 승낙한 33개 사 창업주를 대상으로 반구조화 심층 면접 수행 (48시간의 대화 전사본, 총 429페이지의 텍스트 구축). 이와 동시에 각 기업의 페이스북, 인스타그램, 트위터(X)에서 수집한 4,000건의 소셜 포스트 정보 확보. 국영 식품청 등의 산업 2차 문헌 및 보도 자료 통합.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 70, Section 3.2 & Appendix 1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">귀추적(Abductive) 분석 및 내러티브 작성</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Dubois & Gadde (2002)의 체계적 귀추 결합법(systematic combining)을 추진. 데이터 코딩과 자원의존이론(RDT)의 이론적 개념을 반복적으로 대조 교환하면서 사례별 나러티브 분석서를 작성하여 권력과 소셜의 유기적 행동 패턴 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 71, Section 3.3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">권력-소셜 연계 에피소드 정밀 추출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  전체 나러티브 텍스트에서 소셜 미디어 활용 양상과 권력 작용이 교차한 326개의 핵심 에피소드(episodes)를 선별. 이를 '의존성 영향 방식'과 '관계 범위'의 조합 축을 기준으로 2x2 매트릭스에 맵핑.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 71, Section 3.3 & Table 1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">12가지 유형 정의 도출 및 삼각측정 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  매트릭스 내에 소속된 에피소드별 특징에 따라 12가지 B2B 유형학을 개발. 분석 내용의 엄격성을 담보하기 위해 공동 연구진 3인이 독립적으로 데이터를 코딩하고 피어 디브리핑을 거쳤으며, 인터뷰 전사본, SNS 포스트, 2차 보고서를 교차 검증(Triangulation)함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 71, Section 3.3 & Table 2</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            분류 체계와 이론적 연구 단계는 매끄럽게 정의되어 있어 질적 연구 방법론의 절차는 따라 할 수 있으나, 조사에 쓰인 코로나19 전후 아일랜드 로컬 수제식품 업체들(33개 사)의 실제 미공개 인터뷰 원본(429페이지 전사 자료)과 당시의 SNS 이력을 완전히 복원하여 대조하는 방식의 완벽한 1대1 재현은 불가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6.2)에서 연구진들이 직접 한정 지은 연구의 한계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>산업 및 지리적 한정성:</strong> 아일랜드 내 수제 식품 및 음료 산업(craft food and drink sector)이라는 특정 산업 및 로컬 환경에서 도출된 결과이므로, 다른 구조와 거시 규범을 지닌 산업이나 국가의 창업가에게 즉각적으로 일반화(Generalization)하기에 무리가 있음.
+              </li>
+              <li>
+                <strong>소셜 미디어 채널의 제한:</strong> 조사 대상 기업들이 사용한 플랫폼이 주로 Facebook, Twitter/X, Instagram에 치우쳐 있어, 고유의 특성을 지난 최신 숏폼 비디오 기반 소셜 미디어(TikTok 등)의 파급 효과를 포착하지 못함.
+              </li>
+              <li>
+                <strong>단일 관점 중심의 질적 인터뷰:</strong> 연구 데이터가 창업 기업(focal firm perspective)의 일방적 주장 및 과거 사건에 대한 주관적 회고에 한해 수집되어, 대형 유통망의 상호작용적 실태나 권력 구조 변화를 객관적으로 균형 있게 반영하지 못했을 가능성이 있음.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 횡단 분석 메커니즘을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 생존자 편향 (Survivor Bias)</span>
+                <p class="text-sm text-slate-700">
+                  인터뷰에 참여한 33개 사는 소셜 미디어를 사용하며 생존해 유의미한 성과를 거둔 기업들이 중심입니다. 대기업의 강압적 요구에 밀려 소셜 미디어 자원을 배포해 보지도 못하고 폐업하거나 시장에서 신속히 탈락한 '한계 창업 기업'들의 실패 데이터가 대거 유실되어, 소셜 미디어가 지닌 권력 대항 효과가 과장(Overestimation)되었을 소지가 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 단기 관계 위주 성향의 장기적 역효과</span>
+                <p class="text-sm text-slate-700">
+                  연구진들은 소셜 미디어를 통한 단기적이고 기회주의적인 관계(short-term relationships)가 자율성을 지켜준다고 주장하지만, 장기적 파트너십과 상호 신뢰가 없는 빈번한 거래선 교체는 B2B 관계 유지 비용(transaction cost)을 심각하게 높입니다. 장기적 브랜드 자산 형성을 가로막고, 대형 위기 돌발 시 긴급 구호 파트너의 결여 등 숨은 기회비용과 위험이 상존함을 분석하지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 플랫폼 독점 권력에의 예속화</span>
+                <p class="text-sm text-slate-700">
+                  창업가들이 대형 유통망의 권력을 회피하기 위해 대안으로 소셜 미디어를 차용하고 있으나, 이는 결국 Meta, X, Google 등 거대 빅테크 독점 소셜 플랫폼의 노출 노이즈 및 알고리즘 정책 변화, 유료 광고 유도비용에 전속 종속되는 <strong>'또 다른 다국적 플랫폼 권력 비대칭'</strong>에 노출되는 모순을 내포합니다. 하나의 예속 관계에서 다른 예속 관계로 옮겨갔을 뿐이라는 점을 비판적으로 다뤄야 합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Swipe, like, connect: A typology for strategic short-term entrepreneurial relationships using social media to countervail power</p>
+      <p class="text-xs mt-2">© 2026 B2B Researcher. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

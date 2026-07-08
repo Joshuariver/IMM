@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>On the difficulty of using algorithms to replace managers in decision making - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Background SVG grid -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Algorithmic Decision Making</div>
+        <div class="badge badge-secondary text-white style-label">Method: Counterfactual Simulation (N = 4,920)</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            On the difficulty of using algorithms to replace managers in decision making:<br>
+            <span class="text-cyan-400">A study of customer prioritization</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Samu Ahola, Jukka Luoma
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            의사결정에서 관리자를 알고리즘으로 대체하는 것의 어려움에 대하여:<br>
+            <span class="text-indigo-300">고객 우선순위 지정 연구</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            알고리즘 만능주의에 경종을 울리는 성찰적 계량 연구. 대기업 실제 데이터를 바탕으로 한 시뮬레이션 결과, B2B 고객 가치의 극심한 쏠림과 실제 영업사원 행동 툴킷의 한계로 인해 '이탈 방지 알고리즘'이 매출을 오히려 20.77% 감소시킴을 증명.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">B2B 영업 알고리즘은 고객 편중 구조와 사내 표준절차(SOP)에 적합(Fit)하지 않으면, 인간의 경험칙보다 더 나쁜 결과를 낳습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- STEP 1 — Title & Abstract Translation -->
+    <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+        <span class="badge badge-primary style-label uppercase">Translation</span>
+      </div>
+      
+      <!-- Two-column layout -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+        <!-- English Abstract -->
+        <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+          <blockquote class="style-body text-slate-700 italic">
+            "Existing research in business-to-business (B2B) marketing predominantly assumes that algorithms will outperform managers in decision making due to their capacity to process vast information and propose novel decision-making approaches. However, the tangible benefits of algorithms in real organizational contexts often fall short of these expectations. Using data from a customer prioritization initiative in a large industrial company, this study compares managerial and algorithmic decision making by combining statistical modeling, machine learning and counterfactual analysis. We find that despite satisfactory technical performance, algorithmic prioritization did not unambiguously outperform human decision makers. We interpret this not as a technical failure, but as the result of the effectiveness of managerial prioritization and the importance of algorithm-organization fit. Drawing insights from our modeling and the behavioral theory of the firm, we propose three interdependent elements that condition the benefits of algorithmic decision making: the pre-existing managerial decision-making logic, the repertoire of preferential treatment actions, and the customer base structure. We theorize that these elements can create a systemic lock-in that limits the value of algorithmic decision making. Our study contributes to the B2B marketing and algorithmic management literatures by shifting the focus from technical accuracy to the structural alignment required to capture value from algorithms in established sales organizations."
+          </blockquote>
+        </div>
+        <!-- Korean Translation -->
+        <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+          <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+          <blockquote class="style-body text-slate-800">
+            "B2B 마케팅 분야의 기존 연구들은 알고리즘이 방대한 정보를 처리하고 참신한 의사결정 방식을 제시할 수 있는 역량 덕분에 의사결정에서 관리자보다 더 나은 성과를 낼 것이라고 주로 가정해 왔습니다. 그러나 실제 조직 맥락에서 알고리즘이 제공하는 실질적인 혜택은 흔히 이러한 기대에 미치지 못합니다. 대규모 산업재 기업의 고객 우선순위 지정 이니셔티브 데이터를 활용하여, 본 연구는 통계 모델링, 기계 학습 및 반사실 분석을 결합함으로써 관리자의 의사결정과 알고리즘 의사결정을 비교했습니다. 분석 결과, 알고리즘 우선순위 지정은 기술적으로 만족스러운 성능을 보였음에도 불구하고 인간 관리자보다 명백하게 우수한 성과를 내지는 못했습니다. 우리는 이를 알고리즘의 기술적 실패가 아니라, 기존 관리자들의 우선순위 지정이 지닌 효과성과 '알고리즘-조직 적합성(algorithm-organization fit)'의 중요성 때문으로 해석합니다. 모델링 분석과 기업행동이론에서 얻은 통찰을 바탕으로, 우리는 알고리즘 의사결정의 이점을 결정짓는 세 가지 상호 의존적인 요소를 제안합니다. 즉, 기존 관리자의 의사결정 로직, 조직의 우대 조치 리포토리, 그리고 고객 기반의 구조입니다. 우리는 이러한 요소들이 알고리즘 의사결정의 가치를 제약하는 '시스템적 락인(systemic lock-in)'을 형성할 수 있다고 이론화합니다. 본 연구는 기술적 정확성에 초점을 맞추던 것에서 벗어나 기존 영업 조직 내에서 알고리즘으로부터 가치를 포착하는 데 필요한 구조적 정렬로 관심을 전환함으로써 B2B 마케팅 및 알고리즘 관리 문헌에 기여합니다."
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- Glossary Table -->
+      <div class="mt-4">
+        <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+        <div class="overflow-x-auto border rounded-lg">
+          <table class="table w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-50 text-slate-800">
+                <th class="w-1/3">원문 용어 (EN)</th>
+                <th class="w-1/3">한국어 번역</th>
+                <th class="w-1/3">번역 선택 이유 및 해설</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-semibold text-slate-900">Customer Prioritization</td>
+                <td>고객 우선순위 지정</td>
+                <td class="text-sm">제한된 영업 자원을 극대화하기 위해 B2B 기업이 특정 고객사들을 등급별로 분류하고 차등적 혜택을 설계하는 전략 프로세스입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Counterfactual Analysis</td>
+                <td>반사실 분석</td>
+                <td class="text-sm">"만약 실제로 이렇게 처방을 바꿨더라면(What-if)"을 역사적 데이터 기반의 추정치를 사용해 가상 시뮬레이션하는 통계 기법입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Algorithm-Organization Fit</td>
+                <td>알고리즘-조직 적합성</td>
+                <td class="text-sm">알고리즘이 주는 수학적 지침과 조직의 실질적 영업 툴킷, 보상 및 자원 배분 인프라가 얼마나 상호 부합하는지를 가리킵니다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2 — Core Claims (1-minute pitch) -->
+    <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+        <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+      </div>
+      
+      <div class="py-4">
+        <div class="flex flex-col md:flex-row gap-8 items-stretch">
+          <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+            <li class="step step-primary" data-content="Q">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                <p class="font-bold text-slate-800">알고리즘이 숙련된 B2B 관리자를 완전히 대체해 성과를 높일 수 있는가?</p>
+              </div>
+            </li>
+            <li class="step step-primary" data-content="F">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                <p class="font-bold text-slate-800">단순 이탈방지 알고리즘은 극심한 매출 손실(-20.77%) 유발</p>
+              </div>
+            </li>
+            <li class="step step-primary" data-content="C">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                <p class="font-bold text-slate-800">BToF 기반으로 알고리즘 유용성을 락인하는 3대 구조적 제약 증명</p>
+              </div>
+            </li>
+          </ul>
+          
+          <div class="divider divider-horizontal hidden md:flex"></div>
+          
+          <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <div>
+              <h4 class="style-h3 text-slate-900 mb-2">알고리즘이 실효를 거두지 못하는 이유</h4>
+              <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                <li><strong>매출 집중의 법칙:</strong> B2B 매출의 61%가 상위 10%의 핵심 고객에게서 나옵니다. 알고리즘 지시에 따라 하위 이탈 위험 고객을 지키려 대형 고객에 대한 관심(우대조치)을 조금만 줄여도 파괴적인 매출 감소로 이어집니다.</li>
+                <li><strong>영업 액션의 편향:</strong> 회사의 영업 툴킷은 신규 획득이나 이탈 방지(가격 하락 등)가 아닌, 기존 우량 고객의 매출 증대에 특화되어 있습니다.</li>
+                <li><strong>경험칙의 승리:</strong> 관리자가 과거 매출에만 의존해 등급을 지정하던 구식 방식은 이러한 현실적 한계와 조직적 인센티브를 이미 완벽하게 고려한 생존 법칙이었습니다.</li>
+              </ul>
+            </div>
+            
+            <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+              <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+              <p class="style-body font-bold mt-1">
+                "알고리즘의 수학적 조언은 기업이 그 조언을 현실화할 수 있는 실제 영업 툴킷과 고객 가치 쏠림 구조를 갖추지 못하면 무용지물이 됩니다."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 3 — Claims and Evidence -->
+    <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+        <span class="badge badge-accent style-label uppercase">Evidence</span>
+      </div>
+      
+      <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+        <table class="table table-zebra w-full text-slate-700">
+          <thead>
+            <tr class="bg-slate-900 text-white">
+              <th class="w-12">#</th>
+              <th class="w-1/4">핵심 주장</th>
+              <th class="w-1/2">원문 근거 (Original Quote)</th>
+              <th class="w-1/6 text-right">원문 위치</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="font-semibold text-slate-900">알고리즘의 관리자 대체 및 성과 개선 한계</td>
+              <td class="text-sm italic text-slate-600">
+                "...algorithmic prioritization did not unambiguously outperform human decision makers. We interpret this... as the result of the effectiveness of managerial prioritization..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Abstract (PAGE 1) / Sec. 5 (PAGE 15)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="font-semibold text-slate-900">관리자 의사결정이 과거 매출에 편중됨</td>
+              <td class="text-sm italic text-slate-600">
+                "...variables representing past sales (bsales in past 12 months [report] =1.214, p &lt;0.001...) are prominent predictors for both tier-1 or tier-2 prioritization..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Sec. 4.2 (PAGE 11)</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="font-semibold text-slate-900">이탈 위험 중심 배치의 극단적 기회비용</td>
+              <td class="text-sm italic text-slate-600">
+                "...counterfactual churn probability prioritization... was projected to increase customer retention by +3.32%. However, this would have come at a dramatic cost in sales resulting in a 20.77% decrease."
+              </td>
+              <td class="text-right font-medium text-slate-500">Sec. 4.5 & Table 8 (PAGE 13)</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="font-semibold text-slate-900">혼합(하이브리드) 알고리즘 규칙의 최적성</td>
+              <td class="text-sm italic text-slate-600">
+                "The best-performing strategy... was the hybrid 'tier-1 sales, tier-2 churn' logic which improved both sales and retention... accounts for the value concentration..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Sec. 4.5 (PAGE 13-15)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- STEP 4 — Research Model & Variables -->
+    <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+        <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+      </div>
+      
+      <!-- Conceptual Model SVG Block -->
+      <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+        <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Algorithm-Organization Fit (시스템적 락인 모델)</h3>
+        
+        <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+          <svg viewBox="0 0 800 400" class="w-full h-auto">
+            <!-- Three Inputs pointing to lock-in -->
+            <!-- 1. CBS -->
+            <rect x="20" y="30" width="220" height="80" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+            <text x="130" y="60" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">고객 기반 매출 구조</text>
+            <text x="130" y="80" text-anchor="middle" fill="#64748b" font-size="11">상위 10%가 매출 61% 기여</text>
+
+            <!-- 2. MDL -->
+            <rect x="20" y="160" width="220" height="80" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+            <text x="130" y="190" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">기존 의사결정 로직</text>
+            <text x="130" y="210" text-anchor="middle" fill="#64748b" font-size="11">과거 매출 기준, 불확실성 회피</text>
+
+            <!-- 3. PTA -->
+            <rect x="20" y="290" width="220" height="80" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+            <text x="130" y="320" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">우대조치 액션 리포토리</text>
+            <text x="130" y="340" text-anchor="middle" fill="#64748b" font-size="11">이탈방지 툴킷 부족, 매출지향적 SOP</text>
+
+            <!-- Central Lock-in -->
+            <rect x="360" y="140" width="180" height="120" rx="8" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+            <text x="450" y="195" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="15">시스템적 락인</text>
+            <text x="450" y="220" text-anchor="middle" fill="#b91c1c" font-size="12">Systemic Lock-in</text>
+
+            <!-- Target: Fit & Performance -->
+            <rect x="610" y="160" width="170" height="80" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+            <text x="695" y="195" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">알고리즘-조직 적합성</text>
+            <text x="695" y="215" text-anchor="middle" fill="#b45309" font-size="11">성과 창출의 한계</text>
+
+            <!-- Arrows -->
+            <path d="M240 70 L 300 70 L 300 170 L 360 170" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+            <path d="M240 200 L 360 200" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+            <path d="M240 330 L 300 330 L 300 230 L 360 230" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+            <path d="M540 200 L 610 200" fill="none" stroke="#ef4444" stroke-width="2" marker-end="url(#arrow)"/>
+
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+              </marker>
+            </defs>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Variable Detail Cards in Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+        <!-- Card 1 -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+          <div class="card-body p-6 gap-3">
+            <h3 class="style-h3 text-slate-900">1. 기존 관리자 의사결정 로직</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>핵심 개념:</strong> BToF의 '불확실성 회피'에 의거, 영업사원들은 speculative한 미래 이탈 확률보다 확실히 증명된 과거 12개월 매출에 기반해 최우선 등급을 지정함.</p>
+            <p class="text-sm text-slate-600"><strong>분석 통계:</strong> 과거 매출 변수의 회귀 계수가 1.214(p &lt; 0.001)로 가장 높음.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+          <div class="card-body p-6 gap-3">
+            <h3 class="style-h3 text-slate-900">2. 우대조치 액션 리포토리</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>핵심 개념:</strong> 조직의 표준절차(SOP) 상 가용한 영업 액션이 '매출 증대용 솔루션 세일즈'에 한정되어 있으며, 가격 인하 및 스펙 변경 등 '이탈 방지'용 액션 수단은 영업사원의 재량권 밖에 존재함.</p>
+            <p class="text-sm text-slate-600"><strong>분석 통계:</strong> Tier-1 지정 시 매출 증가 효과(&beta; = 0.425***)는 크나, 이탈 방지 효과는 거의 무의함.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+          <div class="card-body p-6 gap-3">
+            <h3 class="style-h3 text-slate-900">3. 고객 기반 매출 구조</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>핵심 개념:</strong> B2B 시장 특성 상 소수 대형 고객사가 기업 생존의 대부분을 결정하는 파레토식 극단적 편중 구조를 보임.</p>
+            <p class="text-sm text-slate-600"><strong>분석 통계:</strong> 상위 10% 고객이 매출 61% 창출, 하위 50%는 단 5.4% 기여.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 5 — Method Replication Steps -->
+    <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+        <span class="badge badge-primary style-label uppercase">Methodology</span>
+      </div>
+      
+      <p class="style-body text-slate-600">
+        역사적 데이터를 활용한 반사실 영업 지침 변경 시뮬레이션 절차입니다.
+      </p>
+
+      <div class="mt-4">
+        <ul class="timeline timeline-vertical timeline-snap-icon">
+          <!-- Step 1 -->
+          <li>
+            <div class="timeline-middle">
+              <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+              <div class="text-lg font-bold text-slate-800">B2B 역사 거래 데이터 추출</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                글로벌 대형 제조사 내부의 2012~2020년 4,920개 고객사의 ERP 거래 원천 로그 및 견적서 발송 이력을 확보하여 가변 변수로 저장함.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">PAGE 5-6</span>
+            </div>
+            <hr class="bg-primary"/>
+          </li>
+          
+          <!-- Step 2 -->
+          <li>
+            <hr class="bg-primary"/>
+            <div class="timeline-middle">
+              <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+              <div class="text-lg font-bold text-slate-800">4대 예측 머신러닝 모델 구축</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                과거 12개월 데이터를 투입해 차년도 이탈 여부(RF, AUC 0.78), 차년도 매출 규모(GB), 절대/상대 성장성을 개별 예측하는 분류/회귀 파이프라인 개발.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">PAGE 11</span>
+            </div>
+            <hr class="bg-secondary"/>
+          </li>
+
+          <!-- Step 3 -->
+          <li>
+            <hr class="bg-secondary"/>
+            <div class="timeline-middle">
+              <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+              <div class="text-lg font-bold text-slate-800">우대 조치 인과 효과 추정</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                Log-link GLM 및 로지스틱 회귀분석을 수행해 실제 관리자가 부여한 우선등급이 차년도 매출 성장에 주는 순수 기여 계수(&beta;=0.425***)를 교란 통제 하에 도출.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">PAGE 13, Table 7</span>
+            </div>
+            <hr class="bg-accent"/>
+          </li>
+
+          <!-- Step 4 -->
+          <li>
+            <hr class="bg-accent"/>
+            <div class="timeline-middle">
+              <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+              <div class="text-lg font-bold text-slate-800">7대 시나리오 반사실 시뮬레이션</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                도출된 인과 계수를 활용, 고객 지정을 알고리즘(이탈률 순, 매출 순 등)에 따라 역배정했을 때 전체 기업의 가상 매출 변동 및 이탈 차이를 모의 계산.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">PAGE 13, Table 8</span>
+            </div>
+            <hr class="bg-info"/>
+          </li>
+
+          <!-- Step 5 -->
+          <li>
+            <hr class="bg-info"/>
+            <div class="timeline-middle">
+              <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+            </div>
+            <div class="timeline-start mb-4 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+              <div class="text-lg font-bold text-slate-800">내생성 완화 민감도 검증</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                인과 효과 계수를 25%, 50%, 75% 수준으로 강제 감쇄하여 시뮬레이션을 재실행하고, 결론의 민감성 한계를 재차 확인해 강건성을 검증함.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">PAGE 13-14</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Replication assessment block -->
+      <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+          <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+        </div>
+        <p class="text-xs text-slate-500 max-w-md">
+          반사실 기법의 통계 공식과 기계학습 모형 설계는 완전히 기재되어 있어 시뮬레이션 복사는 가능하나, 핀란드 제조 대기업의 8개년 ERP 원천 기밀 거래 원장에 외부 연구자가 직접 접근하는 것은 불가능합니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- STEP 6 — Limitations & Critical Doubts -->
+    <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+      <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+        <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+        <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+      </div>
+      
+      <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+      <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+        <input type="checkbox" checked /> 
+        <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+        </div>
+        <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+          <p class="style-body text-slate-700">논문 본문에서 연구진들이 직접 인정한 한계점입니다:</p>
+          <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+            <li>
+              <strong>단일 대기업 사례 연구:</strong> 단 한 개의 핀란드 다국적 산업 제조 기업 데이터만을 사용했으므로 다른 산업 생태계나 B2C 플랫폼 비즈니스 환경에 동일한 결과를 일반화하긴 어렵습니다. (PAGE 15)
+            </li>
+            <li>
+              <strong>내부자 공동저자 텐션:</strong> 논문 저자 중 한 명이 사례 기업 소속 분석가로 병행 근무하여, 회사의 기본 가정을 과도하게 기각하지 않고 옹호했을 소량의 프레임 편향이 존재합니다. (PAGE 5)
+            </li>
+            <li>
+              <strong>통계적 시뮬레이션 의존:</strong> 무작위 배정 실험(RCT)을 오프라인 영업 조직 전체에 강제하지 못해 '반사실 예측식'이라는 모의실험에 한정된 결과입니다. (PAGE 13)
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+      <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+        <input type="checkbox" checked /> 
+        <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+        </div>
+        <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+          <p class="style-body text-slate-700">외부 학술적 시각에서 비판하는 한계입니다:</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+            <div class="bg-white p-4 rounded-xl border border-amber-200">
+              <span class="badge badge-warning style-label text-amber-950 mb-2">1. 가공된 극단적 알고리즘(Strawman)의 위험</span>
+              <p class="text-sm text-slate-700">
+                저자들은 이탈 확률만을 단독 가중치로 사용하는 알고리즘이 성과를 훼손했음을 보고했습니다. 그러나 실무에서 소액 한계 고객과 대형 핵심 고객의 가중치 보정 없이 '단순 이탈률'로만 배정하는 알고리즘을 짤 데이터 과학자는 거의 없습니다. 즉, <strong>의도적으로 비실용적인 알고리즘 설계를 대안으로 세워두고 관리자의 우수성을 부각하는 논리적 '허수아비 때리기(Strawman)'</strong> 기법이 작용했을 소지가 다분합니다.
+              </p>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-amber-200">
+              <span class="badge badge-warning style-label text-amber-950 mb-2">2. 정태적인 조직 역량 가정</span>
+              <p class="text-sm text-slate-700">
+                "조직의 영업 액션 툴킷이 매출 극대화용으로 락인되어 있으니 알고리즘이 효과가 없다"는 진단은 지나치게 동결된 시각입니다. 동적 역량 관점에서 알고리즘 처방에 맞춰 '이탈방지 전담 부서를 신설하거나, 영업사원 교육 프로그램'을 병행했더라면 얻었을 장기 시너지 기회를 과소평가했습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>On the difficulty of using algorithms to replace managers in decision making: A study of customer prioritization</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unpacking the exchange dynamics between SFLE and IBT - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    .style-display {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 32px;
+      }
+      .style-h1 {
+        font-size: 26px;
+      }
+      .style-h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Sales & Internal Teams Interface</div>
+        <div class="badge badge-secondary text-white style-label">IMOI Framework</div>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Unpacking the exchange dynamics between strategic frontline employees<br>
+            <span class="text-cyan-400">and the internal business team</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Curtis S. Schroeder, Stephan Volpers, Christopher R. Plouffe, Bryan Hochstein
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-2xl lg:text-3xl font-bold text-slate-100 leading-tight">
+            전략적 프론트라인 직원과<br>
+            <span class="text-indigo-300">내부 비즈니스 팀 간의 교환 역학 규명</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            12개사 47명의 영업사원 및 후방 지원 부서원 다각도 인터뷰 분석을 통해 IBT가 과업 조건적인 유동적 생태계임을 정립하고 협업 효율화에 관한 5대 명제 수립
+          </p>
+        </div>
+      </div>
+      
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">IBT는 고정된 부서가 아니라 고객 구매 과업에 연동되는 유동적 구조이며, 상호 간의 기능적 갈등과 정밀한 보상 정렬이 협업 효율의 열쇠입니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- STEP 1 — Title & Abstract Translation -->
+    <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+        <span class="badge badge-primary style-label uppercase">Translation</span>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+        <!-- English Abstract -->
+        <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+          <blockquote class="style-body text-slate-700 italic">
+            "Strategic frontline employees (SFLEs) rely heavily on the internal business team (IBT) in co-creating customer value, yet the mechanisms and conditions that shape internal service exchanges between these groups remain underexplored. What limited research exists on the IBT tends to treat it as a “monolithic” group, offering few specifics on how diverse actors influence customer and performance outcomes given the critical internal tasks and roles they perform. Drawing on 47 interviews across 12 firms in B2B and B2C contexts, this study makes three contributions. First, the IBT is reconceptualized as a fluid, task-contingent ecosystem in which membership and SFLE involvement are determined by specific customer tasks across the buying journey. Second, we develop an SFLE-IBT exchange framework based on a recurring input-mediator-output-input process model, activated by reactive and proactive stimuli. Third, we identify drivers and constraints of SFLE-IBT exchange efficiency that span individual and institutional conditions. This advances our understanding of SFLE-IBT exchanges while offering actionable guidance on managing the firm's complex intraorganizational environment."
+          </blockquote>
+        </div>
+        <!-- Korean Translation -->
+        <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+          <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+          <blockquote class="style-body text-slate-800">
+            "전략적 프론트라인 직원(SFLEs)은 고객 가치를 공동 창출하는 데 있어 내부 비즈니스 팀(IBT)에 크게 의존하지만, 이들 그룹 간의 내부 서비스 교환을 형성하는 메커니즘과 조건은 아직 충분히 탐구되지 않았습니다. IBT에 관한 제한적인 연구조차도 이를 하나의 '단일체(monolithic)' 그룹으로 취급하는 경향이 있어, 이들이 수행하는 중요한 내부 과업과 역할을 고려할 때 다양한 행위자들이 고객 및 성과 결과에 어떻게 영향을 미치는지에 대한 구체적인 메커니즘을 거의 제시하지 못합니다. B2B 및 B2C 맥락의 12개 기업에 걸친 47개의 인터뷰를 기반으로 한 이 연구는 세 가지 기여를 합니다. 첫째, IBT는 구매 여정 전반에 걸친 구체적인 고객 과업에 의해 구성원 자격과 SFLE의 참여가 결정되는 유동적이고 과업 조건적인 생태계로 재개념화됩니다. 둘째, 반응적 및 선제적 자극에 의해 활성화되는 순환적인 입력-매개-출력-입력(IMOI) 프로세스 모델에 기반한 SFLE-IBT 교환 프레임워크를 개발합니다. 셋째, 개인적 및 제도적 조건에 걸친 SFLE-IBT 교환 효율성의 동인과 제약 요인을 식별합니다. 이는 SFLE-IBT 교환에 대한 이해를 증진하는 동시에 기업의 복잡한 조직 내부 환경을 관리하는 데 실질적인 지침을 제공합니다."
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- Glossary Table -->
+      <div class="mt-4">
+        <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+        <div class="overflow-x-auto border rounded-lg">
+          <table class="table w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-50 text-slate-800">
+                <th class="w-1/3">원문 용어 (EN)</th>
+                <th class="w-1/3">한국어 번역</th>
+                <th class="w-1/3">번역 선택 이유 및 해설</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-semibold text-slate-900">SFLE (Strategic Frontline Employee)</td>
+                <td>전략적 프론트라인 직원</td>
+                <td class="text-sm">단순 영업사원(Salesperson)을 넘어 고객 여정을 기획하고 내부 부서들을 조율(Quarterbacking)하는 중추적 프론트라인 인력입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">IBT (Internal Business Team)</td>
+                <td>내부 비즈니스 팀</td>
+                <td class="text-sm">마케팅, 재무, 법무, 엔지니어링, 물류 등 영업의 성과 완성을 뒤에서 돕는 백오피스 유관 부서들을 지칭합니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Task-contingent ecosystem</td>
+                <td>과업 조건적 생태계</td>
+                <td class="text-sm">고정된 조직 체계가 아니라, 고객의 구체적 의사결정 과업이 생길 때만 한시적으로 모이고 해체되는 다이내믹 팀 성격을 칭합니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Functional Tension</td>
+                <td>기능적 긴장</td>
+                <td class="text-sm">영업 부서와 지원 부서 간에 목표 및 가치 우선순위가 달라 생기는 자연스러운 마찰로, 무리한 계약을 방지하는 안전판 역할을 합니다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2 — Core Claims -->
+    <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+        <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+      </div>
+      
+      <div class="py-4">
+        <div class="flex flex-col md:flex-row gap-8 items-stretch">
+          <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+            <li class="step step-primary" data-content="Q">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                <p class="font-bold text-slate-800">영업사원과 지원조직은 어떻게 내부 자원을 교환하는가?</p>
+              </div>
+            </li>
+            <li class="step step-primary" data-content="F">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                <p class="font-bold text-slate-800">IBT는 단일체가 아닌 순환적 과업 생태계</p>
+              </div>
+            </li>
+            <li class="step step-primary" data-content="C">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                <p class="font-bold text-slate-800">기능적 긴장과 프로세스 유연성의 가치 규명</p>
+              </div>
+            </li>
+          </ul>
+          
+          <div class="divider divider-horizontal hidden md:flex"></div>
+          
+          <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <div>
+              <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 주장 및 메커니즘</h4>
+              <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                <li><strong>연구 질문:</strong> 후방 부서(IBT)가 영업 성공에 필수적임에도, 왜 기존 연구는 이를 정태적인 하나의 블랙박스로만 보았는가? 이들의 교환 과정과 제약 조건은 무엇인가?</li>
+                <li><strong>핵심 발견:</strong> IBT는 고객의 과업(Problem ID, Requirements 등)에 반응하여 마케팅/재무/법무가 유동적으로 참여하는 loosely coupled 생태계입니다. 또한, IMOI 순환 주기를 거치며 ad-hoc 슬랙 워룸처럼 루틴화됩니다.</li>
+                <li><strong>이론/실무 기여:</strong> 갈등을 마냥 나쁘게 보던 것과 달리, 지원 부서의 합리적 딴지(Functional Tension)가 마진율과 회사 신뢰도를 보장해 주는 '생산적 안전판'이 됨을 입증했습니다.</li>
+              </ul>
+            </div>
+            
+            <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+              <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+              <p class="style-body font-bold mt-1">
+                "IBT는 고객의 구매 과업에 대응해 실시간으로 재구성되는 유동적 집단이며, 이들과의 서비스 교환 효율성은 유연한 프로세스, 인센티브 정렬, 부서 간 적절한 갈등(Tension)의 조화를 통해 달성됩니다."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 3 — Claims and Evidence -->
+    <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+        <span class="badge badge-accent style-label uppercase">Evidence</span>
+      </div>
+
+      <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+        <table class="table table-zebra w-full text-slate-700">
+          <thead>
+            <tr class="bg-slate-900 text-white">
+              <th class="w-12">#</th>
+              <th class="w-1/4">핵심 주장</th>
+              <th class="w-1/2">원문 근거 (Original Quote)</th>
+              <th class="w-1/6 text-right">원문 위치</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="font-semibold text-slate-900">IBT의 과업 조건적 생태계적 유동성</td>
+              <td class="text-sm italic text-slate-600">
+                "...the IBT is reconceptualized as a fluid, task-contingent ecosystem in which membership and SFLE involvement are determined by specific customer tasks across the buying journey."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 143, Abstract</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="font-semibold text-slate-900">IMOI 순환 모델의 존재</td>
+              <td class="text-sm italic text-slate-600">
+                "Each exchange follows a four-phase cyclical input-mediator-output-input process (per Ilgen et al., 2005; Mackenzie, 2000)... the core of our proposed SFLE-IBT exchange relationship framework..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 148 (Sec. 4)</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="font-semibold text-slate-900">유연성(Flexibility)의 inverted-U 효과 (P1)</td>
+              <td class="text-sm italic text-slate-600">
+                "P1: The relationship between process flexibility and SFLE-IBT exchange efficiency follows an inverted-U pattern, where little flexibility stalls action and high flexibility creates chaos."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 152 (Sec. 5.2.1)</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="font-semibold text-slate-900">인센티브 및 목표 congruency 효과 (P2)</td>
+              <td class="text-sm italic text-slate-600">
+                "P2: Shared, firm-beneficial goals and aligned sales incentives enhance cross-functional alignment and responsiveness; siloed objectives and isolated metrics undermine collaboration."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 152 (Sec. 5.2.2)</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="font-semibold text-slate-900">기능적 갈등의 유용함 (P3)</td>
+              <td class="text-sm italic text-slate-600">
+                "P3: Functional tension serves as a productive safeguard by challenging decisions, constraining overpromising, and protecting margin/credibility; unchecked friction degrades exchange efficiency."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 153 (Sec. 5.2.3)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- STEP 4 — Research Model & Variables -->
+    <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+        <span class="badge badge-info style-label text-slate-900 uppercase">Conceptual Model</span>
+      </div>
+      
+      <!-- Inline SVG describing Fig. 1 and Fig. 2 Combined -->
+      <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+        <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">SFLE-IBT Service Exchange Framework</h3>
+        
+        <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+          <svg viewBox="0 0 800 400" class="w-full h-auto">
+            <!-- Input / Stimuli -->
+            <rect x="20" y="150" width="180" height="90" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+            <text x="110" y="180" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">1. 자극 (Inputs / Stimuli)</text>
+            <text x="110" y="205" text-anchor="middle" fill="#475569" font-size="11">반응적 자극 (고객 과업)</text>
+            <text x="110" y="222" text-anchor="middle" fill="#475569" font-size="11">선제적 자극 (영업사원 기획)</text>
+
+            <!-- Mediator / Service Exchange -->
+            <rect x="290" y="150" width="220" height="90" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+            <text x="400" y="180" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">2. 교환 (Mediator / Exchange)</text>
+            <text x="400" y="205" text-anchor="middle" fill="#047857" font-size="11">과업 매칭된 IBT 부서 가동</text>
+            <text x="400" y="222" text-anchor="middle" fill="#047857" font-size="11">(커뮤니케이션 모드 선택)</text>
+
+            <!-- Output / Outcomes -->
+            <rect x="600" y="150" width="180" height="90" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+            <text x="690" y="180" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">3. 성과 (Outputs / Outcomes)</text>
+            <text x="690" y="205" text-anchor="middle" fill="#4338ca" font-size="11">고객 가치 공동 창출</text>
+            <text x="690" y="222" text-anchor="middle" fill="#4338ca" font-size="11">내부 학습 및 루틴 축적</text>
+
+            <!-- Feedback Loop Arrow -->
+            <path d="M 690 240 L 690 310 L 110 310 L 110 240" fill="none" stroke="#4f46e5" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+            <text x="400" y="300" text-anchor="middle" fill="#4338ca" font-weight="600" font-size="12">피드백 루프 (다음 과업의 입력자극)</text>
+
+            <!-- Institutional Boundary Conditions pointing to Mediator -->
+            <rect x="290" y="15" width="220" height="80" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+            <text x="400" y="40" text-anchor="middle" font-weight="700" fill="#78350f" font-size="12">조직적 효율화 변수</text>
+            <text x="400" y="58" text-anchor="middle" fill="#92400e" font-size="10">P1. 유연성 (역U자) | P2. 보상 정렬</text>
+            <text x="400" y="73" text-anchor="middle" fill="#92400e" font-size="10">P3. 기능적 갈등 (보호 장치) | P4. 협력 규범</text>
+
+            <path d="M 400 95 L 400 150" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+
+            <!-- SVG Arrow Marker -->
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+              </marker>
+            </defs>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Detail Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden">
+          <div class="card-body p-6 gap-3">
+            <span class="badge badge-info style-label text-slate-900">개인 수준 효율화 변수</span>
+            <h3 class="style-h3 text-slate-900">명확성, 응답성, 대인 신뢰</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>요청 명확성 (Clarity):</strong> 영업사원이 백오피스 부서에 협력을 요청할 때 목표와 데드라인을 의사결정 가능하도록 정밀히 기재하는 수준.</p>
+            <p class="text-sm text-slate-700"><strong>대인 신뢰 (Trust):</strong> IBT 부서원이 영업사원의 업무 능력, 성실성을 믿고 가용 리소스를 먼저 떼어주는 정서적 상태.</p>
+          </div>
+        </div>
+
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden">
+          <div class="card-body p-6 gap-3">
+            <span class="badge badge-warning style-label text-amber-950">제도 수준 효율화 변수</span>
+            <h3 class="style-h3 text-slate-900">유연성, 긴장, 정렬</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>프로세스 유연성:</strong> 비즈니스 관료주의와 자율적 우회 권한 간의 조화. 역U자형 최적 지점 존재.</p>
+            <p class="text-sm text-slate-700"><strong>인센티브 정렬:</strong> 마케팅, 재무 등 후방 부서의 보상도 고객 만족이나 매출 같은 영업 연계 성과에 묶는 기제.</p>
+            <p class="text-sm text-slate-700"><strong>기능적 긴장 (Tension):</strong> 후방 조직이 영업사원의 과도 약속을 필터링해주는 생산적 안전판 메커니즘.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 5 — Method Replication Steps -->
+    <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+        <span class="badge badge-primary style-label uppercase">Methodology</span>
+      </div>
+      
+      <p class="style-body text-slate-600">
+        다자간 질적 삼각측정 기법을 복제하기 위한 실행 순서입니다.
+      </p>
+
+      <div class="mt-4">
+        <ul class="timeline timeline-vertical timeline-snap-icon">
+          <li>
+            <div class="timeline-middle">
+              <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+              <div class="text-lg font-bold text-slate-800">이종 산업군 및 12개사 발굴</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                B2B 제조, 서비스, 하이브리드, B2C 등 4대 시장 성격에 속하는 12개 대상 기업을 모집합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 145-146, Section 3.1 & Table 3</span>
+            </div>
+            <hr class="bg-primary"/>
+          </li>
+          
+          <li>
+            <hr class="bg-primary"/>
+            <div class="timeline-middle">
+              <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+              <div class="text-lg font-bold text-slate-800">다각적 인터뷰 짝 구성</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                각 기업별로 영업대표(SFLE) 2인과 협력 지원자(IBT) 2인씩 짝을 지어 인터뷰 표본(총 47명)을 삼각측정 구도로 모집합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 145, Section 3.1</span>
+            </div>
+            <hr class="bg-secondary"/>
+          </li>
+
+          <li>
+            <hr class="bg-secondary"/>
+            <div class="timeline-middle">
+              <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+              <div class="text-lg font-bold text-slate-800">반구조화 질답 전사</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                고객 구매 여정 전반의 협업 흐름, 의사소통 애로사항, 마찰 발생 시 대처 경험에 관해 인터뷰를 녹음 및 전사합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 146, Section 3.1</span>
+            </div>
+            <hr class="bg-accent"/>
+          </li>
+
+          <li>
+            <hr class="bg-accent"/>
+            <div class="timeline-middle">
+              <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+              <div class="text-lg font-bold text-slate-800">코더 간 독립적 코딩 및 합의</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                연구원 2인이 코딩을 독립 수행하며 일치 여부를 대조하고(IRR 테스트), 합의되지 않은 부조화는 지속 검토 및 논박하여 범주화합니다.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 146, Section 3.3</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가</h4>
+          <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+        </div>
+        <p class="text-xs text-slate-500 max-w-md">
+          이종 업계 삼각측정 구조는 명확하게 제시되어 있으나, 매출 수십 조 원 대의 글로벌 하이테크 법인(직원 16만 명)부터 극소 규모 법인(직원 18명)까지 넓은 범위의 실무자 다수를 한 번에 인터뷰 약속 잡아 전사 데이터를 수집하기는 물리적 접근 제약이 매우 큽니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- STEP 6 — Limitations & Critical Doubts -->
+    <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+      <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+        <h2 class="style-h2 text-slate-900">STEP 6. Limitations 및 비판적 분석</h2>
+        <span class="badge badge-warning style-label uppercase">Limitations</span>
+      </div>
+
+      <!-- Limitation A -->
+      <div class="collapse collapse-arrow bg-red-50 border border-red-200 rounded-none">
+        <input type="radio" name="limitation-accordion" checked="checked" /> 
+        <div class="collapse-title text-lg font-bold text-red-950 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-700"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+          A. 논문이 스스로 인정한 한계 (Self-Acknowledged Limitations)
+        </div>
+        <div class="collapse-content text-slate-800 text-sm flex flex-col gap-2">
+          <p><strong>1. 회고적 서술 편향:</strong> 종단적으로 실시간 협업 흐름을 본 것이 아니라 인터뷰 시점에서의 회고적(Retrospective) 진술이므로 시차에 따른 기억 오류가 발생할 수 있습니다.</p>
+          <p><strong>2. 횡단적 관점 한계:</strong> IBT의 진화 궤적을 긴 흐름으로 추적하지 못하고 횡단적 데이터 수집에 그친 한계가 있습니다.</p>
+          <p class="italic text-xs text-red-700 bg-red-100/50 p-2 rounded">"First, the findings are closely tied to the specific contexts... Second, the study relies on retrospective interview accounts... subject to recall bias..." (Page 156, Sec. 6)</p>
+        </div>
+      </div>
+
+      <!-- Limitation B -->
+      <div class="collapse collapse-arrow bg-amber-50 border border-amber-200 rounded-b-box">
+        <input type="radio" name="limitation-accordion" /> 
+        <div class="collapse-title text-lg font-bold text-amber-950 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-amber-700"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 21l8.904-.813a18.593 18.593 0 0010.08-10.08L21 9l-5.096 5.096a18.59 18.59 0 00-6.09 6.09z" /><path stroke-linecap="round" stroke-linejoin="round" d="M11.667 8.333L15.667 12.333" /></svg>
+          B. 논문이 언급하지 않은 비판적 의심 (Critical/Unmentioned Issues)
+        </div>
+        <div class="collapse-content text-slate-800 text-sm flex flex-col gap-3">
+          <div>
+            <span class="font-bold text-slate-900">1. 기업 규모 차이에 따른 관료적 마찰 무시:</span>
+            <p class="mt-1">매출액 650억 달러의 글로벌 대기업과 매출 5200만 달러의 로컬 벤처는 조직 설계의 복잡성과 관료주의 수준이 다릅니다. 이들을 하나의 프레임워크로 퉁친 것은 기업 규모(Firm size)라는 핵심 통제 변수의 역할을 배제한 것입니다.</p>
+          </div>
+          <div>
+            <span class="font-bold text-slate-900">2. B2B와 B2C 영업 본질의 극단적 차이:</span>
+            <p class="mt-1">가구 소매, 부동산 거래(B2C)와 복잡한 B2B IT 시스템 통합(B2B)은 IBT의 질적 구조가 완전히 다릅니다. B2C 표본을 포함한 설계가 오히려 B2B 파트너십 내에 존재하는 강고한 기술적/구조적 협업의 진정성을 희석했을 위험이 있습니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-8 px-4 text-center border-t border-slate-800 mt-16 style-small">
+    <div class="max-w-7xl mx-auto">
+      <p>© 2026 B2B Research Briefing - Journal of Industrial Marketing Management</p>
+      <p class="mt-2 text-slate-600">Created for preparation of B2B Theme Research and Writing</p>
+    </div>
+  </footer>
+
+</body>
+</html>

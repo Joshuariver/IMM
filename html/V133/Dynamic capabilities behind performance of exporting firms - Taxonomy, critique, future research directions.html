@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Capabilities and Exporting Performance - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (Navbar excluded) -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Export Dynamic Capabilities</div>
+        <div class="badge badge-secondary text-white style-label">Systematic Review: 53 Studies</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Dynamic capabilities behind performance of exporting firms:<br>
+            <span class="text-cyan-400">Taxonomy, critique, future research directions</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Cagla Dayangan, Bilge Aykol
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            수출 기업 성과의 이면에 있는 동적 역량:<br>
+            <span class="text-indigo-300">분류체계, 비판, 향후 연구 방향</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            50개 논문(53개 연구) 분석을 통해 규명한 수출 동적 역량의 3x4 다차원 구조 분석 및 미래 연구 어젠다 제안
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">추상적이고 기업 전체에 치우친 상위 학습 역량에서 벗어나 미시적·직무 특화적 실행 역량을 강화해야 합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This study systematically reviews how specific categories of dynamic capabilities (DCs) relate to performance in exporting research. Our sample comprises 53 studies from 50 articles published until the end of 2024, where DCs were examined as predictors of a performance construct in an exporting context. We classify DCs into an established taxonomy based on hierarchical nature (higher, intermediate, lower) and organizational unit of analysis (individual, group, organizational, inter-organizational). Additionally, we synthesize how these DC categories connect to performance in terms of direction, significance, content of financial metrics, measurement level, and directness. The results indicate that exporting firms' performance is mostly hypothesized to be driven by higher-order DCs at the organizational level, with a clear pattern of positive effects of DCs on performance, as measured using both financial and non-financial indicators. Our results further reveal that export-task-specific DCs at the lower-order remain unexplored, while intermediate-order DCs focus heavily on marketing and DCs at individual and group levels are neglected. Moreover, the DC-performance link has mostly been tested directly, with limited involvement of mediators or moderators. We conclude by outlining future research directions that address the gaps and problematic issues identified in the review."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 연구는 수출 연구에서 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">동적 역량(Dynamic Capabilities, DCs)</span>의 특정 범주가 성과와 어떻게 관련되는지 체계적으로 검토(Systematic Literature Review)한다. 본 연구의 표본은 2024년 말까지 발표된 50개 논문의 53개 연구로 구성되며, 이들 연구에서는 수출 맥락에서 동적 역량이 성과 구성 개념의 예측 요인으로 검사되었다. 우리는 동적 역량을 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">계층적 특성(상위, 중위, 하위)</span>과 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">분석의 조직 단위(개인, 집단, 조직, 조직 간)</span>를 기반으로 확립된 분류체계(Taxonomy)로 분류한다. 또한, 이러한 동적 역량 범주가 방향성, 통계적 유의성, 재무 지표의 내용, 측정 수준 및 직접성 측면에서 성과와 어떻게 연결되는지 종합한다. 분석 결과, 수출 기업의 성과는 주로 조직 수준의 상위 동적 역량에 의해 주도되는 것으로 가설이 설정되며, 재무 및 비재무 지표 모두를 사용하여 측정했을 때 동적 역량이 성과에 미치는 긍정적인 영향이 명확한 패턴으로 나타났다. 우리의 결과는 더 나아가 하위 계층의 수출 직무 특화 동적 역량은 아직 연구되지 않은 채로 남아 있는 반면, 중위 계층의 동적 역량은 마케팅에 과도하게 집중되어 있고 개인 및 집단 수준의 동적 역량은 소홀히 다루어졌음을 보여준다. 아울러 동적 역량과 성과 간의 연계는 주로 직접적으로 테스트되었으며, 매개변수나 조절변수의 참여는 제한적이었다. 우리는 문헌 검토에서 확인된 공백과 문제적 이슈를 해결하는 향후 연구 방향을 제시하며 결론을 맺는다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Glossary & Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Dynamic Capabilities (DCs)</td>
+                  <td>동적 역량</td>
+                  <td class="text-sm">급격하게 변화하는 해외 환경에 기민하게 적응하기 위해 내부 자원 기반을 재배치, 통합 및 재조정하는 조직의 역량입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Hierarchical Nature</td>
+                  <td>계층적 특성</td>
+                  <td class="text-sm">동적 역량이 지닌 추상성과 복잡성에 따라 하위(특정 태스크), 중위(교차 조율), 상위(학습/변화 지향)로 수직 구분되는 개념적 성질입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Organizational Unit</td>
+                  <td>조직 분석 단위</td>
+                  <td class="text-sm">동적 역량이 발현되고 작동하는 주체 수준(개인, 집단/팀, 조직/기업 전체, 조직 간 파트너십)을 구분하는 물리적 잣대입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Taxonomy</td>
+                  <td>분류체계</td>
+                  <td class="text-sm">개별 연구마다 산발적으로 불리던 수많은 동적 역량 변수들을 통합적으로 군집화하고 속성을 분석하기 위해 설계된 매트릭스 분류 틀입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Task-specific DCs (Lower-order)</td>
+                  <td>직무 특화 동적 역량 (하위 계층)</td>
+                  <td class="text-sm">수출 세관 규정 통과, 운송 물류 조율, 계약 및 협상 유연성 확보 등 지극히 실무적이고 과업 특화된 동적 루틴입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회 발표나 연구 세미나에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 핵심 주장을 단계별로 요약했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">기존 수출 동적 역량 연구는 무엇을 놓치고 있는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">조직/상위 편향과 미시적 실행 도구의 누락</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">다차원 분류 매트릭스와 검증 설계 재안내</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 수출 비즈니스 문헌에서 동적 역량이 성과를 창출하는 구조는 무엇인가? 역량의 층위(계층)와 주체(분석 수준)에 따른 연구적 쏠림과 실제 현장 간 괴리는 어떠한가?</li>
+                  <li><strong>핵심 발견:</strong> 기존 논문의 79.2%가 '조직 수준의 상위 학습 역량'에 극도로 편향되어 있으며, 실제 수출 업무 수행에 필수적인 '하위 과업 역량'과 '개인/부서팀' 수준의 미시 역량은 거의 다뤄지지 않았다. 또한 효과 검증이 주로 단선적인 직접 인과 관계에만 매몰되어 있다.</li>
+                  <li><strong>이론/실무 기여:</strong> Morgan & Slotegraaf(2012)의 이론적 매트릭스를 수출 영역으로 끌어와 동적 역량의 12개 스펙트럼 분류를 완성했고, 미래 연구자들이 미시적 미개척 영역(개인, 팀 단위 실행 역량)과 복잡한 상황적 전달 경로(매개 및 조절)를 실증 검증해야 함을 촉구했다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "수출 동적 역량 연구는 조직 차원의 추상적 상위 학습의 직접 성과만 다루어 왔으며, 정작 영업 현장을 떠받치는 개인·팀 수준의 구체적인 직무 실행력과 다기능적 조율 경로를 방치해 왔습니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          체계적 문헌 연구의 객관성을 담보하기 위해 각 주장과 이를 입증하는 서술적 인용구 및 원문 위치를 결합시켰습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">상위 및 조직 수준 동적 역량(DCs)의 지배성</td>
+                <td class="text-sm italic text-slate-600">
+                  "The results indicate that exporting firms' performance is mostly hypothesized to be driven by higher-order DCs at the organizational level, with a clear pattern of positive effects of DCs on performance..." / "...higher-order DCs, found in the majority (i.e., 79.2%) of the sample, emerged as the most prevalent one."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 27-28 (Section 4)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">하위 과업 및 개인/집단 수준의 공백</td>
+                <td class="text-sm italic text-slate-600">
+                  "Our results further reveal that export-task-specific DCs at the lower-order remain unexplored, while intermediate-order DCs focus heavily on marketing and DCs at individual and group levels are neglected."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 27-28 (Section 4.1)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">중간 전달 매개 및 조절 경로의 단선성</td>
+                <td class="text-sm italic text-slate-600">
+                  "Moreover, the DC-performance link has mostly been tested directly, with limited involvement of mediators or moderators." / "In 84.9% of studies, DCs were conceptualized to have a direct effect on performance..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 28 (Section 4)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">중위 동적 역량의 마케팅 쏠림 현상</td>
+                <td class="text-sm italic text-slate-600">
+                  "...extant research devoted attention to those DCs that underlie mainly marketing management... other functions, such as supply chain integration, technological capabilities, and operational flexibility... remain under-investigated..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 28 (Section 4.2) / Page 36 (Section 5.1)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">수출 맥락 데이터(거리, 경험)의 기술 미흡</td>
+                <td class="text-sm italic text-slate-600">
+                  "...due to failure of sample studies to report contextual data (e.g., export experience, exporting method, host country profile)... no study reported profiles of host countries to which exporters sold..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 40 (Section 5.4 - Limitations)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">SLR Conceptual Framework (문헌 검토 분석 프레임워크)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 450" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+
+              <!-- Left: Independent Variable - DC Taxonomy Matrix -->
+              <rect x="20" y="30" width="340" height="390" rx="12" fill="#f8fafc" stroke="#64748b" stroke-width="2" />
+              <rect x="30" y="40" width="320" height="30" rx="6" fill="#0f172a" />
+              <text x="190" y="60" text-anchor="middle" font-weight="700" fill="#ffffff" font-size="13">수출 동적 역량 분류체계 (DCs Taxonomy)</text>
+
+              <!-- Taxonomy details: 3 orders -->
+              <!-- Higher-order -->
+              <rect x="40" y="85" width="300" height="90" rx="8" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="1.5" />
+              <text x="50" y="105" font-weight="700" fill="#0369a1" font-size="12">상위 동적 역량 (Higher-Order DCs - 79.2%)</text>
+              <text x="50" y="125" fill="#0284c7" font-size="11">개념: 환경 학습, 전략적 갱신, 조직적 민첩성</text>
+              <text x="50" font-size="10" fill="#0369a1" y="145">예시: DMC(개인), IEO(집단), 조직 학습(조직), 네트워크 학습(조직 간)</text>
+              <text x="50" font-size="9" fill="#0284c7" y="162">실증 분석 수: 34개 연구에서 30개 변수 검증 (Table 3)</text>
+
+              <!-- Intermediate-order -->
+              <rect x="40" y="190" width="300" height="90" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5" />
+              <text x="50" y="210" font-weight="700" fill="#065f46" font-size="12">중위 동적 역량 (Intermediate-Order DCs - 49.1%)</text>
+              <text x="50" y="230" fill="#047857" font-size="11">개념: 기능 교차 조율, 마케팅/조달 프로세스 통합</text>
+              <text x="50" font-size="10" fill="#065f46" y="250">예시: CRM(조직), 신제품 개발(조직), 파트너 관리(조직 간)</text>
+              <text x="50" font-size="9" fill="#047857" y="267">실증 분석 수: 16개 연구에서 16개 변수 검증 (Table 3)</text>
+
+              <!-- Lower-order -->
+              <rect x="40" y="295" width="300" height="90" rx="8" fill="#fff1f2" stroke="#f43f5e" stroke-width="1.5" />
+              <text x="50" y="315" font-weight="700" fill="#be123c" font-size="12">하위 동적 역량 (Lower-Order DCs - 3.8%)</text>
+              <text x="50" y="335" fill="#e11d48" font-size="11">개념: 수출 직무 특화적 실행, 거래처 일상 조율</text>
+              <text x="50" font-size="10" fill="#be123c" y="355">예시: KAM(집단), 계약 협상 유연성(조직 간)</text>
+              <text x="50" font-size="9" fill="#e11d48" y="372">실증 분석 수: 단 2개 연구에서 2개 변수만 검증 (Table 2)</text>
+
+              <!-- Organizational Units indicator -->
+              <text x="190" y="405" text-anchor="middle" font-weight="700" fill="#475569" font-size="11">분석 단위: 개인 (9.4%) / 집단 (13.2%) / 조직 (79.2%) / 조직 간 (28.3%)</text>
+
+              <!-- Right: Dependent Variable - Exporting Firm Performance -->
+              <rect x="580" y="175" width="200" height="100" rx="12" fill="#eef2ff" stroke="#4f46e5" stroke-width="2.5" />
+              <text x="680" y="210" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">수출 기업 성과</text>
+              <text x="680" y="230" text-anchor="middle" fill="#4338ca" font-size="12">(Exporting Performance)</text>
+              <text x="680" y="255" text-anchor="middle" fill="#4f46e5" font-size="11">재무 / 비재무 / 복합 지표</text>
+
+              <!-- Middle-top: Mediator -->
+              <rect x="400" y="50" width="150" height="75" rx="8" fill="#faf5ff" stroke="#a855f7" stroke-width="1.5" />
+              <text x="475" y="75" text-anchor="middle" font-weight="700" fill="#6b21a8" font-size="12">매개 메커니즘</text>
+              <text x="475" y="95" text-anchor="middle" fill="#7e22ce" font-size="10">(Mediators - 22.6%)</text>
+              <text x="475" y="112" text-anchor="middle" fill="#7e22ce" font-size="9">마케팅 전략, 해외 시장 적응 등</text>
+
+              <!-- Middle-bottom: Moderator -->
+              <rect x="400" y="325" width="150" height="75" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5" />
+              <text x="475" y="350" text-anchor="middle" font-weight="700" fill="#78350f" font-size="12">조절 요인</text>
+              <text x="475" y="370" text-anchor="middle" fill="#b45309" font-size="10">(Moderators - 20.8%)</text>
+              <text x="475" y="387" text-anchor="middle" fill="#b45309" font-size="9">기업가 정신, 환경 복잡성 등</text>
+
+              <!-- Causal Paths -->
+              <!-- Direct Path (Main stream) -->
+              <path d="M360 225 L570 225" fill="none" stroke="#4b5563" stroke-width="2.5" marker-end="url(#arrow)" />
+              <text x="465" y="215" text-anchor="middle" font-weight="700" fill="#374151" font-size="12">직접 효과 (84.9%)</text>
+              <text x="465" y="242" text-anchor="middle" fill="#4b5563" font-size="10">수출 동적 역량 &rarr; 성과</text>
+
+              <!-- Indirect Path (Through Mediator) -->
+              <path d="M340 95 L 390 95" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)" />
+              <path d="M550 95 L 680 95 L 680 165" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)" />
+              <text x="365" y="112" fill="#6b21a8" font-size="10">매개 경로</text>
+
+              <!-- Moderation Path -->
+              <path d="M475 325 L 475 235" fill="none" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arrow)" />
+              <text x="490" y="280" fill="#78350f" font-size="10">조절 효과</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수</span>
+                <span class="text-xs text-slate-400 font-semibold">IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">동적 역량 분류체계 (Dynamic Capabilities Taxonomy)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 급격히 변화하는 국제 비즈니스 환경 하에서 기업이 우위를 유지하기 위해 보유 자원과 운영 루틴을 통합, 구축, 조정 및 재배치하는 전략적 행동 (Teece, 2007).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Morgan & Slotegraaf(2012)의 기준에 의거하여 계층 3단계(상위, 중위, 하위) $\times$ 귀속 분석 단위 4단계(개인, 집단, 조직, 조직 간)로 수집 변수 분류 코딩.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 기존 문헌의 72개 고유 동적 역량 척도 (예: DMC(Mostafiz et al., 2019a), 마케팅 애자일(Asseraf et al., 2019) 등)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 연구 대상의 극심한 편향(조직-상위 편향)이 존재하며, 실무상 중요한 하위 직무의 기여(KAM, 통관, 가격 협상 등)가 간과되고 있음을 지적함.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">DV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">수출 기업 성과 (Exporting Performance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 해외 비즈니스를 수행함으로써 기업이 거두는 재무적 성공, 평판 및 고객 만족 등의 비재무적 획득, 그리고 장기적 생존을 포괄하는 성과 결과물 (Katsikeas et al., 2000).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 재무적 구성(재무, 비재무, 복합) $\times$ 측정 레벨(기업 전체 수출, 특정 해외 시장-제품 벤처 수준) 분류 지표.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Katsikeas et al. (2000), Sousa et al. (2008) 등 다차원 수출 성과 평가 가이드라인</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 기업들이 성과 변수를 파편화해 다룸에 따라 실증 결과가 일치하지 않는 경우가 많음. 특히 기업 단위 재무 성과에 집중되어 벤처 단위의 미세 조율 효과를 잡아내지 못함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기능적 전략 및 운영 효율성 (Mediators)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 상위 및 조직 수준의 추상적 동적 역량이 물리적인 수출 성과로 연결될 수 있도록 다리를 놓아주는 세부 운영 기능이나 마케팅 전략 실행 (Helfat & Peteraf, 2009).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 마케팅 전략 수립(Falahat et al., 2018), 해외 현지 제품 적응 행동(Ciszewska-Mlinarič et al., 2024), 온라인 유통 및 프로모션 효율화(Gregory et al., 2019).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 구조방정식(SEM) 분석 중 종속변수에 선행하는 매개적 경로 변수들</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 동적 역량은 직접 성과를 내기보다는 '일반 역량'의 재구성을 매개하여 성과로 전환된다는 것이 이론적 정설이나, 기존 문헌의 22.6%만 이를 검증하여 공백이 심각함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">내부 전략 지향 및 외부 환경 불확실성 (Moderators)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 동적 역량의 성과 기여 메커니즘을 강화하거나 방해하는 기업 내부의 속성(지향성, 규모) 및 외부 거시 환경의 제도적·문화적 가혹성 (Karna et al., 2016).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 기업가 정신(EO), 제품 복잡성, 기업 규모 등의 조직 내부 요소 및 시장 복잡성, 제도적 enforceability 등의 거시 환경 요소.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 각 실증 분석 상의 상호작용 회귀 효과(Interaction terms)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 거시 제도적 거리(Institutional Distance)나 문화적 거리와 같은 국제 마케팅 고유의 거시 환경 조절 요인들이 기존 문헌에서 심각하게 보고 누락되고 있음을 적시함.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          체계적 문헌 연구(Systematic Literature Review) 방법론을 동등한 기준 하에 <strong>추종 재현</strong>할 수 있도록 절차를 단계별로 타임라인화했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">문헌 검색식 정의 및 실행 (Web of Science / Scopus)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  대표적인 글로벌 학술 색인 인덱스인 Web of Science 및 Scopus에 접속하여 쿼리 <code>("dynamic capabilities" AND "exporting" OR "international marketing" OR "international business")</code>를 Abstract, Title, Keywords 조건에 입력 후 영문 아티클로 제한 추출 (중복 제거 후 481개 확보).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 23, Section 3.2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">저널 등급 컷오프 필터 적용 (CABS AJG 2024)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  CABS(Chartered Association of Business Schools)의 Academic Journal Guide 2024년 등급 컷오프를 적용하여, 경영학 저널 등급 리스트에서 2등급, 3등급, 4등급, 및 4* 등급에 기재된 주요 저널 논문만 추출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 23, Section 3.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">세부 포함/제외 적합성 스크리닝 (Eligibility Checks)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  논문의 Full-text를 다음 네 가지 세부 잣대로 검독 필터링: (1) 동적 역량 명시 가설 검증, (2) 조작화 기준 명확성, (3) 수출(exporting) 비즈니스 상황 적합성, (4) 정량 통계 정보의 완전성 (39개 아티클 통과).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 23-24, Section 3.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">수동 문헌 백트래킹 (Manual Reference Tracking)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  동적 역량 선행 핵심 리뷰 연구(Kahiya & Warwood, 2022; Pezeshkan et al., 2016)들의 참고문헌들을 수동으로 교차 역추적 검증하여 누락된 11개 실증 논문을 추가 확보 (최종 50개 아티클, 53개 개별 연구 확정).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 24, Section 3.2 & Fig 2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">이중 코더 데이터 분류 코딩 및 신뢰성 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  2명의 독립 연구자가 코드북(Table 1)을 기반으로 역량 계층(하위, 중위, 상위) $\times$ 분석 단위(개인, 집단, 조직, 조직 간) $\times$ 성과 및 인과 유형 코딩 수행. 코더 간 신뢰도는 95.4%~100% 획득.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 24-25, Section 3.3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">매트릭스 매핑 및 상관 패턴 서술적 종합</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Morgan & Slotegraaf(2012) 분류 틀을 스프레드시트에 기입하고, 72개의 고유 역량-성과 데이터를 해당 셀에 매핑한 뒤 빈도 통계 분석 및 상황적(매개/조절) 효과 흐름을 최종 종합.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 25-26, Section 3.3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">완전 재현 가능 (Fully Replicable)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            검색 엔진 쿼리 식, 포함 및 배제 컷오프 가이드(CABS AJG 2024), 수동 추적 출처 논문, 그리고 데이터 코딩의 판단 기준이 되는 코드북(Table 1) 정보가 상세하고 명확하게 기록되어 있습니다. 후속 연구자가 동일 쿼리로 수집하고 코딩을 대조할 때 100% 동일한 매핑 매트릭스의 구축과 통계적 경향 재현이 가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.4)에서 연구진들이 직접 인정한 분석의 경계와 제약사항입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>학술지 등급 제한에 따른 유실:</strong> CABS AJG 2024 기준 2등급 이상 주요 저널로 한정함으로써 하위 저널이나 신생 학술지에 게재된 참신한 프레임워크 연구가 누락되었을 가능성이 있음 (p. 39).
+              </li>
+              <li>
+                <strong>수출 이외의 다국적 진입 방식 배제:</strong> 오로지 수출(exporting) 세팅에만 초점을 맞췄기 때문에, 기업의 해외 직접투자(FDI)나 국제 합작 투자(IJV) 상황에 이 모델을 그대로 확장하기에는 한계가 있음 (p. 40).
+              </li>
+              <li>
+                <strong>동적 역량과 일반 역량 분류의 주관성:</strong> 수집 대상 논문 원저자의 개념 조작화를 전적으로 수용했기 때문에, 일부 연구에서 일반 역량으로 다룬 변수(예: 전자상거래 마케팅 능력)가 동적 역량으로 오인 코딩되었을 리스크가 있음 (p. 40).
+              </li>
+              <li>
+                <strong>맥락 및 제도적 변수의 정보 부재:</strong> 조사 대상 실증 논문들이 수출 경험 연수나 구체적 수출 파트너국 정보를 명시하지 않아, 문화적/제도적 거리(Distance)가 역량-성과 링크를 조절하는 효과를 분석할 수 없었음 (p. 40).
+              </li>
+              <li>
+                <strong>질적 연구의 반영 미진:</strong> 실증 가설 검증 연구를 추리다 보니 실제 업무 현장에서 동적 역량이 실행되는 풍부한 과정을 기술한 질적 사례 연구들이 스크리닝에서 누락됨 (p. 40).
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">이론 설계 및 데이터 분석 메커니즘을 기반으로 제기하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 코딩 주관성 및 오독 위험 (Coding Subjectivity)</span>
+                <p class="text-sm text-slate-700">
+                  72개의 파편화된 동적 역량 변수들을 3x4 매트릭스의 특정 셀(예: Lower-order vs. Intermediate, Group vs. Organizational)에 할당하는 작업은 고도의 주관성이 개입되는 작업입니다. 비록 이중 코더 신뢰도가 높게 나왔더라도, 원저자의 명시가 없는 상황에서 자의적으로 강제 귀속시킨 코딩의 오류로부터 완전히 자유롭기 어렵습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 출판 편향의 내재화 (Publication Bias)</span>
+                <p class="text-sm text-slate-700">
+                  SLR의 근본적 취약점인 '게재 편향(File drawer problem)'의 위험이 존재합니다. 실증 문헌들은 동적 역량의 긍정적인 성과 영향이 검증된 논문 위주로만 출판되며, 효과가 없거나 부정적인 효과를 낸 논문들은 폐기됩니다. 따라서 본 논문이 종합 도출한 "동적 역량과 성과 간의 명확한 긍정적 관계 유형"은 학계의 게재 편향이 빚어낸 왜곡된 결과일 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 시계열적 및 거시 환경 변화의 미통제</span>
+                <p class="text-sm text-slate-700">
+                  수집된 53개 연구는 2024년 말까지 오랜 기간에 걸쳐 발표된 것들로, 2008년 글로벌 금융위기나 2020-2022년 팬데믹 등의 거시 환경 격변기가 섞여 있습니다. 환경 격변기에 수집된 역량(예: 애자일, 디지털 혁신)과 일반 안정기에 획득된 역량의 성과 기여도는 맥락상 판이할 것이나, 메타 회귀 등을 통해 이 시계열 환경 요인을 통제·분할 분석하지 않은 아쉬움이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 분석 레벨의 혼용 (Level Aggregation Issue)</span>
+                <p class="text-sm text-slate-700">
+                  성과 변수를 '기업 수준(Firm-level)'과 '수출 벤처 수준(Export venture-level)'으로 구분하여 제시하였지만, 종합 패턴을 논의할 때는 이를 구분 없이 혼용합니다. 단일 제품군의 현지 수출 성과와 기업 전체의 수출 성과는 작동하는 매커니즘이 전혀 상이함에도 통합 분석 시 이로 인한 왜곡 가능성을 통계적으로 보정하지 않았습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Brief
+      </p> 
+      <p>Dynamic capabilities behind performance of exporting firms: Taxonomy, critique, future research directions</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bilateral Indirect Influence in Coopetition Triads - IMM 2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Coopetition Triads</div>
+        <div class="badge badge-secondary text-white style-label">Theoretical Framework</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Bilateral indirect influence in coopetition triads:<br>
+            <span class="text-cyan-400">A conceptual framework</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Sara Galehbakhtiari, Tatbeeq Raza-Ullah
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            경쟁-협력(coopetition) 삼자 관계에서의<br>
+            <span class="text-indigo-300">쌍방향 간접 영향력: 개념적 프레임워크</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            제3자의 직접적인 개입 없이 '평가적 시선'의 원격 관찰을 통한 대리 학습과, 이를 감지한 쌍방 관계의 자기 규제 피드백 루프 모델링
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">동맹 간의 갈등이나 협업 양상은 시장 전체에 강력한 시그널링이 되며, 제3자의 대리 학습과 당사자의 자기규제 간의 피드백 루프를 작동시킵니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Research on triadic coopetition largely assumes that a third party must actively intervene to influence a focal dyad's coopetitive dynamics (i.e., the simultaneous cooperative and competitive interactions between firms). This paper challenges this view by exploring a more subtle, pervasive force within these three-actor structures (i.e., coopetition triads): the influence of observing and being observed. We argue that because coopetitive dyads are embedded in networks, they remain under constant scrutiny from influential outside actors, such as existing or potential rivals, customers, or suppliers. We term this the “evaluative gaze”—a mechanism of strategic monitoring where a third party judges a dyad's stability and potential from a distance. We develop a model of bilateral indirect influence to explain how and when this process unfolds. First, the third party engages in vicarious learning, watching the dyad to scout for potential partners or signal its strategic positioning. Second, the focal dyad, aware of this gaze, engages in collective self-regulation, adjusting its behavior to manage its reputation and signal strength. By specifying the conditions under which this influence is most potent, we demonstrate triadic coopetition as a dynamic feedback loop of signaling and adaptation. Our model reveals how firms strategically manage visibility to shape reputation, attract partners, and gain competitive advantage without ever engaging in direct intervention."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "삼자 관계의 코피티션(coopetition, 경쟁-협력)에 관한 연구는 주로 제3자가 두 기업 간의 코피티션 동학(즉, 기업들 간의 동시적인 협력적 및 경쟁적 상호작용)에 영향을 미치기 위해 적극적으로 개입해야 한다고 가정한다. 본 논문은 삼자 구조(즉, 코피티션 삼자 관계) 내에서 관찰하고 관찰당하는 영향력이라는 더 미묘하고 광범위한 힘을 탐구함으로써 이러한 기존 관점에 도전한다. 우리는 코피티션 쌍방 관계가 네트워크에 내포되어 있기 때문에, 이들이 기존 또는 잠재적인 경쟁자, 고객, 공급업체와 같은 영향력 있는 외부 행위자의 끊임없는 감시 아래에 있다고 주장한다. 우리는 이를 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">"평가적 시선(evaluative gaze)"</span>이라고 명명하며, 제3자가 원거리에서 쌍방 관계의 안정성과 잠재력을 판단하는 전략적 모니터링 메커니즘으로 정의한다. 우리는 이 프로세스가 어떻게 그리고 언제 전개되는지 설명하기 위해 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">'쌍방향 간접 영향력(bilateral indirect influence)'</span> 모델을 개발한다. 첫째, 제3자는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">대리 학습(vicarious learning)</span>에 참여하여 잠재적 파트너를 탐색하거나 자신의 전략적 포지셔닝을 시그널링하기 위해 쌍방 관계를 주시한다. 둘째, 이러한 평가적 시선을 인지한 초점 쌍방 관계는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">공동 자기 규제(collective self-regulation)</span>를 전개하여 명성과 시그널 강도를 관리하기 위해 행동을 조정한다. 우리는 이 영향력이 가장 강력하게 작용하는 조건을 구체화함으로써, 코피티션 삼자 관계가 시그널링과 적응의 역동적인 피드백 루프임을 입증한다. 우리의 모델은 기업들이 직접적인 개입 없이도 명성을 형성하고 파트너를 유치하며 경쟁 우위를 확보하기 위해 어떻게 가시성(visibility)을 전략적으로 관리하는지 보여준다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Evaluative Gaze</td>
+                  <td>평가적 시선</td>
+                  <td class="text-sm">단순한 정보 모니터링을 넘어, 타 동맹의 안정성을 자사에 유불리하게 적용하기 위해 위협/기회 가치 평가를 하며 관찰하는 제3자의 시선압박을 뜻합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Vicarious Learning</td>
+                  <td>대리 학습</td>
+                  <td class="text-sm">Bandura(1989)의 사회 인지 이론의 핵심 개념으로, 타인(타사)의 행동과 그 피드백 결과를 보고 직접 수행 없이 지식을 획득하는 과정입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Bilateral Indirect Influence</td>
+                  <td>쌍방향 간접 영향력</td>
+                  <td class="text-sm">제3자의 개입 없이, 관찰(대리학습)과 피관찰 사실의 인지(자기규제)라는 간접적 통로를 통해 일어나는 쌍방향 피드백 작용입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Collective Self-Regulation</td>
+                  <td>공동 자기 규제</td>
+                  <td class="text-sm">단일 기업 수준이 아니라, 동맹 관계 내 공동의 공식/비공식 협의체를 통해 규제 표준에 맞게 관계적 행동을 통제하는 행위입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            세미나 및 집담회 발표를 위해 논문의 학술적 코어를 3단계 구조로 도출했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">직접 개입 없이도 삼자 관계가 변화하는 인과 메커니즘은?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">평가적 시선 아래 대리 학습과 자기규제의 피드백 루프</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">코피티션 삼자 이론의 '개입 편향' 극복</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 삼자 코피티션에서 제3자가 직접 브로커나 중재인으로 개입하지 않고도 쌍방의 전략을 바꿀 수 있는가? 원격 감시와 인지 과정은 어떻게 행동으로 연결되는가?</li>
+                  <li><strong>핵심 발견:</strong> 제3자는 경쟁사의 코피티션 행동을 **대리 학습(Vicarious Learning)**하여 모방/차별화 시그널링을 수행하며, 당사자는 이 **평가적 시선(Evaluative Gaze)**을 인식하여 동맹 내 **공동 자기규제(Self-Regulation)**를 가동하고 자원을 맞추며 인상 관리(Impression Management) 신호를 보냅니다. 이 두 반응이 꼬리를 물며 삼자 관계를 상호 진화(Co-evolve)시킵니다.</li>
+                  <li><strong>학술 기여:</strong> 기존 삼자 관계 이론이 직접적 조정이나 연합(coalition)에만 머무르던 한계를 깨고, 비가시적 인지 처리 과정을 S-O-R 체계로 정립해 B2B 네트워크의 전략적 시그널 효과를 심화시켰습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "제3자의 '대리 학습적 포지셔닝'과 쌍방 관계의 '자기 규제적 인상 형성'이 시그널링의 쌍방향 피드백 루프를 가동해 직접 개입 없이도 삼자 관계를 진화시킵니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          개념적 타당성을 규명하기 위해 논증 명제들을 유도하는 원문 진술과 위치를 매핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">원격 모니터링을 통한 '평가적 시선'의 존재</td>
+                <td class="text-sm italic text-slate-600">
+                  "...we term this the 'evaluative gaze'—a mechanism of strategic monitoring where a third party judges a dyad's stability and potential from a distance."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 50 (Sec. 1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">제3자 대리 학습의 S-O-R 메커니즘</td>
+                <td class="text-sm italic text-slate-600">
+                  "Within the Third-Party Realm, the process unfolds as follows: The Stimulus (S) is the dyad's observable coopetition dynamics, the Organism (O) is the third party's cognitive inference process..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 52 (Sec. 3.1)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">초점 쌍방의 인상 관리 및 자기규제</td>
+                <td class="text-sm italic text-slate-600">
+                  "...focal dyad, aware of this gaze, engages in collective self-regulation, adjusting its behavior to manage its reputation and signal strength."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 56 (Sec. 3.2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">쌍방향 피드백에 의한 네트워크 진화</td>
+                <td class="text-sm italic text-slate-600">
+                  "The reciprocal feedback loop between third-party vicarious learning and focal dyad self-regulation drives the co-evolution of triadic relationships..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 59 (Sec. 3.3, P9)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Bilateral Indirect Influence Loop (쌍방향 간접 영향력 S-O-R 피드백 모형)</h3>
+          
+          <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 450" class="w-full h-auto">
+              <!-- Definition of markers -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+
+              <!-- Outer Frame: Third-Party Realm (Top half) -->
+              <rect x="10" y="10" width="780" height="190" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+              <text x="30" y="30" font-weight="700" fill="#475569" font-size="13">1. 제3자 대리 학습 영역 (Third-Party Realm)</text>
+
+              <!-- Third Party Nodes -->
+              <!-- Stimulus 3 -->
+              <rect x="30" y="55" width="200" height="55" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="130" y="78" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">자극(S): 쌍방 코피티션 동학</text>
+              <text x="130" y="95" text-anchor="middle" fill="#64748b" font-size="10">관찰 가능한 경쟁/협력 행동</text>
+
+              <!-- Organism 3 -->
+              <rect x="290" y="55" width="200" height="55" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="390" y="78" text-anchor="middle" font-weight="700" fill="#065f46" font-size="12">유기체(O): 인지적 추론</text>
+              <text x="390" y="95" text-anchor="middle" fill="#047857" font-size="10">원인 분석 & 기회/위협 해석</text>
+
+              <!-- Response 3 -->
+              <rect x="550" y="55" width="200" height="55" rx="6" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="650" y="78" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="12">반응(R): 전략적 포지셔닝</text>
+              <text x="650" y="95" text-anchor="middle" fill="#4338ca" font-size="10">모방/차별화 의사결정 & 신호</text>
+
+              <!-- Links -->
+              <path d="M 230 82 L 290 82" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M 490 82 L 550 82" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Moderators 3 -->
+              <!-- Publicity / Asymmetry / Ties -->
+              <rect x="180" y="125" width="130" height="60" rx="4" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+              <text x="245" y="142" text-anchor="middle" font-weight="700" fill="#78350f" font-size="11">S➔O 조절요인</text>
+              <text x="245" y="157" text-anchor="middle" fill="#b45309" font-size="9">홍보성(P2) / 권력차(P3) / 유대(P4)</text>
+              <path d="M 245 125 L 260 82" fill="none" stroke="#d97706" stroke-dasharray="2 2" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+              <!-- Homophily -->
+              <rect x="470" y="125" width="120" height="45" rx="4" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+              <text x="530" y="142" text-anchor="middle" font-weight="700" fill="#78350f" font-size="11">O➔R 조절: 유사성 (P5)</text>
+              <path d="M 530 125 L 520 82" fill="none" stroke="#d97706" stroke-dasharray="2 2" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+
+              <!-- Outer Frame: Focal Dyad Realm (Bottom half) -->
+              <rect x="10" y="240" width="780" height="190" rx="8" fill="#fdf2f8" stroke="#db2777" stroke-width="1.5"/>
+              <text x="30" y="260" font-weight="700" fill="#9d174d" font-size="13">2. 초점 쌍방 자기규제 영역 (Focal Dyad Realm)</text>
+
+              <!-- Dyad Nodes -->
+              <!-- Stimulus d -->
+              <rect x="550" y="285" width="200" height="55" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="650" y="308" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">자극(S): 평가적 시선</text>
+              <text x="650" y="325" text-anchor="middle" fill="#64748b" font-size="10">감시 당하고 있다는 인지</text>
+
+              <!-- Organism d -->
+              <rect x="290" y="285" width="200" height="55" rx="6" fill="#fdf2f8" stroke="#db2777" stroke-width="2"/>
+              <text x="390" y="308" text-anchor="middle" font-weight="700" fill="#9d174d" font-size="12">유기체(O): 공동 자기규제</text>
+              <text x="390" y="325" text-anchor="middle" fill="#be185d" font-size="10">기대부합 여부 내부 성찰</text>
+
+              <!-- Response d -->
+              <rect x="30" y="285" width="200" height="55" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+              <text x="130" y="308" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="12">반응(R): 전략적 인상 형성</text>
+              <text x="130" y="325" text-anchor="middle" fill="#0284c7" font-size="10">자원 조율 & 명성 관리 신호</text>
+
+              <!-- Links -->
+              <path d="M 550 312 L 490 312" fill="none" stroke="#db2777" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M 290 312 L 230 312" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Moderators d -->
+              <!-- Interdependence -->
+              <rect x="470" y="355" width="130" height="45" rx="4" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+              <text x="535" y="372" text-anchor="middle" font-weight="700" fill="#78350f" font-size="11">S➔O 조절: 의존성 (P7)</text>
+              <path d="M 535 355 L 520 312" fill="none" stroke="#d97706" stroke-dasharray="2 2" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+              <!-- Power Asymmetry -->
+              <rect x="180" y="355" width="130" height="45" rx="4" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+              <text x="245" y="372" text-anchor="middle" font-weight="700" fill="#78350f" font-size="11">O➔R 조절: 권력격차 (P8-)</text>
+              <path d="M 245 355 L 260 312" fill="none" stroke="#d97706" stroke-dasharray="2 2" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+
+              <!-- FEEDBACK LOOP ARROWS -->
+              <!-- R3 -> Sd (Strategic Signaling to Gaze) -->
+              <path d="M 650 110 L 650 285" fill="none" stroke="#ef4444" stroke-width="2" marker-end="url(#arrow)"/>
+              <!-- Rd -> S3 (Impression to Observed Dynamics) -->
+              <path d="M 130 285 L 130 110" fill="none" stroke="#ef4444" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <text x="660" y="200" fill="#b91c1c" font-weight="700" font-size="11">피드백 루프 (P9)</text>
+              <text x="40" y="200" fill="#b91c1c" font-weight="700" font-size="11">피드백 루프 (P9)</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Stimulus 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">자극 (S) - 제3자 영역</span>
+                <span class="text-xs text-slate-400 font-semibold">Stimulus 3</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">관찰 가능한 코피티션 동학 (Observable Coopetitive Dynamics)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 네트워크에 노출되어 제3자가 목격할 수 있는, 초점 쌍방 간의 협력 및 경쟁 상호작용의 객관적 발현 패턴.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 연구 지연 공지, 특허 공유 발표, 파트너 간의 공식적 다툼 등 시장에 가시화된 행동적 정황들.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론:</strong> 시그널링 이론(Signaling Theory). 파트너십의 내밀한 갈등 정보가 시장에 시그널로서 가시성을 확보하게 되는 시작점입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Organism 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">유기체 (O) - 제3자 영역</span>
+                <span class="text-xs text-slate-400 font-semibold">Organism 3</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">인지적 추론 (Cognitive Inferences)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 제3자가 관찰한 자극을 해석하기 위해 거치는 '인과 귀인(Attribution)'과 그것을 자사의 기회/위협으로 이름 붙이는 '전략적 이슈 해석'의 인지 과정.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 탑매니지먼트 팀에서 경쟁사의 갈등 원인을 '역량 미달' 혹은 '기회주의'로 귀인 판정하고, 이를 기회나 위협으로 규정하는 전략 회의 의사록 내용.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론:</strong> 귀인 이론(Attribution Theory) 및 경영진 인지(Managerial Cognition). 객관적 시장 데이터가 조직 내의 주관적 의미 구조로 전사되는 필터 역할을 합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stimulus d Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">자극 (S) - 쌍방 영역</span>
+                <span class="text-xs text-slate-400 font-semibold">Stimulus d</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">평가적 시선 (Evaluative Gaze)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 동맹 관계에 있는 당사자들이 시장 내 강력한 영향력을 쥔 제3자(고객, 경쟁자)로부터 감시 및 평가당하고 있다는 사실의 주관적 인지 수준.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 타사 임원이나 언론에서 자사 동맹의 연대감에 관해 던지는 질문, 조사 빈도에 대한 감지 압박 수준.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론:</strong> 네트워크 내포성(Network Embeddedness). 폐쇄적 동맹 관계도 결국 개방적 네트워크 속 감시 하에 놓여 있음을 보여주는 자극 기제입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Organism d Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">유기체 (O) - 쌍방 영역</span>
+                <span class="text-xs text-slate-400 font-semibold">Organism d</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공동 자기규제 판단 (Collective Self-Regulation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 동맹 주체들이 원활한 대외 신뢰와 명성을 지키기 위해, 자사 행동 규범을 감시자(제3자)의 기준과 기대를 고려해 비판적으로 수정·동조시키는 집단 성찰 과정.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 공동 거버넌스 회의(Steering Committee) 내에서 대외 관계적 안정성을 훼손하는 부정적 행동을 조율하고 지침을 타협하는 빈도.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론:</strong> 사회인지적 자기규제 이론(Social Cognitive Self-Regulation). 외부 시선에 맞추어 조직의 동조 능력을 활성화하는 동력원입니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 개념 논문의 추론 절차와 가설적 명제 수립 로직을 복제 및 재현할 수 있도록 단계적으로 분해했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">기존 이론의 '직접 중재 편향' 한계 식별</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  코피티션 삼자 관계 문헌을 분석하여, 기존 연구가 제3자의 직접 개입(Brokerage, Coalition)에만 집중되어 '단순 원격 관찰'의 영향력을 배제한 공백을 도출합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 50, Section 1 & 2.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">개념 정립 및 차별성 구체화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  '평가적 시선(Evaluative Gaze)' 및 '쌍방향 간접 영향력(Bilateral Indirect Influence)'을 신규 정의하고, 기존의 직접적 중재 및 단순 환경 스캐닝과 비교 매핑하여 개념의 고유 영역을 수립합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 50-51, Section 2.2 & Table 1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">S-O-R 및 사회인지 이론의 결합 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  자극-유기체-반응 프레임워크와 Bandura(1989)의 사회인지적 핵심 기제(대리 학습, 자기규제)를 연결하여 인지 처리에 기반한 분석 구조를 수립합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 52, Section 3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">두 영역(제3자 & 쌍방)의 세부 명제 유도</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  제3자 대리 학습 명제(P1~5)와 초점 쌍방 자기규제 명제(P6~8)를 도출하고, 상황적 조절변수(가시성, 격차, 유대강도, 유사성, 의존성)의 논리적 개입 점을 정렬합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 52-59, Section 3.1 & 3.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">피드백 루프 및 가상/역사적 케이스 검토</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  한쪽의 반응이 상대의 자극이 되는 최종 피드백 루프(P9)를 정비하고, Boeing-Bombardier-Airbus 사례와 Sony-Samsung-LG LCD 연합 붕괴 사례를 통해 모형의 설명 타당성을 예증합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 59, Section 3.3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            본 논문은 데이터 분석이 생략된 100% 이론적 모델 논문이므로, 통계값의 완전 재현은 불가능하지만, S-O-R 및 사회인지 이론의 개념 융합 설계 방식은 타 개념 연구에서 완벽하게 재구성하여 사용할 수 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 인정하고 기술한 이론적 제한점입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>정보의 투명성 가정:</strong> 모형의 원활한 작동을 위해 기업 행동이 외부에 노출되는 일정 수준의 투명한 환경을 전제합니다. 국가 기밀이나 철저한 비공개 R&D 동맹처럼 비밀성이 높은 '어두운' 네트워크 구조에서는 작동하기 힘듭니다. (Page 11, Section 6)
+              </li>
+              <li>
+                <strong>인지 한계와 정보 홍수:</strong> 실제 기업 경영진은 심각한 정보 과부하(Information overload)에 시달려, 복잡다단한 전체 네트워크 관계망 속에서 단 하나의 특정 쌍방 관계 신호에 전략적 관심을 영구히 결속하기 어렵습니다. (Page 11, Section 6)
+              </li>
+              <li>
+                <strong>협상 동조 일치성 가정의 위협:</strong> 파트너 간 권력 차이가 극단적일 때, 강자가 대외 신호를 가로채 자사의 명성에만 부합하게 왜곡시키고 약자가 비동조(decoupling)함으로써 신호 기만(deceptive signaling)을 시도할 가능성이 큽니다. (Page 11, Section 6)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">이론 모형의 논리적 엄밀성을 검증하기 위한 비판 지점입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 데이터 실증의 완전한 부재</span>
+                <p class="text-sm text-slate-700">
+                  모든 명제들이 질적/양적 실증 분석 없이 텍스트 논리로만 도출되었습니다. 9대 제안 명제들의 통계적 유의도(P-value)나 영향도 크기(Effect Size)를 증명하지 못하여 실무 및 실증 적용 시 변수 우선순위를 판단할 수 없습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 다자 관계(Multi-actor)에서의 신호 교란</span>
+                <p class="text-sm text-slate-700">
+                  실제 생태계에는 수십 개의 제3자가 존재합니다. 복수의 경쟁자, 고객들이 동시에 서로 다른 의도를 갖고 다양한 시그널을 던질 때(Multiple evaluative gazes), 이들이 서로 부딪혀 발생할 수 있는 신호 교란과 상쇄 효과를 통제하지 못합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 인지 왜곡 및 감정적 폭발 오류 간과</span>
+                <p class="text-sm text-slate-700">
+                  경영진이 신호를 항상 합리적으로 디코딩한다고 가정하지만, 현실에서는 오귀인(Misattribution)과 사적인 감정 대립(Emotional flare-ups)으로 인해 잘못된 포지셔닝 반응을 하고, 이로 인해 전체 피드백이 붕괴되는 인지적 실패 조건이 누락되었습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 시간적 지연(Temporal lag)의 계량 실패</span>
+                <p class="text-sm text-slate-700">
+                  자극이 발생하고 유기체를 거쳐 반응이 표출되며 피드백 루프가 다시 돌아가기까지는 상당한 시간차(Temporal lag)가 있습니다. 이러한 시간의 깊이가 각 명제들의 지연 작용에 어떻게 개입하는지 모형화하지 않아 실무 예측에 한계가 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Bilateral indirect influence in coopetition triads: A conceptual framework</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
