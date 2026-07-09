@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generative AI and Market Democratization - IMM 2025</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 36px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2025)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Generative AI & B2B Marketing</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Field Study</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Technology-enabled democratization:<br>
+            <span class="text-cyan-400">Impact of generative AI on content marketing agencies</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Risqo Wahid, Joel Mero, Paavo Ritala
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            기술 기반 민주화:<br>
+            <span class="text-indigo-300">생성형 AI가 콘텐츠 마케팅 대행사에 미치는 영향</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            대행사와 클라이언트 기업 간의 역량 불균형 붕괴 및 이에 대응한 대행사의 전문성 중심 가치 제안 재구성에 관한 질적 연구
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">AI가 창작/기술 장벽을 허물어 제작 대행 수요를 줄이므로, 대행사는 단순 실행 벤더에서 탈피해야 합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-12 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This study investigates how technology-enabled democratization affects market structures and incumbent firm B2B marketing strategies, with a focus on generative AI and content marketing agencies (CMAs). While past technologies augment marketing capabilities, generative AI redistributes core creation, technical, and economic capabilities—challenging traditional agency–client dynamics and prompting strategic reconfigurations among incumbent firms. Drawing on a qualitative study of 22 professionals from CMAs and their clients, we develop a framework showing how generative AI enables widespread content marketing capabilities, alters content marketing market structures, and forces CMAs to redefine their value propositions. Our findings reveal a shift from execution-based services to expertise-driven roles, including creative consulting, hyper-personalization, and AI-enabled service innovation. We contribute theoretically by extending the concept of technology-enabled democratization, offering a structured framework that links capability redistribution, market restructuring, and incumbent response strategies. Practically, we propose a playbook to help CMAs adapt to this transformation through (1) strategic repositioning, (2) operational integration, (3) ethics, regulation, and compliance, (4) and market and client engagement. Overall, the study offers conceptual and managerial insights into the evolving interplay between generative AI, market democratization, and marketing agency transformation."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 연구는 생성형 AI와 콘텐츠 마케팅 대행사(CMA)에 초점을 맞추어, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">기술 기반 민주화</span>가 시장 구조와 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">기존 대행사</span>들의 B2B 마케팅 전략에 미치는 영향을 조사한다. 과거의 기술들은 인간 마케터의 능력을 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">증강</span>하는 데 그쳤으나, 생성형 AI는 핵심 창작, 기술적 및 경제적 역량을 전면적으로 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">재분배</span>함으로써 기존 대행사-고객 간의 권력 구도에 도전하고 대행사의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">전략적 재구성</span>을 촉구한다. 대행사와 고객사 임직원 22명을 대상으로 한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">질적 인터뷰 연구</span>를 바탕으로, 본 연구는 AI가 어떻게 광범위한 마케팅 능력을 실현시키고 시장 구조를 흔들며 기존 대행사들로 하여금 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">가치 제안</span>을 재정의하게 만드는지 규명하는 프레임워크를 수립한다. 구체적으로 단순 '실행 기반' 제작 업무에서 창의적 컨설팅, 초개인화, AI 기반 서비스 혁신 등 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">전문성 중심</span>의 비즈니스로의 근본적 체질 개선이 관찰된다. 본 연구는 기술 민주화 개념을 체계화하고 대행사의 위기 극복을 위한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">실무적 플레이북</span>을 제시한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Technology-enabled democratization</td>
+                  <td>기술 기반 민주화</td>
+                  <td class="text-sm">과거 소수 전문가나 거대 자본이 독점하던 권한과 역량이 기술 혁신으로 대중에게 균등 분배되는 거시 프로세스입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Incumbent firm</td>
+                  <td>기존 대행사 / 현역 기업</td>
+                  <td class="text-sm">시장에서 이미 기존 비즈니스 모델로 수익을 창출하고 있던 전통적인 콘텐츠 마케팅 대행사들을 의미합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Augment vs. Redistribute</td>
+                  <td>증강하다 vs. 재분배하다</td>
+                  <td class="text-sm">기존 기술이 인간을 돕는 보완제(Augment)였다면, AI는 기술·지식 자체를 모방해 시장 전반에 배포(Redistribute)합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Agency–client dynamics</td>
+                  <td>대행사-고객 동학 / 상호관계</td>
+                  <td class="text-sm">전문성의 비대칭성 붕괴로 인해 발생하는 대행사와 클라이언트 간의 협상력 및 역할의 구조적 변화 과정입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Value proposition redefinition</td>
+                  <td>가치 제안 재정의</td>
+                  <td class="text-sm">단순 실행(Execution) 결과물을 납품하는 거래 관계에서 컨설팅이나 큐레이션 같은 전문성(Expertise) 제공자로 전략 포지션을 수정하는 것입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-12 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-2">
+          <p class="style-body-large text-slate-600 mb-8">
+            B2B 콘텐츠 대행 산업에 닥친 AI 파괴 현상과 이에 대한 대행사들의 새로운 생존 방향타를 명확히 제시합니다.
+          </p>
+          
+          <!-- Vertical Steps & Detailed Box Layout -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">기술 민주화의 위협과 극복 방안은?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">단순 제작 대행에서 전문 자문으로 전환</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">거시적 민주화 분석과 실행 매뉴얼 제시</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 생성형 AI가 유발한 '기술 기반 민주화'가 어떻게 콘텐츠 마케팅 대행사(CMA) 산업 구조를 무너뜨리며, 기존 대행사들은 B2B 가치 제안을 어떻게 혁신해야 하는가?</li>
+                  <li><strong>핵심 발견:</strong> AI가 창작(Copywriting/Multimodal), 기술(Coding/Data Analytics), 경제적 장벽을 대폭 낮춤에 따라 클라이언트의 대행사 아웃소싱 필요성이 희석됨. 이에 기존 대행사들은 단순 제작(Execution)에서 전략적 컨설팅, AI 워크플로우 통제 및 큐레이션, 초개인화 등 전문성(Expertise) 영역으로 핵심 가치를 이전함.</li>
+                  <li><strong>이론/실무 기여:</strong> 기술 민주화 이론을 '역량 재분배 → 시장 구조 재편 → 기존 기업 대응' 경로로 구조화하고, 대행사를 위한 4대 실무 플레이북 및 시간 흐름에 따른 행동 로드맵을 제공함.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "AI로 인한 콘텐츠 제작 능력의 급격한 민주화 속에서 대행사가 살아남으려면, 단순 제작(execution) 하청을 멈추고 인간의 기획력과 AI 제어력을 파는 전략적 전문성(expertise) 파트너로 재정의해야 한다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-12 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 타당성을 입증하기 위해, 핵심 주장들과 그에 대응하는 심층 질적 인터뷰(CMA 임원 및 클라이언트 실무자)의 원문 인용(Quotes) 및 페이지 번호를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">AI로 인한 경제적/기술적 평등 효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "...Small companies can produce exactly the same content in the same way. A single person can do an awful lot of what used to require a big organization... so it puts all firms in an equal position."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 7 (Sec. 4.1.3)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">마케팅 효율 증가가 초래하는 공급과잉 현상</td>
+                <td class="text-sm italic text-slate-600">
+                  "Over the last month we [as an industry] have produced twice or three times the amount of content, but actually, the number of readers has not grown in proportion..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 7 (Sec. 4.2.1)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">AI 생성 콘텐츠의 동질화 및 기계적 피로감</td>
+                <td class="text-sm italic text-slate-600">
+                  "Why is art valuable? Because it’s unique? It’s kind of... an artefact of a person’s inner self. So might we kind of lose this artistic value of very good content... This art of content marketing."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 8 (Sec. 4.2.2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">클라이언트의 기술 내재화와 대행사 배제</td>
+                <td class="text-sm italic text-slate-600">
+                  "If ChatGPT can produce the insights I will provide to my clients, then the value of my business will go down... they do it with artificial intelligence too, so we don't need these services anymore."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 8 (Sec. 4.3.1)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">단순 제작 아웃소싱의 가치 소멸</td>
+                <td class="text-sm italic text-slate-600">
+                  "added value in the future will be more about new ideas, especially the creative ones, and the insight that sets us apart from other players... rather than the actual production itself."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 9-10 (Sec. 4.4.1)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">기술 시대일수록 증폭되는 인간 신뢰성의 가치</td>
+                <td class="text-sm italic text-slate-600">
+                  "Human experts will still be a significant competitive advantage... in the realm of robots, people search for human connection and dialogue."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 10 (Sec. 4.4.4)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-12 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Grounded Framework SVG DAG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Grounded Process Model (기술 민주화 프로세스 모형)</h3>
+          
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100 overflow-x-auto">
+            <svg viewBox="0 0 800 350" class="w-full h-auto">
+              <!-- Trigger Box (IV) -->
+              <rect x="20" y="100" width="160" height="90" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="100" y="130" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">생성형 AI 도입 및 배치</text>
+              <text x="100" y="152" text-anchor="middle" font-weight="600" fill="#0284c7" font-size="10">Generative AI Deployment</text>
+              <text x="100" y="170" text-anchor="middle" fill="#64748b" font-size="9">창작·기술·경제적 자산 활용</text>
+
+              <!-- Capabilities Box (Mediator 1) -->
+              <rect x="230" y="100" width="160" height="90" rx="8" fill="#e0f7fa" stroke="#00acc1" stroke-width="2"/>
+              <text x="310" y="130" text-anchor="middle" font-weight="700" fill="#006064" font-size="13">마케팅 역량 민주화</text>
+              <text x="310" y="152" text-anchor="middle" font-weight="600" fill="#00838f" font-size="10">Capability Redistribution</text>
+              <text x="310" y="170" text-anchor="middle" fill="#0097a7" font-size="9">창작(카피/멀티모달) · 기술 · 경제</text>
+
+              <!-- Market Disruption Box (Mediator 2) -->
+              <rect x="440" y="100" width="160" height="90" rx="8" fill="#fff3e0" stroke="#fb8c00" stroke-width="2"/>
+              <text x="520" y="130" text-anchor="middle" font-weight="700" fill="#e65100" font-size="13">시장 구조적 교란</text>
+              <text x="520" y="152" text-anchor="middle" font-weight="600" fill="#ef6c00" font-size="10">Market Disruption</text>
+              <text x="520" y="170" text-anchor="middle" fill="#f57c00" font-size="9">공급과잉 · 단가인하 · 신규경쟁</text>
+
+              <!-- Outcome Box (DV) -->
+              <rect x="650" y="100" width="130" height="90" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="715" y="130" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">대행사 가치 재정의</text>
+              <text x="715" y="152" text-anchor="middle" font-weight="600" fill="#283593" font-size="10">Value Proposition</text>
+              <text x="715" y="170" text-anchor="middle" fill="#3949ab" font-size="9">컨설팅 · AI제어 · 초개인화</text>
+
+              <!-- Path Arrows -->
+              <path d="M180 145 L 220 145" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="200" y="137" fill="#64748b" font-weight="700" font-size="10" text-anchor="middle">H1 (+)</text>
+
+              <path d="M390 145 L 430 145" fill="none" stroke="#00acc1" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="410" y="137" fill="#00838f" font-weight="700" font-size="10" text-anchor="middle">H2 (+)</text>
+
+              <path d="M600 145 L 640 145" fill="none" stroke="#fb8c00" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="620" y="137" fill="#ef6c00" font-weight="700" font-size="10" text-anchor="middle">H3 (+)</text>
+
+              <!-- Direct Effect Curve underneath -->
+              <path d="M100 190 Q 407.5 300 715 190" fill="none" stroke="#4f46e5" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="407.5" y="270" fill="#3730a3" font-weight="700" font-size="11" text-anchor="middle">직접 영향 및 대안 전략 (Direct Impact)</text>
+
+              <!-- Arrow Marker Definition -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 (Trigger)</span>
+                <span class="text-xs text-slate-400 font-semibold">GenAI Deployment</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">생성형 AI 도입 및 배치</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 텍스트, 이미지, 번역 등 인간 수준의 창작 활동을 모방해내는 생성형 AI 파운데이션 모델을 조직 내 업무 프로세스에 통합하는 적극성 수준.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> CMA와 클라이언트 사가 문장 작성, 멀티모달 디자인 시안, 데이터 수집 등에 ChatGPT, Midjourney 등을 정례적으로 적용하는 단계.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Peres et al. (2023); Wahid et al. (2023)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술 논의:</strong> 기계가 기존의 단순 워크플로우 보조를 넘어 전문 지식 노동을 직접 대체하여 심각한 역량 불균형의 균열을 만드는 근원으로 작용합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">매개변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Capability Redistribution</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">콘텐츠 마케팅 역량 민주화</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 소수 대행사의 무형자산이었던 창작, 기술적, 경제적 노하우 및 도구적 혜택이 다수의 시장 참여자(SME 등)에게 전이되어 동등해지는 구조적 변화.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 창작 민주화(글쓰기/멀티모달), 기술 민주화(개발 없는 코딩/데이터 해석), 경제 민주화(저렴한 라이선스 방식)의 세 영역으로 맵핑.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Asmussen et al. (2013); Chen et al. (2020)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술 논의:</strong> 자원기반관점(RBV)의 진입장벽을 훼손하여 기존 기업의 우위 요소를 소거합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">매개변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Market Disruption</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">시장 및 서비스 구조적 교란</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 역량 민주화의 여파로 시장 내 전체 공급 질서가 과밀해지고, 대행사 서비스 생태계 내 단가 및 중개 권력이 침식되는 현상.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 공급 폭발에 따른 주의 분산, AI 획일성에 의한 품질 동질화, 고객사의 자체 제작(in-house) 전환에 따른 수주 감소 및 요금제 압박.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Zervas et al. (2017); Berger et al. (2018)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술 논의:</strong> 플랫폼 및 알고리즘 경제에서 기성 호텔/운송 산업이 겪었던 가치 파괴 현상이 크리에이티브 B2B 산업에서도 재연됨을 시사합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수 (Outcome)</span>
+                <span class="text-xs text-slate-400 font-semibold">Strategic Response</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">대행사 가치 제안 재정의</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 단순 '실행/제작 하청' 포지션의 수익성이 소멸함에 따라 대행사가 경쟁력을 방어하기 위해 비즈니스 모델과 가치 전달 방식을 근본적으로 이동시키는 전략적 선택.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> (1) 크리에이티브 전문가화, (2) AI 엔지니어링 및 큐레이션 통합, (3) 극단적인 초개인화 연동, (4) 명시적 휴먼 퍼스널 브랜딩 강조의 4대 전략.</p>
+              <p class="text-sm text-slate-600"><strong>출처 문헌:</strong> Terho et al. (2022); Amankwah-Amoah et al. (2024)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술 논의:</strong> 클라이언트와의 공동 창조(co-creation) 및 의존성 관계의 파트너십을 새롭게 구조화하는 상호의존성 이론적 적응으로 논의됩니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-12 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          학계 실무자가 다른 문화권이나 산업군에서 동일한 질적 귀납 연구 디자인을 적용하여 본 연구의 데이터를 교차 검증하고 재현해볼 수 있도록 단계를 표준화했습니다.
+        </p>
+
+        <!-- Timeline Component -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">이론적 프레임워크 구축</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  기존 소셜 미디어, 블록체인, 공유경제 등에서 도출된 기술 민주화 문헌을 비교 정리하고 연구를 위한 '민감화 개념(Sensitizing Concept)'을 장착합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 2-4, Sec. 2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">표본 다각화 수립 (Sampling)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  생성형 AI를 도입한 대행사 임원(CMA) 및 이를 검증하는 비즈니스 클라이언트 기업 임직원을 대상으로 1차 대상자를 표집한 뒤, 눈덩이 추출법으로 총 22명을 선정합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4-5, Sec. 3.1 & Table 2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">반구조화 심층 인터뷰 실행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  AI 도구 활용의 실질적 득실, 시장 구조적 변동, 대행사 가격 압박, 생존을 위한 대응 시나리오의 4대 축으로 인터뷰를 전개하여 총 889분의 분량을 전사(Transcription) 처리합니다. (추가 수집 한계 5% 미만 포화 검증)
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Sec. 3.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">3단계 귀납 코딩 및 교차 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  1단계 개방 코딩(AI 영향 추출) -> 2단계 축 코딩(유사 카테고리화 및 종합 테마 매핑) -> 3단계 저자 3인의 코딩 카테고리 교차 검증을 통해 최종 데이터 구조(Table 3) 및 모델을 확립합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Sec. 3.2 & Table 3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">신뢰성 검증 및 로드맵 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Lincoln & Guba의 평가 규칙에 따라 연구의 Credibility, Transferability 등을 검토한 후, 플레이북(Table 4)과 시계열적 적응 로드맵(Fig. 3)을 도출합니다.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Sec. 3.2 & Page 12, Table 4</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Reproducibility rating block -->
+        <div class="bg-slate-100 p-4 rounded-xl border border-slate-200 mt-4 flex items-center justify-between flex-wrap gap-4">
+          <div class="flex items-center gap-3">
+            <span class="badge badge-md badge-outline border-blue-500 text-blue-600 font-bold">재현성 등급</span>
+            <span class="style-body font-semibold text-slate-800">부분 재현 가능 (Partially Reproducible)</span>
+          </div>
+          <span class="style-small text-slate-500">질적 인터뷰의 특성 및 원본 녹취록 비공개(Supplementary confidential)로 완전 재현은 어려우나 방법론 절차와 데이터 구조가 상세히 설계되어 모방 분석이 가능합니다.</span>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Discussion -->
+      <section id="limitations" class="scroll-mt-12 flex flex-col gap-6">
+        
+        <!-- Part A: Self-Admitted Limitations -->
+        <div class="bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200 flex flex-col gap-6">
+          <div class="flex items-center justify-between border-b pb-4">
+            <h2 class="style-h2 text-slate-900">STEP 6-A. 논문이 스스로 인정한 한계</h2>
+            <span class="badge badge-error style-label text-white">Admitted Limitations</span>
+          </div>
+          
+          <div class="alert alert-error bg-red-50 border-red-200 text-red-950 rounded-xl p-4 flex flex-col items-start gap-2 shadow-sm">
+            <div class="flex items-center gap-2 font-bold style-body-large text-red-800">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+              <span>스스로 밝히는 학술적 경계와 맥락적 제약</span>
+            </div>
+            <p class="style-small text-slate-700">
+              본 연구의 일반성 검증 및 장기적 추이를 연구하기 위해 필연적으로 수반되는 개념적·방법론적 영역의 인지된 한계 사항들입니다.
+            </p>
+          </div>
+
+          <!-- Collapsible content boxes for Admitted Limitations -->
+          <div class="join join-vertical w-full border border-slate-200 rounded-xl overflow-hidden">
+            <!-- Collapse 1 -->
+            <div class="collapse collapse-arrow join-item border-b border-slate-200 bg-slate-50">
+              <input type="radio" name="admitted-limitations" checked="checked" /> 
+              <div class="collapse-title style-body font-semibold text-slate-800 flex items-center gap-3">
+                <span class="badge badge-sm badge-neutral">1</span> 소규모 기업군 및 단일 B2B 서비스 영역 편향
+              </div>
+              <div class="collapse-content bg-white p-6">
+                <p class="style-body text-slate-700">
+                  "Our theory building is grounded in a single industry context (i.e., CMAs operating as B2B service firms) and our sample consists entirely of small to micro-sized CMAs." (Page 13, Sec. 7)
+                </p>
+                <div class="divider my-2"></div>
+                <p class="style-small text-slate-600">
+                  <strong>해설:</strong> 소형 대행사 위주로 인터뷰가 구성되어 대형 종합 광고 대행사나 다른 전문 서비스직(법률, IT 개발 등)의 기술 민주화 대응 전략과는 합치하지 않을 수 있음을 인정했습니다.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Collapse 2 -->
+            <div class="collapse collapse-arrow join-item border-b border-slate-200 bg-slate-50">
+              <input type="radio" name="admitted-limitations" /> 
+              <div class="collapse-title style-body font-semibold text-slate-800 flex items-center gap-3">
+                <span class="badge badge-sm badge-neutral">2</span> 도입 초기 시점의 횡단적 관점의 제약
+              </div>
+              <div class="collapse-content bg-white p-6">
+                <p class="style-body text-slate-700">
+                  "The methodological limitation concerns the qualitative and cross-sectional design, which captures a snapshot of CMA experiences at an early stage of generative AI adoption." (Page 13, Sec. 7)
+                </p>
+                <div class="divider my-2"></div>
+                <p class="style-small text-slate-600">
+                  <strong>해설:</strong> 생성형 AI 도입의 초창기 스냅샷 데이터이기 때문에 대행사의 신규 과금(pricing) 실험이나 변화된 직무가 완전히 내재화되는 장기적인 조직 루틴의 안정화 과정을 설명하지는 못합니다.
+                </p>
+              </div>
+            </div>
+
+            <!-- Collapse 3 -->
+            <div class="collapse collapse-arrow join-item bg-slate-50">
+              <input type="radio" name="admitted-limitations" /> 
+              <div class="collapse-title style-body font-semibold text-slate-800 flex items-center gap-3">
+                <span class="badge badge-sm badge-neutral">3</span> 빅테크 인프라 및 플랫폼 통제 배제
+              </div>
+              <div class="collapse-content bg-white p-6">
+                <p class="style-body text-slate-700">
+                  "...we did not examine the ownership structures or governance mechanisms underlying generative AI technologies and foundation models. However, this structural layer is increasingly critical..." (Page 13, Sec. 7)
+                </p>
+                <div class="divider my-2"></div>
+                <p class="style-small text-slate-600">
+                  <strong>해설:</strong> 사용 단에서의 기술 민주화 이면에는 극소수 빅테크(OpenAI, Google 등)의 인프라적 독점 권력이 존재하며, 이러한 공급망 종속적 요소(vendor lock-in 등)가 대행사의 생존에 미칠 영향력을 깊게 다루지 못했음을 인정했습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Part B: Critical & Methodological Discussion (Unmentioned Limitations) -->
+        <div class="bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200 flex flex-col gap-6">
+          <div class="flex items-center justify-between border-b pb-4">
+            <h2 class="style-h2 text-slate-900">STEP 6-B. 논문이 언급하지 않은 비판적 한계</h2>
+            <span class="badge badge-warning style-label text-slate-900 uppercase">Critical Review</span>
+          </div>
+          
+          <p class="style-body text-slate-600">
+            연구방법론적 엄밀성과 논리 전개의 현실적 실현 가능성을 의심해보는 비판적 시각을 정리했습니다.
+          </p>
+
+          <!-- Collapsible warning style blocks -->
+          <div class="flex flex-col gap-4">
+            <!-- Critical item 1 -->
+            <div class="collapse collapse-plus border border-amber-200 bg-amber-50/40 rounded-xl overflow-hidden">
+              <input type="checkbox" /> 
+              <div class="collapse-title style-body font-bold text-amber-900 flex items-center gap-3">
+                <span class="badge badge-sm badge-warning text-amber-950 font-bold">1</span> 핀란드 복지 국가 위주의 표본 편향 (Geographical Bias)
+              </div>
+              <div class="collapse-content bg-white p-6">
+                <p class="style-body text-slate-700">
+                  인터뷰이 22명 중 20명이 핀란드(Finland) 거주자이며 단 2명만 인도네시아인입니다. 핀란드는 디지털 기술 적응도가 극단적으로 높고 인건비가 살인적으로 비싸 기업의 인하우스(in-house) 자동화 압박이 세계 최고 수준인 국가입니다.
+                </p>
+                <div class="divider my-2"></div>
+                <p class="style-small text-slate-600">
+                  <strong>의구심:</strong> 마케팅 대행 서비스 수수료 및 인건비 단가가 비교적 저렴하거나 언어 장벽이 큰 아시아 신흥국 B2B 마켓의 경우 대행사 패싱 속도가 이처럼 기형적으로 빠르지 않을 수 있어, 북유럽 중심의 일반화 오류가 크게 의심됩니다.
+                </p>
+              </div>
+            </div>
+
+            <!-- Critical item 2 -->
+            <div class="collapse collapse-plus border border-amber-200 bg-amber-50/40 rounded-xl overflow-hidden">
+              <input type="checkbox" /> 
+              <div class="collapse-title style-body font-bold text-amber-900 flex items-center gap-3">
+                <span class="badge badge-sm badge-warning text-amber-950 font-bold">2</span> AI 도입 친화적 응답자의 선택 편향 (Tech-Optimism Bias)
+              </div>
+              <div class="collapse-content bg-white p-6">
+                <p class="style-body text-slate-700">
+                  연구진은 인터뷰 대상자를 스크리닝할 때 "업무에 이미 AI를 능숙하게 도입한 마케터"들만 의도적으로 수집했으며 눈덩이 추출법으로 대상자를 늘렸습니다.
+                </p>
+                <div class="divider my-2"></div>
+                <p class="style-small text-slate-600">
+                  <strong>의구심:</strong> 기술 도입에 대면 실패했거나 회의를 느끼고 전통 인간 대행 방식을 고수하는 행위자들의 회의론적 데이터가 차단되었습니다. 이는 생성형 AI가 무조건 성공적인 결과물을 낼 것이라는 '기술 낙관적 도그마'에 빠져 현업의 충격 속도를 다소 과장했을 우려가 큽니다.
+                </p>
+              </div>
+            </div>
+
+            <!-- Critical item 3 -->
+            <div class="collapse collapse-plus border border-amber-200 bg-amber-50/40 rounded-xl overflow-hidden">
+              <input type="checkbox" /> 
+              <div class="collapse-title style-body font-bold text-amber-900 flex items-center gap-3">
+                <span class="badge badge-sm badge-warning text-amber-950 font-bold">3</span> 소형 대행사의 '컨설턴트 전략' 처방의 실현 불가성
+              </div>
+              <div class="collapse-content bg-white p-6">
+                <p class="style-body text-slate-700">
+                  논문은 소형 CMA들이 제작 중심에서 벗어나 '창의적 전략 컨설턴트'나 'AI 거버넌스 관리자'로 전환하여 B2B 가격 방어를 하라고 제안합니다.
+                </p>
+                <div class="divider my-2"></div>
+                <p class="style-small text-slate-600">
+                  <strong>의구심:</strong> 실제 B2B 시장에서 클라이언트가 소형 대행사에게 기대하는 것은 '싸고 빠른 납기력'이지 고도의 브랜딩 자문이 아닙니다. 전략적 자문 시장은 이미 멕킨지나 대형 종합광고대행사가 독점하고 있어, 소형 대행사의 자문 전환은 현실적으로 신규 영업 기회를 잃게 만드는 허울 좋은 공염불이 될 공산이 큽니다.
+                </p>
+              </div>
+            </div>
+
+            <!-- Critical item 4 -->
+            <div class="collapse collapse-plus border border-amber-200 bg-amber-50/40 rounded-xl overflow-hidden">
+              <input type="checkbox" /> 
+              <div class="collapse-title style-body font-bold text-amber-900 flex items-center gap-3">
+                <span class="badge badge-sm badge-warning text-amber-950 font-bold">4</span> 인간 창의성에 대한 순진하고 감성적인 믿음
+              </div>
+              <div class="collapse-content bg-white p-6">
+                <p class="style-body text-slate-700">
+                  연구는 "기계의 획일적 범람 속에서도 인간 고유의 '예술적 혼맛(unique inner self)'과 얼굴을 드러낸 퍼스널 소통은 대체 불가한 강점"이라고 역설합니다.
+                </p>
+                <div class="divider my-2"></div>
+                <p class="style-small text-slate-600">
+                  <strong>의구심:</strong> B2B 구매 실무진에게 가장 중요한 가치는 ROI와 가성비입니다. AI가 85점짜리 결과물을 1%의 비용과 즉시 납기로 생성해낸다면, 대행사가 내세우는 100점짜리 '인간적 영혼'에 백 배에 달하는 리테이너 요금을 청구할 때 B2B 고객은 미련 없이 가성비를 택할 것입니다. 인간의 차별성에 대한 상업적 타당성을 감상적 가치로 낭만화했다는 비판을 피하기 힘듭니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-col gap-2">
+      <p class="style-label uppercase tracking-widest text-cyan-400 font-bold">Industrial Marketing Management Research Analysis</p>
+      <p class="text-xs">Risqo Wahid, Joel Mero, Paavo Ritala (2025). "Technology-enabled democratization: Impact of generative AI on content marketing agencies"</p>
+      <p class="text-xs mt-2 text-slate-500">&copy; 2026. B2B Theme Research Archive. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

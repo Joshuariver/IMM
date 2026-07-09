@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contingent Value of Coopetition in Business Clusters - IMM 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
+    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
+    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
+    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+    html { scroll-behavior: smooth; }
+    @media (max-width: 1024px) {
+      .style-display { font-size: 38px; }
+      .style-h1 { font-size: 30px; }
+      .style-h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Coopetition / RBV</div>
+        <div class="badge badge-secondary text-white style-label">221 Firms · Tema Port, Ghana</div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Contingent value of coopetition in business clusters:<br>
+            <span class="text-cyan-400">A moderated-mediation model</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            George K. VanDyck, Christopher A. Siaw, Jonas Aryee, Shikhar Bhaskar, Chiwuokem Nwoko, Rahul Govind
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            비즈니스 클러스터 내 코피티션의 조건부 가치:<br>
+            <span class="text-indigo-300">조절된 매개모형</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            가나 테마항 클러스터 221개 기업 설문 기반, 자원 매력도-코피티션-지식공유/혁신 경로 및 참여유형의 조절효과 검증
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">클러스터 자원이 매력적일수록 코피티션이 늘고 성과도 오르지만, 공식적으로 얽매일수록 그 혜택은 줄어든다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This study examines how perceived cluster resource attractiveness (PCRA) shapes coopetition among co-located firms and how coopetition translates those resource perceptions into knowledge sharing and innovation. Building on the resource-based view, we model coopetition as the mechanism through which managers leverage valuable, unique, and complementary cluster resources into firm outcomes...Using survey data from 221 firms in a business cluster, we estimate a moderated-mediation model with regression and corroborate the results with a latent-variable SEM robustness check. Findings show that PCRA increases coopetition, and coopetition in turn enhances both knowledge sharing and innovation. However, the indirect effects depend on participation type: formal participation attenuates the coopetition to outcome link, especially for innovation, informal participation is directionally positive but statistically non-significant..."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">인지된 클러스터 자원 매력도(PCRA)</span>가 공동 입지 기업들 간의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">코피티션</span>을 어떻게 형성하며, 코피티션이 이러한 자원 인식을 지식공유 및 혁신으로 어떻게 전환시키는지를 검토한다. 자원기반관점(RBV)에 기반해, 관리자가 가치 있고 고유하며 상호보완적인 클러스터 자원을 기업 성과로 전환시키는 메커니즘으로서 코피티션을 모형화한다...한 비즈니스 클러스터 내 221개 기업의 설문 데이터를 사용해 조절된 매개모형을 회귀분석으로 추정하고, 잠재변수 SEM 강건성 검증으로 결과를 뒷받침하였다. PCRA는 코피티션을 증가시키고, 코피티션은 지식공유와 혁신 모두를 향상시킨다. 그러나 간접효과는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">참여 유형</span>에 따라 달라진다: 공식적 참여는 코피티션-성과 연결을 약화시키며 특히 혁신에서 그러하다. 비공식적 참여는 방향상 긍정적이나 통계적으로 유의하지 않았다..."
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Coopetition</td>
+                  <td>코피티션</td>
+                  <td class="text-sm">협력과 경쟁의 동시 추구를 뜻하는 신조어. 국내 문헌에서도 원어 음역이 통용됨.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">PCRA</td>
+                  <td>인지된 클러스터 자원 매력도</td>
+                  <td class="text-sm">관리자가 지각한 클러스터 자원의 가치·희소성·보완성 평가.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Moderated-mediation</td>
+                  <td>조절된 매개(모형)</td>
+                  <td class="text-sm">매개효과 크기가 조절변수 수준에 따라 달라지는 통계모형.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Formal / Informal Participation</td>
+                  <td>공식적/비공식적 참여</td>
+                  <td class="text-sm">계약·협의체 구조화 참여 vs. 신뢰 기반 비구조화 참여.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">클러스터 자원 매력도는 코피티션과 성과로 어떻게, 언제 이어지는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">공식참여는 혜택을 갉아먹고, 비공식참여는 뚜렷한 효과가 없다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">RBV를 클러스터 수준으로 확장, 코피티션을 관계적 메커니즘으로 재정의</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 클러스터가 자원면에서 매력적이라고 인식될 때 기업은 코피티션에 나서는가(H1)? 코피티션은 지식공유·혁신을 매개하는가(H2)? 이 경로는 클러스터 활동 참여방식(공식/비공식)에 따라 강해지거나 약해지는가(H3, H4)?</li>
+                  <li><strong>핵심 발견:</strong> PCRA→코피티션(H1 지지), 코피티션의 지식공유·혁신 부분매개(H2a·H2b 지지). 공식참여는 코피티션→혁신 경로를 유의하게 약화(H3b 지지, 지식공유는 90%에서만 약한 지지). 비공식참여의 강화효과는 방향은 맞지만 비유의(H4a·H4b 기각).</li>
+                  <li><strong>이론/실무 기여:</strong> RBV를 기업내부 자원 중심에서 클러스터 수준 "공유된 이질적 자원"으로 확장하고, 코피티션을 자연화된 관계적 메커니즘으로 재정의. 관리자는 과도한 공식적 참여를 지양하고 비공식 네트워크를 우선 활용해야 함.</li>
+                </ul>
+              </div>
+
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "클러스터 자원이 매력적일수록 코피티션이 늘고 성과도 오르지만, 그 혜택은 클러스터 활동에 '공식적으로 얽매일수록' 오히려 줄어든다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">PCRA → 코피티션 (H1)</td>
+                <td class="text-sm italic text-slate-600">"PCRA is positively and significantly associated with coopetition (b=1.772, 95%CI[.990, 2.554])"</td>
+                <td class="text-right font-medium text-slate-500">p.204, Sec.4.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">코피티션의 지식공유 부분매개 (H2a)</td>
+                <td class="text-sm italic text-slate-600">"the indirect effect...is positive and significant (b=.137, 95%CI[.061,.231])...coopetition partially mediates"</td>
+                <td class="text-right font-medium text-slate-500">p.204, Sec.4.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">코피티션의 혁신 부분매개 (H2b)</td>
+                <td class="text-sm italic text-slate-600">"the indirect effect of PCRA on innovation through coopetition is again positive and significant (b=.093, 95%CI[.038,.168])"</td>
+                <td class="text-right font-medium text-slate-500">p.204, Sec.4.1</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">공식참여의 혁신경로 약화 (H3b)</td>
+                <td class="text-sm italic text-slate-600">"the moderation is negative and significant (b=−.062, 95%CI[−.107,−.017])...index of moderated mediation...significant and negative for innovation"</td>
+                <td class="text-right font-medium text-slate-500">p.205-206, Table 6</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">비공식참여 강화효과 비유의 (H4a/H4b)</td>
+                <td class="text-sm italic text-slate-600">"the index of moderated mediation is likewise positive but non-significant...providing only directional but not statistical support"</td>
+                <td class="text-right font-medium text-slate-500">p.206, Table 7</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">통합모형에서도 공식참여 약화효과 재확인</td>
+                <td class="text-sm italic text-slate-600">"the coopetition × formal interaction is negative and significant for innovation (b=−.059, 95%CI[−.104,−.013])"</td>
+                <td class="text-right font-medium text-slate-500">p.207, Table 8</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">SEM 강건성 검증 일치</td>
+                <td class="text-sm italic text-slate-600">"the key structural paths and indirect effects replicated the PROCESS findings...with virtually identical effect sizes"</td>
+                <td class="text-right font-medium text-slate-500">p.207, Sec.4.4</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (조절된 매개모형)</h3>
+
+          <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 420" class="w-full h-auto">
+              <!-- IV -->
+              <rect x="20" y="170" width="200" height="80" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="120" y="205" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">PCRA</text>
+              <text x="120" y="225" text-anchor="middle" fill="#64748b" font-size="10">인지된 클러스터 자원 매력도</text>
+
+              <!-- Mediator -->
+              <rect x="320" y="170" width="180" height="80" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="410" y="205" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">코피티션</text>
+              <text x="410" y="225" text-anchor="middle" fill="#047857" font-size="10">협력×경쟁 강도 지수</text>
+
+              <!-- DV1 -->
+              <rect x="580" y="70" width="200" height="70" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="680" y="100" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">지식공유</text>
+              <text x="680" y="120" text-anchor="middle" fill="#4338ca" font-size="10">Knowledge Sharing</text>
+
+              <!-- DV2 -->
+              <rect x="580" y="290" width="200" height="70" rx="8" fill="#fdf2f8" stroke="#db2777" stroke-width="2"/>
+              <text x="680" y="320" text-anchor="middle" font-weight="700" fill="#9d174d" font-size="14">혁신</text>
+              <text x="680" y="340" text-anchor="middle" fill="#9d174d" font-size="10">Innovation</text>
+
+              <!-- Moderator: Formal -->
+              <rect x="330" y="20" width="170" height="60" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="415" y="48" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">공식적 참여</text>
+              <text x="415" y="65" text-anchor="middle" fill="#b45309" font-size="10">Formal Participation</text>
+
+              <!-- Moderator: Informal -->
+              <rect x="330" y="340" width="170" height="60" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+              <text x="415" y="368" text-anchor="middle" font-weight="700" fill="#1e3a8a" font-size="13">비공식적 참여</text>
+              <text x="415" y="385" text-anchor="middle" fill="#1d4ed8" font-size="10">Informal Participation</text>
+
+              <!-- Arrows: IV -> Mediator (H1) -->
+              <path d="M220 210 L 315 210" fill="none" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)"/>
+              <text x="240" y="200" fill="#334155" font-weight="700" font-size="12">H1 (+)</text>
+
+              <!-- Mediator -> DV1 -->
+              <path d="M470 170 L 620 145" fill="none" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow)"/>
+              <text x="500" y="150" fill="#065f46" font-weight="700" font-size="12">H2a (+)</text>
+
+              <!-- Mediator -> DV2 -->
+              <path d="M470 250 L 620 285" fill="none" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow)"/>
+              <text x="490" y="290" fill="#065f46" font-weight="700" font-size="12">H2b (+)</text>
+
+              <!-- IV -> DV1 direct (dashed) -->
+              <path d="M120 168 L 120 40 L 620 108" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="230" y="35" fill="#64748b" font-weight="700" font-size="11">직접효과 c'(+)</text>
+
+              <!-- IV -> DV2 direct (dashed) -->
+              <path d="M120 252 L 120 400 L 620 355" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="230" y="410" fill="#64748b" font-weight="700" font-size="11">직접효과 c'(+)</text>
+
+              <!-- Formal moderator -> mediator-DV path -->
+              <path d="M415 82 L 415 168" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrow)"/>
+              <text x="425" y="130" fill="#92400e" font-weight="700" font-size="12">H3a/b (−)</text>
+
+              <!-- Informal moderator -> mediator-DV path -->
+              <path d="M415 338 L 415 252" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+              <text x="425" y="310" fill="#1d4ed8" font-weight="700" font-size="12">H4a/b (n.s.)</text>
+
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="text-xs text-slate-500">점선 화살표는 매개변수를 통제한 뒤에도 유의한 직접효과(c')를 나타냄. H4a/H4b는 방향은 정(+)이나 통계적으로 비유의.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수</span>
+                <span class="text-xs text-slate-400 font-semibold">IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">인지된 클러스터 자원 매력도 (PCRA)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 클러스터가 기업 간 유대를 통해 접근 가능한 가치있고 고유하며 상호보완적인 자원을 제공한다는 관리자의 평가.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 사업수행·투자유치·숙련노동·고객확보·공급업체·파트너십 6문항(반영적), 5점 리커트.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Felzensztein et al.(2014) 응용, Q24 / CR=.94, AVE=.75, α=.94</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 자원 이질성을 전제 — 모든 기업이 동일 자원을 가지면 클러스터의 부가가치는 0.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">코피티션 강도 (Coopetition Intensity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 협력과 경쟁이 동시에 존재하는 정도를 나타내는 복합 지수.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 협력강도(Q20)×경쟁강도(Q21), 각 5점 리커트의 곱셈 지수.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Bengtsson et al.(2016); Bendig et al.(2018) 곱셈지수법</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 둘 중 하나라도 0이면 코피티션은 부재한다는 논리를 반영한 단일항목 곱셈 지수.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공식적 참여 (Formal Participation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 공동훈련·공동프로젝트·구속력 있는 협약을 수반하는 구조화된 클러스터 활동 참여.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Q18(4범주) 기반 더미변수(1/0).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Felzensztein et al.(2018) 분류법</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 정보유출 제한을 위한 구조가 아이디어 흐름을 제약, 특히 혁신경로를 약화.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">조절변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">비공식적 참여 (Informal Participation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 신뢰 기반의 지역적·비구조화된 실천을 통한 참여.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Q18 기반 더미변수(1/0).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Felzensztein et al.(2018) 분류법</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 암묵지 교환·유연한 자원공유 촉진 가설되었으나 통계적 유의성은 확보 못함.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수 (병렬)</span>
+                <span class="text-xs text-slate-400 font-semibold">DV1 / DV2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">지식공유 (Knowledge Sharing) / 혁신 (Innovation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 지식공유=클러스터 기업 간 정보·노하우·전문성의 의도적 교환; 혁신=클러스터 상호작용을 통한 신규·개선 제품/프로세스의 개발·도입.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 각 단일항목 5점 리커트(Q22, Q23).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Estrada et al.(2016) 개념화 응용</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않은 연구자도 표본 구축부터 조절된 매개모형 검증까지 그대로 따라할 수 있도록 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">표본 프레임 구축</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  가나 테마항 클러스터 해운·비해운 기업 대상. 항만청·산업협회 명단 + 스노우볼링으로 표본프레임 구축.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.202, Sec.3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">대면 설문 데이터 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  2023년 1-8월, 훈련된 조사원의 대면 설문. 의사결정권자(CEO·관리자) 핵심정보제공자 기준 선정. 350개 접촉→278개 완료(79.4%)→221개 최종 유효(63.1%).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.202-203, Sec.3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">무응답편향·CMB 진단</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  파동분석(초기75% vs 후기25%), 표본프레임 비교(기업규모·협회가입), Harman 단일요인검정(43.74%), VIF(1.04-1.15) 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.203-204, Sec.3.2, Table 2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">측정도구 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  PCRA 6문항 반영적 구성개념(Q24), 코피티션 협력×경쟁 곱셈지수(Q20×Q21), 참여유형 범주형(Q18)→더미화, 지식공유·혁신 단일항목(Q22,Q23).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.203-205, Sec.3.4</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">측정모형 검증(CFA)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  PCRA 반영적 구성개념 CFA — CR=.94, AVE=.74, α=.94; χ²/df=2.167, CFI=.982, RMSEA=.073; Fornell-Larcker·HTMT로 판별타당도 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.204, Sec.3.5</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">단순매개모형 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  SPSS PROCESS Macro Model 4 — PCRA→코피티션(H1), 코피티션→지식공유/혁신(H2a/H2b).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.204, Sec.4.1, Table 5</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">조절된 매개모형 개별 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  PROCESS Model 14를 공식참여(H3a/b)와 비공식참여(H4a/b)에 대해 각각 개별 추정, 혼입효과 배제.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.205-206, Sec.4.2-4.3</span>
+              </div>
+              <hr class="bg-slate-900"/>
+            </li>
+
+            <li>
+              <hr class="bg-slate-900"/>
+              <div class="timeline-middle">
+                <span class="bg-rose-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">통합 강건성 검정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  PROCESS Model 16으로 공식·비공식 참여 동시 투입 결합모형(4가지 참여조합별 조건부 간접효과 산출).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.206-207, Sec.4.4, Table 8</span>
+              </div>
+              <hr class="bg-rose-600"/>
+            </li>
+
+            <li>
+              <hr class="bg-rose-600"/>
+              <div class="timeline-middle">
+                <span class="bg-amber-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">9</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 9</time>
+                <div class="text-lg font-bold text-slate-800">SEM 강건성 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  AMOS 잠재변수 SEM(ML, 5,000회 부트스트랩, n=221) — RMSEA=.062, PROCESS 결과와 사실상 동일한 효과크기 재확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.207, Sec.4.4</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            통계모형(PROCESS Model 4/14/16, SEM)과 신뢰도·적합도 산식은 투명하게 공개되어 정량적 절차는 재현 가능하나, 가나 테마항 클러스터의 특정 표본프레임과 전체 설문지 문항(Web Appendix)에 대한 접근 없이는 동일 표본을 독립적으로 재현하기 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 7)에서 저자들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>자원 이질성 외 요인 미반영:</strong> 정부 규제 등 제도적 환경, 지배적 행위자의 권력 등은 검토하지 못함. 제도이론·이해관계자이론·관계적 관점 통합이 향후 과제.
+              </li>
+              <li>
+                <strong>횡단면 설계:</strong> 코피티션의 동태적 진화, 참여패턴 변화, 클러스터 성숙에 따른 매개효과 변화를 포착할 수 없음.
+              </li>
+              <li>
+                <strong>단일 개발도상국 맥락:</strong> 가나 테마항이라는 단일 신흥시장 클러스터 데이터로, 제도적 기반이 강한 선진국 클러스터로의 일반화 가능성 불분명.
+              </li>
+              <li>
+                <strong>단일항목 측정의 한계:</strong> 지식공유·혁신을 단일항목으로 측정, 다항목 척도 대비 신뢰도가 낮을 수 있음을 스스로 인정.
+              </li>
+              <li>
+                <strong>단일 클러스터 유형(항만) 국한:</strong> 산업단지·테크노파크·서비스허브 등 다른 클러스터 유형 및 하위블록 이질적 목표의 조절효과는 미검증.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 통계치를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 곱셈 지수의 측정오차 증폭</span>
+                <p class="text-sm text-slate-700">
+                  코피티션 강도가 두 단일항목 리커트 점수의 곱으로 산출되어, 개별 측정오차가 곱셈으로 증폭될 위험이 있으며 곱셈이라는 함수형태 자체가 별도 검증되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 참여유형 자기선택 미해결</span>
+                <p class="text-sm text-slate-700">
+                  더미변수·통제변수 투입에 그치고 조작변수나 준실험적 방법에 의한 내생성 교정이 없어, 특정 성향 기업의 자기선택 효과를 배제하지 못합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. PCRA-공식참여 부적 상관에 따른 범위제한</span>
+                <p class="text-sm text-slate-700">
+                  PCRA와 공식참여가 유의한 부적 상관(r=−.33)을 보여, 고PCRA·공식참여 조합의 관측치가 희소해 조절효과 해석에 범위제한 문제가 있을 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 동일방법편향(CMB) 잔존 가능성</span>
+                <p class="text-sm text-slate-700">
+                  Harman 단일요인검정은 저자도 인정하듯 약한 진단법이며, 모든 변수를 동일 응답자가 한 자리에서 응답해 CMB 위험이 완전히 배제되지 않습니다.
+                </p>
+              </div>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-amber-200">
+              <span class="badge badge-warning style-label text-amber-950 mb-2">5. 표본의 배태성(embeddedness) 편향</span>
+              <p class="text-sm text-slate-700">
+                표본의 80.1%가 산업협회 가입 기업으로, 이미 네트워크에 깊이 편입된 기업 위주로 구성되어 비제도화된 영세기업의 코피티션-성과 관계는 과소대표되었을 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Contingent value of coopetition in business clusters from a resource-based view: A moderated-mediation model</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

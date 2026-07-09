@@ -10,7 +10,7 @@ import shutil
 ROOT = Path(__file__).resolve().parent.parent
 APP = ROOT / "app"
 DEST = APP / "html"
-SOURCES = ["V01", "V73", "V75", "V76", "V92", "V100", "V101", "V102", "V103", "V104", "V105", "V106", "V107", "V108", "V109", "V110", "V111", "V112", "V113", "V133", "V134", "V135", "V136"]
+SOURCES = ["V01", "V73", "V75", "V76", "V92", "V100", "V101", "V102", "V103", "V104", "V105", "V106", "V107", "V108", "V109", "V110", "V111", "V112", "V113", "V131", "V132", "V133", "V134", "V135", "V136"]
 
 CITATIONS_CACHE_PATH = APP / "citations_cache.json"
 CITATIONS_CACHE: dict[str, dict] = (

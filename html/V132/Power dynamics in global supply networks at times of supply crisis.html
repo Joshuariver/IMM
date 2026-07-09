@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power Dynamics in Global Supply Networks - IMM 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
+    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
+    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
+    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+    html { scroll-behavior: smooth; }
+    @media (max-width: 1024px) {
+      .style-display { font-size: 38px; }
+      .style-h1 { font-size: 30px; }
+      .style-h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2026)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Qualitative Case Study / RDT</div>
+        <div class="badge badge-secondary text-white style-label">25 Interviews · Automotive OEM Semiconductor Crisis</div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Power dynamics in global supply networks<br>
+            <span class="text-cyan-400">at times of supply crisis</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Ala Arvidsson, José Augusto Campos Garcia, Lisa Govik
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            공급 위기 시<br>
+            <span class="text-indigo-300">글로벌 공급망의 권력 역학</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            2020-2024 반도체 위기 자동차 OEM 단일 사례연구 — 미시·중시·거시 수준의 자원의존이론(RDT) 분석
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">위기는 권력을 소수에게 집중시키지만, 3수준의 균형화 전략이 그 위기 자체를 새로운 협력적 상호의존으로 바꾼다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This study investigates the shifting power dynamics within global supply networks amidst supply scarcity and the implications for supply security. It focuses on the impact of the semiconductor shortages on automotive original equipment manufacturers (OEMs) between 2020 and 2024, where traditional hierarchies of power shifted, and OEMs had to increasingly rely on their lower-tier suppliers for supply and innovation...Utilizing resource dependence theory as a framework, we explore how OEMs navigate these dependencies to secure their supply while facing scarcity. Through an analysis spanning micro (firm), meso (inter-firm and supply network), and macro (environment) levels, this study offers insights into the sources of power and dependencies in the network, strategies for mitigating vulnerabilities and ensuring continuity of supply."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 연구는 공급 부족 상황에서 글로벌 공급망 내 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">권력 역학</span>이 어떻게 변화하며, 이것이 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">공급 안보</span>에 어떤 함의를 갖는지 조사한다. 2020~2024년 반도체 부족 사태가 자동차 OEM에 미친 영향에 초점을 맞추는데, 이 기간 전통적 권력 위계가 변화하여 OEM들이 공급·혁신 모두를 하위 티어 공급업체에 점점 더 의존하게 되었다...<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">자원의존이론(RDT)</span>을 분석틀로 OEM이 공급 부족에 직면했을 때 이러한 의존관계를 어떻게 헤쳐나가는지 탐구한다. 미시(기업)·중시(기업간·공급망)·거시(환경) 수준을 아우르는 분석을 통해, 네트워크 내 권력과 의존의 원천, 취약성 완화 전략에 대한 통찰을 제공한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resource Dependence Theory (RDT)</td>
+                  <td>자원의존이론</td>
+                  <td class="text-sm">조직사회학 표준 이론명, Pfeffer & Salancik(2003) 기반.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Micro / Meso / Macro</td>
+                  <td>미시/중시/거시</td>
+                  <td class="text-sm">기업 내부, 기업 간·공급망, 외부 환경의 3단 분석수준.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Power/Dependence Concentration</td>
+                  <td>권력/의존 집중(도)</td>
+                  <td class="text-sm">네트워크 내 권력이 소수 행위자에 쏠린 정도(=불균형).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Crisis-Induced Interdependence</td>
+                  <td>위기유발적 상호의존</td>
+                  <td class="text-sm">본 연구가 제안하는 신개념, 위기가 협력적 상호의존을 촉발한다는 의미.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">공급중단 시 권력분포는 왜, 어떻게 변화하며 기업은 어떻게 대응하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">위기는 권력을 집중시키지만, 3수준 전략이 재균형과 새 협력을 낳는다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">"위기유발적 상호의존" 개념, 권력역학의 3수준 동적 프레임워크</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 반도체 위기 동안 자동차 OEM의 전통적 권력 우위가 어떻게, 왜 하위티어 공급업체 쪽으로 이동했으며, OEM은 이를 어떻게 되돌리려 했는가?</li>
+                  <li><strong>핵심 발견:</strong> 계층적·안정적이던 공급망이 위기 중 OEM의 반도체 공급업체 고의존 상태로 전환. OEM은 미시(지위향상·연합), 중시(사회화·공식화·다각화), 거시(정치적 행동·이업종 지식공유) 전략을 병행해 위기 후 재균형된, 그러나 이전과는 다른 새로운 상호의존 네트워크를 구축.</li>
+                  <li><strong>이론/실무 기여:</strong> RDT의 "권력불균형은 협력을 저해한다"는 전통적 가정을 뒤집어 "위기유발적 상호의존" 개념 제안. 권력역학을 양자관계가 아닌 미시-중시-거시 3수준 동적 시스템으로 재개념화. 관리자는 위기 전 핵심부품 지식 축적, 위기 중 지위향상·상호의존 확대, 거시적으로 정책 관여가 필요.</li>
+                </ul>
+              </div>
+
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "위기는 권력을 소수에게 집중시키지만, 미시·중시·거시 수준에서 균형을 되찾으려는 전략을 병행하면 그 위기 자체가 새로운 협력적 상호의존을 낳는다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          질적 사례연구이므로 통계치 대신 인터뷰 인용문·내부문서를 통해 각 핵심 주장의 근거와 원문 위치를 맵핑했습니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">소수 공급업체의 시장지배력</td>
+                <td class="text-sm italic text-slate-600">"If the word came out that we wanted to challenge this supplier...the supplier would raise the price" (CP4)</td>
+                <td class="text-right font-medium text-slate-500">p.64, Sec.4.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">Tier1의 반도체공급업체 혁신 의존</td>
+                <td class="text-sm italic text-slate-600">"They have to rely on what (the semiconductor suppliers) deliver." (OEM-R&D2)</td>
+                <td class="text-right font-medium text-slate-500">p.67, Sec.4.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">Tier1의 정보공유 저항</td>
+                <td class="text-sm italic text-slate-600">"Tier 1s fear that if OEMs have too much information, they will use it against them" (OEM-BDM2)</td>
+                <td class="text-right font-medium text-slate-500">p.67, Sec.4.1</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">에스컬레이션의 엇갈린 인식</td>
+                <td class="text-sm italic text-slate-600">"that will help us get priority from our management internally" (Tier1 KAM)</td>
+                <td class="text-right font-medium text-slate-500">p.67, Table 3</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">위기가 OEM-반도체공급업체 직접관계 촉발</td>
+                <td class="text-sm italic text-slate-600">"you can have daily meetings with some semiconductor suppliers" (OEM-R&D2)</td>
+                <td class="text-right font-medium text-slate-500">p.69, Sec.4.3</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">권력비대칭이 협력을 촉진(위기유발적 상호의존)</td>
+                <td class="text-sm italic text-slate-600">"the concentration of power upstream pushed the OEMs to share more information and engage in joint initiatives"</td>
+                <td class="text-right font-medium text-slate-500">p.71, Sec.5.2/6</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">위기국면-권력집중도 순환 프레임워크</td>
+                <td class="text-sm italic text-slate-600">"The crisis state increases the concentration of power, pushing the supply network into higher levels of unbalanced power distribution" (Fig. 2)</td>
+                <td class="text-right font-medium text-slate-500">p.71-72, Sec.6</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          가설검증형 통계모형이 아닌 <strong>RDT 기반 미시-중시-거시 3수준 분석틀</strong>이다. 아래 다이어그램은 논문의 Table 1(선행연구 종합)과 Fig. 2(위기국면×권력집중도 동적 모형)를 재구성한 것이다.
+        </p>
+
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (3수준 권력 역학 프로세스)</h3>
+
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 820 460" class="w-full h-auto">
+              <!-- Micro -->
+              <rect x="20" y="20" width="220" height="100" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="130" y="48" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">미시 (Micro)</text>
+              <text x="130" y="68" text-anchor="middle" fill="#64748b" font-size="10">시장·지식 집중, 전환비용</text>
+              <text x="130" y="84" text-anchor="middle" fill="#64748b" font-size="10">→ 지위향상·내부연합·철회</text>
+
+              <!-- Meso -->
+              <rect x="300" y="20" width="220" height="100" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="410" y="48" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">중시 (Meso)</text>
+              <text x="410" y="68" text-anchor="middle" fill="#047857" font-size="10">정보비대칭, 거래계약, 네트워크 위치</text>
+              <text x="410" y="84" text-anchor="middle" fill="#047857" font-size="10">→ 사회화·공식화·다각화</text>
+
+              <!-- Macro -->
+              <rect x="580" y="20" width="220" height="100" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="690" y="48" text-anchor="middle" font-weight="700" fill="#92400e" font-size="14">거시 (Macro)</text>
+              <text x="690" y="68" text-anchor="middle" fill="#b45309" font-size="10">지정학, 규제, 산업경쟁, 재해</text>
+              <text x="690" y="84" text-anchor="middle" fill="#b45309" font-size="10">→ 지위향상·정치적행동·이업종협력</text>
+
+              <!-- Arrows down to unbalanced -->
+              <path d="M130 120 L 300 210" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M410 120 L 400 210" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M690 120 L 500 210" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Unbalanced state -->
+              <rect x="260" y="215" width="300" height="70" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+              <text x="410" y="245" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="14">권력 집중 (불균형 상태)</text>
+              <text x="410" y="265" text-anchor="middle" fill="#b91c1c" font-size="10">위기 국면: 급성 교란 (2020-2023)</text>
+
+              <!-- Strategies pulling back -->
+              <path d="M410 285 L 410 350" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="420" y="320" fill="#3730a3" font-weight="700" font-size="12">균형화 전략 적용</text>
+
+              <!-- Balanced / new interdependence state -->
+              <rect x="230" y="355" width="360" height="80" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="410" y="385" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">재균형 + 신규 상호의존</text>
+              <text x="410" y="405" text-anchor="middle" fill="#4338ca" font-size="10">위기 후: OEM-반도체공급업체 직접관계 등</text>
+              <text x="410" y="420" text-anchor="middle" fill="#4338ca" font-size="10">"위기유발적 상호의존(Crisis-Induced Interdependence)"</text>
+
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="text-xs text-slate-500">3수준의 권력원천이 위기 국면에서 불균형을 심화시키지만, 각 수준의 균형화 전략이 재균형과 새로운 상호의존을 만들어낸다(Fig. 2 재구성).</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">분석수준 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Micro</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">미시 (기업 내부)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>권력의 원천:</strong> 시장·지식 집중도, 대체불가 제품, 높은 전환비용.</p>
+              <p class="text-sm text-slate-700"><strong>행위자:</strong> 초점 OEM, OEM holding, 자매 OEM.</p>
+              <p class="text-sm text-slate-700"><strong>균형화 전략:</strong> 지위향상, 내부연합(물량통합), 철회(재고비축).</p>
+              <p class="text-sm text-slate-600"><strong>자료:</strong> 14명 인터뷰 + 4건 문서 (Table 2, p.66)</p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">분석수준 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Meso</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">중시 (기업 간·공급망)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>권력의 원천:</strong> 정보비대칭, 강한 거래계약, 네트워크 중심성.</p>
+              <p class="text-sm text-slate-700"><strong>행위자:</strong> Tier1 공급업체, 유통업체, 반도체 공급업체.</p>
+              <p class="text-sm text-slate-700"><strong>균형화 전략:</strong> 사회화(정보정렬 회의), 공식화(장기예측 공약), 다각화, 철회(스팟마켓).</p>
+              <p class="text-sm text-slate-600"><strong>자료:</strong> 8명 인터뷰 + 7건 문서 (Table 2, p.66)</p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">분석수준 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Macro</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">거시 (외부 환경)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>권력의 원천:</strong> 지정학적 충격·재해, 규제·정책, 산업 간 경쟁.</p>
+              <p class="text-sm text-slate-700"><strong>행위자:</strong> 시장전문가, EU 규제당국, 타산업 OEM.</p>
+              <p class="text-sm text-slate-700"><strong>균형화 전략:</strong> 지위향상(글로벌 가시성), 정치적 행동, 이업종 수평적 사회화.</p>
+              <p class="text-sm text-slate-600"><strong>자료:</strong> 3명 인터뷰 + 3건 문서 (Table 2, p.66)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않은 연구자도 사례 선정부터 프레임워크 종합까지 그대로 따라할 수 있도록 단일 사례연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구설계 선택</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  이론정교화 설계에 적합한 단일 사례연구 채택, Langley(1999) 과정지향적 접근 병용.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.63, Sec.3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">사례 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  목적표집 4기준(의존경험·위기경험·글로벌망·적극적 대응) 충족하는 북유럽 OEM 반도체 공급망 확정(Fig.1).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.63-65, Sec.3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">데이터 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  2020-2024년 25명 반구조화 인터뷰(40-90분) + 참여관찰(태스크포스 소속 공저자) + 14건 내부문서. 인터뷰 가이드는 부록 A.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.65-67, Table 2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">삼각검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  인터뷰·문서·참여관찰 교차검증, 사례 데이터베이스에 전체 자료 저장·관리.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.67, Sec.3.3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">스토리라인 구축</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  과정지향적 접근에 따라 핵심 사건·의사결정·대응의 타임라인 구성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.67, Sec.3.4</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">패턴코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Miles & Huberman(1984) 패턴코딩, 2명 독립코더로 편향 완화. 메가매트릭스 정리 후 상위범주화(권력원천/전략/함의).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.67-68, Sec.3.4</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">시간·수준별 구조화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  미시-중시-거시 3수준 × 위기전-중-후 3시점 교차표로 구조화, 전략을 범위에 따라 재분류.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.68, Sec.3.4</span>
+              </div>
+              <hr class="bg-slate-900"/>
+            </li>
+
+            <li>
+              <hr class="bg-slate-900"/>
+              <div class="timeline-middle">
+                <span class="bg-rose-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">검증(멤버체킹)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  분석 결과를 사례 대표자에게 전달해 피드백 수집, 타당성 제고.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.68, Sec.3.4</span>
+              </div>
+              <hr class="bg-rose-600"/>
+            </li>
+
+            <li>
+              <hr class="bg-rose-600"/>
+              <div class="timeline-middle">
+                <span class="bg-amber-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">9</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 9</time>
+                <div class="text-lg font-bold text-slate-800">프레임워크 종합</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  선행연구종합표(Table1)→실증표(Table3·4)→이동매트릭스(Table5)→동적프레임워크(Fig.2) 순 이론적 종합.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.68-72, Sec.4-6</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">방법론적 전이 가능, 사례 자체는 재현 불가</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            인터뷰 가이드(부록 A)·코딩 절차·구조화 논리는 투명해 동일 방법론을 다른 사례에 적용 가능하나, 익명화된 단일 기업의 기밀 인터뷰·내부문서에 기반하므로 동일 사례 자체의 독립적 재현은 불가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 7.2)에서 저자들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>공급망 범위의 한계:</strong> 관찰된 범위에 한정되어, 더 상류의 행위자(Tier2 이상·원자재원)를 포함했다면 추가 통찰이 가능했을 것.
+              </li>
+              <li>
+                <strong>전략의 일반화 가능성 제한:</strong> 관찰된 전략이 다른 맥락·산업에서도 보편적으로 효과적이라는 보장은 없음.
+              </li>
+              <li>
+                <strong>RDT 렌즈의 한계:</strong> 문화적·심리적 요인 등 권력관계의 모든 측면을 포착하지 못함, 대안 이론 렌즈 필요.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 자료 구조를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. OEM 편향 자료구조</span>
+                <p class="text-sm text-slate-700">
+                  25명 중 14명이 OEM측, 공저자 1인이 실제 태스크포스 소속이었다는 점과 결합하면 분석이 초점 OEM 관점에 구조적으로 편향되었을 가능성이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 연구자의 사례 내재성</span>
+                <p class="text-sm text-slate-700">
+                  공저자가 연구대상 위기대응팀의 실제 구성원이었다는 점은 비판적 거리 상실 위험을 동반하며, 멤버체킹 대상이 동일 이해관계자라면 확증편향을 강화할 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 회고적 서술의 사후합리화 가능성</span>
+                <p class="text-sm text-slate-700">
+                  결과를 이미 아는 상태에서 진행된 회고적 인터뷰는 성공한 전략을 실제보다 더 의도적이었던 것으로 재구성할 위험이 있으나 이를 통제하는 절차가 명시되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 인과적 어법과 단일사례 설계 불일치</span>
+                <p class="text-sm text-slate-700">
+                  전략이 권력위치 개선에 "기여했다"는 서술은 산업 전반의 반도체 공급 회복 등 경쟁가설을 배제하지 못합니다.
+                </p>
+              </div>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-amber-200">
+              <span class="badge badge-warning style-label text-amber-950 mb-2">5. "균형이 바람직하다"는 규범적 전제의 미검증</span>
+              <p class="text-sm text-slate-700">
+                Fig. 2는 균형 잡힌 권력분포를 바람직한 종착점으로 암묵 전제하지만 경험적 검증 없이 서술적으로 주어진 가정이며, 단일 사례로는 균형이 공급안보의 원인인지 위기 진정에 따른 공변 현상인지 구분할 수 없습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Power dynamics in global supply networks at times of supply crisis</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

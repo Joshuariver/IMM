@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conceptualizing the Industrial Metaverse - IMM 2025</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2025)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Industrial Metaverse</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Expert Study</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Conceptualizing the Industrial Metaverse:<br>
+            <span class="text-cyan-400">From Technological Layers to Business Value</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Dominik A. Henkel*, Björn S. Ivens
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            산업용 메타버스의 개념화:<br>
+            <span class="text-indigo-300">기술적 레이어에서 비즈니스 가치까지</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            다양한 B2B 산업 분야의 25개 전문가 인터뷰를 통한 질적 분석 기반 7대 계층의 'IM Canvas' 및 비즈니스 가치 매칭 프레임워크 제안
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">산업용 메타버스는 7개 계층의 데이터 정렬 및 다자간 협업(A-R-A)을 매개하여 가치를 창출·보호하는 B2B 조직 변혁 생태계입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "The ongoing digitalization of industrial processes has given rise to new concepts, with the Industrial Metaverse (IM) emerging as a promising development. The IM represents an immersive, data-driven ecosystem that integrates technologies such as augmented reality, digital twins, and artificial intelligence to interconnect physical and digital environments. Despite increasing relevance, research on the IM remains scarce, particularly regarding its conceptual structure, application areas, and value contribution. This study addresses this gap by applying a qualitative research design based on 25 expert interviews across multiple industries. Taking an inductive approach, we propose an IM Canvas of seven interdependent layers in a hierarchical structure and identify 16 use cases across six application areas. We then link these areas to four dimensions of business value: creation, capture, enhancement, and protection. The findings advance theory by positioning the IM as both a continuation of digitalization and a disruptive shift that redefines ecosystems. By integrating the actors–resources–activities perspective, the IM Canvas extends existing frameworks of digital transformation and highlights the dual role of the IM as a technological enabler and an organizational transformer. This article provides a conceptual foundation for future IM research and guidance for firms to leverage the potential of this digital ecosystem."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "산업 프로세스의 지속적인 디지털화는 새로운 개념들을 탄생시켰으며, 그 중 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">산업용 메타버스(IM)</span>가 유망한 발전 단계로 부상하고 있다. IM은 증강 현실, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">디지털 트윈</span>, 인공지능 등의 기술을 통합하여 물리적 환경과 디지털 환경을 상호 연결하는 몰입형 데이터 기반 생태계를 나타낸다. 점증하는 중요성에도 불구하고, 특히 개념적 구조, 적용 분야 및 가치 기여에 관한 IM 연구는 여전히 부족한 실정이다. 본 연구는 다양한 산업 분야에 걸친 25건의 전문가 인터뷰를 바탕으로 한 질적 연구 설계를 적용하여 이 간극을 해결한다. <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">귀납적 접근 방식</span>을 통해, 우리는 계층적 구조를 가진 7개의 상호 의존적 레이어로 구성된 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">IM 캔버스(IM Canvas)</span>를 제안하고, 6개 적용 분야에 걸친 16가지 유즈케이스를 식별한다. 그런 다음 이러한 분야를 비즈니스 가치의 네 가지 차원인 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">창출, 획득, 향상, 보호</span>와 연결한다. 연구 결과는 IM을 디지털화의 연속이자 생태계를 재정의하는 파괴적 변화로 자리매김함으로써 이론을 발전시킨다. <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">행위자-자원-활동(A-R-A) 관점</span>을 통합함으로써, IM 캔버스는 디지털 전환의 기존 프레임워크를 확장하고 기술적 조력자이자 조직적 변혁가로서의 IM의 이중적 역할을 강조한다. 본 논문은 미래의 IM 연구를 위한 개념적 토대와 기업들이 이 디지털 생태계의 잠재력을 활용할 수 있는 지침을 제공한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Industrial Metaverse (IM)</td>
+                  <td>산업용 메타버스</td>
+                  <td class="text-sm">소비자 대상 가상 현실과 대비되는 B2B 현장의 데이터 기반 공정 통합 가상 생태계를 의미합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">IM Canvas</td>
+                  <td>IM 캔버스</td>
+                  <td class="text-sm">산업용 메타버스의 아키텍처를 이루는 7가지 레이어의 계층 관계를 시각적으로 정형화한 본문 제안 모델입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">A-R-A Perspective</td>
+                  <td>행위자-자원-활동 관점</td>
+                  <td class="text-sm">B2B 네트워크 학파의 기본 분석 틀로, 메타버스 속의 행위자, 인프라(자원), 데이터처리/교환(활동) 관계를 해석하는 가교입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Business Value Dimensions</td>
+                  <td>비즈니스 가치 차원</td>
+                  <td class="text-sm">가치를 단순히 창출(Creation)하는 것 외에, 획득(Capture), 향상(Enhancement), 보호(Protection)의 4개 차원으로 세분화하여 분석합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Bidirectional Data Exchange</td>
+                  <td>양방향 데이터 교환</td>
+                  <td class="text-sm">데이터 수집만 하는 단방향 수집을 넘어, 가상 세계 시뮬레이션의 명령이 실제 기계를 실시간 제어하는 폐루프 루프를 가리킵니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">산업용 메타버스(IM)의 개념과 가치 획득 경로는?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">7대 레이어 'IM Canvas' 및 16대 유즈케이스</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">A-R-A 네트워크 모델과 비즈니스 가치 융합</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 소비자 메타버스와 구별되는 산업용 메타버스(IM)만의 개념과 구조는 무엇이며, B2B 기업들이 이로부터 어떤 가치 활동을 수행하고 가치를 확보하는가?</li>
+                  <li><strong>핵심 발견:</strong> 7개 상호 의존 계층을 지닌 'IM Canvas' 아키텍처를 도출하였으며, 6개 비즈니스 영역에서 16가지 구체적 유즈케이스를 규명하고 이를 가치 창출, 획득, 향상, 보호 활동으로 구분함.</li>
+                  <li><strong>이론/실무 기여:</strong> 기존에 개별 기술로만 다루어지던 디지털 트윈, XR, AI 등을 IMP 학파의 A-R-A(행위자-자원-활동) 네트워크 이론과 연계하여 학술적 토대를 다지고 법적 규제를 기회로 활용할 실전 전략 제시.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "산업용 메타버스는 단순히 공정을 가상화하는 도구가 아니라, 데이터 정렬과 행위자 협업(A-R-A)을 매개하여 가치를 창출·보호하는 B2B 조직 변혁 생태계이다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 이론적 주장과 실증 전문가 인터뷰 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">7개 계층의 'IM Canvas' 계층 도출</td>
+                <td class="text-sm italic text-slate-600">
+                  "Taking an inductive approach, we propose an IM Canvas of seven interdependent layers in a hierarchical structure... by distinguishing the IM into seven layers—data infrastructure, data processing, integration, application, ecosystem actor, interaction, and data exchange..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 58 & Page 61 (Sec. 4.1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">단방향 데이터 흐름의 현실과 한계</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the majority of respondents indicated that, at present, data flow only in one direction—from the physical world to the virtual space. As Robert stated: 'Right now, our systems simply push data into the Metaverse. The flow is strictly one way.'"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 62 (Sec. 4.1.1, Layer 7)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">가치 차원의 4대 분해</td>
+                <td class="text-sm italic text-slate-600">
+                  "We then link these areas to four dimensions of business value: creation, capture, enhancement, and protection... The findings suggest that the aggregated dimensions highlight the value proposition of the IM."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 58 & Page 61 (Sec. 3.2 / 4.3)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">데이터 거버넌스와 규제 준수의 필수성</td>
+                <td class="text-sm italic text-slate-600">
+                  "This necessity increases the need for a clearly defined data governance framework on data ownership, accountability... legal frameworks must also be considered—particularly the European Union Data Act..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 66 (Sec. 5.1)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">조직 양손잡이(Ambidexterity) 지원 이중성</td>
+                <td class="text-sm italic text-slate-600">
+                  "On the one hand, the application areas demonstrate how companies leverage the IM to enhance efficiency by process optimization (exploitation); on the other hand, the IM's cross-departmental and cross-organizational collaboration capabilities enable firms to pursue new opportunities... (exploration)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 66-67 (Sec. 5.1)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">IM Canvas & A-R-A Mapping (개념적 구조 모형)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 480" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+                </marker>
+                <marker id="arrow-indigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/>
+                </marker>
+                <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0ea5e9"/>
+                </marker>
+              </defs>
+
+              <text x="400" y="25" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">IM Canvas & A-R-A Framework Mapping</text>
+
+              <!-- Layer 1 -->
+              <rect x="250" y="400" width="300" height="50" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="400" y="422" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Layer 1: Data Infrastructure (데이터 인프라)</text>
+              <text x="400" y="438" text-anchor="middle" font-size="10" fill="#64748b">Raw Data (BOM, CAD, Sensor Logs) - [Resource 자원]</text>
+
+              <!-- Layer 2 -->
+              <rect x="130" y="310" width="220" height="50" rx="6" fill="#ecfeff" stroke="#06b6d4" stroke-width="2"/>
+              <text x="240" y="332" text-anchor="middle" font-size="11" font-weight="700" fill="#0891b2">Layer 2: Data Processing</text>
+              <text x="240" y="347" text-anchor="middle" font-size="9" fill="#0891b2">AI & Big Data Analytics - [Activity 활동]</text>
+
+              <!-- Layer 3 -->
+              <rect x="450" y="310" width="220" height="50" rx="6" fill="#ecfeff" stroke="#06b6d4" stroke-width="2"/>
+              <text x="560" y="332" text-anchor="middle" font-size="11" font-weight="700" fill="#0891b2">Layer 3: Integration</text>
+              <text x="560" y="347" text-anchor="middle" font-size="9" fill="#0891b2">3D Digital Twin Representation - [Activity 활동]</text>
+
+              <!-- Layer 4 -->
+              <rect x="250" y="230" width="300" height="50" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="400" y="252" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Layer 4: Application (애플리케이션)</text>
+              <text x="400" y="268" text-anchor="middle" font-size="10" fill="#64748b">XR Interfaces (HoloLens, Quest) - [Resource 자원]</text>
+
+              <!-- Layer 5 -->
+              <rect x="250" y="150" width="300" height="50" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="400" y="172" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">Layer 5: Ecosystem Actor (생태계 행위자)</text>
+              <text x="400" y="188" text-anchor="middle" font-size="10" fill="#059669">Roles & Access Rights (Engineers, Partners) - [Actor 행위자]</text>
+
+              <!-- Layer 6 -->
+              <rect x="250" y="70" width="300" height="50" rx="6" fill="#fdf2f8" stroke="#db2777" stroke-width="2"/>
+              <text x="400" y="92" text-anchor="middle" font-size="12" font-weight="700" fill="#be185d">Layer 6: Interaction (상호작용)</text>
+              <text x="400" y="108" text-anchor="middle" font-size="10" fill="#db2777">Intra-, Inter-org, HMI exchanges - [Activity 활동]</text>
+
+              <!-- Layer 7 -->
+              <rect x="580" y="70" width="190" height="130" rx="6" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="675" y="98" text-anchor="middle" font-size="12" font-weight="700" fill="#3730a3">Layer 7: Data Exchange</text>
+              <text x="675" y="118" text-anchor="middle" font-size="11" font-weight="700" fill="#3730a3">(데이터 교환)</text>
+              <text x="675" y="142" text-anchor="middle" font-size="10" fill="#4338ca">Bidirectional Closed Loop</text>
+              <text x="675" y="162" text-anchor="middle" font-size="9" fill="#4f46e5">Real-time Physical Feedback</text>
+              <text x="675" y="177" text-anchor="middle" font-size="9" fill="#4f46e5">- [Activity 활동]</text>
+
+              <!-- Connecting Arrows -->
+              <path d="M350 400 L 290 360" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <path d="M450 400 L 510 360" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <path d="M290 310 L 350 280" fill="none" stroke="#0891b2" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+              <path d="M510 310 L 450 280" fill="none" stroke="#0891b2" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+              <path d="M400 230 L 400 200" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <path d="M400 150 L 400 120" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <path d="M550 95 L 575 95" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+              <!-- Loop back -->
+              <path d="M720 200 C 720 380, 680 425, 550 425" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-dasharray="5 5" marker-end="url(#arrow-indigo)"/>
+              <text x="735" y="310" text-anchor="middle" font-size="10" font-weight="700" fill="#4f46e5" transform="rotate(-90 735 310)">Bidirectional Control Loop</text>
+              <text x="610" y="440" font-size="9" font-weight="700" fill="#4f46e5">Physical Real-World Control (Layer 7 -> 1)</text>
+
+              <!-- Governance Moderator -->
+              <rect x="580" y="250" width="190" height="45" rx="6" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+              <text x="675" y="270" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Data Governance / EU Data Act</text>
+              <text x="675" y="284" text-anchor="middle" font-size="9" fill="#b45309">[Institutional Moderator 조절]</text>
+              <path d="M675 250 L 675 210" fill="none" stroke="#d97706" stroke-width="1.5" marker-end="url(#arrow)"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">가상-물리 데이터 자원</span>
+                <span class="text-xs text-slate-400 font-semibold">IV (L1 & L4)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">IM Data Resources (데이터 인프라 및 애플리케이션)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 메타버스 상에 실제 자산을 투영하기 위한 데이터 소스와 이를 가상화하여 보여주는 하드웨어/소프트웨어 애플리케이션의 총합.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의 (구조):</strong> CAD 도면, 자재 명세서(BOM) 및 센서 실시간 수집 데이터(L1)와 이들을 구동하는 XR 장비 및 디지털 트윈 플랫폼(L4) 연동성.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 질적 코딩 스키마(Appendix C); 기존 IT 자원 역량 문헌(Alshawi et al., 2011; Mikalef et al., 2019).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 기업 내부에 파편화된 데이터 사일로(Silo)를 제거하고 실시간으로 데이터를 가상 환경에 연계시키는 오케스트레이션 능력이 성공의 기본 요소로 지목됩니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">참여 행위자 조율</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator (L5)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">Ecosystem Actors (생태계 행위자)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 가상 공간 안에서 공유 데이터에 접근하고 협력할 수 있는 권한을 얻은 기업 내부 임직원 및 외부 공급사, 고객 생태계 파트너 집단.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 역할 기반 접근 권한에 따른 제품 개발 엔지니어, 품질 관리팀, 유지보수 전문가 및 구매사 아바타들의 동시 참여 비중.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Håkansson & Snehota (1995)의 A-R-A 네트워크 모델 내 Actor 개념 차용.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 정보 가시성을 극대화하여 기술 소유권을 민주화(Democratization)하고 부서 및 기업 간의 소통 경계를 허무는 핵심 매개적 허브 역할을 담당합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">실시간 데이터 동기화</span>
+                <span class="text-xs text-slate-400 font-semibold">IV / Core Activity (L7)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">Bidirectional Data Exchange (양방향 데이터 교환)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 가상 공간에서의 조작/시뮬레이션 결과가 현실 물리 공장 설비로 피드백 및 원격 제어로 즉각 이어지는 상호 동기화 메커니즘.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 가상 세계 시뮬레이션 기반 물리 설비의 원격 강제 제동 및 실시간 복원 명령 수행력.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Rauschnabel et al. (2022)의 XR 통합 정의 및 Mourtzis (2023a)의 디지털 트윈 진화론.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 현재 대다수 B2B 기업은 단방향(물리->가상) 데이터 수집에 머물러 있으나, 양방향 루프가 완성되어야 비즈니스 가치가 궁극적으로 보호됩니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">제도적 거버넌스</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">Regulatory & Governance (제도적 규제 및 거버넌스)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 다자간 데이터 공유 과정에서 발생하는 지식재산권 누출 우려, 사고 책임 한계 및 규제 요건 등 신뢰 관계를 규율하는 법적 환경.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 유럽 데이터 법(EU Data Act) 및 디지털 제품 여권(DPP) 요건의 준수 강도 및 사내 보안 지침 규격 수준.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Eckardt & Kerber (2024)의 IoT 데이터 자산 연구 및 Weber et al. (2009)의 데이터 거버넌스 모델.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 보안 침해 및 사고 발생 시 오작동 법리 분쟁은 기업들이 적극적인 양방향 제어를 머뭇거리게 만드는 대표적 심리적 조절 제약입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">비즈니스 가치 성과</span>
+                <span class="text-xs text-slate-400 font-semibold">DV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">Business Value Dimensions (비즈니스 가치: 창출, 획득, 향상, 보호)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 메타버스 도입을 통해 B2B 거래 네트워크 상의 이해관계자들과 함께 얻는 경제적·운영적 경쟁 우위의 종합 결과.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 프로세스 효율화에 따른 자원 절감(창출), 가상 서비스 유료화(획득), 개발 기간 단축(향상), 설비 다운타임 감소(보호) 정도.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Bouncken et al. (2020)의 Coopetition 가치 모델; Porter (1985)의 밸류체인.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 연구 모델 및 데이터 검증을 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">표본 추출 프레임 및 전문가 기준 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  B2B 영역에서 산업용 메타버스 개발, 도입, 컨설팅 등의 실질적 직무 경험(평균 10년 이상)을 보유한 전문가 타겟층 선정. 소기업부터 대기업까지 골고루 분포시키며 다양한 산업 도메인에서 후보자군 확보.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 61, Section 3.1 & Appendices A, B</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">반구조화된 인터뷰 지침 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  메타버스의 정의, 아키텍처 기술 계층, 구현된 유즈케이스 및 확보된 비즈니스 가치(창출·보호)를 규명하기 위한 개방형 인터뷰 가이드라인 설계.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 61, Section 3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">데이터 수집 및 전사</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  온라인 화상 회의(MS Teams, Google Meet)를 통해 1대 1 심층 인터뷰 실행(평균 60분). 구술 데이터를 문장 단위로 전사(독일어 및 영어)하여 분석 텍스트 원천 자료 확보. 이론적 포화에 도달할 때까지 진행(최종 25명).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 61, Section 3.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">1차 분석 - 개방 코딩 (Gioia 1단계)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  전사본 텍스트를 읽어가며 인터뷰 대상자의 표현을 최대한 보존하여 원시 데이터 코드를 귀납적으로 생성하는 개방 코딩(Open Coding) 실행.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 61, Section 3.2 & Appendix C</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">2차 분석 - 축 코딩 (Gioia 2단계)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  유사하거나 상호보완적인 개념들을 묶어 더 추상화된 두 번째 단계의 '테마(Theme)'로 군집화. 7대 레이어 후보군과 16대 유즈케이스, 4대 가치 범주 분류.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 61, Section 3.2 & Appendix C</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">통합 차원 도출 및 모델화 (Gioia 3단계)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  2차 테마를 한 단계 더 높은 차원으로 승화시키고, A-R-A 네트워크 모델과 융합하여 최종적인 'IM Canvas' 및 가치 프레임워크 명문화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 61, Section 3.2 & Appendix C</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">빈도 및 신뢰성 타당성 정량 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  코딩 범주별로 25명의 전문가 중 언급한 빈도를 합산하여 타당성 검증(Appendix D). 대표 인용구와 맵핑하여 질적 서술의 신뢰성을 최종 입증함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 61, Section 3.2 & Appendix D</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partially Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            질적 연구의 특성상 인터뷰 대상자의 선정이나 연구진의 주관적 코딩 역량에 의존하나, Gioia 분석 프레임워크와 최종 코딩 빈도 및 대표적 문구 인용(Appendix C, D)이 완벽히 공개되어 있어 방법론적 분석 흐름을 동일하게 추적 모방하는 것은 가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.3)에서 연구진들이 직접 제시한 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>질적 연구 자체의 한계:</strong> 통계적 가설 검증이 배제된 소수 인터뷰 응답 데이터이므로 결과의 전체 양적 일반화(Generalizability)가 제한됨.
+              </li>
+              <li>
+                <strong>관계 다이내믹스의 단순화:</strong> A-R-A 프레임워크를 적용하여 행위자 간 상호작용을 파악했으나, 비즈니스 관계가 시간 경과에 따라 변하는 파트너십 발전 단계별 변화를 포착하지 못함.
+              </li>
+              <li>
+                <strong>가치의 정량적 임팩트 검증 부재:</strong> 4가지 비즈니스 가치 구조를 분류해 냈을 뿐, 비용 절감율이나 매출 기여도 등 재무 성과 지표로 실증 측정하지 못함.
+              </li>
+              <li>
+                <strong>사회·환경적 영향 분석 누락:</strong> 메타버스 활용에 의한 탄소 절감 효과(출장 감소)와 대량의 전력 소모(데이터 가상화 처리) 간의 실질적 상충 관계를 실증 분석하지 못함.
+              </li>
+              <li>
+                <strong>메타버스의 부정적 이면 간과:</strong> 데이터 오용, 계약 사기 가능성, 다자간 소통 고립(Alienation), 현장 작업자의 테크노스트레스(Technostress) 위험을 심층 조명하지 않음.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 횡단 분석 메커니즘을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 지리적 및 표본 편향성</span>
+                <p class="text-sm text-slate-700">
+                  인터뷰에 참여한 20개 기업(C1~C20)의 대다수가 독일 및 스위스 등 유럽 연합(EU) 중심의 고도화된 제조업 국가에 편중되어 있습니다. ICT 인프라나 제조 인프라 수준이 상이한 아시아, 남미 등 신흥국의 공급망 생태계에 이 Canvas를 무리하게 대입할 때도 동일한 수준의 가치를 거둘 수 있을지는 알 수 없습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 안전성 및 제조물 책임(PL) 사각지대</span>
+                <p class="text-sm text-slate-700">
+                  가상 공간의 제어 명령이 현실 설비를 원격으로 직접 가동하는 Layer 7 '데이터 교환'의 필요성을 강조했으나, 네트워크 해킹이나 시뮬레이션 코드 오류로 현실 기계 오작동 발생 시 작업자 인명 피해 보상, PL법 분쟁, 시스템 다운 시 복원 주체 등 핵심 거버넌스 및 예외 시나리오 대책이 완전히 간과되어 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 가상화 몰입 사양의 타협점 부재</span>
+                <p class="text-sm text-slate-700">
+                  전문가 응답에서 "웹 화면 수준으로도 충분하다(Victor)"는 의견과 "고도화된 혼합현실(Daniel/Linda)이 필수적"이라는 의견이 공존함에도, 어떤 유즈케이스에 어떤 세부 사양의 메타버스 도입이 정답인지 가이드를 주지 못해 일선 기업들의 하드웨어 과잉 투자(Over-engineering)를 부추길 우려가 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 대기업-중소기업 간 디지털 양극화</span>
+                <p class="text-sm text-slate-700">
+                  7개 계층의 'IM Canvas'를 공급망 전체에 정렬하기 위해서는 하위 납품업체들의 데이터 통합(Layer 1) 참여가 필수적입니다. 자금력이 현저히 부족한 영세 부품업체들이 대기업 주도의 가상 생태계 참여를 강요받을 때 겪는 비용 부담과 배제 격차(Digital Divide) 등의 공급망 착취 메커니즘을 규명하지 못했습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Conceptualizing the Industrial Metaverse: From Technological Layers to Business Value</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
