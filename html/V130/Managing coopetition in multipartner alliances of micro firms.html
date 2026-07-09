@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Managing Coopetition in Multipartner Alliances of Micro Firms - IMM 2025</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (No Navbar) -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2025)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Coopetition</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Study</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Managing coopetition in multipartner alliances<br>
+            <span class="text-cyan-400">of micro firms</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Jose Novais Santos (Lisboa University – ISEG)
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            마이크로 기업들의 다자간 동맹 내<br>
+            <span class="text-indigo-300">코옵티션(협력-경쟁) 관리</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            포르투갈 사도 강 하구 생태관광 마이크로 기업들의 종단적 사례 연구를 기반으로 한 호혜성 규칙, 사회적 통제, 단절선(faultlines)의 관리 메커니즘 분석
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">마이크로 기업은 조직적 분리가 불가능하므로, 왓츠앱 소통, 수수료 규칙, 목적별 하위 그룹화(단절선)를 통해 다자간 동맹을 유지합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This research explores how micro firms cope with coopetition tensions in a multipartner alliance over time. Micro firms are significantly pressured to cooperate and compete simultaneously. Coopetition and its management in micro firms are underinvestigated, particularly in alliances with multiple partners. Despite their popularity, multipartner arrangements generate more tensions and are more complex to manage. A longitudinal qualitative case study research focusing on micro firms from the ecotourism sector is employed to understand the mechanisms employed to manage these tensions. Results show that tensions are frequently diffused over more than two partners and tensions’ management is conditioned by the liability of smallness and the number of firms affected. The firms’ experience in the alliance allows for tailoring the mechanisms to manage tensions over time. Also, contrasting the extant view on faultlines, this study shows that establishing faultlines is a management mechanism promoting value creation and the alliance’s longevity but can have a cyclical effect by generating other tensions."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 연구는 시간이 경과함에 따라 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">마이크로 기업(영세 기업)</span>들이 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">다자간 동맹</span>에서 발생하는 코옵티션(coopetition, 협력과 경쟁의 공존) 긴장에 어떻게 대처하는지 탐색한다. 마이크로 기업들은 동시에 협력하고 경쟁해야 하는 상당한 압력을 받는다. 마이크로 기업에서의 코옵티션과 그 관리는, 특히 다수의 파트너가 참여하는 동맹에서 연구가 미흡한 실정이다. 다자간 협정은 인기가 높음에도 불구하고 더 많은 긴장을 유발하며 관리하기가 더 복잡하다. 본 연구는 이러한 긴장을 관리하기 위해 채택된 메커니즘을 이해하기 위해 생태관광(ecotourism) 부문의 마이크로 기업들에 초점을 맞춘 종단적 질적 사례 연구를 수행하였다. 분석 결과, 긴장은 종종 둘 이상의 파트너에게 분산(diffused)되며, 긴장 관리는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">영세함의 불리함(liability of smallness)</span>과 영향을 받는 기업들의 수에 의해 제약되는 것으로 나타났다. 동맹 내에서 축적된 기업들의 경험은 시간 경과에 따라 긴장을 관리하는 메커니즘을 맞춤화할 수 있게 한다. 또한, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">단절선(faultlines)</span>에 대한 기존의 견해와 대조적으로, 본 연구는 단절선을 구축하는 것이 가치 창출과 동맹의 수명을 촉진하는 관리 메커니즘이 될 수 있지만, 동시에 다른 긴장을 생성함으로써 순환적 효과(시시포스 효과)를 가질 수 있음을 보여준다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Micro firms</td>
+                  <td>마이크로 기업 (영세 기업)</td>
+                  <td class="text-sm">종업원 10인 미만의 영세 소기업을 의미하는 학술 표준 번역으로, 의사결정권자가 1인(사장 겸 선장)인 경우가 많아 조직적 분리가 불가능한 맥락을 대변합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Liability of Smallness</td>
+                  <td>영세함의 불리함 (소규모성 제약)</td>
+                  <td class="text-sm">자원과 인력의 부족으로 인해 대기업 중심의 분리형 갈등 관리 모델을 채택할 수 없게 만드는 구조적 취약성을 의미합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Faultlines</td>
+                  <td>단절선 (분리 경계선)</td>
+                  <td class="text-sm">동맹 내에서 파트너들의 유사성이나 공동 이익에 따라 하위 그룹(subgroups)이 갈라서는 보이지 않는 경계선으로, 이 연구에서는 건설적인 관리 도구로 재조명되었습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Sisyphus Effect</td>
+                  <td>시시포스 효과 (순환적 갈등 루프)</td>
+                  <td class="text-sm">갈등을 해결하기 위해 구성원을 배제(단절선 구축)하는 규칙이 도리어 배제된 기업의 기회주의를 낳아 새로운 갈등을 야기하는 순환적 현상을 뜻합니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 세미나에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 핵심 질문과 발견, 기여도를 도출했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">마이크로 기업의 다자간 동맹 갈등 관리?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">호혜성, 사회적 통제, 단절선의 결합</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">단절선의 긍정적 기여 및 순환 갈등 규명</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 조직적/물리적 분리가 불가능한 마이크로 기업들이 3개 이상의 다자간 동맹 내에서 어떻게 코옵티션 긴장을 관리하고 장기 협업을 영위하는가?</li>
+                  <li><strong>핵심 발견:</strong> 소기업들은 1) 모순의 내재적 수용, 2) 정량적 수수료(20%) 규칙 확립, 3) WhatsApp 단톡방과 연 2회 전체 회의를 활용한 집단 압박, 4) 목적별 하위 그룹(단절선 구축)이라는 4가지 메커니즘을 유연하게 결합하여 대처합니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 기존 학설과 달리 단절선(faultlines)이 동맹의 장수와 가치 창출을 촉진하는 건설적 수단이 됨을 입증했으며, 파트너 배제가 새로운 기회주의를 낳는 '시시포스 효과(Sisyphus effect)' 순환 모델을 제안했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "마이크로 기업들은 자원 제약으로 인해 공간적·시간적 분리가 불가능하므로, 호혜성 수수료, 모바일 제보, 목적별 하위 그룹화(단절선)를 통해 다자간 동맹을 유지합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문의 타당성을 뒷받침하기 위해 본문의 핵심 주장별 실제 응답자 인용구와 페이지 정보를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">조직 및 시간적 분리의 불가능성</td>
+                <td class="text-sm italic text-slate-600">
+                  "In a micro firm, even though it is possible to separate competition activities (e.g. marketing) and cooperation activities (e.g. operations), most likely both of them are performed by the same people. Additionally, micro firms’ behaviors affect their identities over long periods of time, hindering the realization of temporal separation."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 8 (Sec. 5.2)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">정량적 호혜성 규칙(수수료 20%) 확립</td>
+                <td class="text-sm italic text-slate-600">
+                  "All firms started feeling a lack of reciprocity when exchanging customers. Changes were made to improve timely retribution. Rewards are made through commissions, meaning that the firm that sends customers to a partner receives a percentage for each customer sent, usually 20%."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 5 (Sec. 4.2)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">단톡방을 통한 사회적 통제 및 감시</td>
+                <td class="text-sm italic text-slate-600">
+                  "Nowadays, firms manage stressful situations through conversations mainly via a WhatsApp group that includes all firms... When I have something to report about the behaviour of another firm I do it in the WhatsApp group."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 6 (Sec. 4.3)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">단절선의 긍정적 작용 (동맹 장수 촉진)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Thus, contrary to Heidl et al. (2014) findings, the case shows that faultlines promote the stability and longevity of the multipartner alliance as a whole."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 7 (Sec. 5.2)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">배제로 인한 시시포스 갈등 루프</td>
+                <td class="text-sm italic text-slate-600">
+                  "However, establishing a faultline can trigger a sisyphus effect, as the excluded firm may react opportunistically regarding its participation in several coopetitive activities in the alliance."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 8 (Sec. 6)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Coopetition Tension Management Model (개념적 가설 모형)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 480" class="w-full h-auto">
+              <!-- Background / Border for grouping -->
+              <rect x="5" y="5" width="790" height="470" rx="10" fill="none" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4 4"/>
+
+              <!-- IV: Coopetition Tensions -->
+              <rect x="20" y="200" width="220" height="100" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="130" y="225" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">코옵티션 긴장 (IV)</text>
+              <text x="130" y="247" text-anchor="middle" fill="#64748b" font-size="11">Coopetition Tensions</text>
+              <text x="130" y="267" text-anchor="middle" fill="#475569" font-size="10">고객 유치 갈등, 돌고래 위치</text>
+              <text x="130" y="282" text-anchor="middle" fill="#475569" font-size="10">무임승차, 공동 가격 갈등</text>
+
+              <!-- MV: Tension Management Mechanisms -->
+              <rect x="310" y="170" width="230" height="160" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="425" y="195" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">긴장 관리 메커니즘 (MV)</text>
+              <text x="425" y="215" text-anchor="middle" fill="#047857" font-size="11">Management Mechanisms</text>
+              <text x="330" y="245" fill="#065f46" font-size="11" font-weight="600">1. 모순 수용 (Opposition)</text>
+              <text x="330" y="265" fill="#065f46" font-size="11" font-weight="600">2. 수수료 호혜성 (Commissions)</text>
+              <text x="330" y="285" fill="#065f46" font-size="11" font-weight="600">3. 사회적 통제 (WhatsApp/회의)</text>
+              <text x="330" y="305" fill="#065f46" font-size="11" font-weight="600">4. 단절선 구축 (Faultlines)</text>
+
+              <!-- DV: Alliance Stability & Longevity -->
+              <rect x="600" y="200" width="180" height="100" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="690" y="225" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">동맹 안정성 & 수명 (DV)</text>
+              <text x="690" y="247" text-anchor="middle" fill="#4338ca" font-size="11">Stability & Longevity</text>
+              <text x="690" y="267" text-anchor="middle" fill="#312e81" font-size="10">Sado 동맹 10년 존속</text>
+              <text x="690" y="282" text-anchor="middle" fill="#312e81" font-size="10">공동 자연생태 보호 이행</text>
+
+              <!-- Moderator: Liability of Smallness & Partner Complexity -->
+              <rect x="310" y="20" width="230" height="85" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="425" y="42" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">영세성 한계 & 파트너 수 (Mod)</text>
+              <text x="425" y="60" text-anchor="middle" fill="#b45309" font-size="10">Liability of Smallness / Complexity</text>
+              <text x="425" y="78" text-anchor="middle" fill="#78350f" font-size="10">1인 다역으로 물리적/시간적 분리 차단</text>
+              <text x="425" y="93" text-anchor="middle" fill="#78350f" font-size="10">다자 참여로 기회주의 익명성 증가</text>
+
+              <!-- Paths & Arrows -->
+              <!-- IV -> MV -->
+              <path d="M240 250 L 310 250" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="275" y="242" fill="#0284c7" font-weight="700" font-size="12" text-anchor="middle">H1 (+)</text>
+
+              <!-- MV -> DV -->
+              <path d="M540 250 L 600 250" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="570" y="242" fill="#4338ca" font-weight="700" font-size="12" text-anchor="middle">H2 (+)</text>
+
+              <!-- Moderator Arrow -->
+              <path d="M425 105 L 425 170" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="435" y="135" fill="#b45309" font-weight="700" font-size="12">조절 작용</text>
+
+              <!-- Sisyphus Cyclical Loop (Faultline 배제 -> 기회주의 반발 -> 새로운 갈등) -->
+              <path d="M425 330 C 425 430, 130 430, 130 300" fill="none" stroke="#f43f5e" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="270" y="405" fill="#e11d48" font-weight="700" font-size="12" text-anchor="middle">시시포스 루프 (Sisyphus Cyclical Effect)</text>
+              <text x="270" y="423" fill="#e11d48" font-size="10" text-anchor="middle">하위 그룹 배제 -> 배제된 기업의 기회주의 심화 -> 새로운 긴장 발생</text>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수</span>
+                <span class="text-xs text-slate-400 font-semibold">IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">코옵티션 긴장 (Coopetition Tensions)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 동맹 내에서 가치 창출을 위한 협력 필요성과 사적 이익 획득을 위한 경쟁 필요성이 동시에 존재하여 유발되는 마찰과 불안정성.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 관광 비수기 고객 확보를 위한 호텔 수수료 과열 및 소셜 미디어 가격 덤핑 경쟁, 돌고래 발견 노력(연료비 부담)에 대한 정보 공유의 무임승차.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론:</strong> Bengtsson & Kock(2000), Fernandez et al.(2014)의 가치 분배 모순 논의 및 다자간 제휴 내 정보 비대칭성 연구.
+              </p>
+            </div>
+          </div>
+
+          <!-- MV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수</span>
+                <span class="text-xs text-slate-400 font-semibold">MV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">긴장 관리 메커니즘 (Tension Management)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 기회주의를 통제하고 상호 호혜적 균형을 유지하기 위해 파트너들이 구축하는 다차원적 전략 및 관계적 통제 행동.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 비공식적 20% 송객 수수료 제도, WhatsApp 단톡방 실시간 고발, 연 2회 Nature Reserve Plenary 회의의 집단 압박, 목적별 하위 그룹화(단절선).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론:</strong> Poole & Van de Ven(1989)의 모순 해결, Das & Teng(2002)의 사회적 통제, Heidl et al.(2014)의 단절선 하위 그룹화.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mod Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">영세성 제약 및 파트너 복잡성 (Liability of Smallness & Complexity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자원 한계로 대기업형 조직 분할을 할 수 없는 소기업 특수성과 다자 제휴의 참여자 수 증가로 인한 통제 비용의 증가.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 사장-선장 일체형 구조로 마케팅(경쟁)과 보트 조종(협력)의 분리 차단, 3사 이상의 파트너가 얽힌 복잡한 계약 관계 및 무임승차 익명성 유입.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론:</strong> Gast et al.(2024)의 소기업 코옵티션 연구, Zeng & Chen(2003)의 다자 동맹의 사회적 딜레마.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">DV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">동맹 안정성 및 수명 (Alliance Stability & Longevity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 파트너 이탈이나 제휴 해체 없이 장기간 존속하며, 공동 가치 창출과 환경/지역 규제 대응에서 지속적으로 기능하는 연대력.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 2018년부터 2024년까지(그 이전 10여 년 포함) 해체되지 않은 보트 동맹 상태, 돌고래 보전 선박 네비게이션 가이드라인 및 공동 생태 보호 수칙 이행률.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론:</strong> Heidl et al.(2014)의 동맹 해체 연구와 상반되는 건설적 단절선을 통한 동맹 생존 메커니즘.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 연구 대상 선정 및 데이터 검증 프로세스를 추종하여 복제할 수 있도록 질적 종단 절차를 설계했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">질적 연구 대상지 및 표본Purposive 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  포르투갈 사도 강 하구 자연보호구역(Sado Estuary Nature Reserve) 내에서 돌고래 관찰 서비스를 제공하는 마이크로 보트 기업들(대표적 B2B 동맹 구조)을 의도적 표집(Purposive Sampling)하여 종단 연구의 터전을 설정함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">종단적 3개년 1차 데이터 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  2018년부터 2024년까지 총 3차에 걸친 인터뷰 수행. 1차(2018년, 25개 문항): 동맹 역사와 갈등 양상, 2차(2020년, 11개 문항): 팬데믹 이전 비즈니스와 관리 메커니즘, 3차(2024년, 추적 조사): 시간이 지나며 진화한 긴장 해결책을 수집하고, 총 2회의 보트 탑승 참여 관찰 실시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3 & Table 1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">체계적 결합(Systematic Combining) 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Dubois & Gadde(2002)의 abductive 접근법을 사용하여 자료 분석과 이론 정립을 상호 환류적으로 수행. 초기 긴장 탐색에서 출발하여 자산 오케스트레이션과 단절선 이론을 결합하여 가치 배제와 결합 모델을 코딩.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">이차 데이터 교차 삼각측량</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  기업 웹사이트, 정부 보도자료, 관광협회 규제 관련 회의록 등 방대한 2차 데이터를 수집하여 면담 대상자 진술의 사실 여부 검증 및 생태적 환경을 삼각 교차 검증(Triangulation).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Section 3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">시간적 경과 분석 및 피드백 루프 확인</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  메커니즘 도입 전후의 협력 패턴 비교. 단절선(Faultlines) 형성 이후 배제된 기업(예: Beta)이 어떻게 무임승차를 가중하는지 추적하여 시시포스 효과(Sisyphus effect) 순환 고리를 규명함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 7-8, Section 5 & 6</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            질적 연구 방법의 특성상 동일한 포르투갈 자연보호구역 내의 역사적 데이터 및 기밀로 합의된 업체 면담 기록을 완벽하게 재구성하는 것은 불가능합니다. 그러나 상세히 명시된 인터뷰 질문 구성 수치 및 'Systematic Combining' 프레임워크를 기반으로 한 질적 추종 연구 설계는 충분히 재현할 수 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6)에서 연구자가 스스로 인정한 경계적 한계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>정량적 인과 검증의 부재:</strong> 질적 사례 연구의 본질적 특성으로, 코옵티션 긴장 요소와 특정 해결 메커니즘 간의 직접적인 통계적 결합력 및 상관 분석을 정량화하여 제시하지 못함.
+              </li>
+              <li>
+                <strong>단일 사이트 및 특수 업종 국한성:</strong> 포르투갈의 돌고래 관광이라는 고도의 지역 환경 보전 가이드라인이 얽혀 있는 특수 업종의 결과로, 하이테크 B2B 제조 및 일반 커머스 분야로 일반화하는 데 신중해야 함.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계론 및 해석론에 기반한 비판적 학술 의심점입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 회상 및 사후 합리화 편향 (Recall Bias)</span>
+                <p class="text-sm text-slate-700">
+                  2020년 인터뷰는 팬데믹 한복판이었으나 "코로나 이전 비즈니스"를 회고하게 했고, 2024년 조사는 2018년 및 2020년의 장기 기각을 회상하게 했습니다. 이는 응답자가 현재 형성된 우호 관계를 토대로 과거의 격렬했던 갈등을 누그러뜨리거나 과장하는 심리적 보정을 가했을 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 생존자 편향 (Survival Bias)</span>
+                <p class="text-sm text-slate-700">
+                  데이터는 6개년 이상 유지된 견고한 10여 개 기업을 추적했습니다. 만약 파트너 간의 배신이나 과도한 가격 갈등으로 인해 2019년 또는 2022년에 폐업하여 시장에서 완전히 퇴출당한 영세 보트 회사가 있었다면, 이들의 증언이 유실되어 동맹의 안정성 결론이 과장되었을 위험이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 사회적 바람직성 및 정보 은폐 (Social Desirability)</span>
+                <p class="text-sm text-slate-700">
+                  작은 커뮤니티 안에서 매일 만나는 대표들이므로, 비록 기밀 유지가 보장되었다 하더라도 자신의 불법적 기회주의(예: 야생동물 근접 항해 규정 위반, 담합 등)는 감추고 다른 경쟁 업체의 몰상식한 무임승차 행위만을 부풀려 왜곡 진술했을 개연성이 높습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 질적 매커니즘의 가치 귀속 오류</span>
+                <p class="text-sm text-slate-700">
+                  송객 수수료 20% 제도와 단절선 구축의 긍정적 효과가 전적으로 코옵티션의 '조직적 수용' 덕분이라기보다, 포르투갈의 전반적인 세금 제도 변화나 생태협회 정부 보조금 수급 요건(예: 공동 환경 보호 기준 미충족 시 면허 취소) 등의 거시적 외부 압박이 진짜 협업 촉매제였을 수 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Managing coopetition in multipartner alliances of micro firms</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
