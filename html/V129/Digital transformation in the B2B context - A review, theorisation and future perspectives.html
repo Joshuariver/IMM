@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Transformation in the B2B Context: A Review, Theorisation and Future Perspectives</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2025)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Digital Transformation</div>
+        <div class="badge badge-secondary text-white style-label">Literature Review</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Digital transformation in the B2B context:<br>
+            <span class="text-cyan-400">A review, theorisation and future perspectives</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Yuliia Kyrdoda, Giacomo Marzi, Donata Vianelli
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            B2B 맥락에서의 디지털 전환:<br>
+            <span class="text-indigo-300">문헌 검토, 이론화 및 미래 전망</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            계량서지학적-체계적 문헌 고찰(B-SLR) 분석을 통해 도출한 5대 핵심 연구 클러스터와 개정된 행위자-자원-활동(A-R-A) 모델 분석
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              DT
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">디지털 플랫폼과 AI는 자원이자 행위자 역할을 모두 수행하는 '하이브리드 역할'로 B2B 생태계를 재편합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Digital transformation reshapes business models and enhances value delivery, significantly impacting business-to-business (B2B) ecosystems. This study examines this transformation through a network perspective, using the Actor-Resource-Activity (A-R-A) model to explore its implications for B2B environments. Through a Bibliometric-Systematic Literature Review, it synthesizes existing knowledge, identifies key research themes, analyzes their theoretical foundations, and highlights significant findings. The study also introduces a revised A-R-A model to reflect the role of digitalisation in B2B networks. It concludes with future research directions and discusses the theoretical and practical implications."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "디지털 전환(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">Digital transformation</span>)은 비즈니스 모델을 재구성하고 가치 전달을 향상시켜 기업 간 거래(B2B) 생태계에 상당한 영향을 미친다. 본 연구는 네트워크 관점에서 이러한 전환을 검토하고, 행위자-자원-활동(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">A-R-A</span>) 모델을 활용하여 B2B 환경에 대한 함의를 탐구한다. <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">계량서지학적-체계적 문헌 고찰</span>을 통해 기존 지식을 합성하고, 주요 연구 주제를 식별하며, 이론적 기초를 분석하고, 중요한 발견들을 강조한다. 또한, 본 연구는 B2B 네트워크에서 디지털화의 역할을 반영하기 위해 개정된 A-R-A 모델을 제안한다. 마지막으로 미래 연구 방향을 제시하고 이론적 및 실무적 시사점을 논의한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Digital transformation</td>
+                  <td>디지털 전환</td>
+                  <td class="text-sm">단순한 아날로그 정보의 디지털 변환(Digitisation)이나 프로세스 효율화(Digitalisation) 수준을 넘어 전략과 비즈니스 모델을 총체적으로 재정의하여 가치를 창출하는 최종 발달 단계입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">A-R-A model</td>
+                  <td>행위자-자원-활동 모델</td>
+                  <td class="text-sm">B2B 산업 마케팅을 연구하는 IMP 학파의 주춧돌 프레임워크로, 행위자 결속(Actor bonds), 자원 연계(Resource ties), 활동 연결(Activity links)의 세 축을 통한 네트워크 역동성을 설명합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Bibliometric-Systematic Review</td>
+                  <td>계량서지학적-체계적 고찰</td>
+                  <td class="text-sm">VOSviewer 등을 사용해 인용 패턴을 시각화하는 정량적 방법론(Bibliometrics)과 엄격한 절차로 논문을 선정해 분석하는 정성적 방법론(Systematic Review)을 결합한 통합 문헌고찰 기법입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Hybrid Role</td>
+                  <td>하이브리드 역할</td>
+                  <td class="text-sm">자원(Resource)으로서 거래나 활동을 촉진하고 조율하는 도구적 특성과 자율적 의사결정을 수행하는 행위자(Actor)로서의 특성을 동시에 발현하는 디지털 기술(플랫폼/AI)의 고유한 하이브리드 성격을 지칭합니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 세미나에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 핵심 주장을 세 단계로 압축하여 설명합니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">디지털 전환은 B2B 생태계를 어떻게 바꿀까?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">자원과 행위자의 경계 붕괴 (하이브리드 역할)</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">개정된 A-R-A 모델 및 5대 연구지도 확립</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 디지털 전환이 B2B 산업 네트워크의 전통적인 세 요소인 행위자, 자원, 활동에 미치는 영향은 무엇이며, 이들이 결합하여 어떤 새로운 네트워크 메커니즘을 창출하는가?</li>
+                  <li><strong>핵심 발견:</strong> 디지털 플랫폼과 AI 기술은 기존의 자원(수동적 도구) 성격을 초월해, 네트워크 상에서 스스로 정보를 수집하고 자율적인 결정을 내리며 타 행위자와 상호작용하는 **'하이브리드 역할(Hybrid Role)'**을 가짐으로써 두 개념의 전통적 이분법적 경계를 해체합니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 전통적인 IMP 학파의 A-R-A 모델을 디지털 맥락에 맞춰 **'개정된 A-R-A 모델'**로 고도화하여 최신 기술 트렌드를 반영했으며, B2B 도메인의 미래 연구가 나아갈 5가지 테마(클러스터) 이정표를 확립했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "디지털 플랫폼과 AI는 자원이자 행위자 성격을 동시에 지닌 '하이브리드 역할'로 B2B 생태계를 주도하며, 전통적인 A-R-A 모델을 파괴하고 새로운 형태의 가치 공동 창출 네트워크를 형성합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 엄격성을 보장하기 위해 논문에서 추출한 핵심 주장과 이를 직접적으로 설명하는 원문 구절(Quote) 및 상세 페이지 위치를 상호 연결했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">디지털 플랫폼/AI 기술의 행위자-자원 경계 모호성과 하이브리드 역할 등장</td>
+                <td class="text-sm italic text-slate-600">
+                  "...several digital technologies simultaneously embody characteristics of both actors and resources. This "role convergence" is a distinctive feature that challenges the defined boundaries between actors and resources layers in the traditional A-R-A model... we introduce a new element labelled "Hybrid Role"..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 189 (Sec. 4.5.4)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">디지털 플랫폼이 단순 도구를 넘어 자율적 행위자(Actor)로 기능함</td>
+                <td class="text-sm italic text-slate-600">
+                  "On the one hand, these technologies function as human actors... autonomously interacting within networks and influencing decision-making processes." / "...digital platforms are characterised by the pursuit of specific objectives... reflecting the goal-driven nature of the involved actors."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 188 (Sec. 4.5.2) / Page 189 (Sec. 4.5.4)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">디지털 자원이 정적 입력물에서 동적이고 스스로 가치를 내는 네트워크 기여물로 변화함</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the most evident change made by digital transformation is the shift of resources from being static inputs to becoming dynamic, value-creating contributors within the networks..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 189 (Sec. 4.5.3)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">디지털 활동이 거래형 중심에서 관계 및 가치 지향형 프로세스로 변화함</td>
+                <td class="text-sm italic text-slate-600">
+                  "Digital transformation has not resulted in the introduction of entirely new categories of activities; rather, it is primarily concerned with the augmentation and optimisation of existing ones..." / "...activities have shift from a predominantly transactional nature to one that is relational and value-driven..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 189 (Sec. 4.5.4)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">기존 B2B 디지털 전환 고찰의 방법론적 질적 편향 및 정량/종단 연구의 강력한 필요성</td>
+                <td class="text-sm italic text-slate-600">
+                  "Our findings indicate a substantial preference for qualitative methodologies over quantitative ones, which advocates for a balanced blend of methods... Moreover, the scarcity of longitudinal studies underscores the need for additional research..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 190 (Sec. 5)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Redefined A-R-A Framework (개정된 A-R-A 네트워크 가설 모델)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <!-- Inline SVG DAG -->
+            <svg viewBox="0 0 800 480" class="w-full h-auto">
+              <!-- Grid & Background Guide (hidden) -->
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b5cf6"/>
+                </marker>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7"/>
+                </marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+                </marker>
+              </defs>
+
+              <!-- Node 1: Actors (행위자) - SkyBlue Box -->
+              <rect x="290" y="40" width="220" height="75" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+              <text x="400" y="70" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="14">행위자 결속 (Actor Bonds)</text>
+              <text x="400" y="92" text-anchor="middle" fill="#075985" font-size="11">인간 & 조직간 사회적/상호작용 연대</text>
+
+              <!-- Node 2: Resources (자원) - Slate Box -->
+              <rect x="60" y="320" width="220" height="75" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+              <text x="170" y="350" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">자원 연계 (Resource Ties)</text>
+              <text x="170" y="372" text-anchor="middle" fill="#475569" font-size="11">유/무형 자산의 동적·결합적 가치</text>
+
+              <!-- Node 3: Activities (활동) - Green Box -->
+              <rect x="520" y="320" width="220" height="75" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="630" y="350" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">활동 연결 (Activity Links)</text>
+              <text x="630" y="372" text-anchor="middle" fill="#047857" font-size="11">관계/가치 창출 중심의 최적화된 업무</text>
+
+              <!-- Node 4: Center Hybrid Role - Purple Box -->
+              <rect x="270" y="170" width="260" height="95" rx="8" fill="#faf5ff" stroke="#a855f7" stroke-width="2"/>
+              <text x="400" y="200" text-anchor="middle" font-weight="700" fill="#6b21a8" font-size="15">하이브리드 역할 (Hybrid Role)</text>
+              <text x="400" y="222" text-anchor="middle" font-weight="700" fill="#7e22ce" font-size="12">디지털 플랫폼 & AI 에이전트</text>
+              <text x="400" y="244" text-anchor="middle" fill="#9333ea" font-size="10.5">스스로 의사결정(Actor) + 자원조율(Resource) 융합</text>
+
+              <!-- Paths & Connections -->
+              <!-- Traditional interaction: Actors <-> Resources (Dotted path showing convergence) -->
+              <path d="M 170 320 Q 170 180 290 85" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <text x="175" y="160" fill="#94a3b8" font-size="11" font-weight="600">전통적 구분 경계 모호</text>
+
+              <!-- Resources <-> Activities -->
+              <path d="M 280 360 L 520 360" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)" marker-start="url(#arrow-green)"/>
+              <text x="400" y="350" text-anchor="middle" fill="#047857" font-size="11" font-weight="600">자원 연계 및 활용</text>
+
+              <!-- Actors <-> Activities -->
+              <path d="M 510 85 Q 630 180 630 320" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+              <text x="620" y="160" fill="#0284c7" font-size="11" font-weight="600">수행 및 의사결정 조정</text>
+
+              <!-- Convergence paths into Hybrid Role -->
+              <!-- Actors -> Hybrid Role -->
+              <path d="M 400 115 L 400 170" fill="none" stroke="#a855f7" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="410" y="145" fill="#7e22ce" font-size="11" font-weight="700">자율 의사결정권 양도</text>
+
+              <!-- Resources -> Hybrid Role -->
+              <path d="M 230 320 L 310 265" fill="none" stroke="#a855f7" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="290" y="300" fill="#7e22ce" font-size="11" font-weight="700">도구의 지능적 고도화</text>
+
+              <!-- Hybrid Role -> Activities -->
+              <path d="M 470 265 L 560 320" fill="none" stroke="#a855f7" stroke-width="2" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+              <text x="525" y="285" fill="#7e22ce" font-size="11" font-weight="700">오케스트레이션 자동화</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Card 1 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">전통 네트워크 차원 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Actor Layer</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">행위자 결속 (Actor Bonds)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> B2B 관계 내에서 인간 행위자(영업사원, 구매자, 거래처 등) 간의 신뢰와 관계적 몰입으로 이루어지는 심리·사회적 연대 관계.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 파트너 간 사회적 상호작용 빈도, 공동 협의체 및 네트워크 참여도.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Anderson et al. (1994) / Håkansson & Ford (2002)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 디지털 전환으로 파트너의 유형이 인간을 넘어 디지털 플랫폼/가상 비서로 넓어지며, 사회적 상호작용이 시스템 중심의 다방향 교환으로 재편됩니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">전통 네트워크 차원 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Resource Layer</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">자원 연계 (Resource Ties)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 비즈니스 파트너 간에 상호 보완적으로 활용되거나 유기적으로 결합되어 독창적인 가치를 파생시키는 유/무형의 자산Constellation.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 공급망 정보 시스템의 투명도 및 연결성, 기술 표준 결합 수준.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Baraldi et al. (2012) / Prenkert et al. (2022)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 디지털 자원은 보관과 조율이 용이한 특징이 있어, 단순 정적 인풋 자재에서 네트워크 전체에 실시간 가치를 뿜어내는 '동적 기여물'로 위상이 변합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">전통 네트워크 차원 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Activity Layer</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">활동 연결 (Activity Links)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 조달, 제조, 거래, 서비스 납품 등 독립적으로 이루어지던 기업의 고유 직무 활동들이 파트너와 유기적으로 결합하여 동기화되는 프로세스 링크.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 생산·구매 일정 공동 수립 비중, 거래 정보 상호 확인 실시간성.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Gadde et al. (2003)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 단순한 1회성 거래적 교환(Transactional Activity) 중심에서, 디지털 채널을 활용해 지속적으로 상호 소통하는 가치 지향형 관계성 활동(Relational Links)으로 도약합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">핵심 이론 제안</span>
+                <span class="text-xs text-slate-400 font-semibold">Hybrid Convergence</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">하이브리드 역할 (Hybrid Role)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 디지털 전환 과정에서 독립적인 학습 및 자율 연산 능력을 기반으로 의사결정에 관여(Actor-like)하는 동시에 타 주체의 활동을 중개·배치(Resource)하는 다차원성 융합 상태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 디지털 플랫폼 아키텍처 개방성, AI 시스템의 자동 계약/의사결정 개입 범위.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Pauli et al. (2021) / Behera et al. (2021) / Taylor et al. (2020)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 전통적인 행위자-자원 분류 기준을 근본적으로 뒤흔드는 디지털 마케팅 연구의 돌파적 개념이며, 네트워크 조율 비용 저하와 직결되는 핵심 변수입니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          이 논문의 **계량서지학적-체계적 문헌 고찰(B-SLR)** 절차를 타 연구자가 오차 없이 그대로 <strong>추종 재현</strong>할 수 있도록 세밀하게 단계화했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">예비 키워드 탐색 및 방향성 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  2021년 10월, B2B 도메인의 디지털 관련 선행 핵심 개념과 학술 어휘를 예비 검토하여 기초 키워드 풀을 추출하고 이론적 분석 방향을 구체화함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 183, Section 2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">검색 쿼리 정의 및 일차 검색 실행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  정교화된 쿼리 문장 <code>(digital*) AND (b2b OR "business-to-business" OR "business to business")</code>을 수립, 2023년 1월 Scopus 데이터베이스에서 478개 문헌 검색 후 Web of Science 데이터와 대조해 무결성 입증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 183, Section 2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">CABS 저널 랭킹 필터 적용</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  학술 논문의 이론적 기여와 신뢰성 확보를 목표로, CABS 저널 등급 가이드라인상 2등급(2*) 이상의 우량 저널로 범위를 한정하여 표본 수를 218개로 제한함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 183, Section 2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">풀텍스트 교차 스크리닝 및 선정 합의</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  공동 저자 전원이 218개 논문의 전문(Full text)을 독립 검토하여 사전 합의된 기준을 적용하고, 이견이 발생하는 조각은 교차 검토와 팀 조율 토론을 시행해 최종 171개 본 표본으로 확정함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 183, Section 2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">VOSviewer 기반 네트워크 클러스터링</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  서지 결합(Bibliographic Coupling) 관계가 뚜렷한 165개 논문에 대해 VOSviewer로 매핑 분석(Resolution 파라미터 = 1.00 적용)하여 이종 학술 논쟁 클러스터 5개를 정립함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 183, Section 2 & Fig. 2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">피인용 지수 50% 컷오프 대표 논문 추출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  각 클러스터 내에서 피인용 빈도가 정규화 수준 상위 50% 이내에 속한 논문으로 대상을 좁히고 수동 검수하여 최종 정성 분석용 핵심 논문 86개를 추출함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 183, Section 2</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">A-R-A 모델 연계 정성 분석 및 이론화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  엄선된 86개의 핵심 문헌을 체계적 고찰 기법(Tranfield et al., 2003)으로 재독해하여, A-R-A 세 차원의 변화 흐름을 정리하고 최종 '개정된 A-R-A 모델' 및 클러스터별 미래 로드맵 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 183-189, Section 2-4</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">완전 재현 가능 (Fully Replicable)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            검색 대상 데이터베이스(Scopus), 명확한 검색 쿼리 식, CABs 등급 필터 기준, VOSviewer 클러스터링 해상도 파라미터(1.00), 인용 필터링 기준(상위 50%)을 누락 없이 제공하고 있어, 절차상의 완벽한 추종 재현이 가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문 결론부(Section 6)에서 연구진들이 직접 스스로 지적한 한계점입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>선택 및 분류의 주관성 (Subjective Selection & Interpretation):</strong> 문헌을 수집하는 범위 설정, 쿼리 수립, 클러스터를 분석·해석하여 이름을 부여하는 정성적 요약 흐름 전반에 저자들의 주관성이 스며들었을 가능성을 시정할 수 없습니다. (Page 193)
+              </li>
+              <li>
+                <strong>B2B 기술 도메인의 진화중 성향 (Growth Phase Context):</strong> B2B 맥락의 디지털 기술 및 디지털 전환은 여전히 격렬한 변화 흐름 속에 있는 성장 단계이므로, 수집된 문헌들이 완전무결하고 규격화된 전략적 방향성을 제시해주지는 못합니다. (Page 193)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구의 방법론 및 프레임워크 선택 과정을 근간으로 제기하는 비판적 학술 의심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. CABS 랭킹 2등급 기준 필터에 따른 기술 왜곡 편향</span>
+                <p class="text-sm text-slate-700">
+                  연구 수준 제어를 위해 CABS 랭킹 2등급 이상 학술지만 수집했습니다. 하지만 '디지털 전환'이나 '생성형 AI' 같은 초고속 기술 변화 현상은 전통적 최우수 저널(등재가 수년 지연)보다 신생 저널, IS/엔지니어링 전문지, 학회 논문집(IEEE 등)에서 활발히 발표됩니다. 이 때문에 분석 표본에서 극최신 핵심 혁신 연구가 통째로 탈락하는 학술적 여과 오류가 우려됩니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 피인용수 상위 50% 컷오프의 과거 편향 왜곡</span>
+                <p class="text-sm text-slate-700">
+                  대표 문헌 선정 시 '정규화 피인용수 상위 50% 이내'를 기준으로 두었습니다. 피인용수는 본질적으로 출판된 지 수년 이상 경과한 구형 고전 논문들에 훨씬 유리합니다. 따라서 2023~2025년 사이에 출판된, 생성형 AI를 활용한 파괴적인 최신 B2B 마케팅 논문들은 분석 및 연구 주제 로드맵 수립 대상에서 탈락했을 리스크가 높습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. Scopus 단일 검색 엔진 선정 편향</span>
+                <p class="text-sm text-slate-700">
+                  검색 대상 DB를 Scopus 하나로만 고집하여 초안 데이터를 확보했습니다. Web of Science 교차 확인을 거쳤다고 하지만, B2B 기술-마케팅 실증 논문이 밀집된 다양한 전문 엔지니어링 인덱스(IEEE Xplore, Google Scholar 등)가 배제되어 기술 실무적인 실상이 온전히 추정되지 않았을 위험이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 질적 연구 편향 표본의 거대 프레임워크 융합 한계</span>
+                <p class="text-sm text-slate-700">
+                  선정된 핵심 86개 논문 중 50% 이상이 질적 사례 연구(Qualitative case)입니다. 질적 사례는 특정 상황의 고유한 맥락적 해석인데, 이에 대한 통계적 통합이나 정량 메타 데이터 검증 없이 단순히 A-R-A라는 정형화된 이론 틀에 정성적으로 맵핑하는 것은 일반화 가능성을 왜곡할 여지가 큽니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Digital Transformation in the B2B Context: A Review, Theorisation and Future Perspectives</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessing Value-in-Use Management from the Customers' Perspective - IMM 2025</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2025)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Value-in-Use Management (VIUM)</div>
+        <div class="badge badge-secondary text-white style-label">Index Development & Validation</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Assessing value-in-use management from the<br>
+            <span class="text-cyan-400">customers' perspective</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Katharina Prohl-Schwenke, Michael Kleinaltenkamp, Andreas Eggert
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            고객 관점에서의 사용가치 관리(VIUM) 평가:<br>
+            <span class="text-indigo-300">VIUM 실행 지수 개발 및 B2B 관계 성과 영향 검증</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            두 개의 B2B 독립 표본(N=158, N=215) 분석을 통한 13개 문항의 형성적 지수 개발과 가치, 품질, 거래 확장 의도에 미치는 비선형 효과 규명
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">고객이 체감하는 사용가치 관리(VIUM)는 B2B 관계 가치와 결속을 강화하나, 과도한 모니터링과 간섭은 피로감을 유발해 성과가 감소하는 역U자형 관계를 띱니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Suppliers of complex market offerings increasingly establish value-in-use management (VIUM) structures and processes to monitor and enhance the experienced value in use of their customers throughout the entire lifecycle of their offerings. Based on an exploration and a validation sample, this research develops and validates a measurement model for assessing VIUM implementation in B2B customer–supplier relationships. The exploration study focuses on the conceptual development, operationalization, and initial testing of a VIUM implementation index that captures the extent of suppliers' VIUM activities as perceived by their customers. The validation study assesses the index's criterion validity by analyzing its correlations with adjacent constructs, such as relationship value, relationship quality, and customers' intention to expand business with the supplier. The findings from both studies suggest an important role of VIUM in strengthening customer–supplier relationships. The newly developed VIUM implementation index serves as a valuable benchmarking tool for suppliers and offers actionable insights for customer segmentation and resource allocation, ultimately helping suppliers to improve their VIUM effectiveness."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "복합적인 시장 제공물(complex market offerings)<sup>1</sup>의 공급업체들은 자사 제품 및 서비스의 전체 생명주기 동안 고객이 경험하는 사용가치(value in use, VIU)<sup>2</sup>를 모니터링하고 향상시키기 위해 사용가치 관리(value-in-use management, VIUM)<sup>3</sup> 구조와 프로세스를 점점 더 많이 도입하고 있다. 탐색 표본과 검증 표본을 바탕으로, 본 연구는 B2B 고객-공급업체 관계에서 VIUM 실행을 평가하기 위한 측정 모델을 개발하고 검증한다. 탐색 연구는 고객이 지각한 공급업체의 VIUM 활동 수준을 포착하는 VIUM 실행 지수(VIUM implementation index)의 개념적 개발, 조작화 및 초기 검증에 초점을 맞춘다. 검증 연구는 관계 가치(relationship value)<sup>4</sup>, 관계 품질(relationship quality)<sup>5</sup>, 그리고 공급업체와의 거래를 확장하려는 고객의 의도(intention to expand business)<sup>6</sup>와 같은 인접 구성 개념과의 상관관계를 분석하여 해당 지수의 기준 타당성(criterion validity)<sup>7</sup>을 평가한다. 두 연구의 결과는 고객-공급업체 관계를 강화하는 데 있어 VIUM의 중요한 역할을 제안한다. 새롭게 개발된 VIUM 실행 지수는 공급업체에 유용한 벤치마킹 도구를 제공하고, 고객 세분화 및 자원 배분에 대한 실행 가능한 통찰력을 제공하여 궁극적으로 공급업체가 VIUM 효과성을 개선하도록 돕는다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Complex market offerings</td>
+                  <td>복합 시장 제공물</td>
+                  <td class="text-sm">단일 제품이나 서비스 판매를 넘어 제품, 서비스, 데이터가 통합 패키지로 구현된 고객 해결 솔루션을 포괄합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Value-in-use (VIU)</td>
+                  <td>사용가치</td>
+                  <td class="text-sm">구매 결정(교환가치) 시점이 아니라, 고객이 자사 프로세스 내에서 솔루션을 실제로 사용하는 과정에서 실현되는 체감 가치입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Value-in-use management (VIUM)</td>
+                  <td>사용가치 관리</td>
+                  <td class="text-sm">공급업체가 주도하여 고객이 경험하는 사용가치를 지속적으로 파악(monitoring)하고 개선 및 확장(enhancement)하는 능동적인 관리 프로세스입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Relationship value & quality</td>
+                  <td>관계 가치 및 관계 품질</td>
+                  <td class="text-sm">관계 가치는 혜택 대 비용의 교환 비율(형성적)이며, 관계 품질은 신뢰, 만족, 몰입의 심리적 결속 강도(반사적)를 지칭하는 학술 표준 번역입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학술 토론 및 세미나 등에서 <strong>1분 만에</strong> 청중에게 설명할 수 있도록 논문의 주요 기여와 발견을 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">B2B 사용가치 관리(VIUM)를 고객 관점에서 어떻게 정량화하고 평가할 것인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">13개 문항의 지수 개발 및 관계 가치·품질에 미치는 비선형 영향 입증</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">고객중심 VIUM 평가 도구 마련 및 과도한 개입의 역효과(역U자형 관계) 경고</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B 시장에서 공급업체의 사용가치 관리(VIUM) 활동을 고객의 눈을 통해 측정할 수 있는 타당한 지수를 어떻게 수립하며, 이 지수가 관계 성과(가치, 품질, 확장 의도)에 미치는 실제 영향은 어떠한가?</li>
+                  <li><strong>핵심 발견:</strong> 13문항의 형성적 고차 지수(VIUM Implementation Index)를 성공적으로 개발 및 검증하였습니다. 고객 지각 VIUM은 관계 가치 및 만족, 신뢰, 몰입에 긍정적인 직접적 영향을 미치나, 과도하게 밀어붙일 경우 한계효용이 체감되는 <strong>역U자형(inverted U-shape) 비선형 관계</strong>를 보였습니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 공급사 내부 역량 측면에 집중되던 VIUM 연구 영역을 고객 지각 기반의 정량적 연구 영역으로 확장하였으며, 실무적으로는 고객 성공 매니저(CSM) 및 키 어카운트 매니저(KAM)의 활동 최적화를 위한 임계점 관리를 가이드합니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "고객 체감 사용가치 관리(VIUM)는 B2B 관계 결속과 확장을 주도하지만, 지나친 관리 행동은 피로감 및 간섭으로 인식되어 성과를 감소시키는 역U자형의 종속 메커니즘을 가집니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구 타당성과 신뢰성을 학술적으로 증명하는 주요 주장들에 매핑된 실증 원문 근거와 페이지별 위치입니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">VIUM 실행 지수의 형성적(Formative) 개념 모델 구조</td>
+                <td class="text-sm italic text-slate-600">
+                  "We conceptualize customer-perceived VIUM implementation as a strictly formative higher-order construct with formative items, formative sub-dimensions, and formative dimensions..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 38, Section 2</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">지수의 판별 및 구성 타당성(R2a 분석)</td>
+                <td class="text-sm italic text-slate-600">
+                  "The R2a values are 0.83 (VIU monitoring), 0.89 (VIU enhancement), and 0.8 (VIUM implementation), indicating error variances below 50%."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 42, Section 4.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">VIUM의 관계 가치 및 확장 의도 실증 경로계수</td>
+                <td class="text-sm italic text-slate-600">
+                  "Results indicate a significant positive relationship between customer-perceived VIUM implementation and relationship value (β = 0.58, p &lt; 0.001) ... and intention to expand business with the supplier (β = 0.710, p &lt; 0.001)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 44, Section 4.2 & Table 8</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">관계 품질(만족, 신뢰, 몰입)에 미치는 영향</td>
+                <td class="text-sm italic text-slate-600">
+                  "...positive effects between customer-perceived VIUM implementation and relationship quality, as indicated by (a) customer satisfaction (β =0.47, p &lt;0.001), (b) trust (β =0.55, p &lt;0.001), and (c) commitment (β = 0.61, p &lt;0.001)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 44, Section 4.2 & Table 8</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">과도한 VIUM의 비선형(Quadratic) 한계 감소 효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "The results reveal a significant (p &lt; 0.05) and negative quadratic effect for relationship quality, encompassing customer satisfaction, trust, and commitment. This finding suggests an inverted U-shaped relationship..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 44-45, Section 4.2 & Table A5</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework & Nomological Validation Model (연구 모형)</h3>
+          
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 500" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+                </marker>
+                <marker id="arrow-cyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0891b2"/>
+                </marker>
+                <marker id="arrow-indigo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/>
+                </marker>
+              </defs>
+
+              <!-- Left Column: Sub-dimensions -->
+              <!-- 1. VIU Identification -->
+              <rect x="15" y="30" width="160" height="60" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+              <text x="95" y="55" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">사용가치 식별</text>
+              <text x="95" y="73" text-anchor="middle" fill="#64748b" font-size="10">VIU Identification (w=0.36)</text>
+
+              <!-- 2. VIU Reporting -->
+              <rect x="15" y="110" width="160" height="60" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+              <text x="95" y="135" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">사용가치 보고</text>
+              <text x="95" y="153" text-anchor="middle" fill="#64748b" font-size="10">VIU Reporting (w=0.72)</text>
+
+              <!-- 3. Reflecting on Opportunities -->
+              <rect x="15" y="270" width="160" height="60" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+              <text x="95" y="295" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">기회 성찰 (성능분석)</text>
+              <text x="95" y="313" text-anchor="middle" fill="#64748b" font-size="10">Reflecting on Opp. (w=0.75)</text>
+
+              <!-- 4. Disseminating Opportunities -->
+              <rect x="15" y="350" width="160" height="60" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+              <text x="95" y="375" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">기회 전파 (해결책제시)</text>
+              <text x="95" y="393" text-anchor="middle" fill="#64748b" font-size="10">Disseminating Opp. (w=0.30)</text>
+
+              <!-- Middle-Left Column: Dimensions -->
+              <!-- 5. VIU Monitoring -->
+              <rect x="220" y="70" width="160" height="65" rx="8" fill="#ecfeff" stroke="#06b6d4" stroke-width="2"/>
+              <text x="300" y="98" text-anchor="middle" font-weight="700" fill="#0891b2" font-size="13">사용가치 모니터링</text>
+              <text x="300" y="118" text-anchor="middle" fill="#0e7490" font-size="10">VIU Monitoring (w=0.32)</text>
+
+              <!-- 6. VIU Enhancement -->
+              <rect x="220" y="310" width="160" height="65" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+              <text x="300" y="338" text-anchor="middle" font-weight="700" fill="#4f46e5" font-size="13">사용가치 향상</text>
+              <text x="300" y="358" text-anchor="middle" fill="#4338ca" font-size="10">VIU Enhancement (w=0.72)</text>
+
+              <!-- Center Column: Overarching Construct -->
+              <!-- 7. VIUM Implementation -->
+              <rect x="425" y="185" width="180" height="80" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+              <text x="515" y="218" text-anchor="middle" font-weight="700" fill="#ffffff" font-size="13">사용가치 관리 실행</text>
+              <text x="515" y="236" text-anchor="middle" fill="#38bdf8" font-weight="600" font-size="11">VIUM Implementation</text>
+              <text x="515" y="251" text-anchor="middle" fill="#94a3b8" font-size="9">(고차 형성적 구성개념)</text>
+
+              <!-- Right Column: Outcomes (Criterion validity) -->
+              <!-- 8. Relationship Value -->
+              <rect x="680" y="20" width="200" height="60" rx="8" fill="#faf5ff" stroke="#c084fc" stroke-width="1.5"/>
+              <text x="780" y="45" text-anchor="middle" font-weight="700" fill="#6b21a8" font-size="12">관계 가치 (Relationship Value)</text>
+              <text x="780" y="65" text-anchor="middle" fill="#701a75" font-size="10">β = 0.58* (QE = -0.12*)</text>
+
+              <!-- 9. Customer Satisfaction -->
+              <rect x="680" y="110" width="200" height="60" rx="8" fill="#ecfdf5" stroke="#34d399" stroke-width="1.5"/>
+              <text x="780" y="135" text-anchor="middle" font-weight="700" fill="#065f46" font-size="12">고객 만족 (Satisfaction)</text>
+              <text x="780" y="155" text-anchor="middle" fill="#047857" font-size="10">β = 0.47* (QE = -0.22*)</text>
+
+              <!-- 10. Trust -->
+              <rect x="680" y="200" width="200" height="60" rx="8" fill="#ecfdf5" stroke="#34d399" stroke-width="1.5"/>
+              <text x="780" y="225" text-anchor="middle" font-weight="700" fill="#065f46" font-size="12">신뢰 (Trust)</text>
+              <text x="780" y="245" text-anchor="middle" fill="#047857" font-size="10">β = 0.55* (QE = -0.20*)</text>
+
+              <!-- 11. Commitment -->
+              <rect x="680" y="290" width="200" height="60" rx="8" fill="#ecfdf5" stroke="#34d399" stroke-width="1.5"/>
+              <text x="780" y="315" text-anchor="middle" font-weight="700" fill="#065f46" font-size="12">몰입 (Commitment)</text>
+              <text x="780" y="335" text-anchor="middle" fill="#047857" font-size="10">β = 0.61* (QE = -0.14*)</text>
+
+              <!-- 12. Intention to Expand Business -->
+              <rect x="680" y="380" width="200" height="60" rx="8" fill="#fffbeb" stroke="#fbbf24" stroke-width="1.5"/>
+              <text x="780" y="405" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">거래 확장 의도 (Intention to Expand)</text>
+              <text x="780" y="425" text-anchor="middle" fill="#b45309" font-size="10">β = 0.71* (QE = -0.17*)</text>
+
+              <!-- Pathways (Sub-dimensions to Dimensions) -->
+              <path d="M175 60 L 220 90" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <path d="M175 140 L 220 115" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <path d="M175 300 L 220 325" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <path d="M175 380 L 220 355" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+              <!-- Pathways (Dimensions to Overarching) -->
+              <path d="M380 102 L 420 102 L 420 205 L 425 205" fill="none" stroke="#0891b2" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <path d="M380 342 L 420 342 L 420 245 L 425 245" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow-indigo)"/>
+
+              <!-- Pathways (Overall to Outcomes) -->
+              <path d="M605 200 L 640 200 L 640 50 L 675 50" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M605 212 L 650 212 L 650 140 L 675 140" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M605 225 L 675 225" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M605 238 L 650 238 L 650 320 L 675 320" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M605 250 L 640 250 L 640 410 L 675 410" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Legend / Notes -->
+              <text x="15" y="470" fill="#64748b" font-size="11" font-weight="600">* 모든 경로계수 및 가중치는 Study 2 결과 기준 (p < 0.05 수준에서 유의)</text>
+              <text x="15" y="488" fill="#64748b" font-size="11" font-weight="600">* QE: Quadratic Effect (비선형 음의 2차항 효과, 역U자형 관계 표시)</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 (형성적)</span>
+                <span class="text-xs text-slate-400 font-semibold">Composite IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">사용가치 관리 실행 (VIUM Implementation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 고객이 구매한 솔루션의 생명주기 전체에 걸쳐 공급업체가 가치를 측정/보고하고, 솔루션을 성찰/전파하는 총체적 관리 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 모니터링 영역(가치 식별 3문항, 가치 보고 3문항) 및 향상 영역(기회 성찰 3문항, 기회 전파 4문항)의 총 13개 지표 합산.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 본 연구 신규 개발 (Table 2 & Table 6) / VIF &lt; 2.16 (다중공선성 없음)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 자산 오케스트레이션(Asset Orchestration) 관점 하에, 도입 후 자원을 지속 정비하고 솔루션의 가치를 발현하도록 돕는 프런트라인의 동적 역량입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-secondary style-label text-white">종속변수 1 (형성적)</span>
+                <span class="text-xs text-slate-400 font-semibold">DV1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">관계 가치 (Relationship Value)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 공급업체와의 종합적인 파트너십을 맺음으로써 인지하는 총체적 편익(benefits)과 지출 비용(costs)에 대한 상대적 절충합(trade-off).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 대체 가능한 2순위 경쟁 공급사 대비 주 공급업체의 추가 편익 및 가치 창출력을 비교한 4개 평가 척도.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Ulaga & Eggert (2006) / 4문항 / 요인 적재값 &gt; 0.79</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> VIUM의 향상(Enhancement) 노력이 가시적인 관계 이점으로 변환됨으로써 관계 가치를 직접 증대시킵니다 ($\beta = 0.58$).
+              </p>
+            </div>
+          </div>
+
+          <!-- DV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">종속변수 2 (반사적)</span>
+                <span class="text-xs text-slate-400 font-semibold">DV2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">관계 품질 (Relationship Quality)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 파트너 간 relational bond의 전반적인 강도와 긴밀성 수준으로, 고객 만족, 신뢰, 몰입이 복합적으로 결합된 고차 반사적 요인.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Homburg & Stock (2004) 만족 5문항, Ulaga & Eggert (2006) 신뢰 5문항 및 몰입 6문항으로 구성된 반사 척도군.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Palmatier (2008), Morgan & Hunt (1994) 선행 논의 기반.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 만족($\beta=0.47$), 신뢰($\beta=0.55$), 몰입($\beta=0.61$) 모두 VIUM에 의해 촉진되나, 과도하게 높을 경우 비선형 피로 효과가 강해지는 영역입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">종속변수 3 (반사적)</span>
+                <span class="text-xs text-slate-400 font-semibold">DV3</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">거래 확장 의도 (Intention to Expand Business)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 향후 특정 공급사와의 비즈니스 거래 비율을 넓히거나(share of wallet), 더 많은 예산을 배정하려는 의도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 주 공급사 대상 비즈니스 볼륨 확대 계획, 미래 예산 배정 의지 등을 반영하는 3문항 (int_exp_1 ~ int_exp_3).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Ulaga & Eggert (2006) / 3문항 / Cronbach's Alpha = 0.89</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 공급사가 관계 내 가치 실현을 적극 관리해 줄 때, 리스크가 상쇄되어 장기적인 거래 확장 확약률($\beta = 0.71$)이 크게 높아집니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구 모델 및 지수 개발 과정을 타 학자가 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 단계별 타임라인으로 분해하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">초기 문항 도출 (Item Pool Generation)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  기존 솔루션 및 VIU 관련 문헌 연구와 공급사(2020) 및 고객(2021) 대상 심층 인터뷰 총 41회를 통합하여, B2B 고객의 VIUM 지각에 기반한 23개의 초기 항목을 도출함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 39, Section 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">질적 필터링 및 전문가 평가 (3단계 정제)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  1) 전문가 4인의 중복 배제 필터링(19개 축소). 2) 8인 전문가 분류 적합도 평가(80% 합의 기준 통과 11개 축소). 3) SaaS 기업 CSM과의 질적 토론을 통한 최종 13개 문항의 지수 척도 확정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 39, Section 3.2 & Table A1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">Study 1: 지수 탐색 및 정량 진단 (N=158)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  독일 마켓리서치 대행사 패널을 모집단으로 스크리닝(리더십, B2B 공급망 책임) 후 서베이 실시. SmartPLS 3를 활용해 VIF 및 가중치 확인 후, Confirmatory Tetrad Analysis(CTA)로 형성 척도의 타당성을 분석.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 39-42, Section 4.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">Study 2: 지수 검증 및 성과 경로 분석 (N=215)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  신규 B2B 독립 샘플(N=215)을 수집하여 지수의 수렴 타당성(R²=0.60) 및 예측력을 평가함. PLS-SEM 모델을 확장하여 관계 가치, 만족, 신뢰, 몰입, 거래 확장 의도로 흐르는 실증적 영향력을 산출함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 42-44, Section 4.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">비선형(Quadratic) 효과 사후 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  독립변수의 2차항(VIUM²)을 SmartPLS 구조 모델에 삽입하여 비선형 효과를 추정함. 관계가치 및 관계품질 요인에 대해 유의미한 음(-)의 Quadratic coefficient를 도출하여 역U자형 영향관계를 입증함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 44-45, Section 4.2 & Table A5</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partially Reproducible)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            개념 구조, 지수 문항(13개) 및 통계 기준값들이 명확하게 제공되어 있어 척도 활용 재현이 용이합니다. 다만, 마켓 리서치 대행사 서베이 패널의 가공 전 데이터(raw dataset)가 공유되지 않으므로 수치상 100% 동일 재현을 위해서는 신규 서베이 샘플의 수집이 전제되어야 합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6)에서 연구진들이 밝힌 주요 연구의 한계와 경계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>편의 표본 및 무작위성 제한:</strong> 데이터 수집이 독일 마켓 리서치 대행사 패널에 의존하여 진행된 편의 표본(convenience sample)이므로 결과를 모든 국가 및 업종으로 완전히 보편화하기에는 한계가 존재합니다. (Page 45-46, Section 6)
+              </li>
+              <li>
+                <strong>소프트웨어 산업(SaaS) 위주 편향:</strong> VIUM 도입 및 사용가치 추적이 주로 활성화되어 있는 소프트웨어 솔루션 산업 위주로 수집되어, 일반 패키지 제품이나 가치가 고정된 제조업 등 타 도메인에 대한 검증을 요구합니다. (Page 46, Section 6)
+              </li>
+              <li>
+                <strong>다양한 결과 요인의 배제:</strong> 주로 긍정적 결속 효과(가치, 만족, 신뢰, 몰입 등)에 초점을 맞추었으나, 실제 고객의 이탈 의사(churn intention)나 가치 불일치 등 부정적 측면의 관계 요인을 포함한 통합적 검증은 이루어지지 않았습니다. (Page 46, Section 6)
+              </li>
+              <li>
+                <strong>비선형 모델의 기초적 적용:</strong> post-hoc 단계의 비선형성 검증이 탐색적으로 실시되었기 때문에, 정확히 어떤 시점과 강도의 VIUM이 복잡성 및 인적 간섭 비용을 발생시켜 역효과를 유발하는지 세부 기전은 밝히지 못했습니다. (Page 46, Section 6)
+              </li>
+              <li>
+                <strong>상황적 조절 요인의 부재:</strong> 솔루션 기술의 복잡성(complexity) 수준이나 공급사의 상대적 규모 등 외부 맥락적 조절 변수가 관계 모델 내에서 탐색되지 못했습니다. (Page 46, Section 6)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 학술 검증 논리를 바탕으로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 횡단 연구 및 역인과관계 (Reverse Causality)</span>
+                <p class="text-sm text-slate-700">
+                  데이터가 일시적 시점에 조사된 횡단(cross-sectional) 데이터이므로, <strong>"공급사가 사용가치를 밀착 관리하여 고객만족이 높아진 것"</strong>인지, <strong>"원래 공급업체에 극도로 친화적이고 높은 만족도를 가진 고객(Halo Effect)이 공급사의 소통과 교육 요청도 의미 있는 사용가치 관리(VIUM) 활동으로 호의적으로 응답한 것"</strong>인지의 역인과 구조를 완전히 해소하지 못했습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 단일 응답자 편향 (CMB)</span>
+                <p class="text-sm text-slate-700">
+                  고객사 측의 동일한 한 명의 실무 담당자가 공급업체의 모니터링/향상 활동(IV)과 자사 만족/신뢰/거래 확장 의향(DV)을 동시 평가하였습니다. 이러한 단일 응답자 구조는 일치하려는 심리적 일관성 편향으로 인하여 경로계수들이 과대추정(inflation)되었을 여지가 높습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 지리적/문화적 특수성</span>
+                <p class="text-sm text-slate-700">
+                  체계적인 보고 방식 및 프로세스형 관리 체계(Quarterly Review Meetings 등)를 선호하는 독일 B2B 시장의 특수성이 반영되었습니다. 피드백 및 미팅의 빈도가 간섭이나 피로로 인식되는 한계 한도(역U자형의 임계점)는 관계 중심의 아시아나 효율 중심의 미국 시장에서는 상이하게 발현될 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. AI 및 지능형 자동화 측정 부재</span>
+                <p class="text-sm text-slate-700">
+                  13개 지표(대면/원격 미팅, 워크숍, 대면 교육 등)는 실직원(CSM/KAM)의 수동적 노하우 전달 및 조율에 다소 치우쳐 있습니다. 최신 AI 기반 원격 행동 로그 모니터링이나 클라우드 최적화 분석 툴 등 현대 자동화 가치 관리 시스템의 기술적 맥락을 포괄하기에는 척도가 전통적이라는 아쉬움이 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Assessing value-in-use management from the customers' perspective</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

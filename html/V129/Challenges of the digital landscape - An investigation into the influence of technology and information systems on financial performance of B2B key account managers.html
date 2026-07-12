@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenges of the digital landscape - IMM 2025</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2025)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase font-mono">Vol.129, pp. 117-133</div>
+        <div class="badge badge-secondary text-white style-label">B2B KAM Digitalization</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Challenges of the digital landscape:<br>
+            <span class="text-cyan-400 text-[0.85em] leading-none">Influence of technology and information systems on financial performance of B2B key account managers</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Pedro Mendonça Silva (Polytechnic of Porto, Portugal)
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            디지털 환경의 도전 과제:<br>
+            <span class="text-indigo-300">기술 및 정보 시스템이 B2B 키 어카운트 매니저의 재무 성과에 미치는 영향</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            포르투갈 248명의 B2B KAM 설문을 기반으로 한 영업 기술과 정보 시스템의 시너지 메커니즘 규명 및 정보 우위 이론(Informational Advantage Theory) 제시
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              KAM
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">영업 기술의 단순 사용은 성과로 직결되지 않으며, 사내 정보 시스템과 결합해 데이터를 통찰로 바꿀 때 비로소 재무적 성과가 극대화됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase text-white">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Digital transformation redefines the role of Key Account Managers, necessitating swift adaptation to the requirements of data management and information analysis, alongside traditional sales skills. This study aims to clarify some challenges required by digitalization based on survey data from 248 Key Account Managers responses in a B2B context. The findings reveal that the adoption of sales technology and the use of information systems in Key Account Managers functions are positively correlated with better financial performance. Information systems play a mediating role in this relationship. Modern Key Account Managers must extend beyond the exclusive utilization of sales technology. The current context implies an evolution of the Key Account Manager B2B job, incorporating “customer data management” as a new function, and making the use of information systems an essential and integrated activity for the success of the Key Account Managers. This study proposes the Informational Advantage Theory, showing how integrating sales technology with information systems boosts KAM performance by turning data into insights, highlighting their capacity as data-driven strategists. In addition, this study provides a discussion on the control variables (gender, age, experience, education, company size and export level) on Key Account Managers performance, as well as suggestions for future research."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "디지털 전환(Digital Transformation)은 키 어카운트 매니저(Key Account Managers, KAM)의 역할을 재정의하며, 전통적인 판매 역량과 더불어 데이터 관리 및 정보 분석 요구사항에 대한 신속한 적응을 요구하고 있다. 본 연구는 B2B 맥락에서 248명의 키 어카운트 매니저로부터 수집한 설문 데이터를 바탕으로 디지털화로 인해 요구되는 여러 도전 과제들을 규명하고자 한다. 연구 결과에 따르면, 영업 기술(Sales Technology)의 도입과 키 어카운트 매니저 직무 내 정보 시스템(Information Systems)의 활용은 더 나은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">재무 성과</span>와 정(+)의 상관관계를 가진다. 정보 시스템은 이 관계에서 매개 역할을 수행한다. 현대의 키 어카운트 매니저는 단순히 영업 기술만을 개별적으로 사용하는 수준을 넘어서야 한다. 현재의 디지털 환경은 B2B 키 어카운트 매니저의 직무가 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">'고객 데이터 관리'</span>라는 새로운 기능을 통합하는 방향으로 진화하고 있으며, 정보 시스템의 활용이 키 어카운트 매니저의 성공을 위한 필수적이고 통합적인 활동이 되고 있음을 시사한다. 본 연구는 영업 기술과 정보 시스템을 결합하여 데이터를 통찰력으로 전환함으로써 KAM의 성과를 극대화하는 방안을 설명하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">'정보 우위 이론'</span>을 제안하고, 이들이 데이터 기반 전략가(Data-driven Strategists)로서 기능할 수 있음을 강조한다. 나아가, 본 연구는 키 어카운트 매니저 성과에 미치는 통제 변수들(성별, 연령, 경력, 교육 수준, 기업 규모 및 수출 비중)의 영향력을 논의하고 향후 연구를 위한 제언을 제공한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Key Account Manager (KAM)</td>
+                  <td>키 어카운트 매니저</td>
+                  <td class="text-sm">B2B 기업에서 매출 기여도가 높거나 전략적 기회가 큰 주요 핵심 고객 계정들을 전담 관리하는 핵심 전문가 직무입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Sales Technology</td>
+                  <td>영업 기술</td>
+                  <td class="text-sm">CRM, 모바일 CRM, AI 결합 분석 등 영업 프로세스를 모니터링하고 효율화하기 위한 제반 기술 도구를 뜻합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Information System</td>
+                  <td>정보 시스템</td>
+                  <td class="text-sm">단순 하드웨어/소프트웨어를 넘어, 기업 내외부에서 지식을 습득, 공유, 유통하고 의사결정을 실증적으로 지탱하는 종합 정보망 인프라를 지칭합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Informational Advantage Theory</td>
+                  <td>정보 우위 이론</td>
+                  <td class="text-sm">저자가 주창한 새 모델로, 영업 기술과 정보 시스템의 융합 시너지를 동적 역량 관점에서 체계화하여 경쟁 우위를 갖는다는 이론입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase text-white">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            B2B 영업 전문가로서 디지털 전환(DT) 환경에서의 데이터 활용이 실질적인 성과로 가교되는 원리를 1분 요약 구조로 정리했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">단순 영업기술 도입이 성과를 내는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">정보 시스템을 통한 완전 매개 입증</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">정보 우위 이론 제안 & KAM 4.0 선포</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> CRM 등 영업 기술을 많이 도입하는 것만으로 B2B KAM의 재무 성과가 확보되는가? 늘어나는 데이터를 성과로 이끄는 중재 메커니즘은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> 영업 기술의 단순 사용은 재무 성과를 직접적으로 촉진하지 못하며, 사내 지식을 공유하고 가치 있는 지식으로 창출하는 <strong>정보 시스템(IS) 활용</strong>이 기술과 재무 성과 사이를 <strong>완전 매개</strong>합니다. 또한 이 효과는 경력이 짧은 신진 KAM에게 가장 결정적이며, 연차가 높아질수록(경력 조절 작용) 축적된 개인의 노하우와 인맥에 의해 시스템 기여도가 완화됩니다.</li>
+                  <li><strong>이론/실무 기여:</strong> '동적 역량 관점'에 입각하여 데이터를 통찰로 가공하고 의사결정을 보강해 우위를 점하는 <strong>정보 우위 이론(Informational Advantage Theory)</strong>을 제정하고, 기존 디지털 영업 회의론을 극복해 KAM 직무에 '고객 데이터 관리' 역할이 통합되어야 함을 시증했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "B2B 영업 기술을 활용해 수집된 정보가 사내 정보 시스템을 거쳐 공유·가공되는 '정보 우위'로 오케스트레이션될 때 비로소 실제 재무 성과가 향상됩니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase text-white">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구 결과의 통계적 정당성을 뒷받침하고 원문에서 관련 기여 데이터를 신속히 참조하도록 수치와 페이지를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">영업 기술의 정보 시스템 활용 촉진 (H1)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...use of sales technologies by KAM has a positive and significant influence on the use of information systems by KAM (β =0.59; p &lt; 0.001)"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 124 (Sec. 4.2.1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">정보 시스템 활용의 재무 성과 유도 (H2)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Consequently, the use of information systems by KAM has a positive and significant influence on its financial performance (β =0.43; p &lt; 0.001)..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 124 (Sec. 4.2.1)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">정보 시스템의 완전 매개 작용 (H3)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...use of information systems by KAM serves as an intermediary mechanism between the use of sales technologies... and financial performance, within a 95 % confidence interval [0.184 to 0.413]."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 124 (Sec. 4.2.1)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">경력의 부정적 조절 작용 (Int_1)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Specifically, the interaction (Int_1) of −0.1701 (p = 0.0006) shows that the impact of 'use of information systems by KAM' on 'KAM's financial performance' decreases as 'years of experience' increases."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 124 (Sec. 4.2.2, Table 4)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">기업 규모에 따른 성과 유의적 격차</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the null hypotheses concerning employer company size necessitate rejection, as significant differences between groups are evident across all observed variables except for PERF4."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 124 (Sec. 4.2.3, Table 5)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">KAM의 '고객 데이터 관리' 신규 직무화</td>
+                <td class="text-sm italic text-slate-600">
+                  "...digitization requires a new function for KAM, involving the 'management of customer data', which makes the use of information systems an integrated and fundamental activity..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 130 (Sec. 6)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (가설 구조도)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 380" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4b5563"/>
+                </marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+                </marker>
+                <marker id="arrow-orange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+                </marker>
+                <marker id="arrow-indigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#6366f1"/>
+                </marker>
+              </defs>
+              
+              <!-- IV: 영업 기술 활용 -->
+              <rect x="30" y="150" width="200" height="80" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+              <text x="130" y="185" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">영업 기술 활용 (IV)</text>
+              <text x="130" y="208" text-anchor="middle" fill="#64748b" font-size="11">CRM, 모바일 CRM 등 사용</text>
+              
+              <!-- MV: 정보 시스템 활용 -->
+              <rect x="310" y="150" width="200" height="80" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="410" y="185" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">정보 시스템 활용 (MV)</text>
+              <text x="410" y="208" text-anchor="middle" fill="#047857" font-size="11">지식 공유 & 의사결정 지원</text>
+              
+              <!-- DV: 재무 성과 -->
+              <rect x="590" y="150" width="180" height="80" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="680" y="185" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">재무 성과 (DV)</text>
+              <text x="680" y="208" text-anchor="middle" fill="#4338ca" font-size="11">매출, 수주, 목표달성률</text>
+              
+              <!-- Moderator: 경력 -->
+              <rect x="330" y="15" width="160" height="60" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="410" y="42" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">경력 (Experience)</text>
+              <text x="410" y="58" text-anchor="middle" fill="#b45309" font-size="10">조절변수 (W)</text>
+
+              <!-- Path IV -> MV -->
+              <path d="M 230 190 L 300 190" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="265" y="180" text-anchor="middle" fill="#475569" font-weight="700" font-size="12">H1 (+)</text>
+              <text x="265" y="212" text-anchor="middle" fill="#64748b" font-size="11">β = 0.59***</text>
+              
+              <!-- Path MV -> DV -->
+              <path d="M 510 190 L 580 190" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+              <text x="545" y="180" text-anchor="middle" fill="#047857" font-weight="700" font-size="12">H2 (+)</text>
+              <text x="545" y="212" text-anchor="middle" fill="#047857" font-size="11">β = 0.43***</text>
+
+              <!-- Moderator Path pointing to MV->DV path -->
+              <path d="M 410 75 L 410 120 L 545 120 L 545 180" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-orange)"/>
+              <text x="480" y="112" text-anchor="middle" fill="#b45309" font-weight="700" font-size="12">부(-)적 조절 효과 (Interaction β = -0.1701***)</text>
+              
+              <!-- H3 Mediation (Indirect Path) represented as a curved dashed line at the bottom -->
+              <path d="M 130 230 Q 410 330 680 230" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrow-indigo)"/>
+              <text x="410" y="305" text-anchor="middle" fill="#4f46e5" font-weight="700" font-size="12">H3 매개 효과: 완전 매개 (Indirect Effect supported)</text>
+              <text x="410" y="325" text-anchor="middle" fill="#6366f1" font-size="11">95% Bootstrapping CI: [0.184, 0.413]</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 (IV)</span>
+                <span class="text-xs text-slate-400 font-semibold font-mono">Sales Tech</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">영업 기술 활용 (Use of sales technology by KAM)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> B2B 영업 사원이 고객과의 소통 및 영업 관리 업무를 합리화하고 원활히 통제하기 위해 정보통신 도구(CRM 등)를 실무에 도입해 사용하는 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 통화 내용 기록(TEC1), 일정 계획(TEC2), 활동 수행(TEC3), 고객 맞춤 발표 준비(TEC4)에 기술을 활용하는 척도 (5점 리커트).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Høgevold et al. (2021) / 4문항 (Cronbach's α = 0.895)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 디지털 전환의 인프라 역할을 담당하지만, 가치 창출을 위한 분석적 연계 체계(IS)가 결여될 경우 단순 단순 행정 입력 장벽으로 전락할 수 있음.
+              </p>
+            </div>
+          </div>
+
+          <!-- MV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수 (Mediator)</span>
+                <span class="text-xs text-slate-400 font-semibold font-mono">Information Systems</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">정보 시스템 활용 (Use of information systems by KAM)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 수집된 데이터 자산을 전략적 정보로 정제하고, 지식을 부서 동료들과 공유함으로써 지식을 창출하고 의사결정 수준을 고도화하는 사내 시스템 활용 수준.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 정보시스템 지식 구축 기여(SINF1), 부서 간 지식 전파(SINF2), 영업/마케팅 의사결정 프로세스 시스템 의존성(SINF3), 신규 지식의 일상 운영 피드백(SINF4) (5점 리커트).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Silva et al. (2021) / 4문항 (Cronbach's α = 0.794)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 자산 오케스트레이션(Asset Orchestration)의 가시적 수단으로서, 기술(Sales Tech)에 투입된 데이터를 재무 성과로 인도하는 결정적 완전 매개체.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950 font-bold">조절변수 (Moderator)</span>
+                <span class="text-xs text-slate-400 font-semibold font-mono">Experience</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">경력 (Years of experience)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> B2B 영업 영역에서 KAM 직무를 본격적으로 전개한 근속 실무 년수.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 3년 미만, 4~10년, 10~20년, 20년 이상의 4개 구간 범주화 척도.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 연구 참여자 인구통계학 정보 수집 항목.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 연차가 짧은 KAM일수록 정보 시스템 분석에 전폭적으로 지탱해 실수를 예방하고 재무 목표를 극대화하지만, 숙련된 KAM은 고도화된 대인 스킬 및 직관을 발휘해 성과를 창출하므로 시스템의 영향력이 반감됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수 (DV)</span>
+                <span class="text-xs text-slate-400 font-semibold font-mono">Financial Perf</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">재무 성과 (KAM's financial performance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 최근 12개월 동안 키 어카운트 매니저가 유치하고 주도한 주요 타겟 계정(Key Accounts)의 다차원적 매출 및 재무 기여 결과.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 지난 12개월 동안의 매출 실적(PERF1), 수주 획득량(PERF2), 판매 클로징 비율(PERF3), 이익 마진 공헌률(PERF4), 세부 영업 목표 달성 여부(PERF5) (5점 리커트).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Inyang and Jaramillo (2019) 및 Murphy and Coughlan (2018) / 5문항 (Cronbach's α = 0.862)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 공급망 관계 관리의 궁극적인 성패를 측정하는 최종 기준 변수로 활용되며, 연구 한계 상 실제 전산 재무기록이 아닌 응답자의 주관 판단 척도를 사용했습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase text-white">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구 모형과 통계 절차를 독자적인 연구 환경에서 그대로 재현할 수 있도록 단계별로 순서를 분해했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">측정 척도 선정 및 설문 구성</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto font-sans">
+                  기존 입증된 문헌으로부터 영업 기술 활용(4문항), 정보 시스템 활용(4문항), 재무 성과(5문항) 문항을 도출하고 5점 리커트 척도 형태로 설계함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500 font-mono">Page 121, Section 3.1 & Appendix A</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">전문가 델파이 검토 및 사전 테스트 (Pre-test)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm font-sans">
+                  학계 교수 2명 및 현업 베테랑 KAM 3명의 검토를 거쳐 문항을 수정한 뒤, 20명의 KAM을 모집해 사전 테스트를 배포하여 신뢰성을 1차 검정함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500 font-mono">Page 122, Section 3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">무작위 표본 추출 및 서베이 발송</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto font-sans">
+                  포르투갈의 권위 있는 영업 관리자 협회 데이터베이스를 토대로 무작위 선정된 B2B KAM 1,842명에게 유일 참여 링크를 이메일로 전송하고 2022년 6월 한 달 동안 응답을 수집함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500 font-mono">Page 122, Section 3.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">무응답 편향(Non-response Bias) 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm font-sans">
+                  회수율 13.46% (최종 유효 회수 248건) 확인. 초기 응답자(첫 15일 수집, 135명)와 후기 응답자(이후 15일 수집, 113명) 간 t-test 비교를 통해 체계적인 무응답 편향이 부재함을 통계적으로 증명함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500 font-mono">Page 122, Section 3.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">탐색적 요인분석(EFA) 및 다중 공선성 체크</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto font-sans">
+                  SPSS 26을 적용하여 KMO(0.886) 및 Bartlett(p &lt; 0.001) 검정 충족 유무 확인. 베리맥스 회전 요인분석을 통해 적재값 &gt; 0.5인 3개 요인(총 분산 설명력 73.18%) 분해 후 정규분포(Skewness/Kurtosis) 및 Cronbach's α(&gt;0.7) 신뢰도 달성 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500 font-mono">Page 122-123, Section 3.3 & Section 4.1</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">확인적 요인분석(CFA)을 이용한 타당도 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm font-sans">
+                  AMOS 24를 사용하여 전체 합성 신뢰도(CR &gt; 0.7) 및 평균분산추출값(AVE &gt; 0.5)을 산출하여 수렴 타당도 획득. Fornell-Larcker 방식(MSV &lt; AVE, ASV &lt; AVE, AVE 제곱근 &gt; 상관 관계 값)으로 판별 타당도 확보.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500 font-mono">Page 123, Section 4.2 & Table 3</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">공분산 구조방정식(CB-SEM) 모델 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto font-sans">
+                  AMOS 24 모델 적합도 지수(χ2/df = 2.49, GFI = 0.945, CFI = 0.945, RMSEA = 0.043)를 확인하고 가설 1과 가설 2의 표준화 경로계수(β) 유의성 검토.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500 font-mono">Page 123-124, Section 4.2.1 & Fig. 2</span>
+              </div>
+              <hr class="bg-slate-900"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-900"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-800 text-cyan-400 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">매개 유의성 부트스트래핑 및 PROCESS Macro 조절 효과 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm font-sans">
+                  부트스트래핑 신뢰구간 95% 조건 하에 매개 효과(H3) 유의성 확정. Hayes PROCESS Macro 모델을 적용해 경력 범주(W)의 조절 효과(Int_1) 유의 확률 및 조건부 성과 컷오프(16th/64th/16th) 산출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500 font-mono">Page 124, Section 4.2.1, 4.2.2 & Table 4</span>
+              </div>
+              <hr class="bg-slate-700"/>
+            </li>
+
+            <!-- Step 9 -->
+            <li>
+              <hr class="bg-slate-700"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-700 text-yellow-400 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">9</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 9</time>
+                <div class="text-lg font-bold text-slate-800">통제 변수 비모수 검정 및 사후 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto font-sans">
+                  Kruskal-Wallis H 검정으로 인구통계 집단 간 재무성과(PERF1~5) 격차 여부 파악. 유의차를 보인 '기업 규모' 집단에 대해 Dunn-Bonferroni 다중 사후비교 검정 완료.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500 font-mono">Page 124, Section 4.2.3, Table 5 & Fig. 3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            사용한 조사 설문 척도 및 하위 측정문항, 모델 구조와 구체적 분석 툴(SPSS, AMOS PROCESS)이 규명되어 동일 절차 추진은 매우 투명하나, 포르투갈 영업 전문가 협회의 고유 응답자 모집단 로우 데이터셋(Raw dataset)은 기밀로 취급되어 직접 공유되지 않았으므로 통계 수치의 완벽한 재연은 제한적입니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6)에서 연구진들이 한계로 언급한 연구 설계의 한계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>지리적 단일 표본 (Portuguese B2B Only):</strong> 표본이 포르투갈 내 B2B 영업 기업으로만 이루어져 다른 문화권이나 경제 체제(예: 북미, 아시아)로 분석 결과를 등가적으로 대입하여 일반화하는 것에 바운더리가 있습니다.
+              </li>
+              <li>
+                <strong>산업군 특수성 미고려 (Industry Sectors Not Differentiated):</strong> 응답을 기고한 KAM들의 소속 업종(제조, 금융, 하이테크 등)을 세부적으로 분류하지 못했습니다. 산업 분야마다 상이한 디지털 성숙도나 구매 주기가 반영되지 못했습니다.
+              </li>
+              <li>
+                <strong>측정 도구의 제네릭성 (Generic Technology Scales):</strong> 구체적인 판매 기술 제품(예: 특정 AI 분석 소프트웨어 등)의 기여 차이를 규명하는 대신, 전반적인 디지털 장비 및 시스템 사용 범용 척도로 통합하여 조사했습니다.
+              </li>
+              <li>
+                <strong>정량 횡단적 구조의 제약 (Cross-Sectional Method Only):</strong> 횡단 조사 구조를 취하고 있어, 오랜 시간의 흐름에 따라 변화하는 기술 도입 적응 단계 및 질적 심층 요인(KAM과 고객사 간의 복합적 협력 과정)을 상세히 발굴하지 못했습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">실증 조사 및 연구 매커니즘의 근간을 비판적으로 평가하여 도출한 잠재적 약점입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 주관적 성과 측정의 한계</span>
+                <p class="text-sm text-slate-700">
+                  종속변수인 재무성과(PERF1~PERF5)가 회사의 회계 자료 등 객관적 실적으로 증명되지 않고, KAM 본인이 생각하는 '매출액 수준', '목표치 대비 평가' 등 <strong>자기 주관적 판단에 의해 5점 리커트 척도로 평가</strong>되었습니다. 이는 자기유리적 보고(Self-reporting bias) 및 회고 편향의 영향을 크게 받습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 단일방법편향 (Common Method Bias)</span>
+                <p class="text-sm text-slate-700">
+                  독립변수, 매개변수, 종속변수 전체의 응답을 동일인인 단 한 명의 KAM으로부터 일시에 획득하였습니다. 설문 응답 과정에서 논리적 일관성을 유지하려는 인간의 인지 왜곡이 생겨 변수 간 회귀 경로의 유의성이 실제보다 유의미하게 과장(膨張)되었을 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 역인과성 (Reverse Causality) 의혹</span>
+                <p class="text-sm text-slate-700">
+                  논문은 [영업 기술 활용 -> 정보 시스템 고도화 -> 재무 성과 창출]의 경로를 상정하지만, 반대로 <strong>"사내 재무 성과가 이미 우수하고 넉넉한 고객 관리 이익을 남기는 우량 KAM과 대기업"</strong>일수록 자금의 여유를 기반으로 다양한 최신 영업 기술을 활발히 도입하고 사내 정보 망에 깊숙이 반영(정보 시스템 활용)했을 잠재적 동시성 및 역방향 편향이 다분합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 표본 자발적 참여 편향</span>
+                <p class="text-sm text-slate-700">
+                  설문 발송 인원(1,842명) 대비 회수 응답자(248명)의 비율이 13.46%로 상당히 낮은 편입니다. 디지털 혁신 및 데이터 활용에 능숙하고 상대적으로 우수한 성과를 보이고 있던 KAM 위주로 설문에 자발 참여하여 표본의 대표성이 한쪽으로 쏠렸을 가능성(Selection Bias)이 높습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Challenges of the digital landscape: An investigation into the influence of technology and information systems on financial performance of B2B key account managers</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
