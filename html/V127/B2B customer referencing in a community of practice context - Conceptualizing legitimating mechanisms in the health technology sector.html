@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B2B Customer Referencing in a CoP Context - IMM 2025</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 36px;
+      }
+      .style-h1 {
+        font-size: 28px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+      .style-h3 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2025)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Customer Referencing</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Multiple Case Study</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            B2B customer referencing in a community of practice context:<br>
+            <span class="text-cyan-400">Conceptualizing legitimating mechanisms in the health technology sector</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Josefin Wiik, Nikolina Koporcic, Stefan Markovic, Leena Aarikka-Stenroos
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            실천공동체(CoP) 맥락에서의 B2B 고객 레퍼런싱:<br>
+            <span class="text-indigo-300">헬스테크놀로지 부문에서의 정당화 메커니즘 개념화</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            외과의사 실천공동체(CoP)와 헬스테크 기업 간의 32건 심층 인터뷰를 기초로 한 유사성, 권위, 객관성의 3대 정당화 메커니즘 도출
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">판매자는 CoP 내부의 수평적 상호작용을 보호하기 위해 전면에 나서지 않는 '보이지 않는 촉진자'가 되어야 합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "The phenomenon of customer referencing entails sellers engaging with existing customers to influence new potential customers. In a business-to-business (B2B) setting, this has typically been studied through the lens of the reference communication activities of sellers. However, the role of the customer peer community (to which both existing and new potential customers belong) and the mechanisms through which this community legitimates the seller's customer referencing activities have largely been neglected in the literature. To address this shortcoming and build on customer referencing knowledge, we draw on the community of practice (CoP) literature and empirically explore the legitimating mechanisms for customer referencing and how sellers can harness these mechanisms. Our multiple case study is based on 32 interviews with sellers and customers from the health technology sector. The findings uncover three CoP-driven mechanisms: similarity, authority, and objectivity. We develop a conceptual model based on these mechanisms, which sellers can harness to gain legitimacy for their customer referencing. We discuss the implications of the conceptual model and detail how sellers should focus on planned customer referencing tactics to facilitate peer-to-peer interactions in a customer CoP context."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "고객 레퍼런싱(customer referencing) 현상은 판매자가 기존 고객을 참여시켜 새로운 잠재 고객에게 영향을 미치는 과정을 수반한다. 기업 간 거래(B2B) 환경에서 이 현상은 주로 판매자의 레퍼런스 커뮤니케이션 활동이라는 렌즈를 통해 연구되어 왔다. 그러나 기존 고객과 새로운 잠재 고객이 모두 소속되어 있는 고객 동료 공동체(customer peer community)의 역할과, 이 공동체가 판매자의 고객 레퍼런싱 활동을 정당화하는 메커니즘은 문헌에서 크게 소홀히 다루어졌다. 이러한 미비점을 해결하고 고객 레퍼런싱에 관한 지식을 축적하고자, 본 연구는 실천공동체(Community of Practice, CoP) 문헌을 차용하여 고객 레퍼런싱의 정당화 메커니즘과 판매자가 이러한 메커니즘을 어떻게 활용할 수 있는지 실증적으로 탐색하였다. 다중사례연구는 헬스테크놀로지 분야의 판매자 및 고객들과 진행한 32건의 인터뷰를 기반으로 한다. 연구 결과, 실천공동체(CoP)에 의해 구동되는 세 가지 메커니즘인 유사성(similarity), 권위(authority), 객관성(objectivity)이 규명되었다. 우리는 판매자가 고객 레퍼런싱에 대한 정당성을 획득하기 위해 활용할 수 있는 이들 메커니즘에 기반한 개념적 모델을 개발하였다. 우리는 개념적 모델의 시사점을 논의하고, 판매자가 고객 CoP 맥락에서 동료 간(peer-to-peer) 상호작용을 촉진하기 위해 계획된 고객 레퍼런싱 전술에 어떻게 집중해야 하는지를 상세히 설명한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Customer Referencing</td>
+                  <td>고객 레퍼런싱</td>
+                  <td class="text-sm">B2B 마케팅에서 판매자가 기존 고객의 성공사례 및 사용 경험을 공유하여 새로운 잠재 고객을 설득하는 정보 공유 및 옹호 활동입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Community of Practice (CoP)</td>
+                  <td>실천공동체</td>
+                  <td class="text-sm">특정 영역에서 공동의 관심사와 실천적 가치를 공유하며 함께 학습하고 성장하는 동료 커뮤니티(Lave & Wenger, 1991)를 가리킵니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Legitimacy</td>
+                  <td>정당성</td>
+                  <td class="text-sm">조직과 그 행위가 특정 사회 체계의 규범, 가치, 신념에 부합하고 바람직하다고 받아들여지는 보편적Assumption입니다(Suchman, 1995).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Invisible Facilitator</td>
+                  <td>보이지 않는 촉진자</td>
+                  <td class="text-sm">판매자가 전면에 등장하여 직접 홍보하기보다, 뒤에서 간접적으로 의학교육과 학술 토론 공간을 지원하고 조율하는 역할을 나타냅니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+ 
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회 및 발표 현장에서 본 논문의 발견과 가치를 <strong>1분 만에</strong> 설득력 있게 핵심 구조 위주로 전달할 수 있도록 요약했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">동료 집단(CoP) 내에서 마케팅은 어떻게 수용되는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">유사성, 권위, 객관성을 통한 정당성 획득</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">CoP 이론과 조직정당성 프레임워크의 결합</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 요지 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B 시장에서 기존 고객과 잠재 고객의 동료 관계가 형성하는 실천공동체(CoP)가 판매자의 레퍼런싱 마케팅 활동을 수용하고 허용하는 사회적 메커니즘은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> CoP는 <strong>유사성(국내 동료 연계/촉각 학습), 권위(전문의 지위 확보/학회 후원/과학 연구), 객관성(상업성 배제/이해관계 공시/비사용자 토론)</strong>을 기준으로 판매자의 활동을 검증하며, 이를 만족할 때에만 '정당함(Legitimate)'을 인정받음.</li>
+                  <li><strong>이론/실무 기여:</strong> 단순한 세일즈 커뮤니케이션 연구에서 벗어나, 고객의 전문직 평판을 해치지 않고 동료적 정당성을 획득할 수 있는 **'보이지 않는 촉진자(Invisible Facilitator)'** 역할을 최초로 규정 및 실무 전술화함.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "판매자가 전면에 나서기보다 동료 간의 유사성, 권위, 객관성을 뒷받침해주는 보이지 않는 촉진자로 움직일 때에만 전문 공동체 내에서 정당성을 얻어 마케팅에 성공합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구 결과의 학술적 엄밀성을 뒷받침하기 위해 논문 텍스트 내에서 직접 도출된 핵심 주장별 정성적 근거 인용구 및 원문 위치를 매핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">자국/국내 동료 레퍼런스의 높은 신뢰도 (유사성)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...if my own colleagues, or colleagues from another hospital in [my country] say, hey I tried this, it healed well and no complications and there are, for example, these studies, then that is very credible information."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 35 (Sec. 4.1.1, Surgeon F)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">수술실과 유사한 촉각 실무 환경 선호 (유사성)</td>
+                <td class="text-sm italic text-slate-600">
+                  "So, the physical presence has indeed been important for us with these new techniques. And being able to touch and feel [the product] ... And hearing face to face and being able to have that discussion about it [with peers]."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 35 (Sec. 4.1.2, Surgeon A)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">공동체 기여를 위한 주니어 의사 무상 교육 (유사성)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...there should be an added arm of each company that respects itself or an added leg, a third leg, OK, for each company. This is the leg that you, that you know you're not earning money from. ... The best for the residents and the medical education."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 36 (Sec. 4.1.3, Surgeon M)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">전문의 자아 및 동료 집단 내 선구자 욕구 (권위)</td>
+                <td class="text-sm italic text-slate-600">
+                  "I think a lot of them really like to be on the ground floor when new products have been developed. I think it's a nice ego stroke to be like ‘We've got this new device. We want to know what YOU think’ … I think they like to be in first..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 36 (Sec. 4.2.1, Seller L)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">개인 소셜 미디어를 통한 bragging 기피 (권위)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Are they so focused on everything being published and peer-reviewed that they won't post their own cases [on social media] unless it's somehow justified that it's correct?"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 37 (Sec. 4.2.2, Seller A)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">상업적 배제 하의 과학 기여 중심 스폰서십 (권위)</td>
+                <td class="text-sm italic text-slate-600">
+                  "The company participates in a way where the products are displayed but no speeches or presentations are given... We've done a lot of research and supported various initiatives that don't always directly benefit us."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 37 (Sec. 4.2.3, Seller L)</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">판매자 미참석을 통한 동료간 자유로운 교류 (객관성)</td>
+                <td class="text-sm italic text-slate-600">
+                  "There was clearly no presentation from the company, and no employee was present, nor did the company pay anyone to attend... You could show the pictures from other companies without creating any awkward situation for anyone."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 37 (Sec. 4.3.1, Surgeon F)</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">피어리뷰 결과에 기반한 편향 극복 및 신뢰 (객관성)</td>
+                <td class="text-sm italic text-slate-600">
+                  "I think if data are presented based on published results and have been peer-reviewed, then I think that the possible bias is not such a big deal anymore. ... So, then the criticism has already gone over those results."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 38 (Sec. 4.3.2, Surgeon P)</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td class="font-semibold text-slate-900">비사용자 참여를 통한 토론 균형성 확보 (객관성)</td>
+                <td class="text-sm italic text-slate-600">
+                  "Sometimes, you sit down, and you realize very quickly it's a sales pitch with not much, not a very balanced discussion.… Having someone speak who doesn't use the product is quite powerful."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 38 (Sec. 4.3.3, Surgeon K)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 개념적 연구 모델 및 구성 메커니즘</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Conceptual Model</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual Framework (고객 레퍼런싱 정당화 모형)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 450" class="w-full h-auto">
+              <!-- Definitions of markers -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4338ca"/>
+                </marker>
+                <marker id="arrow-gray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+                </marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/>
+                </marker>
+              </defs>
+
+              <!-- External Area: B2B Seller -->
+              <rect x="15" y="45" width="230" height="360" rx="12" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+              <rect x="25" y="55" width="210" height="40" rx="6" fill="#64748b" />
+              <text x="130" y="80" text-anchor="middle" font-weight="700" fill="#ffffff" font-size="14">B2B 판매자 (B2B Seller)</text>
+              <text x="130" y="112" text-anchor="middle" font-weight="700" fill="#475569" font-size="12">외부 행위자 (Non-Member)</text>
+
+              <!-- Seller planned tactics -->
+              <rect x="30" y="135" width="200" height="70" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+              <text x="40" y="155" font-weight="700" fill="#334155" font-size="12">1. 실용적 전술 (Pragmatic)</text>
+              <text x="40" y="175" fill="#64748b" font-size="11">• 국내 동료 연계 및 혼합</text>
+              <text x="40" y="193" fill="#64748b" font-size="11">• 선구자 지위 및 전문가 지원</text>
+
+              <rect x="30" y="215" width="200" height="70" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+              <text x="40" y="235" font-weight="700" fill="#334155" font-size="12">2. 인지적 전술 (Cognitive)</text>
+              <text x="40" y="255" fill="#64748b" font-size="11">• 촉각적 실습/기술 위주 교육</text>
+              <text x="40" y="273" fill="#64748b" font-size="11">• 공식 전문학회 제휴 및 논문 인용</text>
+
+              <rect x="30" y="295" width="200" height="70" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+              <text x="40" y="315" font-weight="700" fill="#334155" font-size="12">3. 도덕적 전술 (Moral)</text>
+              <text x="40" y="335" fill="#64748b" font-size="11">• 주니어 무료 교육 후원 (Third Leg)</text>
+              <text x="40" y="353" fill="#64748b" font-size="11">• 상업성 배제 기초 연구 지원</text>
+
+              <!-- CoP Boundary -->
+              <rect x="320" y="25" width="555" height="400" rx="16" fill="#eef2ff" stroke="#818cf8" stroke-width="2.5" />
+              <rect x="340" y="40" width="515" height="35" rx="6" fill="#4338ca" />
+              <text x="597" y="62" text-anchor="middle" font-weight="700" fill="#ffffff" font-size="15">고객 실천공동체 Context (Community of Practice)</text>
+
+              <!-- Peer-to-Peer Interaction Box -->
+              <rect x="340" y="95" width="515" height="110" rx="10" fill="#ffffff" stroke="#a5b4fc" stroke-width="2"/>
+              <text x="355" y="120" font-weight="700" fill="#312e81" font-size="13">동료 간 수평적 상호작용 (Peer-to-Peer Interaction)</text>
+              
+              <!-- Existing Customer Node -->
+              <rect x="365" y="135" width="160" height="50" rx="6" fill="#d1fae5" stroke="#059669" stroke-width="1.5"/>
+              <text x="445" y="157" text-anchor="middle" font-weight="700" fill="#065f46" font-size="12">기존 고객 (Reference)</text>
+              <text x="445" y="174" text-anchor="middle" fill="#047857" font-size="10">CoP 내부 회원 (Peer)</text>
+
+              <!-- Double Arrow for Interaction -->
+              <path d="M535 160 L 610 160" fill="none" stroke="#6366f1" stroke-width="3" marker-end="url(#arrow)"/>
+              <path d="M615 160 L 540 160" fill="none" stroke="#6366f1" stroke-width="3" marker-end="url(#arrow)"/>
+              <text x="575" y="145" text-anchor="middle" fill="#4f46e5" font-weight="700" font-size="10">암묵지 전수</text>
+              <text x="575" y="185" text-anchor="middle" fill="#4f46e5" font-weight="700" font-size="10">소통 & 구전</text>
+
+              <!-- Potential Customer Node -->
+              <rect x="665" y="135" width="160" height="50" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+              <text x="745" y="157" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="12">잠재 고객 (Potential)</text>
+              <text x="745" y="174" text-anchor="middle" fill="#0284c7" font-size="10">CoP 내부 회원 (Peer)</text>
+
+              <!-- CoP-driven Legitimating Mechanisms -->
+              <rect x="340" y="225" width="515" height="185" rx="10" fill="#ffffff" stroke="#a5b4fc" stroke-width="2"/>
+              <text x="355" y="250" font-weight="700" fill="#312e81" font-size="13">CoP 구동 정당화 메커니즘 (Legitimating Mechanisms)</text>
+
+              <!-- 3 Mechanisms -->
+              <rect x="360" y="270" width="140" height="120" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
+              <text x="430" y="295" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">유사성 (Similarity)</text>
+              <text x="430" y="320" text-anchor="middle" fill="#047857" font-size="11">국내 지리적 근접</text>
+              <text x="430" y="340" text-anchor="middle" fill="#047857" font-size="11">촉각적 실무mimic</text>
+              <text x="430" y="360" text-anchor="middle" fill="#047857" font-size="11">Altruistic 교육지원</text>
+              <text x="430" y="380" text-anchor="middle" fill="#065f46" font-weight="700" font-size="10">"우리와 같은가?"</text>
+
+              <rect x="525" y="270" width="140" height="120" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+              <text x="595" y="295" text-anchor="middle" font-weight="700" fill="#7f1d1d" font-size="13">권위 (Authority)</text>
+              <text x="595" y="320" text-anchor="middle" fill="#991b1b" font-size="11">개척자 위상 정립</text>
+              <text x="595" y="340" text-anchor="middle" fill="#991b1b" font-size="11">공인학회 연계 검증</text>
+              <text x="595" y="360" text-anchor="middle" fill="#991b1b" font-size="11">연구 기여 스폰서</text>
+              <text x="595" y="380" text-anchor="middle" fill="#7f1d1d" font-weight="700" font-size="10">"신뢰할 만한가?"</text>
+
+              <rect x="690" y="270" width="140" height="120" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+              <text x="760" y="295" text-anchor="middle" font-weight="700" fill="#78350f" font-size="13">객관성 (Objectivity)</text>
+              <text x="760" y="320" text-anchor="middle" fill="#92400e" font-size="11">상업적 개입 배제</text>
+              <text x="760" y="340" text-anchor="middle" fill="#92400e" font-size="11">피어리뷰 논문 게재</text>
+              <text x="760" y="360" text-anchor="middle" fill="#92400e" font-size="11">이해관계 투명 공시</text>
+              <text x="760" y="380" text-anchor="middle" fill="#78350f" font-weight="700" font-size="10">"사실적이고 공정한가?"</text>
+
+              <!-- Interaction Flow Lines -->
+              <path d="M245 225 L 310 225" fill="none" stroke="#4338ca" stroke-width="3" marker-end="url(#arrow)"/>
+              <text x="280" y="210" text-anchor="middle" fill="#4338ca" font-weight="700" font-size="11">전술 투사</text>
+              
+              <!-- Feedback Eval Line -->
+              <path d="M470 225 L 470 210" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrow-green)"/>
+              <path d="M595 225 L 595 210" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrow-green)"/>
+              <path d="M760 225 L 760 210" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrow-green)"/>
+              <text x="618" y="221" fill="#047857" font-weight="700" font-size="10">정당화 작용</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Detail analysis cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+          <!-- Similarity Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">메커니즘 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Similarity</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">유사성 (Similarity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>실용적 유사성:</strong> 국내 보건의료 시스템과 자국의 임상 환경 및 국내 동료들의 실제 유저 그룹 유무(National Registry 검증 가능성).</p>
+              <p class="text-sm text-slate-700"><strong>인지적 유사성:</strong> 제품 자체에 국한하지 않고, 수술실과 흡사하게 구성된 촉각적(Tactile) 실습(Cadaver course 등) 교육을 통한 묵시적 지식의 교류.</p>
+              <p class="text-sm text-slate-700"><strong>도덕적 유사성:</strong> 판매자가 의료 공동체에 실질적으로 기여하는 Altruistic 성향의 웨비나 및 무상 교육 지원('Third Leg').</p>
+            </div>
+          </div>
+
+          <!-- Authority Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-error style-label text-white">메커니즘 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Authority</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">권위 (Authority)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>실용적 권위:</strong> 동료 외과의사가 판매자와 협력해 특정 분야의 선구자(Pioneer)나 전문가(Specialist)로 공동체 내에서 위상을 획득하도록 기여함.</p>
+              <p class="text-sm text-slate-700"><strong>인지적 권위:</strong> 저명한 종합병원 로고, 공식 전문의 학회(Society)의 파트너십, 동료평가(Peer-reviewed)를 거친 의학 저널 등 제도적 가치 활용.</p>
+              <p class="text-sm text-slate-700"><strong>도덕적 권위:</strong> 상업적인 마케팅 목적이 배제된 독립적 의학 연구 공동체의 기금 지원 및 순수한 파트너로서의 학회 참여.</p>
+            </div>
+          </div>
+
+          <!-- Objectivity Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">메커니즘 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Objectivity</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">객관성 (Objectivity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>실용적 객관성:</strong> 판매자가 학술 세미나 등에서 배석하지 않고 단독 영업 발표를 생략함으로써 동료 간 자율적이고 무결한 대화 환경을 보호(Invisible Facilitator).</p>
+              <p class="text-sm text-slate-700"><strong>인지적 객관성:</strong> 피어리뷰가 완료된 연구 결과를 인용하고, 발표 전면에 이해관계(Conflict of Interest)에 대한 Disclaimer(이해관계 공시)를 의무적으로 제시함.</p>
+              <p class="text-sm text-slate-700"><strong>도덕적 객관성:</strong> 공익적 환자 스토리텔링 연계 및 비사용자(Non-users) 패널을 참가시켜 토론 시 양방향의 균형(Balance)을 추구함.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구 모델 및 질적 자료 수집 절차를 외부 연구자가 그대로 <strong>추종 재현</strong>할 수 있도록 단계별 실증 절차를 타임라인으로 상세 정리하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 맥락 및 다중 사례 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  전문성이 지배하고 보수적인 B2B 규제 시장인 '헬스테크놀로지' 부문을 선정. 공동체적 속성이 뚜렷한 '유럽 기반 국제 외과의사 협회' 1건과 외과용 의료기술을 취급하는 '5개 판매자 기업'을 다중사례 표본(Theoretical sampling)으로 추출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 33, Section 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">1차 인터뷰 면담 데이터 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  CoP 소속 외과의사 16명(고객 측) 및 5개 헬스테크 기업의 마케터/CEO/창업자 16명(판매자 측)을 인터뷰하여 총 32건의 면담(누적 1,478분 분량) 녹취를 확보 및 전문 대행사를 통한 완전 전사.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 33, Section 3.2 & Table A1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">2차 자료 문서 수집 및 삼각측정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  고객 측 14개 전문 블로그/기사(48p), 판매자 측 13개 기사/블로그(50p), 3개 의료기술 산업 보고서(236p)를 수집하여 인터뷰 자료 진술과의 교차 체크 및 삼각측정(Triangulation) 장치 구현.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 33, Section 3.1 & Table A2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">Gioia 방법론에 기반한 1차 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  전사본 자료를 정독하며 1차 코딩(Open coding) 진행. Informant-centric 개념들을 도출하고 Excel 시트에 매핑. 두 명의 연구자가 1건의 전사본을 시범 더블 코딩하여 코딩의 일치성 및 패턴 정의.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 34, Section 3.3 & Fig. 2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">이론 렌즈 결합 및 2차 주제 개발</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Suchman(1995)의 조직정당성 분류(실용적, 인지적, 도덕적 정당성)를 결합하여 이론 지향적 2차 주제(Themes) 개발. 연구자 간 독립 교차 코딩으로 분류 체계의 84% 상호 일치도를 획득.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 34, Section 3.3 & Fig. 2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">3차 총괄 차원(Aggregate dimensions) 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  2차 주제들을 구조화하여 유사성, 권위, 객관성의 3대 최종 분석 메커니즘 도출. 분석 데이터 신뢰성 확보를 위해 최종 정당화 메커니즘 개념들을 실제 의료기기 판매 회사 마케터들에게 검증(Member checking).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 34, Section 3.3 & Fig. 2</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">개념 관계 매핑 및 conceptual model 구축</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  외부 판매자의 계획된 마케팅 전술이 CoP 내부의 peer-to-peer 수평적 상호작용 속에서 3대 메커니즘을 거치며 정당성(Moral, Pragmatic, Cognitive)을 획득하는 conceptual model 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 38, Section 5</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            분석 및 데이터 구조 수립 절차가 매우 상세하게 기술되어 있고 분석 렌즈가 명확하여 이론적 재현(Analytical replication)은 완전히 가능합니다. 다만, 2020년 코로나19 락다운이라는 특수 거시 상황(수술 중단)에 따른 의사들의 유휴 면담 기회 상황과 주관적 진술을 100% 동일하게 재획득하는 물리적 재현(Physical replication)은 정성 연구의 태생적 한계로 불가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 저자들이 본문 결론부(Section 6.3)에서 직접 밝힌 서술상의 한계 영역입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>유럽 소속 표본 편향:</strong> 면담한 외과의사 16명 중 11명이 유럽 소속이고 남미(3명), 아태(2명)는 적어 국가별 거시 문화(집단주의 vs 개인주의)에 따른 CoP 정당화 차이를 심층 발굴하지 못함.
+              </li>
+              <li>
+                <strong>사례 및 정보원의 협소성:</strong> 하나의 외과의사 협회(CoP)와 5개 기업 대표군만을 사례로 삼아 연구 결과의 타 B2B 산업 영역으로의 일반화(Generalization) 성능이 제한됨.
+              </li>
+              <li>
+                <strong>의료 산업(MedTech)의 규제적 특성:</strong> 헬스테크놀로지 분야는 인간 생명과 엄격한 의료 법제가 얽힌 규제 환경(regulated market)으로, 일반 제조업보다 '객관성'과 '도덕성'의 평가 비중이 높게 반영되었을 수 있음.
+              </li>
+              <li>
+                <strong>정성 연구 고유의 주관성:</strong> 제보자 진술의 해석(1차) 및 연구자의 학술적 재정리(2차) 단계에서 연구진의 해석 편향(Double Hermeneutics) 개입 소지가 존재함.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 횡단 질적 자료 수집에 기반하여 비판적으로 제기하는 학술적 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 사회적 바람직성 편향 (Social Desirability Bias)</span>
+                <p class="text-sm text-slate-700">
+                  외과의사는 지위가 높고 권위적인 전문직 집단으로서 동료 집단 내의 평판과 평소의 직업 윤리를 고도로 인지합니다. 면담 시 본인들이 실제로는 제약사나 기기사 영업관계자로부터 편익을 제공받을지라도, 대답할 때는 **"나는 오로지 독립된 학술 교육과 피어리뷰 저널 결과를 신뢰하며 상업적 자랑은 멀리한다"**고 진술함으로써 스스로를 윤리적으로 연출(Self-presentation)했을 바이어스가 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 공식 학회 스폰서십 이면의 리베이트 냉소 왜곡</span>
+                <p class="text-sm text-slate-700">
+                  본문은 학술 협회(Society)의 공식 후원 웹채널이나 로고를 활용하는 세미나가 인지적 권위로서 높은 정당성을 띤다고 옹호합니다. 그러나 실증적으로 학회와 대형 기기사 간 오랜 유착 관계가 존재함을 공동체 구성원(Peers)들이 사전에 잘 알고 있다면, 그 로고나 스폰서십을 본 순간 **'정당함'이 아닌 '기업의 막강한 리베이트/로비력'**으로 간주하여 강력한 냉소와 거부 반응을 보일 리스크를 학술적으로 묵인했습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. Gioia 귀납적 체계성 뒤에 숨겨진 체리피킹 (Cherry-picking)</span>
+                <p class="text-sm text-slate-700">
+                  Gioia 분석 프레임은 매우 과학적이고 구조화된 느낌을 주지만, 질적 연구의 특성상 연구자가 **자신들이 수립한 세일즈 프레임(유사성-권위-객관성)에 완벽히 들어맞는 세련된 구절들(Quotes)만 의도적으로 선택**하여 데이터 구조도(Fig 2)를 조립했을 의심을 배제할 수 없습니다. 교차 코딩 84% 일치를 제창하면서도, 이 메커니즘을 부정하거나 반박하는 부정적 사례(Negative Cases)들의 가치와 처리 과정에 대한 논박이 전무합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 락다운 임시 상황의 시계열적 관점 고착 (Temporal Lock-in)</span>
+                <p class="text-sm text-slate-700">
+                  인터뷰 수집 시점은 코로나19 1차 대유행기인 2020년 3월~5월입니다. 전 세계 병원의 수술 일정이 전격 중단되어 의사들이 시간적 유휴 상태였고, 온라인 비대면 교류에 목말라 하던 극히 예외적 기간입니다. 이 시기에 **"웨비나 무료 교육을 지원하는 판매자가 고맙고 정당하다"**고 언급한 갈증성 반응 결과가, 하루에 수 건의 수술을 쳐내느라 여념이 없는 평시(Normal state)에도 동일한 강도로 Legitimating 메커니즘을 견인할 수 있을지는 미지수입니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>B2B customer referencing in a community of practice context: Conceptualizing legitimating mechanisms in the health technology sector</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

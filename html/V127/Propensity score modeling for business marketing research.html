@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propensity Score Modeling for Business Marketing Research - IMM 2025</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2025)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Methodological Review</div>
+        <div class="badge badge-secondary text-white style-label">Rigor & Best Practice</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Propensity score modeling for<br>
+            <span class="text-cyan-400">business marketing research</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4 font-semibold">
+            Peter Guenther, Miriam Guenther, Shekhar Misra, Mariia Koval, Ghasem Zaefarian
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            B2B 마케팅 연구를 위한<br>
+            <span class="text-indigo-300">성향 점수 모델링(PSM) 가이드라인</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            B2B 연구에서 무분별하게 오용되는 내생성 제어 방법론인 PSM의 한계를 규명하고, 엄격한 진단 프로토콜과 실제 적용 가이드를 제공하는 방법론적 프레임워크
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              PSM
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">성향 점수 모델링(PSM)은 만능 해결책이 아니며, 관찰 불가능한 내생성은 Heckman 모형 등으로 완벽히 통제해야 효과가 신뢰받을 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Propensity score modeling (PSM) is a powerful statistical technique that, in the appropriate data contexts, addresses biases from confounding and selection, which can otherwise distort results and lead to erroneous inferences. However, while the number of PSM applications in business marketing research is growing, many studies mistakenly assume that PSM is a universal solution for all endogeneity issues. Often, studies lack sufficient detail about the specific endogeneity problem they aim to address, which is a critical issue, as PSM is appropriate only for certain types of endogeneity. Additionally, essential tests to confirm the validity and robustness of PSM results are frequently overlooked or insufficiently reported, raising concerns about the reliability of findings. This article aims to enhance the rigor of PSM applications in business marketing research by offering updated practical guidance on its appropriate use, key aspects to report, and common misconceptions and errors to avoid. A practical example of PSM implementation in Stata is included, along with a comprehensive checklist of justifications and best practices to guide business marketing researchers in their future PSM-based studies."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "성향 점수 모델링(Propensity Score Modeling, PSM)은 적절한 데이터 컨텍스트에서 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">교란(confounding)</span> 및 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">선택(selection) 편향</span>을 해결하여 결과의 왜곡과 잘못된 추론을 방지하는 강력한 통계적 기법이다. 그러나 B2B 마케팅 연구에서 PSM 적용 사례가 증가하고 있음에도 불구하고, 많은 연구들이 PSM을 모든 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">내생성(endogeneity)</span> 문제를 해결하는 만능 솔루션으로 오해하고 있다. 흔히 연구들은 자신이 해결하고자 하는 구체적인 내생성 문제에 대한 충분한 세부 정보를 제공하지 않는데, 이는 PSM이 특정 유형의 내생성에만 적합하다는 점에서 심각한 문제이다. 더욱이 PSM 결과의 타당성과 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">강건성(robustness)</span>을 확인하기 위한 필수 테스트들이 자주 간과되거나 불충분하게 보고되어 연구 결과의 신뢰성에 대한 우려를 낳고 있다. 본 논문은 PSM의 올바른 사용법, 필수 보고 항목, 그리고 피해야 할 일반적인 오해와 오류에 대한 최신 실무 지침을 제공함으로써 B2B 마케팅 연구에서 PSM 적용의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">엄격성(rigor)</span>을 높이고자 한다. Stata를 활용한 실제 PSM 구현 사례와 더불어, B2B 마케팅 연구자들이 향후 PSM 기반 연구를 수행할 때 참고할 수 있는 정당성 입증 및 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">최선의 실행 지침(best practices)</span> 체크리스트를 포함한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Propensity score modeling (PSM)</td>
+                  <td>성향 점수 모델링</td>
+                  <td class="text-sm">선택 편향을 통제하기 위해 처치 그룹과 통제 그룹을 성향 점수 기반으로 매칭하는 방법론적 표준 명칭입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Confounding</td>
+                  <td>교란</td>
+                  <td class="text-sm">독립변수와 종속변수 모두에 영향을 미쳐 인과관계를 왜곡하는 외생적 변수를 지칭합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Selection bias</td>
+                  <td>선택 편향</td>
+                  <td class="text-sm">연구 대상이 처치군에 배정되는 과정이 무작위가 아닌 특정 조건이나 자발적 선택에 의해 편향되는 현상입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Endogeneity</td>
+                  <td>내생성</td>
+                  <td class="text-sm">설명변수와 오차항 간에 상관관계가 존재하여 일반 최소제곱법(OLS) 추정치에 편향이 발생하는 통계적 상태입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Rigor</td>
+                  <td>엄격성 / 정밀성</td>
+                  <td class="text-sm">방법론적 설계와 통계적 검증 단계에서 학술적 오류를 차단하고 신뢰성을 확보하는 엄밀함을 뜻합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Common support</td>
+                  <td>공통 지지 영역</td>
+                  <td class="text-sm">처치군과 통제군의 성향 점수가 겹치는 구간으로, 실질적이고 타당한 비교가 가능한 범위를 정의합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Covariate balance</td>
+                  <td>공변량 균형성</td>
+                  <td class="text-sm">매칭 결과 처치군과 통제군 간의 주요 외생 변수들의 분포와 평균이 통계적으로 유사하도록 고르게 맞춰진 상태입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Conditioning approach</td>
+                  <td>조건화 방식</td>
+                  <td class="text-sm">추정된 성향 점수를 기반으로 매칭, 하위집단 분류, 가중치 적용 등 구체적으로 처치 효과를 분석하기 위해 취하는 조건화 방법입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Inverse Mills ratio (IMR)</td>
+                  <td>역밀스비</td>
+                  <td class="text-sm">Heckman 2단계 선택 모형에서 관찰되지 않은 비관찰 선택 편향을 통제하기 위해 outcome 모델에 투입되는 잔차 기반 조율항입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 연구 세미나에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">PSM의 무분별한 방법론적 오용의 원인은?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">관찰 불가 편향에는 무력하다. 복합 검증이 필수</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">체계적인 의사결정 나무 및 Stata 실전 가이드</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B 마케팅 연구에서 성향 점수 모델링(PSM)이 직면한 주요 학술적 왜곡 현상은 무엇이며, 방법론적 엄격성 확보를 위해 연구자들이 검증하고 보고해야 할 필수 프로토콜은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> PSM은 내생성의 만능 해결책(panacea)이 아닙니다. 오직 **'관찰 가능한 요인에 기반한 선택(selection on observables)'**만 제어하며, 비관찰 요인에 의한 편향에는 Heckman 모델 등과의 결합(Augmented PSM)이 필수적입니다. 또한, 최접근 매칭(NNM) 방식이 잔여 비관찰 편향이 존재할 때도 가장 강건(robust)하게 대처함을 입증했습니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 방법론적 오용 실태를 면밀히 분석하고, 성향점수를 성과 모델에 직접 통제변수로 넣는 오류 등을 논박했습니다. B2B 연구자들을 위한 실증 M&A 연구 사례, Stata 코드, 그리고 모범 사례 Checklist를 제공하여 마케팅 연구의 신뢰성 기준을 확립했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "성향 점수 모델링(PSM)은 만능 해결책이 아니므로 관찰 가능한 선택 편향 제어라는 엄격한 가정 하에 최접근 매칭(NNM) 및 공변량 균형성·공통지지 검증을 준수하여 적용해야 하며, 관찰되지 않는 편향은 Heckman 등 복합 모형으로 보완해야 합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">PSM은 내생성의 만능 해결책이 아니며 관찰 가능 요인에 의한 선택만 제어함</td>
+                <td class="text-sm italic text-slate-600">
+                  "...many studies mistakenly assume that PSM is a universal solution for all endogeneity issues... PSM is traditionally used to address observable selection of treatment."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 14 (Abstract) / Page 16 (Sec. 2.3)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">기존 B2B 연구들의 PSM 보고 누락 및 불성실함의 실태</td>
+                <td class="text-sm italic text-slate-600">
+                  "Essential methodological details—such as the specific endogeneity issue being addressed, conditioning approach, covariate balance, and common support—are frequently omitted or insufficiently reported..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 15 (Sec. 1) / Page 18 (Table 1)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">조건화 방식 중 최접근 매칭(NNM)의 우월한 강건성</td>
+                <td class="text-sm italic text-slate-600">
+                  "...nearest neighbor matching is ranked second-best among the considered PSM approaches when observable characteristics determine the treatment... The approach ranks equally well when unobservable characteristics... showing a certain desirable robustness..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 19 (Sec. 3.3.1, Table 2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">성향점수를 성과 모델에 직접 통제변수로 넣는 설계에 대한 지적</td>
+                <td class="text-sm italic text-slate-600">
+                  "We do not recommend to directly include the estimated propensity score in the outcome equation... Doing so defeats a key advantage of PSM over a regression approach..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 20 (Sec. 3.3.6)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">비관찰 편향이 의심될 때 Heckman 복합 모델(IMR)과의 병합 필요성</td>
+                <td class="text-sm italic text-slate-600">
+                  "...following the standard Heckman treatment effects approach... The inverse Mills ratio is then included in an outcome equation, estimating treatment effects by comparing treatment and control observations matched through PSM..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 21 (Sec. 4)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Propensity Score Matching Framework (M&A 실증 연구 예제 DAG)</h3>
+          
+          <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 450" class="w-full h-auto">
+              <!-- Definitions -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+
+              <!-- Confounders (Observables) -->
+              <rect x="250" y="20" width="300" height="90" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="400" y="45" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">관찰 가능한 교란 요인 (Covariates)</text>
+              <text x="400" y="68" text-anchor="middle" fill="#64748b" font-size="11">규모(Size), 여유자원(Slack), 레버리지(Leverage),</text>
+              <text x="400" y="88" text-anchor="middle" fill="#64748b" font-size="11">유동성(Liquidity), 산업군(SIC)</text>
+
+              <!-- Treatment (IV) -->
+              <rect x="30" y="180" width="220" height="80" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="140" y="215" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">기업 인수 합병 여부 (Treat)</text>
+              <text x="140" y="238" text-anchor="middle" fill="#047857" font-size="11">이분형 처치변수 (1=M&A, 0=통제군)</text>
+
+              <!-- Outcome (DV) -->
+              <rect x="550" y="180" width="220" height="80" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="660" y="215" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">주식 수익률 (Stock Returns)</text>
+              <text x="660" y="238" text-anchor="middle" fill="#4338ca" font-size="11">성과 변수 (연간 종가 변동 비율)</text>
+
+              <!-- Unobservables -->
+              <rect x="250" y="320" width="300" height="95" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="400" y="348" text-anchor="middle" font-weight="700" fill="#92400e" font-size="14">비관찰 교란 요인 (Unobservables)</text>
+              <text x="400" y="372" text-anchor="middle" fill="#b45309" font-size="11">경영진 자신감, 기업 문화, 시너지 가치 등</text>
+              <text x="400" y="392" text-anchor="middle" fill="#b45309" font-size="11">※ Heckman 역밀스비(Inverse Mills Ratio)로 보정</text>
+
+              <!-- Path Arrows -->
+              <!-- Treat -> Outcome -->
+              <path d="M250 220 L 540 220" fill="none" stroke="#4f46e5" stroke-width="3" marker-end="url(#arrow)"/>
+              <text x="395" y="210" fill="#3730a3" font-weight="700" font-size="13">처치 효과 (Causal Effect)</text>
+
+              <!-- Observables -> Treat (Selection) -->
+              <path d="M300 110 L 200 110 L 200 170" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="210" y="130" fill="#475569" font-size="11">선택 편향 (1)</text>
+
+              <!-- Observables -> Outcome (Confounding) -->
+              <path d="M500 110 L 600 110 L 600 170" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="540" y="130" fill="#475569" font-size="11">결과 교란 (2)</text>
+
+              <!-- Unobservables -> Treat (Selection on Unobservables) -->
+              <path d="M300 320 L 200 320 L 200 270" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="145" y="305" fill="#b45309" font-size="11">비관찰 선택 (3)</text>
+
+              <!-- Unobservables -> Outcome (Confounding) -->
+              <path d="M500 320 L 600 320 L 600 270" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="550" y="305" fill="#b45309" font-size="11">비관찰 교란 (4)</text>
+
+            </svg>
+          </div>
+          <p class="text-xs text-slate-500 text-center max-w-lg mt-1">
+            <strong>DAG 모형 설명:</strong> PSM은 관찰 가능한 교란 요인(1, 2)만 차단하며, 관찰 불가능한 요인에 의한 내생성(3, 4)은 해결하지 못하므로, Heckman 모형을 결합(Augmented PSM)하여 비관찰 오차 구조를 제거해야 함.
+          </p>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">처치변수 (IV)</span>
+                <span class="text-xs text-slate-400 font-semibold">Treat</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기업 인수 합병 여부 (Corporate Acquisitions)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> B2B 기업이 비즈니스 역량 강화, 자산 획득 및 시너지 창출을 위해 타 기업의 지분이나 영업권을 사들이는 실질적인 경영적 의사결정.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 2017년 한 해 동안 M&A를 최소 1건 이상 실행하여 양의 값을 기록한 경우 1, 인수를 전혀 실행하지 않은 경우 0으로 코딩.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> SDC Platinum M&A 데이터베이스 / Lambkin & Muzellec (2010)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 기업의 M&A 수행 여부는 기업의 고유 역량, 재무 상황에 따라 선택 편향(selection of treatment)이 매우 강하게 개입되는 대표적 처치 변수입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수 (DV)</span>
+                <span class="text-xs text-slate-400 font-semibold">Stock Returns</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">주식 수익률 (Stock Returns)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 주주 가치의 변화이자, 해당 기업의 미래 현금 흐름 및 의사결정에 대해 주식 시장 투자자들이 내리는 즉각적인 기대 가치 평가.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Compustat 연간 데이터 기준, 해당 년도의 주식 종가 연간 변동 비율.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Compustat 데이터베이스 / Fama (1990), Zhang (2006)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> M&A 결정이 주주 가치 창출에 기여했는지를 검증하는 핵심적인 전향적(forward-looking) 지표입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Matching Covariates (Collapse Card) -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">매칭 공변량 (Matching Covariates)</span>
+                <span class="text-xs text-slate-400 font-semibold">Covariates</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">성향 점수 매칭 변수군</h3>
+              <div class="divider my-1"></div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-2">
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                  <p class="font-bold text-slate-900 text-sm">기업 규모 (Size)</p>
+                  <p class="text-xs text-slate-600 mt-1">총자산의 자연로그(ln) 값. 대기업일수록 인수를 선호하며, 수익률 편차도 적은 성향이 있습니다.</p>
+                </div>
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                  <p class="font-bold text-slate-900 text-sm">여유 자원 (Slack)</p>
+                  <p class="text-xs text-slate-600 mt-1">총자산 대비 현금 및 현금성 자산 비율. 유휴 현금이 풍부할수록 외부 자금 조달 없이 인수하기 유리합니다.</p>
+                </div>
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                  <p class="font-bold text-slate-900 text-sm">재무 레버리지 (Leverage)</p>
+                  <p class="text-xs text-slate-600 mt-1">총자산 대비 장기 부채 비율. 부채 비율이 높으면 위험도가 커져 M&A가 제한되고 주가 성과에도 악영향을 줍니다.</p>
+                </div>
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                  <p class="font-bold text-slate-900 text-sm">유동성 (Liquidity)</p>
+                  <p class="text-xs text-slate-600 mt-1">유동부채 대비 유동자산의 비율. 단기 채무 상환 능력을 지표화하여 자금 융통성을 대리 측정합니다.</p>
+                </div>
+              </div>
+              
+              <p class="text-xs text-slate-500 mt-2">※ 실증 모델에서는 잔여 수익성 편향을 통제하기 위해 **총자산이익률(Return on Assets, ROA)**을 성과 방정식에 직접 통제변수로 병행 투입함.</p>
+            </div>
+          </div>
+
+          <!-- Augmented Variable Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">비관찰 편향 보정변수 (Augmented)</span>
+                <span class="text-xs text-slate-400 font-semibold">Inverse Mills Ratio</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">역밀스비 (Inverse Mills Ratio / IMR)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 재무제표로 포착되지 않는 비관찰적 요인(경영진 야망, 조직 문화, 인수 적합성 등)이 선택 및 성과에 결합되어 생기는 편향 오차 구조.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 1단계 probit M&A 선택 모형의 오차항 잔차로부터 유도된 기대값 비율.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 1단계 probit 모형의 예측값을 활용하여 수학적으로 계산 / Heckman (1979)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 관찰 불가능한 내생성(selection on unobservables)을 잔차 형태로 성과 방정식에 명시적으로 추가함으로써 통제하는 Heckman 2단계 통제 모형의 핵심 매개체입니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 실증 분석 과정을 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">분석 컨텍스트 설정 및 연구 가설 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  B2B 기업의 인수 합병(M&A)이 사후 주식 수익률에 미치는 영향을 규명하기 위해 인과 추정 연구 모형을 수립함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 21-22, Section 5.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">기초 데이터 획득 및 병합</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  SDC Platinum 데이터베이스에서 2017년 한 해 동안 발생한 모든 인수(2,117건) 정보를 획득하고, Compustat 데이터베이스에서 상장 기업의 재무 데이터를 매칭하여 병합함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 22, Section 5.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">B2B 서브샘플 필터링</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  전체 공기업 인수 중 B2B 기업(제품/서비스를 다른 기업이나 정부에 주로 판매하는 기업)의 인수 1,334건만 추출하여 최종 처치군(Treatment)을 정의함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 22, Section 5.3 & 5.4</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">성향 점수 추정 및 기본 매칭 실행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Stata를 활용해 `logit`으로 처치 변수(`Treat`)를 매칭 공변량(`Size`, `Resource_Slack`, `Leverage`, `Liquidity`)으로 회귀하여 성향점수(`pscore`)를 추정. caliper 0.1 하에 `gmatch`로 1:1 Nearest Neighbor Matching을 실행하여 1,039개 쌍(총 2,078개 기업)을 확정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 22-23, Section 5.5.1 & Fig. 3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">산업 내 매칭 및 비관찰 편향 보정 (확장)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  업종 통제를 위해 SIC 코드를 가산한 `pscore2 = sic + pscore`로 매칭(926개 쌍 확정). 또한 Heckman 선택 모형을 위해 1단계 probit 모형을 적용하여 비관찰 선택 편향 통제항인 역밀스비(IMR)를 도출함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 23, Section 5.5.2, 5.5.3 & Fig. 3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">공변량 균형성 및 공통 지지 영역 평가</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  매칭 후 t-test를 수행하여 두 집단 간 평균 차이의 통계적 유의성이 사라졌는지 검증하고(Table 3), 각 집단의 성향점수 분포 플롯을 통해 공통 지지 영역이 골고루 겹쳐지는지 확인함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 23, Section 5.6 & Table 3</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">최종 성과 회귀 분석 실행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  최종 확보된 매칭 데이터셋에서 `Treat`를 독립변수로 하고 `Return on assets` 및 역밀스비를 통제한 OLS 성과 회귀분석을 통해 최종 M&A 처치 효과를 추정함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 23-24, Section 5.6 & Table 4</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">완전 재현 가능 (Full Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            분석 대상 연도(2017년), 데이터 소스명(SDC, Compustat), 구체적인 매칭 공변량 구성 리스트, 그리고 Stata gmatch 구현 코드가 구체적으로 제공되어 있어, 해당 상용 DB의 액세스를 보유한 연구자라면 무리 없이 추종 재현할 수 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">실증 분석 파트(Section 5) 등에서 연구진들이 직접 지적한 실증 예제 상의 한계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>단일 연도 샘플 한계 (Single-year limit):</strong> 실증 분석의 단순화를 위해 2017년 단일 년도 M&A 데이터만 사용하여 다년도에 걸친 M&A 성과의 동적 변화나 거시 경제 주기에 따른 효과를 완전히 반영하지 못함 (Section 5.2).
+              </li>
+              <li>
+                <strong>매칭 공변량의 재무적 편향 (Financial covariate bias):</strong> 공변량이 순수 재무 비율 변수(자산 규모, 레버리지, 현금 비율, 유동성)로만 제한되어, 경영진의 성격이나 기업의 비재무적 자산, 브랜드 파워와 같은 주요 질적 변수들을 충분히 매칭 단계에 반영하지 못함 (Section 5.5).
+              </li>
+              <li>
+                <strong>미국 상장 시장 국한성 (US Market generalization):</strong> 미국 상장 공기업의 자료만을 사용하였기 때문에 자본 시장의 효율성이 다른 신흥국이나, 지배구조가 다른 비상장 B2B 기업들의 M&A 성과에 이 메커니즘을 동일하게 일반화하기는 어려움 (Section 5.3).
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">방법론적 원리와 계량경제학 설계를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 역인과관계 및 동시성 문제</span>
+                <p class="text-sm text-slate-700">
+                  2017년 단일 횡단 분석의 특성 상, B2B M&A가 사후 주식 수익률을 떨어뜨린 것인지, 아니면 2017년 당해 연도에 업종 호황이나 다른 이유로 주식 수익률이 급등한 기업들이 M&A를 기피하였고, 주식 수익률이 침체기에 접어든 기업들이 돌파구를 찾기 위해 적극적인 M&A를 선택했는지에 대한 선후 관계(Temporal ordering)를 완전하게 밝히기 어렵습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 생존자 편향 (Survivor Bias)</span>
+                <p class="text-sm text-slate-700">
+                  2017년 M&A 수행 이후, 인수 사후 통합(PMI) 과정에서 심각한 재무 파탄이나 자금난을 겪고 상장 폐지되었거나 파산한 한계 기업들의 자료는 2017년 말 결산 시점에 Compustat 상에서 누락되어 표본에서 탈락되었을 가능성이 큽니다. 이는 살아남은 B2B 기업들 위주로 표본이 편향되어 추정치가 왜곡되었을 가능성을 암시합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. Heckman 식별(Identification) 불안정</span>
+                <p class="text-sm text-slate-700">
+                  Heckman 모형을 위한 2단계 회귀분석 시, 2단계 성과식에는 영향을 주지 않으면서 1단계 인수 행동 선택식에만 영향을 주는 엄격한 제외 제약(Exclusion Restriction) 도구변수를 제시하지 않고 잔차 형태의 역밀스비만 투입했습니다. 이로 인해 두 모형 간 다중공선성(Multicollinearity) 문제가 유발될 위험이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 인과 파급 시차(Time Lag) 배제</span>
+                <p class="text-sm text-slate-700">
+                  인수 합병의 성과(주식 수익률 및 재무 시너지)가 발현되기 위해서는 보통 2~3년의 사후 통합 및 안정화 기간이 필요함에도 불구하고, 2017년 당해 연도의 단기 주식 수익률 변동성만 분석함으로써 장기적인 M&A의 진정한 가치를 포착하지 못하고 오차가 큰 단기 노이즈를 측정했을 가능성이 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Propensity score modeling for business marketing research</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
