@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circular Product Development from a Multi-Level Perspective - IMM 2025</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 36px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2025)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Circular Product Development</div>
+        <div class="badge badge-secondary text-white style-label">Special Issue: Interaction for adaptation</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Circular product development from a multi-level perspective:<br>
+            <span class="text-cyan-400">Adaptations in business networks</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Ann Vellesalu, Daniel Hjelmgren, Frida Lind
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            다중 수준 관점에서의 순환 제품 개발:<br>
+            <span class="text-indigo-300">비즈니스 네트워크에서의 어댑테이션(적응)</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            스웨덴 의료용 워크웨어의 수명 연장 및 리사이클링 사례 분석을 통해 물리적 수준의 단순 적응과 제도 표준을 포괄하는 다중 수준의 복잡 적응 매커니즘 규명
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">순환 제품 개발은 개별 기업의 소재 교체를 넘어, B2B 가치 사슬(중시)의 관계 정렬과 공공 표준/기금(거시)의 조율이 맞물리는 다중 수준 적응 과정입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          분석 시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Product development based on circular economy principles can lead to environmental and economic benefits by addressing resource use in production–consumption systems. This inter-organisational process affects a business network's resources and can therefore entail challenges in the required collaboration and coordination. Based on the need to better understand how inter-organisational interaction enables business networks to address sustainability challenges, the aim of this paper is to investigate inter-organisational interaction in circular product development. The theoretical framework includes the Industrial Network Approach with a focus on resource interaction and adaptations. Moreover, the multi-level perspective for circular product development is explored, discerning micro, meso and macro levels applied in circular economy literature. The paper relies on a case study of circular product development with a focus on products' longevity and recyclability. Applying a multi-level framework of resource interaction highlighted adaptations in the business network and broader perspectives reflecting the systemic, complex nature of the business environment. The paper contributes to literature on industrial networks and circular economy by illustrating circular product development in business networks from a multi-level perspective. The findings demonstrate both minor and complex adaptations in the business network, and an understanding of the different roles of business and non-business actors."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "순환 경제(CE) 원칙에 기반한 제품 개발은 생산-소비 시스템에서의 자원 사용 문제를 해결함으로써 환경적 및 경제적 이익을 가져올 수 있다. 이러한 조직 간 프로세스는 비즈니스 네트워크의 자원에 영향을 미치므로 필요한 협업 및 조율 과정에서 도전 과제를 수반할 수 있다. 조직 간 상호작용이 어떻게 비즈니스 네트워크로 하여금 지속가능성 문제를 해결할 수 있게 하는지 더 잘 이해할 필요성에 기반하여, 본 논문의 목적은 순환 제품 개발에서의 조직 간 상호작용을 조사하는 것이다. 이론적 프레임워크는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">자원 상호작용</span>과 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">어댑테이션(적응)</span>에 초점을 맞춘 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">산업 네트워크 접근법(INA)</span>을 포함한다. 또한, 순환 제품 개발을 위한 다중 수준 관점을 탐색하여 순환 경제 문헌에 적용되는 미시(micro), 중시(meso), 거시(macro) 수준을 식별한다. 본 논문은 제품의 수명 연장(longevity) 및 재활용성(recyclability)에 초점을 맞춘 순환 제품 개발의 사례 연구에 의존한다. 자원 상호작용의 다중 수준 프레임워크를 적용함으로써 비즈니스 네트워크에서의 적응과 비비즈니스 환경의 시스템적이고 복잡한 특성을 반영하는 더 넓은 관점을 조명하였다. 본 논문은 다중 수준 관점에서 비즈니스 네트워크의 순환 제품 개발을 묘사함으로써 산업 네트워크 및 순환 경제 문헌에 기여한다. 연구 결과는 비즈니스 네트워크 내에서의 단순한 적응(Minor)과 복잡한 적응(Complex)을 보여주며, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">비즈니스 및 비비즈니스 행위자</span>의 서로 다른 역할에 대한 이해를 제공한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Adaptation</td>
+                  <td>어댑테이션 / 적응</td>
+                  <td class="text-sm">산업 네트워크 접근법(INA)의 핵심으로, 관계 파트너들이 상호 시너지를 내기 위해 자원의 속성이나 공정을 상대에게 맞추어 조정하는 행위입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resource Interaction</td>
+                  <td>자원 상호작용</td>
+                  <td class="text-sm">4R 모델(제품, 설비, 비즈니스 단위, 관계)에 따라 독립된 자원들이 파트너사의 자원들과 결합하고 개발되는 역동적인 상태입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Multi-level Perspective</td>
+                  <td>다중 수준 관점</td>
+                  <td class="text-sm">순환 경제 이행을 미시(개별 제품/공급망), 중시(비즈니스 네트워크), 거시(사회제도/규제/비비즈니스 환경) 레이어로 구분해 입체 분석합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Non-business Actor</td>
+                  <td>비비즈니스 행위자</td>
+                  <td class="text-sm">대학교, 사이언스 파크, 표준 협회 등 직접적인 거래 마진을 취하지 않고 국가 기금이나 표준 설정을 통해 네트워크 변화를 중개하는 주체입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회 및 세미나 발표에서 이 논문의 연구 가치와 한계를 <strong>1분 만에</strong> 청중에게 각인시킬 수 있도록 핵심 내용을 세 부분으로 요약했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">순환 제품 개발에서 다중 수준의 자원 어댑테이션과 행위자의 역할은?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">물리적 소재 교체는 단순 적응, 순환 폐쇄 루프는 거시 수준을 동반하는 복잡 적응이다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">INA 자원 상호작용 이론의 거시 환경/제도적 표준 영역으로의 결합 확장</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 비즈니스 네트워크 내의 자원 상호작용이 어떻게 미시-중시-거시 수준에 영향을 미치며, 이 과정에서 공급망 기업들과 중개/규제 기관 같은 비비즈니스 행위자들의 역할은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> 리사이클 섬유 혼합 같은 물리적 자원 변경은 비용에 따른 단순 적응(Minor)에 그치나, 대량 수거 체계 구축 및 산업 세탁 공정의 저온화 등은 국가 제품/위생 표준(SIS)에 묶여 있어 제도 변화를 요하는 복잡 적응(Complex)을 유발합니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 기존 산업 네트워크 접근법(INA)의 자원 상호작용 프레임워크를 거시 환경(국가 표준, 보조금 정책)으로 연결하여 확장했고, 가치 사슬 내 소재 비용 부담(제조사)과 공공 이익(사회 환경) 간의 가치 불일치를 규명해 공공 조달의 중요성을 제안했습니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "순환 제품 개발은 개별 기업의 부품 조정을 넘어, 네트워크의 장기적 정렬과 비비즈니스 행위자의 표준/정책 조율이 맞물려 발생하는 다중 수준 어댑테이션입니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          연구 모형과 주장의 실증적 논거를 뒷받침하기 위해 논문 본문 텍스트 내 실제 인용문과 정밀한 페이지 절 위치를 매핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">단순 및 복잡 적응의 다중 수준 발생</td>
+                <td class="text-sm italic text-slate-600">
+                  "...resource interaction in circular product development affects the business network (i.e. micro and meso levels) through minor and complex adaptations."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 97 (Sec. 7)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">리사이클 단가 상승에 따른 복잡 적응 장벽</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the adaptation to recycled materials may negatively impact economic value creation for the garment manufacturer, which needs low material costs to remain competitive. ... establishing circular resource flows... is a complex adaptation that requires increased long-term interaction..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 96 (Sec. 6)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">산업 표준에 기인한 제도적 복잡성</td>
+                <td class="text-sm italic text-slate-600">
+                  "...implementing changes in the laundry process is more challenging as the standards need to be reviewed and adapted by SIS and its technical committees. ... Therefore, this adaptation requires the inclusion of actors at all three levels (micro, meso and macro) and thereby contributes to increased complexity."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 95 (Sec. 5.3) & Page 96 (Sec. 6)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">비비즈니스 행위자의 네트워크 중개 역할</td>
+                <td class="text-sm italic text-slate-600">
+                  "By supporting companies with their knowledge and skills, these organisations enable knowledge transfer in the business network, and help to reduce uncertainties due to inadequate information... Such actors therefore act as coordinators for the network and provide access to resources that are novel to the network..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 97 (Sec. 7.1)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">지방정부 고객의 이중적/상충적 역할</td>
+                <td class="text-sm italic text-slate-600">
+                  "On the one hand, the local region acts as a customer that through public procurement, purchases products at the lowest price. On the other hand, the involvement of this actor as a policymaker and funder of research projects with the goal of advancing sustainability through CE is relevant since they have an impact in developing legislation..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 97 (Sec. 7.1)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 가설 프레임워크 및 구성 자원 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Framework & Resources</span>
+        </div>
+        
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Multi-Level Resource Interaction Framework (다중 수준 자원 상호작용 개념도)</h3>
+          
+          <div class="w-full bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 850 600" class="w-full h-auto">
+              <!-- Definitions of Markers -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+                </marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+                </marker>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444"/>
+                </marker>
+                <marker id="arrow-orange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b"/>
+                </marker>
+              </defs>
+
+              <!-- Level 3: Macro Level Background -->
+              <rect x="10" y="10" width="830" height="580" rx="12" fill="#fffbeb" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6 6"/>
+              <text x="30" y="35" font-weight="700" fill="#92400e" font-size="14">Macro Level: Business Environment (거시 수준: 비비즈니스 제도/정책 환경)</text>
+
+              <!-- Level 2: Meso Level Background -->
+              <rect x="210" y="80" width="610" height="490" rx="12" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <text x="230" y="105" font-weight="700" fill="#065f46" font-size="14">Meso Level: Business Network (중시 수준: B2B 관계 네트워크)</text>
+
+              <!-- Level 1: Micro Level Background -->
+              <rect x="390" y="130" width="190" height="390" rx="12" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="405" y="155" font-weight="700" fill="#3730a3" font-size="13">Micro Level: Project Dyads (미시 공급망)</text>
+
+              <!-- Macro Level Actors -->
+              <!-- University & Science Park -->
+              <rect x="30" y="80" width="160" height="70" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+              <text x="110" y="105" text-anchor="middle" font-weight="700" fill="#78350f" font-size="11">대학 & 사이언스 파크</text>
+              <text x="110" y="122" text-anchor="middle" fill="#92400e" font-size="9">프로젝트 중개, 지식 이전</text>
+              <text x="110" y="135" text-anchor="middle" fill="#92400e" font-size="9">평가 툴 제공 및 코디네이션</text>
+
+              <!-- Circular Change Agency -->
+              <rect x="30" y="200" width="160" height="70" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+              <text x="110" y="225" text-anchor="middle" font-weight="700" fill="#78350f" font-size="11">순환 체인지 대행사</text>
+              <text x="110" y="242" text-anchor="middle" fill="#92400e" font-size="9">순환 가이드라인 교육</text>
+              <text x="110" y="255" text-anchor="middle" fill="#92400e" font-size="9">리사이클 네트워크 연결</text>
+
+              <!-- SIS Standards -->
+              <rect x="30" y="470" width="160" height="70" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+              <text x="110" y="495" text-anchor="middle" font-weight="700" fill="#78350f" font-size="11">스웨덴 표준 협회 (SIS)</text>
+              <text x="110" y="512" text-anchor="middle" fill="#92400e" font-size="9">의류 기준 및 산업 세탁 규범</text>
+              <text x="110" y="525" text-anchor="middle" fill="#92400e" font-size="9">(SS 8760164, 8760120 등)</text>
+
+              <!-- Policymakers / Government -->
+              <rect x="630" y="25" width="180" height="45" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+              <text x="720" y="44" text-anchor="middle" font-weight="700" fill="#78350f" font-size="11">EU & 스웨덴 정부 정책자</text>
+              <text x="720" y="58" text-anchor="middle" fill="#92400e" font-size="9">CE 로드맵 수립 및 기금 출자</text>
+
+              <!-- Meso Level Actors -->
+              <!-- Component Supplier BU4 -->
+              <rect x="230" y="180" width="140" height="60" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+              <text x="300" y="205" text-anchor="middle" font-weight="700" fill="#064e3b" font-size="11">원사 공급사 (BU4)</text>
+              <text x="300" y="222" text-anchor="middle" fill="#047857" font-size="9">PF41 (방적 설비)</text>
+              <text x="300" y="233" text-anchor="middle" fill="#047857" font-size="8">리사이클 원사 가공</text>
+
+              <!-- Recycler BU5 -->
+              <rect x="30" y="330" width="160" height="70" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+              <text x="110" y="355" text-anchor="middle" font-weight="700" fill="#064e3b" font-size="11">리사이클러 (BU5)</text>
+              <text x="110" y="372" text-anchor="middle" fill="#047857" font-size="9">PF51(분류) / PF52(재생)</text>
+              <text x="110" y="385" text-anchor="middle" fill="#047857" font-size="9">섬유 분쇄 및 화학 재생</text>
+
+              <!-- B2B Customer BU7 (Local Region) -->
+              <rect x="630" y="180" width="170" height="70" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+              <text x="715" y="205" text-anchor="middle" font-weight="700" fill="#064e3b" font-size="11">지방정부 B2B고객 (BU7)</text>
+              <text x="715" y="222" text-anchor="middle" fill="#047857" font-size="9">의료기관 소유 (PF71 사용)</text>
+              <text x="715" y="235" text-anchor="middle" fill="#047857" font-size="9">자체 세탁소 보유 (PF72)</text>
+
+              <!-- B2B Customers BU8 (Private) -->
+              <rect x="630" y="300" width="170" height="70" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+              <text x="715" y="325" text-anchor="middle" font-weight="700" fill="#064e3b" font-size="11">민간 B2B고객 (BU8)</text>
+              <text x="715" y="342" text-anchor="middle" fill="#047857" font-size="9">의료시설 소유 (PF81)</text>
+              <text x="715" y="355" text-anchor="middle" fill="#047857" font-size="9">C사 세탁 아웃소싱</text>
+
+
+              <!-- Micro Level core Dyadic units -->
+              <!-- Fabric Manufacturer BU1 (A) -->
+              <rect x="405" y="175" width="160" height="60" rx="8" fill="#c7d2fe" stroke="#4f46e5" stroke-width="2"/>
+              <text x="485" y="200" text-anchor="middle" font-weight="700" fill="#1e1b4b" font-size="11">원단 제조사 (BU1 - A)</text>
+              <text x="485" y="215" text-anchor="middle" fill="#312e81" font-size="9">PF11 직조 / PF12 염색</text>
+              <text x="485" y="227" text-anchor="middle" fill="#4338ca" font-weight="700" font-size="9">단순 적응: 솔루션 염색</text>
+
+              <!-- Garment Manufacturer BU2 (B) -->
+              <rect x="405" y="295" width="160" height="60" rx="8" fill="#c7d2fe" stroke="#4f46e5" stroke-width="2"/>
+              <text x="485" y="320" text-anchor="middle" font-weight="700" fill="#1e1b4b" font-size="11">완제품 제조사 (BU2 - B)</text>
+              <text x="485" y="335" text-anchor="middle" fill="#312e81" font-size="9">PF21 (봉제 설비)</text>
+              <text x="485" y="347" text-anchor="middle" fill="#b91c1c" font-weight="700" font-size="8">마찰: 신소재 고단가 부담</text>
+
+              <!-- Laundry Service Provider BU3 (C) -->
+              <rect x="405" y="415" width="160" height="60" rx="8" fill="#c7d2fe" stroke="#4f46e5" stroke-width="2"/>
+              <text x="485" y="440" text-anchor="middle" font-weight="700" fill="#1e1b4b" font-size="11">세탁/렌탈 업체 (BU3 - C)</text>
+              <text x="485" y="455" text-anchor="middle" fill="#312e81" font-size="9">PF31 (산업 세탁 설비)</text>
+              <text x="485" y="467" text-anchor="middle" fill="#4338ca" font-weight="700" font-size="9">복잡 적응: 저온화 세탁</text>
+
+
+              <!-- ARROWS & INTERACTIONS -->
+              <!-- Policy funding to science park -->
+              <path d="M 720 70 L 720 100 L 190 100" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 2" marker-end="url(#arrow-orange)"/>
+              <text x="350" y="93" fill="#b45309" font-size="9" font-weight="700">국가 연구비 재정 지원</text>
+
+              <!-- Science park support to micro units -->
+              <path d="M 110 150 L 110 170 L 400 170" fill="none" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+              <text x="215" y="165" fill="#b45309" font-size="9">공동 프로젝트 조정 & 평가 도구 제공</text>
+
+              <!-- Circular Change Agency to Recycler & Fabric -->
+              <path d="M 110 270 L 110 320" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <path d="M 190 235 L 230 235" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <text x="120" y="295" fill="#475569" font-size="8">순환 네트워크 매칭</text>
+
+              <!-- Recycler to Yarn Supplier -->
+              <path d="M 110 400 L 110 440 L 250 440 L 250 240" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+              <text x="140" y="435" fill="#047857" font-weight="700" font-size="9">1. 리사이클 재생 섬유 공급</text>
+
+              <!-- Yarn Supplier to Fabric Manufacturer -->
+              <path d="M 370 210 L 400 210" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+              <text x="375" y="200" fill="#047857" font-weight="700" font-size="8">2. 리사이클 원사</text>
+
+              <!-- Fabric to Garment to Laundry (Micro chain) -->
+              <path d="M 485 235 L 485 290" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M 485 355 L 485 410" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Laundry C & Customer to Recycler (Closed-loop collection) -->
+              <path d="M 405 450 L 350 450 L 350 365 L 195 365" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+              <text x="210" y="360" fill="#1d4ed8" font-size="9">의류 사용 후 수거 루프 (Closed-loop)</text>
+
+              <!-- SIS Standards to Laundry & Customer -->
+              <path d="M 180 505 L 485 505 L 485 480" fill="none" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+              <text x="230" y="500" fill="#b91c1c" font-weight="700" font-size="9">세탁 위생 가이드라인 제약 (표준화 마찰)</text>
+
+              <!-- Public procurement interaction -->
+              <path d="M 630 215 L 590 215 L 590 325 L 570 325" fill="none" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+              <text x="592" y="280" fill="#b91c1c" font-size="8" font-weight="700" transform="rotate(90, 592, 280)">공공 조달 (최저가 단가 마찰)</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">미시 수준 자원 (Micro-level)</span>
+                <span class="text-xs text-slate-400 font-semibold">Project Dyad</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">포컬 공급망 내 실질적 자원 상호작용</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 프로젝트 파트너인 원단사(A), 제조사(B), 세탁사(C) 간에 제품의 물리적 속성을 맞추고 염색/직조/세탁 공정 인터페이스를 맞추기 위해 가하는 어댑테이션 레이어.</p>
+              <p class="text-sm text-slate-700"><strong>실제 예시:</strong> A사의 weaving(PF11), dyeing(PF12) 시설을 리사이클 원사 및 저탄소 솔루션 염색 공정에 맞추어 조정하는 것.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 공정 기술 변경은 비교적 단순 적응(Minor)에 해당하여 설비의 대대적 폐기가 필요 없으나, 완제품 제조사의 소재 마진 압박(마찰)을 극복해야 하는 숙제가 따릅니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">중시 수준 네트워크 (Meso-level)</span>
+                <span class="text-xs text-slate-400 font-semibold">Business Network</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">확장된 B2B 관계 네트워크 적응</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 순환 경제의 핵심인 쇠퇴 제품 수거 및 재생 원사 수급을 가능하게 하기 위해, 기존 파트너십을 넘어 원사 제조사, 리사이클러, 공공 및 민간 B2B 고객사로 정렬 범위를 확대하는 레이어.</p>
+              <p class="text-sm text-slate-700"><strong>실제 예시:</strong> C사(세탁)가 회수한 폐기 가운을 리사이클러(BU5)에게 안정적으로 공급하고, 이를 원사사(BU4)가 가공하여 다시 A사로 순환시키는 가치 사슬 연계.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 순환 루프가 제대로 작동하기 위해서는 고단가를 용인해 주는 고객 교육과 사용 후 가운 수거의 물류적 협업(장기적 관계 약속)이 필요합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">거시 수준 제도 (Macro-level)</span>
+                <span class="text-xs text-slate-400 font-semibold">Business Environment</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">비비즈니스 행위자 & 공공 제도 표준</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 개별 기업이나 공급망이 임의로 통제할 수 없는 국가 표준 규칙(SIS), 거시 기금 정책(EU/스웨덴 정부), 전문 연구 지원 주체(대학/사이언스 파크) 등 비비즈니스 층위.</p>
+              <p class="text-sm text-slate-700"><strong>실제 예시:</strong> 의료 위생 표준(SIS)에 명시된 온도 저하 제약 완화 시도, 지역 정부의 플랫폼 펀딩, 사이언스 파크의 Abductive 리서치 코디네이션.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 제약으로 작용하던 제도 표준을 개정하고 공공 자금을 수입하는 것이, 네트워크 내부의 마찰(Friction)을 Destabilize(Destabilizing)하여 급진적 혁신을 촉진하게 됩니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">어댑테이션 구분 (Adaptation)</span>
+                <span class="text-xs text-slate-400 font-semibold">Minor vs Complex</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">단순 적응(Minor)과 복잡 적응(Complex)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자원 조합의 변화가 가져오는 인터페이스 마찰의 강도(Heaviness)와 파생적 관계 범위(Variety)에 따른 분류.</p>
+              <p class="text-sm text-slate-700"><strong>단순 적응:</strong> 소재 투입 및 일부 공정 변경(Cost-based, 설비 용도 고수).</p>
+              <p class="text-sm text-slate-700"><strong>복잡 적응:</strong> 다자간 수거 물류 망 정렬, 세탁 저온 가이드라인 통과를 위한 SIS 표준 개정(Multi-level 연계 필수).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 단순 적응은 비용에 따라 즉시 실행되나 순환의 궁극적 안착을 보장치 못하므로, 복잡 적응을 향한 제도 협력이 병행되어야 순환 경제가 이룩됩니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          본 질적 단일 사례 연구의 자료 수집 및 abductive 분석 방법론을 타 연구자가 다른 환경에서 <strong>추종 재현</strong>할 수 있도록 타임라인 형태로 세분화했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">사례 설계 및 맥락적 타겟팅</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  지속가능성 이행 요구가 높은 스웨덴의 텍스타일/의류(T/A) 산업과 그 중에서도 성장세인 보건의료용 워크웨어 분야(Surgical shirt, Trousers)를 사례로 확정함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 91, Section 3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">장기 참여 관찰 수행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  제1저자가 2020년 4월부터 2021년 12월까지 약 20개월간 제품 개발 혁신 프로젝트에 직접 '환경·경제성 평가자' 역할로 밀착 참관. 회의 27회와 워크숍 2회에서 상세 실시간 관찰 노트 기록.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 91, Section 3.1 & Appendix B</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">반구조화 심층 인터뷰 & 구성원 검토</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  핵심 참여자인 원단사 비즈니스 개발자, 지역정부 환경 전략가, 의류 제조사 관리자 등 3인 대상 Zoom 인터뷰(30~60분) 집행. NVivo 전사 후 피드백 및 member check를 통해 데이터 신뢰성 교정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 91, Section 3.1 & Appendix A</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">문서 데이터 및 사전 설문 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  스웨덴 SIS 표준(SS 8760164, 8760120 등) 텍스트 분석, EU/스웨덴 순환 경제 액션플랜 수집, 4개 협력사 참여 의도를 계량화하기 위한 사전 온라인 설문 진행.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 91, Section 3.1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">체계적 결합법(Systematic Combining) 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  이론(INA 4R 모델 및 CE 다중수준 관점)과 질적 현실 데이터를 분석 단계 내내 쉼 없이 교차 대조(Abductive approach)하여 가치 사슬 내 자원 상호작용 맵과 레벨별 매커니즘 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 91-92, Section 3.2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">Tracy의 8대 품질 기준 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  주제의 시의성(Worthy topic), 분석의 엄격성(Rich rigor), 연구자의 진정성(Sincerity), 삼각측정을 통한 타당성(Credibility), 학술/실무 기여(Resonance & Contribution) 등 질적 연구 사후 자기평가 실시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 92, Section 3.3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            질적 케이스 분석 프레임워크와 SIS 표준 분석 등은 다른 국가 사례(예: 한국 환경 산업 연구)에도 동일하게 이식할 수 있으나, 제1저자가 2년간 스웨덴 국가 프로젝트 내부 인원으로서 참관하며 쌓은 공급망 파트너 신뢰 기반의 질적 데이터를 타국 외래 연구자가 온전히 복제하기는 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 7.3)에서 연구진이 규정한 분석의 내재적 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>지리적 및 제도적 편향성:</strong> 스웨덴이라는 환경 선도국가의 특화된 공공 지원 생태계에서만 진행된 사례로, 유사 지원금이나 친환경 의식이 부족한 여타 국가 네트워크에 기계적으로 적용하기 곤란함.
+              </li>
+              <li>
+                <strong>텍스타일 워크웨어 세부 분야 국한:</strong> 제조업 중에서도 특히 병원용 의료 가운 분야에 초점을 두어, 타 소비재 패션 의류나 자본 집약도가 전혀 다른 제조업 전반으로의 일반화에 한계가 존재함.
+              </li>
+              <li>
+                <strong>공급망 협업(SCC)의 세부 차원 미분리:</strong> 협업 활동을 공급업체 측과 고객사 측 등 세부 방향성별로 나누어 분석하지 않고 대집단 융합형으로 해석해, 영역별 개별 적응 역학을 보지 못함.
+              </li>
+              <li>
+                <strong>주요 행위자 인터뷰의 미반영 (자료 누락):</strong> 세탁 서비스 및 렌탈을 전담하는 C사가 워크숍에는 참가했으나 개별 심층 인터뷰에는 부응하지 못해, 이들의 내부 리스크 의사결정 프로세스를 완전히 밀착 전사하지 못함.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">이론적 메커니즘과 질적 자료 수집 구조에 대한 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 프로젝트 경계 편향 (Project-boundary Bias)</span>
+                <p class="text-sm text-slate-700">
+                  이 사례는 공공 자금의 지원을 받아 사이언스 파크가 주도한 **'일시적 혁신 프로젝트'** 버퍼 하에 있습니다. 자금 지원과 학술적 약속이 끝난 후 상업적인 '시장 논리'로 회귀했을 때도 개별 제조사와 세탁사가 손실을 보완하며 순환 루프를 영구히 보존할지 불투명하며, 프로젝트 기간에만 성립된 한시적 협력일 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 공공 조달의 위선 (Procurement Dilemma)</span>
+                <p class="text-sm text-slate-700">
+                  지역 정부(D)는 환경 정책입안자로서 순환 경제 전략을 지지하나, 한편으로는 세금을 아끼기 위해 조달 낙찰 시 **최저가 입찰제**를 준수하는 구매 고객(BU7)입니다. 조달 입찰 규격에 순환 가치 반영이 의무화되지 않는다면, 완제품사(B)는 고단가의 재생 원사 도입 비용을 감당하지 못하고 도중 탈락할 모순적 구조가 무시되었습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 핵심 권력자 C사의 리스크 회피</span>
+                <p class="text-sm text-slate-700">
+                  세탁/임대 사업자 C사는 의류를 소유하고 대여하는 실질적 권력자(Garment owner)이나 인터뷰에서 진술이 빠졌습니다. 환경을 위해 세탁 온도를 낮췄을 때 발생할 병원용 세균 감염 관리의 의료적 리스크 및 소송 책임은 고스란히 C사가 뒤집어쓰게 되므로, 이들의 보수적인 반발(Friction)로 인해 순환 루프가 사장될 실질적 확률이 높습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 표준 개정의 시간적 관성 (Inertia)</span>
+                <p class="text-sm text-slate-700">
+                  저자들은 SIS 기술위원회를 통한 표준 개정 조정안을 낙관하지만, 공공 의료 위생과 직결되는 국가 표준을 조정하는 규제 비용(Regulatory cost)과 관료주의 마찰은 개별 공급망 합의보다 훨씬 긴 수년 단위의 물리적 시차(Time lag)를 유발하므로 상용화 실현성에는 거대한 간극이 존재합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>Circular product development from a multi-level perspective: Adaptations in business networks</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

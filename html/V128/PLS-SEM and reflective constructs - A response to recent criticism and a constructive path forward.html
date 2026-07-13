@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLS-SEM and Reflective Constructs: Response & Path Forward - IMM 2025</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2025)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Methodological Response</div>
+        <div class="badge badge-secondary text-white style-label">B2B Research Methods</div>
+      </div>
+      
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            PLS-SEM and reflective constructs:<br>
+            <span class="text-cyan-400">A response to criticism and a constructive path forward</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Peter Guenther, Miriam Guenther, Christian M. Ringle, Ghasem Zaefarian, Severina Cartwright
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            PLS-SEM과 반영적 측정 모델:<br>
+            <span class="text-indigo-300">최근 비판에 대한 대응 및 건설적인 발전 방향</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            반영적 측정이 공통 요인 모델에 국한된다는 비판을 반박하고, 개념(측정 이론)과 추정(통계 모델)을 분리하는 프레임워크 및 다중 방법론적 구조방정식(Multimethod SEM) 대안 제시
+          </p>
+        </div>
+      </div>
+      
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              PM
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">반영적 측정 사양은 개념적 영역의 결정이며, PLS-SEM의 컴포지트 추정은 이를 실용적으로 대리하는 훌륭한 대안입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          분석 시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+      
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This article addresses criticisms asserting that reflective construct measurement and its associated evaluation criteria are unsuitable for partial least squares structural equation modeling (PLS-SEM). More specifically, critics contend that reflective measurement models correspond exclusively to common factor models, a premise that is both inaccurate and misleading. Reflective measurement models represent theoretically grounded and conceptualized constructs. Statistical methods such as common factor model estimation, composite model estimation, and sum score regression enable researchers to estimate method-specific proxies that serve as approximations for reflective constructs theoretically established conceptual constructs in empirical research. These proxies vary depending on the statistical models and assumptions inherent to each method. In this context, it is important to highlight that the use of reflective evaluation criteria is not restricted to common factor models. When applied to composite model estimation, it does not compromise the validity of the results. Moreover, this article advocates for embracing the complementary strengths of diverse SEM methods within a multimethod approach, rather than positioning one method in opposition to another. We believe that this contribution provides critical insights and guidance, fostering advancements in SEM methodology, and its practical applications."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "본 논문은 반영적 측정 모델(reflective construct measurement)과 이와 관련된 평가 기준이 부분최소제곱 구조방정식모델링(PLS-SEM)에 부적합하다는 최근의 비판들에 대응한다. 구체적으로, 비판론자들은 반영적 측정 모델이 오직 공통 요인 모델(common factor models)에만 부합한다고 주장하지만, 이러한 전제는 부정확하며 오도될 여지가 있다. 반영적 측정 모델은 이론적으로 토대를 두고 개념화된 구성요소(constructs)를 의미한다. 공통 요인 모델 추정(common factor model estimation), 컴포지트 모델 추정(composite model estimation), 합산 점수 회귀(sum score regression)와 같은 통계적 방법들은 연구자들이 실증 연구에서 이론적으로 설정된 개념적 변수를 대리하는 '방법론 특화적 프록시(method-specific proxies)'를 추정할 수 있게 돕는다. 이러한 프록시(대리치)는 각 방법론 고유의 통계적 모델과 가설에 따라 달라진다. 이 맥락에서, 반영적 평가 기준(reflective evaluation criteria)의 사용이 공통 요인 모델에만 국한되지 않는다는 점을 강조하는 것이 중요하다. 반영적 평가 기준이 컴포지트 모델 추정에 적용되더라도 결과의 유효성을 훼손하지 않는다. 나아가, 본 논문은 하나의 방법론을 다른 방법론과 대립 구도로 놓기보다, 다양한 구조방정식(SEM) 방법론들의 상호 보완적인 강점을 다중 방법론적 접근(multimethod approach) 안에서 수용할 것을 옹호한다. 본 기고문이 구조방정식 모델링 방법론의 발전과 실무적 적용을 촉진하며, 연구자들에게 중요한 통찰과 지침을 제공할 것이라 믿는다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Reflective Construct Measurement</td>
+                  <td>반영적 측정 모델</td>
+                  <td class="text-sm">구인(변수)이 지표들의 원인이라는 측정 이론상의 모델링 방식으로, 통계 모형(공통 요인)의 한 형태와 구분해야 합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Common Factor Model</td>
+                  <td>공통 요인 모델</td>
+                  <td class="text-sm">지표들의 공통 분산만을 latent variable로 구성하고 고유 분산(오차)을 완전 분리하는 통계적 방식입니다(CB-SEM의 뼈대).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Composite Model (Composites)</td>
+                  <td>컴포지트 모델 (컴포지트)</td>
+                  <td class="text-sm">오차 배제 없이 지표들의 선형 결합(linear combination)으로 성분을 계산하는 통계적 방식입니다(PLS-SEM의 뼈대).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Method-specific Proxies</td>
+                  <td>방법론 특화적 프록시 (대리치)</td>
+                  <td class="text-sm">측정하려는 실제 '개념적 변수'를 실증 분석에서 구현하기 위해 통계 모델이 생산해 낸 대리 변수들입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Metrological Uncertainty</td>
+                  <td>측정학적 불확실성 (유효성 갭)</td>
+                  <td class="text-sm">원래 측정하려는 현실 개념과 통계 기법으로 얻은 대리치(프록시) 사이에 필연적으로 발생하는 오차 범위와 유효성 갭입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Multimethod Approach</td>
+                  <td>다중 방법론적 접근</td>
+                  <td class="text-sm">특정 구조방정식 기법의 독점을 막고, CB-SEM과 PLS-SEM의 상호 강점(적합도 vs 예측력)을 연계하여 교차 검증하는 방식입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 심사 과정에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 핵심 논리를 구조화했습니다.
+          </p>
+          
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">반영적 측정 = 공통 요인 모델인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">측정 사양과 추정 기법의 카테고리 분리</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">이분법적 갈등 극복과 다중 방법론 표준</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 반론 매커니즘</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 비판진(Henseler et al., 2025)은 반영적 측정 모델이 오직 공통 요인 모델과 수학적으로 동치이므로 PLS-SEM 추정은 원천 무효라고 주장하는가?</li>
+                  <li><strong>핵심 발견:</strong> 반영적 측정은 '측정 이론적(measurement-theoretic)' 설계 단계이며, '통계학적 추정(estimation)' 단계와 엄격히 다릅니다. CB-SEM, PLS-SEM, 합산 점수 등은 모두 개념적 변수를 대리하는 '프록시(Proxy)'를 각각 다른 수학적 가정을 통해 계산해내는 대등한 도구들입니다.</li>
+                  <li><strong>이론/실무 기여:</strong> PLS-SEM이 공통 요인 데이터 세트에 대해 미세한 로딩/AVE 팽창(평균 0.05)을 보이지만, 실제 마케팅 연구 DB(1825개 AVE 값)에 시뮬레이션을 적용한 결과 87%는 판단의 왜곡이 발생하지 않는 수준으로 경미합니다. 방법론적 대립보다 모델 적합도(CB-SEM)와 예측력(PLS-SEM)을 함께 쓰는 <strong>다중 방법론(Multimethod SEM)</strong>을 제안합니다.</li>
+                </ul>
+              </div>
+              
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "반영적 측정은 공통 요인 통계 모형에 국한되지 않으며, PLS-SEM은 실용적인 대리치(Proxy)로서 유효하므로 대립을 멈추고 두 기법의 강점을 연계한 다중 방법론으로 진화해야 합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          학술적 방어력을 입증하기 위해 Henseler 등의 비판에 대한 저자들의 주요 변론 근거와 논문 내 원문 위치를 매핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">반영적 측정과 공통 요인 모델의 카테고리 불일치</td>
+                <td class="text-sm italic text-slate-600">
+                  "...critics contend that reflective measurement models correspond exclusively to common factor models, a premise that is both inaccurate and misleading. Reflective measurement models represent theoretically grounded and conceptualized constructs."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / Page 2 (Sec. 2)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">개념-프록시 분리 프레임워크</td>
+                <td class="text-sm italic text-slate-600">
+                  "...Rigdon (2012) developed the concept of a proxy framework, which differentiates between conceptual variables – that is, the proxies representing these conceptual variables in statistical models (i.e., the constructs) – and the indicators, which are linked to the proxies through mathematical operations..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 2 (Sec. 2, Fig. 1)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">미지 세팅에서의 PLS-SEM의 상대적 안전성</td>
+                <td class="text-sm italic text-slate-600">
+                  "...results show that the mean absolute error in path coefficient estimates is nearly twice as high when using CB-SEM to estimate composite models than when using PLS-SEM to estimate common factor models... 'PLS-SEM seems to be the safer choice... when the underlying model type is unknown.'"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 3 (Sec. 2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">로딩 팽창 편향의 경미한 실질적 영향력</td>
+                <td class="text-sm italic text-slate-600">
+                  "...when assuming an average loading inflation of 0.05 units... 87% of all constructs would still achieve convergent validity if the AVE threshold is adjusted to 0.573, reflecting a correction factor of 0.05 added to the common loading threshold of 0.707."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 4 (Sec. 3)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">다중 방법론(Multimethod) 및 강건성 테스트 지향</td>
+                <td class="text-sm italic text-slate-600">
+                  "Given the inherent uncertainty in real-life data settings... adopting a complementary perspective (methods A and B) rather than a mutually exclusive stance (A or B) seems more prudent... we recommend that business marketing researchers consider the different methods as tools within a methodological toolbox, and adopt a multimethod SEM approach."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 5 (Sec. 5)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">경영 제언의 필수요건인 out-of-sample 예측력</td>
+                <td class="text-sm italic text-slate-600">
+                  "...demonstrating a theoretically established model's predictive power is highly critical from a practical viewpoint... path analysis with composite scores has the advantage of directly estimating the relationship of the observed scores."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 6 (Sec. 5) / Page 3 (Sec. 2)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables (Modified for Methodological Response) -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 개념-프록시(Concept-Proxy) 논리 모델 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Logic</span>
+        </div>
+        
+        <!-- Research Model SVG Block (Conceptual Proxy Framework) -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Concept-Proxy Framework (개념-대리 변수 추정 아키텍처)</h3>
+          
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 350" class="w-full h-auto">
+              <!-- Background Grid Guide (invisible) -->
+              
+              <!-- 1. Theoretical Layer (Left) -->
+              <rect x="20" y="80" width="220" height="150" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+              <text x="130" y="115" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="14">이론 영역 (Theoretical Layer)</text>
+              <line x1="30" y1="130" x2="230" y2="130" stroke="#cbd5e1" stroke-width="1"/>
+              
+              <rect x="40" y="150" width="180" height="60" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 3" stroke-width="1.5"/>
+              <text x="130" y="175" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">개념적 변수 (Concept)</text>
+              <text x="130" y="195" text-anchor="middle" fill="#64748b" font-size="10">직접 측정 불가 / 이론적 구상</text>
+
+              <!-- 2. Statistical Proxy Layer (Middle) -->
+              <rect x="300" y="40" width="240" height="250" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="420" y="70" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">통계적 대리 영역 (Statistical Proxy)</text>
+              <line x1="310" y1="85" x2="530" y2="85" stroke="#a7f3d0" stroke-width="1"/>
+              
+              <!-- Sub-models (Composites vs Factors) -->
+              <rect x="320" y="105" width="200" height="70" rx="6" fill="#fff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="420" y="130" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="12">컴포지트 프록시 (Composite)</text>
+              <text x="420" y="148" text-anchor="middle" fill="#0284c7" font-size="9">선형 가중 결합 (PLS-SEM / GSCA)</text>
+              <text x="420" y="162" text-anchor="middle" fill="#0369a1" font-weight="600" font-size="9">★ 예측력 & 안전성 우수</text>
+
+              <rect x="320" y="195" width="200" height="70" rx="6" fill="#fff" stroke="#6366f1" stroke-width="2"/>
+              <text x="420" y="220" text-anchor="middle" font-weight="700" fill="#4f46e5" font-size="12">공통 요인 프록시 (Factor)</text>
+              <text x="420" y="238" text-anchor="middle" fill="#6366f1" font-size="9">공통 분산 추출 (CB-SEM / LISREL)</text>
+              <text x="420" y="252" text-anchor="middle" fill="#4f46e5" font-weight="600" font-size="9">★ 모델 전체 적합도 평가</text>
+
+              <!-- 3. Empirical Indicators Layer (Right) -->
+              <rect x="600" y="80" width="180" height="150" rx="8" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2"/>
+              <text x="690" y="115" text-anchor="middle" font-weight="700" fill="#4c1d95" font-size="14">실증 데이터 (Data)</text>
+              <line x1="610" y1="130" x2="770" y2="130" stroke="#ddd6fe" stroke-width="1"/>
+              
+              <rect x="620" y="150" width="140" height="60" rx="6" fill="#fff" stroke="#8b5cf6" stroke-width="1.5"/>
+              <text x="690" y="175" text-anchor="middle" font-weight="700" fill="#5b21b6" font-size="13">지표 (Indicators)</text>
+              <text x="690" y="195" text-anchor="middle" fill="#7c3aed" font-size="10">설문 문항 / 관측치</text>
+
+              <!-- Connectors & Arrows -->
+              <!-- Validity Gap (Double side dotted arrow between Concept and Middle box) -->
+              <path d="M240 155 L 290 155" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="3 3"/>
+              <path d="M290 155 L 285 150 M 290 155 L 285 160 M 240 155 L 245 150 M 240 155 L 245 160" fill="none" stroke="#ef4444" stroke-width="2"/>
+              <text x="265" y="145" text-anchor="middle" fill="#ef4444" font-weight="700" font-size="10">유효성 갭</text>
+              <text x="265" y="180" text-anchor="middle" fill="#b91c1c" font-size="8">측정 불확실성</text>
+
+              <!-- Indicators -> Composite (Formation arrow) -->
+              <path d="M620 160 L 530 145" fill="none" stroke="#0ea5e9" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+              
+              <!-- Factor -> Indicators (Causal arrow) -->
+              <path d="M530 215 L 620 190" fill="none" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arrow-indigo)"/>
+
+              <!-- Measurement Specification connection bracket (Top) -->
+              <path d="M130 80 L 130 20 L 420 20 L 420 35" fill="none" stroke="#0f172a" stroke-dasharray="2 2" stroke-width="1.5" marker-end="url(#arrow-dark)"/>
+              <text x="275" y="15" text-anchor="middle" fill="#0f172a" font-weight="700" font-size="11">반영적 사양 (이론적 정의)</text>
+
+              <!-- Definition of Arrow Markers -->
+              <defs>
+                <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0ea5e9"/>
+                </marker>
+                <marker id="arrow-indigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#6366f1"/>
+                </marker>
+                <marker id="arrow-dark" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="text-xs text-slate-500 text-center">반영적 측정 specification은 개념과 지표 간의 <strong>이론적 방향성</strong>일 뿐이며, 이를 수학적 <strong>성분(Composite)</strong>으로 조립하여 대리하는지 혹은 <strong>공통 요인(Factor)</strong>으로 추출하는지는 통계적 도구 선택에 불과합니다.</p>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Card 1: 개념적 변수 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">이론의 추상체</span>
+                <span class="text-xs text-slate-400 font-semibold">Concept</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">개념적 변수 (Conceptual Variable)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 현실 세계에 실존하는 심리적, 행동적, 경제적 현상을 이론화한 완전하고 이상적인 존재(예: 브랜드 만족도, 조직 충성도).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 직접 관측이 불가하며, 지표들을 결합하여 추정한 '프록시'를 통해 간접적으로만 그 존재를 통계적으로 모방함.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>메트롤로지(측정학) 배경:</strong> Rigdon(2012)의 프록시 프레임워크에 기초하며, 어떠한 완벽한 통계 기법도 개념적 변수를 완전히 왜곡 없이 100% 추정할 수는 없다는 <strong>유효성 갭</strong>을 전제합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2: 프록시 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">통계적 실체</span>
+                <span class="text-xs text-slate-400 font-semibold">Proxy</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">대리 변수 (Proxy / Statistically derived construct)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 현실의 불완전한 데이터와 지표들을 바탕으로 특정 통계 모형을 투영하여 도출해 낸 통계적 변수(Construct).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 성분 가중치의 곱(Composite)이나 공통 분산 추출(Factor)로 연산된 수치화된 요인 점수(Factor score) 또는 컴포지트 점수.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>학술적 핵심 논점:</strong> 비판진은 "반영적 사양은 무조건 Factor 형태의 프록시여야만 한다"고 독단적 주장을 전개한 반면, 저자들은 composite 프록시 역시 반영적 사양을 훌륭히 대변할 수 있음을 입증합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3: 반영적 측정 사양 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">측정 모델링 사양</span>
+                <span class="text-xs text-slate-400 font-semibold">Reflective Specification</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">반영적 측정 사양 (Reflective Specification)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 개념적 변수가 원인이고 지표가 그 개념의 상태를 외적으로 방출하는 결과적 징후라는 이론적 가정.</p>
+              <p class="text-sm text-slate-700"><strong>평가 지표:</strong> 개별 적재값(loadings), 수렴타당성(AVE), 내적 일관성 신뢰도($\rho_A$, $\rho_C$, Cronbach's $\alpha$), 판별타당성(HTMT).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 이론:</strong> Jarvis et al. (2003) 등의 가이드를 따르며, 이는 통계 기법 이전의 문제로 설문 문항의 디자인과 이론적 관계 수립 단계에 속합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4: 공통 요인 vs 컴포지트 추정 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">추정 기법의 이원화</span>
+                <span class="text-xs text-slate-400 font-semibold">Factor vs Composite</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">추정 기법 (Common Factor vs Composite Model)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>공통 요인 (Factor Model):</strong> 지표들 간의 교차 공분산만을 활용하여 고유 분산을 오차로 제거하는 통계적 방식 (CB-SEM).</p>
+              <p class="text-sm text-slate-700"><strong>컴포지트 (Composite Model):</strong> 오차 항 분산의 분리 없이 지표들의 전체 정보 분산을 선형 조합으로 가중 합산하는 방식 (PLS-SEM).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>통계학적 비교:</strong> 데이터 생성 과정이 불명확할 때는 PLS-SEM의 컴포지트 추정이 CB-SEM의 요인 추정보다 왜곡(Bias)이 2배가량 적어 실세계 데이터 분석 시 더 안전한 대안입니다(Cho et al. 2022).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. 논평 및 실증 재분석 절차</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 연구진들이 Henseler 등의 비판을 학술적으로 무력화하기 위해 수행한 <strong>데이터 재분석 및 논증 추종 절차</strong>를 타임라인으로 상세 분해했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">비판진의 논점 분석 및 가치 전제 규명</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Henseler et al. (2025)이 제기한 PLS-SEM 반영적 측정 무용론의 핵심 전제가 '반영적 측정 = 공통 요인 모델'이라는 독단적 정의에서 출발했음을 분석하고 타겟 쟁점을 명확화함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 1 & 2 (Page 2)</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">개념과 통계의 학술적 분리 증명</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Rigdon (2012)의 프록시 프레임워크와 측정학(Metrology)의 원칙을 바탕으로, 이론적 구인(Concept)과 그것을 통계로 표현하는 프록시(Proxy) 간에는 필연적으로 유효성 갭이 존재하며, 컴포지트 또한 훌륭한 프록시임을 논증함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 2 (Pages 2-3)</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">실증 마케팅 논문 데이터베이스(DB) 확보</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  기출판된 Sarstedt et al. (2022)의 30개 주요 마케팅 저널 문헌 리뷰 결과를 수집하여, 239개 게재 논문(486개 연구 모델)에서 총 1,825개의 실제 AVE 값을 확보함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3 (Page 4)</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">로딩 편향에 따른 수렴 타당성 판단 왜곡 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Cho et al. (2022) 등의 시뮬레이션 결과에서 도출된 PLS-SEM의 평균 로딩 팽창(loading inflation) 평균치 0.05를 적용, 기존 수렴타당성 기각선(0.50)을 0.573으로 극단적 보정했을 때 대다수 연구(87% 이상)의 결론이 여전히 안전함을 입증함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3 & Figure 2 (Page 4)</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">다중 방법론(Multimethod SEM) 프로토콜 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  CB-SEM의 전체 모델 적합도 평가와 PLS-SEM의 out-of-sample 예측력 평가(PLSpredict, CVPAT)를 통합적으로 조율하고, 결과의 불일치를 모형 정교화로 유도하는 하이브리드 검증 프로토콜을 최종 제시함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 5 (Pages 5-6)</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">완전 재현 가능 (Fully Replicable)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            논증 논리에 사용된 모든 데이터 셋과 시뮬레이션 계수(loading inflation 0.05 등)는 이미 공개된 참고 문헌들을 통해 명확히 정의되어 있으므로, 엑셀이나 간단한 통계 패키지만으로도 논문의 AVE 분석결과를 100% 동일하게 재현할 수 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 직간접적으로 자인한 연구 및 주장의 한계점입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>시뮬레이션과 실세계 데이터 간 괴리:</strong> 논쟁 방어에 인용한 로딩 팽창 데이터가 엄격한 인공적 시뮬레이션 기반이어서, 잡음(Noise)과 복잡한 선형성이 얽힌 현실 마케팅 현장에 100% 동일한 편향 수치로 투영된다고 장언하기 어렵습니다.
+              </li>
+              <li>
+                <strong>유효성 갭(Validity Gap) 측정의 절대적 불가성:</strong> 과학철학 및 측정학의 관점을 도입했으나, 현실의 연구자가 자신이 추정한 프록시와 완벽한 이론 속 개념 간의 유효성 갭의 정밀한 수치적 크기를 계산하여 입증하는 것은 현실적으로 불가능합니다.
+              </li>
+              <li>
+                <strong>다중방법론 선택에서의 연구자 편향성:</strong> 다중 방법론적 접근을 채택하더라도 기법 분석의 흐름 속에서 연구자의 다양한 미시적 선택(척도 수정 등)이 개입되므로 완벽한 객관성 유지는 어렵습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked /> 
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문의 연구 설계 및 옹호 논리를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 이해관계 상충 (Conflict of Interest)</span>
+                <p class="text-sm text-slate-700">
+                  공저자 중 Christian M. Ringle은 전 세계 PLS-SEM 연구의 주류 패키지인 <strong>SmartPLS의 개발사 주주</strong>로 직접적인 상업적/금융적 이해를 지니고 있습니다. Henseler 등의 비판(PLS-SEM 반영적 구인 무용론)은 SmartPLS 비즈니스 모델에 치명적이므로, 이를 방어하기 위해 지나치게 PLS-SEM의 긍정적인 면만을 옹호하고 CB-SEM의 공통 요인 모형을 필요 이상으로 폄하했을 주관성 편향(Subjectivity Bias)이 심각하게 의심됩니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 로딩 팽창의 사후적(post-hoc) 합리화</span>
+                <p class="text-sm text-slate-700">
+                  PLS-SEM이 로딩값을 팽창시켜 부적절한 설문 문항을 타당한 것으로 속일 위험성에 대한 비판을 "기각 임계값(AVE)을 0.573으로 보정해도 87%는 판단이 바뀌지 않는다"로 일방 방어한 것은 사후적 끼워맞추기입니다. 탈락한 13%의 연구들은 실증적으로 왜곡된 결론을 유포했을 수 있는데, 이 학술적 타당성 오류를 'trivial(경미한 수준)'로 일축하는 것은 학문적 무책임에 가깝습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 다중방법론(Multimethod)의 현실적 가혹함</span>
+                <p class="text-sm text-slate-700">
+                  동일 모델을 CB-SEM과 PLS-SEM으로 모두 추정하여 강건성을 입증하라는 제안은 교과서적으로만 이상적입니다. CB-SEM이 요구하는 높은 정규성 및 표본 크기 조건과 PLS-SEM이 강점을 가진 예측 지향성 조건은 상충하기 십상입니다. 두 기법의 추정값이나 방향성이 충돌할 경우(예: 한 쪽만 유의함), 연구자가 학술적으로 결론을 도출할 명확한 규칙을 제안하지 않아 오히려 학계에 극심한 혼란을 안겨줄 소지가 다분합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 컴포지트 개념 대변에 대한 논리 비약</span>
+                <p class="text-sm text-slate-700">
+                  "컴포지트가 오히려 개념적 변수를 더 잘 대변할 수 있다"는 Rigdon(2023) 등의 주장을 무비판적으로 수용하고 있으나, 연구자가 이론적으로 '반영적(개념의 징후가 외출됨)'으로 가정한 잠재변수를 오차 항 분산 분리 없이 단순한 선형결합 가중치(Composite)로 조립한 프록시가 왜 개념의 뜻을 더 잘 구현하는지에 대한 철학적·수학적 근거가 여전히 부실합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>PLS-SEM and reflective constructs: A response to recent criticism and a constructive path forward</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
