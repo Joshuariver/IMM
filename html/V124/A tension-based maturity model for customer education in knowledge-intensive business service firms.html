@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Education Maturity Model - IMM 2025</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2025)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Customer Education</div>
+        <div class="badge badge-secondary text-white style-label">Maturity Model</div>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            A tension-based maturity model for customer education<br>
+            <span class="text-cyan-400">in knowledge-intensive business service firms</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Dorian-Laurențiu Florea, María Elena Raquel Nieto-Saucedo
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            지식 집약적 비즈니스 서비스 기업의 고객 교육을 위한<br>
+            <span class="text-indigo-300">긴장 기반 성숙도 모델</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            멕시코 4개 대표 KIBS 기업의 다년 종단적 사례와 7개국 12개 B2B 기업 인터뷰를 바탕으로 도출한 조직 내외적 긴장(Tensions)과 5단계 성숙도 로드맵
+          </p>
+        </div>
+      </div>
+      
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              CEd
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">고객 교육 고도화는 내부 갈등(변증법)과 외부 갈등(역역설)을 헤쳐나가는 5단계 성숙 이정표 구축에 달렸습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- STEP 1 — Abstract Translation -->
+    <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+        <span class="badge badge-primary style-label uppercase">Translation</span>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+        <!-- English Abstract -->
+        <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+          <blockquote class="style-body text-slate-700 italic">
+            "Although B2B marketing scholars have long emphasized the importance of customer education (CEd), there is still limited understanding of how knowledge-intensive business service (KIBS) firms can effectively develop advanced CEd programs. We propose that studying the tensions that arise in CEd can provide an insightful angle to understand this issue. In a longitudinal multiple case study, we uncover ten intra-organizational tensions, seven inter-organizational tensions in CEd, and the successful responses to these tensions, aligned to the tenets of either paradox theory or dialectical theory. Our findings indicate the instances that require the confrontational approach suggested by dialectical theory, while also highlighting the inherently paradoxical tensions in CEd that necessitate thoughtful management. Based on these tensions, we developed a tension-based CEd maturity model explaining the differences in sophistication and effectiveness between CEd programs. This model provides insights into the challenges of building mature CEd programs and can constitute a useful tool for the categorization of KIBS firms based on their CEd proficiency. We offer fine-grained recommendations to the managers of KIBS firms found at each stage in the maturity model."
+          </blockquote>
+        </div>
+        <!-- Korean Translation -->
+        <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+          <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+          <blockquote class="style-body text-slate-800">
+            "B2B 마케팅 학자들이 오랫동안 고객 교육(CEd)의 중요성을 강조해 왔음에도 불구하고, 지식 집약적 비즈니스 서비스(KIBS) 기업들이 어떻게 효과적으로 고도화된 고객 교육 프로그램을 개발할 수 있는지에 대한 이해는 여전히 한정적이다. 본 연구는 고객 교육에서 발생하는 긴장(tensions)들을 조사하는 것이 이 문제를 이해하는 데 있어 통찰력 있는 관점을 제공할 수 있음을 제안한다. 종단적 다중 사례 연구를 통해, 우리는 고객 교육에서 10가지 조직 내부 긴장과 7가지 조직 간 긴장, 그리고 역설 이론(paradox theory) 또는 변증법 이론(dialectical theory)의 원리에 부합하는 이러한 긴장들에 대한 성공적인 대응 방안들을 밝혀냈다. 우리의 연구 결과는 변증법 이론이 제시하는 대립적 접근 방식(confrontational approach)이 필요한 사례들을 보여주는 동시에, 세심한 관리가 필요한 고객 교육 고유의 역설적 긴장도 함께 강조한다. 이러한 긴장들을 바탕으로, 우리는 고객 교육 프로그램들의 정교함과 효과성의 차이를 설명하는 긴장 기반 고객 교육 성숙도 모델(maturity model)을 개발하였다. 이 모델은 성숙한 고객 교육 프로그램을 구축하는 과정에서의 난제들에 대한 통찰을 제공하며, 고객 교육 숙련도를 기준으로 KIBS 기업들을 분류하는 유용한 도구가 될 수 있다. 우리는 성숙도 모델의 각 단계에 위치한 KIBS 기업의 관리자들에게 구체적인 권고사항을 제공한다."
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- Glossary Table -->
+      <div class="mt-4">
+        <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+        <div class="overflow-x-auto border rounded-lg">
+          <table class="table w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-50 text-slate-800">
+                <th class="w-1/3">원문 용어 (EN)</th>
+                <th class="w-1/3">한국어 번역</th>
+                <th class="w-1/3">번역 선택 이유 및 해설</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-semibold text-slate-900">Customer Education (CEd)</td>
+                <td>고객 교육</td>
+                <td class="text-sm">단순 정보 제공을 넘어, 고객사가 공급사의 서비스 솔루션을 더 지능적이고 효율적으로 활용할 수 있게 스킬을 키워주는 일련의 프로세스입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">KIBS</td>
+                <td>지식 집약적 비즈니스 서비스</td>
+                <td class="text-sm">IT 서비스, 마케팅 에이전시, 법률, 회계 컨설팅 등 전문적이고 복잡한 고부가가치 지식에 의존하여 가치를 창출하는 산업군을 의미합니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Tensions</td>
+                <td>긴장 / 갈등</td>
+                <td class="text-sm">자원 배분의 모순, 부서 간 R&R 갈등, 또는 대고객 신뢰 마찰 등으로 인해 조직 내외부에 가해지는 다양한 마찰 압박입니다.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Paradox Theory vs Dialectical Theory</td>
+                <td>역설 이론 vs 변증법 이론</td>
+                <td class="text-sm">갈등을 영속하는 양면(Both/And)으로 수용할 것인가, 혹은 정-반-합 대립 구도(Thesis-Antithesis-Synthesis)를 통해 발전적으로 타파해 갈 것인가의 차이입니다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2 — Core Claims (1-minute explanation) -->
+    <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+        <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+      </div>
+      
+      <div class="py-4">
+        <div class="flex flex-col md:flex-row gap-8 items-stretch">
+          <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+            <li class="step step-primary" data-content="Q">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                <p class="font-bold text-slate-800">어떻게 고객 교육을 성숙한 단계로 올리는가?</p>
+              </div>
+            </li>
+            <li class="step step-primary" data-content="F">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                <p class="font-bold text-slate-800">조직 내외의 17개 긴장 극복을 거치는 여정</p>
+              </div>
+            </li>
+            <li class="step step-primary" data-content="C">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                <p class="font-bold text-slate-800">5단계 성숙도 분류와 긴장 관리 이론 정립</p>
+              </div>
+            </li>
+          </ul>
+          
+          <div class="divider divider-horizontal hidden md:flex"></div>
+          
+          <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <div>
+              <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+              <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                <li><strong>연구 질문:</strong> KIBS 기업이 CEd 프로그램을 고도화할 때 발생하는 조직 내외부 긴장의 실체는 무엇이며, 이를 극복하고 성숙에 도달하는 방법은 무엇인가?</li>
+                <li><strong>핵심 발견:</strong> CEd 고도화 과정에는 10가지 내부 긴장과 7가지 외부 긴장이 존재한다. 내부 긴장(시간 부족, R&R 갈등)은 <strong>변증법적 파괴(Dialectical Synthesis)</strong>로, 외부 긴장(CEd 패러독스, 불량 고객 요구)은 <strong>역설적 상생(Paradoxical acceptance)</strong>으로 관리되어야 한다.</li>
+                <li><strong>이론/실무 기여:</strong> 기존 단순 강도 측정법에 성숙도(Maturity) 차원을 융합하였으며, 실무자들에게는 성숙도 수준에 따른 크리티컬 장벽 극복용 치료제(Remedies) 로드맵을 제공하였다.</li>
+              </ul>
+            </div>
+            
+            <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+              <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+              <p class="style-body font-bold mt-1">
+                "고객 교육은 단순히 양적으로 확대하는 것이 아니라, 성숙 단계별로 직면하는 조직 내외부 긴장(Tensions)들을 적절한 역설적/변증법적 조율 방식으로 해결하는 전략적 성숙 여정이다."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 3 — Claims and Evidence -->
+    <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+        <span class="badge badge-accent style-label uppercase">Evidence</span>
+      </div>
+      
+      <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+        <table class="table table-zebra w-full text-slate-700">
+          <thead>
+            <tr class="bg-slate-900 text-white">
+              <th class="w-12">#</th>
+              <th class="w-1/4">핵심 주장</th>
+              <th class="w-1/2">원문 근거 (Original Quote)</th>
+              <th class="w-1/6 text-right">원문 위치</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="font-semibold text-slate-900">조직 내/조직 간 긴장의 발견</td>
+              <td class="text-sm italic text-slate-600">
+                "...we uncover ten intra-organizational tensions, seven inter-organizational tensions in CEd, and the successful responses to these tensions..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Abstract / Page 6 (Sec. 4)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="font-semibold text-slate-900">전담 부서 미비에 따른 업무 시간 Cannibalization 갈등</td>
+              <td class="text-sm italic text-slate-600">
+                "Their onboarding became unbearable for our talents who should primarily focus on operations, so the management finally acknowledged the need for change."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 7 (Sec. 4.1.1.1, Company C)</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="font-semibold text-slate-900">CEd 패러독스(무료 교육 획득 후 공급망 이탈 리스크)</td>
+              <td class="text-sm italic text-slate-600">
+                "...the customer uses that knowledge to shop around for better options. It is so disloyal. / ...started to monetize its certification program..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 10 (Sec. 4.2.2.1)</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="font-semibold text-slate-900">5단계 고객 교육 성숙도(Maturity) 도출</td>
+              <td class="text-sm italic text-slate-600">
+                "Based on these tensions, we developed a tension-based CEd maturity model explaining the differences in sophistication and effectiveness between CEd programs."
+              </td>
+              <td class="text-right font-medium text-slate-500">Abstract / Page 12 (Sec. 5)</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="font-semibold text-slate-900">조직 내부 긴장 관리의 발달적 방향성</td>
+              <td class="text-sm italic text-slate-600">
+                "...intra-organizational tensions evolve from dialectical approaches, typically seen in the early stages of CEd maturity, to a combination of dialectical and paradoxical management..."
+              </td>
+              <td class="text-right font-medium text-slate-500">Page 14 (Sec. 5.1)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- STEP 4 — Research Model & Variables -->
+    <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+        <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+      </div>
+      
+      <!-- Research Model SVG Block -->
+      <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+        <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Customer Education Maturity Transitions (성숙도 모델 전환 다이어그램)</h3>
+        
+        <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+          <svg viewBox="0 0 1000 350" class="w-full h-auto">
+            <!-- Stages -->
+            <!-- Level 1 -->
+            <rect x="20" y="80" width="140" height="90" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+            <text x="90" y="115" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">Level 1. 임시 단계</text>
+            <text x="90" y="135" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">(Ad-hoc)</text>
+            <text x="90" y="155" text-anchor="middle" fill="#64748b" font-size="10">임기응변식/개인 희생</text>
+
+            <!-- Level 2 -->
+            <rect x="220" y="80" width="140" height="90" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+            <text x="290" y="115" text-anchor="middle" font-weight="700" fill="#065f46" font-size="12">Level 2. 기초 단계</text>
+            <text x="290" y="135" text-anchor="middle" font-weight="700" fill="#065f46" font-size="12">(Foundational)</text>
+            <text x="290" y="155" text-anchor="middle" fill="#047857" font-size="10">공통 교안 구축</text>
+
+            <!-- Level 3 -->
+            <rect x="420" y="80" width="140" height="90" rx="8" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2"/>
+            <text x="490" y="115" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="12">Level 3. 구조화 단계</text>
+            <text x="490" y="135" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="12">(Structured)</text>
+            <text x="490" y="155" text-anchor="middle" fill="#0284c7" font-size="10">CEd팀 및 역할 공식화</text>
+
+            <!-- Level 4 -->
+            <rect x="620" y="80" width="140" height="90" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+            <text x="690" y="115" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="12">Level 4. 전략적 단계</text>
+            <text x="690" y="135" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="12">(Strategic)</text>
+            <text x="690" y="155" text-anchor="middle" fill="#4338ca" font-size="10">ROI 측정/LMS 구축</text>
+
+            <!-- Level 5 -->
+            <rect x="820" y="80" width="160" height="90" rx="8" fill="#faf5ff" stroke="#a855f7" stroke-width="2"/>
+            <text x="900" y="115" text-anchor="middle" font-weight="700" fill="#6b21a8" font-size="12">Level 5. 혁신 단계</text>
+            <text x="900" y="135" text-anchor="middle" font-weight="700" fill="#6b21a8" font-size="12">(Innovative)</text>
+            <text x="900" y="155" text-anchor="middle" fill="#7e22ce" font-size="10">지식 리더십/수익화</text>
+
+            <!-- Arrows and Resolved Tensions (Tension Barriers) -->
+            <!-- T1 -->
+            <path d="M160 125 L 220 125" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="190" y="115" text-anchor="middle" fill="#64748b" font-weight="700" font-size="9">T1</text>
+            <text x="190" y="200" text-anchor="middle" fill="#64748b" font-size="9">기초 교안 작성</text>
+
+            <!-- T2 -->
+            <path d="M360 125 L 420 125" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="390" y="115" text-anchor="middle" fill="#047857" font-weight="700" font-size="9">T2</text>
+            <text x="390" y="210" text-anchor="middle" fill="#047857" font-size="9">① 시간 Cannibalization</text>
+            <text x="390" y="225" text-anchor="middle" fill="#047857" font-size="9">② 직설화법 vs 자존심</text>
+            <text x="390" y="240" text-anchor="middle" fill="#047857" font-size="9">③ CEd 거부 고객</text>
+
+            <!-- T3 -->
+            <path d="M560 125 L 620 125" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="590" y="115" text-anchor="middle" fill="#0284c7" font-weight="700" font-size="9">T3</text>
+            <text x="590" y="210" text-anchor="middle" fill="#0284c7" font-size="9">① 인프라 vs 휴먼터치</text>
+            <text x="590" y="225" text-anchor="middle" fill="#0284c7" font-size="9">② 인증 프로그램 론칭</text>
+            <text x="590" y="240" text-anchor="middle" fill="#0284c7" font-size="9">③ 이탈 독박(이탈 귀인)</text>
+
+            <!-- T4 -->
+            <path d="M760 125 L 820 125" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="790" y="115" text-anchor="middle" fill="#4338ca" font-weight="700" font-size="9">T4</text>
+            <text x="790" y="210" text-anchor="middle" fill="#4338ca" font-size="9">콘텐츠 중복/사일로</text>
+            <text x="790" y="225" text-anchor="middle" fill="#4338ca" font-size="9">(Relevance 정렬)</text>
+
+            <!-- Labels for the layout -->
+            <rect x="20" y="280" width="960" height="40" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+            <text x="500" y="305" text-anchor="middle" fill="#475569" font-size="11" font-weight="600">※ 화살표 상의 T1~T4는 상위 단계 진입을 위해 필히 해결(Resolve)되어야 하는 크리티컬 긴장 장벽(Tension Barriers)을 나타냄.</text>
+
+            <!-- SVG Arrow Marker -->
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+              </marker>
+            </defs>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Variable Detail Cards in Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+        <!-- Concepts 1 -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+          <div class="card-body p-6 gap-3">
+            <div class="flex items-center justify-between">
+              <span class="badge badge-neutral style-label text-white">주요 개념 1</span>
+              <span class="text-xs text-slate-400 font-semibold">CEd</span>
+            </div>
+            <h3 class="style-h3 text-slate-900">고객 교육 (Customer Education)</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 고객사가 핵심 제품/서비스 작동 방식을 배우고 독립적으로 비즈니스 부가가치를 증대하도록 교육하는 행위.</p>
+            <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> 대면 교육 빈도, 온라인 플랫폼 강의 수, 배포 자료 가짓수 및 자격 인증 수료율.</p>
+            <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+              <strong>관련 학술 연구:</strong> Bell & Eisingerich (2007) 외. 단순 정보 제공과 달리 고객사의 비즈니스 지식(Skillset) 확장을 도모합니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Concepts 2 -->
+        <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+          <div class="card-body p-6 gap-3">
+            <div class="flex items-center justify-between">
+              <span class="badge badge-info style-label text-slate-900">주요 개념 2</span>
+              <span class="text-xs text-slate-400 font-semibold">Tensions</span>
+            </div>
+            <h3 class="style-h3 text-slate-900">조직 내부 및 외부의 긴장</h3>
+            <div class="divider my-1"></div>
+            <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> CEd에 들어가는 선행 자원 투자가 타 부서의 시간과 예산을 잠식하거나 파트너 신뢰 결핍으로 인해 발생하는 갈등적 모순 상태.</p>
+            <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> 설문 조사 및 종단적 코딩을 통해 수집한 10가지 내부 긴장과 7가지 외부 긴장 발생 빈도.</p>
+            <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+              <strong>관련 학술 연구:</strong> Smith & Lewis (2011), Hultman & Axelsson (2007). 갈등을 회피 대상으로 보는 대신 성숙 전환의 매개물로 파악합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 5 — Method Replication Steps -->
+    <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+        <span class="badge badge-primary style-label uppercase">Methodology</span>
+      </div>
+      
+      <p class="style-body text-slate-600">
+        본 질적 다중 사례 조사 및 성숙도 모델을 다른 서비스 생태계에서 재현하기 위한 구체적 연구 타임라인입니다.
+      </p>
+
+      <div class="mt-4">
+        <ul class="timeline timeline-vertical timeline-snap-icon">
+          <!-- Step 1 -->
+          <li>
+            <div class="timeline-middle">
+              <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+              <div class="text-lg font-bold text-slate-800">우수 사례(KIBS) 표본 추출</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                멕시코 시장 내 비즈니스 형태가 다른 4대 우수 CEd 적용 기업(A사: 광고, B사: SaaS, C사: 포워더, D사: 이벤트기획)을 선정하여 분석 대상으로 정립.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Sec 3.1.1</span>
+            </div>
+            <hr class="bg-primary"/>
+          </li>
+          
+          <!-- Step 2 -->
+          <li>
+            <hr class="bg-primary"/>
+            <div class="timeline-middle">
+              <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+              <div class="text-lg font-bold text-slate-800">종단적 심층 인터뷰 실시</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                2021년 가을 1차 회고식 인터뷰를 시작으로, 팬데믹 시기의 변화를 추적하기 위해 1년간 3~4회 정기 비구조화 인터뷰 수행 및 2024년 봄 최종 추적 조사 실행.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6, Sec 3.2.1</span>
+            </div>
+            <hr class="bg-secondary"/>
+          </li>
+
+          <!-- Step 3 -->
+          <li>
+            <hr class="bg-secondary"/>
+            <div class="timeline-middle">
+              <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+              <div class="text-lg font-bold text-slate-800">2차 자료 삼각측정 (Triangulation)</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                구두 보고의 편향을 교정하기 위해 기업 내부 회의록, 이메일 아카이브, 배포 교육 매뉴얼, 동영상 강의 자료 등을 수집해 교차 검증.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6, Sec 3.2.1</span>
+            </div>
+            <hr class="bg-accent"/>
+          </li>
+
+          <!-- Step 4 -->
+          <li>
+            <hr class="bg-accent"/>
+            <div class="timeline-middle">
+              <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+              <div class="text-lg font-bold text-slate-800">근거 이론 기반 개방/축/선택 코딩</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                Corbin and Strauss의 지침에 따라 10가지 내부 긴장과 7가지 외부 긴장을 코딩하고 분류하여 인터레이터 신뢰성 검증 (IRR = 0.91 확보).
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6, Sec 3.3</span>
+            </div>
+            <hr class="bg-info"/>
+          </li>
+
+          <!-- Step 5 -->
+          <li>
+            <hr class="bg-info"/>
+            <div class="timeline-middle">
+              <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+              <div class="text-lg font-bold text-slate-800">학계-실무 융합 전문가 워크숍</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                연구원들과 외부 CEd 전문가 2명이 참석하여 3시간 동안 성숙도 5단계 분류 및 성숙 전환 요인을 정의하고 가이드 드래프트 작성.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6, Sec 3.2.2</span>
+            </div>
+            <hr class="bg-success"/>
+          </li>
+
+          <!-- Step 6 -->
+          <li>
+            <hr class="bg-success"/>
+            <div class="timeline-middle">
+              <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+            </div>
+            <div class="timeline-end mb-4">
+              <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+              <div class="text-lg font-bold text-slate-800">다국적/다업종 외부 타당성 검증</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                7개국(미국, 영국, 중국, 호주 등)의 야금, 유통, IT, 광업 등 다양한 12개 B2B 기업 관리자를 인터뷰하여 성숙도 프레임워크 타당성 추가 검증.
+              </p>
+              <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Sec 3.1.3</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+          <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+        </div>
+        <p class="text-xs text-slate-500 max-w-md">
+          연구 방법론 및 외부 검증용 서브 샘플 정보가 상세하나, 4개 대기업의 기밀성 이메일 아카이브와 10년간의 내부 경영 보고서 로데이터를 독자적으로 수집하기는 어렵습니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- STEP 6 — Limitations & Critical Doubts -->
+    <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+      <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+        <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 & 비판적 의구심)</h2>
+        <span class="badge badge-error style-label text-white uppercase">Limitations</span>
+      </div>
+
+      <!-- Limitation A: Acknowledged by Authors -->
+      <div class="collapse collapse-arrow bg-red-50 border border-red-200 text-red-950 rounded-box shadow-sm mt-6">
+        <input type="checkbox" checked /> 
+        <div class="collapse-title font-bold style-h3 text-red-950 flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-red-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span>Limitation A. 논문이 스스로 인정한 한계 (Self-Acknowledged)</span>
+        </div>
+        <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+          <p class="style-body text-slate-700">논문 본문에서 연구진들이 직접 한정한 연구 설계 및 모집단 상의 한계입니다:</p>
+          <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+            <li>
+              <strong>표본 크기 및 지리적 한계:</strong> 멕시코 시장 내의 단 4개 기업 다중 사례 연구만으로는 타 문화권 및 전체 서비스 산업에 대한 완전한 일반화에 제약이 있음. (Page 15, Sec. 5.3)
+            </li>
+            <li>
+              <strong>성숙 초기 단계 진술 정보의 회고 편향:</strong> 연구 착수 시점에 4대 기업은 이미 높은 수준의 성숙도에 올라 있어, Level 1의 ad-hoc 단계 갈등은 과거 데이터를 회고하는 관리자 기억에 다량 의존함. (Page 16, Sec. 5.3)
+            </li>
+            <li>
+              <strong>코로나19 팬데믹 거시 충격 노이즈:</strong> 조사 개시 시점이 2021년 팬데믹 봉쇄기였으므로, 당시 급증했던 원격 디지털 교육 배치 필요성과 왜곡된 업무 마찰 압박이 반영되었을 수 있음. (Page 16, Sec. 5.3)
+            </li>
+            <li>
+              <strong>고객사 측면의 데이터 배제:</strong> 수집된 모든 갈등 데이터는 공급사의 매니저 진술에서만 추출되어, 교육을 받는 당사자인 고객사들의 실제 체감 마찰을 규명하지 못함. (Page 16, Sec. 5.3)
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Limitation B: Critical Doubts -->
+      <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+        <input type="checkbox" checked /> 
+        <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+        </div>
+        <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+          <p class="style-body text-slate-700">연구 설계 및 횡단 분석 메커니즘을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+            <div class="bg-white p-4 rounded-xl border border-amber-200">
+              <span class="badge badge-warning style-label text-amber-950 mb-2">1. 부서 만능주의 편향</span>
+              <p class="text-sm text-slate-700">
+                논문은 Level 3(구조화 단계) 달성의 핵심 수단으로 전담 부서의 설치를 꼽았으나, 실제로는 부서 생성 후 기존 부서(영업, 서비스)와 CEd 부서 간의 추가적 관료주의 마찰 및 R&R 사일로(Silo) 문제가 발생하여 성과를 갉아먹는 비효율성에 대해서는 경계하지 않았습니다.
+              </p>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-amber-200">
+              <span class="badge badge-warning style-label text-amber-950 mb-2">2. 응답의 사후 합리화 미제어</span>
+              <p class="text-sm text-slate-700">
+                인터뷰 대상인 매니저들은 본인이 담당하거나 조직 내에서 추진 중인 교육 프로그램이 가진 치명적인 결함, 실패 사례, 혹은 내부 갈등을 솔직하게 밝히기보다 자신들의 관리 역량 및 CEd의 성공적 효과성을 포장(Social desirability bias)해 과장 묘사했을 위험성이 큽니다.
+              </p>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-amber-200">
+              <span class="badge badge-warning style-label text-amber-950 mb-2">3. 워크숍의 정성적 타당성 부족</span>
+              <p class="text-sm text-slate-700">
+                조직 구조를 좌우하는 '성숙도 5단계' 모형을 분류하고 긴장 요인을 매핑하는 과정에서, 단 2명의 외부 전문가와 함께 진행한 3시간짜리 아카데믹 워크숍 결과가 최종 프레임워크의 학술적 엄밀성을 완전히 보장하기에는 정성적 방법론의 한계가 명확합니다.
+              </p>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-amber-200">
+              <span class="badge badge-warning style-label text-amber-950 mb-2">4. 신흥국 시장의 비즈니스 문화 맥락</span>
+              <p class="text-sm text-slate-700">
+                멕시코 시장은 개인적 유대와 가족 비즈니스가 짙게 형성된 신흥 경제의 맥락적 특성을 갖습니다. 이러한 환경적 특성 하에서 수집된 대면 휴먼터치 대 비인적 CEd의 마찰 및 기회주의 대처법이, 자율 시장 경제 파동이나 자율 복구가 허용되는 다른 국가의 B2B 거래 관계망에도 동일하게 작동할지는 미지수입니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p> 
+      <p>A tension-based maturity model for customer education in knowledge-intensive business service firms</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
