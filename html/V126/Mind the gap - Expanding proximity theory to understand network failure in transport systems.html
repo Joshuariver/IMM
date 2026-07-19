@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mind the gap - Expanding proximity theory to understand network failure in transport systems</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
+    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
+    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
+    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+    
+    html { scroll-behavior: smooth; }
+    
+    @media (max-width: 1024px) {
+      .style-display { font-size: 38px; }
+      .style-h1 { font-size: 30px; }
+      .style-h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2025)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Network Failure</div>
+        <div class="badge badge-secondary text-white style-label">Vol. 126</div>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Mind the gap:<br>
+            <span class="text-cyan-400">Expanding proximity theory to understand network failure in transport systems</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            James Bushell, Rico Merkert, Catherine Sutton-Brady
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            간극 좁히기:<br>
+            <span class="text-indigo-300">네트워크 실패 이해를 위한 근접성 이론의 확장</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            호주 교통 시스템 27개 조직, 33명의 관리자 심층 인터뷰를 통한 상업적 근접성(Commercial Proximity) 제안
+          </p>
+        </div>
+      </div>
+      
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">행위자 간의 물리적, 사회적 거리 외에도 이익과 공익 등 '가치 창출 목표'의 불일치(상업적 근접성 부족)가 비즈니스 네트워크 실패의 핵심 원인입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          분석 보기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    
+    <!-- STEP 1 -->
+    <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+        <span class="badge badge-primary style-label uppercase">Translation</span>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+        <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+          <blockquote class="style-body text-slate-700 italic">
+            "Bringing together the Industrial Marketing and Purchasing (IMP) perspective and proximity theory, we investigate network failure in business markets, specifically, how collaboration failure leads to network failure. With shared focus on the relational dynamics within industrial networks, the IMP perspective emphasises the importance of long-term relationships between actors... Proximity theory adds depth by exploring how various proximities affect these relationships. We find that collaboration failure is a critical driver of network failure. To expand proximity theory and gain insights into unexplained collaboration failure and network failure, we introduce the concept of commercial proximity. This new dimension sheds light on specific collaboration challenges, particularly those arising from conflicting value generation objectives among actors, which existing proximity dimensions do not fully address and can result in non-collaboration and thus network failure."
+          </blockquote>
+        </div>
+        <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+          <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+          <blockquote class="style-body text-slate-800">
+            "산업 마케팅 및 구매(IMP) 관점과 근접성(proximity) 이론을 결합하여, 본 연구는 비즈니스 시장에서의 네트워크 실패, 구체적으로 협업 실패가 어떻게 네트워크 실패로 이어지는지를 조사합니다. IMP 관점은 상호작용과 협력이 비즈니스 관행과 전략을 형성하는 행위자 간 장기적 관계의 중요성을 강조합니다... 근접성 이론은 다양한 근접성이 이러한 관계에 미치는 영향을 탐구하여 깊이를 더합니다. 우리는 협업 실패가 네트워크 실패의 핵심 동인임을 발견했습니다. 설명되지 않는 협업 실패와 네트워크 실패에 대한 통찰을 얻기 위해, 우리는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">상업적 근접성(commercial proximity)</span>이라는 개념을 도입합니다. 이 새로운 차원은 행위자 간의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">가치 창출 목표 충돌</span>에서 비롯되는 특정 협업 과제를 조명하며, 기존의 근접성 차원이 완전히 다루지 못해 비협업과 네트워크 실패를 초래하는 원인을 설명합니다."
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리</h4>
+        <div class="overflow-x-auto border rounded-lg">
+          <table class="table w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-50 text-slate-800">
+                <th class="w-1/3">원문 용어 (EN)</th>
+                <th class="w-1/3">한국어 번역</th>
+                <th class="w-1/3">번역 선택 이유 및 해설</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-semibold text-slate-900">Network Failure</td>
+                <td>네트워크 실패</td>
+                <td class="text-sm">참여자 간 기대했던 관계형성이나 공동 활동이 나타나지 않거나 중단되는 현상.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Collaboration Failure</td>
+                <td>협업 실패</td>
+                <td class="text-sm">행위자 간의 공동 작업, 정보 교류 등 상호작용이 단절되거나 이뤄지지 못하는 상태.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Proximity Theory</td>
+                <td>근접성 이론</td>
+                <td class="text-sm">조직적, 기술적, 공간적 '거리'가 상호 작용과 협업에 어떻게 영향을 미치는지 분석하는 렌즈.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-slate-900">Commercial Proximity</td>
+                <td>상업적 근접성</td>
+                <td class="text-sm">본 논문이 새로 제안한 척도로, 서로 추구하는 상업적/비상업적 목표의 유사성을 뜻함.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+        <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+      </div>
+      
+      <div class="py-4">
+        <div class="flex flex-col md:flex-row gap-8 items-stretch">
+          <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+            <li class="step step-primary" data-content="Q">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                <p class="font-bold text-slate-800">기존에 설명되지 않는 비즈니스 협업 실패의 원인은 무엇인가?</p>
+              </div>
+            </li>
+            <li class="step step-primary" data-content="F">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                <p class="font-bold text-slate-800">목표(수익 vs 공익) 불일치로 인한 상업적 근접성 부족</p>
+              </div>
+            </li>
+            <li class="step step-primary" data-content="C">
+              <div class="text-left md:pl-4">
+                <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                <p class="font-bold text-slate-800">근접성 이론에 '상업적(Commercial)' 차원 공식 추가</p>
+              </div>
+            </li>
+          </ul>
+          
+          <div class="divider divider-horizontal hidden md:flex"></div>
+          
+          <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <div>
+              <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+              <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                <li>물리적으로 가깝고 시스템적으로 기술이 호환되더라도 네트워크 파트너 간에 상호작용이 없는 사례가 발견됨.</li>
+                <li>그 이유를 파고드니, 민간 플랫폼(수익, 효율 지향)과 공공 교통(공익, 보조금, 형평 지향) 간의 근본적 목표 차이가 장애물이었음.</li>
+                <li>이를 기존의 6대 근접성(물리, 조직, 기술, 제도, 사회, 인지)만으로는 설명할 수 없어, <strong>상업적 근접성(Commercial Proximity)</strong>이라는 차원을 새롭게 도출함.</li>
+              </ul>
+            </div>
+            
+            <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+              <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+              <p class="style-body font-bold mt-1">
+                "조직과 기술이 호환되어도, 가치 창출을 대하는 '상업적 목표'가 충돌하면 네트워크는 형성되지 않는다."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 3 -->
+    <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+        <span class="badge badge-accent style-label uppercase">Evidence</span>
+      </div>
+      
+      <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+        <table class="table table-zebra w-full text-slate-700">
+          <thead>
+            <tr class="bg-slate-900 text-white">
+              <th class="w-12">#</th>
+              <th class="w-1/4">핵심 주장</th>
+              <th class="w-1/2">원문 근거 (Original Quote)</th>
+              <th class="w-1/6 text-right">원문 위치</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="font-semibold text-slate-900">협업 실패는 네트워크 실패의 핵심 동인</td>
+              <td class="text-sm italic text-slate-600">"We find that collaboration failure is a critical driver of network failure."</td>
+              <td class="text-right font-medium text-slate-500">Abstract</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="font-semibold text-slate-900">기존 이론의 맹점 지적</td>
+              <td class="text-sm italic text-slate-600">"To expand proximity theory and gain insights into unexplained collaboration failure and network failure, we introduce the concept of commercial proximity."</td>
+              <td class="text-right font-medium text-slate-500">Abstract</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="font-semibold text-slate-900">가치 목표의 차이가 비협업 유발</td>
+              <td class="text-sm italic text-slate-600">"particularly those arising from conflicting value generation objectives among actors, which existing proximity dimensions do not fully address and can result in non-collaboration"</td>
+              <td class="text-right font-medium text-slate-500">Abstract</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="font-semibold text-slate-900">상업적 거리와 네트워크 붕괴</td>
+              <td class="text-sm italic text-slate-600">"These objectives are at odds, representing a commercial disproximity and resulting in network failure."</td>
+              <td class="text-right font-medium text-slate-500">Section 4.7</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="font-semibold text-slate-900">간극 관리를 통한 형성 촉진</td>
+              <td class="text-sm italic text-slate-600">"Reducing, if not at least understanding, commercial distances between actors to reduce collaboration gaps will therefore be important to facilitate network formation"</td>
+              <td class="text-right font-medium text-slate-500">Section 4.8</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- STEP 4 -->
+    <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 (질적 체계)</h2>
+        <span class="badge badge-info style-label text-slate-900 uppercase">Model</span>
+      </div>
+      
+      <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+        <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (개념적 경로 모형)</h3>
+        
+        <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+          <svg viewBox="0 0 800 400" class="w-full h-auto">
+            <!-- IVs -->
+            <rect x="20" y="50" width="220" height="70" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+            <text x="130" y="80" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">기존 근접성 차원 6가지</text>
+            <text x="130" y="102" text-anchor="middle" fill="#64748b" font-size="11">조직, 물리, 기술, 제도, 사회, 인지</text>
+
+            <rect x="20" y="230" width="220" height="70" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+            <text x="130" y="260" text-anchor="middle" font-weight="700" fill="#92400e" font-size="14">상업적 근접성 (New)</text>
+            <text x="130" y="282" text-anchor="middle" fill="#b45309" font-size="11">상업적 목표와 가치 구조의 일치</text>
+
+            <!-- Mediator -->
+            <rect x="350" y="140" width="180" height="80" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+            <text x="440" y="175" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">협업 과정 (상호작용)</text>
+            <text x="440" y="198" text-anchor="middle" fill="#047857" font-size="11">비협업 발생 / 협업 실패</text>
+
+            <!-- DV -->
+            <rect x="610" y="140" width="170" height="80" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+            <text x="695" y="175" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">네트워크 결과</text>
+            <text x="695" y="198" text-anchor="middle" fill="#4338ca" font-size="11">네트워크 실패 (형성 무산)</text>
+
+            <!-- Arrows -->
+            <path d="M240 85 L 290 85 L 290 160 L 340 160" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+            <path d="M240 265 L 290 265 L 290 200 L 340 200" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+            <path d="M530 180 L 600 180" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+              </marker>
+            </defs>
+          </svg>
+        </div>
+      </div>
+      
+      <p class="style-body text-slate-700 mt-4">
+        질적 연구로 통계적 검증은 없으나, "공공 교통 주체의 공공성" vs "민간 플랫폼 사업자의 수익성" 간의 거리가 협업 단절을 매개하여 생태계(네트워크) 통합 실패로 이어진다는 구조화된 발견을 보여줍니다.
+      </p>
+    </section>
+
+    <!-- STEP 5 -->
+    <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h2 class="style-h2 text-slate-900">STEP 5. 질적 연구 방법론 타임라인</h2>
+        <span class="badge badge-primary style-label uppercase">Methodology</span>
+      </div>
+      
+      <div class="mt-4">
+        <ul class="timeline timeline-vertical timeline-snap-icon">
+          <li>
+            <div class="timeline-middle">
+              <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">Phase 1</time>
+              <div class="text-lg font-bold text-slate-800">연구 대상 및 맥락 선정</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                호주 대중교통 네트워크 생태계 (기차, 버스, 항공기 등 공공 인프라 & 우버, 택시, 공유자전거 등 민간 사업자 혼재 시장)
+              </p>
+            </div>
+            <hr class="bg-primary"/>
+          </li>
+          
+          <li>
+            <hr class="bg-primary"/>
+            <div class="timeline-middle">
+              <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">Phase 2</time>
+              <div class="text-lg font-bold text-slate-800">데이터 수집 (인터뷰)</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                21년 10월 ~ 22년 5월. 27개 기업의 핵심 담당자 33명 대상 반구조화 심층 인터뷰. 추가로 정책 문서, 기업 공시 데이터 등 보완 수집.
+              </p>
+            </div>
+            <hr class="bg-secondary"/>
+          </li>
+
+          <li>
+            <hr class="bg-secondary"/>
+            <div class="timeline-middle">
+              <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+            </div>
+            <div class="timeline-start mb-10 md:text-right">
+              <time class="font-mono italic text-xs text-slate-400">Phase 3</time>
+              <div class="text-lg font-bold text-slate-800">Grounded Theory 기반 질적 코딩</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                인터뷰 원문 스크립트 작성 후 Gioia 방법론 등을 차용해 반복적 텍스트 분석. 기존 6가지 근접성 이론에 기반해 협업 사례를 귀납적 맵핑.
+              </p>
+            </div>
+            <hr class="bg-accent"/>
+          </li>
+
+          <li>
+            <hr class="bg-accent"/>
+            <div class="timeline-middle">
+              <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic text-xs text-slate-400">Phase 4</time>
+              <div class="text-lg font-bold text-slate-800">이론적 공백 확인 및 신규 차원 도출</div>
+              <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                맵핑되지 않는 잔여 사례(가치 추구 방향의 근본적 이질성)를 분석하여 '상업적 근접성(Commercial Proximity)'의 정의를 정립하고 종합.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- STEP 6 -->
+    <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+      <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+        <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 & 비판적 관점)</h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 lg:p-8 rounded-b-box border border-slate-200 border-t-0 pt-0">
+        <div class="flex flex-col gap-4 p-5 bg-orange-50 rounded-xl border border-orange-200">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <h3 class="font-bold text-orange-800">A. 논문 명시적 한계 (Self-acknowledged)</h3>
+          </div>
+          <ul class="list-disc pl-5 text-sm text-orange-900 space-y-2">
+            <li>호주 대중교통 네트워크라는 단일 생태계에 초점이 맞춰져 있어 일반화 한계 제기.</li>
+            <li>정성적 코딩에 참여한 샘플(33명)이 산업 특수성에 매몰될 여지 존재.</li>
+          </ul>
+        </div>
+        
+        <div class="flex flex-col gap-4 p-5 bg-rose-50 rounded-xl border border-rose-200">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <h3 class="font-bold text-rose-800">B. 비판적 추론 (Critical Doubts)</h3>
+          </div>
+          <ul class="list-disc pl-5 text-sm text-rose-900 space-y-2">
+            <li><strong>측정 가능성의 모호함:</strong> '상업적 근접성'이라는 개념을 제시했으나, 이를 설문 척도 등으로 정량화할 Operationalization이 포함되지 않아 추후 양적 실증 연구에서 난항이 예상됨.</li>
+            <li><strong>단일 이해관계자 편향:</strong> 기업 관리자 위주의 인터뷰로, 정책 입안자(최상위 레벨)나 소비자의 목소리는 상대적으로 배제된 채 사후 합리화되었을 수 있음.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

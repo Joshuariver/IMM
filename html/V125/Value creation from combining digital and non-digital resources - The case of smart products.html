@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Value Creation from Combining Digital and Non-Digital Resources - IMM 2025</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2025)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Resource Interaction / Digitalization</div>
+        <div class="badge badge-secondary text-white style-label">질적 탐색적 사례연구 (Case Study)</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Value creation from combining digital and non-digital resources:<br>
+            <span class="text-cyan-400">The case of "smart products"</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Carla Cleri Ferreira, Frida Lind, Ann-Charlott Pedersen, Victor Eriksson
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            디지털 자원과 비디지털 자원의 결합을 통한 가치 창출:<br>
+            <span class="text-indigo-300">'스마트 제품' 사례 연구</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            용접 장비 제조사 Alpha·IoT 공급자 Beta·고객사 Gamma 3자 관계 심층 사례 분석을 통한 디지털 자원 결합 유형론과 가치 창출 메커니즘 규명
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">디지털 자원은 홀로 가치를 만들지 않는다 — 비디지털 자원과 '어떻게 결합'되느냐(전달·재생산·재프로그래밍)가 지식·효율·혁신이라는 가치의 성격과 수혜자를 결정한다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This paper explores value creation from combinations of digital and non-digital resources in business networks. The theoretical lens used here is the Resource Interaction Approach, which relies on the Industrial Network Approach, which asserts that resource combinations across firm boundaries are key to value creation. Additionally, we identify unique characteristics of digital resources: transmissible, reproducible, and reprogrammable. The paper lays out an exploratory in-depth case study involving three actors and their relationships in a traditional manufacturing context. The case follows one of the actor's "smart products," which combines manufacturing equipment and software based on the Internet of Things and cloud technology; as such, these products build on combinations of digital and non-digital resources in their uses to create value. The paper provides the following typology of different resource combinations involving digital resources: diffusely transmitted, rapidly reproducible, and easily reprogrammable resource combinations. Resource combinations involving digital resources yield three forms of value creation: i) increasing data accessibility and knowledge creation; ii) increasing efficiency; and iii) promoting innovation throughout products' lifespans. The paper concludes by contextualizing the study's theoretical contributions and managerial implications, as well as proposing avenues for future research."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              본 논문은 비즈니스 네트워크에서 디지털 자원과 비디지털 자원의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">결합(resource combination)</span>이 만들어내는 가치 창출을 탐구한다. 이론적 렌즈로는 산업 네트워크 접근법(INA)에 기반한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">자원 상호작용 접근법(Resource Interaction Approach)</span>을 사용하며, INA는 기업 경계를 넘나드는 자원 결합이 가치 창출의 핵심이라고 주장한다. 아울러 본 연구는 디지털 자원의 고유한 특성으로 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">전달가능성(transmissible), 재생산가능성(reproducible), 재프로그래밍가능성(reprogrammable)</span>을 제시한다. 논문은 전통 제조업 맥락에서 세 행위자와 그들의 관계를 다룬 탐색적 심층 사례 연구를 전개한다. 이 사례는 사물인터넷(IoT)과 클라우드 기술을 기반으로 제조 장비와 소프트웨어를 결합한 한 행위자의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">'스마트 제품'</span>을 추적하며, 이러한 제품은 사용 과정에서 디지털·비디지털 자원의 결합을 통해 가치를 창출한다. 논문은 디지털 자원이 관여하는 자원 결합에 대해 다음과 같은 유형론을 제시한다: <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">확산적 전달(diffusely transmitted), 신속 재생산(rapidly reproducible), 손쉬운 재프로그래밍(easily reprogrammable)</span> 자원 결합. 디지털 자원이 관여하는 자원 결합은 세 가지 형태의 가치 창출을 낳는다: i) 데이터 접근성 및 지식 창출 증대; ii) 효율성 증대; iii) 제품 수명 전반에 걸친 혁신 촉진. 논문은 이 연구의 이론적 기여와 관리적 시사점을 맥락화하고, 향후 연구 방향을 제안하며 결론을 맺는다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resource Interaction Approach (RIA)</td>
+                  <td>자원 상호작용 접근법</td>
+                  <td class="text-sm">산업 네트워크 접근법(INA)의 하위 분파로, 자원 간 상호작용·결합·재조합·공동개발 과정에 초점을 둔 이론적 렌즈입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Transmissible / Reproducible / Reprogrammable</td>
+                  <td>전달가능성 / 재생산가능성 / 재프로그래밍가능성</td>
+                  <td class="text-sm">디지털 자원(비트스트링)이 지니는 3대 고유 속성으로, 본 논문 분석 틀 전체의 근간이 됩니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resource Combination</td>
+                  <td>자원 결합</td>
+                  <td class="text-sm">둘 이상의(디지털·비디지털) 자원이 상호작용하며 새로운 가치나 기능을 만들어내는 과정입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Mixed Interface</td>
+                  <td>혼합 인터페이스</td>
+                  <td class="text-sm">기술적(technical)·조직적(organizational) 인터페이스가 혼재된 형태로, 디지털·비디지털 자원 간 접점을 뜻합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Direct Value / Indirect Value</td>
+                  <td>직접가치 / 간접가치</td>
+                  <td class="text-sm">Lind et al. (2012)의 구분에 따라, 가치가 즉각적으로 귀속되는지(직접) 또는 파생적으로 발생하는지(간접)를 구분합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Smart Product</td>
+                  <td>스마트 제품</td>
+                  <td class="text-sm">IoT·클라우드 기술 기반 소프트웨어와 물리적 제조 장비가 결합된 제품(본 사례에서는 커넥티드 용접기)입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">디지털·비디지털 자원의 결합은 어떻게 가치를 만드는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">3대 자원결합 유형 → 3가지 가치창출 형태로 이어진다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">RIA의 디지털 자원 확장 및 결합 유형론 정립</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> ① 자원 상호작용은 디지털·비디지털 자원 결합을 어떻게 특징짓는가? ② 그러한 결합으로부터 가치는 어떻게 창출되는가?</li>
+                  <li><strong>핵심 발견:</strong> 용접 장비 제조사 Alpha, IoT 공급자 Beta, 고객사 Gamma로 구성된 스마트 용접기 사례에서, 디지털 자원의 3대 속성(전달가능·재생산가능·재프로그래밍가능)이 각각 <strong>확산적 전달·신속 재생산·손쉬운 재프로그래밍</strong>이라는 자원 결합 유형을 낳고, 이는 다시 <strong>데이터 접근성/지식창출, 효율성, 혁신</strong>이라는 가치를 만든다. 가치는 고객(Gamma)에게는 주로 직접, 생산자(Alpha)·IoT공급자(Beta)에게는 주로 간접적으로 귀속된다.</li>
+                  <li><strong>이론/실무 기여:</strong> RIA·INA를 디지털 자원 맥락으로 확장하여 자원 결합 유형론을 체계화했으며, Pagani & Pardo(2017)의 디지털화 프레임워크를 '자원' 차원에서 확장했다. 실무적으로는 스마트 제품 도입 시 필요한 새로운 자원 인터페이스·인력 역량, 그리고 지나친 가능성 과잉이 낳는 정보 과부하 리스크 관리의 필요성을 제시한다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "디지털 자원은 홀로 가치를 만들지 않는다 — 비디지털 자원과 어떻게 결합되느냐(전달·재생산·재프로그래밍)가 지식창출·효율성·혁신이라는 가치의 성격과, 그 가치가 누구에게 직접 또는 간접으로 돌아가는지를 결정한다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 사례 근거의 원문 인용 및 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">RIA를 렌즈로 자원 결합의 가치창출 탐구</td>
+                <td class="text-sm italic text-slate-600">
+                  "This paper explores value creation from combinations of digital and non-digital resources in business networks. The theoretical lens used here is the Resource Interaction Approach..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract, p.60</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">디지털 자원의 3대 고유 속성</td>
+                <td class="text-sm italic text-slate-600">
+                  "digital resources are unique with respect to their transmissibility, reproducibility, and reprogrammability."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.62, Sec. 2.4</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">3가지 자원 결합 유형 typology</td>
+                <td class="text-sm italic text-slate-600">
+                  "...we identify three different types of resource combinations involving digital and non-digital resources: diffusely transmitted, rapidly reproducible, and easily reprogrammable resource combinations."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.66, Sec. 5.2</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">확산적 전달 → 데이터 접근성/지식창출</td>
+                <td class="text-sm italic text-slate-600">
+                  "The productivity module... formed the basis for identification of this type of resource combination... it is possible to have any ideal (short or long) distance between a focal digital resource..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.66-67, Sec. 5.2/5.3.1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">신속 재생산 → 효율성 증대</td>
+                <td class="text-sm italic text-slate-600">
+                  "The value created by this resource combination comes in the form of an economy of scale and saving time for Gamma, the smart product user."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.67, Sec. 5.3.2</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">손쉬운 재프로그래밍 → 수명주기 혁신 촉진</td>
+                <td class="text-sm italic text-slate-600">
+                  "The numerous opportunities for new resource combinations and the arrival of new updates over time create value for Gamma... in terms of fostering innovation throughout the lifespan of the connected welding machine."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.67-68, Sec. 5.3.3</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">가치의 직접/간접 귀속 차등화</td>
+                <td class="text-sm italic text-slate-600">
+                  "value can be created for individual actors and/or traverse firm boundaries... we identified three different forms of value from combining resources in 'smart products' (see Table 2)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.67, Sec. 5.3, Table 2</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">혼합 인터페이스에서 인간(엔지니어) 역할의 중요성</td>
+                <td class="text-sm italic text-slate-600">
+                  "the human aspect is crucial in this mixed interface. The value manifests in enhanced knowledge about the welding processes..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.67, Sec. 5.3.1</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td class="font-semibold text-slate-900">Pagani & Pardo (2017) 자원 차원으로 확장</td>
+                <td class="text-sm italic text-slate-600">
+                  "Our study builds on Pagani and Pardo (2017) by focusing on the resource dimension of business relationships."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.66, Sec. 5.2</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td class="font-semibold text-slate-900">가능성 과잉이 낳는 정보 과부하 리스크</td>
+                <td class="text-sm italic text-slate-600">
+                  "too many possibilities are not always positive and can cause information overload (Benselin & Ragsdell, 2016)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.67, Sec. 5.3.1 / p.68, Sec. 6.2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Constructs -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델(개념적 프레임워크) 및 구성 개념 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Framework & Constructs</span>
+        </div>
+
+        <div class="alert bg-amber-50 border border-amber-300 text-amber-900 text-sm rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-600 shrink-0 h-5 w-5" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span>본 논문은 가설(H1, H2…) 검증형 정량 연구가 아닌 <strong>질적 탐색적 단일 사례연구</strong>입니다. 따라서 전통적 IV/Mediator/Moderator/DV 통계 경로는 존재하지 않으며, 아래 그림은 논문이 제시하는 <strong>"디지털 자원 특성 → 자원 결합 유형 → 가치 창출 형태 → 가치 수혜 주체"</strong> 개념적 유형론(Fig. 1, Table 2)을 시각화한 것입니다.</span>
+        </div>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual Framework (자원 결합 → 가치 창출 유형론)</h3>
+
+          <div class="w-full max-w-5xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 1020 560" class="w-full h-auto">
+              <!-- Column headers -->
+              <text x="105" y="20" text-anchor="middle" font-weight="700" fill="#475569" font-size="13">디지털 자원 특성</text>
+              <text x="365" y="20" text-anchor="middle" font-weight="700" fill="#475569" font-size="13">자원 결합 유형</text>
+              <text x="625" y="20" text-anchor="middle" font-weight="700" fill="#475569" font-size="13">가치 창출 형태</text>
+              <text x="900" y="20" text-anchor="middle" font-weight="700" fill="#475569" font-size="13">가치 수혜 주체</text>
+
+              <!-- ROW 1 (sky) -->
+              <rect x="20" y="40" width="170" height="90" rx="8" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="105" y="72" text-anchor="middle" font-weight="700" fill="#075985" font-size="13">전달가능성</text>
+              <text x="105" y="90" text-anchor="middle" fill="#0369a1" font-size="10">(Transmissible)</text>
+              <text x="105" y="107" text-anchor="middle" fill="#0284c7" font-size="9">인터넷/클라우드로 원거리 확산 전달</text>
+
+              <rect x="280" y="40" width="170" height="90" rx="8" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="365" y="66" text-anchor="middle" font-weight="700" fill="#075985" font-size="12">확산적 전달 자원결합</text>
+              <text x="365" y="83" text-anchor="middle" fill="#0369a1" font-size="10">(Diffusely Transmitted)</text>
+              <text x="365" y="101" text-anchor="middle" fill="#0284c7" font-size="9">사례: 생산성(Productivity) 모듈</text>
+
+              <rect x="540" y="40" width="170" height="90" rx="8" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="625" y="72" text-anchor="middle" font-weight="700" fill="#075985" font-size="12">데이터 접근성·</text>
+              <text x="625" y="90" text-anchor="middle" font-weight="700" fill="#075985" font-size="12">지식창출 증대</text>
+              <text x="625" y="108" text-anchor="middle" fill="#0284c7" font-size="9">원격 접근 → 해석 → 지식화</text>
+
+              <rect x="810" y="40" width="190" height="90" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="905" y="66" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="11">직접: Gamma (사용자)</text>
+              <text x="905" y="86" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="11">간접: Alpha·Beta</text>
+              <text x="905" y="106" text-anchor="middle" fill="#4338ca" font-size="9">(생산자·IoT 공급자)</text>
+
+              <path d="M190 85 L 278 85" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrowSky)"/>
+              <path d="M450 85 L 538 85" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrowSky)"/>
+              <path d="M710 85 L 808 85" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrowSky)"/>
+              <text x="235" y="75" text-anchor="middle" fill="#0369a1" font-weight="700" font-size="10">속성 활성화</text>
+              <text x="495" y="75" text-anchor="middle" fill="#0369a1" font-weight="700" font-size="10">가치 실현</text>
+              <text x="760" y="75" text-anchor="middle" fill="#0369a1" font-weight="700" font-size="10">수혜 분화</text>
+
+              <!-- ROW 2 (emerald) -->
+              <rect x="20" y="220" width="170" height="90" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="105" y="252" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">재생산가능성</text>
+              <text x="105" y="270" text-anchor="middle" fill="#047857" font-size="10">(Reproducible)</text>
+              <text x="105" y="287" text-anchor="middle" fill="#059669" font-size="9">낮은 한계비용으로 신속 복제</text>
+
+              <rect x="280" y="220" width="170" height="90" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="365" y="246" text-anchor="middle" font-weight="700" fill="#065f46" font-size="12">신속 재생산 자원결합</text>
+              <text x="365" y="263" text-anchor="middle" fill="#047857" font-size="10">(Rapidly Reproducible)</text>
+              <text x="365" y="281" text-anchor="middle" fill="#059669" font-size="9">사례: 플릿관리(Fleet Mgmt) 모듈</text>
+
+              <rect x="540" y="220" width="170" height="90" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="625" y="252" text-anchor="middle" font-weight="700" fill="#065f46" font-size="12">효율성 증대</text>
+              <text x="625" y="270" text-anchor="middle" fill="#047857" font-size="10">(규모의 경제·시간절감)</text>
+              <text x="625" y="288" text-anchor="middle" fill="#059669" font-size="9">파라미터 대량 배포 자동화</text>
+
+              <rect x="810" y="220" width="190" height="90" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="905" y="246" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="11">직접: Gamma (사용자)</text>
+              <text x="905" y="266" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="11">간접: Alpha·Beta</text>
+              <text x="905" y="286" text-anchor="middle" fill="#4338ca" font-size="9">(신규고객 유치 효과)</text>
+
+              <path d="M190 265 L 278 265" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrowEmerald)"/>
+              <path d="M450 265 L 538 265" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrowEmerald)"/>
+              <path d="M710 265 L 808 265" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrowEmerald)"/>
+              <text x="235" y="255" text-anchor="middle" fill="#047857" font-weight="700" font-size="10">속성 활성화</text>
+              <text x="495" y="255" text-anchor="middle" fill="#047857" font-weight="700" font-size="10">가치 실현</text>
+              <text x="760" y="255" text-anchor="middle" fill="#047857" font-weight="700" font-size="10">수혜 분화</text>
+
+              <!-- ROW 3 (amber) -->
+              <rect x="20" y="400" width="170" height="90" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="105" y="432" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">재프로그래밍가능성</text>
+              <text x="105" y="450" text-anchor="middle" fill="#b45309" font-size="10">(Reprogrammable)</text>
+              <text x="105" y="467" text-anchor="middle" fill="#d97706" font-size="9">온라인 상태에서 SW 업데이트 수신</text>
+
+              <rect x="280" y="400" width="170" height="90" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="365" y="426" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">손쉬운 재프로그래밍</text>
+              <text x="365" y="443" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">자원결합</text>
+              <text x="365" y="461" text-anchor="middle" fill="#b45309" font-size="9">사례: 소프트웨어 업데이트</text>
+
+              <rect x="540" y="400" width="170" height="90" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="625" y="432" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">제품 수명 전반의</text>
+              <text x="625" y="450" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">혁신 촉진</text>
+              <text x="625" y="468" text-anchor="middle" fill="#b45309" font-size="9">신기능 지속 추가·재설계</text>
+
+              <rect x="810" y="400" width="190" height="90" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="905" y="426" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="11">직접: Gamma·Alpha</text>
+              <text x="905" y="446" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="11">간접: Beta</text>
+              <text x="905" y="466" text-anchor="middle" fill="#4338ca" font-size="9">(생산자도 직접 혁신 주체)</text>
+
+              <path d="M190 445 L 278 445" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrowAmber)"/>
+              <path d="M450 445 L 538 445" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrowAmber)"/>
+              <path d="M710 445 L 808 445" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrowAmber)"/>
+              <text x="235" y="435" text-anchor="middle" fill="#b45309" font-weight="700" font-size="10">속성 활성화</text>
+              <text x="495" y="435" text-anchor="middle" fill="#b45309" font-weight="700" font-size="10">가치 실현</text>
+              <text x="760" y="435" text-anchor="middle" fill="#b45309" font-weight="700" font-size="10">수혜 분화</text>
+
+              <!-- Note: three lanes can interweave simultaneously -->
+              <text x="510" y="530" text-anchor="middle" fill="#64748b" font-size="11" font-style="italic">※ 세 유형의 자원 결합은 상호 배타적이지 않으며 동시에 얽혀서(interwoven) 발생할 수 있음 (p.66, Sec. 5.2)</text>
+
+              <!-- Arrow markers -->
+              <defs>
+                <marker id="arrowSky" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0ea5e9"/>
+                </marker>
+                <marker id="arrowEmerald" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+                </marker>
+                <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Construct Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Construct 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">핵심 개념 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Digital Resource Characteristics</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">디지털 자원의 특성</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 비트스트링(bitstring)으로 구성된 디지털 자원이 지니는 근본 속성으로, 전달가능성·재생산가능성·재프로그래밍가능성 3가지로 구성 (Piccoli et al., 2022, 2024).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의(사례 내 관찰):</strong> 원거리 확산 전달(생산성 리포트), 신속 복제·배포(용접 파라미터), 온라인 SW 업데이트 수신(재프로그래밍).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 15건 반구조화 인터뷰 + 2차 자료 코딩; Hauke-Lopes et al. (2023, p.1318) 정의 채택.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Faulkner & Runde (2019)의 디지털 객체 이론화; Henfridsson et al. (2014, 2018)의 아키텍처 프레임 및 재조합(recombination) 논의.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">핵심 개념 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Type of Resource Combination</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">자원 결합 유형</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 디지털 자원의 특정 속성이 활성화될 때 나타나는 결합 패턴: ①확산적 전달, ②신속 재생산, ③손쉬운 재프로그래밍.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Table 1의 디지털/비디지털 자원(DR1~DR11, NDR1~NDR7)이 생산성/플릿관리/문서화 모듈 사용 시나리오에서 결합되는 구체적 사례.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Fig. 2·Fig. 3(자원·인터페이스 매핑), Table 1; 귀추적 코딩(Dubois & Gadde, 2002).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> RIA의 자원 상호작용 개념(Baraldi et al., 2012, 2023); 기술적/조직적/혼합 인터페이스 구분(Dubois & Araujo, 2006).
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">핵심 개념 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Value Creation Form</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">가치 창출 형태</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자원 결합으로부터 발생하는 가치의 성격: ①데이터 접근성·지식창출 증대, ②효율성 증대, ③제품 수명 전반의 혁신 촉진.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 원격 리포트를 통한 지식 축적; 대규모 파라미터 배포의 시간·비용 절감; SW 업데이트를 통한 신기능 지속 추가.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 인터뷰 응답의 서술적 코딩; Table 2에 유형별 정리.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 가치를 편익-희생 트레이드오프로 보는 관점(Walter et al., 2001); 직접·간접 가치 구분(Lind et al., 2012).
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 4 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">핵심 개념 4</span>
+                <span class="text-xs text-slate-400 font-semibold">Value Beneficiary (Direct/Indirect)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">가치 수혜 주체 및 방향성</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 창출된 가치가 어느 행위자에게, 얼마나 직접적으로 귀속되는지를 구분하는 차원. 고객(Gamma)은 주로 직접가치, 생산자(Alpha)·IoT공급자(Beta)는 주로 간접가치.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Table 2의 "Value for whom in the business network" 열에 유형별로 명시.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 인터뷰 발췌 및 저자 해석에 기반한 질적 판단.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 행위자별 가치 인식의 상이성(Cantù et al., 2012); 자원 이질성 가정(Penrose, 1959; Håkansson & Snehota, 1995).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 질적 사례연구의 설계·수집·분석 절차를 그대로 <strong>추종 재현</strong>할 수 있도록 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">사례 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  전통 제조업(비디지털) + IoT 솔루션(디지털) + 양자의 교차점이라는 세 조건을 만족하는 용접 장비 제조사 Alpha를 사례로 선정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.63, Sec. 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">인터뷰 표본 구성 (스노우볼 샘플링)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  2020~2022년 총 15건 반구조화 인터뷰 수행 (Alpha 13건: R&D관리자·PM·글로벌 경영진, Beta 1건: 기술전문가, Gamma 1건: 공정관리자·작업자 페어). 평균 54분.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.63, Sec. 3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">인터뷰 가이드 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  응답자별로 조정하되 (i) 디지털 솔루션/커넥티드 기기 관련 조직 구조, (ii) 사업 현황·계획, (iii) 외부 협력(공급자·고객 관계) 3가지 테마를 공통 축으로 사용.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.63-64, Sec. 3.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">2차 자료 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  인터뷰이 제공 기술문서·PPT, 산업보고서, 사용자 사례보고서, 각 행위자 웹사이트 정보를 보완 자료로 수집.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.64, Sec. 3.1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">귀추적(abductive) 데이터 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Dubois & Gadde (2002)의 systematic combining 논리에 따라 이론(INA 개념)과 경험적 자료 간 반복 대조를 통해 코딩. 이론적 도메인 간 교차 검증 반복.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.64, Sec. 3.2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">사례 기술 및 자원 매핑</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Alpha·Beta·Gamma 3자 관계 서술 + Table 1(디지털/비디지털 자원 목록·저장/소유 주체), Fig. 2(3자 관계도), Fig. 3(자원·인터페이스 매핑도) 시각화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Chapter 4, p.63-66</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">RIA 렌즈 적용 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  자원 결합의 특성(전달·재생산·재프로그래밍)별로 사례를 분류하여 3가지 자원 결합 유형(5.2)을 도출하고, 유형별 가치 창출 형태·수혜 주체(5.3, Table 2)를 분석.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Chapter 5, p.65-68</span>
+              </div>
+              <hr class="bg-slate-900"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-900"/>
+              <div class="timeline-middle">
+                <span class="bg-warning text-amber-950 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">삼각검증 (Triangulation)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  인터뷰와 2차 자료를 교차 대조하여 사례의 타당성 확보 (Dubois & Gibbert, 2010; Flick, 2014; Lindgreen et al., 2021).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.64, Sec. 3.2</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            사례 선정 기준, 인터뷰 프로토콜, 귀추적 코딩 논리는 상세히 기술되어 유사 맥락에서 방법론적 재현이 가능하나, 특정 기업(Alpha·Beta·Gamma)에 대한 접근권과 비공개 2차 자료(PPT, 내부 보고서)는 외부 연구자가 동일하게 확보할 수 없어 완전한 재현은 불가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6.3, p.68)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>단일 맥락 사례 연구의 한계:</strong> "The concepts of resource combinations and value creation can only be understood and explored in a specific context; therefore, this study applied a case study method. Consequently, it has limitations related to specific and contextualized findings." — 스마트 제품·IoT 맥락에 국한된 발견으로 일반화에 제약.
+              </li>
+              <li>
+                <strong>AI 등 신기술 맥락 미포함:</strong> "We expect that exploring resource combinations involving digital resources in the context of artificial intelligence (AI) would be an interesting topic for studies..." — 본 연구는 IoT·클라우드 중심이며 AI 기반 자원결합은 다루지 않음.
+              </li>
+              <li>
+                <strong>혼합 인터페이스에서 인간 역할의 심층 탐구 부재:</strong> "exploring the role of humans in mixed resource interfaces is an interesting area for future research." — 인간 매개적 상호작용의 중요성은 확인했으나 별도 심층 분석은 수행하지 않음.
+              </li>
+              <li>
+                <strong>자원 결핍(resource deficiencies) 관리 문제 미다룸:</strong> "investigating how resource deficiencies (Tunisini et al., 2023) are managed in the context of digital and non-digital resource combinations presents an intriguing area for future research."
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">사례 연구 설계 및 데이터 구조를 근거로 제기하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 응답자 비대칭·Alpha 편향</span>
+                <p class="text-sm text-slate-700">
+                  15건 인터뷰 중 13건이 Alpha 소속이며, Beta·Gamma는 각각 단 1회(Gamma는 2인 페어)에 그친다. 저자도 "these are mostly taken from Alpha's perspective" (p.63)라 인정하지만, 이를 공식 한계(Sec. 6.3)로는 명시하지 않았다. 서술이 사실상 생산자(Alpha) 중심 내러티브일 가능성이 크다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 스노우볼 샘플링의 동질성 편향</span>
+                <p class="text-sm text-slate-700">
+                  최초 접촉자가 연쇄적으로 후속 응답자를 소개하는 방식은 유사한 견해를 가진 인물들로 표본이 수렴할 위험(homophily)이 있으나 논문은 이를 논의하지 않는다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 자기보고식 가치 판단의 주관성</span>
+                <p class="text-sm text-slate-700">
+                  '효율성 증대', '지식 창출' 등의 가치 창출 주장은 응답자의 주관적 인식에 의존하며, 실제 비용절감액·생산성 지표 등 정량 근거는 제시되지 않는다. 사회적 바람직성 편향 및 후행적 정당화 가능성을 배제하기 어렵다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 연구비 지원 기관의 잠재적 이해관계</span>
+                <p class="text-sm text-slate-700">
+                  스웨덴 혁신청 Vinnova의 연구비 지원(Funding, p.68)이 명시되어 있는데, Vinnova는 산업 디지털화를 정책적으로 장려하는 기관으로, 스마트 제품의 가치를 긍정적으로 강조하는 프레이밍에 미묘한 영향을 미쳤을 가능성을 배제할 수 없다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 가치 파괴 사례의 상대적 소외</span>
+                <p class="text-sm text-slate-700">
+                  논문은 "value destruction" 가능성(Hauke-Lopes et al., 2023 인용, p.68)을 짧게 언급하지만, 실제 사례 분석(5.3)에서는 가치 창출 사례만 상세히 제시되어 확증 편향적 서술 구조를 보인다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 낮은 대표성에도 불구한 일반화</span>
+                <p class="text-sm text-slate-700">
+                  저자들은 "few machines are connected to the internet, meaning the representativeness is still low" (p.67)라고 인정하면서도, 결론부(6.1~6.2)에서는 이론적·관리적 시사점을 상당히 폭넓게 일반화하여 제시한다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">7. 단일 산업·단일 국가 맥락</span>
+                <p class="text-sm text-slate-700">
+                  스웨덴/노르웨이 기반 용접 장비 제조업이라는 특정 산업·문화적 맥락에서 도출된 자원 결합 유형론이 다른 산업(서비스업, 소비재)이나 문화권에서도 동일하게 성립할지는 검증되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">8. 사실상 횡단적 분석의 한계</span>
+                <p class="text-sm text-slate-700">
+                  2020~2022년 사이 인터뷰가 수집되었지만 분석은 특정 시점의 스냅샷에 가까우며, 자원 결합과 가치 창출이 시간에 따라 어떻게 진화하는지(종단적 관점)는 충분히 다루어지지 않는다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Value creation from combining digital and non-digital resources: The case of "smart products"</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

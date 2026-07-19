@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Increasing Circularity - IMM 2025</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
+    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
+    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
+    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+
+    html { scroll-behavior: smooth; }
+
+    @media (max-width: 1024px) {
+      .style-display { font-size: 38px; }
+      .style-h1 { font-size: 30px; }
+      .style-h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management 125 (2025)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Circular Economy / Resource Interaction</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Single-Case Study</div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Increasing circularity:<br>
+            <span class="text-cyan-400">The importance of resource interactions when adapting from waste management to resource management</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Lars Huemer, Bente Flygansvær (BI Norwegian Business School)
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            순환성 증대:<br>
+            <span class="text-indigo-300">폐기물 관리에서 자원 관리로의 전환에서 자원 상호작용의 중요성</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            노르웨이 WEEE(전기전자폐기물) 재활용 기구 REEEcycler의 25년 종단 사례를 통한 탈-번들화된 4R 모델 분석
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">폐기물을 자원으로 바꾸려면 자원 범주 "사이"뿐 아니라 "내부"의 번들 구조까지 재구성해야 합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "The circular economy, which entails a fundamental transition from waste management to resource management, involves waste minimization and prolonged resource utility. Resources should arguably be managed in a manner reducing the likelihood that they turn into waste. Correspondingly, waste should be managed in a way increasing the likelihood that it becomes a useful resource. To achieve such ends, this research highlights the bundled nature of resources (including waste). The study is based on an abductive research process and it de-bundles the resource categories portrayed in the 4R model. The de-bundled framework is applied to a longitudinal case study focusing on a recycling company's participation in the circular economy. This application results in distinctions between endogenous and exogenous adaptation strategies. Endogenous adaptations involve an explicit bundle awareness and attention to interaction processes within 4R resource categories, exogenous adaptations include interaction processes between 4R categories. It is proposed that adaptations involving deliberate tradeoffs between endogenous and exogenous strategies may lead to more circular business models and sustainable resource management."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              폐기물 관리에서 자원 관리로의 근본적 전환을 수반하는 순환경제는 폐기물 최소화와 자원 효용 수명의 연장을 포함한다. 자원은 폐기물이 될 가능성을 줄이는 방식으로 관리되어야 하며, 폐기물은 유용한 자원이 될 가능성을 높이는 방식으로 관리되어야 한다. 이를 위해 본 연구는 자원(폐기물 포함)의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">번들(bundle)적 속성</span>을 강조한다. 본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">귀추적 연구 과정(abductive)</span>을 기반으로 4R 모델의 자원 범주를 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">탈-번들화(de-bundle)</span>한다. 이 프레임워크는 한 재활용 기업의 순환경제 참여를 다루는 종단적 사례 연구에 적용되며, 이를 통해 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">내생적(endogenous)</span> 적응과 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">외생적(exogenous)</span> 적응 전략의 구분이 도출된다. 내생적 적응은 4R 범주 <em>내부</em> 상호작용에 대한 번들 인식을, 외생적 적응은 4R 범주 <em>사이</em>의 상호작용을 포함한다. 두 전략 간 의도적 트레이드오프를 수반하는 적응이 보다 순환적인 비즈니스 모델과 지속가능한 자원 관리로 이어질 수 있다고 제안한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resource Interaction Approach (RIA)</td>
+                  <td>자원 상호작용 접근법</td>
+                  <td class="text-sm">행위자들이 자원을 결합해 가치를 향상시킨다는 IMP 전통의 분석 관점을 지칭하는 확립된 학술 용어입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">4R model</td>
+                  <td>4R 모델</td>
+                  <td class="text-sm">제품·설비·조직단위·조직간관계 4개 자원 범주로 상호작용을 분석하는 모델(Håkansson & Waluszewski, 2002)입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resource Bundle Framework (RBF)</td>
+                  <td>자원 번들 프레임워크</td>
+                  <td class="text-sm">인터페이스(interface)와 강화/억제 응집효과(cogency effect)로 자원 가치를 평가하는 Huemer & Wang(2021)의 분석틀입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Cogency effect (enhancing/suppressing)</td>
+                  <td>(강화/억제) 응집효과</td>
+                  <td class="text-sm">한 자원의 존재가 다른 자원 가치를 높이거나 낮추는 관계를 지칭하는 RBF의 핵심 개념입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Endogenous / Exogenous adaptation</td>
+                  <td>내생적 / 외생적 적응(전략)</td>
+                  <td class="text-sm">4R 범주 내부(내생) 또는 범주 사이(외생)에서 일어나는 자원 재구성 전략으로, 본 연구의 핵심 발견입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Systematic combining</td>
+                  <td>체계적 결합</td>
+                  <td class="text-sm">Dubois & Gadde(2002)의 귀추적 사례연구 방법론 용어로, 이론·사례·자료가 지속 상호작용하며 정교화되는 과정입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">4R 범주 내부의 상호작용은 범주 간 적응에 어떤 영향을 미치는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">내생적·외생적 적응의 의도적 균형이 순환성을 높인다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">탈-번들화된 4R 모델 — RIA와 RBF의 결합</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 4R 모델(제품·설비·조직단위·조직간관계) 범주 내부의 자원 번들 상호작용이 범주 간 적응 전략 선택에 어떤 영향을 미치는가?</li>
+                  <li><strong>핵심 발견:</strong> REEEcycler 사례는 <strong>내생적 적응</strong>(범주 내부 번들 재구성, 예: TREAT의 3단계 보안구역)과 <strong>외생적 적응</strong>(범주 간 상호작용 조정, 예: 재사용 사업을 별도 조직 ReuseIT로 분리)이 서로 대체·보완 관계에 있음을 보여줍니다. 다만 내생적 적응이 항상 외생적 적응의 필요성을 줄이는 것은 아닙니다(다국적기업 스위치 사례).</li>
+                  <li><strong>이론/실무 기여:</strong> 자원 번들 프레임워크(RBF)의 인터페이스·응집효과 개념을 4R 모델 내부 분석까지 확장하여, 순환 비즈니스모델(CBM) 논의에 미시적 자원 관리 분석 도구를 제공합니다. 실무적으로는 "적절한 번들링"이 폐기물-자원 전환의 핵심임을 시사합니다.</li>
+                </ul>
+              </div>
+
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "폐기물을 자원으로 전환하려면 자원 범주 사이의 상호작용뿐 아니라 각 범주 내부의 번들 구조까지 함께 인식하고, 내생적·외생적 적응 전략을 의도적으로 균형 있게 선택해야 합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          질적 사례연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실증적 근거(인터뷰 인용, 사례 서술)의 원문 위치를 맵핑했습니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">자원(및 폐기물)의 번들적 속성</td>
+                <td class="text-sm italic text-slate-600">"products are commonly made of several different materials, which are bundles in themselves, facilities such as equipment for production plants are equally complex resource constellations..."</td>
+                <td class="text-right font-medium text-slate-500">p.119, Sec.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">탈-번들화된 4R 프레임워크의 이론적 도출</td>
+                <td class="text-sm italic text-slate-600">"RBF reveals a multitude of resource interfaces existing within the 4R categories, as illustrated in Fig. 2... RBF complements RIA and the 4R model."</td>
+                <td class="text-right font-medium text-slate-500">p.120, Sec.2.3</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">REEEcycler의 외생적 적응 (ReuseIT 분리)</td>
+                <td class="text-sm italic text-slate-600">"REEEcycler employs an exogenous adaptation strategy, as visualized in its decision to minimize adaptations within its organizational unit, instead focusing on adapting interactions between itself and ReuseIT."</td>
+                <td class="text-right font-medium text-slate-500">p.124, Sec.5.1</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">TREAT의 내생적 적응 (3단계 보안구역)</td>
+                <td class="text-sm italic text-slate-600">"TREAT is adapting its organizational unit to create matching resource interfaces by bundling safety zones and mobile phones correctly."</td>
+                <td class="text-right font-medium text-slate-500">p.125, Sec.5.2/5.3</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">내생적 적응만으로는 불충분한 사례 (스위치 제조사)</td>
+                <td class="text-sm italic text-slate-600">"they had spent all this time and resources internally in their laboratory, … but they did not realize how this product was going to be treated in reality." (REEEcycler CEO)</td>
+                <td class="text-right font-medium text-slate-500">p.126, Sec.5.3</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">내생적·외생적 전략의 의도적 균형과 순환성</td>
+                <td class="text-sm italic text-slate-600">"adaptations moving the economy from waste management to resource management can be done by means of a RBF inspired bundle analysis where endogenous and exogenous interactions are balanced in a deliberate manner."</td>
+                <td class="text-right font-medium text-slate-500">p.128, Sec.6.3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Conceptual Framework -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델(개념 프레임워크) 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Framework & Concepts</span>
+        </div>
+
+        <div class="alert bg-slate-100 border border-slate-300 text-slate-700 text-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-slate-500 shrink-0 w-6 h-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span>본 논문은 정량적 가설-검증형 연구모델(회귀·SEM)이 아닌 귀추적 단일 사례연구입니다. 통계적 변수 대신 논문의 핵심 분석 개념(구성체)을 아래와 같이 정리했으며, 가설-검증 경로도(DAG)는 해당 사항이 없어 생략합니다.</span>
+        </div>
+
+        <!-- Concept Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">핵심 개념 1</span>
+                <span class="text-xs text-slate-400 font-semibold">4R Model</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">4R 모델의 자원 범주</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 제품(Products)·설비(Facilities)·조직단위(Organizational Units)·조직간관계(Inter-organizational Relationships) 4가지로 상호작용 자원을 분류하는 모델(Håkansson & Waluszewski, 2002).</p>
+              <p class="text-sm text-slate-700"><strong>사례 적용:</strong> 휴대폰(제품), ReuseIT 플랫폼(설비→조직단위), REEEcycler(조직단위), REEEcycler-TREAT 관계(조직간관계).</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> Baraldi, Gressetvold & Harrison (2012), Fig.1 도식 인용 / 정량 척도 없음.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> RIA(자원 상호작용 접근)의 핵심 분석틀로, 행위자 간 자원 결합을 통한 가치 향상 관점(Baraldi et al., 2012)에 기반.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">핵심 개념 2</span>
+                <span class="text-xs text-slate-400 font-semibold">RBF</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">자원 번들 프레임워크(RBF): 인터페이스 & 응집효과</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자원 가치는 (1) 인터페이스 정합성(matching interface), (2) 강화/억제 응집효과(cogency effect)에 의해 결정된다는 분석틀(Huemer & Wang, 2021).</p>
+              <p class="text-sm text-slate-700"><strong>사례 적용:</strong> REEEcycler의 재활용 역량이 재사용 사업 확장에 억제적 응집효과를 미쳐 ReuseIT 분사로 이어짐.</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> Huemer & Wang (2021, JBR) / 질적 사례 서술로 식별, 정량 척도 없음.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> VRIO(Barney, 2007)와 대비 — VRIO는 희소성·모방불가능성을, RBF는 "다른 자원을 더 낫게 만드는가"에 초점.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">핵심 개념 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Endogenous</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">내생적 적응 전략</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 4R 범주 <em>내부</em>의 상호작용 과정에 대한 명시적 번들 인식과 재구성을 수반하는 적응.</p>
+              <p class="text-sm text-slate-700"><strong>사례 적용:</strong> TREAT의 3단계 보안구역(내부/중간/외부존) 재편, ReuseIT 창업가들의 플랫폼 구성요소 재설계.</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> 질적 사례 관찰(인터뷰·현장방문). 정량 척도 없음.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 외생적 적응의 필요성을 줄일 수 있으나, 항상 그런 것은 아님(스위치 제조사 반례).
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">핵심 개념 4</span>
+                <span class="text-xs text-slate-400 font-semibold">Exogenous</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">외생적 적응 전략</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 4R 범주 <em>사이</em>의 상호작용 과정을 포함하는 적응 — 한 자원 범주와 다른 조직/범주 간 관계 조정.</p>
+              <p class="text-sm text-slate-700"><strong>사례 적용:</strong> REEEcycler가 재사용 사업을 별도 조직 ReuseIT로 신설·분리; REEEcycler-TREAT 협력·경쟁 공존 관계 조정.</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> 질적 사례 관찰(경영진 인터뷰, 연차보고서). 정량 척도 없음.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Guercini et al.(2014)의 상호 적응 논의, 순환 공급망의 생태계 통합 논의(Batista et al., 2018)와 연결.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">관찰 대상(사례)</span>
+                <span class="text-xs text-slate-400 font-semibold">Embedded Case Units</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">4개 분석 단위 — 휴대폰 / REEEcycler / ReuseIT / REEEcycler-TREAT 관계</h3>
+              <div class="divider my-1"></div>
+              <div class="overflow-x-auto">
+                <table class="table table-sm w-full text-slate-700">
+                  <thead><tr class="bg-slate-50"><th>대상</th><th>4R 범주</th><th>역할</th></tr></thead>
+                  <tbody>
+                    <tr><td class="font-semibold">휴대폰</td><td>제품</td><td>40–50종 원소로 구성된 번들 제품, 재사용/재활용의 핵심 대상</td></tr>
+                    <tr><td class="font-semibold">REEEcycler</td><td>조직단위</td><td>1998년 설립된 비영리 WEEE 수거·재활용 조정 기구(3,000여 회원사)</td></tr>
+                    <tr><td class="font-semibold">ReuseIT</td><td>설비→조직단위</td><td>2019년 재사용 IT 플랫폼으로 출발, 2022년 독립 자회사로 재편</td></tr>
+                    <tr><td class="font-semibold">REEEcycler–TREAT</td><td>조직간관계</td><td>1999년부터 지속된 처리업체와의 협력·경쟁 공존 관계</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          귀추적(abductive) 연구 과정과 종단적 단일 사례연구(embedded design)의 26년 데이터 수집 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 맥락 및 사례 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  전기전자폐기물(WEEE) 재활용을 연구 맥락으로, 노르웨이 비영리 재활용 조정기구 REEEcycler(1998년 설립)를 목적적(purposeful) 단일 사례로 선정. 계시적(revelatory) 사례이자 시간적(time) 특성을 가진 종단 데이터 확보가 가능한 사례.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.121, Sec.3.1–3.2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">6단계 데이터 수집 (1995–2023)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  초기 예비조사(1995–96) → 심층조사(1997–2006, 인터뷰 25건+현장방문 11건) → 후속조사I(2007–13) → 설문조사(2014–18, 수거업체 107곳, 응답률 64%) → 후속조사II(2019–21) → 최종 사례연구(2021–23). 인터뷰 27건 녹음·전사, 30건 필기 기록.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.121-123, Sec.3.3, Fig.3, App.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">이론적 프레임워크 개발 — 탈-번들화된 4R 모델</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  RIA의 4R 모델(Håkansson & Waluszewski, 2002)에 자원 번들 프레임워크(RBF, Huemer & Wang 2021)를 결합, 4R 각 범주 내부를 하위 자원 번들로 해체하는 "탈-번들화된 4R 모델"(Fig.2)을 구성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.119-121, Sec.2.1–2.3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">체계적 결합(Systematic Combining)에 의한 반복 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Dubois & Gadde(2002)의 귀추적 방법론에 따라 '현실', '가용 이론', '분석 프레임워크', '점진적으로 발전하는 사례' 4요소를 지속적으로 매칭. 6단계 각각에서 이론·프레임워크·사례가 재해석됨.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.123-124, Sec.3.3.1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">최종 사례 분석 — 4개 분석 단위의 탈-번들화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  6단계(최종 사례연구)에서 휴대폰(제품), REEEcycler(조직단위), ReuseIT(설비→조직단위), REEEcycler-TREAT(조직간관계) 4개 단위를 탈-번들화된 4R 프레임워크로 분석해 가치 창출과 자원 가치 평가.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.123, Sec.3.3.1 말미; p.123-126, Sec.4</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">내생적/외생적 적응 전략 도출 및 상호작용 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  4개 단위에서 관찰된 적응 행동을 "범주 내부 재구성(내생적)" vs "범주 간 상호작용 조정(외생적)"으로 분류하고, 두 전략 간 대체적/보완적 관계를 분석.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.124-126, Sec.5.1–5.3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">재현 불가 (Not Replicable)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            저자 1인이 1998년부터 26년간 축적한 REEEcycler 접근 권한/관계에 기반한 귀추적 단일사례연구로, 표본추출·통계 재현 프로토콜이 없으며 동일한 종단적 접근을 외부 연구자가 재현하는 것은 사실상 불가능합니다. 다만 탈-번들화된 4R 분석 프레임워크 자체는 다른 사례에 개념적으로 적용 가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문에서 연구진들이 직접 밝힌 연구의 경계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>단일 국가·단일 산업 맥락:</strong> 노르웨이 WEEE 재활용이라는 단일 산업·단일 국가 맥락에 한정된 단일 사례연구로, 일반화 가능성에 대한 논의는 제한적임.
+              </li>
+              <li>
+                <strong>저자-사례 간 장기 밀착 관계:</strong> "One of the authors has focused on recycling since the establishment of REEEcycler in 1998... an advantage when designing a longitudinal research project"라며 장기 밀착 관계를 연구 설계의 "이점"으로 서술.
+              </li>
+              <li>
+                <strong>향후 연구 필요성 명시:</strong> 결론부에서 탈-번들화된 4R 프레임워크의 타 사례 적용, 제품중심 vs 소재중심 접근 비교, 공공-민간 상호작용 연구가 추가로 필요함을 인정.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">귀추적 단일사례 설계에 근거한 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 연구자 이중 역할로 인한 확증 편향</span>
+                <p class="text-sm text-slate-700">공동저자 1인이 1998년부터 REEEcycler와 컨설팅 관계를 맺어온 것으로 서술되는데(p.121), 연구자가 동시에 이해관계자였다면 전략적 선택(ReuseIT 분사 등)을 사후적으로 "성공적 적응"으로 정당화하는 서사적 편향이 발생했을 가능성이 있습니다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 사후 서사화 문제</span>
+                <p class="text-sm text-slate-700">귀추적 방법론 자체가 이론과 사례를 반복 매칭시키므로, "내생적/외생적 적응" 이분법이 관리자의 사전 전략이었다기보다 연구자가 사후적으로 사례에 끼워 맞춘 해석틀일 가능성을 배제하기 어렵습니다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 성공 사례 편향</span>
+                <p class="text-sm text-slate-700">REEEcycler·ReuseIT는 순환성 확대에 성공한 사례로만 그려지며, 유사 시도를 했으나 실패한 대조 사례가 없어 "의도적 균형이 순환성을 높인다"는 결론의 반증 가능성이 검토되지 않았습니다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 정량적 성과 지표의 부재</span>
+                <p class="text-sm text-slate-700">재사용 비율(Table 1)은 전체의 0.6%에 불과함에도 이를 "초기 성공 단계"로 볼지 "전략의 실질적 한계"로 볼지에 대한 비판적 논의가 부족하며, 순환성 증대 결론이 정량적으로 검증되지 않았습니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Increasing circularity: The importance of resource interactions when adapting from waste management to resource management</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
