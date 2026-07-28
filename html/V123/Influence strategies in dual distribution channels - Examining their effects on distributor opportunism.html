@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Influence Strategies in Dual Distribution Channels - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (navbar excluded per project policy: single top-to-bottom scroll only) -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Dual Distribution Channels</div>
+        <div class="badge badge-secondary text-white style-label">Open Access · CC BY</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Influence strategies in dual distribution channels:<br>
+            <span class="text-cyan-400">Examining their effects on distributor opportunism</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Ryuta Ishii, Mai Kikumori (Ritsumeikan University)
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            이중 유통 채널에서의 영향력 전략:<br>
+            <span class="text-indigo-300">유통업체 기회주의 행동에 미치는 효과 분석</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            일본 유통업체 CEO 266명 설문을 기반으로 한 강압적/비강압적 영향력 전략의 조건부(이중채널×의존도) 효과 분석
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">이중 채널을 가진 제조업체가 강압적으로 나가면 유통업체의 기회주의는 더 커지고, 비강압적으로 나가도 유통업체가 의존적일 때만 기회주의가 줄어듭니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Distributors' opportunistic behaviors damage the manufacturer–distributor relationships and harm the manufacturer's performance. Thus, manufacturers must curb distributors' opportunism. Influence strategies, categorized as coercive and non-coercive, affect channel members' opportunism. Although previous studies identify the boundary conditions of coercive and non-coercive influence strategies, they focus on channel relationship characteristics as boundary conditions, ignoring channel structure, such as dual distribution channels. Accordingly, we examine whether dual channel system (vs. independent channel system) moderates the relationship between coercive/non-coercive influence strategies and distributor opportunism. Moreover, we investigate whether distributor dependence enhances the dual-channel moderating role. To test our hypotheses, primary data were collected from Japanese CEOs engaged in distribution firms. The results indicate that the dual channel system enhances the facilitating effect of coercive influence strategy on opportunism, whereas the suppressive effect of non-coercive influence strategy on opportunism works only in a dual-channel and high distributor dependence situation. This study contributes to a better understanding of marketing channels and provides novel insights for business managers."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "유통업체의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">기회주의적 행동</span>은 제조업체-유통업체 관계를 훼손하고 제조업체의 성과에 해를 끼친다. 따라서 제조업체는 유통업체의 기회주의를 억제해야 한다. 강압적 및 비강압적으로 분류되는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">영향력 전략</span>은 채널 구성원의 기회주의에 영향을 미친다. 선행연구들은 이들 전략의 경계 조건을 규명해왔지만, 채널 관계 특성만을 다루었을 뿐 이중 유통 채널과 같은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">채널 구조</span>는 간과해왔다. 이에 본 연구는 이중 채널 시스템(독립 채널 대비)이 강압적/비강압적 영향력 전략과 유통업체 기회주의 간의 관계를 조절하는지 검토한다. 나아가 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">유통업체 의존도</span>가 이러한 이중 채널의 조절 역할을 강화하는지도 조사한다. 가설 검증을 위해 일본 유통기업 CEO들로부터 1차 데이터를 수집하였다. 분석 결과, 이중 채널 시스템은 강압적 영향력 전략이 기회주의를 촉진하는 효과를 강화하는 반면, 비강압적 영향력 전략이 기회주의를 억제하는 효과는 이중 채널이면서 유통업체 의존도가 높은 상황에서만 나타났다. 본 연구는 마케팅 채널에 대한 이해를 증진하고 경영자들에게 새로운 실무적 시사점을 제공한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Opportunism</td>
+                  <td>기회주의(적 행동)</td>
+                  <td class="text-sm">Williamson(1975)의 "self-interest seeking with guile"을 지칭하는 거래비용이론의 표준 번역어입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Coercive / Non-coercive Influence Strategy</td>
+                  <td>강압적 / 비강압적 영향력 전략</td>
+                  <td class="text-sm">보상·처벌 소통(강압)과 인식 자체를 바꾸는 소프트 방식(비강압)이라는 대비를 살린 번역입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Dual Distribution Channel (System)</td>
+                  <td>이중 유통 채널 (시스템)</td>
+                  <td class="text-sm">독립 유통업체 채널과 자사 직영 채널이 동시에 병존하는 구조를 강조하기 위해 '이중'으로 번역했습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Distributor Dependence</td>
+                  <td>유통업체 의존도</td>
+                  <td class="text-sm">Emerson(1962)의 power-dependence 이론에서 유래한 관계마케팅의 표준 번역어입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Credible Threat</td>
+                  <td>신뢰할 수 있는 위협</td>
+                  <td class="text-sm">Dutta et al.(1995)의 게임이론적 개념으로, 즉각 채널 전환이 가능해 '진짜'로 받아들여지는 위협을 뜻합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Common Method Bias (CMB)</td>
+                  <td>동일방법편향</td>
+                  <td class="text-sm">단일 응답자·단일 시점 자기보고식 설문에서 발생하는 측정편향을 지칭하는 방법론 표준 용어입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">채널 구조(이중채널 여부)가 영향력 전략의 효과를 바꾸는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">이중채널은 강압적 전략의 부작용을 키우고, 비강압적 전략은 고의존일 때만 효과적</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">영향력 전략 연구에 '채널 구조'라는 새 경계조건 추가</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 제조업체의 강압적/비강압적 영향력 전략이 유통업체 기회주의에 미치는 영향은, 제조업체가 이중 유통 채널(직영+독립 채널 병존)을 운영하는지 여부와 유통업체의 의존도 수준에 따라 어떻게 달라지는가?</li>
+                  <li><strong>핵심 발견:</strong> 이중채널은 강압적 전략의 기회주의 유발 효과를 강화합니다(H1 지지). 비강압적 전략의 억제 효과 역시 이중채널에서 더 강화되지만(H2 지지), 유통업체 의존도가 높을 때만 그 효과가 유의하게 나타납니다(H4 지지). 반대로 강압적 전략에서는 의존도의 추가 조절효과가 나타나지 않았습니다(H3 기각).</li>
+                  <li><strong>이론/실무 기여:</strong> 채널 관계 특성에만 집중해온 영향력 전략 연구에 '채널 구조'라는 새로운 경계조건을 제시하고, 거래비용이론의 전통적 기회주의 가정을 조건부적으로 정교화했습니다. 실무적으로는 이중채널 제조업체가 강압적 전략을 특히 자제해야 함을 시사합니다.</li>
+                </ul>
+              </div>
+
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "이중 채널을 가진 제조업체가 강압적으로 나가면 유통업체의 기회주의는 더 커지고, 비강압적으로 나가도 유통업체가 의존적일 때만 기회주의가 줄어듭니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">이중채널은 강압적 전략의 기회주의 유발 효과를 강화 (H1)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the interaction term between coercive influence strategy and dual-channel dummy is positive and significant (β = 0.15, p &lt; 0.05)... its coefficient is greater in the dual-channel system (β = 0.51, p &lt; 0.01). Thus, H1 is supported."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.7-8 / Sec.5, Table 4</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">이중채널은 비강압적 전략의 기회주의 억제 효과를 강화 (H2)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the interaction term between the non-coercive influence strategy variable and dual-channel dummy is negative and significant (β = −0.33, p &lt; 0.01)"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.7 / Sec.5, Table 4</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">유통업체 의존도는 강압적 전략의 이중채널 조절효과를 추가 강화하지 않음 (H3 기각)</td>
+                <td class="text-sm italic text-slate-600">
+                  "The three-way interaction among coercive influence strategy, dual-channel dummy, and distributor dependence is not significant (β = 0.09, n.s.). Thus, H3 is not supported."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.7-8 / Sec.5, Table 4</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">비강압적 전략의 억제 효과는 이중채널×고의존 조합에서만 유의 (H4)</td>
+                <td class="text-sm italic text-slate-600">
+                  "when distributor dependence is high, the coefficient of non-coercive influence strategy is... negative and significant in the dual-channel system (β = −0.43, p &lt; 0.01). Therefore, H2 and H4 are both supported."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.8 / Sec.5, Table 5, Fig.2</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">이중채널 구조 자체는 기회주의에 직접 영향 없음</td>
+                <td class="text-sm italic text-slate-600">
+                  "the dual-channel dummy is not significantly related to distributor opportunism (β = 0.05, n.s.), indicating that the dual-channel structure itself does not cause channel members' opportunistic behaviors."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.8 / Sec.5</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">일본 유통업체 CEO 대상 1차 설문 표본</td>
+                <td class="text-sm italic text-slate-600">
+                  "A total of 266 CEOs provided valid responses (84.1 % response rate)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.5-6 / Sec.4.1, Table 1</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">동일방법편향은 심각한 문제가 아님</td>
+                <td class="text-sm italic text-slate-600">
+                  "the first factor explaining only 28.8 % of the total variance... the lowest correlation was 0.011 between the marker-variable and coercive influence strategy... common method bias was not a significant issue"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.5 / Sec.4.2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 가설 모형, 조절된 조절모형)</h3>
+
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 520" class="w-full h-auto">
+              <!-- IV1: CIS -->
+              <rect x="20" y="80" width="220" height="80" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="130" y="110" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">강압적 영향력 전략 (CIS)</text>
+              <text x="130" y="132" text-anchor="middle" fill="#64748b" font-size="11">보상·처벌 소통, 신속한 순응 압박</text>
+              <text x="130" y="148" text-anchor="middle" fill="#94a3b8" font-size="10">Manufacturer's Coercive Influence Strategy</text>
+
+              <!-- IV2: NIS -->
+              <rect x="20" y="330" width="220" height="80" rx="8" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="130" y="360" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="14">비강압적 영향력 전략 (NIS)</text>
+              <text x="130" y="382" text-anchor="middle" fill="#0284c7" font-size="11">정보공유·제안, 인식 변화 유도</text>
+              <text x="130" y="398" text-anchor="middle" fill="#7dd3fc" font-size="10">Manufacturer's Non-Coercive Influence Strategy</text>
+
+              <!-- DV -->
+              <rect x="650" y="205" width="220" height="90" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="760" y="238" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">유통업체 기회주의</text>
+              <text x="760" y="260" text-anchor="middle" fill="#4338ca" font-size="11">자기이익 추구를 위한 기만 행동</text>
+              <text x="760" y="277" text-anchor="middle" fill="#a5b4fc" font-size="10">Distributor Opportunism (DV)</text>
+
+              <!-- Moderator 1: Dual channel system -->
+              <rect x="330" y="10" width="240" height="65" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="450" y="35" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">이중 채널 시스템 (DUAL)</text>
+              <text x="450" y="53" text-anchor="middle" fill="#b45309" font-size="10">직영+독립 채널 병존 (vs 독립채널)</text>
+
+              <!-- Moderator 2: Distributor dependence -->
+              <rect x="330" y="440" width="240" height="65" rx="8" fill="#faf5ff" stroke="#9333ea" stroke-width="2"/>
+              <text x="450" y="465" text-anchor="middle" font-weight="700" fill="#6b21a8" font-size="13">유통업체 의존도 (DEP)</text>
+              <text x="450" y="483" text-anchor="middle" fill="#7e22ce" font-size="10">DUAL의 조절효과를 재조절 (조절된 조절)</text>
+
+              <!-- CIS -> DV (H1) -->
+              <path d="M240 115 C 420 115, 550 220, 650 235" fill="none" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)"/>
+              <text x="400" y="150" fill="#1e293b" font-weight="700" font-size="13">H1 (+, DUAL에서 강화)</text>
+
+              <!-- NIS -> DV (H2) -->
+              <path d="M240 370 C 420 370, 550 280, 650 265" fill="none" stroke="#0369a1" stroke-width="2.5" marker-end="url(#arrow)"/>
+              <text x="400" y="405" fill="#075985" font-weight="700" font-size="13">H2 (−, DUAL에서 강화)</text>
+
+              <!-- Moderator1 (DUAL) perpendicular arrows into H1 / H2 paths -->
+              <path d="M420 75 L 380 140" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-amber)"/>
+              <text x="330" y="95" fill="#b45309" font-weight="700" font-size="12">H1 조절</text>
+
+              <path d="M420 75 L 380 340" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#arrow-amber)"/>
+              <text x="240" y="230" fill="#b45309" font-weight="700" font-size="12">H2 조절</text>
+
+              <!-- Moderator2 (DEP) perpendicular arrows into DUAL's moderating arrows (moderated moderation, 3-way) -->
+              <path d="M420 440 L 395 130" fill="none" stroke="#9333ea" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-purple)"/>
+              <text x="590" y="150" fill="#7e22ce" font-weight="700" font-size="12">H3 (n.s., 기각)</text>
+
+              <path d="M480 440 L 400 335" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple)"/>
+              <text x="480" y="420" fill="#7e22ce" font-weight="700" font-size="12">H4 (+, 지지)</text>
+
+              <!-- Control variables note -->
+              <text x="760" y="330" text-anchor="middle" fill="#94a3b8" font-size="10">통제변수: 브랜드배타성, 관계기간(log), B2B더미</text>
+
+              <!-- Legend -->
+              <rect x="20" y="440" width="14" height="14" fill="#f1f5f9" stroke="#94a3b8"/>
+              <text x="40" y="452" fill="#475569" font-size="10">독립변수(IV)</text>
+              <rect x="120" y="440" width="14" height="14" fill="#fffbeb" stroke="#d97706"/>
+              <text x="140" y="452" fill="#475569" font-size="10">1차 조절변수</text>
+              <rect x="230" y="440" width="14" height="14" fill="#faf5ff" stroke="#9333ea"/>
+              <text x="250" y="452" fill="#475569" font-size="10">2차 조절변수</text>
+              <rect x="20" y="465" width="14" height="14" fill="#eef2ff" stroke="#4f46e5"/>
+              <text x="40" y="477" fill="#475569" font-size="10">종속변수(DV)</text>
+
+              <!-- SVG Arrow Markers -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+                </marker>
+                <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+                </marker>
+                <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#9333ea"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 max-w-2xl text-center">
+            이중 채널 시스템(1차 조절변수)이 강압적/비강압적 영향력 전략 → 유통업체 기회주의 경로를 조절하고(H1, H2),
+            유통업체 의존도(2차 조절변수)가 다시 이 조절효과를 재조절하는(조절된 조절, moderated moderation) 3원 상호작용 구조입니다.
+            보라색 점선(H3)은 기각된 경로, 실선(H4)은 지지된 경로입니다.
+          </p>
+        </div>
+
+        <!-- Variable Detail Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">IV1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">강압적 영향력 전략 (Coercive Influence Strategy)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 보상 지급 약속이나 처벌 위협을 소통함으로써 상대의 인식을 바꾸지 않은 채 신속한 순응을 이끌어내는 파워 기반 전술(Frazier &amp; Summers, 1984).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 판매정책·딜러계약 준수 강요, 미준수 시 공급중단 암시, 미준수 시 혜택 박탈 경고 등 3문항(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Jia et al. (2021) / 3문항 (α=0.87, CR=0.79, AVE=0.56)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 거래비용이론의 파워 개념에 기반하며, 유통업체의 자율성을 훼손해 반발(reactance)과 불신을 유발한다는 논의(Kashyap &amp; Murtha, 2017; Johnston et al., 2017)와 연결됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">독립변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">IV2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">비강압적 영향력 전략 (Non-Coercive Influence Strategy)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 추천, 정보공유 등을 통해 상대의 인식 자체를 바꾸는 "소프트"한 영향력 행사 방식(Frazier &amp; Summers, 1984; Skinner et al., 1992).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 사업제안 수용 의사, 제조업체 판단에 대한 신뢰, 브랜드 재판매 의향 등 3문항(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Jia et al. (2021) / 3문항 (α=0.81, CR=0.78, AVE=0.54)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 관계적 거버넌스(신뢰·몰입·호혜성)를 강화해 기회주의를 억제한다는 선행연구(Chu, Chang, &amp; Huang, 2012)와 연결되나, 본 연구는 효과가 채널구조·의존도에 따라 조건부적임을 보임.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">1차 조절변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator 1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">이중 채널 시스템 (Dual vs. Independent Channel)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 제조업체가 독립 유통업체 채널과 자사 직영(통합) 채널을 동시에 운영하는지 여부(Ishii, 2020a; Sa Vinhas &amp; Anderson, 2005).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "제조업체가 최종 고객에게 직접 판매하는가?" 단일 예/아니오 문항(이중채널=1).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Bergestuen et al. (2022); Ishii (2020a) 방식의 단일항목 이분측정</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 모니터링 강화·정보비대칭 완화라는 긍정적 측면(Dutta et al., 1995)과 통합·독립 채널 간 갈등 유발이라는 부정적 측면(Sa Vinhas &amp; Heide, 2015)을 동시에 지님.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge style-label text-white" style="background-color:#9333ea;border-color:#9333ea;">2차 조절변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator 2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">유통업체 의존도 (Distributor Dependence)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 유통업체가 원하는 목표 달성을 위해 제조업체와의 관계 유지를 필요로 하는 정도(Emerson, 1962; Frazier, 1983).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 대체 불가능성·전환비용 관련 2문항(원 3문항 중 항목-총점 상관 저조 1개 제외, 7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Payan &amp; McFarland (2005) / 2문항 (α=0.62, CR=0.62, AVE=0.45 — 논문이 스스로 인정한 낮은 값)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 이중채널의 조절효과를 다시 조절하는 3원 상호작용 변수. 강압적 전략 경로(H3)에서는 효과 없음, 비강압적 전략 경로(H4)에서만 유의함.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Dependent Variable (DV)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">유통업체 기회주의 (Distributor Opportunism)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> Williamson (1975)의 "self-interest seeking with guile"(간계를 동반한 자기이익 추구)로 정의되는 거래비용이론의 핵심 개념.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 정직이 항상 이득이 되지 않는다는 인식, 유리하게 사실을 포장하는 행위, 자기 이익 보호를 위한 거짓말 등 3문항(원 9문항에서 축소).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Provan &amp; Skinner (1989); Gassenheimer et al. (1996) / 3문항 (α=0.79, CR=0.80, AVE=0.57)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Control variables table -->
+        <div class="mt-2">
+          <h4 class="style-h3 text-slate-800 mb-3">통제변수 (Control Variables)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table table-bordered w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th>변수</th>
+                  <th>측정</th>
+                  <th>출처</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold">브랜드 배타성 (Brand Exclusivity)</td>
+                  <td class="text-sm">단일항목, 7점 척도</td>
+                  <td class="text-sm">González-Hernando, Iglesias, &amp; Trespalacios (2005)</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold">관계기간 (Relationship Duration, log)</td>
+                  <td class="text-sm">거래 연수(로그변환)</td>
+                  <td class="text-sm">자체 개발 문항</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold">B2B 더미</td>
+                  <td class="text-sm">최종고객이 기업=1, 소비자=0</td>
+                  <td class="text-sm">자체 개발 문항</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 데이터 수집·측정·분석 절차를 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">모집단 및 표본 프레임 정의</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  일본 설문조사 전문업체 패널을 활용해 직원 100인 미만 중소 유통업체 CEO를 모집단으로 설정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.5, Sec.4.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">스크리닝 설문 및 본조사 대상자 선별</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  직함·업종에 대한 스크리닝 설문 실시(595명 응답) 후 적합 프로필(유통업 CEO) 316명을 본조사 대상자로 확정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.5, Sec.4.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">본조사 실시 및 응답 확보</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  온라인 설문으로 본조사 실시, 266명의 유효 응답 확보(응답률 84.1%). 성별·연령·근속·지식/경험/관여도 등 인구통계 확인(Table 1).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.5-6, Sec.4.1, Table 1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">핵심 변수 측정 (CIS/NIS/DV/DEP/DUAL)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  CIS·NIS는 Jia et al.(2021) 각 3문항, DV(기회주의)는 Provan &amp; Skinner(1989) 등 3문항, DEP(의존도)는 Payan &amp; McFarland(2005) 2문항(1문항 사전 제외), DUAL은 단일 예/아니오 문항으로 측정. 모두 7점 Likert.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.5-6, Sec.4.3, Table 2/3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">동일방법편향(CMB) 점검</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  (1) Harman의 단일요인 분석(4개 요인 추출, 1요인 설명분산 28.8%). (2) Lindell &amp; Whitney(2001) 마커변수법(마커문항 "It is very important for me to fulfill my duties" 사용, 최저상관 0.011).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.5, Sec.4.2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">CFA 측정모형 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  최대우도(ML) 추정 CFA로 적합도(χ²/df=3.58, RMSEA=0.098, CFI=0.93, NNFI=0.90, IFI=0.94) 확인, CR&gt;0.70·AVE&gt;0.50(의존도 제외) 및 판별타당도(√AVE&gt;상관) 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.6, Sec.4.3 후반</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">위계적 다중회귀분석 (SEM 대신)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  채널구조가 범주형(더미) 변수이므로 SEM 대신 회귀분석 채택(Nunkoo &amp; Ramkissoon, 2012 근거). M1(통제변수) → M2(주효과: CIS,NIS,DUAL,DEP) → M3(2원 상호작용) → M4(3원 상호작용) 4단계 구성, 각 ΔR² 유의성 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.7, Sec.4.4, 각주 9, Table 4</span>
+              </div>
+              <hr class="bg-slate-900"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-900"/>
+              <div class="timeline-middle">
+                <span class="bg-rose-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">가설 검증: 단순기울기 및 조건부 효과분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  H1·H2는 이중채널=1/0 조건별 단순기울기 분석(Fig.2 Panel A)으로, H3·H4는 유통업체 의존도 ±1SD/±2SD 수준별 조건부 효과표(Table 5, Fig.2 Panel B/C)로 검증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.7-9, Sec.5, Table 4-5, Fig.2</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            측정문항·코딩방식·통계분석 절차(위계적 회귀 4단계, CMB 검정법, CFA 적합도 기준)는 투명하게 공개되어 있으나, "Data availability: The data that has been used is confidential"라고 명시되어 원자료 접근이 불가하고, 일본 특정 리서치업체의 CEO 패널을 외부 연구자가 동일하게 확보하기 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 7)에서 연구진이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>유통업체 단일 측면 데이터:</strong> "we collect data from the distributor side only. Ideally, however, data should be collected from both distributors and manufacturers and dyadic data used to test hypotheses." — 제조업체-유통업체 쌍(dyad) 데이터가 아닌 유통업체 응답에만 의존.
+              </li>
+              <li>
+                <strong>의존도 측정의 타당도 문제:</strong> "the measurement validity index for distributor dependence is not as high" — 의존도 척도(AVE=0.45)가 기준 미달이며, 기회주의도 축약된 문항으로 측정됨.
+              </li>
+              <li>
+                <strong>표본 규모 편향:</strong> "we collect data from only small and medium-sized distributors" — 중소 유통업체만 대상으로 하여 대형 유통업체로의 일반화 제한.
+              </li>
+              <li>
+                <strong>거버넌스 형태 미고려:</strong> "we do not explicitly consider governance forms, such as control mechanisms or relational governance" — 통제메커니즘·관계적 거버넌스가 경계조건으로 작용할 가능성을 명시적으로 검토하지 못함.
+              </li>
+              <li>
+                <strong>기회주의 유형 미세분화:</strong> "we do not consider various types of opportunism" — 강한/약한, 능동/수동 기회주의 등 세부 유형 구분 없이 단일 척도로 측정.
+              </li>
+              <li>
+                <strong>기타 경계조건 미검토:</strong> 공정성(fairness), 채널통합도, 영역배타성, 채널다양성 등 다른 경계조건은 검토되지 않음.
+              </li>
+              <li>
+                <strong>문화적 효과 미검증:</strong> "we do not examine cultural effects" — 미국(Brown et al., 2009) 표본과 중국(Jia et al., 2021) 표본 간 비강압적 전략의 효과가 상반되는데, 일본만 대상으로 하여 국가 간 비교가 이루어지지 않음.
+              </li>
+              <li>
+                <strong>플루럴 폼(plural form) 일반화 한계:</strong> 이중유통이 프랜차이징 등 다른 복수형태와 다를 수 있어 타 맥락으로의 외적타당성은 향후 과제로 남김.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 횡단 분석 메커니즘을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 역인과관계 (Reverse Causality)</span>
+                <p class="text-sm text-slate-700">
+                  횡단면 단일 시점 설문 특성상, "제조업체의 강압적 전략이 기회주의를 유발한다"는 해석과 반대로 <strong>"이미 기회주의적 성향이 강한 유통업체를 제조업체가 감지하고 이에 대응해 강압적 전략을 강화한다"</strong>는 역방향 인과 가능성을 통계적으로 배제하지 못함.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 표본의 인구통계적 동질성</span>
+                <p class="text-sm text-slate-700">
+                  응답자의 98.1%가 남성, 평균연령 59세, 평균근속 24년으로 극히 동질적인 고령·남성 경영자 표본이며, 젊거나 다양한 리더십을 가진 유통기업으로 결과가 일반화될지 불확실함.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 사회적 바람직성 편향 잔존</span>
+                <p class="text-sm text-slate-700">
+                  익명 온라인 패널로 완화를 시도했으나, 자신의 거짓말·기만 행위를 직접 자기보고하는 항목 특성상 실제 기회주의 수준이 과소 추정(하향 편향)되어 효과크기 자체가 축소되었을 가능성.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 저신뢰도 조절변수의 통계적 위험</span>
+                <p class="text-sm text-slate-700">
+                  유통업체 의존도 척도의 AVE(0.45)가 판별타당도 기준(0.50) 미만이라, H3(기각)·H4(지지)라는 상반된 결과가 실제 효과 차이가 아니라 <strong>측정오차로 인한 검정력(power) 부족</strong>의 아티팩트일 가능성.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 일본이라는 맥락 특수성</span>
+                <p class="text-sm text-slate-700">
+                  게이레츠(keiretsu)적 협력관계를 배경으로 한 일본에서는 강압적 전략의 사용빈도 자체가 낮을 수 있어(고강압·저비강압 조합 6.8%에 불과), 강압적 전략의 측정 분산이 좁아 효과크기 추정이 불안정해졌을 가능성.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 단일 시점 정적 분석의 한계</span>
+                <p class="text-sm text-slate-700">
+                  영향력 전략 사용과 기회주의 간에는 "전략 변화 → 유통업체 반응 → 제조업체 재조정"이라는 동태적 피드백 루프가 있을 수 있으나, 횡단 데이터로는 이러한 시간적 동학을 전혀 포착하지 못함.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">7. 업종 이질성 미통제</span>
+                <p class="text-sm text-slate-700">
+                  "our data comprise multiple industries"라고 언급하며 의존도의 산업별 효과 차이를 설명에 활용하지만, 정작 산업 유형을 통제·조절변수로 명시적으로 투입하지 않아 관찰되지 않은 산업 이질성이 결과를 교란했을 가능성.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">8. 단일 정보원(Single Informant) 문제</span>
+                <p class="text-sm text-slate-700">
+                  유통업체 CEO 1인의 주관적 인식만으로 채널구조·의존도·상대 전략사용까지 모두 측정하여, 응답자 개인의 인지적 프레이밍이 전체 모형의 모든 변수에 공통적으로 영향을 미쳤을 위험(부분적 CMB 검정만으로는 완전히 해소되지 않을 수 있음).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Influence strategies in dual distribution channels: Examining their effects on distributor opportunism</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

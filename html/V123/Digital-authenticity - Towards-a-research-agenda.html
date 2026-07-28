@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Authenticity - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">AI & Digital Authenticity</div>
+        <div class="badge badge-secondary text-white style-label">Conceptual / Research Agenda Paper</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Digital authenticity:<br>
+            <span class="text-cyan-400">Towards a research agenda for the AI-driven fifth phase of digitalization in B2B marketing</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Carsten Lund Pedersen, Thomas Ritter
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            디지털 진정성:<br>
+            <span class="text-indigo-300">B2B 마케팅에서 AI 주도 디지털화 다섯 번째 단계를 위한 연구 아젠다</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            Ritter & Pedersen(2020)의 B2B 디지털화 4단계론을 확장하여 생성형 AI가 이끄는 "디지털 진정성"의 5단계를 개념화하는 문헌통합형 논문
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">생성형 AI가 진짜와 가짜의 경계를 지워버리는 "디지털 진정성"의 시대가 왔고, B2B 마케팅은 이를 가치창출로 연결하는 동시에 "디지털 인가"로 통제해야 합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- Notice: conceptual paper -->
+      <div class="alert bg-slate-100 border border-slate-300 text-slate-700 rounded-xl">
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-slate-500 shrink-0 w-6 h-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span class="style-body">이 논문은 설문·실험 등 실증 방법론이 없는 <strong>개념적(conceptual) 문헌통합 논문</strong>입니다. 통계적 가설 검정 모형이 존재하지 않아, 아래 "연구 모델 및 변수" 및 "Method" 섹션은 논문이 실제로 제시하는 개념 프레임워크와 논증 구조에 맞추어 재구성하였습니다.</span>
+      </div>
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "In recent years, we have witnessed a massive proliferation of artificial intelligence (AI) in all parts of society and business. Advances in AI are rapidly changing business-to-business marketing as well, with substantial implications for business-to-business theory and practice. In an extension of Ritter and Pedersen's (2020) phases of digitalization in business-to-business firms and through conceptual integration and development, this paper argues that digitalization has entered a new phase based on the generative capabilities of AI, which produce seemingly authentic artefacts, interactions, and datasets that cannot be consistently recognized as artificial, i.e. machine created with no or limited connection to real entities such as persons and places but which can be mistaken for having such connections. The paper outlines the characteristics of this evolution of digitalization and develops a research agenda for this fifth phase of digitalization, including the need for digital authorization to moderate the development of digital authenticity into value creation."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "최근 몇 년간 우리는 사회와 비즈니스의 모든 영역에서 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">인공지능(AI)</span>이 폭발적으로 확산되는 것을 목격해왔다. AI의 발전은 B2B 마케팅 역시 빠르게 변화시키고 있으며, B2B 이론과 실무 모두에 상당한 함의를 지닌다. Ritter and Pedersen(2020)의 B2B 기업 디지털화 단계론을 확장하는 이 논문은, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">개념적 통합(conceptual integration)</span>과 개발을 통해 디지털화가 생성형 AI의 생성 능력에 기반한 새로운 단계에 진입했다고 주장한다. 이 단계는 실제 인물·장소 등 실재하는 개체와 연결이 없거나 제한적임에도 마치 연결되어 있는 것처럼 오인될 수 있는, 즉 인공적으로 만들어졌음을 일관되게 인식할 수 없는 겉보기에 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">진정성 있는(authentic)</span> 인공물, 상호작용, 데이터셋을 만들어낸다. 본 논문은 이러한 디지털화 진화의 특징을 개괄하고, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">디지털 진정성</span>의 발전이 가치 창출로 이어지도록 이를 조율하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">디지털 인가(digital authorization)</span>의 필요성을 포함하여 이 5단계 디지털화를 위한 연구 아젠다를 제시한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Digital Authenticity</td>
+                  <td>디지털 진정성</td>
+                  <td class="text-sm">디지털 개체와 실제 인물·장소·시간 간의 지각된 연결에 근거해 "실재하고 참되다"고 지각되는 성질. authenticity의 표준 역어인 '진정성'을 그대로 사용.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Digital Authorization</td>
+                  <td>디지털 인가/승인</td>
+                  <td class="text-sm">이해관계자로부터 디지털 활동에 대한 '허가'를 얻는 행위. 단순 인증(authentication)과 구분하기 위해 '인가'를 우선 사용.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Conceptual Integration</td>
+                  <td>개념적 통합</td>
+                  <td class="text-sm">MacInnis(2011)의 마케팅 개념 논문 기여 유형 중 하나로, 서로 다른 두 문헌을 결합해 신규 구성개념을 도출하는 방법론적 틀.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">AI-generated Artefacts / Interactions / Datasets</td>
+                  <td>AI 생성 인공물 / 상호작용 / 데이터셋</td>
+                  <td class="text-sm">디지털 진정성을 구성하는 3개 하위 차원. 각각 콘텐츠, 인간-기계 상호작용, 합성 데이터를 지칭.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">The Turing Test</td>
+                  <td>튜링 테스트</td>
+                  <td class="text-sm">사람이 인간과 기계가 생성한 답변을 구별하지 못하면 통과로 간주되는 고전적 AI 판별 기준. 학술 표준 명칭을 그대로 음차.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">진짜와 가짜의 경계가 사라진 디지털화 5단계를 어떻게 개념화할 것인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">AI는 사실상 튜링 테스트를 통과했고, "디지털 진정성"이 신규 구성개념으로 부상했다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">디지털화 단계론 확장 + 6대 연구 아젠다 + 신규 관리 4P 제안</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 논증 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 생성형 AI가 인간과 구별할 수 없는 콘텐츠·상호작용·데이터를 만들어내는 현상을 어떻게 정의하고, B2B 마케팅에 어떤 함의를 갖는지 규명하고자 함.</li>
+                  <li><strong>핵심 발견:</strong> 디지털화는 Ritter & Pedersen(2020)의 4단계(디지털 뉴노멀)를 넘어, AI가 인간처럼 인공물·상호작용·데이터를 만들어내는 <strong>5단계(디지털 진정성)</strong>에 진입했으며, 이를 통제하기 위해 투명성·설명가능성·허가 기준을 갖춘 <strong>디지털 인가</strong>가 필요함.</li>
+                  <li><strong>이론/실무 기여:</strong> B2B 디지털화 문헌과 진정성(authenticity) 문헌을 개념적으로 통합해 신규 구성개념을 정립하고, 6개 연구 테마의 아젠다와 실무자를 위한 새로운 4P(프롬프팅·증명·파트너링·퍼미션)를 제시함.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "생성형 AI가 인간과 기계, 진짜와 가짜의 경계를 지워버리는 '디지털 진정성'의 시대가 도래했으며, B2B 마케팅은 이를 가치창출로 연결하는 동시에 '디지털 인가'로 통제해야 합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문의 핵심 개념적 주장과 이를 뒷받침하는 원문 인용, 그리고 원문 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">현재 AI는 사실상 튜링 테스트를 통과했다</td>
+                <td class="text-sm italic text-slate-600">
+                  "We argue that some modern AI-enabled systems may pass the Turing test under certain circumstances... systems can be built that make it difficult, if not impossible, for users to correctly determine whether the originator is human or machine."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.163–164, Sec. 2.2</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">디지털 진정성의 정의</td>
+                <td class="text-sm italic text-slate-600">
+                  "we here define digital authenticity as the perceived quality of being real and true based on the seeming connection between a digital entity and a physical person, place and/or time."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.164, Sec. 2.2</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">디지털 진정성의 3개 하위 차원</td>
+                <td class="text-sm italic text-slate-600">
+                  "AI-enabled systems generate three distinct forms of outcomes: artefacts, interactions, and datasets (see Table 5)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.165–166, Sec. 3 / Table 5</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">발전·가용성·접근성이라는 3대 동인</td>
+                <td class="text-sm italic text-slate-600">
+                  "We broadly summarize the main drivers of this phase of digitalization under the themes of advances, availability, and accessibility (Fig. 1)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.164, Sec. 2.3</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">디지털 인가(투명성·설명가능성·허가)의 필요성</td>
+                <td class="text-sm italic text-slate-600">
+                  "three aspects of digital authorization... require consideration: (i)...transparency criteria, (ii)...explainability criteria, and (iii)...permission criteria."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.167, Sec. 3.4</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">신규 마케팅 4P(프롬프팅·증명·파트너링·퍼미션) 제안</td>
+                <td class="text-sm italic text-slate-600">
+                  "we suggest the emergence of an additional set of 'four Ps' for marketing in the phase of digital authenticity (Fig. 2): prompting, proving, partnering, and permission."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.170, Sec. 6 / Fig. 2</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">6개 테마의 연구 아젠다 제시</td>
+                <td class="text-sm italic text-slate-600">
+                  "Against this backdrop, we suggest the following research agenda for the fifth phase of digitalization (Table 6)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.168–169, Sec. 5 / Table 6</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Conceptual Framework & Constructs (adapted, no DAG - conceptual paper) -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Conceptual Framework</span>
+        </div>
+
+        <div class="alert bg-amber-50 border border-amber-300 text-amber-900 rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-600 shrink-0 w-6 h-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <span class="style-small">이 논문은 통계적으로 검정되는 IV/DV/매개/조절 변수 가설 모형이 <strong>없습니다</strong>. 대신 저자들이 제시한 개념적 프레임워크(Fig. 1 "Model of digital authenticity")를 구성하는 핵심 구성개념들을 아래 카드로 정리했습니다. 가설 경로(H1, H2…)가 없으므로 화살표 기반 DAG 대신 개념 관계도(연계 흐름)로 표현합니다.</span>
+        </div>
+
+        <!-- Conceptual flow (not a hypothesis DAG) -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">개념적 프레임워크 흐름 (Fig. 1 기반 재구성)</h3>
+          <div class="w-full overflow-x-auto">
+            <div class="flex flex-col md:flex-row items-stretch gap-3 min-w-[760px] py-2">
+              <div class="flex-1 bg-white border-2 border-slate-300 rounded-xl p-4 flex flex-col justify-center">
+                <span class="style-label text-slate-500 uppercase">동인 (Drivers)</span>
+                <p class="font-bold text-slate-800 mt-1">발전 · 가용성 · 접근성</p>
+                <p class="text-xs text-slate-500 mt-1">Advances / Availability / Accessibility</p>
+              </div>
+              <div class="flex items-center justify-center text-slate-400 text-2xl px-1">→</div>
+              <div class="flex-1 bg-cyan-50 border-2 border-cyan-500 rounded-xl p-4 flex flex-col justify-center">
+                <span class="style-label text-cyan-700 uppercase">핵심 구성개념</span>
+                <p class="font-bold text-cyan-900 mt-1">디지털 진정성</p>
+                <p class="text-xs text-cyan-700 mt-1">인공물 · 상호작용 · 데이터셋 (3차원)</p>
+              </div>
+              <div class="flex items-center justify-center text-slate-400 text-2xl px-1">→</div>
+              <div class="flex-1 bg-indigo-50 border-2 border-indigo-500 rounded-xl p-4 flex flex-col justify-center">
+                <span class="style-label text-indigo-700 uppercase">가치창출 결과</span>
+                <p class="font-bold text-indigo-900 mt-1">운영우수성 · 제품리더십 · 고객밀착</p>
+                <p class="text-xs text-indigo-700 mt-1">Treacy & Wiersema (1993)</p>
+              </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-stretch gap-3 min-w-[760px] py-2">
+              <div class="flex-1"></div>
+              <div class="flex items-center justify-center text-amber-500 text-xl px-1">↑ 조율</div>
+              <div class="flex-1 bg-amber-50 border-2 border-amber-500 rounded-xl p-4 flex flex-col justify-center">
+                <span class="style-label text-amber-700 uppercase">조율 개념</span>
+                <p class="font-bold text-amber-900 mt-1">디지털 인가 (Digital Authorization)</p>
+                <p class="text-xs text-amber-700 mt-1">투명성 · 설명가능성 · 허가 기준</p>
+              </div>
+              <div class="flex-1"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Construct Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Central construct -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">핵심 구성개념</span>
+                <span class="text-xs text-slate-400 font-semibold">Central Construct</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">디지털 진정성 (Digital Authenticity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 디지털 개체와 실제 인물·장소·시간 간에 존재하는 것처럼 지각되는 연결에 근거하여, 무언가가 "실재하고 참되다"고 지각되는 성질.</p>
+              <p class="text-sm text-slate-700"><strong>하위 차원 (조작적 대응):</strong> ① AI 생성 인공물(텍스트·이미지·음성·영상), ② AI 생성 상호작용(챗봇 등), ③ AI 생성 데이터셋(합성 데이터).</p>
+              <p class="text-sm text-slate-600"><strong>측정/척도:</strong> 별도 척도 없음 (개념 논문). Table 5에서 예시로만 구체화.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 튜링 테스트(Turing, 1950), 언캐니 밸리 가설(Ciechanowski et al., 2019), 파라소셜 상호작용(Youn & Jin, 2021), Lehman et al.(2019)의 authenticity 3대 이해.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderating concept -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조율 개념</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderating Concept</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">디지털 인가 (Digital Authorization)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 이해관계자로부터 디지털 활동에 대한 허가를 얻는 행위이자, 투명하고 설명 가능한 결과를 산출해야 할 필요성.</p>
+              <p class="text-sm text-slate-700"><strong>3대 기준:</strong> 투명성(사용 사실 공개), 설명가능성(사용 방식 설명), 허가(구매자의 허가/철회권).</p>
+              <p class="text-sm text-slate-600"><strong>측정/척도:</strong> 없음 (개념적 제안).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 사회계약 위반 시 이탈/발언(Hirschman, 1970), EU AI Act·GDPR 규제 맥락, Ritter & Pedersen(2020)의 digitization capability 확장.
+              </p>
+            </div>
+          </div>
+
+          <!-- Drivers -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">선행 동인</span>
+                <span class="text-xs text-slate-400 font-semibold">Antecedents</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">발전 · 가용성 · 접근성</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 딥러닝 등 AI 알고리즘의 기술적 진보(발전), 데이터·컴퓨팅 파워의 확대(가용성), ChatGPT류 플랫폼을 통한 비전문가 접근성 확대(접근성).</p>
+              <p class="text-sm text-slate-600"><strong>사례:</strong> 트랜스포머(Vaswani et al., 2017), CNN/RNN, ChatGPT 대중화.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 세 동인의 상호 강화가 "AI 붐"을 형성(Kaplan, 2022; Brynjolfsson & McAfee, 2014).
+              </p>
+            </div>
+          </div>
+
+          <!-- Human agency -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">인간 행위자 요소</span>
+                <span class="text-xs text-slate-400 font-semibold">Human Agency</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기업가적 행동 (Entrepreneurial Action)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 디지털 진정성이 제공하는 기회를 실제 가치창출로 전환시키기 위해 필요한 인간의 주도적 행동.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 기회의 발견(discovery) 또는 창조(creation) 이론(Alvarez & Barney, 2005, 2007). "AI가 인간을 완전히 대체한다"는 단순 서사를 경계.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Managerial 4P framework -->
+        <div class="mt-6">
+          <h3 class="style-h3 text-slate-800 mb-3">실무적 확장 프레임워크: 디지털 진정성의 4P (Fig. 2)</h3>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table table-bordered w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th>구성요소</th>
+                  <th>한국어</th>
+                  <th>정의</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Prompting</td>
+                  <td>프롬프팅</td>
+                  <td class="text-sm">양질의 AI 산출물을 얻기 위한 프롬프트 설계 역량("AI prompt engineering").</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Proving</td>
+                  <td>증명</td>
+                  <td class="text-sm">산출물의 출처(인간 vs. AI)를 인증·라벨링하여 신뢰를 구축하는 활동.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Partnering</td>
+                  <td>파트너링</td>
+                  <td class="text-sm">빠르게 변화하는 AI 생태계에서 올바른 기술 파트너와 관계를 구축·관리하는 역량.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Permission</td>
+                  <td>퍼미션</td>
+                  <td class="text-sm">법적·계약적·사회적(윤리적) 허가 범위 내에서 AI를 사용하는 것.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Research agenda themes -->
+        <div class="mt-6">
+          <h3 class="style-h3 text-slate-800 mb-3">향후 연구 아젠다 (Table 6 요약 — 6개 테마)</h3>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table table-zebra w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-900 text-white">
+                  <th class="w-1/4">테마</th>
+                  <th>잠정 연구 질문 (요약)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">1. 디지털 진정성이 B2B 마케팅에 미치는 영향</td>
+                  <td class="text-sm">디지털 진정성이 B2B 마케팅을 어떻게 바꾸는가? 인간-AI 파라소셜 상호작용이 대인관계 기반 B2B 관계에 어떤 변화를 주는가?</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">2. B2B 시장에서의 인증(Authentication)</td>
+                  <td class="text-sm">행위자들이 디지털 출처를 확인하지 못하게 되는 정도는? 인증 필요를 어떻게 충족할 것인가?</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">3. 5단계가 마케터 직무에 미치는 영향</td>
+                  <td class="text-sm">AI가 B2B 마케팅 인력을 지원하는가, 대체하는가? 마케팅 기능/직무는 어떻게 진화하는가?</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">4. AI 시스템의 상호작용 프로세스</td>
+                  <td class="text-sm">인간형 AI 사용에 대해 어떤 규범이 형성될 것인가? 상호작용의 실체 공개가 요구되어야 하는가?</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">5. 합성 데이터 (Synthetic Data)</td>
+                  <td class="text-sm">합성 데이터셋에 어떤 방법론적 요건이 필요한가? 실제 데이터와의 괴리는 어떻게 관리하는가?</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">6. 5단계의 의도치 않은 부작용</td>
+                  <td class="text-sm">디지털 진정성의 긍정적/부정적 결과는 무엇인가? 의도된 것과 의도되지 않은 결과는 무엇인가?</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps (adapted: argumentation structure) -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Argumentation Structure</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          이 논문에는 표본추출·측정·통계분석 같은 실증적 Method 절이 없습니다. 대신 저자들이 사용한 <strong>문헌 통합(conceptual integration, MacInnis 2011)</strong> 논증 절차를 재구성한 것입니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">이론적 출발점(앵커) 설정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Ritter & Pedersen(2020)의 B2B 기업 디지털화 4단계 모델을 이론적 출발점으로 채택하고, 이 모델의 적합성 근거와 한계(archetype적 성격, 단계 중첩 가능성)를 함께 제시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.163, Sec. 1 & 각주 5</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">현상의 예시화를 통한 문제 제기</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Google LaMDA 지각력 논란, 바이든 로보콜, 힐러리 클린턴 딥페이크 영상 등 실제 사례를 제시하여 "진짜와 인공의 경계가 모호해졌다"는 현상을 도입부에서 논증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.162, Sec. 1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">핵심 개념(AI, authenticity)의 문헌 검토 및 재정의</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  기존 AI 정의들(Table 2)과 authenticity의 세 가지 이해(Lehman et al., 2019)를 검토한 뒤, 두 문헌을 교차시켜 "디지털 진정성"이라는 신규 통합 개념을 정의(conceptual integration).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.163–164, Sec. 2.1–2.2, Table 2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">신·구 단계 비교표를 통한 차별화 논증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Phase 4와 Phase 5를 시기·현상·주요 활동 기준으로 비교하는 표(Table 4)를 제시하여 새 단계가 기존 단계와 질적으로 다름을 논증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.164, Sec. 2.2, Table 4</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">동인(drivers) 분해 및 프레임워크 구축</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  발전·가용성·접근성이라는 세 가지 동인을 각각의 하위 문헌(딥러닝 연구, 데이터/하드웨어 가용성, ChatGPT 접근성 사례)으로 뒷받침하며 Fig. 1의 개념 모델을 구축.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.164–165, Sec. 2.3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">3개 하위 차원(인공물/상호작용/데이터셋) 전개</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  각 차원별로 실제 사례(AI 음악, Katy Perry 딥페이크, Klarna 챗봇, NIH-Syntegra 합성데이터 등)를 제시하며 개념을 구체화(Table 5, Section 3.1–3.3).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.165–167, Sec. 3</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">대응 개념(디지털 인가) 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  진정성의 부작용(가짜정보 확산, 신뢰훼손)을 통제하기 위한 개념적 대응물로 투명성·설명가능성·허가 3대 기준의 "디지털 인가"를 제안.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.167, Sec. 3.4</span>
+              </div>
+              <hr class="bg-slate-900"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-900"/>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">가치창출 프레임워크 적용</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Treacy & Wiersema(1993)의 3대 가치창출 전략(운영우수성/제품리더십/고객밀착)을 차용하여 디지털 진정성이 어떻게 비즈니스 가치로 전환되는지 설명하고, 기업가적 행동 개념을 추가.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.167–168, Sec. 4</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 9 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">9</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 9</time>
+                <div class="text-lg font-bold text-slate-800">연구 아젠다(6개 테마) 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  앞선 논증에서 파생되는 미해결 질문들을 6개 테마로 범주화하여 Table 6으로 정리(영향/인증/직무/상호작용규범/합성데이터/부작용).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.168–170, Sec. 5, Table 6</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 10 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">10</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 10</time>
+                <div class="text-lg font-bold text-slate-800">경영 시사점(4P) 도출 및 결론</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  프롬프팅·증명·파트너링·퍼미션의 4P를 관리자를 위한 실천적 프레임워크로 제시하고(Fig. 2), 향후 디지털화 6단계에 대한 전망으로 마무리.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.170–171, Sec. 6–7</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">재현 불가 (Not Empirically Replicable) — 단, 논증 구조는 완전히 추적 가능</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            설문·실험·통계분석이 전혀 없는 순수 개념 논문이므로 통계적 의미의 "재현"은 적용될 수 없습니다. 다만 이론적 앵커, 정의, 프레임워크와 논증 전개 순서(STEP 1~10)는 원문에 명시되어 있어 동일한 논증 구조를 따라가는 개념적 재구성은 가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">저자들이 본문 곳곳에서 직접 인정한 한계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>디지털화 단계 모델의 원형적(archetypal) 성격 인정:</strong> "단계들이 원형적이고 일부는 중첩될 수 있다"고 명시적으로 밝히며, 분야에 따라 대안적 관점이 존재할 수 있음을 인정.
+                <span class="badge badge-outline badge-sm ml-1 text-slate-500">p.163, Sec. 1, 각주 5</span>
+              </li>
+              <li>
+                <strong>authenticity 정의에 대한 학계의 불일치 인정 및 단일 관점 채택:</strong> authenticity의 구체적 정의에 합의가 부족함을 인정하면서도, 세 가지 이해 중 "실체·장소·시간과의 연결" 관점만 선택적으로 채택.
+                <span class="badge badge-outline badge-sm ml-1 text-slate-500">p.164, Sec. 2.2</span>
+              </li>
+              <li>
+                <strong>개념적 프레임임을 스스로 인정:</strong> "세 차원을 전반적 틀로 제안한 것이 논의를 촉발하기를 희망한다"고 표현하여 확정된 결론이 아닌 잠정적 제안임을 인정.
+                <span class="badge badge-outline badge-sm ml-1 text-slate-500">p.171, Sec. 7</span>
+              </li>
+              <li>
+                <strong>5단계 지속 기간 추정이 순수 외삽에 근거함을 인정:</strong> 각 단계가 약 10년 지속된다는 관찰을 그대로 외삽하여 "5단계가 2030년경 대체될 것"이라 추정하는 잠정적 어조.
+                <span class="badge badge-outline badge-sm ml-1 text-slate-500">p.171, Sec. 7</span>
+              </li>
+              <li>
+                <strong>미해결 질문이 많음을 자인:</strong> "phase 5를 다루기 전에도 여전히 많은 긴급하고 미해결된 질문들이 있다"고 명시.
+                <span class="badge badge-outline badge-sm ml-1 text-slate-500">p.171, Sec. 7</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">개념 논문의 논증 구조와 근거 자료를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 경험적 근거의 일화 의존성</span>
+                <p class="text-sm text-slate-700">
+                  핵심 주장의 근거가 LaMDA 사건, 로보콜, 딥페이크 등 소수의 언론 보도 사례에 크게 의존함. 체계적 문헌 리뷰나 B2B 실무자 대상 설문·인터뷰 등 1차 자료가 전혀 없어, "디지털 진정성"이 실제 B2B 실무자에게 얼마나 중요하게 지각되는지 실증적 검증이 결여됨.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. B2C 사례의 B2B 일반화 문제</span>
+                <p class="text-sm text-slate-700">
+                  제목은 B2B 마케팅을 표방하지만, 제시된 사례(Klarna 챗봇, Katy Perry 딥페이크, ChatGPT, Sora, Udio)의 상당수는 B2C·엔터테인먼트 맥락에서 나온 것이며, 순수 B2B 거래 관계(산업재 협상, RFP 프로세스 등)에서의 구체적 예시는 상대적으로 빈약함.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 기존 구성개념과의 중복 위험</span>
+                <p class="text-sm text-slate-700">
+                  신뢰(trust), 신빙성(credibility), 출처신뢰성(source credibility) 등 이미 확립된 B2B 관계 마케팅 구성개념과 "디지털 진정성"이 개념적으로 어떻게 구별되는지에 대한 판별타당성 논의가 부족함. 향후 실증 연구에서 구성개념 중복 문제가 발생할 위험.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 기술결정론적 서술 경향</span>
+                <p class="text-sm text-slate-700">
+                  AI 발전을 거의 선형적·불가역적으로 가속화하는 외생적 힘으로 다루는 경향이 있으며, EU AI Act 등 규제나 AI 반발(backlash)이 5단계의 확산 속도·방향 자체를 늦추거나 되돌릴 가능성에 대한 논의는 소략함.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. "4P" 프레임워크의 조작화 부재</span>
+                <p class="text-sm text-slate-700">
+                  프롬프팅·증명·파트너링·퍼미션의 4P는 매력적인 발상이지만, 각 요소를 측정하거나 조직 역량으로 개발·평가할 구체적 지침·척도가 없어 향후 검증 없이 실무에 적용될 경우 개념적 유행어에 그칠 위험.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 저자 자기인용 편중 가능성</span>
+                <p class="text-sm text-slate-700">
+                  이론적 근간(디지털화 단계론, B2B IT 구매센터 논의 등)이 저자 자신의 선행 연구(Ritter & Pedersen, 2020, 2024; Pedersen, 2023)에 상당 부분 의존하고 있어, 외부 이론과의 삼각검증이 제한적일 가능성.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Digital authenticity: Towards a research agenda for the AI-driven fifth phase of digitalization in business-to-business marketing</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

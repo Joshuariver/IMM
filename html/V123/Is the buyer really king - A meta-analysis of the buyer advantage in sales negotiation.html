@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Is the Buyer Really King? - IMM 2024 Meta-Analysis</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
+    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
+    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
+    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+
+    html { scroll-behavior: smooth; }
+
+    @media (max-width: 1024px) {
+      .style-display { font-size: 38px; }
+      .style-h1 { font-size: 30px; }
+      .style-h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Meta-Analysis · Sales Negotiation</div>
+        <div class="badge badge-secondary text-white style-label">k = 669 effect sizes · N = 24,757 dyads</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Is the buyer really king?<br>
+            <span class="text-cyan-400">A meta-analysis of the buyer advantage in sales negotiation</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Ingmar Geiger, Andreas Salmen, Alfred Zerres
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            구매자가 진정한 왕인가?<br>
+            <span class="text-indigo-300">영업 협상에서 구매자 우위에 관한 메타분석</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            196개 1차 연구·669개 효과크기·24,757개 협상 쌍을 통합한 위계선형모형(HLM) 메타분석
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">"구매자가 왕"이라는 통설은 통계적으로 사실이지만, 그 왕관은 아주 작고 상황에 따라 언제든 벗겨질 수 있습니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This meta-analysis investigates the existence of a potential buyer advantage in economic outcomes of sales negotiations, i.e., greater mean buyer profit than seller profit. Role theory predicts such an advantage due to different role characteristics and behavioral prescriptions between buyers and sellers. Related research on heuristic decision-making comes to the same conclusions based on different loss- and gain framing due to role. This main effect, i.e., the buyer advantage, is expected to be context-dependent. Therefore, role context-related and negotiation advantage-related moderators are analyzed, which are expected to amplify or attenuate the main effect. Using a hierarchical linear modeling approach to meta-analysis, this study includes k =669 effect sizes from 196 primary studies or data sources, amounting to N =24,757 negotiation dyads. Per our prediction, buyers fare slightly better than sellers in sales negotiations, albeit this buyer advantage qualifies as rather small. The effect is attenuated when male sellers negotiate with female buyers, when negotiators are experienced professionals or MBA students, and when the negotiation setting is B2B. Well-known negotiation advantage variables (information, power, goal, first offer advantage) largely amplify or reverse the effect, depending on which side holds the negotiation advantage."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              본 메타분석은 영업 협상의 경제적 성과에서 잠재적인 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">구매자 우위</span>, 즉 판매자보다 구매자의 평균 이익이 더 크게 나타나는 현상이 실제로 존재하는지를 검증한다. <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">역할이론</span>은 구매자와 판매자 간 서로 다른 역할 특성과 행동 규범 때문에 이러한 우위가 나타난다고 예측한다. <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">휴리스틱 의사결정</span> 관련 연구 역시 역할에 따른 손실·이득 프레이밍 차이를 근거로 동일한 결론에 도달한다. 이 주효과, 즉 구매자 우위는 맥락에 따라 달라질 것으로 예상된다. 이에 따라 주효과를 증폭하거나 약화시킬 것으로 예상되는 역할-맥락 조절변수와 협상우위 조절변수를 분석한다. <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">위계선형모형(HLM)</span>을 메타분석 기법으로 사용하여, 196개의 1차 연구·데이터 소스에서 산출된 669개의 효과크기(k)를 포함하며, 이는 총 24,757개의 협상 쌍에 해당한다. 예측대로 구매자는 영업 협상에서 판매자보다 다소 유리한 결과를 얻지만, 이 구매자 우위는 크기가 작은 수준으로 나타났다. 이 효과는 남성 판매자-여성 구매자 조합일 때, 협상자가 숙련된 전문가 또는 MBA 학생일 때, 그리고 협상 상황이 B2B일 때 약화된다. 잘 알려진 협상우위 변수들(정보, 권력, 목표, 선제안 우위)은 어느 쪽이 그 우위를 보유하는지에 따라 효과를 대체로 증폭시키거나 반전시킨다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Buyer advantage</td>
+                  <td>구매자 우위</td>
+                  <td class="text-sm">구매자가 판매자보다 개별 협상이익을 더 많이 얻는 현상을 지칭하는 본 논문의 핵심 종속 개념이므로 직역을 유지.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Role theory</td>
+                  <td>역할이론</td>
+                  <td class="text-sm">사회과학 전반에서 널리 쓰이는 표준 번역어(Biddle, 1986 등)를 그대로 사용.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Heuristic decision-making</td>
+                  <td>휴리스틱 의사결정</td>
+                  <td class="text-sm">"어림짐작"으로도 번역되나 국내 행동경제학 문헌에서 "휴리스틱"이 표준 용어로 정착되어 음역 채택.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Framing (loss/gain frame)</td>
+                  <td>프레이밍 (손실/이득 프레임)</td>
+                  <td class="text-sm">Kahneman &amp; Tversky(1979) 전망이론 개념으로 국내 문헌의 표준 번역어인 "프레이밍"을 채택.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Hierarchical Linear Modeling (HLM)</td>
+                  <td>위계선형모형</td>
+                  <td class="text-sm">효과크기가 연구(study) 내에 중첩된 구조를 반영하는 다층 분석 기법의 국내 표준 번역어.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Role/negotiation advantage-related moderator</td>
+                  <td>역할-맥락 / 협상우위 조절변수</td>
+                  <td class="text-sm">역할이 발현되는 맥락 요인과, 정보·권력 등 기존에 알려진 협상 "우위" 결정요인이라는 구분을 살려 번역.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Situational strength</td>
+                  <td>상황 강도 (강한/약한 상황)</td>
+                  <td class="text-sm">Mischel(1977)의 성격심리학 개념으로, 국내 조직심리학 문헌의 번역을 따름.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">구매자가 판매자보다 실제로 더 많은 이익을 얻는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">구매자 우위는 존재하지만 작고, 조건부다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">역할이론 × 상황강도 이론의 협상학 접목</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> "고객이 왕이다"라는 통설처럼 영업 협상에서 구매자가 판매자보다 개별 경제적 이익을 더 크게 얻는 일반적 구매자 우위가 존재하는가? 존재한다면 어떤 조건에서 강화·약화되는가?</li>
+                  <li><strong>핵심 발견:</strong> 669개 효과크기를 HLM으로 통합한 결과 구매자 우위는 통계적으로 유의하지만 <strong>효과크기는 작다</strong>(m=0.210, p=.040). 이질성이 극도로 높으며(I²=94.65%), 성별 구성·전문성·B2B 여부·정보/권력/선제안/훈련 우위에 따라 크게 달라진다.</li>
+                  <li><strong>이론/실무 기여:</strong> 역할이론과 상황강도 이론(situational strength)을 결합해 "강한 상황"(B2B, 전문가)에서 역할 기반 행동이 압도된다는 것을 실증했으며, 실무적으로는 판매자의 정보 교환 확대, B2B 구매지침 명확화, 구매자의 선제안 활용을 제안한다.</li>
+                </ul>
+              </div>
+
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "구매자가 왕"이라는 통설은 통계적으로는 사실이지만, 그 왕관은 아주 작고(small effect), 성별·경험·B2B 여부·정보/권력/선제안 우위 같은 상황 조건에 따라 언제든 벗겨질 수 있다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          12개 가설(H1~H12) 각각에 대한 실증적 근거 데이터의 원문 인용 및 위치를 맵핑했습니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">구매자 우위 존재, 그러나 작음 (H1)</td>
+                <td class="text-sm italic text-slate-600">"...yielded a mean effect size of m =0.210... Thus, in line with Hypothesis 1 we find support for a general, however small, buyer advantage."</td>
+                <td class="text-right font-medium text-slate-500">p.379, §4.2</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">효과크기의 이질성이 매우 높음</td>
+                <td class="text-sm italic text-slate-600">"Higgins' I2... amounted to 94.65%, indicating highly heterogeneous effect sizes..."</td>
+                <td class="text-right font-medium text-slate-500">p.379, §4.2</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">남성판매자-여성구매자 조합에서 우위 반전 (H2a)</td>
+                <td class="text-sm italic text-slate-600">"Male seller, female buyer... coefficient −0.779, p =.021... the buyer advantage is reversed when the seller is male and the buyer is female."</td>
+                <td class="text-right font-medium text-slate-500">p.380 Table 2; p.381 §5.1</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">전문가/MBA 피험자는 우위가 약함 (H3)</td>
+                <td class="text-sm italic text-slate-600">"MBAs/professionals as subjects... coefficient −0.391, p =.055... the buyer advantage is weakened, when MBAs and professionals acted as experimental subjects."</td>
+                <td class="text-right font-medium text-slate-500">p.380 Table 2; p.381 §5.1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">B2B 상황에서 우위가 거의 소멸 (H4)</td>
+                <td class="text-sm italic text-slate-600">"B2B setting... coefficient −0.497, p =.044... the buyer advantage nearly vanishes in B2B situations."</td>
+                <td class="text-right font-medium text-slate-500">p.380 Table 2; p.381 §5.1</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">협상 이슈 개수는 조절 효과 없음 (H5 기각)</td>
+                <td class="text-sm italic text-slate-600">"Number of negotiation issues... coefficient −0.032, p =.264... this effect does not reach statistical significance, thus rejecting H5."</td>
+                <td class="text-right font-medium text-slate-500">p.380 Table 2; p.380 §4.3.3</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">정보 우위가 효과를 증폭·반전 (H6)</td>
+                <td class="text-sm italic text-slate-600">"Buyer information advantage... coefficient 1.406, p =.003... Seller information advantage... coefficient −0.514, p =.074."</td>
+                <td class="text-right font-medium text-slate-500">p.380 Table 2</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">권력 우위가 가장 강력한 조절변수 (H7)</td>
+                <td class="text-sm italic text-slate-600">"Buyer power advantage... coefficient 1.77... Seller power advantage... coefficient −1.37... The strongest evidence was found for buyer and seller power advantages."</td>
+                <td class="text-right font-medium text-slate-500">p.380 Table 2; p.381 §5.1</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td class="font-semibold text-slate-900">구매자 선제안은 증폭, 판매자 선제안은 무효과 (H9a/H9b)</td>
+                <td class="text-sm italic text-slate-600">"Buyer made first offer... coefficient 0.646, p =.039... Seller made first offer... coefficient 0.080, p =.399... no support for a weakened or reversed buyer advantage when the seller makes the first offer."</td>
+                <td class="text-right font-medium text-slate-500">p.380 Table 2; p.381-382 §5.1</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td class="font-semibold text-slate-900">선제안 금액 우위가 구매자 우위를 반전 (H10)</td>
+                <td class="text-sm italic text-slate-600">"Seller first offer value advantage... coefficient −4.005, p =.001... the seller benefits and the buyer advantage is reversed."</td>
+                <td class="text-right font-medium text-slate-500">p.380 Table 2; p.382 §5.1</td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td class="font-semibold text-slate-900">일방적 시간압박은 유의한 조절 없음 (H11 기각)</td>
+                <td class="text-sm italic text-slate-600">"One-sided time pressure did not qualify as a meaningful moderator... possibly due to the very low occurrence in the database (k's = 8; 9)."</td>
+                <td class="text-right font-medium text-slate-500">p.382 §5.1</td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td class="font-semibold text-slate-900">구매자 훈련은 증폭, 판매자 훈련은 불분명 (H12a/H12b)</td>
+                <td class="text-sm italic text-slate-600">"Buyer training... coefficient 1.020, p =.011... buyer training accentuates the buyer advantage... it remains unclear if training the sellers is a remedy."</td>
+                <td class="text-right font-medium text-slate-500">p.380 Table 2; p.382 §5.1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          메타분석이므로 "연구 모델"은 단일 실증연구의 변수 관계가 아니라, 196개 1차 연구를 관통하는 하나의 주효과(H1)와
+          10개 범주의 조절변수 관계로 구성됩니다 (원문 Fig. 1 "Research model", p.376).
+        </p>
+
+        <!-- Research Model SVG DAG -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 모델: 구매자 우위와 조절변수)</h3>
+
+          <div class="w-full bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 1200 640" class="w-full h-auto">
+
+              <!-- ===== Main effect (H1) ===== -->
+              <rect x="20" y="290" width="170" height="70" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+              <text x="105" y="318" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">구매자 역할</text>
+              <text x="105" y="336" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">(Buyer Role)</text>
+              <text x="105" y="352" text-anchor="middle" fill="#64748b" font-size="10">협상의 IV: 역할 점유</text>
+
+              <rect x="1010" y="290" width="170" height="70" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="1095" y="315" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">개별 협상이익 우위</text>
+              <text x="1095" y="332" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">(Buyer Advantage)</text>
+              <text x="1095" y="349" text-anchor="middle" fill="#4338ca" font-size="10">DV: 구매자 vs 판매자 이익차</text>
+
+              <path d="M190 325 L 1010 325" fill="none" stroke="#4f46e5" stroke-width="3" marker-end="url(#arrowIndigo)"/>
+              <text x="600" y="312" text-anchor="middle" fill="#3730a3" font-weight="700" font-size="13">H1 (+) 전체 평균 효과크기 m=0.210, 작지만 유의 (p=.040)</text>
+
+              <!-- ===== Top row: Negotiation advantage-related moderators (amber) ===== -->
+              <text x="600" y="14" text-anchor="middle" fill="#92400e" font-weight="700" font-size="12">협상우위 조절변수 (Negotiation Advantage-Related Moderators)</text>
+
+              <!-- H6 Information -->
+              <rect x="190" y="20" width="120" height="90" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="250" y="42" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">정보 우위</text>
+              <text x="250" y="57" text-anchor="middle" fill="#b45309" font-size="9">(Information)</text>
+              <text x="250" y="74" text-anchor="middle" fill="#78350f" font-size="9">구매자 정보우위 ▲</text>
+              <text x="250" y="87" text-anchor="middle" fill="#78350f" font-size="9">판매자 정보우위 ▼</text>
+              <text x="250" y="102" text-anchor="middle" fill="#b45309" font-weight="700" font-size="10">H6 (a)✔* (b)✔+</text>
+              <path d="M250 110 L 250 325" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowAmber)"/>
+
+              <!-- H7 Power -->
+              <rect x="330" y="20" width="120" height="90" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="390" y="42" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">권력 우위</text>
+              <text x="390" y="57" text-anchor="middle" fill="#b45309" font-size="9">(Power / BATNA)</text>
+              <text x="390" y="74" text-anchor="middle" fill="#78350f" font-size="9">구매자 권력우위 ▲▲▲</text>
+              <text x="390" y="87" text-anchor="middle" fill="#78350f" font-size="9">판매자 권력우위 ▼▼▼</text>
+              <text x="390" y="102" text-anchor="middle" fill="#b45309" font-weight="700" font-size="10">H7 (a)✔*** (b)✔***</text>
+              <path d="M390 110 L 390 325" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowAmber)"/>
+
+              <!-- H8 Goal -->
+              <rect x="470" y="20" width="120" height="90" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="530" y="42" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">목표 우위</text>
+              <text x="530" y="57" text-anchor="middle" fill="#b45309" font-size="9">(Goal Difficulty)</text>
+              <text x="530" y="74" text-anchor="middle" fill="#78350f" font-size="9">구매자 목표우위 n.s.</text>
+              <text x="530" y="87" text-anchor="middle" fill="#78350f" font-size="9">판매자 목표우위 ▼*</text>
+              <text x="530" y="102" text-anchor="middle" fill="#b45309" font-weight="700" font-size="10">H8 (a)n.s. (b)✔*</text>
+              <path d="M530 110 L 530 325" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowAmber)"/>
+
+              <!-- H9/H10 First offer -->
+              <rect x="610" y="20" width="120" height="90" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="670" y="42" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">선제안 효과</text>
+              <text x="670" y="57" text-anchor="middle" fill="#b45309" font-size="9">(First Offer)</text>
+              <text x="670" y="74" text-anchor="middle" fill="#78350f" font-size="9">구매자 선제안 ▲*</text>
+              <text x="670" y="87" text-anchor="middle" fill="#78350f" font-size="9">판매자 선제안금액 ▼***</text>
+              <text x="670" y="102" text-anchor="middle" fill="#b45309" font-weight="700" font-size="10">H9(a)✔*(b)✘ H10✔***</text>
+              <path d="M670 110 L 670 325" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowAmber)"/>
+
+              <!-- H11 Time pressure -->
+              <rect x="750" y="20" width="120" height="90" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="810" y="42" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">시간압박</text>
+              <text x="810" y="57" text-anchor="middle" fill="#b45309" font-size="9">(Time Pressure)</text>
+              <text x="810" y="74" text-anchor="middle" fill="#78350f" font-size="9">구매자 시간압박 n.s.</text>
+              <text x="810" y="87" text-anchor="middle" fill="#78350f" font-size="9">판매자 시간압박 ✘</text>
+              <text x="810" y="102" text-anchor="middle" fill="#b45309" font-weight="700" font-size="10">H11 (a)n.s. (b)✘</text>
+              <path d="M810 110 L 810 325" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowAmber)"/>
+
+              <!-- H12 Training -->
+              <rect x="890" y="20" width="120" height="90" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="950" y="42" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">협상훈련</text>
+              <text x="950" y="57" text-anchor="middle" fill="#b45309" font-size="9">(Training)</text>
+              <text x="950" y="74" text-anchor="middle" fill="#78350f" font-size="9">구매자 훈련 ▲*</text>
+              <text x="950" y="87" text-anchor="middle" fill="#78350f" font-size="9">판매자 훈련 n.s.</text>
+              <text x="950" y="102" text-anchor="middle" fill="#b45309" font-weight="700" font-size="10">H12 (a)✔* (b)n.s.</text>
+              <path d="M950 110 L 950 325" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowAmber)"/>
+
+              <!-- ===== Bottom row: Role context-related moderators (violet) ===== -->
+              <text x="600" y="628" text-anchor="middle" fill="#5b21b6" font-weight="700" font-size="12">역할-맥락 조절변수 (Role Context-Related Moderators)</text>
+
+              <!-- H2 Gender -->
+              <rect x="190" y="530" width="190" height="90" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+              <text x="285" y="552" text-anchor="middle" font-weight="700" fill="#5b21b6" font-size="12">성별 구성 (Gender)</text>
+              <text x="285" y="567" text-anchor="middle" fill="#6d28d9" font-size="9">협상쌍 남녀 조합</text>
+              <text x="285" y="584" text-anchor="middle" fill="#4c1d95" font-size="9">남성판매자-여성구매자 ▼▼(반전)</text>
+              <text x="285" y="597" text-anchor="middle" fill="#4c1d95" font-size="9">여성판매자-남성구매자 ▲ n.s.</text>
+              <text x="285" y="614" text-anchor="middle" fill="#6d28d9" font-weight="700" font-size="10">H2 (a)✔* (b)n.s.</text>
+              <path d="M285 530 L 285 325" fill="none" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowViolet)"/>
+
+              <!-- H3 Professional experience -->
+              <rect x="400" y="530" width="190" height="90" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+              <text x="495" y="552" text-anchor="middle" font-weight="700" fill="#5b21b6" font-size="12">전문성·경력</text>
+              <text x="495" y="567" text-anchor="middle" fill="#6d28d9" font-size="9">(MBA / Professional)</text>
+              <text x="495" y="584" text-anchor="middle" fill="#4c1d95" font-size="9">전문가·MBA일수록 우위 ▼</text>
+              <text x="495" y="597" text-anchor="middle" fill="#4c1d95" font-size="9">(상황강도 이론 근거)</text>
+              <text x="495" y="614" text-anchor="middle" fill="#6d28d9" font-weight="700" font-size="10">H3 ✔+ (약한 지지)</text>
+              <path d="M495 530 L 495 325" fill="none" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowViolet)"/>
+
+              <!-- H4 B2B vs B2C -->
+              <rect x="610" y="530" width="190" height="90" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+              <text x="705" y="552" text-anchor="middle" font-weight="700" fill="#5b21b6" font-size="12">B2B 여부</text>
+              <text x="705" y="567" text-anchor="middle" fill="#6d28d9" font-size="9">(B2B vs B2C/C2C)</text>
+              <text x="705" y="584" text-anchor="middle" fill="#4c1d95" font-size="9">B2B일수록 우위 ▼▼</text>
+              <text x="705" y="597" text-anchor="middle" fill="#4c1d95" font-size="9">(거의 소멸 수준)</text>
+              <text x="705" y="614" text-anchor="middle" fill="#6d28d9" font-weight="700" font-size="10">H4 ✔*</text>
+              <path d="M705 530 L 705 325" fill="none" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowViolet)"/>
+
+              <!-- H5 Number of issues -->
+              <rect x="820" y="530" width="190" height="90" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+              <text x="915" y="552" text-anchor="middle" font-weight="700" fill="#5b21b6" font-size="12">이슈 개수</text>
+              <text x="915" y="567" text-anchor="middle" fill="#6d28d9" font-size="9">(Number of Issues)</text>
+              <text x="915" y="584" text-anchor="middle" fill="#4c1d95" font-size="9">유의한 조절효과 없음</text>
+              <text x="915" y="597" text-anchor="middle" fill="#4c1d95" font-size="9">(기각)</text>
+              <text x="915" y="614" text-anchor="middle" fill="#6d28d9" font-weight="700" font-size="10">H5 ✘ n.s.</text>
+              <path d="M915 530 L 915 325" fill="none" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowViolet)"/>
+
+              <!-- SVG Arrow Markers -->
+              <defs>
+                <marker id="arrowIndigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/>
+                </marker>
+                <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+                </marker>
+                <marker id="arrowViolet" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500">
+            범례: 실선(남색) = 주효과 H1 · 점선(주황) = 협상우위 조절변수(H6~H12) · 점선(보라) = 역할-맥락 조절변수(H2~H5).
+            ✔=지지, ✘=기각/반대방향, n.s.=비유의, ***p&lt;.001, *p&lt;.05, +p&lt;.1 (원문 Table 3 기준).
+          </p>
+        </div>
+
+        <!-- Variable Detail Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Main effect card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">핵심 관계 (Main Effect)</span>
+                <span class="text-xs text-slate-400 font-semibold">H1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">개별 협상이익 차이: 구매자 우위 (Individual Negotiation Profit Difference)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 협상에서 구매자가 판매자보다 평균적으로 더 큰 개별 경제적 이익을 얻는 정도. 역할이론에 따르면 구매자·판매자의 서로 다른 행동 규범과 손실/이득 프레이밍에서 기인.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 구매자·판매자 평균 개별이익(m, sd)의 표준화 평균차(Cohen's d), 소표본(n&lt;20)은 Hedges' g 보정. 양(+)=구매자 우위, 음(−)=판매자 우위.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 1차 연구 (m, sd); 일부는 영차상관계수·표준화 PLS 경로계수를 Peterson &amp; Brown(2005) 절차로 환산.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 역할이론(Biddle, 1986; Anglin et al., 2022) 및 손실/이득 프레이밍 기반 휴리스틱 의사결정(Kahneman &amp; Tversky, 1979; Neale et al., 1987).
+              </p>
+            </div>
+          </div>
+
+          <!-- Role-context moderators card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-secondary style-label text-white">조절변수 그룹 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Role Context (H2~H5)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">역할-맥락 조절변수</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>구성:</strong> 성별 구성(SELL_M_BUY_F/SELL_F_BUY_M), 전문성(MBA_PROF), B2B 여부(B2B_B2C), 이슈 개수(NO_ISSUES).</p>
+              <p class="text-sm text-slate-700"><strong>정의:</strong> 구매자·판매자 역할이 실제로 어떻게 "발현(enact)"되는지에 영향을 미치는 맥락 요인.</p>
+              <p class="text-sm text-slate-600"><strong>측정/코딩:</strong> 1차 연구·원자료에 보고된 피험자·과제 특성 기반 더미변수 코딩.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 성역할 고정관념(Mazei et al., 2015), 상황강도 이론(Mischel, 1977; Shoda &amp; Mischel, 2000), 조직의 판매/구매 지침(Wilken et al., 2010).
+              </p>
+            </div>
+          </div>
+
+          <!-- Negotiation-advantage moderators card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 그룹 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Negotiation Advantage (H6~H12)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">협상우위 조절변수</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>구성:</strong> 정보 비대칭(BUY/SELL_INFO_ASY), 권력 우위(BUY/SELL_POWER), 목표 우위(BUY/SELL_GOAL), 선제안(BUY/SELL_FO, FO_VALUE_ADV), 시간압박(BUY/SELL_T_PRESS), 훈련(BUY/SELL_TRAIN).</p>
+              <p class="text-sm text-slate-700"><strong>정의:</strong> 정보·권력·목표 등 기존 협상학에서 이미 알려진 결정요인에 근거해 한쪽 역할에 우위를 부여하는 경계조건.</p>
+              <p class="text-sm text-slate-600"><strong>측정/코딩:</strong> 1차 연구의 실험 조작 정보를 기반으로 한 더미변수 코딩(우위 보유=1, 아니면=0).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 게임이론적 협상이론(Srivastava, 2001), 권력-의존 관계(Emerson, 1962), 앵커링 이론(Galinsky &amp; Mussweiler, 2001).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해 (메타분석 절차)</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          단일 실증연구가 아닌 메타분석이므로, "Method"는 문헌 탐색 → 선정/배제 → 코딩 → 효과크기 산출 → HLM 통합·조절분석의 절차를 의미합니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">문헌 탐색 전략 수립 및 실행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  ScienceDirect·Jstor·SpringerLink·PSYINDEX·Business Source Premier·ERIC·Econbiz·Web of Science·Google Scholar 전자 DB 검색(검색어: buy*/sell* AND negotiat*/bargain* AND experiment AND individual/joint profit-gain-outcome). 관련 저널 20여 종 수기 검색, 후방/전방 검색, 저자 직접 연락, 학회 메일링 리스트를 통한 미출판 자료 수집.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.379, §3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">포함·배제 기준 적용</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  구매자-판매자 역할이 명시된 실험 연구만 포함(설문·시나리오 제외); 다른 역할 라벨 과제, 죄수딜레마류 게임, 컴퓨터/공모자 참여 연구 제외; 효과크기 계산 가능한 통계치 보고 연구만 포함. 공동성과만 보고한 연구는 저자 74팀에 연락(37팀 응답=50%, 28팀 자료 제공).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.379, §3.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">연구 특성 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  제1·2저자가 역할-맥락 관련(성별구성·전문성·B2B여부·이슈개수)과 협상우위 관련(정보·권력·목표·선제안·시간압박·훈련) 조절변수를 코딩. 약 20%를 이중 코딩하여 불일치는 논의로 해결.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.379-380, §3.3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">효과크기 산출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  구매자·판매자 평균 개별이익(m, sd) 차이를 표준화한 Cohen's d 산출(n&lt;20은 Hedges' g 보정). 일부는 영차상관계수·표준화 PLS 경로계수를 Peterson &amp; Brown(2005) 절차로 d 등가값으로 환산. 양(+)=구매자 우위.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.380, §3.4</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">무조건부 HLM 랜덤효과 모형 추정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  R의 METAFOR 패키지로 최대우도 추정 기반 무조건부 랜덤효과 HLM 적합. 평균 효과크기(m=0.210), 분산 성분(τ²=1.869, ς²=1.971), Q 동질성 검정(Q=12,474, p&lt;.001), I²=94.65% 산출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.379, §4.2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">조절변수 단순기울기(simple slope) 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  각 범주형 조절변수(예: 성별 구성, B2B 여부)의 하위집단별 평균 효과크기를 HLM 하위집단 분석으로 산출하여 1차 기술 통계로 제시(Table 1).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.380, §4.3.1, Table 1</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">조건부 HLM 모형으로 가설 검정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  H2~H12(11개 조건부 모형)에 대해 조절변수 존재 여부를 예측변수로 하는 조건부 HLM 모형을 개별 적합. 방향성 가설이므로 방향 일치 시 편측검정 적용; 계수 양(+)=증폭, 음(−)=약화/반전.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.380-381, §4.3.2, Table 2</span>
+              </div>
+              <hr class="bg-slate-700"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-700"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">가설 종합 평가</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  12개 가설 전체에 대해 방향성 일치 여부와 유의성을 종합한 표(Table 3)를 작성하여 최종 결론 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.381, §4.3.3, Table 3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            검색어·DB·포함배제 기준·효과크기 산출식·HLM 통계모형은 상세히 공개되어 절차 재현은 가능하나, 669개 효과크기의 원자료(포함 연구 목록·코딩 시트)는 Web Appendix A·B에 있어 본문만으로는 완전한 수치 재현이 불가능하고, 저자 접촉으로 확보한 미출판 자료(개인 커뮤니케이션 2건 등)는 제3자가 동일하게 확보하기 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.4, p.382-383)에서 연구진이 직접 한정 지은 연구의 경계입니다:</p>
+            <div class="alert alert-error bg-rose-100/60 border-rose-200 text-rose-900 text-sm">
+              "despite our best efforts to locate and include all suitable primary studies into our database, there are certainly more studies and datasets that would have been eligible..."
+            </div>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li><strong>문헌 탐색의 불완전성:</strong> 최선의 노력에도 불구하고 접촉했으나 응답하지 않은 저자팀이 있어, 포함 가능했을 연구·데이터가 누락되었을 수 있음.</li>
+              <li><strong>조절변수 코딩의 정보 의존성:</strong> "we were only able to code potential moderators on which information was provided in the primary studies... This led to some rather small k's for some of the moderators." (p.382-383)</li>
+              <li><strong>처치 강도 미반영:</strong> "we had no way of integrating the strength of a given treatment or manipulation in a primary study into the meta-analysis." (p.383) — 조절변수의 존재/부재만 코딩, 강도는 미반영.</li>
+              <li><strong>조절분석 이후에도 잔존하는 높은 이질성:</strong> "the heterogeneity among effect sizes remained very high even in moderation analysis... it was not able to explain substantial portions of heterogeneity." (p.383)</li>
+              <li><strong>구매자 우위 메커니즘 미분리:</strong> 역할 개념 자체 때문인지, 손실/이득 프레이밍 휴리스틱 때문인지 본 분석으로는 구분 불가.</li>
+              <li><strong>성별 측정의 한계:</strong> 사회적으로 구성된 자기보고 성별에 의존, 논바이너리 젠더는 데이터에 거의 반영되지 않음.</li>
+              <li><strong>단순화된 실험 과제:</strong> "the primary studies... relied on rather simple negotiation roleplays including mostly single people in the role of buyer and seller... they necessarily fall short of the complexities of real-world B2B negotiations that involve selling and buying centers." (p.383)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">메타분석 설계와 보고 방식을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 출판/가용성 편향 잔존 가능성</span>
+                <p class="text-sm text-slate-700">
+                  저자 접촉 응답률은 50%(37/74팀)에 불과했고 그중 28팀만 자료 제공이 가능했다. 깔때기 플롯이 "충분히 대칭적"이라는 주장(p.379)에도 불구하고, <strong>회신하지 않은 46개 연구팀</strong>의 미보고 데이터가 특정 방향으로 편향되었을 가능성은 검증되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 실험실 편향과 외적 타당성</span>
+                <p class="text-sm text-slate-700">
+                  포함된 효과크기는 사실상 전부 실험실·교실 시뮬레이션에서 나온 것으로, 실제 화폐가 오가는 실전 B2B 협상과의 괴리가 존재한다. 저자도 이를 언급하지만(p.381) 정식 Limitation 항목으로 명시하지는 않는다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 낮은 k의 조절변수 해석 문제</span>
+                <p class="text-sm text-slate-700">
+                  성별 구성(k=21), 시간압박(k=8~9), 구매자 목표우위(k=16) 등 일부 조절변수는 표본 수가 극히 작아 검정력이 낮다. 논문은 이를 "기각(rejected)"이라 표현하지만, 실제로는 <strong>검정력 부족으로 결론 유보</strong>에 가까울 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 측정 동등성 문제</span>
+                <p class="text-sm text-slate-700">
+                  서로 다른 협상 패러다임(분배적 vs 통합적, 시장 vs 양자 협상)에서 나온 효과크기를 하나의 지표(Cohen's d)로 통합하는 과정에서, 같은 d값이 서로 다른 맥락에서 동일한 심리적 의미를 갖는지는 불분명하다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 코딩 신뢰도 보고의 미비</span>
+                <p class="text-sm text-slate-700">
+                  전체 연구의 약 20%만 이중 코딩되었고, 불일치는 "논의로 해결"했다고만 서술될 뿐 Cohen's kappa 등 정량적 코더간 신뢰도 지표는 보고되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 연구 내 다중 효과크기의 상호 의존성</span>
+                <p class="text-sm text-slate-700">
+                  한 연구가 평균 4.65개의 효과크기를 제공하는데, 이들이 서로 다른 조절변수(예: 권력과 정보를 동시에 조작한 셀)에 걸쳐 있을 경우 HLM의 연구 수준 중첩 구조만으로는 조절변수 간 교란을 완전히 통제하지 못할 가능성이 있다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Is the buyer really king? A meta-analysis of the buyer advantage in sales negotiation</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

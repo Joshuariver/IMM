@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traversing Between the Arcs of Environmental Collaboration - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Supply Chain Environmental Collaboration</div>
+        <div class="badge badge-secondary text-white style-label">Vol. 123, pp. 188–200</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Traversing between the arcs of environmental collaboration:<br>
+            <span class="text-cyan-400">Implications for dyadic environmental performance</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Antony Paulraj, Sichu Xiong, Christopher Rajkumar, Constantin Blome
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            환경 협력의 호(arc)를 가로지르며:<br>
+            <span class="text-indigo-300">쌍방 환경성과에 대한 함의</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            미국 ISM 회원 기업 241개 사 설문 조사를 기반으로 한 공급측·수요측 환경 협력의 5가지 구성(arc)과 제품 책임관리 조절효과 분석
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">외향형(공급자+고객 모두 깊은) 협력이 최선이지만, 자원이 제한적이라면 제품 책임관리 수준에 따라 공급자냐 고객이냐를 골라 협력해야 합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "That environmental sustainability is an important ethical issue for firms is an irrefutable fact. Proactive firms are increasingly tackling environmental problems through environmental collaboration with supply chain partners. Going above and beyond the current environmental expectations and collaboratively engaging in sustainability initiatives with partners signals the highest ethical standard of a firm. Additionally, product design that incorporates sustainability concerns is also a key step in this direction. Therefore, drawing on the well-known “arcs of integration” framework, the different configurations of supply chain environmental collaboration and their effect on dyadic environmental performance are investigated. Subsequently, we also assess the moderating effect of product stewardship on this relationship. We argue that dyadic environmental performance will be different across the five different configurations of supply chain environmental collaboration. Our results indicate that outward-facing environmental collaboration performs the best regardless of the level of product stewardship. Interestingly, a higher level of product stewardship requires a deeper environmental collaboration with suppliers rather than customers when it comes to dyadic environmental performance."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              환경적 지속가능성이 기업에게 중요한 윤리적 이슈라는 사실은 반박의 여지가 없다. 선제적인 기업들은 공급사슬 파트너와의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">환경 협력(environmental collaboration)</span>을 통해 환경 문제에 점점 더 적극적으로 대응하고 있다. 현재의 환경 기대 수준을 뛰어넘어 파트너와 협력적으로 지속가능성 이니셔티브에 참여하는 것은 기업의 가장 높은 윤리적 기준을 보여주는 신호이다. 아울러 지속가능성을 고려한 제품 설계 역시 이러한 방향의 핵심 단계이다. 이에 본 연구는 널리 알려진 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">"통합의 호(arcs of integration)"</span> 프레임워크에 착안하여, 공급사슬 환경 협력의 서로 다른 구성과 그것이 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">쌍방(dyadic) 환경성과</span>에 미치는 영향을 조사한다. 이어서 이 관계에 대한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">제품 책임관리(product stewardship)</span>의 조절효과도 함께 평가한다. 본 연구는 공급사슬 환경 협력의 다섯 가지 서로 다른 구성 방식에 따라 쌍방 환경성과가 달라질 것이라고 주장한다. 분석 결과, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">외향형(outward-facing) 협력</span>이 제품 책임관리 수준과 무관하게 가장 우수한 성과를 낸다는 것이 확인되었다. 흥미롭게도, 제품 책임관리 수준이 높을수록 쌍방 환경성과 측면에서 고객보다는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">공급자와의 더 깊은 환경 협력</span>이 요구되는 것으로 나타났다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Arcs of integration / environmental collaboration</td>
+                  <td>통합의 호(arc) / 환경 협력의 호(arc)</td>
+                  <td class="text-sm">Frohlich &amp; Westbrook(2001) 원 이론이 공급사슬 통합의 방향·정도를 원호 궤적으로 시각화한 고유명사이므로 "호(arc)"를 직역하고 원어를 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Supply-side / Demand-side Environmental Collaboration (SEC/DEC)</td>
+                  <td>공급측 환경 협력(SEC) / 수요측 환경 협력(DEC)</td>
+                  <td class="text-sm">초점기업 기준 상류(공급자)·하류(고객) 방향을 구분하는 논문 고유 약어이므로 원문 약어를 유지.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Dyadic Environmental Performance</td>
+                  <td>쌍방 환경성과</td>
+                  <td class="text-sm">초점기업 단독이 아니라 초점기업과 핵심 공급자 두 당사자(dyad)의 환경성과 평균을 의미.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Product Stewardship</td>
+                  <td>제품 책임관리</td>
+                  <td class="text-sm">설계~폐기 전 생애주기에 걸친 환경영향 책임을 지는 전략적 지향. 환경경영 문헌의 관행적 번역 채택.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Response Surface / Polynomial Regression</td>
+                  <td>반응표면(분석) / 다항회귀분석</td>
+                  <td class="text-sm">두 예측변수의 결합효과를 3차원 곡면으로 표현, 대칭선·비대칭선의 기울기·곡률을 검정하는 Edwards(1994) 통계기법.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">어떤 환경 협력 구성이 쌍방 성과에 가장 효과적인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">외향형이 최선, 단 제품 책임관리 수준에 따라 우선순위가 갈린다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">"통합의 호"를 지속가능성 영역으로 확장</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 초점기업의 상류(공급자)·하류(고객) 환경 협력 중 어떤 구성이 쌍방 환경성과에 가장 효과적인가? 제품 책임관리 수준에 따라 이 관계는 어떻게 달라지는가?</li>
+                  <li><strong>핵심 발견:</strong> 공급측(SEC)·수요측(DEC) 협력이 모두 높은 <strong>외향형(outward-facing)</strong> 협력이 제품 책임관리 수준과 무관하게 가장 높은 성과를 낸다(H1c, H2a 지지). 다만 제품 책임관리가 <strong>높을 때는 공급자지향형</strong>이, <strong>낮을 때는 고객지향형</strong>이 각각 상대편보다 우수해 H2b의 "동등 성과" 예측은 기각되었다.</li>
+                  <li><strong>이론/실무 기여:</strong> Frohlich &amp; Westbrook(2001)의 "통합의 호"를 지속가능성 영역으로 확장하고, NRBV·관계론적 관점을 다항회귀·반응표면분석으로 검증했다. 자원 제약 기업에게 제품 책임관리 수준에 따른 협력 자원 배분 우선순위를 제시한다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "환경 협력은 상류·하류 모두에 깊게 걸칠수록(외향형) 가장 좋지만, 자원이 제한적이라면 제품 책임관리 수준이 높은 기업은 공급자와, 낮은 기업은 고객과 더 깊이 협력하는 것이 효율적입니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">SEC·DEC가 함께 증가할수록 쌍방 환경성과 증가(H1a)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the symmetry line's slope is positive and significant (0.411; CI = [0.163, 0.435])... these results provide adequate support for Hypothesis H1a."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.195, Sec. 4.6, Table 4</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">비대칭선 U자형 곡률(H1b)은 지지되지 않음</td>
+                <td class="text-sm italic text-slate-600">
+                  "The insignificance of the curvature along the asymmetry line indicates that hypothesis H1b was not supported."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.195, Sec. 4.6</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">외향형 협력이 가장 높은 쌍방 환경성과(H1c)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the highest point of the response surface occurs when both SEC and DEC are high (i.e., outward-facing collaboration)... hypothesis H1c was supported."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.195–196, Sec. 4.6, Fig. 2</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">제품 책임관리 높을 때 공급자지향형 &gt; 고객지향형(H2a)</td>
+                <td class="text-sm italic text-slate-600">
+                  "supplier-facing collaboration seems to perform much better than customer-facing collaboration [when product stewardship is high]."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.196, Sec. 4.6, Table 4</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">제품 책임관리 낮을 때 고객지향형 &gt;&gt; 공급자지향형(H2b 기각)</td>
+                <td class="text-sm italic text-slate-600">
+                  "This result does not support hypothesis H2b... customer-facing collaboration's performance is far superior to supplier-facing collaboration when product stewardship is low."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.196, Sec. 4.6, Fig. 3</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">초점기업 vs. 공급자 성과의 효과 패턴 상이(사후분석)</td>
+                <td class="text-sm italic text-slate-600">
+                  "inward-facing collaboration is better than periphery-facing collaboration [for focal firm]... periphery-facing collaboration is better than inward-facing collaboration [for supplier]."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.196, Sec. 4.7, Table 5</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">동일방법편향(CMV)은 문제되지 않음</td>
+                <td class="text-sm italic text-slate-600">
+                  "The single-factor model fit was considerably weak in comparison to our hypothesized model... common method variance is not a problem."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.194, Sec. 4.3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 가설 모형 — 반응표면분석 기반)</h3>
+
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 430" class="w-full h-auto">
+              <!-- IVs -->
+              <rect x="20" y="70" width="230" height="80" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="135" y="102" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">공급측 환경 협력 (SEC)</text>
+              <text x="135" y="124" text-anchor="middle" fill="#64748b" font-size="11">초점기업 ↔ 핵심 공급자 협력</text>
+
+              <rect x="20" y="270" width="230" height="80" rx="8" fill="#f1f5f9" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="135" y="302" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="14">수요측 환경 협력 (DEC)</text>
+              <text x="135" y="324" text-anchor="middle" fill="#0284c7" font-size="11">초점기업 ↔ 핵심 고객 협력</text>
+
+              <!-- DV -->
+              <rect x="560" y="150" width="220" height="100" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="670" y="185" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">쌍방 환경성과</text>
+              <text x="670" y="207" text-anchor="middle" fill="#4338ca" font-size="11">초점기업+공급자 환경성과 평균</text>
+              <text x="670" y="227" text-anchor="middle" fill="#4338ca" font-size="10">(반응표면: 대칭선/비대칭선)</text>
+
+              <!-- Moderator -->
+              <rect x="300" y="10" width="200" height="70" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="400" y="40" text-anchor="middle" font-weight="700" fill="#92400e" font-size="14">제품 책임관리 (PS)</text>
+              <text x="400" y="60" text-anchor="middle" fill="#b45309" font-size="11">전 생애주기 환경책임 지향</text>
+
+              <!-- Arrows: SEC -> DV -->
+              <path d="M250 110 L 460 110 L 460 175 L 555 175" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="380" y="102" fill="#64748b" font-weight="700" font-size="12">H1a/H1c (+)</text>
+
+              <!-- Arrows: DEC -> DV -->
+              <path d="M250 310 L 460 310 L 460 235 L 555 235" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="380" y="330" fill="#0284c7" font-weight="700" font-size="12">H1a/H1c (+)</text>
+
+              <!-- Curvature / interaction dashed: SEC x DEC -> DV -->
+              <path d="M135 150 L 135 200 L 555 200" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="330" y="192" fill="#1d4ed8" font-weight="700" font-size="12">H1b 곡률 (n.s.)</text>
+
+              <!-- Moderator arrows pointing to both paths -->
+              <path d="M370 80 L 250 100" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="260" y="70" fill="#b45309" font-weight="700" font-size="12">H2a (+)</text>
+
+              <path d="M430 80 L 560 165" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="470" y="120" fill="#b45309" font-weight="700" font-size="12">H2b (혼재)</text>
+
+              <!-- Legend -->
+              <rect x="20" y="380" width="16" height="16" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="42" y="393" fill="#475569" font-size="11">독립변수(SEC/DEC)</text>
+              <rect x="200" y="380" width="16" height="16" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="222" y="393" fill="#475569" font-size="11">종속변수(쌍방 환경성과)</text>
+              <rect x="420" y="380" width="16" height="16" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="442" y="393" fill="#475569" font-size="11">조절변수(제품 책임관리)</text>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 text-center max-w-2xl">
+            ※ 실제 가설검정은 SEC·DEC의 다항회귀항(SEC², DEC², SEC×DEC)을 이용한 반응표면분석(response surface analysis)으로 수행되며,
+            "외향형/공급자지향형/고객지향형/주변형/내향형" 5개 구성은 이 곡면 위의 특정 위치를 서술하는 개념적 명칭입니다.
+          </p>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">SEC</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공급측 환경 협력 (Supply-side Environmental Collaboration)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 초점기업이 핵심 공급자와 지속가능성 목표 달성을 위해 협력하는 정도(정보공유, 공동 목표설정·계획).</p>
+              <p class="text-sm text-slate-700"><strong>측정/코딩:</strong> 5문항, 5점 Likert(예: "We cooperate with our suppliers to achieve sustainability objectives."). Bowen et al.(2001), Vachon &amp; Klassen(2006), Zhu &amp; Sarkis(2004) 기반.</p>
+              <p class="text-sm text-slate-600"><strong>신뢰도:</strong> 계수 알파 0.960 / CR 0.963 / AVE 0.814</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> NRBV의 오염예방 역량 및 관계론적 관점의 특이적 지식공유 루틴 형성과 직결(Dyer &amp; Singh, 1998).
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">독립변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">DEC</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">수요측 환경 협력 (Demand-side Environmental Collaboration)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 초점기업이 핵심 고객과 지속가능성 이슈에 대해 협력하는 정도.</p>
+              <p class="text-sm text-slate-700"><strong>측정/코딩:</strong> 5문항, 5점 Likert. Vachon &amp; Klassen(2008) 척도 사용.</p>
+              <p class="text-sm text-slate-600"><strong>신뢰도:</strong> 계수 알파 0.956 / CR 0.956 / AVE 0.814</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 고객으로부터의 신규 환경 규제·요구사항 정보 획득 및 친환경 제품혁신에 기여(Wong, 2013; Melander, 2018).
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator (PS)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">제품 책임관리 (Product Stewardship)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 제품 설계부터 폐기까지 전 생애주기에 걸친 환경영향을 관리하려는 전략적 지향(life-cycle analysis 포함).</p>
+              <p class="text-sm text-slate-700"><strong>측정/코딩:</strong> 6문항 중 1문항 삭제, 5점 Likert. Walton et al.(1998), Zhu &amp; Sarkis(2004) 기반.</p>
+              <p class="text-sm text-slate-600"><strong>신뢰도:</strong> 계수 알파 0.865 / CR 0.867 / AVE 0.571</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 상류·하류 파트너 모두로부터의 정보 통합을 요구하는 전일적 성격 때문에 다른 환경전략의 효과를 조건화하는 핵심 경계조건(Hart, 1995).
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Dyadic Environmental Performance</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">쌍방 환경성과 (Dyadic Environmental Performance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 초점기업 자신의 환경성과와 핵심 공급자의 환경성과를 평균한 값(배출·폐기물·오염 감소 등).</p>
+              <p class="text-sm text-slate-700"><strong>측정/코딩:</strong> 초점기업 8문항 + 공급자 3문항(모두 초점기업 응답자 평가). Zhu &amp; Sarkis(2004) 기반.</p>
+              <p class="text-sm text-slate-600"><strong>신뢰도:</strong> 초점기업 알파 0.927 / 공급자 알파 0.918</p>
+            </div>
+          </div>
+
+          <!-- Typology Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-accent style-label text-white">구성적 유형론</span>
+                <span class="text-xs text-slate-400 font-semibold">Arcs of Environmental Collaboration (5 Configurations)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">환경 협력의 호 — 내향형 / 주변형 / 외향형 / 공급자지향형 / 고객지향형</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>식별 방식:</strong> SEC·DEC를 사분위(quartile) 기준으로 교차 분류해 도출한 5가지 서술적 구성. 실제 가설검정은 5분류 자체가 아니라 SEC·DEC의 연속형 다항회귀항(SEC², DEC², SEC×DEC)을 이용한 반응표면분석으로 수행.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Frohlich &amp; Westbrook(2001)의 "통합의 호"를 환경 협력 맥락에 이식(Childerhouse &amp; Towill, 2011; Wong, Wong &amp; Boon-Itt, 2017의 계보).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 표본 확보부터 반응표면분석까지 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">표본 프레임 및 1단계 동의서 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  ISM(Institute for Supply Management) 회원 3,000명 중 1,500명 무작위 추출 후 동의서·프로젝트 설명서 우편 발송. 580건 회수(회수율 39.50%), 이 중 305명만 참여 동의(275명은 회사정책/경험부족으로 미동의).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.193, Sec. 4.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">2단계 본설문 배포 및 회수</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  동의자 309명에게 온라인/종이 설문 중 선택 배포, 5점 Likert 척도로 전 문항 측정. 공급자 관련 문항은 "고지출/핵심 공급자" 기준, 고객 관련 문항은 "고매출/고관계강도 고객" 기준으로 응답. 최종 241건 회수(응답률 20.17%).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.193, Sec. 4.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">사전테스트 및 핵심 응답자 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  실무자·교수 8인 대상 사전테스트 후 문항 수정(Dillman, 2007). 응답자 지식/확신도 2문항 평균(3.97, 4.04)으로 적격성 확인. 65%가 고위직, 57%가 20년 이상 경력.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.193, Sec. 4.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">무응답 편향 및 동일방법편향(CMV) 검정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  초기(131) vs. 후기(110) 응답군 t-검정으로 무응답편향 확인, 표본+무응답 200개사 모집단 비교. Harman 단일요인 검정 및 마커변수 기법(Malhotra et al., 2006)으로 CMV 문제없음 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.194, Sec. 4.3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">CFA 및 심리측정 속성 평가</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  확인적 요인분석(NNFI=0.98, CFI=0.98, RMSR=0.037, RMSEA=0.062). Fornell &amp; Larcker(1981) 및 HTMT(전 값 0.228~0.652)로 판별타당도 확인. 계수 알파·오메가·CR 모두 0.80 이상.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.194–195, Table 1·2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">척도중심화 및 위계적 다항회귀분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  SEC·DEC 척도중심화 후 고차항(SEC², SEC×DEC, DEC²) 생성(VIF&lt;5). 통제변수(Model 1) → 제품 책임관리·상호작용항 추가(Model 3, 4) 순 위계적 회귀분석.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.195–196, Table 3</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">반응표면 검정 및 사후분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  대칭선(b1+b2)·비대칭선(b1−b2)의 기울기·곡률을 95% 편의보정 신뢰구간(bias-corrected CI)으로 검정. 이후 쌍방 환경성과를 초점기업/공급자 성과로 분리해 동일 분석 재실시(post-hoc).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.195–196, Table 4·5</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            측정문항 예시·척도출처·통계적 검정 절차는 상세히 공개되어 방법론적 재현은 가능하나, ISM 표본 프레임에 대한 독점적 접근권이 없고 원자료가 비공개("confidential")이므로 동일 표본을 이용한 완전한 재현은 제한적입니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.3, p.199)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>국가적 일반화 한계:</strong> "we use data collected only from US firms; this may limit the generalizability of our findings."
+              </li>
+              <li>
+                <strong>횡단적·단일응답자 설계:</strong> "we use cross-sectional data collected from a single respondent from the focal firm." 종단 설계 및 진정한 양자(dyadic) 실측 데이터가 아님.
+              </li>
+              <li>
+                <strong>성과 범위의 편중:</strong> "we included the environmental performance of only the focal firm and its key supplier... it would be quite interesting to consider environmental performance that covers both the upstream and downstream sides." 고객측 실제 성과는 모형에 미포함.
+              </li>
+              <li>
+                <strong>외부 협력에 국한:</strong> "our study focuses only on external environmental collaborations... it would be interesting to investigate the specific role of internal environmental collaboration."
+              </li>
+              <li>
+                <strong>추가 경계조건 미탐색:</strong> 국가문화, 디지털 역량, 정부·NGO 등 다중이해관계자의 역할은 향후 연구 과제로 남김.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">횡단 설계 및 단일 정보원 측정 방식을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 역인과관계 / 동시성 편향</span>
+                <p class="text-sm text-slate-700">
+                  횡단자료이므로 "협력이 깊어서 성과가 좋아졌다"가 아니라, 이미 자원·역량이 풍부하고 환경성과가 우수한 기업이 협력에도 더 많은 자원을 투입할 수 있었을 역방향 인과 가능성이 배제되지 않는다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 단일 정보원(응답자) 편향</span>
+                <p class="text-sm text-slate-700">
+                  SEC, DEC, 제품 책임관리, 초점기업 성과, 공급자 성과까지 모두 초점기업 내 한 명의 응답자가 평가한다. 저자들도 공급자 성과를 "더 일반적인 방식으로" 측정했다고 밝히는데, 이는 공급자의 실제 자기보고가 아니라 대리 지각 평가이다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 자기선택 편향</span>
+                <p class="text-sm text-slate-700">
+                  유효 모집단 1,195명 중 305명만 참여 동의, 최종 241명(약 20%)만 응답 완료(275명은 경험부족/회사정책으로 미동의). 이미 지속가능 공급망 실무에 적극적인 기업 쪽으로 표본이 편향되었을 가능성이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. "쌍방(dyadic)" 명칭과 측정의 괴리</span>
+                <p class="text-sm text-slate-700">
+                  명칭은 쌍방 데이터를 함의하지만 실제로는 초점기업의 단일 지각 데이터이다. 또한 5가지 "arc" 유형론은 사분위 분류에 기반한 서술적 장치로, 임의의 분류 경계(quartile cut-point)에 따라 해석이 달라질 민감도 문제가 남는다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 산업 이질성 미통제</span>
+                <p class="text-sm text-slate-700">
+                  다양한 제조업종이 혼재된 표본임에도 산업별 환경 규제 강도·오염 집약도 차이를 명시적으로 통제하지 않아, "arc"별 효과가 특정 산업 구성의 인위적 산물일 가능성이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 자기보고식 측정의 한계</span>
+                <p class="text-sm text-slate-700">
+                  SEC·DEC·제품 책임관리 모두 "우리는 ~한다"는 전략적 의도·인식 문항으로 측정되어, 실제 이행 행동이나 객관적 성과지표(실측 배출량, 인증 데이터 등)와의 괴리 가능성을 배제할 수 없다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Traversing between the arcs of environmental collaboration: Implications for dyadic environmental performance</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

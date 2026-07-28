@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Identifying Effective Market-Shaping Strategies - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
+    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
+    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
+    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+
+    html { scroll-behavior: smooth; }
+
+    @media (max-width: 1024px) {
+      .style-display { font-size: 38px; }
+      .style-h1 { font-size: 30px; }
+      .style-h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">fsQCA / Market Shaping</div>
+        <div class="badge badge-secondary text-white style-label">Vol. 123, pp. 12–30</div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Identifying effective market-shaping strategies:<br>
+            <span class="text-cyan-400">A fuzzy-set qualitative comparative analysis approach</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Suvi Nenonen, Kaj Storbacka, Alexey Sklyar, Hans Kjellberg
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            효과적인 시장형성전략의 식별:<br>
+            <span class="text-indigo-300">퍼지셋 질적비교분석(fsQCA) 접근법</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            21개 사례기업에 대한 fsQCA를 통해, 시장형성전략을 이루는 6개 요소가 어떻게 결합되어 6가지 효과적인 구성으로 귀결되는지 규명
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">시장을 형성하려면 여러 활동을 결합해야 하지만, 모든 것을 다 할 필요는 없다 — fsQCA는 어떤 조합이 통하는지 6가지 방식으로 보여준다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Firms regularly seek to exert influence over their operating environments through market-shaping strategies. Such market-shaping strategies view markets as endogenously enacted environments and thus broaden firms' strategic repertoire from merely adapting to the changes in the operating environment to also proactively seeking to induce changes in relevant markets. Past research has delineated the market-shaping concept and identified various shaping activities that may induce market change. However, there is limited understanding of how these individual shaping activities are combined to form effective market-shaping strategies. Against this backdrop, focusing on the contents of market-shaping strategies, the authors put forward six elements of what is being shaped: Changes in offering, pricing, customer-side features, supply-side features, representations, and norms. The findings from a fuzzy-set qualitative comparative analysis of 21 case firms reveal how these elements combine into six distinct configurations. These findings contribute to the nascent research on categorizations of market-shaping strategies and research on market formation. For managers, the authors provide normative and nuanced advice on which elements to include in market-shaping strategies, depending on the overall strategic intent."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              기업들은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">시장형성전략(market-shaping strategies)</span>을 통해 자신의 운영 환경에 영향력을 행사하려 한다. 이러한 시장형성전략은 시장을 내생적으로 구성(enacted)되는 환경으로 간주하며, 이를 통해 기업의 전략적 레퍼토리를 운영 환경 변화에 단순히 적응하는 것에서 해당 시장의 변화를 능동적으로 유도하는 것으로까지 확장한다. 선행연구는 시장형성 개념을 규정하고 시장 변화를 유발할 수 있는 다양한 형성 활동을 식별해왔다. 그러나 이러한 개별 형성 활동들이 어떻게 결합되어 효과적인 시장형성전략을 이루는지에 대한 이해는 아직 제한적이다. 이러한 배경에서 저자들은 시장형성전략의 내용에 초점을 맞추어, 무엇이 형성되는지를 나타내는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">6개 요소</span>(offering·pricing·customer-side features·supply-side features·representations·norms의 변화)를 제시한다. 21개 사례기업에 대한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">퍼지셋 질적비교분석(fsQCA)</span>의 결과는 이 요소들이 6개의 서로 다른 구성(configuration)으로 결합되는 방식을 보여준다. 이러한 발견은 시장형성전략의 유형화에 관한 신생 연구와 시장형성 연구에 기여한다. 관리자들을 위해 저자들은 전반적인 전략적 의도에 따라 시장형성전략에 어떤 요소를 포함해야 하는지에 대한 규범적이고 세밀한 조언을 제공한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Market-shaping (strategies)</td>
+                  <td>시장형성(전략)</td>
+                  <td class="text-sm">시장을 수동적으로 적응(adapt)하는 대상이 아니라 기업이 능동적으로 형성(shape)하는 대상으로 본다는 핵심 관점을 살리기 위해 market-driving과 구분하여 번역.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Configurational perspective / Configuration</td>
+                  <td>구성적 관점 / 구성</td>
+                  <td class="text-sm">개별 변수의 순효과가 아니라 여러 조건의 조합·패턴이 결과를 만든다는 QCA 고유의 인식론을 지칭.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">fuzzy-set QCA (fsQCA)</td>
+                  <td>퍼지셋 질적비교분석</td>
+                  <td class="text-sm">이진(0/1) 대신 연속적 소속도(0~1)를 허용하는 집합론적 방법이라는 점을 강조하기 위해 원어를 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Necessity / Sufficiency / Equifinality</td>
+                  <td>필요조건 / 충분조건 / 등종국성</td>
+                  <td class="text-sm">QCA의 인과적 복잡성 속성을 지칭하는 표준 번역 관행(Schneider &amp; Wagemann, 2012).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Core / Peripheral element</td>
+                  <td>핵심요소 / 주변요소</td>
+                  <td class="text-sm">Fiss(2011)의 QCA 표기법으로, 파시모니어스解와 중간解 모두에 등장하면 핵심, 중간解에만 등장하면 주변으로 구분.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Institutional logics</td>
+                  <td>제도적 논리</td>
+                  <td class="text-sm">Thornton &amp; Ocasio(1999)가 정의한 개념으로, 국내 제도이론 문헌의 표준 번역어 사용.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">시장형성 활동은 어떤 조합일 때 효과적인 전략이 되는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">6개 요소가 6가지 서로 다른 구성으로 결합된다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">시장형성전략의 최초 경험적 분류체계</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 기업이 시장을 능동적으로 형성하기 위해 실행하는 여러 활동들은, 개별적으로가 아니라 어떤 조합(configuration)으로 결합될 때 실제로 시장을 크게 변화시키는 전략이 되는가?</li>
+                  <li><strong>핵심 발견:</strong> 시장형성전략의 내용은 offering·pricing·customer-side features·supply-side features·representations·norms 6개 요소로 구성되며, 21개 사례기업 fsQCA 결과 고수준 시장변화로 이어지는 6개 구성(H1~H6)과 비고수준 시장변화로 이어지는 4개 구성(N1~N4)이 도출되었다. 어떤 단일 요소도 필요·충분조건이 아니며, 성공 구성은 2~4개 요소만 활성화한다.</li>
+                  <li><strong>이론/실무 기여:</strong> 시장형성전략에 대한 최초의 경험적 분류체계를 제시했고, 유형재·무형서비스·디지털 마켓플레이스 형성 간 차이를 실증적으로 규명. 실무적으로는 전략적 의도별로 자원을 집중할 요소와 배제해도 되는 요소에 대한 규범적 가이드를 제공한다.</li>
+                </ul>
+              </div>
+
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "시장을 형성하려면 여러 활동을 결합해야 하지만, 모든 것을 다 할 필요는 없다 — fsQCA는 어떤 조합이 통하는지 6가지 방식으로 보여준다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          fsQCA 분석의 투명성을 보장하기 위해 각 핵심 주장과 원문 인용, 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">개별 형성활동 결합 방식에 대한 이해 부족이라는 연구 공백</td>
+                <td class="text-sm italic text-slate-600">"there is limited understanding of how these individual shaping activities can be combined to form effective market-shaping strategies. Only a handful of studies have addressed this issue"</td>
+                <td class="text-right font-medium text-slate-500">p.13, §1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">시장형성전략의 내용을 6개 요소로 개념화</td>
+                <td class="text-sm italic text-slate-600">"we cluster the shaping activities to six elements (see Table 2): (1) offering and (2) pricing (3) customer-side features and (4) supply-side features; as well as (5) representations and (6) norms"</td>
+                <td class="text-right font-medium text-slate-500">p.15, §3.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">효과성을 시장 수준 변화(성장·상대적 규모·제도논리 변화)로 조작적 정의</td>
+                <td class="text-sm italic text-slate-600">"we use three more precise measures of market-level outcomes... (1) market growth, (2) the relative size of the shaped market, and (3) modification of the prevailing institutional logics"</td>
+                <td class="text-right font-medium text-slate-500">p.15–16, §3.2</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">fsQCA가 방법론으로 적합한 이유(인과적 복잡성·등종국성)</td>
+                <td class="text-sm italic text-slate-600">"fsQCA can illuminate complex causal relationships... fsQCA can identify also unanticipated configurations"</td>
+                <td class="text-right font-medium text-slate-500">p.13, §1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">21개 사례, 82명 인터뷰, 77시간 자료 수집</td>
+                <td class="text-sm italic text-slate-600">"In total, we interviewed 82 individuals from the case firms over a period of 15 months... producing a total of 77 h of interviews"</td>
+                <td class="text-right font-medium text-slate-500">p.16, §4.1</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">어떤 단일 요소도 필요조건이 아님</td>
+                <td class="text-sm italic text-slate-600">"no single element of market-shaping strategies was found to both exceed a consistency value of 0.9... none of the elements outlined in our framework is a necessary part"</td>
+                <td class="text-right font-medium text-slate-500">p.17, §4.2</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">고수준(H1–H6)·비고수준(N1–N4) 충분 구성 도출, 매우 높은 커버리지·일치도</td>
+                <td class="text-sm italic text-slate-600">"Analysis of sufficient elements for high levels of market change resulted in a solution consisting of six configurations... solution coverage is 0.90 and 0.91... solution consistency... 1.00 and 0.98"</td>
+                <td class="text-right font-medium text-slate-500">p.17–18, §5</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">단일 요소만으로 시장형성 불가, 그러나 6개 요소 모두 필요한 것도 아님</td>
+                <td class="text-sm italic text-slate-600">"no configuration has only a single element present... Conversely, no configuration has all elements present... the presence of all six elements does not appear to be required"</td>
+                <td class="text-right font-medium text-slate-500">p.18, §5</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td class="font-semibold text-slate-900">신규시장 형성(H2·H3)은 기존시장 형성보다 더 포괄적인 노력을 요구</td>
+                <td class="text-sm italic text-slate-600">"new market formation requires a more comprehensive effort than shaping existing markets: There are four core elements present in both configurations H2... and H3"</td>
+                <td class="text-right font-medium text-slate-500">p.20, §6.1.2</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td class="font-semibold text-slate-900">전략적 의도별로 다른 요소 조합에 집중해야 한다는 규범적 제언</td>
+                <td class="text-sm italic text-slate-600">"Firms that seek to shape their markets by changing 'the rules of the game'...should ensure they also change the representations..."</td>
+                <td class="text-right font-medium text-slate-500">p.21, §6.2</td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td class="font-semibold text-slate-900">표본이 선진국 위주로 편향되어 있다는 저자 스스로의 한계 인정</td>
+                <td class="text-sm italic text-slate-600">"our sample comprised 21 case firms headquartered in four countries... it is biased toward developed countries"</td>
+                <td class="text-right font-medium text-slate-500">p.21, §6.3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Constructs</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          fsQCA는 회귀분석과 달리 독립변수 → 종속변수의 순효과가 아니라, <strong>조건(condition)들의 조합이 결과(outcome)에 대해 충분한지</strong>를 분석하는 집합론적 방법입니다. 아래 다이어그램은 6개 조건과 1개 결과, 그리고 그 조합이 귀결되는 6개의 인과적 레시피(H1~H6)를 시각화한 것입니다.
+        </p>
+
+        <!-- Conceptual configuration diagram -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual Configurational Model (구성적 모형, Fig. 1 재구성)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 460" class="w-full h-auto">
+              <!-- 6 condition boxes (left column) -->
+              <rect x="20" y="15" width="230" height="52" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="135" y="36" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">① Offering 변화</text>
+              <text x="135" y="52" text-anchor="middle" fill="#4338ca" font-size="10">제공물의 속성·범위 변화</text>
+
+              <rect x="20" y="82" width="230" height="52" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="135" y="103" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">② Pricing 변화</text>
+              <text x="135" y="119" text-anchor="middle" fill="#4338ca" font-size="10">가격점·메커니즘·캐리어 변화</text>
+
+              <rect x="20" y="149" width="230" height="52" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="135" y="170" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">③ Customer-side 변화</text>
+              <text x="135" y="186" text-anchor="middle" fill="#4338ca" font-size="10">고객 참여·연결구조 변화</text>
+
+              <rect x="20" y="216" width="230" height="52" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="135" y="237" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">④ Supply-side 변화</text>
+              <text x="135" y="253" text-anchor="middle" fill="#4338ca" font-size="10">공급자 구조·상호작용 변화</text>
+
+              <rect x="20" y="283" width="230" height="52" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="135" y="304" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">⑤ Representations 변화</text>
+              <text x="135" y="320" text-anchor="middle" fill="#4338ca" font-size="10">용어·통계·미디어 표상 변화</text>
+
+              <rect x="20" y="350" width="230" height="52" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="135" y="371" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">⑥ Norms 변화</text>
+              <text x="135" y="387" text-anchor="middle" fill="#4338ca" font-size="10">표준·규칙·인식관습 변화</text>
+
+              <!-- fsQCA processing box (middle) -->
+              <rect x="330" y="150" width="220" height="110" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="440" y="185" text-anchor="middle" font-weight="700" fill="#92400e" font-size="14">fsQCA</text>
+              <text x="440" y="205" text-anchor="middle" fill="#b45309" font-size="11">필요성 분석 → 진리표</text>
+              <text x="440" y="222" text-anchor="middle" fill="#b45309" font-size="11">→ 파시모니어스解/중간解</text>
+              <text x="440" y="240" text-anchor="middle" fill="#b45309" font-size="11">(21개 사례, 6개 조건)</text>
+
+              <!-- Outcome boxes (right column) -->
+              <rect x="620" y="60" width="250" height="110" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="745" y="88" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">고수준 시장변화</text>
+              <text x="745" y="108" text-anchor="middle" fill="#047857" font-size="11">충분 구성 H1~H6</text>
+              <text x="745" y="126" text-anchor="middle" fill="#047857" font-size="11">(solution coverage 0.90</text>
+              <text x="745" y="142" text-anchor="middle" fill="#047857" font-size="11">consistency 1.00)</text>
+
+              <rect x="620" y="280" width="250" height="110" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+              <text x="745" y="308" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="14">비고수준 시장변화</text>
+              <text x="745" y="328" text-anchor="middle" fill="#b91c1c" font-size="11">충분 구성 N1~N4</text>
+              <text x="745" y="346" text-anchor="middle" fill="#b91c1c" font-size="11">(solution coverage 0.91</text>
+              <text x="745" y="362" text-anchor="middle" fill="#b91c1c" font-size="11">consistency 0.98)</text>
+
+              <!-- Arrows conditions -> fsQCA -->
+              <path d="M250 41 L 330 190" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowQ)"/>
+              <path d="M250 108 L 330 195" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowQ)"/>
+              <path d="M250 175 L 330 205" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowQ)"/>
+              <path d="M250 242 L 330 210" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowQ)"/>
+              <path d="M250 309 L 330 220" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowQ)"/>
+              <path d="M250 376 L 330 225" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowQ)"/>
+
+              <!-- Arrows fsQCA -> outcomes -->
+              <path d="M550 190 L 615 130" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrowQ)"/>
+              <path d="M550 225 L 615 320" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowQ)"/>
+
+              <!-- Note: no single element necessary -->
+              <text x="440" y="420" text-anchor="middle" fill="#64748b" font-size="12" font-style="italic">단일 요소는 필요조건이 아니며(⊗), 각 성공 구성은 2~4개 요소만 핵심/주변으로 활성화됨</text>
+
+              <defs>
+                <marker id="arrowQ" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 max-w-2xl text-center">
+            6개 조건(시장형성전략 구성요소)이 fsQCA 분석을 거쳐 고수준/비고수준 시장변화 각각에 대한 충분 구성(H1~H6 / N1~N4)으로 귀결됩니다. 회귀식의 순효과가 아니라 조건들의 조합(configuration)이 결과를 설명합니다.
+          </p>
+        </div>
+
+        <!-- 6 Conditions detail cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">조건 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Offering</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">제공물(Offering) 변화</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 시장에서 교환되는 제품·서비스 제공물이 변화한 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> Fully in(1) — 속성(사용가치 증대) 또는 범위(번들링/언번들링) 변화 발생. Fully out(0) — 변화 없음. 6단계 퍼지값(0~1) 템플릿 코딩.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>관련 논의:</strong> Kjellberg &amp; Helgesson(2006), Humphreys &amp; Carpenter(2018)의 market-driving 문헌.</p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">조건 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Pricing</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">가격(Pricing) 변화</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 제공물의 가격 책정 방식이 시장에서 변화한 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> Fully in(1) — 가격점·설정 메커니즘·캐리어(거래형→구독형 등) 중 변화 발생.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>관련 논의:</strong> Humphreys &amp; Carpenter(2018), Hinterhuber &amp; Liozu(2012)의 가치기반 가격전환 논의.</p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">조건 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Customer-side</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">고객 측 특성 변화</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 고객의 시장 참여·이용을 지지하는 구조가 변화한 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> Fully in(1) — 연결 채널, 참여 고객 유형, 업무분장, 이용지원 인프라 중 변화 발생.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>관련 논의:</strong> Jaworski et al.(2020)의 시장 구조 형성, Ertimur &amp; Coskuner-Balli(2015).</p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">조건 4</span>
+                <span class="text-xs text-slate-400 font-semibold">Supply-side</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공급 측 특성 변화</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 제품·서비스 공급을 지지하는 시장 구조가 변화한 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> Fully in(1) — 경쟁 공급자 수, 공급자 간 상호작용, 협력업체 구성 중 변화 발생.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>관련 논의:</strong> Santos &amp; Eisenhardt(2009)의 시장 경계 구축 논의.</p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조건 5</span>
+                <span class="text-xs text-slate-400 font-semibold">Representations</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">표상(Representations) 변화</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 시장을 묘사하는 무형의 인프라(용어, 통계, 미디어 표상, 대표기구)가 변화한 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> Fully in(1) — 용어 사용, 미디어 묘사, 시장조사, 상위기구 중 변화 발생.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>관련 논의:</strong> Navis &amp; Glynn(2010), Rosa et al.(1999), Humphreys(2010).</p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조건 6</span>
+                <span class="text-xs text-slate-400 font-semibold">Norms</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">규범(Norms) 변화</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 시장 행위자의 행동을 이끄는 규범이 변화한 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> Fully in(1) — 표준, 공식 규칙/법률, 제도화된 인식·선호·행동 관습 중 변화 발생.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>관련 논의:</strong> Fligstein(2001), Alvarez et al.(2015), Maciel &amp; Fischer(2020).</p>
+            </div>
+          </div>
+
+          <div class="card bg-emerald-50 border border-emerald-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">결과(Outcome)</span>
+                <span class="text-xs text-slate-400 font-semibold">Market-level effectiveness</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">고수준 시장변화 (High levels of market change)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 시장형성 활동의 결과로 기존시장이 실질적으로 변형되거나 신시장이 형성된 정도 — 집계 수준(aggregate level)에서 측정.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> Fully in(1) — (i) 형성된 시장 성장, (ii) 전체 가용 사업 대비 유의미한 비중, (iii) 지배적 제도논리의 뚜렷한 변화가 모두 확인될 때.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>관련 논의:</strong> Nenonen, Storbacka, &amp; Frethey-Bentham(2019); Thornton &amp; Ocasio(1999); Pontikes &amp; Rindova(2020).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 Sufficient configurations table -->
+        <div class="mt-6">
+          <h4 class="style-h3 text-slate-800 mb-3">고수준 시장변화로 이어지는 6개 충분 구성 (Table 3–4)</h4>
+          <div class="overflow-x-auto border rounded-xl shadow-inner">
+            <table class="table table-zebra w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-900 text-white">
+                  <th>구성</th>
+                  <th>전략적 초점</th>
+                  <th>핵심요소</th>
+                  <th>부재요소</th>
+                  <th>예시</th>
+                  <th class="text-right">Coverage / Consistency</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-bold text-cyan-700">H1</td>
+                  <td>게임의 규칙 바꾸기</td>
+                  <td class="text-sm">Representations, Norms</td>
+                  <td class="text-sm">Offering, Customer-side, Supply-side</td>
+                  <td class="text-sm">마리화나 합법화(의료용→기호용)</td>
+                  <td class="text-right text-sm">0.58 / 1.00</td>
+                </tr>
+                <tr>
+                  <td class="font-bold text-cyan-700">H2</td>
+                  <td>신규 유형재 시장형성</td>
+                  <td class="text-sm">Offering, Supply-side, Representations, Norms</td>
+                  <td class="text-sm">Pricing, Customer-side</td>
+                  <td class="text-sm">자전거·자동차 대중화</td>
+                  <td class="text-right text-sm">0.31 / 1.00</td>
+                </tr>
+                <tr>
+                  <td class="font-bold text-cyan-700">H3</td>
+                  <td>신규 무형서비스 시장형성</td>
+                  <td class="text-sm">Offering, Pricing, Customer-side, Supply-side</td>
+                  <td class="text-sm">(해당없음)</td>
+                  <td class="text-sm">시설관리 아웃소싱</td>
+                  <td class="text-right text-sm">0.37 / 1.00</td>
+                </tr>
+                <tr>
+                  <td class="font-bold text-cyan-700">H4</td>
+                  <td>비고객을 고객으로 전환</td>
+                  <td class="text-sm">Offering, Customer-side</td>
+                  <td class="text-sm">Pricing, Representations</td>
+                  <td class="text-sm">메인프레임→PC 확산, 성인용 LEGO</td>
+                  <td class="text-right text-sm">0.56 / 1.00</td>
+                </tr>
+                <tr>
+                  <td class="font-bold text-cyan-700">H5</td>
+                  <td>구독모델로 전환</td>
+                  <td class="text-sm">Pricing, Representations (주변: Offering)</td>
+                  <td class="text-sm">Customer-side, Supply-side</td>
+                  <td class="text-sm">항공기 엔진 "Power-by-the-Hour"</td>
+                  <td class="text-right text-sm">0.37 / 1.00</td>
+                </tr>
+                <tr>
+                  <td class="font-bold text-cyan-700">H6</td>
+                  <td>신규 디지털 마켓플레이스 형성</td>
+                  <td class="text-sm">Pricing (주변: Customer-side, Representations)</td>
+                  <td class="text-sm">Offering, Supply-side</td>
+                  <td class="text-sm">Amazon Business, Alibaba</td>
+                  <td class="text-right text-sm">0.44 / 1.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="style-small text-slate-500 mt-2">해 커버리지 0.90, 해 일치도 1.00 (고수준 시장변화 기준). 비고수준 시장변화에 대해서는 별도로 4개 구성(N1–N4)이 도출됨(해 커버리지 0.91, 일치도 0.98).</p>
+        </div>
+      </section>
+
+      <!-- STEP 5 -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          fsQCA는 가설검정형 방법이 아니라 <strong>정성적 사례 지식을 정량적 집합 연산으로 변환</strong>하는 절차이므로, 동일한 원자료가 주어졌을 때 동일한 분석 파이프라인을 재현하는 순서로 단계화하였습니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <li>
+              <div class="timeline-middle"><span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">개념적 프레임워크 확정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">6개 조건(offering, pricing, customer-side, supply-side, representations, norms)과 1개 결과(고수준 시장변화)로 구성된 프레임워크(Fig. 1)를 사전에 정의.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.14–15, §3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle"><span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">목적표집(purposive sampling)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">세 가지 기준(성공 수준, 3년 이상 지속, 2차자료 검증 가능)으로 14명 전문가와 41개 후보 중 21개 사례로 축소.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.16, §4.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle"><span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">데이터 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">82명 대상 15개월간 총 77시간 인터뷰 + 연차보고서·무역협회 자료 등 2차자료. 시장 결과는 국가통계·독립 시장조사기관 자료로 수집.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.16, §4.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle"><span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">코딩 스킴 개발 및 템플릿 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">코딩 스킴(Appendix A)과 멤버십 평가 템플릿(Appendix B) 개발. 두 연구자가 독립 코딩 후 6단계 퍼지값(0~1)으로 합의, NVivo로 관리.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.16, §4.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle"><span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">필요성 분석(necessity analysis)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">일치도 0.9 초과 + 높은 커버리지·관련성 동시 충족 조건 검토. 어떤 조건도 기준 미충족 → "필요조건 없음" 결론.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.16–17, §4.2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle"><span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">진리표(truth table) 구축</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">고수준/비고수준 각각 별도 진리표 구성. Frequency ≥ 1, raw consistency ≥ 0.8, PRI ≥ 0.75 컷오프 적용(Greckhamer et al., 2018).</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.17, §4.2</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle"><span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">R의 QCA 패키지로 해 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">Duşa(2019)의 R `QCA` 패키지로 파시모니어스解와 중간解 도출. 중간解는 조건 존재→결과 존재라는 방향성 기대를 지정.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.17, §4.2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle"><span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">핵심 vs. 주변 요소 구분</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">파시모니어스解·중간解 모두 등장 = 핵심요소, 중간解에만 등장 = 주변요소로 최종 라벨링(Fiss, 2011).</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.17, §4.2 말미</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle"><span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">9</span></div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 9</time>
+                <div class="text-lg font-bold text-slate-800">결과 해석(수평적·수직적)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">Table 3의 각 열(구성)·행(요소)을 가로/세로로 읽어 프레임워크의 경험적 타당성을 검증하고 각 구성의 의미를 서술.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.17–20, §5</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            진리표(Appendix D)·코딩 스킴(Appendix A)·컷오프 값·소프트웨어(R QCA, NVivo)가 투명하게 공개되어 분석 파이프라인 자체는 재현 가능하나, 원자료(인터뷰 전사록·기업 식별정보)는 기밀이며 6단계 퍼지 소속값 부여는 연구자의 정성적 해석에 의존하므로 완전 재현은 불가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li><strong>표본의 지역적 편향:</strong> "our sample comprised 21 case firms headquartered in four countries... it is biased toward developed countries." (p.21, §6.3)</li>
+              <li><strong>순서·시차 미반영:</strong> "our analysis does not reveal anything about the sequence of market-shaping activities... or the temporal lag between the shaping actions and their results." (p.21, §6.3)</li>
+              <li><strong>양방향 동태성·복수 행위자 역학 미반영:</strong> "Nor does our analysis illuminate the bi-directional dynamics... or the dynamics of several, and potentially competing, shaping efforts." (p.21, §6.3)</li>
+              <li><strong>'내용'에만 초점, '과정'은 범위 밖:</strong> "our study focused on the contents of market-shaping strategies... the process of creating and implementing such strategies—outside our scope." (p.21, §6.3)</li>
+              <li><strong>맥락 요인 설명은 사후적·보충적 수준:</strong> "we also sought plausible explanations from various contextual factors... more research is needed." (p.21, §6.3)</li>
+              <li><strong>효과성을 시장변화로만 정의, 기업 성과 미고려:</strong> "we focused on 'effectiveness' in terms of the level of market change rather than in terms of positive performance outcomes." (p.21, §6.3)</li>
+              <li><strong>결과 측정치 선택에 대한 민감성:</strong> "results of all fsQCA studies are highly dependent on the chosen outcome measures." (p.21–22, §6.3)</li>
+              <li><strong>결과 측정치의 경제적 편향:</strong> "two of the three measures used to gauge market-outcomes were economically oriented." (p.22, §6.3)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 역인과 및 내생성</span>
+                <p class="text-sm text-slate-700">fsQCA 설계는 조건(T)이 결과(T+n)에 충분함을 보이는 정적 분석이나, 실제로는 초기 시장변화가 후속 형성활동을 촉발했을 가능성이 있어 인과 방향이 반대이거나 순환적일 수 있다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 결과 종속적 표본 선정 편향</span>
+                <p class="text-sm text-slate-700">사례 선정 기준이 "최소 중간 수준 이상의 성공"을 요구하여, 형성 시도가 실패한 반사실적 사례가 배제됨으로써 진정한 인과적 필요·충분성 주장의 근거가 약화된다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 회고적 응답·사회적 바람직성 편향</span>
+                <p class="text-sm text-slate-700">최고경영진 대상 회고적 인터뷰는 성공 서사를 사후적으로 정당화하는 후견지명 편향 및 자사 미화 응답 편향의 가능성을 내포한다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 소속값 코딩의 확증편향 가능성</span>
+                <p class="text-sm text-slate-700">6단계 퍼지 소속값은 연구자의 질적 판단에 의존하며, 이미 개발한 6요소 프레임워크에 맞춰 자료를 재단했을 이론-데이터 순환성 위험이 있다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 산업·맥락 이질성의 혼입</span>
+                <p class="text-sm text-slate-700">에너지·와인·유제품·건설·디지털 플랫폼 등 이질적 산업에 걸친 사례라, 구성이 일반화 가능한 패턴인지 산업 고유 특성의 상관물인지 구분하기 어렵다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 표본 크기 대비 조건 수의 통계적 취약성</span>
+                <p class="text-sm text-slate-700">21개 사례에 6개 조건을 적용한 소표본 fsQCA는 소수 사례의 극단값이 raw coverage/consistency를 크게 좌우해 통계적 강건성보다 예시적 성격이 강하다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">7. 공통방법편의 가능성</span>
+                <p class="text-sm text-slate-700">인터뷰가 고위 경영진 관점에 국한되어, 고객·경쟁사·규제기관 등 다른 행위자 관점이 반영되지 않아 형성기업 중심 해석에 치우칠 수 있다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">8. 일반화의 시간적 제약</span>
+                <p class="text-sm text-slate-700">급변하는 디지털 플랫폼 사례(H6)와 수십 년 단위로 전개되는 산업 규범 변화 사례(H1)를 동일한 6단계 퍼지셋 틀로 비교하는 것이 타당한지 의문이 남는다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Identifying effective market-shaping strategies: A fuzzy-set qualitative comparative analysis approach</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
