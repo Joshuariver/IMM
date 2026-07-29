@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exploring the Dark Side of Inter-firm Coopetition - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Coopetition · Alliance · Customer Satisfaction</div>
+        <div class="badge badge-secondary text-white style-label">Vol. 122, pp.13-25</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Exploring the dark side of inter-firm coopetition:<br>
+            <span class="text-cyan-400">The harmful effect on customer satisfaction</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Carolin Bimmermann, Andrea Greven, Denise Fischer-Kreer, Malte Brettel
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            기업간 코피티션의 어두운 이면:<br>
+            <span class="text-indigo-300">고객만족에 대한 부정적 영향</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            1994~2021년 미국 143개 기업, 1,893건 제휴 데이터를 활용한 경쟁·협력 강도와 고객만족 간 관계 분석
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">경쟁자와의 제휴·코피티션은 고객만족을 갉아먹지만, 협력을 강화하는 것만으로는 고객만족이 올라가지 않습니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Inter-firm coopetition, the simultaneous presence of competition and cooperation between firms, has gained increasing attention in strategic management research. While scholars have focused on its effect on selected firm outcomes, the impact of coopetition on customer satisfaction remains underexplored. Our study addresses this gap and leverages recent advancements in coopetition research by examining how coopetition, and the intensities of competition and cooperation in alliances, affect customer satisfaction. Analyzing a unique dataset of 1893 alliances across 143 U.S. firms from 1994 to 2021, we uncover three key insights: First, the intensity of competition in alliances is negatively related to customer satisfaction. Second, the occurrence of coopetition is negatively related to customer satisfaction. Third, contrary to our hypothesis, the intensity of cooperation in alliances does not have a positive influence on customer satisfaction. Our findings substantially contribute to coopetition research by shedding light on the rarely studied 'dark side' of coopetition and emphasizing the importance of considering customer perspectives in coopetition research. Besides, we provide managerial implications and suggest future research avenues."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">코피티션(coopetition)</span> — 기업 간 경쟁과 협력이 동시에 존재하는 관계 — 은 전략경영 연구에서 점점 더 많은 관심을 받고 있다. 그동안 학자들은 코피티션이 선택된 기업 성과에 미치는 영향에 주목해 왔지만, 코피티션이 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">고객만족</span>에 미치는 영향은 여전히 충분히 탐구되지 않았다. 본 연구는 이러한 공백을 다루며, 코피티션 자체와 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">제휴 내 경쟁 강도 및 협력 강도</span>가 고객만족에 어떻게 영향을 미치는지 검토한다. 1994년부터 2021년까지 미국 기업 143개 사에 걸친 1,893건의 제휴 데이터를 분석한 결과, 세 가지 핵심 통찰을 발견하였다. 첫째, 제휴 내 경쟁 강도는 고객만족과 부(-)의 관계를 갖는다. 둘째, 코피티션의 발생은 고객만족과 부(-)의 관계를 갖는다. 셋째, 가설과 달리 제휴 내 협력 강도는 고객만족에 긍정적인 영향을 미치지 않는다. 본 연구의 발견은 코피티션의 드물게 연구된 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">'어두운 이면(dark side)'</span>을 조명하고 코피티션 연구에서 고객 관점의 중요성을 강조함으로써 상당히 기여한다. 아울러 경영 시사점과 향후 연구 방향도 제시한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Coopetition</td>
+                  <td>코피티션</td>
+                  <td class="text-sm">Cooperation과 Competition의 합성어(Brandenburger & Nalebuff, 1996)로, 국내 경영학계에서도 원어 음역이 표준적으로 통용되어 개념 손실을 방지.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Dark side (of coopetition)</td>
+                  <td>어두운 이면 / 다크사이드</td>
+                  <td class="text-sm">코피티션의 순기능에 대비되는 역기능(긴장, 기회주의, 지식누출 등)을 지칭하는 저자들의 의도적 수사를 살리기 위해 직역.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Intensity of competition/cooperation</td>
+                  <td>경쟁 강도 / 협력 강도</td>
+                  <td class="text-sm">코피티션을 이분법적 유/무가 아닌 정도(intensity)의 문제로 재개념화한 핵심 기여를 반영.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Customer satisfaction (ACSI)</td>
+                  <td>고객만족 (미국고객만족지수)</td>
+                  <td class="text-sm">American Customer Satisfaction Index의 표준 역어이며, 본 연구에서 고객가치의 대리지표로 사용됨.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Resource/Knowledge-based view</td>
+                  <td>자원기반관점 / 지식기반관점</td>
+                  <td class="text-sm">전략경영 분야의 확립된 표준 역어를 그대로 채택.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Customer orientation</td>
+                  <td>고객지향성</td>
+                  <td class="text-sm">기업이 고객의 이익을 우선시하려는 내재적 동기를 지칭하는 마케팅 표준 용어.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">제휴의 경쟁·협력 강도, 코피티션은 고객만족과 어떤 관계인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">경쟁·코피티션은 고객만족을 낮추고, 협력은 효과 없음</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">코피티션의 다크사이드 + 고객 관점의 도입</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 제휴 내 경쟁 강도와 협력 강도, 그리고 코피티션(경쟁·협력의 동시 발생)은 고객만족에 어떻게 관련되는가?</li>
+                  <li><strong>핵심 발견:</strong> 경쟁 강도(H1, β=−0.48)와 코피티션 발생(H2, β=−0.63)은 모두 고객만족을 유의하게 낮춘다. 반면 협력 강도(H3)는 예상(긍정)과 달리 유의한 영향이 없다(β=0.25, n.s.). 다만 기업의 <strong>고객지향성</strong>이 높으면 경쟁 강도의 부정적 효과가 완화·반전된다(β=1.04, p=.05).</li>
+                  <li><strong>이론/실무 기여:</strong> 코피티션 연구의 순기능 편향에서 벗어나 드물게 다뤄진 "다크사이드"를 대규모 범산업 데이터로 입증하고, 기업 성과 중심 논의를 고객 이해관계자 관점으로 확장했다. 실무적으로는 직접 경쟁자와의 제휴·코피티션에 대한 신중한 관리와 고객지향적 조직문화 구축을 권고한다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "경쟁자와 손을 잡을수록(경쟁 강도↑, 코피티션 발생) 고객만족은 떨어지지만, 단순히 협력을 강화하는 것만으로는 고객만족이 올라가지 않으며, 고객지향적 기업문화가 그 부정적 효과를 되돌릴 수 있는 유일한 안전판입니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">H1 지지: 경쟁 강도 → 고객만족 (−)</td>
+                <td class="text-sm italic text-slate-600">
+                  "H1 suggests that the intensity of competition in alliances negatively relates to customer satisfaction. The analysis validated this assumption (β = −0.48, p = 0.00, Model 1.2)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.19, Sec.4, Table 4</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">H2 지지: 코피티션 발생 → 고객만족 (−)</td>
+                <td class="text-sm italic text-slate-600">
+                  "H2 posits that coopetition occurrence negatively relates to customer satisfaction, which our findings support (β = −0.63, p = 0.01, Model 1.3)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.19, Sec.4, Table 4</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">H3 기각: 협력 강도는 유의하지 않음</td>
+                <td class="text-sm italic text-slate-600">
+                  "The results do not provide significant support for this hypothesis (β = 0.25, p = 0.35, Model 1.2)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.19, Sec.4, Table 4</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">경쟁강도-코피티션발생 다중공선성(0.90) → 별도 모형 분리</td>
+                <td class="text-sm italic text-slate-600">
+                  "The threshold value is strongly exceeded for the two independent variables intensity of competition in alliances and coopetition occurrence (0.90)... we run two separate regressions."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.18, Sec.3.3, Table 3</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">HDFE·시차·도구변수 등 강건성 검증에서도 결과 일관</td>
+                <td class="text-sm italic text-slate-600">
+                  "The regressions show the same significances and directions (H1: β = −0.45, p = 0.00; H2: β = −0.65, p = 0.02)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.19-20, Sec.4.1</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">고객지향성이 H1의 부정적 효과를 반전</td>
+                <td class="text-sm italic text-slate-600">
+                  "customer orientation can help firms reverse the usual negative effect that the intensity of competition in alliances has on customer satisfaction (N = 502, β = 1.04, p = 0.05, Table 5)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.20, Sec.4.2, Table 5</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">YouGov 대체 데이터셋에서도 경쟁강도·코피티션의 부정적 영향 재확인</td>
+                <td class="text-sm italic text-slate-600">
+                  "we find a negative relation to impression (β = −3.57)... perceived product or service value (β = −3.73)... satisfaction (β = −2.61)..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.20-21, Sec.4.2</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">1,893개 제휴 / 143개 기업, 3소스 매칭 표본</td>
+                <td class="text-sm italic text-slate-600">
+                  "After listwise deletion, the dataset we use to assess our three hypotheses comprises 1,893 alliances across 143 firms."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.16, Sec.3.1, Table 1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 가설 모형, Fig.1 재구성 + 보완 조절분석 포함)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 460" class="w-full h-auto">
+              <!-- IV1: Intensity of competition -->
+              <rect x="20" y="20" width="280" height="72" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+              <text x="160" y="47" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="14">제휴 내 경쟁 강도</text>
+              <text x="160" y="65" text-anchor="middle" fill="#b91c1c" font-size="10">NAICS 6자리 중 공유 자릿수 (0/1/2)</text>
+              <text x="160" y="82" text-anchor="middle" fill="#b91c1c" font-size="10">독립변수 · IV1</text>
+
+              <!-- IV2: Coopetition occurrence -->
+              <rect x="20" y="122" width="280" height="72" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+              <text x="160" y="149" text-anchor="middle" font-weight="700" fill="#9a3412" font-size="14">코피티션 발생 여부</text>
+              <text x="160" y="167" text-anchor="middle" fill="#c2410c" font-size="10">NAICS 4자리 이상 공유 시 =1</text>
+              <text x="160" y="184" text-anchor="middle" fill="#c2410c" font-size="10">독립변수 · IV2</text>
+
+              <!-- IV3: Intensity of cooperation -->
+              <rect x="20" y="224" width="280" height="72" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="160" y="251" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">제휴 내 협력 강도</text>
+              <text x="160" y="269" text-anchor="middle" fill="#475569" font-size="10">조인트벤처 존재 여부 (이진)</text>
+              <text x="160" y="286" text-anchor="middle" fill="#475569" font-size="10">독립변수 · IV3</text>
+
+              <!-- DV -->
+              <rect x="640" y="120" width="240" height="90" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="760" y="150" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">고객만족</text>
+              <text x="760" y="170" text-anchor="middle" fill="#4338ca" font-size="11">American Customer Satisfaction Index</text>
+              <text x="760" y="188" text-anchor="middle" fill="#4338ca" font-size="10">종속변수 · DV</text>
+
+              <!-- Moderator -->
+              <rect x="340" y="330" width="260" height="76" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="470" y="357" text-anchor="middle" font-weight="700" fill="#92400e" font-size="14">고객지향성</text>
+              <text x="470" y="375" text-anchor="middle" fill="#b45309" font-size="10">주주서한 CAT 텍스트 분석 (보완분석)</text>
+              <text x="470" y="392" text-anchor="middle" fill="#b45309" font-size="10">조절변수 · Moderator</text>
+
+              <!-- H1 path: IV1 -> DV (solid, significant negative) -->
+              <path d="M300 56 L 640 148" fill="none" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+              <text x="450" y="85" fill="#b91c1c" font-weight="700" font-size="13">H1 (−) 지지</text>
+
+              <!-- H2 path: IV2 -> DV (solid, significant negative) -->
+              <path d="M300 158 L 640 165" fill="none" stroke="#f97316" stroke-width="2.5" marker-end="url(#arrowOrange)"/>
+              <text x="450" y="150" fill="#c2410c" font-weight="700" font-size="13">H2 (−) 지지</text>
+
+              <!-- H3 path: IV3 -> DV (dashed, not significant) -->
+              <path d="M300 260 L 640 185" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#arrowSlate)"/>
+              <text x="450" y="255" fill="#475569" font-weight="700" font-size="13">H3 (n.s.) 기각</text>
+
+              <!-- Moderator -> H1 path (solid amber, significant moderation) -->
+              <path d="M420 330 L 420 87" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="3 3" marker-end="url(#arrowAmber)"/>
+              <circle cx="420" cy="87" r="4" fill="#d97706"/>
+              <text x="428" y="230" fill="#92400e" font-weight="700" font-size="11" transform="rotate(-90 428 230)">조절 (유의, β=1.04, p=.05)</text>
+
+              <!-- Moderator -> H2 path (dashed amber, non-significant moderation) -->
+              <path d="M540 330 L 540 162" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="2 4" marker-end="url(#arrowAmberFaint)" opacity="0.6"/>
+              <circle cx="540" cy="162" r="3.5" fill="#d97706" opacity="0.6"/>
+              <text x="548" y="255" fill="#b45309" font-weight="600" font-size="10" opacity="0.75" transform="rotate(-90 548 255)">조절 (비유의)</text>
+
+              <!-- SVG Arrow Markers -->
+              <defs>
+                <marker id="arrowRed" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444"/>
+                </marker>
+                <marker id="arrowOrange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#f97316"/>
+                </marker>
+                <marker id="arrowSlate" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+                </marker>
+                <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+                </marker>
+                <marker id="arrowAmberFaint" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706" opacity="0.6"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 max-w-2xl text-center">
+            논문 원문 Fig.1(p.15)은 "Alliances" 상자 안에 3개 독립변수 → 고객만족(H1·H2·H3)으로 이어지는 단순 3-경로 모형만 제시한다. 고객지향성 조절변수는 본문 그림에는 없으나 4.2절 보완분석(Table 5·6)에서 공식 검증되었으므로 위 DAG에 추가로 반영했다.
+          </p>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-error style-label text-white">독립변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">IV1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">제휴 내 경쟁 강도 (Intensity of Competition in Alliances)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 제휴 파트너사 간 핵심 시장·자원·지식의 유사성 정도로, 파트너가 얼마나 "경쟁자에 가까운가"를 나타냄.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 6자리 NAICS 코드 중 공유 자릿수 기준 순서형 변수. 5자리 미만=0(저), 5자리=1(중), 6자리 전부=2(고). 제휴원 2개 이상일 경우 모든 양자 조합을 개별 검토.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Wang & Zajac (2007); Greven et al. (2022)의 NAICS 중첩 접근법.</p>
+              <p class="text-xs text-rose-700 bg-rose-50 p-2.5 rounded border border-rose-100">
+                <strong>관련 논의:</strong> RBV/KBV상 자원 유사성은 흡수역량을 높이지만, 역설(paradox) 이론 관점에서 지식누출·기회주의·긴장 위험도 함께 커짐 → 본 연구는 부정적 논리가 우세하다고 가정.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge style-label text-white" style="background-color:#f97316;">독립변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">IV2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">코피티션 발생 여부 (Coopetition Occurrence)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 제휴 내에 협력과 경쟁이 동시에 존재하는지를 나타내는 이진 개념(Brandenburger & Nalebuff, 1996).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> SDC Platinum 제휴에는 협력이 항상 존재한다고 전제하고, 파트너사가 NAICS 코드 4자리 이상을 공유하면(=경쟁 존재) 1, 아니면 0으로 코딩(직교 구성개념).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Wang & Zajac (2007) 기준; Ricciardi et al. (2022)의 직교 구성개념 논리.</p>
+              <p class="text-xs p-2.5 rounded border" style="color:#9a3412; background-color:#fff7ed; border-color:#fed7aa;">
+                <strong>관련 논의:</strong> 코피티션 특유의 담합(collusion) 위험 — 승-승-패(기업은 이득, 고객은 손해) 상황 초래 가능(Luo et al., 2006; Walley, 2007).
+              </p>
+            </div>
+          </div>
+
+          <!-- IV3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 3</span>
+                <span class="text-xs text-slate-400 font-semibold">IV3</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">제휴 내 협력 강도 (Intensity of Cooperation in Alliances)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 제휴 파트너 간 헌신(commitment)과 상호성(mutuality)의 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 이진 변수 — 조인트벤처 존재 시 1, 아니면 0.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Gnyawali & Ryan-Charleton (2018); Hoffmann et al. (2018).</p>
+              <p class="text-xs text-slate-700 bg-slate-50 p-2.5 rounded border border-slate-200">
+                <strong>관련 논의:</strong> 헌신·상호성은 신뢰와 자원흐름 효율성을 높이지만(긍정 논리), 관계적 타성(relational inertia)을 유발할 수도 있음(상반 논리) → 결과적으로 유의한 효과 없음(H3 기각).
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">고객지향성 (Customer Orientation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 고객의 이익을 위해 행동하려는 기업의 내재적 동기.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 주주서한에 대한 CAT Scanner 텍스트 분석(Whorf-Sapir 가설 기반) 지표.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Zachary et al. (2011) 사전; Greven et al. (2022) 방식.</p>
+              <p class="text-xs text-amber-800 bg-amber-50 p-2.5 rounded border border-amber-100">
+                <strong>관련 논의:</strong> 경쟁강도가 높아도 고객지향성이 강하면 자원을 고객가치에 우선 배분 → H1의 부정적 효과를 완화·반전(경계조건).
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Dependent Variable (DV)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">고객만족 (Customer Satisfaction, ACSI)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 지각된 품질·지각된 가치·고객 기대를 종합한 브랜드에 대한 고객 평가로, 고객가치(customer value)의 타당한 대리지표.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 0~100 사이 연속변수(ACSI 점수). 브랜드-모회사 매칭은 정확매칭→퍼지매칭(95%)→수동매칭 3단계로 수행.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> American Customer Satisfaction Index (Univ. of Michigan; ACSI, 2023a·b·c).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Control variables note -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 mt-2">
+          <h4 class="style-label text-slate-500 uppercase tracking-widest mb-2">통제변수</h4>
+          <p class="text-sm text-slate-700">기업 연령(1979년 이후 경과연수), 기업 규모(매출, 1% 윈저라이징), 부채비율(총부채/총자산), 제휴 경험(과거 5년 제휴 건수), 제휴 참여자 수, 제휴 동기 9종 더미(마케팅·라이선싱·독점라이선싱·리셀러·R&D·탐색·공급·제조·펀딩), 산업 더미(1자리 SIC), 연도 더미.</p>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 데이터 구축·검증 절차를 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">데이터 소스 확보 및 병합 기준 설정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  SDC Platinum(제휴), Compustat(재무·경쟁), ACSI(고객만족) 3개 데이터베이스를 gvkey·회계연도 고유식별자로 병합.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.16, Section 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">브랜드-기업 3단계 매칭</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  ACSI 브랜드명과 Compustat 모회사명을 정확매칭 → Alteryx 퍼지매칭(95%) → 웹검색 기반 수동매칭 순으로 연결.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.16-17, Section 3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">표본 정제 (Listwise Deletion)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  ACSI 373개 기업/4,637 firm-year → Compustat 병합 → 결측 순차 제외 → 143개 기업/3,242 firm-year → SDC Platinum 병합 → 최종 143개 기업, 1,893건 제휴.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.16, Table 1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">변수 조작화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  경쟁강도(NAICS 자릿수 순서형 0/1/2), 코피티션 발생(NAICS 4자리 이상=1), 협력강도(JV 이진), 통제변수(연령·규모·부채비율·제휴경험·참여자수·동기더미·산업/연도더미) 구성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.17-18, Section 3.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">다중공선성 진단 (Kalnins, 2018)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  쌍별 상관계수(|0.7| 임계) → 경쟁강도-코피티션발생 상관 0.90으로 초과 확인 → 부호·상관방향 점검 → VIF(1.17~1.20, 임계 10 미만) 확인 → 두 IV를 별도 모형(Model 1.2/1.3)으로 분리.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.18-19, Section 3.3, Table 3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">위계적 OLS 회귀분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Stata 18. Model 1.1(통제변수만) → Model 1.2(경쟁강도+협력강도, H1·H3) → Model 1.3(코피티션발생, H2) 순으로 산업·연도 더미 포함 위계적 회귀.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.18-19, Table 4</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">강건성 검증 (6종)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  HDFE 회귀, 2년 시차 변수, 도구변수(ivreg2, SIC 산업평균), 대체 통제변수, YouGov BrandIndex(N=411) 대체 데이터셋 재분석, 코피티션 발생의 대체 조작화(SIC 3자리).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.19-20, Section 4.1</span>
+              </div>
+              <hr class="bg-slate-900"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-900"/>
+              <div class="timeline-middle">
+                <span class="bg-warning text-amber-950 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">고객지향성 조절효과 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  주주서한을 Zachary et al.(2011) 사전 + CAT Scanner로 분석 → gvkey·연도 기준 병합 → 경쟁강도×고객지향성(Table 5), 코피티션×고객지향성(Table 6) 상호작용항 OLS 검증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.20, Section 4.2, Table 5-6</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            변수 조작화·표본 정제·회귀 사양은 상세히 기술되어 방법론적 재현은 가능하나, ACSI·Compustat·SDC Platinum·YouGov BrandIndex 모두 상업적 유료 데이터베이스이며 논문도 "저자는 데이터를 공유할 권한이 없다"고 명시하고 있어 동일 데이터로의 완전한 독립 재현은 불가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.3)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li><strong>미국 기업 한정:</strong> 표본이 미국 기업으로 국한되어, 다른 국가나 비상장 기업으로 확장 시 결과가 달라질 수 있음.</li>
+              <li><strong>제휴로 한정된 분석 범위:</strong> SDC Platinum에 기록된 공식 제휴로만 조작화하여, 넓은 공급자-구매자 관계나 네트워크 유대는 다루지 않음.</li>
+              <li><strong>경쟁 강도 측정의 한계:</strong> NAICS 코드 중첩만으로 측정하였으며, 제품시장·지리적 중첩 등 대체 측정치가 실제 유사성을 더 잘 설명할 수 있음.</li>
+              <li><strong>비선형(2차) 관계 미검증:</strong> 측정상 제약으로 Crick(2020)이 발견한 것과 같은 2차(quadratic) 관계를 검증하지 못함.</li>
+              <li><strong>경쟁-협력 강도 간 균형(balance) 미탐구:</strong> 두 강도를 개별적으로만 다뤘고, 두 힘 사이의 균형은 향후 과제로 남김.</li>
+              <li><strong>단일 결과변수 국한:</strong> 고객만족 이외에 고객충성도·제품품질 등 고객에 더 가까운 결과변수나 기제는 탐구하지 않음.</li>
+              <li><strong>경쟁/협력 강도의 세부 측정치 미포함:</strong> 창의성·유연성·안전장치 정도, 사회적 유대·신뢰·계약형태 등 정교한 하위 측정치 미포함.</li>
+              <li><strong>고객 이외 이해관계자 미탐구:</strong> 주주·종업원·공급자 등 다른 이해관계자나 사회·환경적 관점은 다루지 않음.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 측정 방식을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 역인과관계 / 잔존 내생성</span>
+                <p class="text-sm text-slate-700">
+                  2년 시차·산업평균 IV 접근을 사용했으나, 도구변수 자체가 동일 IV의 산업평균이라 배제제약이 충분히 정당화되지 않는다. 고객만족이 낮은 기업이 생존전략으로 경쟁자와의 제휴·코피티션을 더 적극적으로 추진했을 <strong>역방향 인과</strong> 가능성을 배제하기 어렵다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 표본 선택 편향 (ACSI 커버리지)</span>
+                <p class="text-sm text-slate-700">
+                  ACSI는 대형·소비자대면(consumer-facing) 브랜드 위주여서, B2B 전용·비상장·중소기업은 원천 배제된다. B2B 마케팅 저널이 다루는 순수 B2B 제휴 상황으로의 일반화에 근본적 제약이 있으나 논문은 이를 지리적 한계로만 언급한다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 코피티션 측정의 개념-조작 괴리</span>
+                <p class="text-sm text-slate-700">
+                  NAICS 코드를 4자리 이상 공유한다고 해서 실제로 동일 고객을 두고 경쟁하거나 적대적으로 행동한다는 보장은 없다. 측정된 "코피티션"이 실제 행동적 코피티션과 괴리될 위험이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 협력 강도 조작화의 거칠음(Coarse)</span>
+                <p class="text-sm text-slate-700">
+                  협력강도를 조인트벤처 여부라는 이진변수로만 측정하여, 非JV 제휴 중의 깊은 통합이나 형식적 소수지분 JV를 구분하지 못한다. H3 기각이 "실제 무관"인지 "측정 실패"인지 구분이 어렵다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 딜-연간 지표 결합의 측정오차</span>
+                <p class="text-sm text-slate-700">
+                  딜(deal) 단위 제휴 데이터와 연 1회 측정되는 ACSI를 결합하는 과정에서 측정오차가 발생할 수 있다. 고객만족의 평균(76.17)·표준편차(5.44)가 매우 압축되어 있어 계수의 실질적 효과크기 해석에 주의가 필요하다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 고객지향성 측정의 수사적 편향</span>
+                <p class="text-sm text-slate-700">
+                  주주서한 텍스트 분석은 기업의 실제 행동이 아니라 <strong>홍보성 언어 사용(인상관리)</strong>을 포착할 위험이 있다. 실제로 고객중심적이지 않은 기업도 서한에서 고객지향적 언어를 전략적으로 구사할 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">7. 매개 기제의 직접 검증 부재</span>
+                <p class="text-sm text-slate-700">
+                  긴장·안전장치 비용·기회주의 등은 이론적으로만 추론될 뿐 실제로 측정·검증되지 않았다. 산업 특수적 대안 설명(불안정한 산업일수록 경쟁적 제휴가 잦다는 등)을 배제하기 어렵다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">8. 산업 이질성 과소 통제 및 거시 충격 미검토</span>
+                <p class="text-sm text-slate-700">
+                  48개 산업을 1자리 SIC 더미로만 통제해 세부 업종 간 이질성을 놓칠 수 있고, 닷컴버블·2008 금융위기 등 표본기간 내 거시 충격의 시기별 구조적 차이도 연도더미 이상으로는 검증되지 않았다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Exploring the Dark Side of Inter-firm Coopetition: The Harmful Effect on Customer Satisfaction</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
