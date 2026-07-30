@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stalled Data Flows in Digital Innovation Networks - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management, 121 (2024) 16–26</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Digital Innovation Networks</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Case Study</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Stalled data flows in digital innovation networks:<br>
+            <span class="text-cyan-400">Underlying mechanisms and the role of related variety</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Jonny Holmström, Angelos Kostis, Emilios Galariotis, David Roubaud, Constantin Zopounidis
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            디지털 혁신 네트워크 속 정체된 데이터 흐름:<br>
+            <span class="text-indigo-300">근본 메커니즘과 연관 다양성(Related Variety)의 역할</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            스웨덴 임업 디지털 혁신 네트워크 'Mistra Digital Forest'에 대한 28건 인터뷰 기반 심층 질적 사례연구
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">데이터 흐름 정체는 네 가지 메커니즘과 '연관 다양성'의 병리(고립·불합치)에서 비롯되며, 브로커의 역할 확장이 해법입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Data flows across organizational boundaries are vital for creating and capturing value from data-intensive digital technologies, such as Artificial Intelligence. To achieve this, organizations increasingly engage in digital innovation networks, i.e., constellations of relations among dispersed, loosely coupled actors, who seek to collaborate for combining heterogeneously distributed domain expertise to train and leverage emerging digital technologies that learn from data. Yet, data flows remain stalled within digital innovation networks, and organizations fail to achieve sought-after benefits from data-intensive digital technologies. To date, research has paid limited attention to what contributes to stalled data flows and what strategies are required to facilitate seamless data flows. Our in-depth qualitative study of a digital innovation network within the Swedish forestry identified four key mechanisms underlying stalled data flows and hampering firms in leveraging value from data-intensive digital technologies and revealed the key role of brokerage functions in digital innovation networks for establishing what we call related variety."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              조직 경계를 넘나드는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">데이터 흐름</span>은 인공지능(AI)과 같은 데이터 집약적 디지털 기술로부터 가치를 창출·획득하는 데 필수적이다. 이를 위해 조직들은 점점 더 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">디지털 혁신 네트워크</span> — 이질적으로 분산된 도메인 전문성을 결합해 데이터로부터 학습하는 신흥 디지털 기술을 훈련·활용하려는, 느슨하게 결합된 행위자들의 관계 성좌 — 에 참여하고 있다. 그러나 디지털 혁신 네트워크 내에서 데이터 흐름은 여전히 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">정체(stalled)</span>되어 있으며, 조직들은 기대한 편익을 달성하지 못하고 있다. 지금까지 선행 연구는 정체의 원인과 원활한 데이터 흐름을 위한 전략에 제한적인 관심만을 기울여왔다. 스웨덴 임업 부문 디지털 혁신 네트워크에 대한 본 연구팀의 심층 질적 연구는, 데이터 흐름 정체의 근저에 있는 <strong>네 가지 핵심 메커니즘</strong>을 규명하였고, 우리가 명명한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">연관 다양성(related variety)</span>을 구축하는 데 있어 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">브로커리지 기능</span>이 갖는 핵심적 역할을 밝혀냈다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Digital innovation network</td>
+                  <td>디지털 혁신 네트워크</td>
+                  <td class="text-sm">분산·느슨결합 행위자들이 이질적 도메인 지식을 결합해 데이터 기반 기술을 공동 훈련·활용하는 네트워크. 저자 고유의 핵심 분석단위이므로 직역.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Related variety</td>
+                  <td>연관 다양성</td>
+                  <td class="text-sm">경제지리학(Boschma & Iammarino, 2009 등)에서 차용한 개념. 서로 다른 전문성을 갖되 시너지적 자원을 공유하는 행위자 집합. 하나의 구성개념임을 명확히 하기 위해 '연관 다양성'으로 고정.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Isolated related variety</td>
+                  <td>고립된 연관 다양성</td>
+                  <td class="text-sm">연관 다양성을 지닌 행위자들이 신뢰 부재로 서로 연결되지 못한 채 고립된 상태. 저자가 새로 제안한 하위 개념.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Incongruent unrelated variety</td>
+                  <td>불합치 비연관 다양성</td>
+                  <td class="text-sm">서로 이질적(unrelated)이며 가까워질 조짐이 없는(incongruent) 지식 기반 간의 격차. 저자가 새로 제안한 하위 개념.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Brokerage / intermediaries</td>
+                  <td>브로커리지 / 중개자</td>
+                  <td class="text-sm">지식중개(Hargadon, 1998) 문헌의 표준 번역. 사기업·공공기관·대학·연구센터 등 다양한 유형의 중개자를 포괄.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Coopetition-oriented data work</td>
+                  <td>협력경쟁 지향 데이터 작업</td>
+                  <td class="text-sm">경쟁자와의 협력(coopetition, Bengtsson & Kock, 2000)을 전제로 데이터를 구축·정제·공유하는 실무 역량.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Data commons</td>
+                  <td>데이터 공유자원(커먼즈)</td>
+                  <td class="text-sm">조직들이 공동으로 접근·공유할 수 있는 개방적 자원 풀. 공유자원(commons) 이론 용어를 병기.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">디지털 혁신 네트워크에서 데이터 흐름을 정체시키는 메커니즘은 무엇인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">네 가지 메커니즘과 '연관 다양성'의 두 병리(고립·불합치)</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">연관 다양성 개념 확장과 브로커리지 역할의 재정의</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 스웨덴 임업 디지털 혁신 네트워크(Mistra Digital Forest)에서 데이터 흐름이 정체되는 근본 메커니즘은 무엇이며, 이를 극복하기 위한 전략은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> ① 하이브리드(디지털+수기) 표상 의존, ② 데이터 공유자원 형성을 저해하는 밸류체인 파편화, ③ 협력경쟁 지향 데이터 작업 역량 부족, ④ 낮은 서비스 혁신 — 네 메커니즘이 데이터 흐름을 저해함. 그 기저에는 '고립된 연관 다양성(신뢰 부재)'과 '불합치 비연관 다양성(역량 격차)'이라는 두 병리적 상태가 있음.</li>
+                  <li><strong>이론/실무 기여:</strong> 경제지리학의 연관 다양성 개념을 디지털 혁신 네트워크로 확장하고, 브로커/중개자가 단순 연결을 넘어 신뢰 구축과 역량 격차 해소까지 아우르는 확장된 오케스트레이션 역할을 수행해야 함을 제시함.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "데이터 흐름 정체는 네 가지 메커니즘과 '연관 다양성'이 신뢰 부족(고립)이나 역량 격차(불합치)로 제대로 작동하지 못하는 데서 비롯되며, 이를 해소하려면 브로커의 역할이 단순 연결을 넘어 신뢰·역량 구축까지 확장되어야 합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          질적 사례연구의 신뢰도를 보장하기 위해 각 핵심 주장과 인터뷰·서술적 근거의 원문 인용 및 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">데이터 흐름 정체 메커니즘 연구의 공백</td>
+                <td class="text-sm italic text-slate-600">
+                  "Surprisingly, prior research has paid limited attention to the mechanisms underlying the presence of stalled data flows... What are the mechanisms underlying stalled data flows within digital innovation networks?"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 17, Sec. 1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">다양성이 아닌 '연관 다양성'이 혁신을 촉진</td>
+                <td class="text-sm italic text-slate-600">
+                  "it is neither diversity nor heterogeneity among digital innovation network participants that stimulates digital innovation. Rather, a related variety is more likely to induce a fruitful context..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 18, Sec. 2.2</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">네 가지 메커니즘의 종합 발견</td>
+                <td class="text-sm italic text-slate-600">
+                  "Our analysis revealed four key mechanisms impeding data flows... (1) dependence on hybrid representations; (2) fragmentation... undermining creation of data commons; (3) insufficient emphasis on coopetition-oriented data work competence; and (4) low levels of service innovation."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 19–20, Sec. 4.1 & Fig.1</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">하이브리드 표상 의존이 공유가능성을 저하</td>
+                <td class="text-sm italic text-slate-600">
+                  "dependence on hybrid representations significantly impedes data flows... reducing the shareability and reliability of the data."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 20, Sec. 4.1.1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">밸류체인 파편화가 데이터 공유자원 형성을 저해</td>
+                <td class="text-sm italic text-slate-600">
+                  "the supply/demand chain has weak (or missing) links, which undermine the creation of data commons, i.e., a shared resource that allows organizations to access and share data..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 21, Sec. 4.1.2</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">'고립된 연관 다양성'이 혁신 기회를 저해</td>
+                <td class="text-sm italic text-slate-600">
+                  "isolated related variety... has impeded full realization of innovation opportunities by firms in the forestry value chain."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 23–24, Sec. 5.1</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">임업-기술공급자 간 '불합치 비연관 다양성'</td>
+                <td class="text-sm italic text-slate-600">
+                  "our results demonstrate incongruent unrelated variety... a gap between the forestry firms... and the technology suppliers... there are no signs of these domains moving closer."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 24, Sec. 5.1</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">브로커리지 기능의 역할과 한계</td>
+                <td class="text-sm italic text-slate-600">
+                  "the bottlenecks identified suggest that the diversity is not managed in a fully successful way... universities... research centers involved in the network served as brokers..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 25, Sec. 5.2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 개념 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Concepts</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 연구는 통계적 가설검정이 아닌 <strong>귀납적 질적 사례연구</strong>이므로, 아래 다이어그램은 검정된 가설(H1, H2 등)이 아니라 저자들이 데이터로부터 귀납적으로 이론화한 개념 간 관계를 나타냅니다.
+        </p>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual Framework (귀납적 개념 모형)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 1000 480" class="w-full h-auto">
+              <!-- Four mechanisms (antecedents) -->
+              <rect x="20" y="15" width="220" height="55" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+              <text x="130" y="37" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">메커니즘 1</text>
+              <text x="130" y="55" text-anchor="middle" fill="#475569" font-size="11">하이브리드 표상 의존</text>
+
+              <rect x="20" y="85" width="220" height="55" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+              <text x="130" y="107" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">메커니즘 2</text>
+              <text x="130" y="125" text-anchor="middle" fill="#475569" font-size="11">데이터 공유자원 형성 저해(파편화)</text>
+
+              <rect x="20" y="155" width="220" height="55" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+              <text x="130" y="177" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">메커니즘 3</text>
+              <text x="130" y="195" text-anchor="middle" fill="#475569" font-size="11">협력경쟁 데이터 작업 역량 부족</text>
+
+              <rect x="20" y="225" width="220" height="55" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+              <text x="130" y="247" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">메커니즘 4</text>
+              <text x="130" y="265" text-anchor="middle" fill="#475569" font-size="11">낮은 수준의 서비스 혁신</text>
+
+              <!-- Central outcome: Stalled data flows -->
+              <rect x="330" y="100" width="240" height="100" rx="10" fill="#fff1f2" stroke="#e11d48" stroke-width="2.5"/>
+              <text x="450" y="140" text-anchor="middle" font-weight="700" fill="#9f1239" font-size="15">정체된 데이터 흐름</text>
+              <text x="450" y="160" text-anchor="middle" fill="#be123c" font-size="11">(Stalled Data Flows)</text>
+              <text x="450" y="180" text-anchor="middle" fill="#be123c" font-size="10">데이터 집약적 기술 가치 활용 실패</text>
+
+              <!-- Arrows from mechanisms to outcome -->
+              <path d="M240 42 L 280 42 L 280 130 L 325 130" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M240 112 L 300 112 L 300 145 L 325 145" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M240 182 L 300 182 L 300 160 L 325 160" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M240 252 L 280 252 L 280 175 L 325 175" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Ideal state: Related variety -->
+              <rect x="640" y="15" width="330" height="55" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2" stroke-dasharray="5 3"/>
+              <text x="805" y="37" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">연관 다양성 (이상적 상태)</text>
+              <text x="805" y="55" text-anchor="middle" fill="#047857" font-size="10">이질적 전문성 + 시너지적 자원 공유</text>
+
+              <!-- Two pathological states -->
+              <rect x="590" y="120" width="210" height="70" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="695" y="145" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">고립된 연관 다양성</text>
+              <text x="695" y="162" text-anchor="middle" fill="#b45309" font-size="10">신뢰 부재 → 협업 단절</text>
+              <text x="695" y="178" text-anchor="middle" fill="#b45309" font-size="9">(Isolated Related Variety)</text>
+
+              <rect x="810" y="120" width="210" height="70" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="915" y="145" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">불합치 비연관 다양성</text>
+              <text x="915" y="162" text-anchor="middle" fill="#b45309" font-size="10">임업 ↔ 기술도메인 역량 격차</text>
+              <text x="915" y="178" text-anchor="middle" fill="#b45309" font-size="9">(Incongruent Unrelated Variety)</text>
+
+              <!-- Ideal -> two pathological states (dashed, deviation) -->
+              <path d="M750 70 L 695 118" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-amber)"/>
+              <path d="M860 70 L 915 118" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-amber)"/>
+
+              <!-- Pathological states -> central outcome (reinforcing) -->
+              <path d="M590 158 L 575 158 L 575 155 L 570 155" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-amber)"/>
+              <path d="M810 165 L 700 250 L 570 190" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-amber)"/>
+
+              <!-- Brokerage function box -->
+              <rect x="590" y="290" width="430" height="70" rx="8" fill="#ecfeff" stroke="#0891b2" stroke-width="2"/>
+              <text x="805" y="315" text-anchor="middle" font-weight="700" fill="#155e75" font-size="13">브로커리지 / 중개 기능</text>
+              <text x="805" y="333" text-anchor="middle" fill="#0e7490" font-size="10">Mistra Digital Forest 운영진 · 대학 · 연구센터</text>
+              <text x="805" y="349" text-anchor="middle" fill="#0e7490" font-size="9">(현재: 프로젝트 연결 중심 / 필요: 신뢰·역량 구축까지 확장)</text>
+
+              <!-- Brokerage moderating arrows (vertical, into pathological->outcome paths) -->
+              <path d="M695 290 L 690 200" fill="none" stroke="#0891b2" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <path d="M915 290 L 800 240" fill="none" stroke="#0891b2" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+              <text x="640" y="245" fill="#0e7490" font-weight="700" font-size="10">완화 작용</text>
+
+              <!-- Aspirational path to facilitated data flow -->
+              <rect x="330" y="290" width="220" height="70" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" stroke-dasharray="5 3"/>
+              <text x="440" y="317" text-anchor="middle" font-weight="700" fill="#15803d" font-size="13">촉진된 데이터 흐름</text>
+              <text x="440" y="334" text-anchor="middle" fill="#16a34a" font-size="10">(잠재적 목표 상태)</text>
+              <text x="440" y="350" text-anchor="middle" fill="#16a34a" font-size="9">브로커리지 확장 시 도달 가능</text>
+
+              <path d="M590 325 L 555 325" fill="none" stroke="#16a34a" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-green)"/>
+              <path d="M450 290 L 450 205" fill="none" stroke="#16a34a" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow-green)"/>
+              <text x="465" y="250" fill="#15803d" font-weight="700" font-size="10">전환 가능성</text>
+
+              <!-- SVG Arrow Markers -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+                </marker>
+                <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+                </marker>
+                <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0891b2"/>
+                </marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#16a34a"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 text-center max-w-2xl">
+            실선 화살표 = 정체를 심화시키는 관계, 점선 화살표 = 이상적 상태로부터의 이탈(회색·주황) 또는 브로커리지 확장을 통한 전환 가능성(초록). 이 프레임워크는 통계적으로 검정된 가설이 아니라 그라운디드 이론 분석을 통해 귀납적으로 도출된 개념적 관계입니다.
+          </p>
+        </div>
+
+        <!-- Concept Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Mechanism 1 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">선행 메커니즘 1</span>
+                <span class="text-xs text-slate-400 font-semibold">M1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">하이브리드 표상 의존 (Dependence on Hybrid Representations)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 조직들이 디지털 표상(레이저 스캐닝)과 수기 큐레이션 데이터에 동시 의존해 발생하는 이질적 데이터 통합 문제.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 레이저 스캐닝이 지형 상태 등 핵심 변수를 포착하지 못해 수기 데이터 보정이 지속되는 실무 관행.</p>
+              <p class="text-sm text-slate-600"><strong>근거:</strong> 인터뷰 R14, R16, R20, R22 (harvesting/forestry 현장 응답자)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Orlikowski & Scott(2015)의 '알고리즘적 현상', Kallinikos(2006)의 계산적 현실 재현 논의와 연결됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mechanism 2 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">선행 메커니즘 2</span>
+                <span class="text-xs text-slate-400 font-semibold">M2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">데이터 공유자원 형성 저해 (Fragmentation Undermining Data Commons)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 공급-수요 체인의 연결고리가 약하거나 부재하여 개방적·협력적 데이터 공유자원(data commons)이 형성되지 못하는 구조적 상태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 개별 기업의 자체 인프라 의존, 수확업체-시장 간 연결 부재, StanForD 표준의 부분적 수기 입력 잔존.</p>
+              <p class="text-sm text-slate-600"><strong>근거:</strong> 인터뷰 R3, R4, R20, R21 및 StanForD 표준 문서</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 밸류체인의 '수직적 연계'(Shank, 1989) 및 정보공유 아키텍처 설계(Rai et al., 2012)와 연결됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mechanism 3 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">선행 메커니즘 3</span>
+                <span class="text-xs text-slate-400 font-semibold">M3</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">협력경쟁 데이터 작업 역량 부족 (Insufficient Coopetition-oriented Data Work)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 데이터 구축·정제·정리·공유에 필요한 실무 역량(data work)이 낮은 디지털 역량으로 인해 부족한 상태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 외부 컨설턴트 의존, 데이터 작업 내재화 부재, 경쟁자와의 공유에 대한 낮은 신뢰.</p>
+              <p class="text-sm text-slate-600"><strong>근거:</strong> 인터뷰 R16, R9, R21, R26</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 협력경쟁 문헌(Bengtsson & Kock, 2000)의 단기 자기이익 vs. 장기 집단이익 긴장(Ostrom, 1990)이 재현됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mechanism 4 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">선행 메커니즘 4</span>
+                <span class="text-xs text-slate-400 font-semibold">M4</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">낮은 수준의 서비스 혁신 (Low Level of Service Innovation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 제품 중심적 사고에 갇혀 데이터 흐름을 활용한 서비스 혁신 기회를 충분히 포착하지 못하는 상태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 외부지식(대학·컨설턴트) 활용의 제한적 수준, 협력 프로젝트가 탐색적 수준에 머무는 경향.</p>
+              <p class="text-sm text-slate-600"><strong>근거:</strong> 인터뷰 R2, R12, R17, R23, R28</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Gawer(2014), Nambisan et al.(2017)의 플랫폼/디지털 혁신 관리 논의와 연결됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderating state: Isolated related variety -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절적 상태 A</span>
+                <span class="text-xs text-slate-400 font-semibold">Isolated Related Variety</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">고립된 연관 다양성</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 연관 다양성(상호 보완적 자원·전문성)을 갖춘 행위자들이 신뢰 부족으로 서로 연결되지 못하고 고립된 상태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 협력경쟁 관계의 임업 기업들이 비밀유지를 신뢰보다 우선시하는 행태, IP 유출 우려로 인한 정보 공유 회피.</p>
+              <p class="text-sm text-slate-600"><strong>근거:</strong> 인터뷰 R9, R21 (신뢰·비밀 관련 발언)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Henkel et al.(2014)의 신뢰-지식공유 촉진 논의와 Wu(2014)의 맹목적 신뢰 위험 논의 사이의 긴장.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderating state: Incongruent unrelated variety -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절적 상태 B</span>
+                <span class="text-xs text-slate-400 font-semibold">Incongruent Unrelated Variety</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">불합치 비연관 다양성</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 임업 도메인과 디지털 기술 도메인처럼 이질적이며, 시간이 지나도 가까워질 조짐이 없는 지식 기반 간 격차.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 임업 기업의 디지털/AI 역량과 실제 요구 역량 사이의 인지된 격차, 외부 전문인력 지속 의존.</p>
+              <p class="text-sm text-slate-600"><strong>근거:</strong> 인터뷰 R16 ("어느 방향으로 가야 할지조차 불분명하다")</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Carlile(2002)의 지식 통합 실패, Broekel & Boschma(2012)의 '근접성의 역설'과 연결됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Brokerage -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">완화 기제</span>
+                <span class="text-xs text-slate-400 font-semibold">Brokerage Functions</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">브로커리지 / 중개 기능</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 네트워크 내 다양성을 관리해 지식의 창출·이전·접근성을 촉진하는 중개자(사기업·공공기관·대학·연구센터)의 기능.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Mistra Digital Forest 운영진의 프로젝트 조직화, 대학의 임원교육 지원, 연구센터의 기술 공급업체 네트워크 편입 활동.</p>
+              <p class="text-sm text-slate-600"><strong>근거:</strong> Mistra Digital Forest 관련 문서 및 인터뷰</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Hargadon(1998)의 지식 브로커 기업론, Waardenburg et al.(2022)의 학습 알고리즘 시대 지식 브로커리지 논의. 저자들은 현재의 연결 중심 브로커리지를 신뢰·역량 구축까지 확장해야 한다고 결론지음.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않은 연구자도 동일한 절차를 따라갈 수 있도록, 그라운디드 이론 기반 질적 사례연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 맥락 및 사례 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  스웨덴 임업 디지털 전환 이니셔티브 'Mistra Digital Forest'를 연구 대상으로 선정. 데이터 통합이 핵심 초점이면서 레거시 기술의 한계로 실시간 데이터 접근이 제약된 산업이라는 점에서 정체된 데이터 흐름 연구에 이상적인 사례로 판단.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 19, Section 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">데이터 수집 — 인터뷰</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  제1저자가 28건의 반구조화 인터뷰(30~70분)를 진행. 응답자 공통 특성: 데이터 집약적 디지털 기술 구현에 관여하거나 책임을 맡은 인물. 디지털 기술 활용, 데이터 생산·분석·흐름, 기회와 도전과제를 질문.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 19, Section 3.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">데이터 수집 — 관찰 및 아카이브 자료</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Mistra Digital Forest 주최 회의 3회, 컨퍼런스 2회를 관찰. 산업보고서·프로젝트 진행보고서·프로세스 문서를 수집하되 공식 분석 대상이 아닌 맥락 이해 보조자료로 활용.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 19, Section 3.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">1차 분석 — 개방코딩 및 연대기 구축</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  그라운디드 이론의 개방코딩(open coding)에 기반해 각 기업의 연대기와 주요 테마를 확립. 디지털 기술·데이터의 역할, 타 조직과의 데이터 교환 관련 모든 언급을 코딩.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 19–20, Section 3.3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">2차 분석 — 코드 비교·병합 및 패턴 탐색</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  코드를 비교·삭제·병합해 규모를 축소하고, 데이터 흐름 저해 요인에 초점을 맞춰 패턴 탐색. 정체된 데이터 흐름에 관한 잠재적 원인 목록 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 20, Section 3.3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">3차 분석 — 관계적 관점 적용 및 이론적 추상화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  원인 목록을 '관계적 관점'에서 재검토해 정체가 관계적 복잡성·차이에서 비롯됨을 확인하고 '연관 다양성' 개념과 연결. Klein & Myers(1999)의 대화적 추론에 따라 이론과 경험자료를 반복적으로 오가며 해석.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 20, Section 3.3</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">결과 정리 — 4대 메커니즘 및 연관 다양성 프레임워크 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  데이터 흐름 저해 4대 메커니즘(Fig. 1), 두 연관 다양성 병리 유형(고립·불합치), 브로커리지 역할을 종합해 논의(Discussion) 섹션에 제시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 19–25, Sections 4–5</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            연구 맥락, 인터뷰 건수·시간·응답자 특성, 3단계 분석 절차와 코딩 접근이 투명하게 기술되어 있으나, 28건 인터뷰 원문 전사본·코딩 트리가 공개되지 않고 저자들이 "데이터를 공유할 권한이 없다"고 명시해 원자료 접근이 불가하므로, 외부 연구자가 동일한 이론적 추상화에 정확히 도달하기는 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.2)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>밸류체인의 불완전성:</strong> 본 연구가 다룬 밸류체인은 수확(harvesting)을 출발점으로 삼았으나, 수십 년 전의 육종·식재·임분관리까지 포함하는 것이 이상적임에도 이를 다루지 못함.
+                <br><span class="text-xs text-slate-500 italic">"the value chain considered here is not complete. Integration of the full value chain, encompassing downstream tree breeding and stand management, poses additional challenges..."</span>
+              </li>
+              <li>
+                <strong>데이터 공유 불가:</strong> 저자들은 원자료(28건 인터뷰 전사본 등)를 공유할 권한이 없음을 명시적으로 밝힘.
+                <br><span class="text-xs text-slate-500 italic">"The authors do not have permission to share data."</span>
+              </li>
+              <li>
+                <strong>기후변화·지속가능성 요구의 미반영:</strong> 기후변화 및 관련 사회경제적·지속가능성 요구가 미치는 영향을 충분히 고려하지 못했음을 인정함.
+                <br><span class="text-xs text-slate-500 italic">"...as does the need to consider the impact of climate change and associated socio-economic and sustainability demands."</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">질적 사례연구 설계와 저자-대상조직 관계를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 단일 산업·단일 국가 맥락의 일반화 한계</span>
+                <p class="text-sm text-slate-700">
+                  스웨덴 임업이라는 매우 특수한 산업 구조(국가 소유 산림 비중, StanForD와 같은 성숙한 산업 표준, 협동조합적 산업 문화)에서 도출된 '연관 다양성' 프레임워크가, 표준화가 미비하거나 산업 문화가 다른 타 산업(헬스케어, 금융 등)의 디지털 혁신 네트워크에도 동일하게 적용될지는 검증되지 않음.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 인터뷰이의 자기선택·사후합리화 편향</span>
+                <p class="text-sm text-slate-700">
+                  응답자들은 모두 디지털 기술 구현에 '관여했거나 책임을 맡은' 인물로 사전 선별되었는데, 이는 프로젝트 성공/실패에 이해관계를 가진 당사자들이 실패 원인을 '역량 부족'·'신뢰 부족' 등 외부·구조적 요인으로 귀속시키는 사후적 정당화를 걸러내지 못했을 가능성이 있음.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 역인과 관계의 가능성</span>
+                <p class="text-sm text-slate-700">
+                  저자들은 '신뢰 부족 → 고립된 연관 다양성 → 데이터 흐름 정체'의 인과 방향을 전제하지만, 반대로 '데이터 흐름이 이미 정체되어 가시적 성과가 없었기 때문에 기업들이 서로를 신뢰하지 못하게 되었다'는 역방향 인과나 공진화 가능성도 배제하기 어려움. 단면적 인터뷰 설계로는 이를 구분할 수 없음.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 연구자-대상조직 간 이해관계 상충 가능성</span>
+                <p class="text-sm text-slate-700">
+                  본 연구는 참여 기업들과 공동으로 수행된 '임베디드 사례연구(engaged scholarship)'임을 명시함. 연구자가 Mistra Digital Forest 이니셔티브와 긴밀히 협력하며 특별한 접근권을 얻었다는 점은, 연구 대상 기관의 브로커리지 기여도를 우호적으로 해석하도록 유도했을 잠재적 이해관계 상충을 내포함.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200 md:col-span-2">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 네 메커니즘 간 상대적 비중·상호작용 미검증</span>
+                <p class="text-sm text-slate-700">
+                  논문은 네 메커니즘을 병렬적으로 제시하지만, 어떤 메커니즘이 데이터 흐름 정체에 가장 큰 설명력을 갖는지, 혹은 메커니즘들이 서로를 강화하는지(예: 낮은 데이터 역량이 하이브리드 표상 의존을 심화시키는지) 등 메커니즘 간 상대적 비중·인과적 상호작용은 질적 분석의 특성상 체계적으로 검증되지 않음.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Stalled data flows in digital innovation networks: Underlying mechanisms and the role of related variety</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

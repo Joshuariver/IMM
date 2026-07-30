@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Too Small to Care? - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Qualitative / Gioia Method</div>
+        <div class="badge badge-secondary text-white style-label">B2B · MSE · HRM</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Too small to care?<br>
+            <span class="text-cyan-400">Developing a model explaining managers' decision to adopt employee stress prevention practices in micro and small enterprises</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Johanna Kuske, Florian B. Zapkau, Gertraud M. Gänser-Stickler, Christian Schwens
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            너무 작아서 신경 쓸 여유가 없다고?<br>
+            <span class="text-indigo-300">영세·소기업(MSE) 경영자의 직원 스트레스 예방 관행 채택 결정을 설명하는 모델 개발</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            독일 크래프트·서비스 업종 B2B 기업 24개사 경영자 인터뷰 기반, Gioia 귀납적 내용분석으로 도출한 6가지 태도·인식 차원과 이론적 모델
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">친밀함과 전문성이 만든 긍정적 태도도, 직원이 호응하지 않을 것이라 판단되면 결국 채택으로 이어지지 않습니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Employee work stress jeopardizes employee well-being and enterprise performance in micro and small enterprises (MSEs). Although previous studies show that formal stress prevention practices effectively improve employee well-being and, in turn, foster enterprise performance, MSE managers rarely adopt such formal prevention practices. Based on qualitative evidence, we explore the attitudes and perceptions underlying MSE managers' decision to adopt formal stress prevention practices (i.e., their perceived closeness with employees, perceived expertise in stress prevention, attitude toward formal practices, attitude toward external support, attitude toward work stress, and perceived employee buy-in). Moreover, we develop a theoretical model explaining how the extracted attitudes and perceptions influence MSE managers' adoption decisions. Our study contributes to the research on MSE managers' experience with managing work stress and their role as employers. Furthermore, we provide practical recommendations for external providers of formal stress prevention practices on how to engage with MSE managers."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              직원의 업무 스트레스는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">영세·소기업(MSE)</span>에서 직원 웰빙과 기업 성과를 위협한다. 선행 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">공식적 스트레스 예방 관행</span>이 직원 웰빙을 효과적으로 개선하고 이를 통해 기업 성과를 촉진한다는 점을 보여주지만, MSE 경영자들은 이러한 공식적 예방 관행을 거의 채택하지 않는다. 본 연구는 질적 근거를 바탕으로 MSE 경영자의 공식적 스트레스 예방 관행 채택 결정의 기저에 있는 태도와 인식(즉, 직원과의 지각된 친밀도, 스트레스 예방에 대한 지각된 전문성, 공식 관행에 대한 태도, 외부 지원에 대한 태도, 업무 스트레스에 대한 태도, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">지각된 직원 수용의지</span>)을 탐구한다. 나아가, 추출된 태도와 인식이 MSE 경영자의 채택 결정에 어떻게 영향을 미치는지를 설명하는 이론적 모델을 개발한다. 본 연구는 MSE 경영자의 업무 스트레스 관리 경험 및 고용주로서의 역할에 관한 연구에 기여한다. 또한 공식적 스트레스 예방 관행의 외부 제공자들이 MSE 경영자와 어떻게 관계를 맺어야 하는지에 대한 실무적 제언을 제공한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Formal stress prevention practices</td>
+                  <td>공식적 스트레스 예방 관행</td>
+                  <td class="text-sm">"계획적·체계적·근거기반" 조치를 의미하며, 비공식적 대응과 대비되는 개념이므로 "공식적"을 명시적으로 병기합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Micro and small enterprises (MSEs)</td>
+                  <td>영세·소기업(MSE)</td>
+                  <td class="text-sm">EU 기준 1~9인(영세)/10~49인(소기업) 기업을 통칭하는 학술 약어로, 표준화된 국문 번역어가 없어 원어 약어를 유지합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Perceived closeness with employees</td>
+                  <td>지각된 직원과의 친밀도</td>
+                  <td class="text-sm">가족적 관계와 개별적 관계라는 두 하위 축으로 구성된 지각 변수입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Perceived employee buy-in</td>
+                  <td>지각된 직원 수용의지</td>
+                  <td class="text-sm">직원이 스트레스 주제에 관여하고 예방 프로그램에 참여할 의향이 있다고 경영자가 지각하는 정도를 뜻합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Gioia methodology</td>
+                  <td>Gioia 방법론(귀납적 내용분석)</td>
+                  <td class="text-sm">1차 개념 → 2차 주제 → 총괄 차원의 3단계 코딩을 통한 질적 이론 구축 기법입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Proposition</td>
+                  <td>명제(연구 제안)</td>
+                  <td class="text-sm">양적 연구의 가설(Hypothesis)과 구분되는, 질적 이론화 결과로 도출된 잠정적 관계 제안입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">어떤 태도·인식이 MSE 경영자의 채택 결정을 좌우하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">6가지 태도·인식, 그리고 직원 수용의지라는 최종 관문</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">문지기(gatekeeper) 관점의 확장과 B2B 제공자 전략 제언</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> MSE 경영자의 공식적 스트레스 예방 관행 채택 결정에 어떤 태도와 인식이 영향을 미치며, 그 영향은 어떤 과정을 거쳐 발생하는가?</li>
+                  <li><strong>핵심 발견:</strong> 24건의 반구조화 인터뷰를 Gioia 귀납적 내용분석으로 코딩한 결과 6가지 차원(친밀도·전문성·3가지 태도·직원 수용의지)이 도출됨. 친밀도는 유형에 따라 <strong>양가적(ambivalent)</strong> 효과를 가지며, 직원 수용의지는 긍정적 태도조차 무력화할 수 있는 <strong>경계조건(boundary condition)</strong>으로 작동함.</li>
+                  <li><strong>이론/실무 기여:</strong> MSE 경영자를 "문지기(gatekeeper)"로 보는 관점을 확장하여 경영자가 자신의 태도뿐 아니라 직원의 예상 반응까지 함께 고려한다는 점을 규명. B2B 관점에서 건강보험사·산업안전기관 등 외부 제공자를 위한 3가지 관계 전략을 제시.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "영세·소기업 경영자는 친밀도·전문성 지각이 만든 태도가 긍정적이어도, 직원이 호응하지 않을 것이라 판단되면 결국 공식적 스트레스 예방 관행 도입을 포기합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          질적 연구의 신뢰도를 보장하기 위해 각 핵심 주장과 인터뷰 인용·명제(Proposition)의 원문 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">6가지 태도·인식 차원의 귀납적 도출</td>
+                <td class="text-sm italic text-slate-600">
+                  "Overall, our analysis revealed six attitudes and perceptions: MSE managers' (1) perceived closeness with employees, (2) perceived expertise in stress prevention, (3) attitude toward formal practices, (4) attitude toward external support, (5) attitude toward work stress, and (6) perceived employee buy-in."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.46, Sec. 4.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">개별적 친밀도 → 공식관행에 부정적 태도(P1a)</td>
+                <td class="text-sm italic text-slate-600">
+                  "MSE managers who perceive higher degrees of individual relationships do not view formal practices as effective in preventing employee work stress, as they prefer individual and informal approaches."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.49–50, Sec. 4.2</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">가족적 친밀도 → 외부지원·업무스트레스에 긍정 태도(P1b,c)</td>
+                <td class="text-sm italic text-slate-600">
+                  "MSE managers who perceive greater degrees of family-like relationships appreciate the neutrality of an external provider... [and] feel comfortable discussing the personal topic of work stress with their employees."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.50, Sec. 4.2</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">전문지식 지각 → 공식관행·외부지원에 긍정 태도(P2a,b)</td>
+                <td class="text-sm italic text-slate-600">
+                  "MSE managers who perceive their level of professional knowledge as high regard formal stress prevention practices as useful for retaining and attracting employees... [and] are also more prone to accepting external support."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.50, Sec. 4.2</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">직원 수용의지의 조절효과(P3) — 긍정적 태도의 무력화</td>
+                <td class="text-sm italic text-slate-600">
+                  "we observe that some MSE managers ultimately decided against the adoption of formal stress prevention practices even though they held positive attitudes toward formal practices, external support, and work stress... [due to] the perception that their employees would be reluctant to engage."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.50, Sec. 4.2</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">개별 사례: 직원 수용의지 부재로 채택 자체가 무산</td>
+                <td class="text-sm italic text-slate-600">
+                  "[stress prevention] is just something you cannot do in such small companies... if it must happen on a voluntary basis in [the employees'] free time, then they are not willing to do it. That is, I think, one point, the most important point." (Quote 34)
+                </td>
+                <td class="text-right font-medium text-slate-500">p.49, Sec. 4.1.6</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">법적 의무 준수가 유일한 동기인 경우도 존재</td>
+                <td class="text-sm italic text-slate-600">
+                  "MSE managers did not necessarily indicate that they believed that conducting psychosocial risk assessments improved their working environment. Instead, they emphasized the anticipated costs of an incident or inspection..." (Quote 16)
+                </td>
+                <td class="text-right font-medium text-slate-500">p.47–48, Sec. 4.1.3</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">낮은 채택률의 구조적 배경(독일 실태)</td>
+                <td class="text-sm italic text-slate-600">
+                  "in Germany, only four to 7 % of MSEs perform such [psychosocial risk] assessments regularly (Beck &amp; Lenhardt, 2019)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.43, Sec. 2.1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model &amp; Variables</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 연구는 양적 가설검증(SEM/회귀)이 아닌 <strong>질적 귀납적 이론구축(Gioia methodology)</strong> 연구로, 변수는 리커트 척도 문항이 아니라 인터뷰 코딩으로 도출된 범주(아이디어 유형)로 조작화되어 있습니다. 아래 다이어그램은 Fig. 2(원문 이론모델)를 구조화한 것입니다.
+        </p>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 명제 모형, Fig. 2 재구성)</h3>
+
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 420" class="w-full h-auto">
+              <!-- IV1: Perceived Closeness -->
+              <rect x="20" y="40" width="230" height="80" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="135" y="65" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">지각된 친밀도</text>
+              <text x="135" y="84" text-anchor="middle" fill="#64748b" font-size="10">(Perceived Closeness with Employees)</text>
+              <text x="135" y="102" text-anchor="middle" fill="#64748b" font-size="10">가족적 관계 / 개별적 관계</text>
+
+              <!-- IV2: Perceived Expertise -->
+              <rect x="20" y="220" width="230" height="80" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+              <text x="135" y="245" text-anchor="middle" font-weight="700" fill="#1e3a8a" font-size="14">지각된 전문성</text>
+              <text x="135" y="264" text-anchor="middle" fill="#1d4ed8" font-size="10">(Perceived Expertise in Stress Prevention)</text>
+              <text x="135" y="282" text-anchor="middle" fill="#1d4ed8" font-size="10">개인적 경험 / 전문 지식</text>
+
+              <!-- Mediator: 3 Attitudes -->
+              <rect x="330" y="90" width="270" height="190" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="465" y="115" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">MSE 경영자의 태도 (매개변수, 3차원)</text>
+              <text x="465" y="150" text-anchor="middle" fill="#047857" font-size="12">① 공식 관행에 대한 태도</text>
+              <text x="465" y="178" text-anchor="middle" fill="#047857" font-size="12">② 외부 지원에 대한 태도</text>
+              <text x="465" y="206" text-anchor="middle" fill="#047857" font-size="12">③ 업무 스트레스에 대한 태도</text>
+              <text x="465" y="240" text-anchor="middle" fill="#059669" font-size="10">(Attitude toward Formal Practices /</text>
+              <text x="465" y="256" text-anchor="middle" fill="#059669" font-size="10">External Support / Work Stress)</text>
+
+              <!-- Moderator: Employee Buy-in -->
+              <rect x="370" y="10" width="230" height="60" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="485" y="33" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">지각된 직원 수용의지</text>
+              <text x="485" y="50" text-anchor="middle" fill="#b45309" font-size="9">(Perceived Employee Buy-in)</text>
+
+              <!-- DV -->
+              <rect x="660" y="145" width="210" height="90" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="765" y="178" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">공식적 스트레스 예방</text>
+              <text x="765" y="198" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">관행 채택 결정</text>
+              <text x="765" y="217" text-anchor="middle" fill="#4338ca" font-size="10">(Decision to Adopt)</text>
+
+              <!-- Arrows -->
+              <!-- IV1 -> Mediator -->
+              <path d="M250 80 L 290 80 L 290 160 L 325 160" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="280" y="110" fill="#64748b" font-weight="700" font-size="12">P1 (a-c)</text>
+
+              <!-- IV2 -> Mediator -->
+              <path d="M250 260 L 290 260 L 290 210 L 325 210" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="280" y="245" fill="#1d4ed8" font-weight="700" font-size="12">P2 (a-c)</text>
+
+              <!-- Mediator -> DV -->
+              <path d="M600 185 L 655 185" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="600" y="177" fill="#047857" font-weight="700" font-size="12">매개 경로</text>
+
+              <!-- Moderator -> Mediator-DV path -->
+              <path d="M485 70 L 485 130 L 627 130 L 627 183" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+              <text x="560" y="122" fill="#b45309" font-weight="700" font-size="12">P3 (a-c) 조절</text>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 text-center max-w-2xl">
+            질적 연구 특성상 척도 기반 직접효과(점선)는 보고되지 않으며, 3가지 태도는 두 원위 지각변수(친밀도·전문성)와 채택 결정 사이를 완전 매개하는 구조로 이론화되었습니다(Fig. 2, p.49).
+          </p>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수(원위 결정요인) 1</span>
+                <span class="text-xs text-slate-400 font-semibold">IV1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">지각된 직원과의 친밀도 (Perceived Closeness with Employees)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 경영자가 직원과 형성하고 있다고 지각하는 가족적·개인적 관계의 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의(질적):</strong> 2개 2차 주제 — (1) 가족적 관계, (2) 개별적 관계의 높낮이로 코딩.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 리커트 척도 없음. 24건 인터뷰를 MAXQDA로 코딩(Table 3, p.46).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 친밀도가 비공식적 대응 선호로 이어진다는 기존 통설(Harney &amp; Alkhalaf, 2020)을 확장해, 친밀도 유형에 따른 양가적 효과를 새롭게 제시함.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">독립변수(원위 결정요인) 2</span>
+                <span class="text-xs text-slate-400 font-semibold">IV2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">스트레스 예방에 대한 지각된 전문성 (Perceived Expertise)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 업무 스트레스 및 예방 관행 분야에서 경영자가 보유했다고 지각하는 경험·지식 수준.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의(질적):</strong> 2개 2차 주제 — (1) 개인적 경험(정신질환 경험 등), (2) 전문 지식(심리학/인사관리 배경 등).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 리커트 척도 없음. 예: Quote 10 (p.46) "I am [an expert]... it was not very eye-opening."</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 전문성이 형식적 절차에 대한 냉소로 이어지는 역설적 사례도 존재하나, 전반적으로는 채택을 촉진하는 매개 경로로 이론화됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator Card 1 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공식 관행에 대한 태도 (Attitude toward Formal Practices)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 공식적 스트레스 예방 관행이 스트레스 예방·직원 채용/유지·법적 의무 이행에 효과적/실행가능하다고 평가하는 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 3개 하위 측면(예방 효과·채용유지 기여·법적 의무 이행)에 대한 긍정/부정 발화로 코딩.</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> Table 3(p.46), Sec. 4.1.3 인용 11–16.</p>
+            </div>
+          </div>
+
+          <!-- Mediator Card 2+3 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수 2·3</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">외부 지원 / 업무 스트레스에 대한 태도</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 외부 제공자를 중립적·지지적으로 볼지에 대한 평가(외부지원), 그리고 스트레스 주제에 대한 편안함·책임감·관리가능성·건강위험 인식(업무스트레스).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 외부지원 2개 하위 측면(중립성 가치·지원 수용도), 업무스트레스 4개 하위 측면.</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> Table 3(p.46), Sec. 4.1.4–4.1.5 인용 17–28.</p>
+            </div>
+          </div>
+
+          <!-- Moderator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">지각된 직원 수용의지 (Perceived Employee Buy-in)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 직원이 스트레스 주제에 관여하고 예방 프로그램에 자발적으로 참여할 의향이 있다고 경영자가 지각하는 정도.</p>
+              <p class="text-sm text-slate-700"><strong>역할:</strong> 3가지 태도와 채택 결정 사이 관계를 조절하는 경계조건(Proposition 3). 긍정적 태도라도 buy-in이 낮으면 채택이 약화됨.</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> Table 3(p.46), Sec. 4.1.6, Sec. 4.2 각주 1(p.50).</p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Dependent Variable (DV)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공식적 스트레스 예방 관행 채택 결정 (Decision to Adopt Formal Stress Prevention Practices)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 심리사회적 위험평가(1차 예방) 또는 스트레스 관리 교육·코칭(2차 예방) 등 공식적·계획적·근거기반 조치를 도입하기로 결정하는 행위.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 표본을 채택자(n=11, 최소 1개 이상 공식 관행 도입)와 비채택자(n=13)로 이분화하여 인터뷰 대상 선정.</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> European Commission(2003) MSE 정의, Sec. 3.1(p.42–43), Table 1·2.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          외부 연구자가 질적 연구 절차(표집→코딩→이론화)를 따라 재현할 수 있도록 실증 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 설계 및 표본 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  탐색적 연구 질문에 맞추어 질적 반구조화 인터뷰 설계. European Commission(2003) 기준으로 영세기업(1–9인, n=10)/소기업(10–49인, n=14)을 구분하고, 채택자(n=11)/비채택자(n=13)를 목적표집으로 균형 확보. 크래프트·서비스 업종, 독일, B2B 중심 기업 한정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec. 3.1, p.42–43</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">표본 모집 경로 확보</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  채택자는 건강보험사·산재보험기관 등 산업안전 이해관계자의 소개(referral)를 통해, 비채택자는 스노우볼링 및 연구팀 네트워크를 통해 모집.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec. 3.1, p.43</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">인터뷰 가이드 개발 및 파일럿</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  2회의 파일럿 인터뷰를 거쳐 모호한 용어를 명확히 하고 소요시간을 약 1시간으로 단축.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec. 3.1, p.43</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">데이터 수집 실행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  2019년 5~9월, 대면(11건)/전화(13건) 인터뷰 24건(45~90분) 실시 후 녹음·전사. 서면동의 및 인구통계 설문, 윤리위원회 승인. 주제 포화 시점에 모집 중단.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec. 3.1, p.43–44</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">1차 개념 코딩 (First-order concepts)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  제1저자가 MAXQDA(VERBI, 2020)를 사용해 연구질문 관련 구절을 코딩하여 1차 개념 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec. 3.2, p.44</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">2차 주제 구조화 및 총괄 차원 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  3인의 공동저자가 1차 개념을 15개 2차 주제로 구조화한 뒤, 이를 6개 태도·인식 차원으로 통합.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec. 3.2, p.44</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">독립 코더 신뢰성 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  독립 코더가 전체의 33%(8건, 미시/소기업·채택/비채택 균형 표집)를 재코딩하는 사후 검증(post hoc analysis) 수행, 기존 데이터 구조를 대체로 지지함을 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec. 3.2, p.44</span>
+              </div>
+              <hr class="bg-slate-900"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-900"/>
+              <div class="timeline-middle">
+                <span class="bg-rose-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">이론 모델 및 명제 개발</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  전체 공동저자가 협업하여 태도·인식 간 관계 및 채택 결정에 미치는 영향 경로를 이론화하고, 관련 문헌(attitude-behavior 이론 등)을 결합해 명제 1–3을 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec. 3.2 (p.44); Sec. 4.2 (p.49–51)</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            표집 기준·인터뷰 가이드·3단계 코딩 절차(Gioia 방법론) 및 33% 독립 코더 검증은 투명하게 공개되어 방법론적 재현은 가능하나, 원본 전사자료와 독일어 원문 인용은 "데이터는 비공개(confidential)"로 명시되어 있고 건강보험사 네트워크를 통한 채택자 표본 접근도 외부 연구자가 동일하게 복제하기 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted, Sec. 5.3, p.52)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.3)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>일반화 가능성의 제약:</strong> "Even though we proactively sampled adopters and non-adopters, we were unable to sample certain types of employers among MSE managers, such as those who are particularly negligent toward their employees." — 직원에게 무관심한 유형의 경영자는 표본에서 배제됨.
+              </li>
+              <li>
+                <strong>표본 편향 가능성:</strong> "we also acknowledge a potential bias toward MSE managers who are generally open to discussing the topic of work stress in our interviews."
+              </li>
+              <li>
+                <strong>경영자 이질성 미반영:</strong> 이론 모델에서 경영자 성별, 가족 구성원 고용 여부 등 이질성을 고려하지 않았으며, 표본 24명 중 22명이 소유주-경영자(owner-manager)로 편중됨.
+              </li>
+              <li>
+                <strong>팬데믹 이전 데이터 수집:</strong> "we collected our data before the COVID-19 pandemic, which increased employee work stress as well as overall awareness of its detrimental consequences." — 모델이 팬데믹 영향을 반영한다는 가정은 검증되지 않음.
+              </li>
+              <li>
+                <strong>인과관계 추론 불가:</strong> "our findings do not allow for any inferences regarding causality, which is why future research with alternative methodologies (e.g., longitudinal or experimental data) is necessary."
+              </li>
+              <li>
+                <strong>경영자 관점에 국한:</strong> "our findings are limited to the attitudes and perceptions of MSE managers... we encourage future research to consider additional stakeholders" (직원, 투자자, 가족 등 미포함).
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">질적 연구 설계 및 인터뷰 방식을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 사후 합리화(Post-hoc Rationalization)</span>
+                <p class="text-sm text-slate-700">
+                  인터뷰는 이미 채택/비채택 결정을 내린 시점 이후에 그 이유를 회고적으로 설명하도록 요청하는 구조다. 실제 결정 당시의 태도가 아니라, 결정 이후 자신의 행동을 정당화하기 위해 재구성된 서사를 포착했을 가능성이 있으며, 특히 비채택자가 "직원 buy-in이 낮아서"라는 책임 전가적 설명을 사후적으로 구성했을 위험이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 사회적 바람직성 편향</span>
+                <p class="text-sm text-slate-700">
+                  "직원을 신경 쓰지 않는다"는 인상을 주기 꺼리는 경영자들이 실제로는 방임적 태도를 가졌음에도 긍정적으로 답했을 가능성이 있다. 저자들이 인정하듯 "negligent" 유형이 표본에서 원천 배제된 것 자체가 이 편향의 방증일 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 단일 국가·법제도 특수성</span>
+                <p class="text-sm text-slate-700">
+                  독일은 EU 규정상 심리사회적 위험평가가 법적으로 의무화된 국가다(p.43). 법적 강제성이 없는 국가에서는 "법적 의무 이행"이라는 태도 하위 차원 자체가 다르게 작동할 수 있어, 모델의 국가 간 일반화에 의문이 남는다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 코딩 신뢰성의 구조적 한계</span>
+                <p class="text-sm text-slate-700">
+                  1차 개념 코딩은 제1저자 단독 수행이었고, 독립 코더 검증은 표본의 33%(8건)에만 적용되었다. 이론 모델 구축 단계는 외부 검증 없이 공동저자 내부적으로만 이루어져, 확증 편향이 이론화 과정에 개입했을 가능성을 배제하기 어렵다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 조절변수의 동어반복 위험</span>
+                <p class="text-sm text-slate-700">
+                  직원의 실제 수용 의지가 아니라 "경영자가 지각한" 수용의지만을 측정했다. 저자들도 각주(p.50)에서 이 지각이 경영자 자신의 태도를 투영한 것일 수 있다는 대안 설명을 완전히 배제하지 못한다고 인정하는데, 이는 P3(조절효과)가 실제로는 독립적 조절변수가 아니라 태도 변수의 재측정일 가능성을 시사한다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 업종·시장 특수성</span>
+                <p class="text-sm text-slate-700">
+                  표본이 크래프트·서비스업 B2B 기업에 집중되어 제조업·소매업 또는 B2C 비중이 높은 MSE로 결과가 일반화될지 불확실하다. 낮은 채택률을 근거로 업종을 의도적으로 선정한 것은 동시에 표본 대표성을 제약하는 요인이기도 하다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Too small to care? Developing a model explaining managers' decision to adopt employee stress prevention practices in micro and small enterprises</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

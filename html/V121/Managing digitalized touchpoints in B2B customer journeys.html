@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Managing Digitalized Touchpoints in B2B Customer Journeys - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Touchpoint Management</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Case Study</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Managing digitalized touchpoints<br>
+            <span class="text-cyan-400">in B2B customer journeys</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Lisa Lundin, Daniel Kindström — Linköping University, Sweden
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            B2B 고객 여정에서<br>
+            <span class="text-indigo-300">디지털화된 터치포인트 관리</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            스웨덴 글로벌 제조기업 'DigiCo'와 4개 고객사에 대한 심층 사례연구(인터뷰 27건) 기반 공급자 역량 분석
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">디지털화된 B2B 터치포인트를 관리하려면 자원·행동·환경 3차원에 걸친 7가지 역량과, 터치포인트를 시퀀스로 통제하는 능력이 필요합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Business-to-business (B2B) suppliers need to develop specific capabilities to successfully manage digitalized touchpoints in B2B customer journeys. As digitalization leads to shifts in touchpoints, new demands arise regarding a supplier's ability to manage these touchpoints. Developing capabilities for managing digitalized touchpoints is becoming a key aspect for suppliers in designing and managing attractive B2B customer journeys. Although extant research has highlighted the importance of managing touchpoints in the form of capabilities, this area has received surprisingly little research attention. Similarly, the B2B context in customer journeys remains under-researched. The present study investigates supplier capabilities for the management of digitalized touchpoints in B2B customer journeys. Through an exploratory in-depth case study, this research identifies seven key supplier capabilities for the management of digitalized touchpoints in B2B customer journeys: preparing customer resources, integrating customer resources, enabling collective actions, supporting customer actions, balancing activation levels, hybridizing environments, and merging digital environments. These capabilities are structured around a theoretically derived conceptualization of touchpoints as consisting of resources, actions, and environments. From a capability perspective, this study also demonstrates the key role of touchpoint control, as well as approaching touchpoints as sequences to ensure consistency across, and seamlessness between transitions of, touchpoints."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              B2B 공급자는 B2B 고객 여정에서 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">디지털화된 터치포인트</span>를 성공적으로 관리하기 위해 특정 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">역량(capabilities)</span>을 개발해야 한다. 디지털화가 터치포인트의 변화를 가져오면서 공급자의 터치포인트 관리 능력에 새로운 요구가 발생한다. 이 역량 개발은 매력적인 B2B 고객 여정을 설계·관리하는 데 핵심 요소가 되고 있다. 기존 연구가 역량 형태의 터치포인트 관리 중요성을 강조했음에도 이 영역은 놀랍도록 연구가 부족했다. 본 연구는 탐색적 심층 사례연구를 통해 B2B 고객 여정에서 디지털화된 터치포인트 관리를 위한 7가지 핵심 공급자 역량을 규명한다: 고객 자원 준비, 디지털 자원 통합, 집단적 행동 지원, 고객 행동 지원, 활성화 수준 균형, 환경 하이브리드화, 디지털 환경 병합. 이 역량들은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">자원·행동·환경</span>으로 구성된 터치포인트 개념화를 중심으로 구조화된다. 역량 관점에서 본 연구는 또한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">터치포인트 통제</span>의 핵심 역할과, 일관성 및 매끄러운 전환 확보를 위해 터치포인트를 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">시퀀스</span>로 접근하는 것의 중요성을 보여준다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Touchpoint</td>
+                  <td>터치포인트(접점)</td>
+                  <td class="text-sm">고객-공급자 간 상호작용 지점. 국내 문헌의 '접점'과 병기하되 원어를 기본 용어로 사용.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Capability</td>
+                  <td>역량</td>
+                  <td class="text-sm">Helfat &amp; Winter(2011)의 "신뢰할 수 있고 최소한 만족스러운 방식으로 특정 활동을 수행하는 능력" 정의를 따름.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Touchpoint sequencing</td>
+                  <td>터치포인트 시퀀싱</td>
+                  <td class="text-sm">터치포인트를 개별 단위가 아닌 연속된 흐름으로 관리한다는 의미를 살리기 위해 원어를 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Touchpoint control</td>
+                  <td>터치포인트 통제</td>
+                  <td class="text-sm">공급자가 터치포인트에서 고객 행동/경험에 영향을 미칠 수 있는 정도.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Abductive reasoning / Systematic combining</td>
+                  <td>귀추적 추론 / 체계적 결합</td>
+                  <td class="text-sm">이론과 경험적 관찰을 반복 왕래하며 새로운 이론적 통찰을 생성하는 사례연구 방법론(Dubois &amp; Gadde, 2002).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">디지털화된 B2B 터치포인트 관리에 필요한 공급자 역량은?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">자원·행동·환경 3차원, 7가지 핵심 역량 도출</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">터치포인트 시퀀싱과 통제라는 관통 원리 제시</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 디지털화가 진행되는 B2B 고객 여정에서 공급자는 디지털화된 터치포인트를 관리하기 위해 어떤 역량을 개발해야 하는가?</li>
+                  <li><strong>핵심 발견:</strong> DigiCo와 4개 고객사 대상 27건의 심층 인터뷰를 통해, 터치포인트의 3차원(자원·행동·환경)을 중심으로 구조화된 7가지 공급자 역량(고객 자원 준비, 디지털 자원 통합, 집단적 행동 지원, 고객 행동 지원, 활성화 수준 균형, 환경 하이브리드화, 디지털 환경 병합)을 도출했습니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 터치포인트를 개별 단위가 아닌 <strong>시퀀스</strong>로 접근해야 한다는 관점과, 공급자가 데이터를 통해 중요한 터치포인트를 판별하여 자원을 집중하는 <strong>터치포인트 통제</strong> 개념을 제시하여 고객 여정 관리 문헌을 확장했습니다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "B2B 공급자가 디지털화된 터치포인트를 잘 관리하려면 자원·행동·환경 3차원에 걸친 7가지 역량을 갖추고, 터치포인트를 개별 점이 아닌 시퀀스로 통제해야 합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          각 핵심 주장을 뒷받침하는 원문 인용과 페이지·절 위치를 표로 정리했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">터치포인트의 자원·행동·환경 3차원 개념화</td>
+                <td class="text-sm italic text-slate-600">"we propose a conceptualization of touchpoints in B2B customer journeys consisting of three key dimensions, resources, actions, and an environment."</td>
+                <td class="text-right font-medium text-slate-500">p.89, Sec. 2</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">고객 자원 준비 → 참여 촉진</td>
+                <td class="text-sm italic text-slate-600">"a supplier needs to be able to prepare customers, increasing their digital readiness and enabling them to engage at digitalized touchpoints."</td>
+                <td class="text-right font-medium text-slate-500">p.92, Sec. 4.1.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">디지털 자원 통합 → 신규 가치 창출</td>
+                <td class="text-sm italic text-slate-600">"it is the integration of digital resources that can lead to new insights. Integrating data facilitates more accurate and updated information..."</td>
+                <td class="text-right font-medium text-slate-500">p.93, Sec. 4.1.2</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">집단적 행동 지원 → 일관성·매끄러운 전환</td>
+                <td class="text-sm italic text-slate-600">"If a supplier has the capability to enable collective customer actions, they can enable increased consistency across, and seamless transitions between, touchpoints"</td>
+                <td class="text-right font-medium text-slate-500">p.93, Sec. 4.2.1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">고객 행동 지원 → 경쟁 우위</td>
+                <td class="text-sm italic text-slate-600">"suppliers that are able to support a customer's actions by providing proactive updates and generating data-driven insights will have a competitive edge"</td>
+                <td class="text-right font-medium text-slate-500">p.93–94, Sec. 4.2.2</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">활성화 수준 균형 → 자원 재배분</td>
+                <td class="text-sm italic text-slate-600">"through balancing activation levels, customer engagement at digitalized touchpoints can be optimized, enabling the supplier to focus attention on the touchpoints that demand more direct interaction."</td>
+                <td class="text-right font-medium text-slate-500">p.94, Sec. 4.2.3</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">환경 하이브리드화 → 효율적 전환</td>
+                <td class="text-sm italic text-slate-600">"By acknowledging the interplay between different types of environments, the total number of touchpoints needed can also be reduced..."</td>
+                <td class="text-right font-medium text-slate-500">p.94, Sec. 4.3.1</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">디지털 환경 병합 → 행위자 무관 일관성</td>
+                <td class="text-sm italic text-slate-600">"By merging environments, suppliers can facilitate consistency across touchpoints independent of the actor who controls the touchpoint."</td>
+                <td class="text-right font-medium text-slate-500">p.94, Sec. 4.3.2</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td class="font-semibold text-slate-900">터치포인트 시퀀싱 → 통합적 고객 경험</td>
+                <td class="text-sm italic text-slate-600">"By addressing touchpoints in sequences...our identified capabilities allow suppliers to enable consistency across digitalized touchpoints such that a customer can receive a more unified experience"</td>
+                <td class="text-right font-medium text-slate-500">p.95, Sec. 5.1</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td class="font-semibold text-slate-900">디지털 자원 접근 확대 → 터치포인트 통제</td>
+                <td class="text-sm italic text-slate-600">"the increased access to digital resources through digitalized touchpoints, allows a supplier to obtain an understanding of which touchpoints are critical and which ones it can influence."</td>
+                <td class="text-right font-medium text-slate-500">p.95–96, Sec. 5.1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Constructs -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 개념 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Conceptual Framework</span>
+        </div>
+
+        <div class="alert bg-slate-50 border border-slate-200 text-slate-700 text-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-info shrink-0 w-6 h-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span>본 연구는 <strong>탐색적 질적 사례연구</strong>로, 통계적 가설검증(H1, H2 등)이 아닌 <strong>귀추적(abductive) 코딩</strong>을 통해 개념적 프레임워크를 도출했습니다. 따라서 아래 다이어그램은 인과관계가 통계적으로 검증된 가설 모형이 아니라, 저자들이 데이터 구조화(Fig. 2, Fig. 3)를 통해 제시한 <strong>개념적 구조</strong>입니다.</span>
+        </div>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual Framework (터치포인트 관리 역량 구조)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 420" class="w-full h-auto">
+              <!-- Dimension 1: Resources -->
+              <rect x="20" y="20" width="260" height="140" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+              <text x="150" y="45" text-anchor="middle" font-weight="700" fill="#334155" font-size="15">자원 관리</text>
+              <text x="150" y="62" text-anchor="middle" fill="#64748b" font-size="10">Managing touchpoint resources</text>
+              <text x="150" y="88" text-anchor="middle" fill="#334155" font-size="12">① 고객 자원 준비</text>
+              <text x="150" y="108" text-anchor="middle" fill="#334155" font-size="12">② 디지털 자원 통합</text>
+              <text x="150" y="135" text-anchor="middle" fill="#94a3b8" font-size="10">Payne et al.(2008) 자원교환 관점</text>
+
+              <!-- Dimension 2: Actions -->
+              <rect x="320" y="20" width="260" height="140" rx="10" fill="#ecfeff" stroke="#0891b2" stroke-width="2"/>
+              <text x="450" y="45" text-anchor="middle" font-weight="700" fill="#155e75" font-size="15">행동 관리</text>
+              <text x="450" y="62" text-anchor="middle" fill="#0e7490" font-size="10">Managing touchpoint actions</text>
+              <text x="450" y="84" text-anchor="middle" fill="#155e75" font-size="12">③ 집단적 행동 지원</text>
+              <text x="450" y="102" text-anchor="middle" fill="#155e75" font-size="12">④ 고객 행동 지원</text>
+              <text x="450" y="120" text-anchor="middle" fill="#155e75" font-size="12">⑤ 활성화 수준 균형</text>
+              <text x="450" y="145" text-anchor="middle" fill="#67e8f9" font-size="10">Homburg et al.(2017) 행동/참여 논의</text>
+
+              <!-- Dimension 3: Environments -->
+              <rect x="620" y="20" width="260" height="140" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="750" y="45" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">환경 관리</text>
+              <text x="750" y="62" text-anchor="middle" fill="#4338ca" font-size="10">Managing touchpoint environments</text>
+              <text x="750" y="88" text-anchor="middle" fill="#3730a3" font-size="12">⑥ 환경 하이브리드화</text>
+              <text x="750" y="108" text-anchor="middle" fill="#3730a3" font-size="12">⑦ 디지털 환경 병합</text>
+              <text x="750" y="135" text-anchor="middle" fill="#a5b4fc" font-size="10">De Keyser et al.(2020) TCQ 프레임워크</text>
+
+              <!-- Integration node: 7 capabilities -->
+              <rect x="350" y="205" width="200" height="50" rx="8" fill="#ffffff" stroke="#334155" stroke-width="2"/>
+              <text x="450" y="227" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="13">7개 공급자 역량</text>
+              <text x="450" y="244" text-anchor="middle" fill="#64748b" font-size="10">(Table 2 / Fig. 3)</text>
+
+              <!-- Arrows: dimensions -> integration node -->
+              <path d="M150 160 L 150 190 L 350 225" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M450 160 L 450 205" fill="none" stroke="#0891b2" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M750 160 L 750 190 L 550 225" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="450" y="192" text-anchor="middle" fill="#475569" font-size="10">구조화 (Gioia 코딩)</text>
+
+              <!-- Outcome boxes -->
+              <rect x="90" y="310" width="300" height="90" rx="10" fill="#fff1f2" stroke="#e11d48" stroke-width="2"/>
+              <text x="240" y="335" text-anchor="middle" font-weight="700" fill="#9f1239" font-size="14">터치포인트 시퀀싱</text>
+              <text x="240" y="352" text-anchor="middle" fill="#be123c" font-size="10">Touchpoint sequencing</text>
+              <text x="240" y="372" text-anchor="middle" fill="#9f1239" font-size="10">개별 단위가 아닌 연쇄로 접근하여</text>
+              <text x="240" y="386" text-anchor="middle" fill="#9f1239" font-size="10">일관성·매끄러운 전환 확보</text>
+
+              <rect x="510" y="310" width="300" height="90" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="660" y="335" text-anchor="middle" font-weight="700" fill="#92400e" font-size="14">터치포인트 통제</text>
+              <text x="660" y="352" text-anchor="middle" fill="#b45309" font-size="10">Touchpoint control</text>
+              <text x="660" y="372" text-anchor="middle" fill="#92400e" font-size="10">데이터 접근 확대로 중요 터치포인트를</text>
+              <text x="660" y="386" text-anchor="middle" fill="#92400e" font-size="10">판별하고 자원을 선택적으로 집중</text>
+
+              <!-- Arrows: integration node -> outcomes -->
+              <path d="M420 255 L 280 310" fill="none" stroke="#e11d48" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+              <path d="M480 255 L 620 310" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+              <text x="330" y="290" fill="#e11d48" font-size="10">촉진 (emergent)</text>
+              <text x="560" y="290" fill="#d97706" font-size="10">촉진 (emergent)</text>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 max-w-3xl text-center">
+            실선 화살표: 코딩을 통한 구조화(자원·행동·환경 3차원 → 7개 역량) / 점선 화살표: 역량들로부터 창발(emergent)하는 두 가지 관통 특성(시퀀싱·통제)
+          </p>
+        </div>
+
+        <!-- Construct Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Resources dimension card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">차원 1 · 자원</span>
+                <span class="text-xs text-slate-400 font-semibold">Resources</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">고객 자원 준비 / 디지털 자원 통합</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 터치포인트에서 고객이 통합·평가하는 지식, 데이터, 스킬, 인프라, 시간 등의 자원을 공급자가 준비시키고 통합하는 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의(코딩 근거):</strong> 고객 디지털 성숙도 평가·훈련 제공(준비), 다중 시스템의 사용 데이터 통합(통합).</p>
+              <p class="text-sm text-slate-600"><strong>근거 자료:</strong> Appendix A Quote #1–#6 / Table 2 (p.93, 97)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Payne, Storbacka &amp; Frow(2008)의 가치 공동창출 자원 교환 관점; Harmeling et al.(2017) 고객 인게이지먼트 마케팅 이론.
+              </p>
+            </div>
+          </div>
+
+          <!-- Actions dimension card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">차원 2 · 행동</span>
+                <span class="text-xs text-slate-400 font-semibold">Actions</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">집단적 행동 지원 / 고객 행동 지원 / 활성화 수준 균형</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 고객이 목표 달성을 위해 터치포인트에서 수행하는 행동을 조율·지원·균형화하는 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의(코딩 근거):</strong> 다중 역할 간 공유 정보 제공(집단행동), 시의적절한 맞춤 지원(고객행동), 특정 터치포인트에 독립적 접근 허용(균형).</p>
+              <p class="text-sm text-slate-600"><strong>근거 자료:</strong> Appendix A Quote #7–#18 / Table 2 (p.93–94, 97)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Homburg, Jozić &amp; Kuehnl(2017), Lemon &amp; Verhoef(2016)의 고객 행동/참여 수준 논의.
+              </p>
+            </div>
+          </div>
+
+          <!-- Environments dimension card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-secondary style-label text-white">차원 3 · 환경</span>
+                <span class="text-xs text-slate-400 font-semibold">Environments</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">환경 하이브리드화 / 디지털 환경 병합</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 상호작용이 발생하는 디지털·물리적 '공간'의 경계와 상호작용 방식을 관리하는 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의(코딩 근거):</strong> 고객 선호에 맞춘 디지털·물리 환경 조합 제공(하이브리드화), 여러 행위자가 통제하는 환경을 하나로 통합(병합).</p>
+              <p class="text-sm text-slate-600"><strong>근거 자료:</strong> Appendix A Quote #19–#26 / Table 2 (p.94, 97)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> De Keyser et al.(2020) TCQ 프레임워크; Bolton et al.(2018) 디지털·물리·사회적 영역 통합 논의.
+              </p>
+            </div>
+          </div>
+
+          <!-- Emergent characteristics card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">창발적 특성</span>
+                <span class="text-xs text-slate-400 font-semibold">Emergent</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">터치포인트 시퀀싱 / 터치포인트 통제</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 7개 역량을 관통하는 두 가지 상위 원리 — 터치포인트를 연쇄로 접근하는 시퀀싱, 그리고 중요 터치포인트에 자원을 선택적으로 집중하는 통제.</p>
+              <p class="text-sm text-slate-700"><strong>도출 근거:</strong> 개별 역량 분석 이후 저자들이 귀추적으로 도출한 2차 통합 개념(Sec. 5.1).</p>
+              <p class="text-sm text-slate-600"><strong>근거 자료:</strong> p.95–96, Sec. 5.1</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Kranzbühler et al.(2018), Jaakkola &amp; Terho(2021) 시퀀스/저니 품질 논의; Witell et al.(2020), Yakhlef &amp; Nordin(2021) 터치포인트 통제 논의.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않은 연구자도 사례연구 설계와 분석 절차를 따라갈 수 있도록 8단계 타임라인으로 정리했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">이론적 표집 기준 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  (a) 명확한 B2B 운영 맥락, (b) 디지털화 경험, (c) 장기적 고객관계, (d) 다양한 터치포인트를 수반하는 제품·서비스 포트폴리오, (e) 핵심 정보제공자 접근성 등 5가지 기준으로 사례 선정 절차 설계.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.90–91, Sec. 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">초점 기업 및 임베디드 사례 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  스웨덴 소재 글로벌 제조기업 'DigiCo'(매출 40억 유로 이상, 직원 15,000명 이상, 100개국 이상 진출)를 초점 사례로, 4개 고객 조직을 임베디드 사례로 포함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.91, Sec. 3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">1차 자료: 심층 인터뷰</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  경영진 소개 + 스노우볼 샘플링으로 DigiCo 내 다양한 직능(마케팅·영업·생산·R&amp;D·서비스) 23명, 고객사 4곳 고위관리자 각 1명 등 총 27건의 반구조화 인터뷰(60–120분, MS Teams 녹화, 현장노트 병행) 실시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.90–91, Sec. 3.2, Table 1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">2차 자료 수집 및 삼각검증 준비</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  소셜미디어, 회사 웹사이트, 팟캐스트, 디지털 뉴스레터, 연차보고서, 내부 기술문서·발표자료 등 2차 자료를 확보하여 다각적 데이터 삼각검증 기반 마련.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.91, Sec. 3.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">귀추적 분석(체계적 결합) 적용</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  이론적 틀(터치포인트 3차원 개념화)과 경험적 관찰을 반복 왕래하는 Dubois &amp; Gadde(2002)의 '체계적 결합(systematic combining)' 절차 수행.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.91, Sec. 3.3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">Gioia 방법론 단계적 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  1차 코드(경험자료 직접 도출) → 2차 테마(7개 공급자 역량) → 총괄 차원(자원/행동/환경) 순으로 코딩. 카테고리 내 일관성·카테고리 간 배타성 점검(Fig. 2).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.91, Sec. 3.3, Fig. 2</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">신뢰성·타당성 제고 절차</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  연구팀 내 개념 논의 및 연구자 간 신뢰도(interrater reliability) 점검, 응답자 대상 멤버체크, DigiCo와의 다수 검증 워크숍 실시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.91, Sec. 3.3</span>
+              </div>
+              <hr class="bg-slate-700"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-700"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">결과 구조화 및 보고</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  터치포인트 3차원 × 7개 역량을 Table 2(설명·잠재적 결과)와 Appendix A(인터뷰 인용문)로 정리하고 Fig. 3으로 전체 프레임워크 요약.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.92–95, Sec. 4, Table 2, Fig. 3, Appendix A</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            사례 선정 기준, 인터뷰 프로토콜, Gioia 코딩 절차는 상세히 기술되어 유사 사례연구 설계는 가능하나, 원자료(인터뷰 녹취록)는 "confidential"로 명시되어 동일 데이터로 직접 재현할 수 없으며 코딩 세부 규칙도 요약 수준으로만 제시됨.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 Section 5.3에서 저자들이 직접 밝힌 연구의 한계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>단일 사례연구 기반의 일반화 제약:</strong> "Our study is built on an in-depth case study of a B2B firm and four of its customers. While a case study can provide in-depth insights it also calls for more empirical studies in multiple contexts..." (p.96, Sec. 5.3)
+              </li>
+              <li>
+                <strong>고객 측 응답자 수 제한:</strong> "The number of respondents on the customer side of the dyad also represents a potential limitation since the customers' perspective on touchpoints can add nuances..." (p.96, Sec. 5.3)
+              </li>
+              <li>
+                <strong>고객 측 역량(디지털 성숙도) 미탐구:</strong> "it is equally important to understand what is needed on the customer side—that is, which customer capabilities are required..." (p.96, Sec. 5.3)
+              </li>
+              <li>
+                <strong>산업재 제조업이라는 맥락 특수성:</strong> "there might be idiosyncrasies that can be further understood by investigating a range of empirical contexts, such as professional services." (p.96, Sec. 5.3)
+              </li>
+              <li>
+                <strong>장기적 관계 중심, 거래적 관계 미반영:</strong> "more transactionally oriented relationships and markets offer additional opportunities to obtain novel insights, as opposed to our emphasis on longer-term relationships." (p.96, Sec. 5.3)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">사례연구 설계와 자료 구성을 근거로 제기할 수 있는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 공급자 편향</span>
+                <p class="text-sm text-slate-700">
+                  27건의 인터뷰 중 23건(85%)이 DigiCo(공급자) 내부 인원이며 고객 측은 4명뿐이다. 도출된 7개 역량과 '잠재적 결과' 프레이밍 자체가 공급자의 자기 서술에 크게 의존했을 가능성이 있어 확증 편향으로 이어질 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 성공 사례(showcase) 선택 편향</span>
+                <p class="text-sm text-slate-700">
+                  DigiCo는 "시장 선도적(market-leading)" 대기업으로 의도적으로 선정되었다(purposeful sampling). 디지털화에 실패했거나 역량이 부족한 평범한 B2B 공급자에게도 이 7개 역량이 그대로 적용될지는 검증되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 회고적 인터뷰의 사후 합리화</span>
+                <p class="text-sm text-slate-700">
+                  이미 구축된 디지털 플랫폼과 성공 경험을 회고하는 인터뷰 특성상, "역량이 있어서 성공했다"는 서사가 사후적으로 재구성되었을 위험이 있다. 즉 역량→성과가 아니라 성과→역량 명명(labeling)일 가능성.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 데이터 기밀성으로 인한 외부 검증 불가</span>
+                <p class="text-sm text-slate-700">
+                  "Data availability: The data that has been used is confidential"(p.97)로 명시되어, 코딩 타당성이나 1차 코드-2차 테마 매핑의 적절성을 외부 연구자가 독립적으로 재검토할 수 없다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 연구자-기업 간 밀접한 협력관계</span>
+                <p class="text-sm text-slate-700">
+                  "multiple validation workshops with DigiCo"는 연구자와 연구대상 기업 간 밀접한 협력을 시사하며, 신뢰성 제고에 기여하는 동시에 기업의 자기 이미지(디지털 혁신 선도자)를 강화하는 방향으로 결과가 해석되었을 가능성도 배제할 수 없다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 문화적·제도적 맥락 특수성</span>
+                <p class="text-sm text-slate-700">
+                  스웨덴 단일 국가의 대기업이라는 맥락은 노동시장, 장기 지향적 고객관계, 디지털 인프라 성숙도 등에서 다른 지역(신흥시장, 중소기업 생태계)과 상이할 수 있어 7개 역량의 우선순위가 다르게 나타날 수 있다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Managing digitalized touchpoints in B2B customer journeys (Lundin &amp; Kindström, 2024)</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

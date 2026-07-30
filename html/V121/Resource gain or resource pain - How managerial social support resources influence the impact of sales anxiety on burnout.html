@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resource Gain or Resource Pain? - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Salesperson Well-being</div>
+        <div class="badge badge-secondary text-white style-label">Vol. 121, pp. 74–87</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Resource gain or resource pain?<br>
+            <span class="text-cyan-400">How managerial social support resources influence the impact of sales anxiety on burnout</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Dayle R.N. Childs, Nick Lee, John W. Cadogan, Belinda Dewsnap
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            자원의 이득인가, 자원의 고통인가?<br>
+            <span class="text-indigo-300">관리자의 사회적 지원 자원이 영업 불안의 번아웃 영향에 미치는 작용</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            156명의 B2B 영업사원 종단(2-wave) 설문을 통한 영업 불안-번아웃 관계 및 긍정적 피드백·자율성 지지 풍토의 조절효과 분석
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">영업 불안은 번아웃을 유발하지만, 긍정적 피드백은 이를 완화하는 반면 무분별한 자율성 부여는 오히려 이를 악화시킵니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "There is growing recognition that many salespeople frequently experience anxiety, which may impact sales-person mental health and well-being. Unfortunately, there is little empirical evidence on how to manage this situation. Using a longitudinal sample of 156 business-to-business salespeople, the present study examines the impact of sales anxiety on the key mental health outcome of burnout, alongside providing recommendations to sales managers on how to manage this impact. The results suggest that sales anxiety is positively related to each individual component of burnout, and that positive supervisor feedback plays a mitigating role in each of these relationships. By contrast, however, a social climate of autonomy can strengthen the impact of sales anxiety on emotional exhaustion and depersonalization. The present study contributes to the developing literature on salesperson mental health, further advancing emerging evidence that autonomy can result in detrimental outcomes. Implications, limitations, and future research avenues are discussed."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              많은 영업사원들이 업무 중 빈번하게 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">불안(anxiety)</span>을 경험하며, 이것이 영업사원의 정신 건강과 웰빙에 영향을 미칠 수 있다는 인식이 커지고 있다. 그러나 이 문제를 어떻게 관리해야 하는지에 대한 실증 근거는 부족하다. 본 연구는 156명의 B2B 영업사원을 대상으로 한 종단(longitudinal) 표본을 활용해, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">영업 불안(sales anxiety)</span>이 정신 건강의 핵심 결과 지표인 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">번아웃(burnout)</span>에 미치는 영향을 검증하고, 영업관리자가 이 영향을 관리할 수 있는 방안을 제시한다. 분석 결과 영업 불안은 번아웃의 각 하위 구성요소와 정(+)의 관계를 보였으며, 상사(영업관리자)의 긍정적 피드백은 이 관계들을 각각 완화하는 역할을 하는 것으로 나타났다. 반면, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">자율성 지지 풍토(social climate of autonomy)</span>는 영업 불안이 정서적 소진 및 비인격화에 미치는 영향을 오히려 강화하는 것으로 나타났다. 본 연구는 영업사원 정신 건강에 관한 신생 문헌에 기여하며, 자율성이 해로운 결과를 초래할 수 있다는 최근 증거를 확장한다. 시사점, 한계, 향후 연구 방향을 논의한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Sales Anxiety</td>
+                  <td>영업 불안</td>
+                  <td class="text-sm">상황 특정적 상태 불안(state anxiety)임을 살려 "판매/영업" 활동 맥락을 명시했습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Burnout</td>
+                  <td>번아웃</td>
+                  <td class="text-sm">국내 조직심리·마케팅 문헌에서 이미 정착된 음차 용어를 그대로 사용했습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Conservation of Resources (COR) Theory</td>
+                  <td>자원보존이론</td>
+                  <td class="text-sm">Hobfoll의 스트레스 이론으로, 자원을 획득·보호·보존하려는 동기를 나타내는 표준 번역어입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Caravan Passageways</td>
+                  <td>(자원의) 대상(隊商) 통로</td>
+                  <td class="text-sm">사회적 자원이 개인 자원을 지지·육성·강화·보호하는 경로라는 Hobfoll(2012)의 은유적 개념으로, 원어를 병기했습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Autonomy-Supportive Climate</td>
+                  <td>자율성 지지 풍토</td>
+                  <td class="text-sm">관리자가 부하직원의 자율성 욕구를 충족시켜주는 대인관계적 분위기를 뜻합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Differential Exposure Hypothesis</td>
+                  <td>차등노출가설</td>
+                  <td class="text-sm">자원 수준에 따라 동일한 환경을 다르게 지각한다는 가설(Bolger &amp; Zuckerman, 1995)입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">영업 불안은 번아웃에 어떻게 영향을 미치며, 관리자의 사회적 지원은 이를 어떻게 조절하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">긍정적 피드백은 완충재, 자율성은 오히려 뇌관이 될 수 있다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">COR이론 관점의 영업 불안-번아웃 최초 직접 검증</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B 영업사원의 영업 불안은 번아웃(정서적 소진·비인격화·개인적 성취감 저하)에 어떻게 영향을 미치며, 관리자가 통제 가능한 긍정적 피드백과 자율성 지지 풍토는 이 관계를 어떻게 조절하는가?</li>
+                  <li><strong>핵심 발견:</strong> 영업 불안은 번아웃의 세 하위 요소 모두와 유의한 정(+)의 관계를 가진다. 긍정적 피드백은 이 세 관계를 모두 완화시키는 반면, <strong>자율성 지지 풍토는 정서적 소진·비인격화에 대한 영향을 오히려 강화</strong>시킨다(개인적 성취감 저하에는 유의한 조절효과 없음).</li>
+                  <li><strong>이론/실무 기여:</strong> COR(자원보존)이론 관점에서 영업 불안을 "자원 상실 촉발 요인"으로 최초로 직접 검증했으며, 일반적으로 긍정적 자원으로 간주되는 자율성이 불안한 개인에게는 오히려 자원 고갈을 가속화하는 양날의 검이 될 수 있음을 실증했습니다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "영업 불안은 번아웃을 유발하지만, 관리자의 긍정적 피드백은 이를 완화하는 반면, 무분별한 자율성 부여는 오히려 이를 악화시킵니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">영업 불안 → 번아웃 3요소 모두 정(+)의 관계 (H1a-c)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the un-standardized path estimates (γs) for the main effects of sales anxiety on emotional exhaustion (γ=12.98, t=4.41), depersonalization (γ=0.80, t=5.99), and diminished personal accomplishment (γ=0.19, t=2.22) are all positive and significant."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / p.79 Table 4</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">긍정적 피드백의 완화(음의 조절) 작용 (H2a-c)</td>
+                <td class="text-sm italic text-slate-600">
+                  "significant negative path estimates are returned for the product of sales anxiety and positive feedback on emotional exhaustion (γ=-27.43, t=-1.98), diminished personal accomplishment (γ=-0.81, t=-2.01) and depersonalization (γ=-0.97, t=-1.81)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.80, Table 4</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">자율성 지지 풍토의 강화(양의 조절) 작용 (H3a, H3b)</td>
+                <td class="text-sm italic text-slate-600">
+                  "a social climate of autonomy can strengthen the impact of sales anxiety on emotional exhaustion and depersonalization" / "(anxiety x autonomy) on emotional exhaustion (γ=20.68, t=2.18) and depersonalization (γ=0.82, t=2.21) are positive and significant."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / p.80, Table 4</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">자율성 × 개인적 성취감 저하 조절효과 기각 (H3c)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the path from sales anxiety x autonomy to diminished personal accomplishment is positive, but not significant (1-tailed, 5%), failing to support H3c (γ=0.31, t=1.61, p=.07)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.80, §4 Results</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">구조방정식모형 적합도 양호</td>
+                <td class="text-sm italic text-slate-600">
+                  "The model demonstrates adequate fit, with the CFI, NNFI, and IFI all above 0.90, while the RMSEA and SRMR are below 0.08." (χ²=538.53, df=319)
+                </td>
+                <td class="text-right font-medium text-slate-500">p.79 / Table 4 footnote</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 가설 모형)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 920 540" class="w-full h-auto">
+              <!-- IV: Sales Anxiety -->
+              <rect x="20" y="190" width="180" height="140" rx="10" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+              <text x="110" y="245" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="15">영업 불안</text>
+              <text x="110" y="264" text-anchor="middle" fill="#334155" font-size="11">(Sales Anxiety)</text>
+              <text x="110" y="284" text-anchor="middle" fill="#64748b" font-size="10">Watson et al. (1995) 3문항</text>
+
+              <!-- DV1: Emotional Exhaustion -->
+              <rect x="700" y="45" width="200" height="90" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="800" y="80" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">정서적 소진</text>
+              <text x="800" y="98" text-anchor="middle" fill="#4338ca" font-size="11">Emotional Exhaustion</text>
+              <text x="800" y="117" text-anchor="middle" fill="#6366f1" font-size="10">0-100 슬라이딩 스케일</text>
+
+              <!-- DV2: Depersonalization -->
+              <rect x="700" y="215" width="200" height="90" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="800" y="250" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">비인격화</text>
+              <text x="800" y="268" text-anchor="middle" fill="#4338ca" font-size="11">Depersonalization</text>
+              <text x="800" y="287" text-anchor="middle" fill="#6366f1" font-size="10">B2B MBI-22, 3문항</text>
+
+              <!-- DV3: Diminished Personal Accomplishment -->
+              <rect x="700" y="385" width="200" height="90" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="800" y="415" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">개인적 성취감 저하</text>
+              <text x="800" y="435" text-anchor="middle" fill="#4338ca" font-size="10">Diminished Personal Accomplishment</text>
+              <text x="800" y="454" text-anchor="middle" fill="#6366f1" font-size="10">B2B MBI-22, 3문항 (역채점)</text>
+
+              <!-- Moderator 1: Positive Feedback (top) -->
+              <rect x="330" y="12" width="220" height="70" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="440" y="38" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">긍정적 피드백</text>
+              <text x="440" y="56" text-anchor="middle" fill="#047857" font-size="11">Positive Feedback (자원 보충)</text>
+              <text x="440" y="73" text-anchor="middle" fill="#059669" font-size="9">George &amp; Zhou (2001) 3문항</text>
+
+              <!-- Moderator 2: Autonomy-Supportive Climate (bottom) -->
+              <rect x="330" y="458" width="220" height="70" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="440" y="484" text-anchor="middle" font-weight="700" fill="#92400e" font-size="14">자율성 지지 풍토</text>
+              <text x="440" y="502" text-anchor="middle" fill="#b45309" font-size="11">Autonomy-Supportive Climate</text>
+              <text x="440" y="519" text-anchor="middle" fill="#d97706" font-size="9">Wang &amp; Netemyer (2002) 4문항</text>
+
+              <!-- Direct effects H1a-c (solid, slate) -->
+              <path d="M200,235 L280,235 L280,90 L695,90" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#arrowSlate)"/>
+              <text x="300" y="165" fill="#334155" font-weight="700" font-size="13">H1a (+)</text>
+
+              <path d="M200,260 L695,260" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#arrowSlate)"/>
+              <text x="410" y="252" fill="#334155" font-weight="700" font-size="13">H1b (+)</text>
+
+              <path d="M200,285 L280,285 L280,430 L695,430" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#arrowSlate)"/>
+              <text x="300" y="365" fill="#334155" font-weight="700" font-size="13">H1c (+)</text>
+
+              <!-- Moderation arrows: Positive Feedback -> each direct path (dashed emerald, negative) -->
+              <path d="M400,82 L280,150" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowEmerald)"/>
+              <text x="345" y="118" fill="#047857" font-weight="700" font-size="12">H2a (-)</text>
+
+              <path d="M440,82 L390,260" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowEmerald)"/>
+              <text x="470" y="170" fill="#047857" font-weight="700" font-size="12">H2b (-)</text>
+
+              <path d="M480,82 L285,360" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowEmerald)"/>
+              <text x="500" y="230" fill="#047857" font-weight="700" font-size="12">H2c (-)</text>
+
+              <!-- Moderation arrows: Autonomy -> each direct path (dashed amber, positive except H3c n.s.) -->
+              <path d="M400,456 L280,210" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowAmber)"/>
+              <text x="345" y="330" fill="#b45309" font-weight="700" font-size="12">H3a (+)</text>
+
+              <path d="M440,456 L490,260" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowAmber)"/>
+              <text x="490" y="360" fill="#b45309" font-weight="700" font-size="12">H3b (+)</text>
+
+              <path d="M480,456 L285,400" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="2 4" opacity="0.7" marker-end="url(#arrowGray)"/>
+              <text x="330" y="440" fill="#64748b" font-weight="700" font-size="12">H3c (n.s.)</text>
+
+              <!-- SVG Arrow Markers -->
+              <defs>
+                <marker id="arrowSlate" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+                </marker>
+                <marker id="arrowEmerald" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+                </marker>
+                <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+                </marker>
+                <marker id="arrowGray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+                </marker>
+              </defs>
+            </svg>
+            <p class="style-small text-slate-500 mt-2 text-center">실선(슬레이트) = 직접효과(H1) · 점선(에메랄드) = 긍정적 피드백의 완화 조절(H2, 음의 방향) · 점선(호박색) = 자율성 지지 풍토의 강화 조절(H3, 양의 방향) · 회색 점선 = 유의하지 않은 경로(H3c)</p>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수</span>
+                <span class="text-xs text-slate-400 font-semibold">IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">영업 불안 (Sales Anxiety)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 영업 활동 중 경험하는 상황 특정적(state) 불안 — 초조함, 우려, 불편함 등 부정적 정서 반응.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 영업 업무 수행 중 "신경이 예민해진다/초조해진다/불안하다"를 느끼는 정도(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Watson et al. (1995) 적용 3문항 / CR=.92, AVE=.79</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> COR이론에 따르면 불안은 "웰빙에 대한 위협"으로 개인 자원을 소모시키며, 자기보호·회피 행동을 촉진하고 자기효능감을 저하시킨다(Verbeke &amp; Bagozzi, 2000; Bandura, 2015).
+              </p>
+            </div>
+          </div>
+
+          <!-- DV1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">DV1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">정서적 소진 (Emotional Exhaustion)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자원의 완전한 고갈 상태(complete loss of resources).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 0~100 슬라이딩 스케일로 측정한 소진 정도(0=전혀 소진되지 않음, 100=완전히 소진됨).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Rutherford et al. (2011) 축약형 MBI 4문항 / CR=.95, AVE=.85</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> JD-R 및 COR이론과 밀접히 연결되며, 번아웃은 "자원 고갈 상태"로 정의된다(Hobfoll &amp; Freedy, 1993).
+              </p>
+            </div>
+          </div>
+
+          <!-- DV2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">DV2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">비인격화 (Depersonalization)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 타인 및 자신의 역할로부터 거리를 두는 역기능적 대처 기제.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 직장에서 동료/고객과의 정서적 거리감·냉소를 느끼는 정도(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> B2B MBI-22 (Rutherford et al., 2011) 3문항 / CR=.89, AVE=.74</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 자원 손실에 대한 방어적 철수(withdrawal) 행동으로 개념화(Verbeke &amp; Bagozzi, 2000).
+              </p>
+            </div>
+          </div>
+
+          <!-- DV3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수 3</span>
+                <span class="text-xs text-slate-400 font-semibold">DV3</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">개인적 성취감 저하 (Diminished Personal Accomplishment)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 성취와 관련된 불행감·무능감.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 업무에서 느끼는 성취감·유능감의 결여 정도(역채점, 7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> B2B MBI-22 (Rutherford et al., 2011) 3문항 / CR=.77, AVE=.53</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 불안은 자기효능감·자기신념을 저하시켜 성취감 관련 개인 자원을 감소시킨다(Feldman et al., 2015; Bandura, 2015).
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">조절변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">긍정적 피드백 (Positive Feedback)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 영업관리자가 부하 영업사원에게 제공하는 성과·행동에 대한 긍정적 정보 — 도구적 사회적 지원의 한 형태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 관리자가 "잘했다고 말해준다/긍정적 피드백을 준다/잘하고 있다고 말해준다" 정도(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> George &amp; Zhou (2001) 3문항 / CR=.95, AVE=.87</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> COR이론의 "대상(caravan) 통로" 개념 — 관리자로부터 사원에게로의 에너지 이전을 통해 자원 보충을 촉진(Owens et al., 2016).
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">자율성 지지 풍토 (Autonomy-Supportive Climate)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 관리자가 목표 설정·의사결정·업무 계획에서 부하직원에게 제공하는 대인관계적 자율 지지 풍토(Baard, Deci, &amp; Ryan, 2004).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "업무 방식을 스스로 통제할 수 있다/독립적으로 결정할 수 있다" 등 지각된 직무 자율성 정도(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Wang &amp; Netemyer (2002) 4문항 / CR=.90, AVE=.69</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 자기결정이론의 자율성 욕구와 연결되어 일반적으로 웰빙 증진 자원으로 간주되나, 차등노출가설(Bolger &amp; Zuckerman, 1995)에 근거해 불안한 개인에게는 추가 인지 부담을 가중시켜 자원 손실을 촉진할 수 있다(Matthews et al., 2018).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않은 외부 연구자가 실증 검증 절차를 그대로 <strong>추종 재현</strong>할 수 있도록 방법론을 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">2-Wave 종단 표본 설계 및 모집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  미국 기반 온라인 패널 조사업체를 통해 B2B 영업사원을 모집. 1차(Wave 1) 375명 응답, 1개월 후 2차(Wave 2)까지 완료한 156명을 최종 표본으로 확정(응답률 41.6%).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.78, §3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">Wave 1(T1) 독립·조절·통제변수 측정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  영업 불안, 긍정적 피드백, 자율성 지지 풍토, 적극적 대처, 연령·산업·경력 등 인구통계 변수를 모두 T1 시점에 측정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.78, §3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">1개월 후 Wave 2(T2) 종속변수 측정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  번아웃 3요소(정서적 소진·비인격화·개인적 성취감 저하)만 T2에서 측정. 시간적 분리를 통해 동일방법편향 완화, 인과 논리 정합성, 역인과 가능성 완화 도모("shortitudinal" 설계).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.78, §3.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">자료 품질 관리 및 척도 적용</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  '스피더', '스트레이트라이닝' 응답 탐지 후 제거. 기존 검증된 척도(번아웃: Rutherford et al. 2011 축약형 MBI, 불안: Watson et al. 1995, 자율성: Wang &amp; Netemyer 2002, 피드백: George &amp; Zhou 2001) 적용. 정서적 소진만 0-100 슬라이딩 스케일 사용해 방법론 이질화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.78-79, §3.1-3.2, Appendix A</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">동일방법편향(CMB) 사후 검정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  마커변수법(Lindell &amp; Whitney, 2001) 적용 — "영업 성과가 운에 달려있다"는 무관 마커 항목을 사용, 상관관계 왜곡폭이 0.0001 이하임을 확인해 CMB가 유의한 문제가 아님을 검증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.79, §3.2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">구조방정식모형(SEM) 동시 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  최대우도추정법(Maximum Likelihood)으로 모든 가설을 하나의 SEM으로 동시 검증. 적합도: χ²=538.53, df=319, RMSEA=.067, SRMR=.057, CFI=.935, NNFI=.917, IFI=.936(모두 기준 충족).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.79-80, §4</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">가설 검정 및 단순기울기 시각화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  비표준화 경로계수(γ)와 1-tailed t검정(임계값 ±1.96/±1.645)으로 주효과(H1)·조절효과(H2, H3) 검정. 조절변수 평균값(피드백=4.99, 자율성=5.77)에서 단순기울기를 계산해 Fig. 3, Fig. 4로 시각화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.79-81, §4</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            척도 문항·통계 절차·모형 적합도 지표는 Appendix A에 상세히 공개되어 있으나, 번아웃 3요소 척도의 일부 문항은 저작권상 전문이 미공개("z" 표기)이고, 미국 온라인 패널업체를 통한 156명 종단 표본 확보 절차 자체는 외부 연구자가 동일하게 재현하기 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 결론부(§6, p.83)에서 저자들이 직접 밝힌 연구의 한계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>단일출처 데이터 + 상대적으로 작은 표본:</strong> "One limitation concerns the use of single-source data with a relatively smaller sample, despite the longitudinal design." — 향후 연구는 관리자 평가 또는 객관적 측정치, 더 큰 표본을 사용해야 함.
+              </li>
+              <li>
+                <strong>개인 간(between-person) 분석에 국한:</strong> "the present study examines only between-person relationships" — 개인 내(within-person) 변화 과정은 검증하지 못함.
+              </li>
+              <li>
+                <strong>번아웃에만 국한된 결과 변수:</strong> 영업 불안이 우울, 외로움, 수면장애 등 더 넓은 정신건강 결과에 미치는 영향은 검증하지 않음.
+              </li>
+              <li>
+                <strong>자율성의 개인적 성취감 저하 미조절 원인 미해명:</strong> 정서적 소진·비인격화와 달리 왜 자율성이 개인적 성취감 저하를 조절하지 못했는지 후속 설명이 필요함.
+              </li>
+              <li>
+                <strong>불안-번아웃 간 인과 방향의 상호성 가능성:</strong> "the causal ordering of the relationships between anxiety and burnout may be reciprocal, such that burnout may also drive anxiety" — 완전히 규명하지 못함.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 측정 방식을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 잔여 동일방법편향</span>
+                <p class="text-sm text-slate-700">
+                  영업 불안과 두 조절변수(피드백, 자율성)가 모두 T1 시점에 동시에 자기보고로 측정되었다. 마커변수법으로 CMB가 크지 않다고 확인했지만, 상호작용항(anxiety × feedback, anxiety × autonomy) 자체는 여전히 동일 시점·동일 응답자 편향에서 완전히 자유롭지 않을 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 표본 소모(attrition) 편향</span>
+                <p class="text-sm text-slate-700">
+                  1차 375명 중 156명(41.6%)만 2차까지 완료했다. 불안·번아웃 수준이 이미 심각해 이직·휴직한 영업사원일수록 2차 설문에 응답하지 못했을 가능성이 커, 관측된 조절효과의 크기가 과소·과대 추정된 생존자 편향일 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 측정 척도 이질성</span>
+                <p class="text-sm text-slate-700">
+                  정서적 소진은 0-100 슬라이딩 스케일, 나머지는 7점 Likert로 측정되어, 보고된 비표준화 계수(γ=12.98, -27.43, 20.68 등)의 절대적 크기를 다른 결과변수와 직접 비교하기 어렵다. CMB 완화를 위한 의도적 설계이나 효과크기 해석에 혼란을 초래할 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 표본 대표성/맥락 특수성</span>
+                <p class="text-sm text-slate-700">
+                  미국 온라인 패널업체를 통해 자발적으로 모집된 응답자로, 산업군이 기술·공공설비·건설·제조·운송 등으로 혼재되어 산업별 이질적 영업 관행이 통제되지 않았다. 온라인 패널 참여자 특유의 자기선택 편향 가능성도 존재한다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200 md:col-span-2">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 역인과 완전 미차단 & 원문 수치 불일치</span>
+                <p class="text-sm text-slate-700">
+                  1개월 시차 설계로 역인과 가능성을 "완화"했다고 주장하지만, T1 시점에 이미 잠재적 번아웃 성향이 있는 응답자일수록 불안·관리자 지원 지각을 다르게 보고했을 가능성(사전 성향 혼입)은 여전히 남아있다. 또한 H3c 관련 수치가 본문(γ=0.31, t=1.61, p=.07)과 Table 4(γ=0.44, t=1.61)에서 서로 다르게 기재되어 있어, 정밀 재현 시 유의할 필요가 있다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Resource gain or resource pain? How managerial social support resources influence the impact of sales anxiety on burnout</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
