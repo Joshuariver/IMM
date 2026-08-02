@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding B2B Customer Journeys for Complex Digital Services - IMM 2024</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'] } } } }
+  </script>
+  <style>
+    body { font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif; font-size: 16px; line-height: 1.6; background-color: #f8fafc; color: #1e293b; word-break: keep-all; }
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
+    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
+    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
+    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+    html { scroll-behavior: smooth; }
+    @media (max-width: 1024px) { .style-display { font-size: 38px; } .style-h1 { font-size: 30px; } .style-h2 { font-size: 22px; } }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Customer Journey / Cloud Computing / Grounded Theory</div>
+        <div class="badge badge-secondary text-white style-label">20건 인터뷰 (제공업체 6, 고객 14)</div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Understanding B2B customer journeys<br>
+            <span class="text-cyan-400">for complex digital services</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">Claas Terpoorten, Jan F. Klein, Katrin Merfeld (교신저자)</p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            복잡한 디지털 서비스의<br><span class="text-indigo-300">B2B 고객 여정 이해: 클라우드 컴퓨팅 사례</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">근거이론 기반 20건 인터뷰를 통한 IT 역량별 이원화된 고객 여정과 핵심 터치포인트 규명</p>
+        </div>
+      </div>
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder"><div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">1M</div></div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">클라우드 컴퓨팅의 B2B 고객 여정은 니즈인식 이후 고객의 IT 역량에 따라 두 갈래로 갈라지며, IT 숙련 기업은 제공업체와 직접 셀프서비스로, IT 초보 기업은 멀티플라이어라는 게이트키퍼를 통해 서비스를 구매합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    <div class="flex flex-col gap-16">
+
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Cloud computing services represent a rapidly growing business-to-business (B2B) market, but managers lack guidance on managing the customer journey for these complex digital services. To address this challenge, we conduct an exploratory qualitative study based on 20 interviews with providers and customers of cloud computing services, supplemented by data from observations. Our research highlights critical touchpoints along the customer journey in cloud computing markets and provides implications for B2B customer journey management. A key finding is that B2B customers' IT competency is a crucial differentiator in this market. That is, while IT-savvy companies evaluate these services independently and use them in a self-service fashion, IT-novice companies rely on multipliers (e.g., IT system houses) to act as support and gatekeepers to buying cloud computing services. This difference has implications for the composition of buying and usage centers, the development of the customer journey, and the control of touchpoints by the service provider. Thus, cloud service providers need to manage two types of customer journey: one directly focused on customers and another involving the management of multipliers. Based on these findings, we offer recommendations for B2B practitioners to guide their customers through the journey for this complex digital service."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              클라우드 컴퓨팅 서비스는 빠르게 성장하는 B2B 시장이지만, 관리자들은 이러한 복잡한 디지털 서비스의 고객 여정을 관리하는 데 필요한 지침이 부족하다. 이 문제를 다루기 위해 클라우드 컴퓨팅 서비스 제공업체·고객 20명을 대상으로 한 인터뷰와 관찰 데이터를 보완한 탐색적 질적 연구를 수행하였다. 본 연구는 클라우드 컴퓨팅 시장의 고객 여정에서 핵심적인 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">터치포인트</span>를 조명하고 B2B 고객 여정 관리에 대한 시사점을 제공한다. 핵심 발견은 B2B 고객의 IT 역량이 이 시장의 결정적 구분 요인이라는 것이다. 즉, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">IT 숙련 기업</span>은 이러한 서비스를 독립적으로 평가하고 셀프서비스 방식으로 이용하는 반면, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">IT 초보 기업</span>은 클라우드 컴퓨팅 구매를 지원하고 게이트키핑하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">멀티플라이어</span>(예: IT 시스템 하우스)에 의존한다. 이러한 차이는 구매센터·사용센터의 구성, 고객 여정의 전개, 서비스 제공업체의 터치포인트 통제력에 시사점을 지닌다. 따라서 클라우드 서비스 제공업체는 두 가지 유형의 고객 여정을 모두 관리할 필요가 있다. 이러한 발견을 바탕으로, 이 복잡한 디지털 서비스의 여정에서 고객을 안내하기 위한 B2B 실무자용 권고안을 제시한다.
+            </blockquote>
+          </div>
+        </div>
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead><tr class="bg-slate-50 text-slate-800"><th class="w-1/4">원문 용어 (EN)</th><th class="w-1/4">한국어 번역</th><th class="w-1/2">번역 선택 이유 및 해설</th></tr></thead>
+              <tbody>
+                <tr><td class="font-semibold text-slate-900">IT Competency</td><td>IT 역량</td><td class="text-sm">신기술 수용·구현·운영에 대한 조직적·개인적 준비도.</td></tr>
+                <tr><td class="font-semibold text-slate-900">Cloud Computing Stack (IaaS/PaaS/SaaS)</td><td>클라우드 컴퓨팅 스택</td><td class="text-sm">인프라형·플랫폼형·소프트웨어형 서비스로 구성된 3대 모델.</td></tr>
+                <tr><td class="font-semibold text-slate-900">Buying/Usage Center</td><td>구매센터/사용센터</td><td class="text-sm">B2B 구매 의사결정 관여 이해관계자 집합과 실사용 집단.</td></tr>
+                <tr><td class="font-semibold text-slate-900">Grounded Theory</td><td>근거이론</td><td class="text-sm">데이터로부터 귀납적으로 이론을 도출하는 질적 연구방법론.</td></tr>
+                <tr><td class="font-semibold text-slate-900">Multiplier / Gatekeeper</td><td>멀티플라이어 / 게이트키퍼</td><td class="text-sm">IT 역량이 낮은 기업의 서비스 탐색·구현을 돕는 제3자 중개 기업이자 접근 통제자.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.</p>
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q"><div class="text-left md:pl-4"><span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span><p class="font-bold text-slate-800">복잡한 디지털 서비스의 B2B 고객 여정에서 핵심 터치포인트는 무엇인가?</p></div></li>
+              <li class="step step-primary" data-content="F"><div class="text-left md:pl-4"><span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span><p class="font-bold text-slate-800">IT 역량이 여정을 근본적으로 이원화(직접 vs 멀티플라이어 경유)</p></div></li>
+              <li class="step step-primary" data-content="C"><div class="text-left md:pl-4"><span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span><p class="font-bold text-slate-800">멀티플라이어를 포함한 삼자관계를 고객여정 연구에 도입</p></div></li>
+            </ul>
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>여정의 근본적 분기:</strong> 니즈인식 이후 IT 숙련 기업은 제공업체와 직접·셀프서비스로, IT 초보 기업은 멀티플라이어를 통해 구매.</li>
+                  <li><strong>구매센터 구성의 차이:</strong> IT 숙련 기업은 사전구매부터 IT전문가 참여, IT 초보 기업은 경영진 주도 후 구현단계에서야 IT전문가 관여.</li>
+                  <li><strong>하드 vs 소프트 요인:</strong> IT 숙련 기업은 제품테스트 등 하드요인을, IT 초보 기업은 신뢰·관계 등 소프트요인을 중시.</li>
+                  <li><strong>멀티플라이어의 게이트키퍼 역할:</strong> 지식 가교이자 제공업체의 터치포인트 통제력을 제한하는 진입장벽으로 작동.</li>
+                </ul>
+              </div>
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">"클라우드 컴퓨팅의 B2B 고객 여정은 니즈인식 이후 고객의 IT 역량에 따라 두 갈래로 갈라지며, IT 숙련 기업은 제공업체와 직접 셀프서비스로, IT 초보 기업은 멀티플라이어라는 게이트키퍼를 통해 서비스를 구매한다."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        <p class="style-body text-slate-600">연구의 신뢰도를 보장하기 위해 각 핵심 주장과 원문 인용 및 페이지 위치를 맵핑했습니다.</p>
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead><tr class="bg-slate-900 text-white"><th class="w-12">#</th><th class="w-1/4">핵심 주장</th><th class="w-1/2">원문 근거 (Original Quote)</th><th class="w-1/6 text-right">원문 위치</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="font-semibold text-slate-900">니즈인식 이후 여정이 두 갈래로 분기</td><td class="text-sm italic text-slate-600">"the customer journeys split after the need recognition phase... IT-savvy companies buy cloud computing services from the provider, while IT-novice companies buy them as an overall IT solution from a multiplier."</td><td class="text-right font-medium text-slate-500">Page 184, Fig. 3</td></tr>
+              <tr><td>2</td><td class="font-semibold text-slate-900">IT 초보 기업은 멀티플라이어에 의존, 제공업체는 직접 터치포인트 상실</td><td class="text-sm italic text-slate-600">"IT-novice customers typically have no direct touchpoints with the cloud computing provider, as they communicate primarily with multipliers."</td><td class="text-right font-medium text-slate-500">Page 184, Sec. 4.1</td></tr>
+              <tr><td>3</td><td class="font-semibold text-slate-900">웹사이트는 IT 숙련 고객 의사결정의 결정적 요인</td><td class="text-sm italic text-slate-600">"If the company is not able to produce a good website, I would be skeptical about paying €10,000 per month for their service." (ID19)</td><td class="text-right font-medium text-slate-500">Page 185, Sec. 4.3.1</td></tr>
+              <tr><td>4</td><td class="font-semibold text-slate-900">IT 초보 기업은 제품테스트 대신 멀티플라이어 프레젠테이션에 의존</td><td class="text-sm italic text-slate-600">"the IT-novice companies that we interviewed do not focus on product tests. Instead, they invite multipliers for presentations."</td><td class="text-right font-medium text-slate-500">Page 187, Sec. 4.4.2</td></tr>
+              <tr><td>5</td><td class="font-semibold text-slate-900">IT 숙련=단기계약, IT 초보=1-5년 장기계약</td><td class="text-sm italic text-slate-600">"IT-savvy companies usually maintain short contractual durations... IT-novice companies... face contract lengths ranging from one to five years."</td><td class="text-right font-medium text-slate-500">Page 187-188</td></tr>
+              <tr><td>6</td><td class="font-semibold text-slate-900">코딩 신뢰도는 코더 내 89.5%, 코더 간 81.6%</td><td class="text-sm italic text-slate-600">"Our assessment yielded an 89.5% intracoder and 81.6% intercoder reliability."</td><td class="text-right font-medium text-slate-500">Page 183, Sec. 3.4</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Dual-path Journey Model</span>
+        </div>
+        <div class="alert bg-slate-50 border border-slate-200 text-slate-700 rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-slate-500 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span class="text-sm">본 논문은 <strong>근거이론 기반 질적 탐색 연구</strong>로, 통계적 가설 모형(DAG)이 아니라 20건의 인터뷰로부터 도출한 <strong>IT 역량별 이원화된 고객 여정 모형</strong>(Fig. 3)을 제시합니다.</span>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">이원화된 고객 여정 모형 (Fig. 3 요약)</h3>
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 980 420" class="w-full h-auto">
+              <!-- Need recognition (shared) -->
+              <rect x="380" y="10" width="220" height="55" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
+              <text x="490" y="33" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="12">니즈인식 (공통)</text>
+              <text x="490" y="50" text-anchor="middle" fill="#334155" font-size="9">광고, 입소문, 고객요구, 제품사용</text>
+
+              <!-- Split arrows -->
+              <path d="M440 65 L 240 100" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#aS)"/>
+              <path d="M540 65 L 740 100" fill="none" stroke="#a855f7" stroke-width="2" marker-end="url(#aN)"/>
+              <text x="300" y="90" text-anchor="middle" fill="#0284c7" font-weight="700" font-size="11">IT 숙련</text>
+              <text x="680" y="90" text-anchor="middle" fill="#7e22ce" font-weight="700" font-size="11">IT 초보</text>
+
+              <!-- IT-savvy path -->
+              <rect x="130" y="105" width="220" height="55" rx="8" fill="#ecfeff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="240" y="128" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="12">정보수집: 온라인 중심</text>
+              <text x="240" y="145" text-anchor="middle" fill="#0284c7" font-size="9">검색엔진, 제공업체 웹사이트, 개발자 블로그</text>
+
+              <rect x="130" y="180" width="220" height="55" rx="8" fill="#ecfeff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="240" y="203" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="12">심층평가: 하드+소프트</text>
+              <text x="240" y="220" text-anchor="middle" fill="#0284c7" font-size="9">계정생성·테스트, 지원채널 평가</text>
+
+              <rect x="130" y="255" width="220" height="55" rx="8" fill="#ecfeff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="240" y="278" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="12">구매: 제공업체 직접</text>
+              <text x="240" y="295" text-anchor="middle" fill="#0284c7" font-size="9">단기 사용량기반 계약</text>
+
+              <rect x="130" y="330" width="220" height="55" rx="8" fill="#ecfeff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="240" y="353" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="12">사후구매: 셀프서비스+CSM</text>
+              <text x="240" y="370" text-anchor="middle" fill="#0284c7" font-size="9">락인(lock-in) 기능으로 전환 억제</text>
+
+              <!-- IT-novice path -->
+              <rect x="630" y="105" width="220" height="55" rx="8" fill="#fdf4ff" stroke="#a855f7" stroke-width="2"/>
+              <text x="740" y="128" text-anchor="middle" font-weight="700" fill="#6b21a8" font-size="12">정보수집: 멀티플라이어 중심</text>
+              <text x="740" y="145" text-anchor="middle" fill="#7e22ce" font-size="9">멀티플라이어 웹사이트, 개인인맥</text>
+
+              <rect x="630" y="180" width="220" height="55" rx="8" fill="#fdf4ff" stroke="#a855f7" stroke-width="2"/>
+              <text x="740" y="203" text-anchor="middle" font-weight="700" fill="#6b21a8" font-size="12">심층평가: 소프트 중심</text>
+              <text x="740" y="220" text-anchor="middle" fill="#7e22ce" font-size="9">멀티플라이어 프레젠테이션·제안</text>
+
+              <rect x="630" y="255" width="220" height="55" rx="8" fill="#fdf4ff" stroke="#a855f7" stroke-width="2"/>
+              <text x="740" y="278" text-anchor="middle" font-weight="700" fill="#6b21a8" font-size="12">구매: 멀티플라이어 경유</text>
+              <text x="740" y="295" text-anchor="middle" fill="#7e22ce" font-size="9">1-5년 장기계약</text>
+
+              <rect x="630" y="330" width="220" height="55" rx="8" fill="#fdf4ff" stroke="#a855f7" stroke-width="2"/>
+              <text x="740" y="353" text-anchor="middle" font-weight="700" fill="#6b21a8" font-size="12">사후구매: 멀티플라이어 지원+CSM</text>
+              <text x="740" y="370" text-anchor="middle" fill="#7e22ce" font-size="9">구현·데이터마이그레이션 집중지원</text>
+
+              <!-- Connecting vertical lines within each path -->
+              <line x1="240" y1="160" x2="240" y2="180" stroke="#0ea5e9" stroke-width="2" marker-end="url(#aS)"/>
+              <line x1="240" y1="235" x2="240" y2="255" stroke="#0ea5e9" stroke-width="2" marker-end="url(#aS)"/>
+              <line x1="240" y1="310" x2="240" y2="330" stroke="#0ea5e9" stroke-width="2" marker-end="url(#aS)"/>
+              <line x1="740" y1="160" x2="740" y2="180" stroke="#a855f7" stroke-width="2" marker-end="url(#aN)"/>
+              <line x1="740" y1="235" x2="740" y2="255" stroke="#a855f7" stroke-width="2" marker-end="url(#aN)"/>
+              <line x1="740" y1="310" x2="740" y2="330" stroke="#a855f7" stroke-width="2" marker-end="url(#aN)"/>
+
+              <!-- Multiplier gatekeeper note -->
+              <text x="740" y="405" text-anchor="middle" fill="#94a3b8" font-size="10">멀티플라이어 = 지식 가교 + 게이트키퍼 (제공업체의 직접 터치포인트 상실)</text>
+
+              <defs>
+                <marker id="aS" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0ea5e9"/></marker>
+                <marker id="aN" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a855f7"/></marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <span class="badge badge-info style-label text-slate-900 w-fit">조절요인</span>
+              <h3 class="style-h3 text-slate-900">IT 역량 (숙련 vs 초보)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 신기술을 수용·구현·운영하는 조직적·개인적 준비도(Rahman et al., 2023).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>관련 논의:</strong> 기업 규모와 무관 — 대기업도 IT 역량이 낮을 수 있고 소규모 기술스타트업이 오히려 높을 수 있음.</p>
+            </div>
+          </div>
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <span class="badge badge-secondary style-label text-white w-fit">핵심 매개 행위자</span>
+              <h3 class="style-h3 text-slate-900">멀티플라이어 (Multiplier)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> IT 대행사·시스템 하우스 등, 클라우드 서비스 탐색·평가·구현을 지원하는 제3자 기업.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>관련 논의:</strong> 지식 가교이자 게이트키퍼로 이중 작용, 신규 제공업체의 시장 진입 장벽으로도 기능.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Grounded Theory</span>
+        </div>
+        <p class="style-body text-slate-600">재현 대상은 통계적 실증 분석이 아니라 <strong>근거이론 기반 2단계 인터뷰·3단계 코딩</strong> 절차입니다.</p>
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <li><div class="timeline-middle"><span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">근거이론 접근법 채택</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">실증연구 희소성 판단 하에 Glaser & Strauss(2017) 근거이론 채택. 제공업체→고객 2단계 순차 인터뷰 설계.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 181-182, Sec. 3.1</span>
+              </div><hr class="bg-primary"/></li>
+            <li><hr class="bg-primary"/><div class="timeline-middle"><span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">표본 설계 및 인터뷰</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">클라우드 제공업체 6개사(55분 평균) 후 고객 14명(45분 평균, IT역량 균형표집) 인터뷰.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 181-182, Table 1</span>
+              </div><hr class="bg-secondary"/></li>
+            <li><hr class="bg-secondary"/><div class="timeline-middle"><span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">관찰 및 문서 데이터 보완</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">저자 1인이 15개월간 제공업체 근무하며 100건+ 고객대화, 23건 서비스테스트 관찰. 내부문서 수집.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 182, Table 2</span>
+              </div><hr class="bg-accent"/></li>
+            <li><hr class="bg-accent"/><div class="timeline-middle"><span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">3단계 코딩(개방·축·선택)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">Gioia 절차로 개방→축→선택코딩 순차 수행. 16번째 인터뷰에서 이론적 포화 관찰.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 183, Sec. 3.3</span>
+              </div><hr class="bg-info"/></li>
+            <li><hr class="bg-info"/><div class="timeline-middle"><span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">신뢰성 검증(삼각검증·코더신뢰도)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">데이터·연구자 삼각검증, 코더 내 89.5%/코더 간 81.6% 신뢰도. AWS·GCP 관리자 등 응답자 검증.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 183, Sec. 3.4</span>
+              </div><hr class="bg-success"/></li>
+            <li><hr class="bg-success"/><div class="timeline-middle"><span class="bg-slate-800 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span></div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">여정 단계별 세부 분석 및 모형화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">5단계 여정에 걸쳐 IT 숙련/초보 각각의 터치포인트 식별, Fig. 3의 이원화 모형으로 통합.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 184-189, Sec. 4</span>
+              </div></li>
+          </ul>
+        </div>
+        <div class="divider"></div>
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div><h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4><p class="style-body font-bold mt-1 text-slate-800">제한적 재현 가능 (Limited Replicability)</p></div>
+          <p class="text-xs text-slate-500 max-w-md">인터뷰 가이드·표집 기준·코딩 절차·신뢰도 지표가 상세히 공개되나, 원 전사본·관찰 노트는 기밀이며 근거이론의 해석적 코딩이 연구자 판단에 의존해 완전한 재현은 어렵습니다.</p>
+        </div>
+      </section>
+
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.3)에서 연구진이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li><strong>근거이론의 주관적 해석 한계:</strong> "grounded theory is based on the subjective interpretation of qualitative data... calls for quantitative studies to provide more objective assessments."</li>
+              <li><strong>스타트업·중소기업 편중 표본:</strong> "our sample consists of start-ups and small to medium-sized firms... extending these findings to... larger companies provides an interesting opportunity."</li>
+              <li><strong>오프라인 터치포인트 역할 재검토 필요:</strong> 콜드콜·박람회의 낮은 중요성이 다른 산업에도 적용되는지 추가 연구 필요.</li>
+              <li><strong>단일 구매 결정에 국한:</strong> 여러 클라우드 서비스에 대한 병행 여정의 상호작용은 미검증.</li>
+              <li><strong>멀티플라이어 역할의 심층 규명 필요:</strong> 삼자관계의 세부 메커니즘, 통제 방법에 대한 후속 연구 필요.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구자 역할과 표본 구성을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200"><span class="badge badge-warning style-label text-amber-950 mb-2">1. 관찰자의 이중 역할에 따른 이해상충</span><p class="text-sm text-slate-700">저자 1인이 15개월간 해당 기업에 고용되어 근무하며 관찰했는데, 상업적 이해관계와 학문적 객관성 간 이해상충에 대한 성찰이 없습니다.</p></div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200"><span class="badge badge-warning style-label text-amber-950 mb-2">2. 자가보고식 IT역량 측정의 타당성</span><p class="text-sm text-slate-700">IT 역량이 자가평가에 기반하며, 어떤 객관적 지표로 "교차검증"했는지 구체적으로 제시되지 않았습니다.</p></div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200"><span class="badge badge-warning style-label text-amber-950 mb-2">3. 멀티플라이어 자체는 인터뷰 대상 제외</span><p class="text-sm text-slate-700">핵심 행위자인 멀티플라이어의 관점이 2차적 진술로만 재구성되어 삼자관계의 한 축이 대변되지 못했습니다.</p></div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200"><span class="badge badge-warning style-label text-amber-950 mb-2">4. 응답자 검증 표본의 대표성 제한</span><p class="text-sm text-slate-700">대기업 검증이 AWS·GCP 관리자 각 1인의 개인 면담에 그쳐 전체 대기업 시장 대표성이 제한적입니다.</p></div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200"><span class="badge badge-warning style-label text-amber-950 mb-2">5. 문화·지역적 맥락의 불명시</span><p class="text-sm text-slate-700">응답자 소재국이 명시되지 않았으나(유럽 맥락 추정) GDPR 등 지역 규제의 영향이 논의되지 않았습니다.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">IMM Academic Paper Analysis Report</p>
+      <p>Understanding B2B Customer Journeys for Complex Digital Services: The Case of Cloud Computing</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

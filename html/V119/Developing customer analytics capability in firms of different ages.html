@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developing Customer Analytics Capability in Firms of Different Ages - IMM 2024</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'] } } } }
+  </script>
+  <style>
+    body { font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif; font-size: 16px; line-height: 1.6; background-color: #f8fafc; color: #1e293b; word-break: keep-all; }
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
+    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
+    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
+    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+    html { scroll-behavior: smooth; }
+    @media (max-width: 1024px) { .style-display { font-size: 38px; } .style-h1 { font-size: 30px; } .style-h2 { font-size: 22px; } }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Customer Analytics / Marketing Capability</div>
+        <div class="badge badge-secondary text-white style-label">캐나다 기업 154개 설문</div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Developing customer analytics capability<br>
+            <span class="text-cyan-400">in firms of different ages</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">Hamed Mehrabi (교신저자), Yongjian Ken Chen, Abbas Keramati</p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            기업 연령에 따른<br><span class="text-indigo-300">고객 분석역량 개발</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">캐나다 기업 154개 설문을 통한 외부지향-내부지향 자원 상호보완성과 기업 연령의 3원 조절효과 검증</p>
+        </div>
+      </div>
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder"><div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">1M</div></div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">고객 분석역량은 데이터기반 문화만으로는 부족하며, 특히 오래된 기업일수록 강한 고객지향 문화가 뒷받침될 때 비로소 데이터의 힘이 기업 성과로 이어집니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    <div class="flex flex-col gap-16">
+
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Customer analytics capability remains underdeveloped among firms despite its potential for enhancing competitiveness. Previous research has predominantly focused on inside-out organizational factors as drivers of customer analytics capability. This paper examines the role of outside-in resource, the complementarity between outside-in and inside-out resources, and their boundary conditions. Specifically, we study how customer orientation culture (an outside-in resource) complements data-driven culture (an inside-out resource) in firms of different ages to drive customer analytics capability and subsequently, firm performance. Using survey data obtained from Canadian firms, we find that customer orientation is not only positively related to customer analytics capability but also reinforces the effect of data-driven culture. We further find that the conditional effect of customer orientation becomes stronger as firm age increases. In particular, among older firms, the impact of data-driven culture is greatest when customer orientation is high, but it becomes nonsignificant when customer orientation is low. We also link these relationships to firm performance using mediation and moderated mediation analyses. Overall, the results suggest that achieving customer analytics excellence and resultant competitive performance requires marketing to continuously act as customer champions and advocate data analytics efforts to ensure the firm embraces an outside-in orientation."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">고객 분석역량</span>은 경쟁력 강화 잠재력에도 불구하고 기업들 사이에서 여전히 저개발 상태이다. 기존 연구는 주로 고객 분석역량의 동인으로서 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">내부지향</span> 조직 요인에 초점을 맞춰왔다. 본 논문은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">외부지향</span> 자원의 역할, 외부지향-내부지향 자원 간의 상호보완성, 그리고 이들의 경계조건을 검토한다. 구체적으로, 서로 다른 연령대의 기업에서 고객지향 문화(외부지향 자원)가 데이터기반 문화(내부지향 자원)를 어떻게 보완하여 고객 분석역량, 나아가 기업 성과를 이끄는지를 연구한다. 캐나다 기업 설문 데이터를 활용한 분석 결과, 고객지향은 고객 분석역량과 정(+)적으로 관련될 뿐 아니라 데이터기반 문화의 효과를 강화하는 것으로 나타났다. 또한 고객지향의 조건부 효과는 기업 연령이 증가할수록 강해지는 것으로 나타났다. 특히 오래된 기업에서는 고객지향이 높을 때 데이터기반 문화의 영향이 가장 크지만, 고객지향이 낮으면 그 영향이 유의하지 않게 된다. 본 연구는 매개 및 조절된 매개 분석을 통해 이러한 관계를 기업 성과와도 연결하였다. 종합하면, 고객 분석역량의 탁월성과 그에 따른 경쟁 성과를 달성하려면 마케팅 부서가 지속적으로 고객의 대변자 역할을 수행하고 데이터 분석 노력을 옹호하여 기업이 외부지향을 견지하도록 해야 함을 시사한다.
+            </blockquote>
+          </div>
+        </div>
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead><tr class="bg-slate-50 text-slate-800"><th class="w-1/4">원문 용어 (EN)</th><th class="w-1/4">한국어 번역</th><th class="w-1/2">번역 선택 이유 및 해설</th></tr></thead>
+              <tbody>
+                <tr><td class="font-semibold text-slate-900">Inside-out / Outside-in Resource</td><td>내부지향 / 외부지향 자원</td><td class="text-sm">Day(1994) 프레임워크에 기반, 조직 내부 출발 자원과 고객·시장 출발 자원을 구분.</td></tr>
+                <tr><td class="font-semibold text-slate-900">Resource Complementarity</td><td>자원 상호보완성</td><td class="text-sm">두 자원이 상호작용하여 개별 효과의 합보다 더 큰 시너지 효과를 내는 것.</td></tr>
+                <tr><td class="font-semibold text-slate-900">Data-driven Culture</td><td>데이터기반 문화</td><td class="text-sm">조직 구성원이 데이터에서 도출된 통찰에 기반해 의사결정을 내리는 문화.</td></tr>
+                <tr><td class="font-semibold text-slate-900">Customer Orientation</td><td>고객지향</td><td class="text-sm">고객의 이익을 우선하는 신념 체계, 시장지향 문화의 핵심.</td></tr>
+                <tr><td class="font-semibold text-slate-900">Boundary Condition</td><td>경계조건</td><td class="text-sm">어떤 관계가 성립·강화·약화되는 조건(여기서는 기업 연령)을 지칭.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.</p>
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q"><div class="text-left md:pl-4"><span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span><p class="font-bold text-slate-800">외부지향·내부지향 자원은 어떻게 상호보완하여 분석역량을 이끄는가?</p></div></li>
+              <li class="step step-primary" data-content="F"><div class="text-left md:pl-4"><span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span><p class="font-bold text-slate-800">고객지향이 데이터문화를 증폭시키며, 이 시너지는 오래된 기업일수록 강함</p></div></li>
+              <li class="step step-primary" data-content="C"><div class="text-left md:pl-4"><span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span><p class="font-bold text-slate-800">기업 연령을 경계조건으로 한 자원 상호보완성 최초 실증</p></div></li>
+            </ul>
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>고객지향이 더 강력한 동인:</strong> 데이터기반 문화(H1, β=0.28)와 고객지향(H2, β=0.44) 모두 유의했으나 고객지향의 효과가 더 두드러짐.</li>
+                  <li><strong>두 자원의 시너지:</strong> 데이터기반 문화×고객지향 상호작용이 유의(H3, β=0.31) — 고객지향이 데이터문화의 효과를 증폭.</li>
+                  <li><strong>기업 연령의 3원 조절:</strong> 오래된 기업은 고객지향이 높을 때 데이터문화 효과가 극대화(b=0.80)되나 낮으면 사라짐(n.s.). 젊은 기업은 고객지향 수준과 무관하게 유사한 효과(H4 지지).</li>
+                  <li><strong>성과로의 매개:</strong> 고객 분석역량이 자원-성과 관계를 매개하며, 이 매개 효과는 오래된 기업에서 더 강함(H5, H6 지지).</li>
+                </ul>
+              </div>
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">"고객 분석역량은 데이터기반 문화만으로는 부족하며, 특히 오래된 기업일수록 강한 고객지향 문화가 뒷받침될 때 비로소 데이터의 힘이 기업 성과로 이어진다."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        <p class="style-body text-slate-600">연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.</p>
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead><tr class="bg-slate-900 text-white"><th class="w-12">#</th><th class="w-1/4">핵심 주장</th><th class="w-1/2">원문 근거 (Original Quote)</th><th class="w-1/6 text-right">원문 위치</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="font-semibold text-slate-900">데이터기반 문화·고객지향 각각 분석역량에 유의한 정(+) 효과 (H1,H2)</td><td class="text-sm italic text-slate-600">"data-driven culture is positively associated with customer analytics capability (β = 0.28, p &lt; 0.001)... customer orientation... (β = 0.44, p &lt; 0.001), supporting H2."</td><td class="text-right font-medium text-slate-500">Page 115, Table 4</td></tr>
+              <tr><td>2</td><td class="font-semibold text-slate-900">고객지향이 데이터기반 문화의 효과를 조절(증폭) (H3 지지)</td><td class="text-sm italic text-slate-600">"Customer orientation positively moderates the effect of data-driven culture on customer analytics capability (β = 0.31, p &lt; 0.001), supporting H3."</td><td class="text-right font-medium text-slate-500">Page 115, Sec. 4.2</td></tr>
+              <tr><td>3</td><td class="font-semibold text-slate-900">기업 연령이 증가할수록 고객지향의 조절 효과가 강화 (H4 지지)</td><td class="text-sm italic text-slate-600">"firm age strengthens the moderating effect of customer orientation on the relationship between data-driven culture and customer analytics capability (β = 0.28, p &lt; 0.001)."</td><td class="text-right font-medium text-slate-500">Page 115, Table 4</td></tr>
+              <tr><td>4</td><td class="font-semibold text-slate-900">오래된 기업에서 고객지향 낮으면 데이터문화 효과 무의미</td><td class="text-sm italic text-slate-600">"in older firms... when customer orientation is low, the impact of data-driven culture... is not significant (b = −0.09, n.s.)."</td><td class="text-right font-medium text-slate-500">Page 115, Sec. 4.2</td></tr>
+              <tr><td>5</td><td class="font-semibold text-slate-900">고객 분석역량이 자원-성과 관계를 매개 (H5 지지)</td><td class="text-sm italic text-slate-600">"The indirect effect analysis confirms customer analytics capability as a positive mediator for data-driven culture (β = 0.05, p &lt; 0.05) and customer orientation (β = 0.08, p &lt; 0.05)."</td><td class="text-right font-medium text-slate-500">Page 116, Table 5</td></tr>
+              <tr><td>6</td><td class="font-semibold text-slate-900">매개 효과는 오래된 기업에서 더 강함 (H6 지지)</td><td class="text-sm italic text-slate-600">"among older firms with high customer orientation, the indirect effect of data-driven culture is most pronounced (b = 0.19, CI = 0.03–0.43)."</td><td class="text-right font-medium text-slate-500">Page 116, Table 6</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (3원 상호작용 + 조절된 매개 모형)</h3>
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 980 380" class="w-full h-auto">
+              <!-- DDC -->
+              <rect x="10" y="40" width="170" height="60" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="95" y="65" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">데이터기반 문화</text>
+              <text x="95" y="83" text-anchor="middle" fill="#047857" font-size="10">DDC (내부지향)</text>
+
+              <!-- CO -->
+              <rect x="10" y="270" width="170" height="60" rx="8" fill="#ecfeff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="95" y="295" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="13">고객지향</text>
+              <text x="95" y="313" text-anchor="middle" fill="#0284c7" font-size="10">CO (외부지향)</text>
+
+              <!-- Interaction node -->
+              <rect x="260" y="155" width="140" height="60" rx="30" fill="#fdf4ff" stroke="#a855f7" stroke-width="2"/>
+              <text x="330" y="180" text-anchor="middle" font-weight="700" fill="#6b21a8" font-size="12">DDC × CO</text>
+              <text x="330" y="198" text-anchor="middle" fill="#7e22ce" font-size="9">상호작용(시너지)</text>
+
+              <!-- CAC -->
+              <rect x="470" y="140" width="180" height="90" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="560" y="172" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">고객 분석역량</text>
+              <text x="560" y="192" text-anchor="middle" fill="#4338ca" font-size="10">CAC (매개변수)</text>
+              <text x="560" y="210" text-anchor="middle" fill="#4338ca" font-size="9">Marketing Tech Capability</text>
+
+              <!-- Firm Performance -->
+              <rect x="770" y="150" width="170" height="70" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="855" y="180" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">기업 성과</text>
+              <text x="855" y="198" text-anchor="middle" fill="#b45309" font-size="10">Firm Performance</text>
+
+              <!-- Firm Age moderator -->
+              <rect x="330" y="300" width="180" height="60" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2" stroke-dasharray="5 3"/>
+              <text x="420" y="325" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="13">기업 연령</text>
+              <text x="420" y="343" text-anchor="middle" fill="#334155" font-size="10">Firm Age (조절변수)</text>
+
+              <!-- Arrows DDC/CO -> Interaction -->
+              <path d="M180 70 L 260 175" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arr-g)"/>
+              <text x="205" y="115" text-anchor="middle" fill="#047857" font-weight="700" font-size="10">H1 (+)</text>
+              <path d="M180 300 L 260 195" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arr-c)"/>
+              <text x="205" y="260" text-anchor="middle" fill="#0284c7" font-weight="700" font-size="10">H2 (+)</text>
+
+              <!-- Interaction -> CAC -->
+              <path d="M400 185 L 468 185" fill="none" stroke="#a855f7" stroke-width="2.5" marker-end="url(#arr-p)"/>
+              <text x="434" y="177" text-anchor="middle" fill="#7e22ce" font-weight="700" font-size="10">H3 (+)</text>
+
+              <!-- CAC -> FP -->
+              <path d="M650 185 L 768 185" fill="none" stroke="#4f46e5" stroke-width="2.5" marker-end="url(#arr-i)"/>
+              <text x="709" y="177" text-anchor="middle" fill="#3730a3" font-weight="700" font-size="10">H5 (매개, 지지)</text>
+
+              <!-- Firm Age -> Interaction path (H4) -->
+              <path d="M400 300 L 340 216" fill="none" stroke="#334155" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arr-s)"/>
+              <text x="440" y="260" text-anchor="middle" fill="#334155" font-weight="700" font-size="10">H4: 상호작용 조절 (+)</text>
+
+              <!-- Firm Age -> CAC->FP path (H6) -->
+              <path d="M480 300 L 640 220" fill="none" stroke="#334155" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arr-s)"/>
+              <text x="620" y="270" text-anchor="middle" fill="#334155" font-weight="700" font-size="10">H6: 매개효과 조절 (+, 노년기업↑)</text>
+
+              <defs>
+                <marker id="arr-g" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/></marker>
+                <marker id="arr-c" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0ea5e9"/></marker>
+                <marker id="arr-p" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a855f7"/></marker>
+                <marker id="arr-i" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/></marker>
+                <marker id="arr-s" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/></marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between"><span class="badge badge-success style-label text-white">독립변수 1</span><span class="text-xs text-slate-400 font-semibold">DDC</span></div>
+              <h3 class="style-h3 text-slate-900">데이터기반 문화 (내부지향)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 조직 구성원이 직관이 아닌 데이터 통찰에 기반해 의사결정하는 문화(Gupta & George, 2016).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Gupta & George(2016) 기반 4문항(α=0.75, CR=0.84, AVE=0.57).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>관련 논의:</strong> 단독으로는 기능 간 갈등을 해소하지 못하며, 고객지향의 보완이 필요.</p>
+            </div>
+          </div>
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between"><span class="badge badge-info style-label text-slate-900">독립변수 2</span><span class="text-xs text-slate-400 font-semibold">CO</span></div>
+              <h3 class="style-h3 text-slate-900">고객지향 (외부지향)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 고객의 이익을 최우선하되 다른 이해관계자를 배제하지 않는 신념 체계(Deshpandé et al., 1993).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Conduit & Mavondo(2001) 등 5문항(α=0.81, CR=0.83, AVE=0.54).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>관련 논의:</strong> 데이터기반 문화의 노력을 "외부" 방향으로 정렬시켜 시너지를 창출.</p>
+            </div>
+          </div>
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between"><span class="badge badge-neutral style-label text-white">조절변수</span><span class="text-xs text-slate-400 font-semibold">Firm Age</span></div>
+              <h3 class="style-h3 text-slate-900">기업 연령</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 설립 이후 경과 연수로 측정되는 조직 발전 환경 변수.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 설립연도 기준 연수(로그 변환), 표본 중앙값 21년. Johnson-Neyman 임계연령 14세.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>관련 논의:</strong> 오래된 기업의 조직 경직성을 고객지향이 교정하는 기제로 작동.</p>
+            </div>
+          </div>
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between"><span class="badge badge-primary style-label text-white">매개변수</span><span class="text-xs text-slate-400 font-semibold">CAC</span></div>
+              <h3 class="style-h3 text-slate-900">고객 분석역량</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> BI&A를 활용해 고객 가치를 창출하는 조직 프로세스(Day, 2011).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Hallikainen et al.(2020) 등 기반 5문항 최종 채택(α=0.82, CR=0.86, AVE=0.55).</p>
+            </div>
+          </div>
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between"><span class="badge badge-warning style-label text-amber-950">종속변수</span><span class="text-xs text-slate-400 font-semibold">Firm Performance</span></div>
+              <h3 class="style-h3 text-slate-900">기업 성과</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 주요 경쟁사 대비 상대적 성과.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Germann et al.(2013) 기반 4문항(ROI, 매출성장률, 수익성, ROA)(α=0.89, CR=0.90, AVE=0.69).</p>
+              <p class="text-xs text-slate-600 mt-1"><strong>통제변수:</strong> 기업 규모, B2B/B2C, 상장 여부, 산업 6종 더미 — 기술산업만 고객지향(r=-0.21)·성과(r=0.19)와 유의한 상관.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+        <p class="style-body text-slate-600">논문을 읽지 않고도 외부 연구자가 연구 모델 및 데이터 검증을 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.</p>
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <li><div class="timeline-middle"><span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">표본 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">전문 비즈니스 패널 제공업체 통해 캐나다 기업 온라인 설문(3주). 472명 응답, 자격요건 충족 285명, 최종 154개 유효표본.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 113, Sec. 3.1</span>
+              </div><hr class="bg-primary"/></li>
+            <li><hr class="bg-primary"/><div class="timeline-middle"><span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">표본 크기·무응답 편향 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">사전 검정력 분석(f²=0.15)으로 154개 표본이 요구치 상회 확인. 초기/후기 응답자 비교로 무응답 편향 부재 확인.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 113, Sec. 3.1</span>
+              </div><hr class="bg-secondary"/></li>
+            <li><hr class="bg-secondary"/><div class="timeline-middle"><span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">측정 도구 구성</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">기존 문헌 척도 채택·적응(CAC 7문항, DDC 4문항, CO 5문항, 성과 4문항). 학계 전문가 3인 사전 테스트.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 113, Sec. 3.2</span>
+              </div><hr class="bg-accent"/></li>
+            <li><hr class="bg-accent"/><div class="timeline-middle"><span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">측정모형 검증(EFA/CFA)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">EFA·CFA로 3개 문항 제거. 적합도(CFI=0.95, RMSEA=0.06) 양호, 수렴·판별타당도 확보.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 113-114, Sec. 4.1</span>
+              </div><hr class="bg-info"/></li>
+            <li><hr class="bg-info"/><div class="timeline-middle"><span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">동일방법편향(CMV) 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">절차적 개선 + CFA 기반 마커 변수 기법. 기준모형-Method-C모형 카이제곱 차이 비유의로 CMV 문제 없음 확인.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 114-115, Sec. 4.1</span>
+              </div><hr class="bg-success"/></li>
+            <li><hr class="bg-success"/><div class="timeline-middle"><span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">주효과·상호작용 검증(OLS)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">OLS 회귀(Table 4)로 H1-H4 단계적 검증. 부트스트래핑(5,000회). VIF 최대 1.34로 다중공선성 문제 없음.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 115, Table 4</span>
+              </div><hr class="bg-neutral"/></li>
+            <li><hr class="bg-neutral"/><div class="timeline-middle"><span class="bg-slate-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">매개·조절된 매개 분석(AMOS)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">AMOS 경로분석으로 H5, H6 검증(Table 5-6). Johnson-Neyman으로 임계연령(14세) 도출.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 116, Table 5-6</span>
+              </div><hr class="bg-slate-700"/></li>
+            <li><hr class="bg-slate-700"/><div class="timeline-middle"><span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span></div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">강건성 검증(내생성·누락변수편의)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">Cinelli & Hazlett 민감도 분석, 2SLS, 도구변수·Hausman 검정(p=0.53)으로 내생성 우려 완화.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 116-117, Sec. 4.3</span>
+              </div></li>
+          </ul>
+        </div>
+        <div class="divider"></div>
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div><h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4><p class="style-body font-bold mt-1 text-slate-800">높은 재현 가능성 (High Replicability)</p></div>
+          <p class="text-xs text-slate-500 max-w-md">측정 문항, 신뢰도·타당도 지표, 회귀·경로분석 결과, 강건성 검증 절차가 상세히 공개되어 통계적 재현이 매우 용이하나, 원 설문 데이터는 요청 시 제공 방식으로 즉시 공개되지는 않습니다.</p>
+        </div>
+      </section>
+
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.3)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li><strong>횡단적 설계로 인한 인과관계 확정의 한계:</strong> "the cross-sectional nature of our research design constrains our ability to definitively establish causal relationships."</li>
+              <li><strong>누락변수 편의를 완전히 배제할 수 없음:</strong> 민감도 검정을 적용했으나 이 우려를 완전히 배제할 수는 없다고 인정.</li>
+              <li><strong>단일 정보제공자 설계:</strong> CMV를 절차적·통계적으로 완화했으나 다중 정보제공자 설계가 일반화를 높일 수 있음.</li>
+              <li><strong>부정적 효과·세부 기술 미분해:</strong> 분석역량이 항상 긍정적 성과로 이어지지 않을 가능성과 AI·머신러닝 등 세부 기술 차이는 다루지 못함.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">표본 규모와 통계 해석을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200"><span class="badge badge-warning style-label text-amber-950 mb-2">1. 표본 대비 과도하게 복잡한 3원 모형</span><p class="text-sm text-slate-700">17개 이상 예측변수의 3원 상호작용·조절된 매개 모형을 154개 표본으로 검증해, 고차 항의 검정력 우려가 상존합니다.</p></div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200"><span class="badge badge-warning style-label text-amber-950 mb-2">2. 억제효과 가능성 미검증</span><p class="text-sm text-slate-700">기업연령-분석역량 상관이 0임에도 회귀계수가 유의한 현상을 "두 주효과 존재 때문"이라 해석했으나 정식 억제변수 분석은 없습니다.</p></div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200"><span class="badge badge-warning style-label text-amber-950 mb-2">3. 기술산업 편중 표본</span><p class="text-sm text-slate-700">표본의 40.3%가 기술산업에 집중되고 이 더미가 고객지향·성과와 유의 상관을 보이나, 산업 제외 재분석 등 민감도 검증이 없습니다.</p></div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200"><span class="badge badge-warning style-label text-amber-950 mb-2">4. 자기보고식 성과 측정</span><p class="text-sm text-slate-700">ROI·매출성장률 등이 객관적 재무제표가 아닌 주관적 상대평가로 측정되어 과신·사회적 바람직성 편향 가능성이 있습니다.</p></div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200"><span class="badge badge-warning style-label text-amber-950 mb-2">5. "사용 정도"만 측정, 품질은 미측정</span><p class="text-sm text-slate-700">CAC 척도가 활용 빈도·범위만 묻는 문항으로 구성되어, 실제 분석 정확도·품질을 반영하지 못하는 측정 타당도 한계가 있습니다.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">IMM Academic Paper Analysis Report</p>
+      <p>Developing Customer Analytics Capability in Firms of Different Ages</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

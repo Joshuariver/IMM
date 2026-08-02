@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Value Creation in Data-Centric B2B Platforms - IMM 2024</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'] } } } }
+  </script>
+  <style>
+    body { font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif; font-size: 16px; line-height: 1.6; background-color: #f8fafc; color: #1e293b; word-break: keep-all; }
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
+    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
+    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
+    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+    html { scroll-behavior: smooth; }
+    @media (max-width: 1024px) { .style-display { font-size: 38px; } .style-h1 { font-size: 30px; } .style-h2 { font-size: 22px; } }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Platform / Value Creation / Multiple Case Study</div>
+        <div class="badge badge-secondary text-white style-label">MindSphere · Skywise · Open-es 3개 사례</div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Value creation<br>
+            <span class="text-cyan-400">in data-centric B2B platforms</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">Ilaria Mancuso (교신저자), Antonio Messeni Petruzzelli, Umberto Panniello</p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            데이터 중심 B2B 플랫폼에서의<br><span class="text-indigo-300">가치 창출: 다중 사례연구 기반 모형</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">Siemens·Airbus·Eni 3개 플랫폼 사례 분석을 통한 클라이언트-프로바이더-인에이블러 2단계 가치창출 모형 도출</p>
+        </div>
+      </div>
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder"><div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">1M</div></div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">데이터 중심 B2B 플랫폼은 클라이언트-인에이블러 관계를 통한 데이터 획득(1단계)과 클라이언트-프로바이더 관계를 통한 데이터 조작(2단계)이라는 두 층위의 상호작용을 통해 가치를 창출합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    <div class="flex flex-col gap-16">
+
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Data-centric B2B platforms are platforms where multiple B2B users relate and manage data for creating value. Despite the growing academic and industrial interest in these platforms, the existing research does not adequately investigate (i) who are the sides managing data within data-centric B2B platforms, (ii) what activities they perform to manage data within data-centric B2B platforms, and (iii) how their relationships aimed are governed within data-centric B2B platforms. Consequently, how data-centric B2B platforms create value (i.e., who they involve, what activities they allow to do, and how they manage sides' relationships) remains unclear. To address this gap, this paper analyzes the cases of three data-centric B2B platforms (i.e., MindSphere, Skywise, Open-es). Authors (i) categorize the sides managing data on these platforms (i.e., clients, providers, enablers), (ii) identify how these sides relate to perform data acquisition and manipulation activities, and (iii) illustrate the specific governance mechanisms supporting these relationships. Finally, a model discusses the goals, the transactional and innovation behaviors, and value creation mechanisms in data-centric B2B platforms. By adopting a value creation perspective of data-centric B2B platforms, this paper contributes to both theoretical and managerial debates surrounding B2B platforms."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">데이터 중심 B2B 플랫폼</span>은 다수의 B2B 사용자가 관계를 맺고 데이터를 관리하여 가치를 창출하는 플랫폼이다. 이러한 플랫폼에 대한 학계와 산업계의 관심이 커지고 있음에도, 기존 연구는 (i) 데이터를 관리하는 참여자가 누구인지, (ii) 이들이 어떤 활동을 수행하는지, (iii) 이들의 관계가 어떻게 거버넌스되는지를 충분히 규명하지 못하고 있다. 결과적으로 데이터 중심 B2B 플랫폼이 어떻게 가치를 창출하는지는 여전히 불분명하다. 이 공백을 다루기 위해 본 논문은 3개의 데이터 중심 B2B 플랫폼(MindSphere, Skywise, Open-es) 사례를 분석한다. 저자들은 (i) 이들 플랫폼에서 데이터를 관리하는 참여자를 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">클라이언트, 프로바이더, 인에이블러</span>로 범주화하고, (ii) 이들이 데이터 획득 및 조작 활동을 수행하기 위해 어떻게 관계를 맺는지 규명하며, (iii) 이러한 관계를 뒷받침하는 구체적인 거버넌스 메커니즘을 제시한다. 마지막으로, 데이터 중심 B2B 플랫폼의 목표, 거래적·혁신적 행동, 가치창출 메커니즘을 논의하는 모형을 제시한다. 데이터 중심 B2B 플랫폼의 가치창출 관점을 채택함으로써, 본 논문은 B2B 플랫폼을 둘러싼 이론적·실무적 논의에 기여한다.
+            </blockquote>
+          </div>
+        </div>
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead><tr class="bg-slate-50 text-slate-800"><th class="w-1/4">원문 용어 (EN)</th><th class="w-1/4">한국어 번역</th><th class="w-1/2">번역 선택 이유 및 해설</th></tr></thead>
+              <tbody>
+                <tr><td class="font-semibold text-slate-900">Multi-sided Platform (MSP)</td><td>다면 플랫폼</td><td class="text-sm">둘 이상의 상호연관된 독립적 사용자 그룹 간 상호작용을 매개하는 플랫폼.</td></tr>
+                <tr><td class="font-semibold text-slate-900">Innovation Platform</td><td>혁신 플랫폼</td><td class="text-sm">외부 기업이 보완적 제품·서비스를 개발할 수 있는 토대를 제공하는 플랫폼.</td></tr>
+                <tr><td class="font-semibold text-slate-900">Data Acquisition / Manipulation</td><td>데이터 획득 / 조작</td><td class="text-sm">자산 연결로 데이터 확보(획득)와 데이터를 지식으로 가공·변환(조작)하는 두 핵심 활동.</td></tr>
+                <tr><td class="font-semibold text-slate-900">Governance Mechanisms</td><td>거버넌스 메커니즘</td><td class="text-sm">참여자 간 상호작용을 촉진하는 통제 도구·플랫폼 규칙·경계자원.</td></tr>
+                <tr><td class="font-semibold text-slate-900">Boundary Resources</td><td>경계자원</td><td class="text-sm">SDK, API, 연결장치, 인터페이스, 데이터공유계약 등.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.</p>
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q"><div class="text-left md:pl-4"><span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span><p class="font-bold text-slate-800">데이터 중심 B2B 플랫폼은 참여자·활동·거버넌스를 통해 어떻게 가치를 창출하는가?</p></div></li>
+              <li class="step step-primary" data-content="F"><div class="text-left md:pl-4"><span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span><p class="font-bold text-slate-800">클라이언트·프로바이더·인에이블러의 2단계 가치창출 모형</p></div></li>
+              <li class="step step-primary" data-content="C"><div class="text-left md:pl-4"><span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span><p class="font-bold text-slate-800">"인에이블러" 개념을 통한 플랫폼 참여자 이론 확장</p></div></li>
+            </ul>
+            <div class="divider divider-horizontal hidden md:flex"></div>
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>3가지 참여자 유형:</strong> 클라이언트(데이터 보유), 프로바이더(가치화 자원 제공), 인에이블러(데이터 이전 가능화) — 인에이블러는 신규 개념.</li>
+                  <li><strong>2단계 가치창출:</strong> 1단계(클라이언트-인에이블러, 데이터획득, 가시성·투명성) → 2단계(클라이언트-프로바이더, 데이터조작, 신규BM·운영개선·의사결정).</li>
+                  <li><strong>인에이블러의 역할:</strong> 프로바이더의 관계특화투자 필요성을 감소시켜 거래비용을 낮춤.</li>
+                </ul>
+              </div>
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">"데이터 중심 B2B 플랫폼은 클라이언트-인에이블러 관계를 통한 데이터 획득(1단계)과 클라이언트-프로바이더 관계를 통한 데이터 조작(2단계)이라는 두 층위의 상호작용을 통해 가치를 창출하며, 각 층위는 서로 다른 거버넌스 메커니즘을 필요로 한다."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+        <p class="style-body text-slate-600">연구의 신뢰도를 보장하기 위해 각 핵심 주장과 원문 인용 및 페이지 위치를 맵핑했습니다.</p>
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead><tr class="bg-slate-900 text-white"><th class="w-12">#</th><th class="w-1/4">핵심 주장</th><th class="w-1/2">원문 근거 (Original Quote)</th><th class="w-1/6 text-right">원문 위치</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="font-semibold text-slate-900">플랫폼 참여자는 클라이언트·프로바이더·인에이블러 3측으로 구분</td><td class="text-sm italic text-slate-600">"Users participating in MindSphere can be grouped around a client side, a provider side, and an enabler side."</td><td class="text-right font-medium text-slate-500">Page 5, Sec. 4.1</td></tr>
+              <tr><td>2</td><td class="font-semibold text-slate-900">클라이언트-인에이블러 관계가 데이터획득을 가능케 함 (P1)</td><td class="text-sm italic text-slate-600">"The relationship among clients and enablers allow data acquisition and is governed through resources and capabilities for connectivity, storage and integration as well as standardization."</td><td class="text-right font-medium text-slate-500">Page 11, Sec. 5.1</td></tr>
+              <tr><td>3</td><td class="font-semibold text-slate-900">측정·집계 목표가 가시성·투명성 가치를 창출 (P2)</td><td class="text-sm italic text-slate-600">"The data-centric B2B platform performs the data measurement and data aggregation goals to allow value creation in the form of data visibility and transparency."</td><td class="text-right font-medium text-slate-500">Page 11, Sec. 5.1</td></tr>
+              <tr><td>4</td><td class="font-semibold text-slate-900">클라이언트-프로바이더 관계가 데이터조작을 가능케 함 (P3)</td><td class="text-sm italic text-slate-600">"The relationship among clients and providers allow data manipulation and is governed through boundary resources as well as network building tools."</td><td class="text-right font-medium text-slate-500">Page 11, Sec. 5.2</td></tr>
+              <tr><td>5</td><td class="font-semibold text-slate-900">오케스트레이션 목표가 신규BM·운영개선·의사결정 가치를 창출 (P4)</td><td class="text-sm italic text-slate-600">"The data-centric B2B platform performs the goal of orchestrating resources... to allow value creation in the form of definition of new business models, enhancement in operational activities, and faster and better decision making."</td><td class="text-right font-medium text-slate-500">Page 11, Sec. 5.2</td></tr>
+              <tr><td>6</td><td class="font-semibold text-slate-900">인에이블러가 프로바이더의 관계특화투자 필요성을 감소</td><td class="text-sm italic text-slate-600">"we assert that the presence of enablers reduces the need for providers to perform relationship-specific investments for creating value."</td><td class="text-right font-medium text-slate-500">Page 13, Sec. 6.1</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">2-Layer Value Creation Model</span>
+        </div>
+        <div class="alert bg-slate-50 border border-slate-200 text-slate-700 rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-slate-500 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span class="text-sm">본 논문은 <strong>3개 플랫폼(MindSphere·Skywise·Open-es) 다중 사례연구</strong>로, 통계적 가설 모형(DAG)이 아니라 4개 명제로 구성된 <strong>2단계 가치창출 모형</strong>(Fig. 5)을 제시합니다.</span>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">데이터 중심 B2B 플랫폼 가치창출 모형 (Fig. 5 요약)</h3>
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 400" class="w-full h-auto">
+              <!-- Layer 1 box -->
+              <rect x="30" y="20" width="840" height="160" rx="10" fill="#ecfeff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="450" y="42" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="13">1단계 가치창출: 데이터 획득 (Data Acquisition)</text>
+
+              <rect x="70" y="60" width="180" height="70" rx="8" fill="#fff" stroke="#334155" stroke-width="2"/>
+              <text x="160" y="90" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="13">클라이언트</text>
+              <text x="160" y="108" text-anchor="middle" fill="#334155" font-size="9">(데이터 보유·생성)</text>
+
+              <rect x="650" y="60" width="180" height="70" rx="8" fill="#fff" stroke="#0d9488" stroke-width="2"/>
+              <text x="740" y="90" text-anchor="middle" font-weight="700" fill="#115e59" font-size="13">인에이블러</text>
+              <text x="740" y="108" text-anchor="middle" fill="#0f766e" font-size="9">(데이터 이전 가능화)</text>
+
+              <path d="M250 95 L 648 95" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#ar1)" marker-start="url(#ar1s)"/>
+              <text x="450" y="88" text-anchor="middle" fill="#0284c7" font-weight="700" font-size="10">거버넌스: 연결성·저장·통합자원, 표준화 (P1)</text>
+
+              <text x="450" y="160" text-anchor="middle" fill="#0369a1" font-size="10">가치창출(P2): 데이터 가시성·투명성, 내부업무·공급망관리 개선</text>
+
+              <!-- Arrow down between layers -->
+              <path d="M450 180 L 450 210" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar2)"/>
+
+              <!-- Layer 2 box -->
+              <rect x="30" y="215" width="840" height="170" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="450" y="237" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">2단계 가치창출: 데이터 조작 (Data Manipulation)</text>
+
+              <rect x="70" y="255" width="180" height="70" rx="8" fill="#fff" stroke="#334155" stroke-width="2"/>
+              <text x="160" y="285" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="13">클라이언트</text>
+              <text x="160" y="303" text-anchor="middle" fill="#334155" font-size="9">(데이터 활용)</text>
+
+              <rect x="650" y="255" width="180" height="70" rx="8" fill="#fff" stroke="#a855f7" stroke-width="2"/>
+              <text x="740" y="285" text-anchor="middle" font-weight="700" fill="#6b21a8" font-size="13">프로바이더</text>
+              <text x="740" y="303" text-anchor="middle" fill="#7e22ce" font-size="9">(자원·전문성 제공)</text>
+
+              <path d="M250 290 L 648 290" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#ar3)" marker-start="url(#ar3s)"/>
+              <text x="450" y="283" text-anchor="middle" fill="#4338ca" font-weight="700" font-size="10">거버넌스: 경계자원(SDK/API), 네트워크구축 도구 (P3)</text>
+
+              <text x="450" y="355" text-anchor="middle" fill="#3730a3" font-size="10">가치창출(P4): 신규 비즈니스모델, 운영개선(디지털 서비타이제이션), 빠르고 나은 의사결정</text>
+
+              <defs>
+                <marker id="ar1" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0ea5e9"/></marker>
+                <marker id="ar1s" viewBox="0 0 10 10" refX="4" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 10 0 L 0 5 L 10 10 z" fill="#0ea5e9"/></marker>
+                <marker id="ar2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/></marker>
+                <marker id="ar3" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/></marker>
+                <marker id="ar3s" viewBox="0 0 10 10" refX="4" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 10 0 L 0 5 L 10 10 z" fill="#4f46e5"/></marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <span class="badge badge-neutral style-label text-white w-fit">참여자 1</span>
+              <h3 class="style-h3 text-slate-900">클라이언트 (Client)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 데이터를 보유·생성하며 플랫폼 매개 상호작용으로 데이터 가치를 높이는 측.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>사례:</strong> MindSphere의 OEM·산업사용자, Skywise의 항공사·공급업체, Open-es의 ESG데이터 보유기업.</p>
+            </div>
+          </div>
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <span class="badge badge-secondary style-label text-white w-fit">참여자 2</span>
+              <h3 class="style-h3 text-slate-900">프로바이더 (Provider)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 데이터 가치를 높이는 자원·전문성을 보유, 플랫폼으로 클라이언트와 관계 맺어 수익화.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>사례:</strong> MindSphere·Skywise의 서드파티 앱개발자, Open-es의 ESG 컨설팅·인증기업.</p>
+            </div>
+          </div>
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <span class="badge badge-info style-label text-slate-900 w-fit">참여자 3 (신규)</span>
+              <h3 class="style-h3 text-slate-900">인에이블러 (Enabler)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 플랫폼 상 데이터 이전을 가능케 하거나 보완적 데이터를 보유한 측 — 본 연구의 핵심 신규 개념.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>사례:</strong> MindSphere의 시스템통합업체·IaaS(Azure, AWS), Open-es의 공공·ESG·금융기관.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto border rounded-xl mt-4">
+          <table class="table w-full text-slate-700">
+            <thead><tr class="bg-slate-900 text-white"><th>구분</th><th>MindSphere</th><th>Skywise</th><th>Open-es</th></tr></thead>
+            <tbody>
+              <tr class="bg-white"><td class="font-semibold">업종/모기업</td><td class="text-sm">제조업(Siemens)</td><td class="text-sm">항공산업(Airbus)</td><td class="text-sm">중공업(Eni)</td></tr>
+              <tr class="bg-slate-50"><td class="font-semibold">목적</td><td class="text-sm">산업 디지털전환 가속</td><td class="text-sm">운영 효율성 개선</td><td class="text-sm">지속가능 전환 지원</td></tr>
+              <tr class="bg-white"><td class="font-semibold">출시연도</td><td class="text-sm">2017</td><td class="text-sm">2017</td><td class="text-sm">2021</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Multiple Case Study</span>
+        </div>
+        <p class="style-body text-slate-600">재현 대상은 통계적 실증 분석이 아니라 <strong>문자적 반복논리 기반 다중 사례연구</strong> 절차입니다.</p>
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <li><div class="timeline-middle"><span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">다중 사례연구 방법론 채택</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">신흥·복잡 현상 탐구에 적합한 다중 사례연구(Yin, 2014) 채택, 사례 간 비교·반복으로 일반화 가능성 제고.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 3, Sec. 3</span>
+              </div><hr class="bg-primary"/></li>
+            <li><hr class="bg-primary"/><div class="timeline-middle"><span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">사례 선정(문자적 반복논리)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">4개 표집기준에 따라 MindSphere·Skywise·Open-es 선정.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 3, Table 1</span>
+              </div><hr class="bg-secondary"/></li>
+            <li><hr class="bg-secondary"/><div class="timeline-middle"><span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">2차 데이터 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">공식자료(웹사이트·보도자료 등)와 독립자료(학술기사·언론 등)를 이원적으로 수집·정리.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 3-4, Sec. 3.2</span>
+              </div><hr class="bg-accent"/></li>
+            <li><hr class="bg-accent"/><div class="timeline-middle"><span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">1차 데이터 수집(반구조화 인터뷰)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">각 플랫폼 관계자 4인과 45-60분 인터뷰(녹음·전사·메모).</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Sec. 3.2</span>
+              </div><hr class="bg-info"/></li>
+            <li><hr class="bg-info"/><div class="timeline-middle"><span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">사례 내 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">사례별 서술적 역사기술·스키마 개발, 다중 라운드 데이터 수집으로 명확성 확보.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Sec. 3.3</span>
+              </div><hr class="bg-success"/></li>
+            <li><hr class="bg-success"/><div class="timeline-middle"><span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">사례 간 분석 및 3단계 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">1차범주→2차테마→집계차원(플랫폼측/거버넌스/가치창출)의 3단계 코딩(Fig. 1).</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Fig. 1</span>
+              </div><hr class="bg-neutral"/></li>
+            <li><hr class="bg-neutral"/><div class="timeline-middle"><span class="bg-slate-800 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span></div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">모형화 및 명제 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">데이터 획득·조작 2개 활동 축으로 2단계 모형(Fig. 5) 구축, 4개 명제(P1-P4) 도출.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 10-11, Sec. 5</span>
+              </div></li>
+          </ul>
+        </div>
+        <div class="divider"></div>
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div><h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4><p class="style-body font-bold mt-1 text-slate-800">제한적 재현 가능 (Limited Replicability)</p></div>
+          <p class="text-xs text-slate-500 max-w-md">사례선정·수집전략·코딩절차가 상세히 제시되나, 원 전사본·2차자료 원문은 사실상 비공개이며 3인 저자의 해석적 합의에 의존해 완전한 재현은 어렵습니다.</p>
+        </div>
+      </section>
+
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6.3)에서 연구진이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li><strong>산업 생산환경 3개 사례에 국한:</strong> "the research considers only three cases operating in industrial productive environments."</li>
+              <li><strong>대기업 사례만 분석:</strong> "the research analyzed three incumbents. Future research may consider SME's or start-ups' approaches."</li>
+              <li><strong>가치 포착은 미다룸:</strong> "this study focuses on value creation... Further research can investigate also value capture."</li>
+              <li><strong>능동적 데이터 활용 플랫폼에 한정:</strong> 데이터 거래만 하는 플랫폼(예: 데이터 마켓플레이스)에는 적용 여부 미검증.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">표본·자료 출처와 명제의 검증가능성을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200"><span class="badge badge-warning style-label text-amber-950 mb-2">1. 인터뷰 대상자의 대표성 제한</span><p class="text-sm text-slate-700">플랫폼당 1-2명만 인터뷰해 수백~수천 참여자 중 극소수 시각만 반영되었고, 플랫폼 소유기업 관계자가 과대 대표되었을 가능성이 있습니다.</p></div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200"><span class="badge badge-warning style-label text-amber-950 mb-2">2. 공식 자료 의존에 따른 낙관 편향</span><p class="text-sm text-slate-700">2차 자료가 주로 플랫폼 소유기업의 공식 웹사이트·백서에서 수집되어 긍정적 서사가 과대 대표되었을 위험이 있습니다.</p></div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200"><span class="badge badge-warning style-label text-amber-950 mb-2">3. 유럽 대기업 3사로 구성된 동질성</span><p class="text-sm text-slate-700">"다양한 업종"이라 주장하나 실제로는 모두 유럽 대형 산업재 대기업이 주도해, 미국·아시아 빅테크 주도 플랫폼과의 차이가 검토되지 않았습니다.</p></div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200"><span class="badge badge-warning style-label text-amber-950 mb-2">4. 명제의 검증 가능성 부재</span><p class="text-sm text-slate-700">4개 명제가 통계적으로 반증 가능한 형태로 조작화되지 않아 이론적 지위가 잠정적입니다.</p></div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200"><span class="badge badge-warning style-label text-amber-950 mb-2">5. 인에이블러의 부정적 효과 미검토</span><p class="text-sm text-slate-700">인에이블러 역할이 전적으로 긍정적으로만 서술되어, 특정 인에이블러(예: 특정 IaaS)에 대한 과도한 의존이 낳을 신규 락인 위험은 논의되지 않았습니다.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">IMM Academic Paper Analysis Report</p>
+      <p>Value Creation in Data-Centric B2B Platforms: A Model Based on Multiple Case Studies</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
