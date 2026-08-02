@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paradox Blindness: How Managers Frame Coopetition - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
+    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
+    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
+    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+
+    html { scroll-behavior: smooth; }
+
+    @media (max-width: 1024px) {
+      .style-display { font-size: 38px; }
+      .style-h1 { font-size: 30px; }
+      .style-h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Qualitative Study · Coopetition</div>
+        <div class="badge badge-secondary text-white style-label">Vol.120, pp.160–174</div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Paradox blindness:<br>
+            <span class="text-cyan-400">How managers frame coopetition</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Mika Yrjölä, Aleksi Niittymies, Abdollah Mohammadparast Tabas
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            역설에 대한 눈멂:<br>
+            <span class="text-indigo-300">관리자는 코피티션을 어떻게 프레이밍하는가</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            핀란드 헬스케어 생태계 24개 조직, 26건 인터뷰에 대한 질적 주제 분석
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">관리자는 코피티션의 역설을 부정·수용·무의식적 부정(눈멂)으로 프레이밍하며, "역설에 대한 눈멂"은 관리 능력 자체를 박탈합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-info btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Coopetition, characterized by the simultaneous pursuit of cooperation and competition, presents a paradoxical challenge for organizations and the individuals involved. This study explores managers' capacity to manage the inherent paradox of coopetition, focusing on the managerial framings and the various contextual factors shaping them. While the importance of coopetition-oriented mindsets, paradoxical frames, and cognitive and emotional capabilities is recognized for successful management of these challenges, more research is needed to understand how individual managers frame coopetition. The framing perspective is important, because it shows how managers make sense of and try to influence their own behavior as well as that of others. Utilizing a qualitative approach, we analyzed 26 interviews with top managers from 24 organizations within the same healthcare ecosystem. As a result, we develop a framework outlining three distinct paths to framing coopetition: conscious denial, acceptance, and unconscious denial, along with five specific framings. Our findings highlight the impact of these framings on managers' ability to manage coopetition effectively and the conditions shaping the different framings. Through these insights, this research advances our understanding of coopetition management and underscores the crucial role of context, enriching both theoretical discourse and practical application."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              협력과 경쟁을 동시에 추구하는 것을 특징으로 하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">코피티션(coopetition)</span>은 조직과 그에 관여하는 개인들에게 역설적 과제를 제기한다. 본 연구는 코피티션에 내재한 역설을 관리하는 관리자의 역량을 탐구하며, 특히 관리자의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">프레이밍(framing)</span>과 이를 형성하는 다양한 맥락적 요인에 초점을 맞춘다. 코피티션 지향적 마인드셋, 역설적 프레임, 인지적·정서적 역량의 중요성은 인정되어 왔지만, 개별 관리자가 코피티션을 어떻게 프레이밍하는지에 대해서는 더 많은 연구가 필요하다. 프레이밍 관점은 관리자가 자신과 타인의 행동을 어떻게 의미화하고 영향을 미치려 하는지를 보여주기에 중요하다. 본 연구는 질적 접근을 활용하여 동일한 헬스케어 생태계 내 24개 조직의 최고경영진을 대상으로 한 26건의 인터뷰를 분석하였다. 그 결과, 코피티션을 프레이밍하는 세 가지 경로 — <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">의식적 부정, 수용, 무의식적 부정</span> — 와 다섯 가지 구체적 프레이밍으로 구성된 프레임워크를 도출하였다. 본 연구의 발견은 이러한 프레이밍이 관리자의 효과적인 코피티션 관리 능력에 미치는 영향과, 서로 다른 프레이밍을 형성하는 조건들을 규명한다. 이를 통해 본 연구는 코피티션 관리에 대한 이해를 진전시키고 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">맥락(context)</span>의 결정적 역할을 강조함으로써 이론적 논의와 실무 적용 모두를 풍부하게 한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Coopetition</td>
+                  <td>코피티션 / 협력경쟁</td>
+                  <td class="text-sm">경쟁(competition)과 협력(cooperation)의 합성어. 국내 문헌에서 음역·의역이 혼재하여 원어를 병기함.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Framing / Frame</td>
+                  <td>프레이밍 / 프레임</td>
+                  <td class="text-sm">frame(내용, 인지구조)과 framing(그 내용을 구성·행사하는 행위)의 학술적 구분을 살리기 위해 원어 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Paradox blindness</td>
+                  <td>역설에 대한 눈멂</td>
+                  <td class="text-sm">본 논문이 새로 제안하는 개념. 실제 경쟁을 무의식적으로 인지하지 못하는 상태를 시각적 은유(blindness)로 표현.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Conscious / Unconscious denial</td>
+                  <td>의식적 / 무의식적 부정</td>
+                  <td class="text-sm">코피티션의 역설을 억압(repress)하는 두 가지 서로 다른 인지적 경로를 구분.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Coopetition-oriented mindset</td>
+                  <td>코피티션 지향적 마인드셋</td>
+                  <td class="text-sm">경쟁자와 협력하는 것의 중요성을 인지하는 관리자의 역량(선행연구 개념, Crick & Crick).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">관리자는 코피티션의 역설을 어떻게 프레이밍하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">부정·수용·무의식적 부정(눈멂)의 3경로 5프레이밍</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">"역설에 대한 눈멂" 개념 및 맥락 요인 규명</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 관리자는 코피티션에 내재한 역설을 어떻게 프레이밍하는가? 이 프레이밍은 어떤 맥락적 요인에 의해 형성되며, 코피티션을 효과적으로 관리하는 능력에 어떤 영향을 미치는가?</li>
+                  <li><strong>핵심 발견:</strong> 코피티션 프레이밍에는 (1) 의식적 부정 — 중복의 축소 해석, (2) 수용 — 산업 규범·이익·필요성 프레이밍, (3) 무의식적 부정 — "역설에 대한 눈멂"이라는 세 경로·다섯 프레이밍이 존재하며, 각각 제품·조직·시장 맥락 요인의 영향을 받는다.</li>
+                  <li><strong>이론/실무 기여:</strong> 기존 문헌이 역설 "인식의 정도" 차이만 다뤘던 것과 달리, 역설을 아예 인지하지 못하는 "역설맹" 개념을 최초로 제시하고, 관리자의 코피티션 배치 점검 체크리스트 등 실무 시사점을 제공한다.</li>
+                </ul>
+              </div>
+
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "관리자는 코피티션의 역설을 의식적으로 부정하거나, 수용하거나, 무의식적으로 부정(눈멂)하는 세 가지 경로로 프레이밍하며, 이 중 '역설에 대한 눈멂'은 실제 경쟁을 인지하지 못하게 하여 코피티션을 관리할 능력 자체를 박탈합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 인터뷰 근거 데이터의 원문 인용 및 페이지·절 위치를 맵핑했습니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">3경로 5프레이밍 프레임워크</td>
+                <td class="text-sm italic text-slate-600">"we identified three paths through which framing of the coopetition paradox can take place: (1) Consciously denying the paradox, (2) Accepting the paradox, and (3) Unconsciously denying the paradox... five more specific ways..."</td>
+                <td class="text-right font-medium text-slate-500">p.167, §4</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">의식적 부정: 중복의 축소 해석</td>
+                <td class="text-sm italic text-slate-600">"managers actively belittling the overlap between their company and its rivals to reduce experienced tensions... this might reduce their ability to manage the paradoxes"</td>
+                <td class="text-right font-medium text-slate-500">p.167, §4.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">수용: 규범·이익·필요성 3유형</td>
+                <td class="text-sm italic text-slate-600">"coopetition becomes acceptable through framing it as following industry norms... as beneficial... or as the only possible way forward (a necessity)"</td>
+                <td class="text-right font-medium text-slate-500">p.167, §4</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">무의식적 부정: 역설에 대한 눈멂</td>
+                <td class="text-sm italic text-slate-600">"managers engaged in coopetition without perceiving it as coopetition... even though they were competing for the same customers and resources"</td>
+                <td class="text-right font-medium text-slate-500">p.170, §4.3</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">역설맹의 위험성</td>
+                <td class="text-sm italic text-slate-600">"turning a blind eye toward competition, might lead to exposure to opportunism, knowledge leakage, and value appropriation"</td>
+                <td class="text-right font-medium text-slate-500">p.171, §5.1</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">3범주 25개 맥락 요인</td>
+                <td class="text-sm italic text-slate-600">"these factors were iteratively combined into 25 factors that were further categorized into three categories: product, organization, and market factors"</td>
+                <td class="text-right font-medium text-slate-500">p.165 / Table 3, p.167</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">소규모/자원 부족 기업의 필요성 프레이밍</td>
+                <td class="text-sm italic text-slate-600">"As a small startup company, we must cooperate... We cannot afford to have our own big R&D department. [Informant 5]"</td>
+                <td class="text-right font-medium text-slate-500">p.169, §4.2.3</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">강력한 3자에 의한 코피티션 강제</td>
+                <td class="text-sm italic text-slate-600">"powerful third parties, including customers and funders, that force them to collaborate with their competitors"</td>
+                <td class="text-right font-medium text-slate-500">p.169–170, §4.2.3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Conceptual Framework</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 연구는 정성적 귀납 분석이므로 정량적 가설검증(SEM) 모형이 아니라 <strong>개념적 프레임워크(conceptual framework)</strong>를 제시합니다. 아래 다이어그램은 논문 Fig. 1의 논리를 재구성하여, 맥락 요인 → 프레이밍 경로/구체적 프레이밍 → 코피티션 역설 관리 능력의 흐름을 시각화한 것입니다.
+        </p>
+
+        <!-- Conceptual Framework SVG -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual Framework (개념적 프레임워크 — 정량 가설 모형 아님)</h3>
+
+          <div class="w-full bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 620" class="w-full h-auto">
+              <!-- Left: Contextual factors -->
+              <rect x="20" y="220" width="200" height="180" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+              <text x="120" y="255" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">맥락적 요인</text>
+              <text x="120" y="275" text-anchor="middle" fill="#475569" font-size="11">(Contextual Factors)</text>
+              <text x="120" y="305" text-anchor="middle" fill="#64748b" font-size="11">제품 요인 (Product)</text>
+              <text x="120" y="325" text-anchor="middle" fill="#64748b" font-size="11">조직 요인 (Organization)</text>
+              <text x="120" y="345" text-anchor="middle" fill="#64748b" font-size="11">시장 요인 (Market)</text>
+              <text x="120" y="375" text-anchor="middle" fill="#94a3b8" font-size="10">— 총 25개 세부 요인 (Table 3) —</text>
+
+              <!-- Middle: three framing paths -->
+              <!-- Path 1: Conscious denial -->
+              <rect x="290" y="30" width="280" height="150" rx="10" fill="#fff1f2" stroke="#e11d48" stroke-width="2"/>
+              <text x="430" y="58" text-anchor="middle" font-weight="700" fill="#9f1239" font-size="14">① 의식적 부정 (Conscious Denial)</text>
+              <text x="430" y="85" text-anchor="middle" fill="#be123c" font-size="12" font-weight="600">중복의 축소 해석</text>
+              <text x="430" y="102" text-anchor="middle" fill="#be123c" font-size="11">(Belittling the overlap)</text>
+              <text x="430" y="128" text-anchor="middle" fill="#9f1239" font-size="10">경쟁자를 상호보완적 행위자로</text>
+              <text x="430" y="144" text-anchor="middle" fill="#9f1239" font-size="10">재정의하여 긴장을 축소</text>
+              <text x="430" y="164" text-anchor="middle" fill="#e11d48" font-size="10" font-weight="600">§4.1</text>
+
+              <!-- Path 2: Accepting -->
+              <rect x="290" y="220" width="280" height="180" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="430" y="248" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">② 수용 (Accepting the Paradox)</text>
+              <text x="430" y="272" text-anchor="middle" fill="#047857" font-size="11">1) 산업 규범 준수 (Industry norms)</text>
+              <text x="430" y="292" text-anchor="middle" fill="#047857" font-size="11">2) 이익 강조 (Emphasizing benefits)</text>
+              <text x="430" y="312" text-anchor="middle" fill="#047857" font-size="11">3) 필요성 (Necessity)</text>
+              <text x="430" y="338" text-anchor="middle" fill="#065f46" font-size="10">이익·위험을 현실적으로</text>
+              <text x="430" y="354" text-anchor="middle" fill="#065f46" font-size="10">동시에 인식하는 프레이밍</text>
+              <text x="430" y="378" text-anchor="middle" fill="#10b981" font-size="10" font-weight="600">§4.2.1–4.2.3</text>
+
+              <!-- Path 3: Unconscious denial -->
+              <rect x="290" y="440" width="280" height="150" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+              <text x="430" y="468" text-anchor="middle" font-weight="700" fill="#9a3412" font-size="14">③ 무의식적 부정 (Unconscious Denial)</text>
+              <text x="430" y="495" text-anchor="middle" fill="#c2410c" font-size="12" font-weight="600">역설에 대한 눈멂</text>
+              <text x="430" y="512" text-anchor="middle" fill="#c2410c" font-size="11">(Paradox Blindness)</text>
+              <text x="430" y="538" text-anchor="middle" fill="#9a3412" font-size="10">실제로는 경쟁하면서도</text>
+              <text x="430" y="554" text-anchor="middle" fill="#9a3412" font-size="10">경쟁의 존재 자체를 인지 못함</text>
+              <text x="430" y="574" text-anchor="middle" fill="#ea580c" font-size="10" font-weight="600">§4.3</text>
+
+              <!-- Right: Ability outcomes -->
+              <rect x="650" y="45" width="220" height="120" rx="10" fill="#fef2f2" stroke="#f87171" stroke-width="2"/>
+              <text x="760" y="90" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="14">제한적 관리 가능</text>
+              <text x="760" y="110" text-anchor="middle" fill="#b91c1c" font-size="11">(Limited Ability)</text>
+              <text x="760" y="135" text-anchor="middle" fill="#991b1b" font-size="10">경쟁 인지는 하나 억압적으로 대응</text>
+
+              <rect x="650" y="245" width="220" height="130" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+              <text x="760" y="288" text-anchor="middle" font-weight="700" fill="#166534" font-size="14">관리 가능</text>
+              <text x="760" y="308" text-anchor="middle" fill="#15803d" font-size="11">(Ability)</text>
+              <text x="760" y="332" text-anchor="middle" fill="#166534" font-size="10">역설을 인정하고 긴장을</text>
+              <text x="760" y="348" text-anchor="middle" fill="#166534" font-size="10">의식적으로 관리</text>
+
+              <rect x="650" y="460" width="220" height="120" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+              <text x="760" y="503" text-anchor="middle" font-weight="700" fill="#7f1d1d" font-size="14">관리 불가능</text>
+              <text x="760" y="523" text-anchor="middle" fill="#991b1b" font-size="11">(Inability)</text>
+              <text x="760" y="548" text-anchor="middle" fill="#7f1d1d" font-size="10">역설 자체를 인지 못해 대응 불가</text>
+
+              <!-- Arrows: context -> paths -->
+              <path d="M220 280 C 250 200, 260 120, 288 100" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrowC)"/>
+              <path d="M220 310 L 288 310" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrowC)"/>
+              <path d="M220 340 C 250 430, 260 480, 288 500" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrowC)"/>
+
+              <!-- Arrows: paths -> outcomes -->
+              <path d="M570 100 L 648 105" fill="none" stroke="#e11d48" stroke-width="2" marker-end="url(#arrowR)"/>
+              <path d="M570 310 L 648 310" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrowG)"/>
+              <path d="M570 510 L 648 515" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowO)"/>
+
+              <!-- Arrow markers -->
+              <defs>
+                <marker id="arrowC" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+                </marker>
+                <marker id="arrowR" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#e11d48"/>
+                </marker>
+                <marker id="arrowG" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+                </marker>
+                <marker id="arrowO" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#ea580c"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 self-start">※ 원 논문에는 통계적 가설(H1, H2...)이 없으므로, 화살표는 인과 검증된 경로가 아니라 저자들이 이론적으로 논의(theorize)한 개념적 흐름을 나타냅니다.</p>
+        </div>
+
+        <!-- Variable Detail Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Contextual factors card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">맥락적 선행요인</span>
+                <span class="text-xs text-slate-400 font-semibold">Contextual Antecedents</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">제품 · 조직 · 시장 요인 (Product / Organization / Market Factors)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 제품 요인은 초점기업의 제품 제공물 및 관련 기술적 역량의 성격, 조직 요인은 조직의 상대적 규모·성숙도·신념·가치, 시장 요인은 경쟁 조직의 수·유사성·사업 관행·협상력·고객 요구사항을 의미.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 인터뷰 코딩으로 31개 세부 요인을 식별 후 25개로 정제, 3개 상위 범주로 구성 (Table 3).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 26건 반구조화 인터뷰 + 26쪽 분량 메모의 주제 분석(Braun & Clarke, 2006). 11개 코드군, 101개 코드.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Luostarinen(1979)의 국제화 맥락 요인 분류를 코피티션 프레이밍에 적용. Busse et al.(2017)의 이론 맥락 의존성 논의와 연결.
+              </p>
+            </div>
+          </div>
+
+          <!-- Framing paths card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">핵심 구성개념</span>
+                <span class="text-xs text-slate-400 font-semibold">Framing Paths</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">프레이밍 경로 (3 Paths)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 의식적 부정(중복 축소 해석), 수용(이익·위험 현실 인식), 무의식적 부정(경쟁 인지 실패)의 세 경로.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 경쟁자 언급 방식·경쟁 정도 진술·협력 정당화 논리를 코딩하여 3경로 중 하나로 분류.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 자체 코딩 스킴 (Table 2); Goffman(1974) 프레임 분석 이론.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Benford & Snow(2000)의 frame/framing 구분, Smith & Tushman(2005)의 역설적 프레임 개념과 연결.
+              </p>
+            </div>
+          </div>
+
+          <!-- Five specific framings card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">하위 구성개념</span>
+                <span class="text-xs text-slate-400 font-semibold">Five Specific Framings</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">다섯 가지 구체적 프레이밍</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> ① 중복의 축소 해석 ② 산업 규범 준수 ③ 이익 강조 ④ 필요성 ⑤ 역설에 대한 눈멂 — 관리자가 경쟁자 관계를 언어적으로 구성하는 구체적 방식.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Table 2에 제시된 대표 인용문으로 조작화됨.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 인터뷰 발화의 귀납적 주제 분석 (Table 2, pp.166–167).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Bengtsson & Kock(2000)의 딜레마/역설 접근 구분, Xue et al.(2023)의 역설적 인지·감정 조절 논의.
+              </p>
+            </div>
+          </div>
+
+          <!-- Ability outcome card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">결과 구성개념</span>
+                <span class="text-xs text-slate-400 font-semibold">Managerial Ability Outcome</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">코피티션 역설 관리 능력 (Ability / Limited Ability / Inability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 프레이밍의 결과로 나타나는, 관리자가 코피티션 역설을 의식적으로 다룰 수 있는 역량의 수준.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 별도 척도 없이 저자들이 이론적으로 분류 — 수용(Ability), 의식적 부정(Limited Ability), 무의식적 부정/역설맹(Inability).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 논의(discussion, §5.1)에서의 이론적 해석. 성과 지표(수익 등)로 실증 검증되지 않음.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Raza-Ullah et al.(2014)의 코피티션 긴장 관리, Bahar et al.(2022)의 역설 인식 정도 논의를 확장.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않은 연구자도 동일한 질적 연구 절차를 <strong>그대로 재현</strong>할 수 있도록 인터뷰 기반 주제 분석 과정을 타임라인으로 단계화하였습니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 맥락(생태계) 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  협력성과 경쟁성이 모두 높은 헬스케어 생태계(핀란드 제2 헬스테크 허브, Health and Life Science 생태계, 2014년 설립, 70개 이상 회원사)를 연구 맥락으로 선정. 대학병원과 연계되나 직접 환자 진료보다 규제가 느슨해 관리자 재량이 큰 특성을 활용.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.163–164, §3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">표본 모집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  연구진 1인이 생태계 웹사이트를 통해 회원사 대부분에 초청장 발송, 24개 조직이 참여 의사 표명. 협력/경쟁 활동에 가장 정통한 정보원으로서 주로 CEO 등 최고경영진을 인터뷰 대상으로 선정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.164, §3.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">반구조화 인터뷰 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  24개 조직 대상 총 26건 인터뷰 수행(2개 조직은 2인 인터뷰). 9건 온라인, 17건 대면. 인터뷰 시간 38~100분. 응답자·기업 정보는 Table 1에 상세 기록(설립연도, 매출, 인터뷰 시간).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.164–165, §3.2, Table 1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">코딩 및 메모 작성 (1차 분석)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  각 인터뷰를 코딩하되 응답자 고유 용어("low overlap", "collaboration is a value" 등)를 최대한 활용. 총 11개 코드군, 101개 개별 코드 생성. 응답자·기업 특성, 프레이밍, 영향 요인을 요약한 메모(총 26쪽) 작성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.165, §3.3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">반복적 주제 분석 (프레이밍 패턴 도출)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  데이터와 emerging pattern 사이를 반복 왕복하며 분석. 일부 응답자는 역설을 인식하고 다른 응답자는 눈이 먼 패턴을 발견, 이를 전환점 삼아 Braun & Clarke(2006) 주제 분석 절차로 5개 프레이밍(Table 2)과 Fig.1 프레임워크 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.165, §3.3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">맥락 요인 식별 및 범주화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  코드와 메모를 재검토하여 프레이밍 형성에 관여하는 31개 요인을 식별, 반복 통합을 통해 25개 요인으로 정제 후 제품/조직/시장 3개 범주로 분류 (Table 3).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.165, §3.3 / Table 3, p.167</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">신뢰성(Trustworthiness) 확보</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  질적연구 4대 기준(신빙성·전이가능성·의존가능성·확증가능성; Lincoln & Guba, 1985) 충족: 3인 독립 코더 활용, 제한된 일반화 가능성 인정, 절차의 투명한 기술, 주제 분석에서의 포화(saturation) 추구.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.165–166, §3.4</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            절차의 논리와 신뢰성 확보 방식은 투명하게 제시되어 있으나, 원자료(인터뷰 전사본)는 비공개("The data that has been used is confidential")이며 특정 비공개 생태계의 특수 표본에 의존하므로, 동일 표본·동일 코드셋의 완전한 재현은 제한적입니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(§5.3)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>귀납적 접근의 주관성:</strong> "as this research involves an inductive, data-driven approach, the analysis contains a degree of subjective interpretation."
+              </li>
+              <li>
+                <strong>제한된 연구 맥락:</strong> "the research data represents a fruitful but limited research context." — 단일 헬스케어 생태계 표본.
+              </li>
+              <li>
+                <strong>국가/문화적 특수성:</strong> 핀란드에서 수행되어 문화적 특성이 프레이밍에 영향을 미쳤을 수 있음 (다만 세계화가 문화를 동질화한다는 반론도 함께 제시, Carr 2005).
+              </li>
+              <li>
+                <strong>산업 특수성:</strong> "The studied Health and Life Science ecosystem and the healthcare sector more broadly have certain characteristics that can limit the generalizability of the findings."
+              </li>
+              <li>
+                <strong>분석 대상의 편협성:</strong> 관리자의 프레이밍에만 초점 — 직원, 고객 등 다른 이해관계자로 확장 필요.
+              </li>
+              <li>
+                <strong>성과 함의 미검증:</strong> "We call for quantitative studies to verify and measure the performance implications of different framings."
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 질적 분석 방법론을 근거로 제기할 수 있는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 사후 합리화 가능성</span>
+                <p class="text-sm text-slate-700">
+                  횡단적 인터뷰이므로, 이미 결과를 아는 상태에서 관리자가 과거 행동을 정당화하기 위해 프레이밍을 <strong>사후적으로 구성</strong>했을 가능성이 있으나 논문은 이 인과 방향을 검증하지 않는다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 표본 자기선택 편향</span>
+                <p class="text-sm text-slate-700">
+                  70개 이상 회원사 중 24개(약 1/3)만 응답. 자발적으로 응한 관리자는 이미 코피티션에 성찰적/개방적인 성향일 가능성이 높아 표본이 특정 성향으로 치우쳤을 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 사회적 바람직성 편향</span>
+                <p class="text-sm text-slate-700">
+                  외부 연구자에게 경쟁 전략을 말하는 상황에서 실제보다 우호적으로 각색된 서사가 제공되었을 수 있다. "역설에 대한 눈멂"이 실제 인지적 무지가 아니라 전략적 축소 발언일 가능성을 배제하지 못한다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. "실제 경쟁" 판단의 근거 취약성</span>
+                <p class="text-sm text-slate-700">
+                  역설맹 사례에서 "실제로는 경쟁하고 있음"이라는 판단이 독립적 시장 데이터가 아니라 다른 응답자의 발화나 연구진의 해석에 근거한다. 인지된 경쟁과 실제 경쟁의 간극 주장은 확증에 취약하다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 코더 간 신뢰도 미보고</span>
+                <p class="text-sm text-slate-700">
+                  3인의 독립 코더를 신빙성 근거로 제시하나(p.165), Cohen's kappa 등 코더 간 일치도 수치는 보고되지 않는다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 생존 편향 및 맥락 특수성</span>
+                <p class="text-sm text-slate-700">
+                  인터뷰 대상은 모두 현재 생존 중인 기업의 경영진이며, 헬스케어·핀란드라는 신뢰 기반 협력 문화가 강한 맥락에 국한된다. 경쟁이 더 치열한 다른 산업/문화권으로의 일반화 가능성은 이론적으로만 언급될 뿐 실증되지 않는다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Paradox blindness: How managers frame coopetition</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

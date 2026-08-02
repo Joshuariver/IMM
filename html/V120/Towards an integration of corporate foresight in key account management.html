@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Towards an Integration of Corporate Foresight in Key Account Management - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Key Account Management &amp; Corporate Foresight</div>
+        <div class="badge badge-secondary text-white style-label">Conceptual Framework Paper</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Towards an integration of corporate foresight<br>
+            <span class="text-cyan-400">in key account management</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Christian Lautenschlager, Nektarios Tzempelikos &mdash; Anglia Ruskin University, UK
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            키 어카운트 관리(KAM)에서<br>
+            <span class="text-indigo-300">기업 예측(Corporate Foresight) 통합을 향하여</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            KAM과 CF, 두 개별 연구 영역을 최초로 통합한 &ldquo;예측 주도형 KAM&rdquo; 개념적 프레임워크 제안
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">예측하지 않는 KAM은 반응적일 뿐이다 &mdash; CF 역량을 계획·의사결정·전략에 심어야 성과로 이어진다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Corporate Foresight (CF) suggests a strategic capability that enables organisations to anticipate emerging market trends, customer needs, and competitive dynamics, providing a proactive approach to decision-making and value creation. This article explores the transformative potential of CF in key account management (KAM), shedding light on its role in shaping the future of customer engagement and organisational success. This study proposes a conceptual framework integrating CF practices into KAM processes and performance metrics. The findings emphasise the critical role of CF in driving innovation, fostering long-term customer relationships, and achieving competitive advantage. The paper extends the KAM research agenda, positioning the analysis of KAM in a broader organisational context, beyond the 'boundaries' of the sales/marketing function. The article concludes by offering practical implications and recommendations for organisations seeking to embrace the power of foresight in their KAM strategies. Finally, we identify avenues for future research."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">기업 예측(Corporate Foresight, CF)</span>은 조직이 부상하는 시장 트렌드, 고객 요구, 경쟁 역학을 미리 예견할 수 있게 해주는 전략적 역량으로서, 의사결정과 가치 창출에 대한 선제적 접근을 가능케 한다. 본 논문은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">키 어카운트 관리(Key Account Management, KAM)</span>에서 CF가 가진 변혁적 잠재력을 탐구하며, 고객 관계의 미래와 조직적 성공을 형성하는 데 있어 CF의 역할을 조명한다. 본 연구는 CF 관행(practices)을 KAM 프로세스 및 성과 지표에 통합하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">개념적 프레임워크</span>를 제안한다. 연구 결과는 혁신 촉진, 장기적 고객 관계 구축, 경쟁우위 확보에 있어 CF가 수행하는 핵심적 역할을 강조한다. 본 논문은 KAM 연구 의제를 확장하여, KAM에 대한 분석을 영업/마케팅 기능이라는 '경계'를 넘어선 보다 광범위한 조직적 맥락에 위치시킨다. 마지막으로 논문은 KAM 전략에 예측의 힘을 접목하고자 하는 조직들을 위한 실무적 시사점과 권고안을 제시하고, 향후 연구 방향을 제안하며 마무리한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Corporate Foresight (CF)</td>
+                  <td>기업 예측(력)</td>
+                  <td class="text-sm">환경 스캐닝·시나리오·로드맵 등을 통해 미래를 체계적으로 예견하는 조직 역량. 단순 '예측(forecasting)'과 구분되는 학술 표준 용어.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Key Account Management (KAM)</td>
+                  <td>키 어카운트 관리(핵심 거래처 관리)</td>
+                  <td class="text-sm">전략적으로 중요한 소수 고객에게 차별적 자원을 투입하는 B2B 관계마케팅 기법. 원어 병기가 일반적이므로 그대로 병용.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Foresight-driven KAM</td>
+                  <td>예측 주도형 KAM</td>
+                  <td class="text-sm">CF 도구·방법론을 KAM 프로세스에 체계적으로 내재화한 운영 방식. 기존 '반응적(reactive)' KAM과 대비되는 핵심 개념.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Environmental / Horizon Scanning</td>
+                  <td>환경 스캐닝 / 지평 스캐닝</td>
+                  <td class="text-sm">외부 환경의 트렌드·약한 신호(weak signal) 및 신흥 리스크의 조기 징후를 탐지하는 CF의 기초 활동.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Scenario Building / Backcasting / Wild Cards</td>
+                  <td>시나리오 구축 / 백캐스팅 / 와일드카드</td>
+                  <td class="text-sm">복수의 미래 서사 구성, 목표에서 역행하는 경로 설계, 저확률·고영향 돌발 사건 대비 등 CF 대표 방법론.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Adaptive Selling</td>
+                  <td>적응적 판매</td>
+                  <td class="text-sm">고객의 의사결정 방식을 이해하고 그에 맞춰 접근을 조정하는 영업 개념. CF를 통한 고객 이해 심화와 접점을 이룸.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">KAM과 CF, 왜 교차 연구가 없는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">예측 주도형 KAM 개념적 프레임워크 제안</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">두 연구 영역 최초 통합 + 실무 KPI 체계</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> KAM과 CF는 각각 독립적으로 활발히 연구되어 왔으나(Web of Science 2002&ndash;2022 분석), 교차 연구는 0건이다. CF를 KAM 프로세스에 통합하면 어떤 효과가 있는가?</li>
+                  <li><strong>핵심 발견:</strong> 시장 역동성·환경 불확실성이라는 투입(Inputs)에서 출발해, CF 관행(환경 스캐닝·시나리오 공동개발 등)이 KAM의 계획&rarr;의사결정&rarr;전략 각 단계에 투입되어 최종적으로 상업적 성과·고객 경험·기업 혁신이라는 산출(Output)로 이어지는 <strong>5단계 프로세스 프레임워크</strong>(Fig. 2)를 제안.</li>
+                  <li><strong>이론/실무 기여:</strong> "본 논문은 KAM과 CF를 통합한 최초의 시도"라고 저자들이 명시. KAM 연구를 영업/마케팅 경계 너머로 확장하고, CF의 KAM 성과 기여를 측정할 KPI 체계(Table 1)와 5개 향후 연구 의제를 제공.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "예측하지 않는 KAM은 반응적일 뿐이다 &mdash; 기업 예측(CF) 역량을 계획·의사결정·전략 단계에 체계적으로 심어야 KAM이 상업적 성과·고객경험·혁신이라는 결실로 이어진다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">KAM과 CF 교차 연구의 부재</td>
+                <td class="text-sm italic text-slate-600">
+                  "Interestingly, no publications were found that specifically address the intersection of KAM and CF."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.92 (Sec. 2.3, Fig. 1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">두 연구 영역을 통합한 최초의 종합 시도</td>
+                <td class="text-sm italic text-slate-600">
+                  "To the best of our knowledge, the current paper is the first attempt to integrate and synthesise findings from both research areas (KAM and CF)..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.97 (Sec. 5)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">CF 관행을 KAM 프로세스 단계별로 연결</td>
+                <td class="text-sm italic text-slate-600">
+                  "The framework connects CF practices... to phases of KAM process: planning, KAM decisions and strategy."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.97 (Sec. 5); Fig. 2, p.92</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">선제적(proactive) 접근의 KAM 성과 기여</td>
+                <td class="text-sm italic text-slate-600">
+                  "...proactiveness has a significant effect on KAM outcomes. KAM firms should not wait for customers to request special treatment but rather should be proactive."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.98 (Sec. 5)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">실증적 검증은 향후 과제로 남음</td>
+                <td class="text-sm italic text-slate-600">
+                  "...it also falls short of conducting an empirical examination, which is the next logical step. We propose undertaking an empirical study..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.99 (Sec. 7)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구(개념) 모델 및 구성 요소 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model &amp; Variables</span>
+        </div>
+
+        <div class="alert bg-amber-50 border border-amber-300 text-amber-900 rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-amber-600 shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <span class="style-body">본 논문은 <strong>통계적으로 검증된 가설-변수 모델이 아니라, 문헌 종합에 기반한 프로세스형 개념 프레임워크</strong>입니다. 저자들도 "특정 인과관계가 아니라 사건과 결과를 설명하는 메커니즘의 집합을 제시하는 것"이라 명시합니다(p.93). 아래 다이어그램은 전통적 IV/DV 대신 Fig. 2의 5단계 프로세스(투입&rarr;계획&rarr;KAM 의사결정&rarr;전략&rarr;산출)와 이를 가로지르는 CF 관행을 표현합니다.</span>
+        </div>
+
+        <!-- Research Model SVG Block (Conceptual Process-Flow DAG) -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (예측 주도형 KAM 개념적 프레임워크, Fig. 2 기반)</h3>
+
+          <div class="w-full bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 1200 620" class="w-full h-auto">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+
+              <!-- Row 1: Main process flow (Inputs -> Planning -> KAM Decisions -> Strategy -> Output) -->
+              <!-- Inputs -->
+              <rect x="20" y="60" width="190" height="120" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="115" y="85" text-anchor="middle" font-weight="700" fill="#334155" font-size="15">투입 (Inputs)</text>
+              <text x="115" y="108" text-anchor="middle" fill="#64748b" font-size="11">시장 역동성</text>
+              <text x="115" y="126" text-anchor="middle" fill="#64748b" font-size="11">환경 불확실성</text>
+              <text x="115" y="144" text-anchor="middle" fill="#64748b" font-size="11">전략적 정보 스크리닝</text>
+
+              <!-- Planning -->
+              <rect x="250" y="60" width="190" height="120" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+              <text x="345" y="85" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">계획 (Planning)</text>
+              <text x="345" y="108" text-anchor="middle" fill="#4338ca" font-size="11">분석 (Analysis)</text>
+              <text x="345" y="126" text-anchor="middle" fill="#4338ca" font-size="11">해석 (Interpretation)</text>
+              <text x="345" y="144" text-anchor="middle" fill="#4338ca" font-size="11">탐색 (Prospection)</text>
+
+              <!-- KAM Decisions -->
+              <rect x="480" y="60" width="220" height="120" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+              <text x="590" y="85" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">KAM 의사결정</text>
+              <text x="590" y="108" text-anchor="middle" fill="#4338ca" font-size="11">활동(Activities) &middot; 행위자(Actors)</text>
+              <text x="590" y="126" text-anchor="middle" fill="#4338ca" font-size="11">자원(Resources)</text>
+              <text x="590" y="144" text-anchor="middle" fill="#4338ca" font-size="11">공식화(Formalization)</text>
+
+              <!-- Strategy -->
+              <rect x="740" y="60" width="190" height="120" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+              <text x="835" y="85" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">전략 (Strategy)</text>
+              <text x="835" y="108" text-anchor="middle" fill="#4338ca" font-size="11">전략 개발</text>
+              <text x="835" y="126" text-anchor="middle" fill="#4338ca" font-size="11">(Strategy Development)</text>
+              <text x="835" y="144" text-anchor="middle" fill="#4338ca" font-size="11">실행 &amp; 집행</text>
+
+              <!-- Output -->
+              <rect x="970" y="45" width="210" height="150" rx="8" fill="#eef9f1" stroke="#10b981" stroke-width="2"/>
+              <text x="1075" y="70" text-anchor="middle" font-weight="700" fill="#065f46" font-size="15">산출 (Output)</text>
+              <text x="1075" y="95" text-anchor="middle" fill="#047857" font-size="11">상업적 성과</text>
+              <text x="1075" y="113" text-anchor="middle" fill="#047857" font-size="11">(Commercial Success)</text>
+              <text x="1075" y="133" text-anchor="middle" fill="#047857" font-size="11">고객 경험 (Customer Experiences)</text>
+              <text x="1075" y="151" text-anchor="middle" fill="#047857" font-size="11">기업 혁신 (Corporate Innovation)</text>
+              <text x="1075" y="175" text-anchor="middle" fill="#059669" font-size="10" font-style="italic">3대 성과 범주 (Table 1 KPI)</text>
+
+              <!-- Horizontal flow arrows -->
+              <path d="M210 120 L 248 120" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M440 120 L 478 120" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M700 120 L 738 120" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M930 120 L 968 120" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Row 2: CF Practices boxes feeding upward into Planning / Decisions / Strategy -->
+              <rect x="230" y="330" width="230" height="230" rx="8" fill="#fff7ed" stroke="#d97706" stroke-width="2"/>
+              <text x="345" y="358" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">CF 관행 (Planning-stage)</text>
+              <text x="345" y="382" text-anchor="middle" fill="#b45309" font-size="10">계정 계획 &amp; 세분화</text>
+              <text x="345" y="400" text-anchor="middle" fill="#b45309" font-size="10">환경 스캐닝 / 트렌드 분석</text>
+              <text x="345" y="418" text-anchor="middle" fill="#b45309" font-size="10">미충족 니즈 식별</text>
+              <text x="345" y="436" text-anchor="middle" fill="#b45309" font-size="10">공동 시나리오 개발</text>
+              <text x="345" y="454" text-anchor="middle" fill="#b45309" font-size="10">가치 공동창출 &amp; 혁신</text>
+
+              <rect x="480" y="330" width="220" height="230" rx="8" fill="#fff7ed" stroke="#d97706" stroke-width="2"/>
+              <text x="590" y="358" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">CF 관행 (Decision-stage)</text>
+              <text x="590" y="390" text-anchor="middle" fill="#b45309" font-size="10">적응적 관계 개발</text>
+              <text x="590" y="408" text-anchor="middle" fill="#b45309" font-size="10">(Adaptive Relationship</text>
+              <text x="590" y="426" text-anchor="middle" fill="#b45309" font-size="10">Development)</text>
+
+              <rect x="740" y="330" width="190" height="230" rx="8" fill="#fff7ed" stroke="#d97706" stroke-width="2"/>
+              <text x="835" y="358" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">CF 관행 (Strategy-stage)</text>
+              <text x="835" y="390" text-anchor="middle" fill="#b45309" font-size="10">전략의 선제적 조정</text>
+              <text x="835" y="408" text-anchor="middle" fill="#b45309" font-size="10">(Proactive Adaptation</text>
+              <text x="835" y="426" text-anchor="middle" fill="#b45309" font-size="10">of Strategies)</text>
+
+              <!-- Upward arrows: CF practices -> corresponding stage -->
+              <path d="M345 328 L 345 182" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="358" y="260" fill="#b45309" font-weight="700" font-size="11">CF 투입</text>
+
+              <path d="M590 328 L 590 182" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="603" y="260" fill="#b45309" font-weight="700" font-size="11">CF 투입</text>
+
+              <path d="M835 328 L 835 182" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="848" y="260" fill="#b45309" font-weight="700" font-size="11">CF 투입</text>
+
+              <!-- Dashed line: environmental change conditions the whole process (indirect / contextual influence) -->
+              <path d="M115 182 L 115 590 L 1075 590 L 1075 197" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="595" y="608" text-anchor="middle" fill="#1d4ed8" font-weight="700" font-size="12">환경 변화(Environmental Change)가 전체 프로세스를 조건화 &mdash; 간접·맥락적 영향 (점선)</text>
+
+              <!-- Legend -->
+              <rect x="20" y="220" width="14" height="14" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+              <text x="40" y="231" fill="#475569" font-size="11">투입/선행조건</text>
+              <rect x="150" y="220" width="14" height="14" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+              <text x="170" y="231" fill="#475569" font-size="11">KAM 프로세스 단계 (매개)</text>
+              <rect x="340" y="220" width="14" height="14" fill="#fff7ed" stroke="#d97706" stroke-width="1.5"/>
+              <text x="360" y="231" fill="#475569" font-size="11">CF 관행 (촉진 기제)</text>
+              <rect x="500" y="220" width="14" height="14" fill="#eef9f1" stroke="#10b981" stroke-width="1.5"/>
+              <text x="520" y="231" fill="#475569" font-size="11">산출/성과 (KPI)</text>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 self-start">
+            ※ 원문에는 가설 번호(H1, H2...)가 없습니다 &mdash; 저자들이 명시적으로 "특정 인과관계가 아닌 메커니즘의 집합"이라 규정했기 때문입니다. 화살표는 Fig. 2(p.92)의 프로세스 흐름을 그대로 재현한 것입니다.
+          </p>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Inputs Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">투입 (선행조건)</span>
+                <span class="text-xs text-slate-400 font-semibold">Inputs</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">투입 (Inputs)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> KAM-CF 통합의 필요성을 촉발하는 조직 외부 환경 조건. 시장 변화 속도, 환경 불확실성, 전략적으로 의미 있는 신호를 걸러내는 능력.</p>
+              <p class="text-sm text-slate-700"><strong>구성:</strong> Market Dynamism, Environmental Uncertainty, Strategic Intelligence Screening.</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> 별도 측정 문항 없음(개념 논문). Rohrbeck et al.(2015), Abrahamsen et al.(2023) 논의에서 개념적으로 도출.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 동적 역량(dynamic capabilities, Teece 2014) 관점에서 환경 불확실성은 조직이 예측 역량을 개발해야 하는 근본 동인으로 다뤄짐.
+              </p>
+            </div>
+          </div>
+
+          <!-- CF Practices Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">촉진 기제</span>
+                <span class="text-xs text-slate-400 font-semibold">CF Practices</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">CF 관행 (3단계 촉진 기제)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> KAM 프로세스의 각 단계에 CF 도구·방법론을 주입하는 구체적 관행. Planning 단계: 계정 계획·세분화, 환경 스캐닝, 트렌드 분석, 미충족 니즈 식별, 공동 시나리오 개발, 가치 공동창출. Decision 단계: 적응적 관계 개발. Strategy 단계: 전략의 선제적 조정.</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> Rohrbeck et al.(2015)의 CF 컴포넌트, Gordon et al.(2020), Marinković et al.(2022)의 CF 실무 유형론.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 자원기반관점·동적역량 관점에서 CF 관행은 미래 기회/위협을 사전에 포착해 자원을 재배치하는 능력으로 해석되며, KAM의 "적응적 판매" 개념(Workman et al., 2003)과 접점을 이룸.
+              </p>
+            </div>
+          </div>
+
+          <!-- Process Stages Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">매개 프로세스</span>
+                <span class="text-xs text-slate-400 font-semibold">Planning / Decisions / Strategy</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">계획 &middot; KAM 의사결정 &middot; 전략</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 기존 KAM 프레임워크에서 차용한 3단계 운영 프로세스. Planning(분석·해석·탐색), KAM Decisions(활동·행위자·자원·공식화), Strategy(전략 개발·실행/집행).</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> Homburg, Workman &amp; Jensen(2002)의 활동/행위자/자원/공식화 모델; Zupancic(2008)의 5차원 KAM 모델.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 순차적 프로세스로 제시되지만, 반복적(iterative) 성격은 도식에 명시적으로 반영되지 않음(Limitation B 참조).
+              </p>
+            </div>
+          </div>
+
+          <!-- Output Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">산출 (성과)</span>
+                <span class="text-xs text-slate-400 font-semibold">Output</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">산출 (Output)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> CF-KAM 통합 노력이 최종적으로 귀결되는 3대 성과 범주 &mdash; 상업적 성과, 고객 경험, 기업 혁신.</p>
+              <p class="text-sm text-slate-700"><strong>KPI 예시:</strong> Key Account Revenue Growth, Profit Margin, Customer Lifetime Value, Customer Retention Rate / Customer Satisfaction Score, Net Promoter Score / Market Share, New Product Development, Early Adoption Rate.</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> Table 1 (p.97).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 저자들이 "제안된 개념에 적합한 성과 지표"라 언급하나(p.96), 실제 측정 타당성은 검증되지 않은 저자들의 제안 수준.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method(프레임워크 구축 절차) 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 논문은 설문조사·통계분석이 아닌 <strong>문헌 기반 개념 프레임워크 구축(conceptual/narrative literature synthesis)</strong> 방법을 사용합니다. 아래는 동일한 절차를 재현/확장할 수 있도록 단계화한 것입니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 공백 식별을 위한 서지계량 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Web of Science에서 "key account management"와 "corporate foresight" 두 검색어로 2002&ndash;2022년(20년) 동료심사 논문을 검색·집계. 연도별 발행 추이 및 두 키워드 교차 논문 유무 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.91&ndash;92, Sec. 2.3, Fig. 1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">개념 논문 개발 접근법 선택</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Cornelissen(2017), Jaakkola(2020), Lindgreen et al.(2021), Paul et al.(2023)을 참고해 "프로세스 모델 접근법(narrative style)"을 채택. 인과관계보다 일반화된 메커니즘 제시를 목적으로 함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.93, Sec. 3</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">이론 적응(Theory Adaptation) 방식으로 두 이론 결합</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Jaakkola(2020)의 유형론 중 "이론 적응"을 택해 KAM 이론과 CF 이론을 결합. 이후 실증 연구 지식(Nenonen et al., 2017)으로 이론적 이해를 보완.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.93, Sec. 3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">기존 KAM/CF 프레임워크 문헌 종합</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  KAM 측: Homburg et al.(2002), Zupancic(2008), KAMO 모델(Gounaris &amp; Tzempelikos, 2013/2014). CF 측: Rohrbeck et al.(2015), Gordon et al.(2020), Voros(2003)의 예측 프로세스 프레임워크 종합.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.93&ndash;95, Sec. 3.1&ndash;3.3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">통합 개념 프레임워크(Fig. 2) 구성</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  KAM 3단계(계획-의사결정-전략)와 CF 관행 3그룹을 결합해 "투입&rarr;계획&rarr;KAM 의사결정&rarr;전략&rarr;산출"의 5단 프로세스 다이어그램(Fig. 2)을 구성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.92, Fig. 2; p.97, Sec. 5</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">단계별 서술적 논의 및 KPI 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Fig. 2의 각 단계에 대해 하위 절(4.1&ndash;4.4)을 구성해 CF의 영향을 논증. 산출 단계에서 KAM 성과 KPI(Table 1)를 상업적 성과/고객경험/기업혁신 3개 범주로 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.94&ndash;97, Sec. 4.1&ndash;4.4; Table 1</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">실무적 시사점 및 향후 연구 의제 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  실행 장애 요인(변화 저항, 경영진 지원 부족 등)을 논의하고 실행 권고안을 제시. 이어 5개 방향의 향후 연구 의제를 제안.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.97&ndash;99, Sec. 5&ndash;6</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">재현 불가(실증 재현 대상 아님) &mdash; 문헌 종합 절차는 부분 재현 가능</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            통계 모델·설문 데이터가 없어 전통적 의미의 실증 재현은 성립하지 않습니다. 동일한 WoS 검색 조건으로 서지계량 분석(Fig. 1)을 재현하거나 동일 문헌을 종합해 유사 프레임워크를 도출하는 것은 가능하나, 구성요소 매핑은 저자의 정성적 판단에 크게 의존합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 결론부(Section 7)에서 저자들이 직접 밝힌 한계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>실증적 검증의 부재:</strong> "the study is not free from limitations... it also falls short of conducting an empirical examination, which is the next logical step. We propose undertaking an empirical study on the key elements and mechanisms of the integration of CF into KAM and their impact on KAM performance." (p.99) &mdash; 제안된 프레임워크(Fig. 2)와 성과 지표(Table 1)는 설문조사·사례연구·통계분석으로 검증되지 않은 순수 개념적 제안이며, 저자들 스스로 이를 후속 실증 연구의 과제로 명확히 이관하고 있습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">개념 프레임워크의 구축 방식과 서술 전략을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 비체계적 문헌 종합의 선택 편향</span>
+                <p class="text-sm text-slate-700">
+                  저자들은 PRISMA류의 체계적 문헌고찰이 아닌 <strong>"narrative style" 프로세스 모델 접근</strong>을 택했다고 명시합니다(p.93). 어떤 문헌을 포함/배제할지에 저자 재량이 크게 작용할 수 있으며, Fig. 2의 구성요소 배치가 객관적 코딩이 아닌 해석적 판단에 의존했을 가능성이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 서지계량 근거(Fig. 1)의 협소한 검색 전략</span>
+                <p class="text-sm text-slate-700">
+                  "연구 공백"이라는 핵심 동기는 단일 DB(Web of Science)와 단 두 개의 정확한 키워드에만 의존합니다. 유사 개념어(strategic account management, anticipatory management 등)를 사용한 관련 연구가 누락되었을 가능성이 있어, "교차 연구 0건"이라는 결론이 과장되었을 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 프레임워크의 선형성과 피드백 루프 부재</span>
+                <p class="text-sm text-slate-700">
+                  Fig. 2는 투입&rarr;계획&rarr;의사결정&rarr;전략&rarr;산출을 단방향으로 묘사합니다. 실제로는 산출 단계의 성과 피드백이 다시 투입/계획에 영향을 주는 순환적 학습 루프가 존재할 가능성이 높으나, "환경 변화가 프로세스를 조건화한다"는 서술 외에 명시적 피드백 화살표는 없습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 경계 조건 및 실패 사례 논의 부족</span>
+                <p class="text-sm text-slate-700">
+                  전반적으로 CF가 KAM에 "긍정적 영향을 미칠 수 있다(can/may)"는 가능성 중심 서술이며, 예측 활동의 비용(분석 마비, 정보 과부하)이나 CF-KAM 통합이 역효과를 낳는 상황에 대한 비판적 논의는 제한적입니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200 md:col-span-2">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 맥락 특수성(context specificity) 미반영</span>
+                <p class="text-sm text-slate-700">
+                  프레임워크는 산업·기업 규모·국가/문화적 맥락과 무관하게 보편적으로 적용 가능한 것처럼 제시되지만, KAM 실행 방식과 CF 역량 성숙도는 자본재 vs. 서비스재, 대기업 vs. 중소기업 등 맥락에 따라 크게 다를 수 있다는 점이 논의되지 않습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Towards an Integration of Corporate Foresight in Key Account Management</p>
+      <p class="text-xs mt-2">&copy; 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

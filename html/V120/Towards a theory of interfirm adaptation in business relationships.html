@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Towards a Theory of Interfirm Adaptation in Business Relationships - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Theory Building / Conceptual Paper</div>
+        <div class="badge badge-secondary text-white style-label">IMP Group Research</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Towards a theory of<br>
+            <span class="text-cyan-400">interfirm adaptation in business relationships</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Stefanos Mouzas — Lancaster University Management School, UK
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            비즈니스 관계에서의<br>
+            <span class="text-indigo-300">기업 간 적응(Interfirm Adaptation) 이론을 향하여</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            이해관계·권리(기반)와 상호작용·선례(과정)를 연결하는 통합 개념 프레임워크와 4개 명제(Proposition) 제시
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">기업 간 적응은 "이해관계·권리"라는 왜(bases)와 "상호작용·선례"라는 어떻게(processes)가 2×2로 교차하며 네 가지 결과를 만들어내는 현상입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This paper aims at developing the theory of interfirm adaptation in business relationships. The paper adds to earlier research by developing a theoretical structure for the analysis of interfirm adaptation. While it is well established in literature that companies adapt their product and service offerings, as well as their processes of production and delivery to account for the evolving needs of customers or suppliers, our understanding of why firms can pursue adaptations in business relationships and how adaptations happen or fail to materialize remains an enduring puzzle. This paper contributes towards a theory of interfirm adaptation in business relationships by presenting a unifying conceptual framework that connects 1) the bases of interfirm adaptation, and 2) the processes of interfirm adaptation. This unifying conceptual framework gives researchers a coherent set of analytical tools to assume, champion, and experiment research on interfirm adaptation in business relationships."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              본 논문은 비즈니스 관계에서의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">기업 간 적응(interfirm adaptation)</span> 이론을 발전시키는 것을 목표로 한다. 이 논문은 기업 간 적응을 분석하기 위한 이론적 구조를 개발함으로써 기존 연구에 기여한다. 기업이 고객이나 공급업체의 변화하는 요구에 대응하기 위해 제품·서비스 제공물뿐 아니라 생산·유통 프로세스를 적응시킨다는 점은 문헌에서 이미 잘 확립되어 있지만, 기업이 '왜' 비즈니스 관계에서 적응을 추구할 수 있는지, 그리고 적응이 '어떻게' 일어나거나 실현되지 못하는지에 대한 이해는 여전히 풀리지 않는 수수께끼로 남아 있다. 본 논문은 1) 기업 간 적응의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">기반(bases)</span>과 2) 기업 간 적응의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">과정(processes)</span>을 연결하는 통합적 개념 프레임워크를 제시함으로써 이 이론에 기여한다. 이 프레임워크는 연구자들에게 기업 간 적응 연구를 가정(assume)하고, 주창(champion)하고, 실험(experiment)할 수 있는 일관된 분석 도구 세트를 제공한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Interfirm Adaptation</td>
+                  <td>기업 간 적응</td>
+                  <td class="text-sm">구매자-공급자가 관계 유지를 위해 제품·서비스·프로세스를 서로 맞추어 조정하는 IMP(Industrial Marketing &amp; Purchasing) 그룹 핵심 개념. 개념 범위를 살려 직역.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Bases / Processes of Adaptation</td>
+                  <td>적응의 기반 / 과정</td>
+                  <td class="text-sm">기반은 적응이 '왜' 일어나는지, 과정은 '어떻게' 일어나는지를 설명하는 이론적 축(Sarasvathy 2001; Van de Ven 1992).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Interests</td>
+                  <td>이해관계(관심사)</td>
+                  <td class="text-sm">행위자가 무엇을 추구·중시하는지의 지각적 기반. 문맥에 따라 "관심사" 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Entitlements</td>
+                  <td>권리(인타이틀먼트)</td>
+                  <td class="text-sm">Hohfeld(1913) 법철학 개념. 유·무형 자원을 소유·획득·이전할 정당하고 집행 가능한 권리 묶음. 대응어가 없어 원어 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Interactions</td>
+                  <td>상호작용</td>
+                  <td class="text-sm">행위자·자원·활동을 변형시키는 실질적 과정(substantial process).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Precedents</td>
+                  <td>선례(前例)</td>
+                  <td class="text-sm">현재 상호작용을 이끄는 과거의 결정적 사건(critical event). 법률 용어 "판례"에서 확장.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Jointness / Exchanges / Expectations / Interdependencies</td>
+                  <td>공동성 / 교환 / 기대 / 상호의존성</td>
+                  <td class="text-sm">4개 적응 결과(outcome) 구성개념. 각각 협업 정도, 수수 범위, 믿음의 강도, 상호 의존 정도를 지칭.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">왜, 어떻게 기업 간 적응이 일어나는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">기반(2) × 과정(2) = 결과(4)의 2×2 개념 프레임워크</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">권리·선례 구성개념의 IMP 이론 통합</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문(이원적):</strong> 1) 왜 비즈니스 행위자는 적응을 추구할 수 있는가? 2) 적응은 어떻게 일어나거나 실현되지 못하는가?</li>
+                  <li><strong>핵심 발견:</strong> 적응의 <strong>기반</strong>은 이해관계(Interests)와 권리(Entitlements) 두 구성개념으로, 적응의 <strong>과정</strong>은 상호작용(Interactions)과 선례(Precedents) 두 구성개념으로 설명된다. 이 2×2 조합에서 공동성·교환·기대·상호의존성의 적응이라는 4개 결과와 4개 명제(P1~P4)가 도출된다.</li>
+                  <li><strong>이론/실무 기여:</strong> 기존 IMP 문헌의 이해관계·상호작용 중심 논의를 넘어 권리와 선례를 새롭게 통합하고, 실무자에게는 상대의 숨은 이해관계를 파악할 협의 채널 구축과 결정적 사건(critical events)을 선례로 활용한 기대 관리 전략을 제시한다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "기업 간 적응은 '이해관계·권리'라는 왜(bases)와 '상호작용·선례'라는 어떻게(processes)가 2×2로 교차하며 공동성·교환·기대·상호의존성이라는 네 가지 결과를 만들어내는 현상이다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          실증 데이터가 없는 이론 구축 논문이므로, 각 핵심 주장을 뒷받침하는 근거는 저자의 논증(argumentation)과 원문 인용으로 정리했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">기존 문헌은 적응이 '왜' 일어나는지 자원 연결 측면에서 설명 부족</td>
+                <td class="text-sm italic text-slate-600">"extant research pays limited attention to how business actors connect with resources to pursue adaptations... we need to move beyond actors' interests..."</td>
+                <td class="text-right font-medium text-slate-500">p.206 (Introduction)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">선례(critical events)의 역할에 대한 이해 부족</td>
+                <td class="text-sm italic text-slate-600">"our understanding of the role of precedents as critical events remains very limited..."</td>
+                <td class="text-right font-medium text-slate-500">p.207 (Introduction)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">권리(Entitlements)는 행위자-자원 연결 및 소유·획득·이전 권한 규정</td>
+                <td class="text-sm italic text-slate-600">"Entitlements specify the rights of what actors may possess, acquire, or transfer to other actors... establish a connection between actors and resources"</td>
+                <td class="text-right font-medium text-slate-500">p.208–209 (§3.2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">선례는 기존 규칙을 확인·번복·역전시키는 힘을 가짐</td>
+                <td class="text-sm italic text-slate-600">"The efficacy of precedents as critical events derives from their capacity to confirm, override, or reverse pre-existing rules"</td>
+                <td class="text-right font-medium text-slate-500">p.209 (§4.2)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">P1 — 공동성의 적응은 이해관계·상호작용의 함수</td>
+                <td class="text-sm italic text-slate-600">"Proposition 1. The adaptation of jointness is a function of actors' interests and interactions."</td>
+                <td class="text-right font-medium text-slate-500">p.211 (§6.1.1)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">P2 — 교환의 적응은 상호작용·권리의 함수</td>
+                <td class="text-sm italic text-slate-600">"Proposition 2. The adaptation of exchanges is a function of interactions and entitlements."</td>
+                <td class="text-right font-medium text-slate-500">p.212 (§6.1.2)</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">P3 — 기대의 적응은 선례·이해관계의 함수</td>
+                <td class="text-sm italic text-slate-600">"Proposition 3. The adaptation of expectations is a function of precedents and interests."</td>
+                <td class="text-right font-medium text-slate-500">p.212 (§6.1.3)</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">P4 — 상호의존성의 적응은 권리·선례의 함수</td>
+                <td class="text-sm italic text-slate-600">"Proposition 4. The adaptation of interdependencies is a function of actors' entitlements and precedents."</td>
+                <td class="text-right font-medium text-slate-500">p.212 (§6.1.4)</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td class="font-semibold text-slate-900">명제는 공리가 아니라 실증 검증 대상인 잠정적 진술</td>
+                <td class="text-sm italic text-slate-600">"...the propositions are not irrefutable axioms but statements which are subject to empirical verification"</td>
+                <td class="text-right font-medium text-slate-500">p.210 (§5)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구(개념) 모델 및 구성개념 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Conceptual Framework</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 논문은 실증(가설검증) 연구가 아닌 <strong>이론 구축 논문</strong>이므로 통계적 독립변수·종속변수 모델이 없습니다. 대신 논문 Fig. 1이 제시하는 <strong>2×2 개념적 프레임워크</strong>를 아래에 도식화했습니다. 세로축은 적응의 <strong>기반(Bases)</strong>(이해관계·권리), 가로축은 적응의 <strong>과정(Processes)</strong>(상호작용·선례)이며, 교차하는 4개 칸이 4개의 결과 구성개념 및 명제(P1~P4)를 나타냅니다.
+        </p>
+
+        <!-- Conceptual Framework SVG (2x2 matrix, replaces hypothesis DAG) -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual 2×2 Framework (Fig. 1 재구성 — 연구 가설 모형 대신 개념 프레임워크 도식)</h3>
+
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 620" class="w-full h-auto">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+
+              <!-- Column headers (Processes) -->
+              <rect x="230" y="20" width="320" height="80" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="390" y="52" text-anchor="middle" font-weight="700" fill="#065f46" font-size="15">상호작용 (Interactions)</text>
+              <text x="390" y="74" text-anchor="middle" fill="#047857" font-size="11">과정(Process) — 자원·활동·행위자 변형</text>
+
+              <rect x="570" y="20" width="320" height="80" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="730" y="52" text-anchor="middle" font-weight="700" fill="#92400e" font-size="15">선례 (Precedents)</text>
+              <text x="730" y="74" text-anchor="middle" fill="#b45309" font-size="11">과정(Process) — 과거 결정적 사건</text>
+
+              <!-- Row headers (Bases) -->
+              <rect x="10" y="130" width="200" height="200" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="110" y="220" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">이해관계</text>
+              <text x="110" y="240" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">(Interests)</text>
+              <text x="110" y="262" text-anchor="middle" fill="#4338ca" font-size="11">기반(Basis) — 지각적 관심사</text>
+
+              <rect x="10" y="350" width="200" height="200" rx="8" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/>
+              <text x="110" y="440" text-anchor="middle" font-weight="700" fill="#075985" font-size="15">권리</text>
+              <text x="110" y="460" text-anchor="middle" font-weight="700" fill="#075985" font-size="15">(Entitlements)</text>
+              <text x="110" y="482" text-anchor="middle" fill="#0369a1" font-size="11">기반(Basis) — 자원 소유·이전 권한</text>
+
+              <!-- Quadrant cells -->
+              <!-- P1: Interests x Interactions -> Jointness -->
+              <rect x="230" y="130" width="320" height="200" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+              <text x="245" y="158" font-weight="700" fill="#1e293b" font-size="14">P1. 공동성의 적응</text>
+              <text x="245" y="176" fill="#475569" font-size="11">(Adaptation of Jointness)</text>
+              <text x="245" y="200" fill="#334155" font-size="11">사업 계약·공동 벤처·전략적</text>
+              <text x="245" y="216" fill="#334155" font-size="11">파트너십 형성 정도의 조정</text>
+              <rect x="245" y="290" width="150" height="24" rx="12" fill="#eef2ff" stroke="#4f46e5"/>
+              <text x="320" y="306" text-anchor="middle" fill="#3730a3" font-size="11" font-weight="700">= f(이해관계, 상호작용)</text>
+
+              <!-- P3: Interests x Precedents -> Expectations -->
+              <rect x="570" y="130" width="320" height="200" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+              <text x="585" y="158" font-weight="700" fill="#1e293b" font-size="14">P3. 기대의 적응</text>
+              <text x="585" y="176" fill="#475569" font-size="11">(Adaptation of Expectations)</text>
+              <text x="585" y="200" fill="#334155" font-size="11">품질·역할·성과(수익성·성장)에</text>
+              <text x="585" y="216" fill="#334155" font-size="11">대한 믿음 강도의 조정</text>
+              <rect x="585" y="290" width="150" height="24" rx="12" fill="#eef2ff" stroke="#4f46e5"/>
+              <text x="660" y="306" text-anchor="middle" fill="#3730a3" font-size="11" font-weight="700">= f(이해관계, 선례)</text>
+
+              <!-- P2: Entitlements x Interactions -> Exchanges -->
+              <rect x="230" y="350" width="320" height="200" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+              <text x="245" y="378" font-weight="700" fill="#1e293b" font-size="14">P2. 교환의 적응</text>
+              <text x="245" y="396" fill="#475569" font-size="11">(Adaptation of Exchanges)</text>
+              <text x="245" y="420" fill="#334155" font-size="11">가격·지불조건·배송·판매/</text>
+              <text x="245" y="436" fill="#334155" font-size="11">구매 방식의 조정</text>
+              <rect x="245" y="510" width="160" height="24" rx="12" fill="#f0f9ff" stroke="#0284c7"/>
+              <text x="325" y="526" text-anchor="middle" fill="#075985" font-size="11" font-weight="700">= f(권리, 상호작용)</text>
+
+              <!-- P4: Entitlements x Precedents -> Interdependencies -->
+              <rect x="570" y="350" width="320" height="200" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+              <text x="585" y="378" font-weight="700" fill="#1e293b" font-size="14">P4. 상호의존성의 적응</text>
+              <text x="585" y="396" fill="#475569" font-size="11">(Adaptation of Interdependencies)</text>
+              <text x="585" y="420" fill="#334155" font-size="11">관계 내 상호 의존·권력 의존</text>
+              <text x="585" y="436" fill="#334155" font-size="11">정도의 조정</text>
+              <rect x="585" y="510" width="150" height="24" rx="12" fill="#f0f9ff" stroke="#0284c7"/>
+              <text x="660" y="526" text-anchor="middle" fill="#075985" font-size="11" font-weight="700">= f(권리, 선례)</text>
+
+              <!-- Directional connector stubs (row/column headers flow into grid) -->
+              <path d="M210 200 L 228 200" fill="none" stroke="#4f46e5" stroke-width="3" marker-end="url(#arrow)"/>
+              <path d="M210 450 L 228 450" fill="none" stroke="#0284c7" stroke-width="3" marker-end="url(#arrow)"/>
+              <path d="M390 100 L 390 128" fill="none" stroke="#10b981" stroke-width="3" marker-end="url(#arrow)"/>
+              <path d="M730 100 L 730 128" fill="none" stroke="#d97706" stroke-width="3" marker-end="url(#arrow)"/>
+
+              <!-- Legend -->
+              <text x="10" y="600" fill="#94a3b8" font-size="11">주: 각 칸(Pn)은 좌측 행(기반)과 상단 열(과정)의 교차로 결정되는 결과 구성개념이며, 화살표는 헤더가 각 행/열에 유입됨을 나타냄.</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Bases & Processes construct table -->
+        <div class="mt-2">
+          <h4 class="style-h3 text-slate-800 mb-3">4-1. 기반(Bases) 및 과정(Processes) 구성개념</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table table-bordered w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th>구분</th>
+                  <th>구성개념</th>
+                  <th>개념적 정의</th>
+                  <th>측정 및 출처</th>
+                  <th>관련 논의</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-indigo-800">기반</td>
+                  <td class="font-semibold">이해관계 (Interests)</td>
+                  <td class="text-sm">행위자가 더 나은 삶/성과를 추구하며 갖는 목표·관심사의 지각적 기반(Habermas, 2015; Kelman, 2006). 상호(mutual) 이해관계와 특정(specific) 이해관계로 구분(Medlin &amp; Törnroos, 2014)</td>
+                  <td class="text-sm text-slate-500">해당 없음 — 이론 논문, 실증 척도 미제시</td>
+                  <td class="text-sm">Medlin &amp; Törnroos(2014): 이해관계는 환경 이해 방식, 상대 접근 방식, 정보공유·협업 의지에 영향</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-sky-800">기반</td>
+                  <td class="font-semibold">권리 (Entitlements)</td>
+                  <td class="text-sm">유·무형 자원을 소유·획득·이전할 권한을 규정하는 권리 묶음(Morris, 1992; Wener, 2005). 재산권·책임규칙·양도불가권리로 구분(Calabresi &amp; Melamed, 1972)</td>
+                  <td class="text-sm text-slate-500">해당 없음 — 이론 논문, 실증 척도 미제시</td>
+                  <td class="text-sm">자원기반관점(RBV)의 소유·통제 가정과 연결. Hohfeld(1913) 권리 유형론에 기반</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-emerald-800">과정</td>
+                  <td class="font-semibold">상호작용 (Interactions)</td>
+                  <td class="text-sm">행위자가 스스로와 자원·활동을 적응시키는 실질적 과정(Guercini et al., 2022; Snehota &amp; Håkansson, 2017)</td>
+                  <td class="text-sm text-slate-500">해당 없음 — 이론 논문, 실증 척도 미제시</td>
+                  <td class="text-sm">ARA 모델(Actors-Resources-Activities)의 세 차원과 연결. 해석적 의사결정의 부상(Guercini et al., 2022)</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-amber-800">과정</td>
+                  <td class="font-semibold">선례 (Precedents)</td>
+                  <td class="text-sm">현재 상호작용을 이끄는 과거의 결정적 사건. 현저성(salience)과 예측가능성(predictability)을 가짐(Duxbury, 2008)</td>
+                  <td class="text-sm text-slate-500">해당 없음 — 이론 논문, 실증 척도 미제시</td>
+                  <td class="text-sm">법학의 판례(precedent) 이론(Duxbury, 2008; Schauer, 1987)을 비즈니스 관계로 확장</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Outcome constructs -->
+        <div class="mt-6">
+          <h4 class="style-h3 text-slate-800 mb-3">4-2. 결과(Outcome) 구성개념 및 4개 명제</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+              <div class="card-body p-6 gap-3">
+                <div class="flex items-center justify-between">
+                  <span class="badge badge-neutral style-label text-white">Proposition 1</span>
+                  <span class="text-xs text-slate-400 font-semibold">기반: 이해관계 × 과정: 상호작용</span>
+                </div>
+                <h3 class="style-h3 text-slate-900">공동성의 적응 (Adaptation of Jointness)</h3>
+                <div class="divider my-1"></div>
+                <p class="text-sm text-slate-700"><strong>정의:</strong> 관계 내 두 행위자가 함께 일을 하는 정도의 조정. 정보공유, 공동 계획, 전략적 파트너십·제휴 형성 정도(Ford &amp; Håkansson, 2006; Ford &amp; Mouzas, 2013b, p.437).</p>
+                <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>관련 논의:</strong> 관계의 '발전 단계(development stage)'를 진전시키고 상대에 대한 몰입(commitment)을 보여주는 지표(Ford, 1980; Håkansson, 1982).</p>
+              </div>
+            </div>
+
+            <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+              <div class="card-body p-6 gap-3">
+                <div class="flex items-center justify-between">
+                  <span class="badge badge-info style-label text-slate-900">Proposition 2</span>
+                  <span class="text-xs text-slate-400 font-semibold">기반: 권리 × 과정: 상호작용</span>
+                </div>
+                <h3 class="style-h3 text-slate-900">교환의 적응 (Adaptation of Exchanges)</h3>
+                <div class="divider my-1"></div>
+                <p class="text-sm text-slate-700"><strong>정의:</strong> 재화·용역의 수수(give-and-take) 범위·규모의 조정. 판매/구매 방식, 가격, 지불조건, 배송, 사후서비스 조정(Brennan &amp; Turnbull, 1996).</p>
+                <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>관련 논의:</strong> 상호작용이 합의(consent)를 낳으면 '자발적 교환에서 상호 이익(mutuality of advantage)'으로 진전(Buchanan, 2001).</p>
+              </div>
+            </div>
+
+            <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+              <div class="card-body p-6 gap-3">
+                <div class="flex items-center justify-between">
+                  <span class="badge badge-success style-label text-white">Proposition 3</span>
+                  <span class="text-xs text-slate-400 font-semibold">기반: 이해관계 × 과정: 선례</span>
+                </div>
+                <h3 class="style-h3 text-slate-900">기대의 적응 (Adaptation of Expectations)</h3>
+                <div class="divider my-1"></div>
+                <p class="text-sm text-slate-700"><strong>정의:</strong> 품질·산출물·역할·커뮤니케이션 범위·시간 지평·수익성 등 핵심성과에 대한 믿음 강도의 조정(Andersen et al., 2009).</p>
+                <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>관련 논의:</strong> 선례는 기존 규칙을 확인·번복·역전(Duxbury, 2008)하고, 이해관계는 행위자의 센스메이킹(sensemaking)에 영향.</p>
+              </div>
+            </div>
+
+            <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+              <div class="card-body p-6 gap-3">
+                <div class="flex items-center justify-between">
+                  <span class="badge badge-warning style-label text-amber-950">Proposition 4</span>
+                  <span class="text-xs text-slate-400 font-semibold">기반: 권리 × 과정: 선례</span>
+                </div>
+                <h3 class="style-h3 text-slate-900">상호의존성의 적응 (Adaptation of Interdependencies)</h3>
+                <div class="divider my-1"></div>
+                <p class="text-sm text-slate-700"><strong>정의:</strong> 관계 내 상호 의존·권력 의존 정도의 조정(Roseira et al., 2010; Tomkins, 2001).</p>
+                <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100"><strong>관련 논의:</strong> 행위자는 필요한 자원을 모두 소유·통제하지 못하며, 자원을 가진 상대의 동의(consent)에 의존; 선례가 이 의존 규칙을 안내.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method(이론화 절차) 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Theorizing Process</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 논문은 데이터 수집·통계분석 방법이 없는 <strong>개념적 이론 구축 논문</strong>입니다. 대신 §5에서 설명하는 3단계 이론화(theorizing) 절차를 재현 가능한 단계로 분해했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STAGE 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 영역 및 경계 조건 정의</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  지속적인 양자(dyadic) 관계에서 개별적으로 중요한 공급자-고객 간 목적적 상호작용(자원·활동·행위자)을 경계 조건으로 설정하고, 기존 이론 지식을 바탕으로 연구질문(RQ1: Why, RQ2: How)을 정식화함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.210, §5</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STAGE 2</time>
+                <div class="text-lg font-bold text-slate-800">IMP 문헌의 집중 검토</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  지속적 비즈니스 관계 맥락의 IMP 문헌을 집중 검토. '목적적 상호작용(purposeful interaction)'의 중심성에 주목해 ① 행위자의 이해관계, ② 자원·활동·행위자가 적응되는 목적적 상호작용을 고려함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.210, §5</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">GAP 인식 1</time>
+                <div class="text-lg font-bold text-slate-800">자원 소유·통제 이해 부족 인식</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  기업 간 적응 추구 시 행위자가 자원을 어떻게 소유·통제하는지에 대한 이해가 선행연구에서 제한적임을 확인함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.210, §5</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">GAP 인식 2</time>
+                <div class="text-lg font-bold text-slate-800">선례의 비선형적 영향 인식</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  기업 간 상호작용 과정이 시간에 따라 선형적이지 않고 과거의 결정적 사건(critical events)에 의해 유도된다는 점을 확인함(Ritter &amp; Pedersen, 2020).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.210, §5</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STAGE 3</time>
+                <div class="text-lg font-bold text-slate-800">권리·선례 구성개념 통합</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  더 넓은 연구 커뮤니티와 교류하며 ① 자원에 대한 권리, ② 결정적 사건으로서 선례의 역할을 검토. 서로 다른 이론적 접근(법철학·판례 이론)이 기존 IMP 접근과 양립 가능함을 논증함(Bernstein, 2011; Gioia &amp; Pitre, 1990).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.210, §5</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">구성개념·명제화</time>
+                <div class="text-lg font-bold text-slate-800">구성개념 정의 및 명제(P1~P4) 정식화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Bacharach(1989) 이론화 지침에 따라 ① 구성개념을 정의하고, ② 구성개념 간 인과관계를 가정하고, ③ 타당한 설명(plausible explanation)을 제시함. 4개 구성개념(이해관계·권리·상호작용·선례), 4개 결과, 4개 명제(Fig. 1)가 도출됨.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.210–212, §5–§6</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">연구 의제</time>
+                <div class="text-lg font-bold text-slate-800">향후 연구 의제(Table 1) 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  각 명제에 대응하는 세부 연구질문을 4개 적응 유형 × 4개 질문 유형 매트릭스(Table 1)로 정리하여 향후 실증 검증을 위한 안내를 제공함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.212–213, §7</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">재현 불가 (No Empirical Replication Applicable)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            실증 데이터·통계 분석이 없는 개념적 이론 구축 논문이므로 통계적 의미의 재현은 해당하지 않음. 다만 저자가 제시한 3단계 이론화 절차(경계 설정 → 문헌 검토 → 구성개념 통합 및 명제화)는 정성적으로 동일한 논리를 따라 개념적으로는 재구성 가능함.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">본 논문은 별도의 "Limitations" 섹션이 없는 개념적 이론 논문이지만, §5(이론화 접근)와 §8(결론)에서 이론의 경계 조건 및 인식론적 한계를 스스로 명시합니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>경계 조건 — 지속적 양자 관계에 국한:</strong> "Our theory of interfirm adaptation is based on a set of relevant boundary assumptions. It assumes continuing dyadic relationships between individually important suppliers and customers..." (p.210, §5) — 일회성·단속적 거래나 다자간 네트워크 관계로의 일반화는 경계 밖으로 한정.
+              </li>
+              <li>
+                <strong>명제는 검증되지 않은 잠정적 진술:</strong> "the propositions are not irrefutable axioms but statements which are subject to empirical verification" (p.210, §5) — 4개 명제가 아직 실증 검증되지 않았음을 명시.
+              </li>
+              <li>
+                <strong>개방 체계로서의 설명력 한계:</strong> "Interfirm adaptation is an open system in which outcomes do not invariably follow predetermined regularities." (p.210, §5) — 결정론적 예측이 아닌 "인과적 경향/힘"의 작동으로만 일반화 가능함을 인정.
+              </li>
+              <li>
+                <strong>이해관계의 관찰 불가능성:</strong> "As interests are revealed to business counterparts in an approximate manner..." (p.213, §8) — 핵심 구성개념인 이해관계가 본질적으로 숨겨져 있고 근사적으로만 관찰됨을 인정.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">이론 구축 방식과 개념 프레임워크 구조를 근거로 제기하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 실증적 미검증</span>
+                <p class="text-sm text-slate-700">
+                  4개 명제 모두 어떠한 실증 데이터로도 검증되지 않은 상태로 제시된다. "이론"이라 칭하고 있으나 실질적으로는 아직 검증되지 않은 가설적 프레임워크에 가까우며, 향후 실증에 실패할 경우 프레임워크 전체가 기각될 위험을 내포한다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 구성개념 경계의 자의성</span>
+                <p class="text-sm text-slate-700">
+                  왜 기반이 정확히 "이해관계·권리" 2개로, 과정이 "상호작용·선례" 2개로 한정되는지 방법론적 정당화가 약하다. 신뢰(trust), 권력 의존, 몰입(commitment) 등 IMP 핵심 구성개념이 왜 별도 축이 아닌지 불분명하며, 4분면 구조가 2×2로 정리하기 좋게 사후 구성되었을 가능성을 시사한다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 조작화(Operationalization) 공백</span>
+                <p class="text-sm text-slate-700">
+                  이해관계·권리·상호작용·선례 4개 구성개념 모두 측정 항목이나 조작적 정의가 전혀 제시되지 않는다. 향후 연구자가 실증 검증을 시도해도 표준화된 척도가 없어 서로 다른 조작화를 사용할 가능성이 높고, 이는 명제 검증 결과 간 비교가능성을 저해할 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 영미법(커먼로) 중심 편향</span>
+                <p class="text-sm text-slate-700">
+                  권리(entitlements) 개념의 이론적 기반(Hohfeld 1913, Calabresi &amp; Melamed 1972)과 예시(영국 Baird v M&amp;S 판례)가 모두 영미 커먼로 전통에 뿌리를 둔다. 대륙법계·관계지향적 계약문화의 비즈니스 관계에서도 동일하게 성립하는지 논문은 검토하지 않는다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200 md:col-span-2">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 순환론(Circularity) 위험 및 단일 저자 종합의 주관성</span>
+                <p class="text-sm text-slate-700">
+                  이해관계가 "숨겨져 있고" "근사적으로만 드러난다"는 저자 스스로의 인정 하에, 이해관계를 적응의 원인으로 지목하는 것은 사후적으로 어떤 결과든 "이해관계가 그러했기 때문"이라고 설명 가능한 반증 불가능한(non-falsifiable) 순환 논리로 흐를 위험이 있다. 또한 프레임워크는 단일 저자의 문헌 해석과 3단계 종합을 통해 도출되었으며, 다수 연구자 간 구성개념 타당성 교차 검증(델파이, 전문가 패널 등)을 거치지 않아 저자 개인의 이론적 관점에 좌우되었을 가능성이 있다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Towards a theory of interfirm adaptation in business relationships</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

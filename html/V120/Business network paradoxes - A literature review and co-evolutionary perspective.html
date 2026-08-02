@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Network Paradoxes: A Literature Review and Co-Evolutionary Perspective - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Literature Review</div>
+        <div class="badge badge-secondary text-white style-label">41 Articles Reviewed / IMP Perspective</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Business network paradoxes:<br>
+            <span class="text-cyan-400">A literature review and co-evolutionary perspective</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Matteo Cristofaro, Gianpaolo Abatecola, Johan Kask
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            비즈니스 네트워크 패러독스:<br>
+            <span class="text-indigo-300">문헌 리뷰와 공진화적 관점</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            IMP 관점의 41편 문헌에 대한 성찰적 주제 분석(RTA)을 통한 3대 네트워크 패러독스의 공진화적 재해석
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">네트워크 긴장은 약한 조정규범·자원오배분에서 촉발되지만, 도덕적 행동에서 시작되는 공진화적 순환이 이를 완화합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "How can studying paradoxes in business networks help understand the networks' adaptation and survival? IMP identifies three central paradoxes influencing business networks: i) Development of Relationships vs. Inability to Change, ii) Controlling vs. Effectiveness, and iii) Stability vs. Change. Studying them seems critical to knowing how interdependent participants in business networks adapt to one another. To do that, we use a co-evolutionary lens to review 41 articles dealing with business network paradoxes from an IMP perspective. Results of the Reflexive Thematic Analysis underline that salient tensions mainly originate from weak coordinating norms, resource misallocation, the relationship of newness and aging, and Machiavellian behaviour. As the main value of our work, we then advance that embracing a co-evolutionary perspective can help shed novel light on these paradoxes by contrasting the factors that make the tensions salient with those able to overcome them. Specifically, we identify moral behaviour, structuration of the network, network capability development, and co-adaptation as four main factors that mitigate the paradoxes and help networks' adaptation and survival. Accordingly, we advocate a co-evolutionary conceptual framework regarding paradoxes and outline five co-evolutionary claims as implications for research and practice."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              비즈니스 네트워크의 패러독스를 연구하는 것은 네트워크의 적응과 생존을 이해하는 데 어떤 도움을 주는가? <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">IMP</span> 그룹은 비즈니스 네트워크에 영향을 미치는 세 가지 핵심 패러독스를 제시한다: i) 관계 발전 대 변화 불능, ii) 통제 대 효과성, iii) 안정성 대 변화. 이를 연구하는 것은 네트워크의 상호의존적 참여자들이 서로에게 어떻게 적응하는지 파악하는 데 결정적이다. 이를 위해 본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">공진화적 관점</span>을 활용하여 IMP 관점에서 비즈니스 네트워크 패러독스를 다룬 41편의 논문을 리뷰한다. <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">성찰적 주제 분석(RTA)</span> 결과, 두드러진 긴장은 주로 취약한 조정 규범, 자원 오배분, 관계의 신생성·노후화, 마키아벨리적 행동에서 비롯되는 것으로 나타났다. 본 연구의 핵심 가치로서, 공진화적 관점을 채택하면 긴장을 두드러지게 만드는 요인과 이를 극복할 수 있는 요인을 대비시킴으로써 새로운 시각을 제공할 수 있음을 제안한다. 구체적으로 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">도덕적 행동, 네트워크의 구조화, 네트워크 역량 개발, 공적응</span>을 패러독스를 완화하는 4가지 핵심 요인으로 식별한다. 이에 따라 본 연구는 공진화적 개념 프레임워크를 제안하고, 연구 및 실무를 위한 함의로서 5가지 공진화적 주장을 제시한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">IMP Group</td>
+                  <td>IMP (산업재 마케팅·구매 그룹)</td>
+                  <td class="text-sm">특정 학술 커뮤니티 고유명사이므로 원어 약어를 그대로 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Co-evolution</td>
+                  <td>공진화(共進化)</td>
+                  <td class="text-sm">생태학 기원 개념으로, 두 행위자가 상호작용하며 함께 진화한다는 의미를 담은 표준 번역어.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Node / Thread</td>
+                  <td>노드(결절점) / 스레드(연결끈)</td>
+                  <td class="text-sm">IMP의 ARA 은유에서 네트워크의 행위자와 관계를 각각 지칭하는 비유적 용어.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Reflexive Thematic Analysis (RTA)</td>
+                  <td>성찰적 주제 분석</td>
+                  <td class="text-sm">Braun & Clarke(2019)의 질적 코딩 방법론 고유명사. 원어 약어(RTA) 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Salient tension</td>
+                  <td>두드러진 긴장</td>
+                  <td class="text-sm">잠재해 있던 모순이 표면화되어 행위자들이 인지하게 되는 상태(Smith & Tushman, 2005).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Machiavellian behaviour</td>
+                  <td>마키아벨리적 행동</td>
+                  <td class="text-sm">조작적 술책의 효과성에 대한 신념, 냉소적 태도, 원칙보다 실리를 앞세우는 행동 성향의 학술 표준 용어.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Specificity / Reciprocity / Simultaneity</td>
+                  <td>특정성 / 상호성 / 동시성</td>
+                  <td class="text-sm">생태학적 공진화의 3대 구성 원리(Janzen, 1980).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">패러독스 연구가 네트워크의 적응·생존 이해에 어떻게 기여하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">긴장 촉발 4요인 vs 긴장 완화 4요인의 대비 구조</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">공진화 렌즈로 IMP 패러독스를 순환적 과정으로 재해석</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 비즈니스 네트워크의 패러독스를 연구하는 것이 네트워크의 적응과 생존을 이해하는 데 어떻게 도움이 되는가? IMP 문헌에는 3대 패러독스(관계발전 vs 변화불능, 통제 vs 효과성, 안정성 vs 변화)를 체계적으로 리뷰한 선행 연구가 없었다.</li>
+                  <li><strong>핵심 발견:</strong> 41편의 RTA 분석 결과, 긴장을 두드러지게 만드는 요인은 <strong>약한 조정 규범(42%)·자원 오배분(22%)·관계 신생/노후화(20%)·마키아벨리적 행동(16%)</strong>의 4개 테마로, 긴장을 완화하는 요인은 <strong>네트워크 역량 개발(37%)·공적응(37%)·네트워크 구조화(16%)·도덕적 행동(10%)</strong>의 4개 테마로 수렴한다. 표본의 80%는 상리공생적 공진화 관계로 프레이밍되었다.</li>
+                  <li><strong>이론/실무 기여:</strong> 생태학적 공진화 개념(특정성·상호성·동시성)을 IMP 패러독스 연구에 통합하여, 도덕적 행동을 출발점으로 네트워크 구조화 → 역량 개발 → 공적응 → (다시) 도덕적 행동으로 이어지는 순환적 조직화 프레임워크를 제안하고 5가지 연구 함의를 제시한다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "비즈니스 네트워크의 3대 패러독스는 조정 규범 부재·자원 오배분에서 긴장이 촉발되지만, 도덕적 행동에서 시작되는 공진화적 순환(구조화 → 역량 개발 → 공적응)이 이 긴장을 완화하고 네트워크의 생존을 가능케 합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">비즈니스 네트워크의 3대 핵심 패러독스</td>
+                <td class="text-sm italic text-slate-600">
+                  "IMP identifies three central paradoxes influencing business networks: i) Development of Relationships vs. Inability to Change, ii) Controlling vs. Effectiveness, and iii) Stability vs. Change."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract, p.115</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">긴장 촉발 4개 요인 테마</td>
+                <td class="text-sm italic text-slate-600">
+                  "salient tensions mainly originate from weak coordinating norms, resource misallocation, the relationship of newness and aging, and Machiavellian behaviour."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract, p.115 / Table 2, p.119</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">긴장 완화 4개 요인 테마</td>
+                <td class="text-sm italic text-slate-600">
+                  "we identify moral behaviour, structuration of the network, network capability development, and co-adaptation as four main factors that mitigate the paradoxes..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract, p.115 / Table 3, p.120</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">안정성 vs 변화가 가장 많이 다뤄진 패러독스</td>
+                <td class="text-sm italic text-slate-600">
+                  "Stability vs. change was the main investigated paradox (17; 41%)... Most contributions (80%) framed the co-evolutionary relationship of business actors as mutualistic."
+                </td>
+                <td class="text-right font-medium text-slate-500">§4.1, p.119</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">체계적 검색·스크리닝을 통한 41편 표본 확정</td>
+                <td class="text-sm italic text-slate-600">
+                  "A sample of 40 papers came out from this step. The snowballing technique was then applied... with our final sample of 41 publications."
+                </td>
+                <td class="text-right font-medium text-slate-500">§3 Methods, p.117-118</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">도덕적 행동이 순환 관계의 실질적 출발점</td>
+                <td class="text-sm italic text-slate-600">
+                  "the real beginning of this relationship is conceptually fostered by moral behaviour, which can be assumed as a primus inter pares among the factors..."
+                </td>
+                <td class="text-right font-medium text-slate-500">§5.2, p.129-130</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">통제(공식화)가 혁신 확산을 억제할 수 있다는 두 번째 패러독스</td>
+                <td class="text-sm italic text-slate-600">
+                  "while formalization (control) offers stability and predictability, it might come at the cost of effectiveness and creativity, significantly when it hampers innovation."
+                </td>
+                <td class="text-right font-medium text-slate-500">§4.3, p.127</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">저자 스스로 IMP 관점 한정("less-is-more")을 인정</td>
+                <td class="text-sm italic text-slate-600">
+                  "we only looked for articles on business network paradoxes explicitly taking the IMP literature standpoint... our less-is-more approach is useful at this stage"
+                </td>
+                <td class="text-right font-medium text-slate-500">§6 Conclusions, p.130</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Conceptual Framework & Constructs (no quantitative hypothesis model in this review paper) -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 핵심 개념 프레임워크 및 구성요소 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Coding Framework</span>
+        </div>
+
+        <div class="alert bg-slate-50 border border-slate-200 text-slate-700 rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-slate-500 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span class="text-sm">본 논문은 <strong>문헌리뷰(Literature Review)</strong> 논문으로, 설문·통계에 기반한 정량적 가설 검증 모델(연구 가설 DAG)은 존재하지 않습니다. 대신 저자들은 성찰적 주제 분석(RTA)을 통해 <strong>① 3대 패러독스</strong>, <strong>② 긴장 촉발 요인(4개 테마)</strong>, <strong>③ 긴장 완화 요인(4개 테마)</strong>, <strong>④ 공진화 관계 유형</strong>으로 구성된 개념적 코딩 프레임워크를 제시합니다. 아래는 이 프레임워크의 구성요소를 변수에 준하여 정리한 것입니다.</span>
+        </div>
+
+        <!-- ① Paradoxes -->
+        <div class="mt-2">
+          <h3 class="style-h3 text-slate-800 mb-3">① 3대 패러독스 (현상)</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="card bg-white border border-slate-200 shadow-sm rounded-xl">
+              <div class="card-body p-5 gap-2">
+                <span class="badge badge-neutral style-label text-white w-fit">패러독스 1</span>
+                <h4 class="font-bold text-slate-900 text-base">관계 발전 vs 변화 불능</h4>
+                <p class="text-sm text-slate-600">행위자의 관계가 네트워킹을 가능하게 하는 동시에 제약한다는 긴장. 강한 유대는 노드의 활력을 높이지만 변화 유연성을 제한함(Håkansson & Ford, 2002).</p>
+              </div>
+            </div>
+            <div class="card bg-white border border-slate-200 shadow-sm rounded-xl">
+              <div class="card-body p-5 gap-2">
+                <span class="badge badge-neutral style-label text-white w-fit">패러독스 2</span>
+                <h4 class="font-bold text-slate-900 text-base">통제 vs 효과성</h4>
+                <p class="text-sm text-slate-600">네트워크를 통제하려 할수록 역설적으로 혁신성과 효과성이 저하된다는 긴장(Ford & Mouzas, 2013).</p>
+              </div>
+            </div>
+            <div class="card bg-white border border-slate-200 shadow-sm rounded-xl">
+              <div class="card-body p-5 gap-2">
+                <span class="badge badge-neutral style-label text-white w-fit">패러독스 3</span>
+                <h4 class="font-bold text-slate-900 text-base">안정성 vs 변화</h4>
+                <p class="text-sm text-slate-600">네트워크 위치의 유동성과 안정에 대한 내재적 필요 사이의 긴장(Wilkinson & Young, 1994).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Salient factor 1 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-error style-label text-white">긴장 촉발 요인 (42%)</span>
+                <span class="text-xs text-slate-400 font-semibold">Salient Factor 1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">약한 조정 규범 (Weak Coordinating Rules)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 네트워크 행위자 간 조정 메커니즘을 구성하는 동적 표준·규칙·일정의 부재(Jarzabkowski et al., 2012).</p>
+              <p class="text-sm text-slate-700"><strong>코딩 근거(하위코드):</strong> 관계 이질성/기업 특성/지평(24%), 독립적 목표(20%), 조정 복잡성(20%), 규범적 몰입 부재(20%) 등 — Table 2, 총 25개 코드.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> McGrath & O'Toole(2021), Guercini & Tunisini(2017), Eriksson et al.(2021) 등에서 반복 관찰됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Salient factor 2 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-error style-label text-white">긴장 촉발 요인 (22%)</span>
+                <span class="text-xs text-slate-400 font-semibold">Salient Factor 2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">자원 오배분 (Resource Misallocation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 네트워크 행위자 간 반영구적으로 묶여 있는 자원의 오배분(Maritan & Lee, 2017).</p>
+              <p class="text-sm text-slate-700"><strong>코딩 근거(하위코드):</strong> 자원 식별(54%), 매몰비용(31%), 핵심자원 분산(15%) — Table 2, 총 13개 코드.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Håkansson & Waluszewski(2018)의 "무거움(heaviness)" 개념과 연결.
+              </p>
+            </div>
+          </div>
+
+          <!-- Salient factor 3 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-error style-label text-white">긴장 촉발 요인 (20%)</span>
+                <span class="text-xs text-slate-400 font-semibold">Salient Factor 3</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">관계의 신생성·노후화 책임</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 네트워크 내 관계가 신생 혹은 노후화로 인해 훼손되는 현상(Abatecola, Cafferata, & Poggesi, 2012).</p>
+              <p class="text-sm text-slate-700"><strong>코딩 근거(하위코드):</strong> 견고하게 정형화된 관계(83%), 평판 부족(17%) — Table 2, 총 12개 코드.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> McGrath & O'Toole(2021), Guercini & Tunisini(2017).
+              </p>
+            </div>
+          </div>
+
+          <!-- Salient factor 4 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-error style-label text-white">긴장 촉발 요인 (16%)</span>
+                <span class="text-xs text-slate-400 font-semibold">Salient Factor 4</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">마키아벨리적 행동 (Machiavellism)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 조작적 술책의 효과성에 대한 신념, 냉소적 태도, 원칙보다 실리를 앞세우는 행동(O'Boyle et al., 2012).</p>
+              <p class="text-sm text-slate-700"><strong>코딩 근거(하위코드):</strong> 기회주의적 태도(50%), 정보 비대칭(30%), 투명성 부족(20%) — Table 2, 총 10개 코드.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Cozzolino et al.(2021), Guercini & Runfola(2012), Meqdadi et al.(2017).
+              </p>
+            </div>
+          </div>
+
+          <!-- Overcoming factor 1 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">긴장 완화 요인 (37%)</span>
+                <span class="text-xs text-slate-400 font-semibold">Overcoming Factor 1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">네트워크 역량 개발 (Network Capability Development)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 다양한 행위자가 보유한 자원에 접근할 수 있도록 관계를 개발·활용하는 네트워크 능력의 발전.</p>
+              <p class="text-sm text-slate-700"><strong>코딩 근거(하위코드):</strong> 자원·역량의 조화(46%), 동적 관계역량(40%), 집단적 문제해결(14%) — Table 3, 총 35개 코드.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> McGrath & O'Toole(2014), Freytag & Ritter(2005).
+              </p>
+            </div>
+          </div>
+
+          <!-- Overcoming factor 2 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">긴장 완화 요인 (37%)</span>
+                <span class="text-xs text-slate-400 font-semibold">Overcoming Factor 2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공적응 (Co-adaptation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 연결된 기업들이 시간에 걸쳐 상호 변화하는 것(Breslin et al., 2021).</p>
+              <p class="text-sm text-slate-700"><strong>코딩 근거(하위코드):</strong> 열망 수준 조정(50%), 네트워크형 협업(25%), 관계적 배태성(17%), 지식 교환(8%) — Table 3, 총 36개 코드.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Aarikka-Stenroos & Sandberg(2012), Low(1997), Medlin(2004).
+              </p>
+            </div>
+          </div>
+
+          <!-- Overcoming factor 3 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">긴장 완화 요인 (16%)</span>
+                <span class="text-xs text-slate-400 font-semibold">Overcoming Factor 3</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">네트워크 구조화 (Structuration of the Network)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 비즈니스 네트워크의 규칙·경계·협력 유형을 정의·공식화(Guercini & Tunisini, 2017).</p>
+              <p class="text-sm text-slate-700"><strong>코딩 근거(하위코드):</strong> 규제적 프레임워크(33%), 네트워크 전문화(27%), 안정/불안정 루틴 도입(20%), 혁신 공적 지원(20%) — Table 3, 총 15개 코드.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Ramaswamy & Ozcan(2020), Matthyssens et al.(2013).
+              </p>
+            </div>
+          </div>
+
+          <!-- Overcoming factor 4 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">긴장 완화 요인 (10%)</span>
+                <span class="text-xs text-slate-400 font-semibold">Overcoming Factor 4</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">도덕적 행동 (Moral Behaviour)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 상황의 도덕적 측면을 평가·해석하고 도덕적 이상을 정식화하여 그에 부합하는 행동을 선택하는 것(Tangney et al., 2007).</p>
+              <p class="text-sm text-slate-700"><strong>코딩 근거(하위코드):</strong> 기업 간 신뢰(40%), 상호 지원(20%), 소통 투명성(20%), 다양성 활용(20%) — Table 3, 총 10개 코드.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 저자들은 도덕적 행동을 4요인 순환 관계의 "primus inter pares"(으뜸 요인)로 제안(§5.2, p.129-130).
+              </p>
+            </div>
+          </div>
+
+          <!-- Classification variable: co-evolution type -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">분류 변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Type of Co-evolutionary Relationship</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공진화 관계 유형 (적대적 / 경쟁적 / 상리공생적)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>정의:</strong> 적대적(Antagonistic, 포식자-피식자 유비) / 경쟁적(Competitive, 동일 자원 경쟁) / 상리공생적(Mutualistic, 양측 이익, 꿀벌-꽃 유비)의 3가지 유형으로 연역적 코딩.</p>
+              <p class="text-sm text-slate-700"><strong>표본 내 비중:</strong> 상리공생적 관계가 전체의 80%로 압도적 다수를 차지함(§4.1, p.119).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Narrative on the circular organising framework (Fig. 2) -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mt-2">
+          <h4 class="style-h3 text-slate-800 mb-2">참고: 순환적 조직화 프레임워크 (Fig. 2 요약)</h4>
+          <p class="text-sm text-slate-700">
+            저자들은 3대 패러독스를 중심에 두고, 긴장 촉발 요인(선행 요인)과 긴장 완화 요인(개입 요인)을 대비시킨 조직화 프레임워크(Fig. 2, p.129)를 제시합니다. 나아가 4개 완화 요인이 <strong>도덕적 행동 → 네트워크 구조화 → 네트워크 역량 개발 → 공적응 → (다시) 도덕적 행동</strong> 순서로 순환한다고 제안합니다(§5.2). 이는 41편 표본 중 정량적 실증 연구가 2편(5%)에 불과한 정성 중심 문헌에서 저자들이 해석적으로 종합한 개념적 제안이며, 통계적으로 검증된 인과 경로는 아닙니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Systematic Review Method</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          재현 대상은 통계적 실증 분석이 아니라 <strong>체계적 문헌 리뷰(Systematic Literature Review) 및 성찰적 주제 분석(RTA)</strong> 절차입니다. 논문을 읽지 않은 연구자도 그대로 따라할 수 있도록 단계별로 분해했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">검색 데이터베이스 및 기간 설정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  EBSCO, ProQuest ABI/Inform, ISI Web of Science, Scopus 4개 데이터베이스를 사용. 시간 제한 없이 검색하되 2022년 7월 이후 게재 논문은 포함하지 않음.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.117-118, §3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">키워드 검색식 실행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  "IMP," "industrial marketing*," "business*interaction*," "interfirm*," "interorg*" 정확 키워드로 검색해 IMP 분야 논문임을 담보. 총 2712건 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.117-118, §3</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">저널·초록 키워드 이중 필터링</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  ABS 리스트 마케팅 저널 또는 Journal of Business Research 게재 논문으로 1차 축소 후, 초록에 "network*/constellation*/chain*/allianc*" 포함 요구 → 1007건. 중복 제거 → 173건.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.118, §3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">전문(Full-text) 1차 스크리닝</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  전문을 검토해 IMP 및 네트워크 주제 초점 여부를 확인해 92편으로 축소.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.118, §3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">연구 목적 정합성 심사 및 이중 코더 합의</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  3대 패러독스를 직·간접 다룬 논문인지 두 저자가 독립적으로 판단 후 불일치 시 논의로 결정 → 40편 확정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.118, §3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">스노우볼링 (전방·후방 인용 검색)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  참고문헌 역방향 검색과 표본 논문을 인용한 문헌의 순방향 검색을 수동 수행하여 커버리지 편향 완화. +1편 추가 → 최종 41편.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.118, §3</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">논문별 8개 항목 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  논문 유형·세팅·데이터 수집·데이터 분석·패러독스 유형·공진화 관계 유형·긴장 촉발 요인·긴장 완화 요인의 8개 항목을 코딩(Table 1).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.119, §3</span>
+              </div>
+              <hr class="bg-slate-700"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-700"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">RTA(Braun & Clarke, 2019) 6단계 실행 및 코드 집계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  데이터 숙지 → 초기 코드 생성 → 주제 탐색 → 주제 검토 → 주제 정의·명명 → 보고서 작성의 6단계로 진행. 코드·논문 출현 빈도를 집계해 Table 2(60코드)·Table 3(96코드)와 Fig. 2 조직화 프레임워크를 산출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.119, §3 / p.129, §5.1</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            데이터베이스·검색식·필터링 기준·RTA 6단계는 상세히 공개되어 체계적 검색 단계까지는 재현 가능하나, 연구 목적 정합성 심사(STEP 5)와 코드/테마 생성(STEP 8)은 두 연구자의 주관적 해석·합의에 의존하며 코더 간 신뢰도 통계가 보고되지 않아 동일한 41편 표본을 완전히 동일하게 재현하기는 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">저자들이 결론부(§6)와 방법론(§3)에서 직접 한정 지은 연구의 경계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>IMP 관점 단일 프레임 한정:</strong> "we only looked for articles on business network paradoxes explicitly taking the IMP literature standpoint." (§6, p.130) — IMP 관점을 명시적으로 취하지 않은 인접 분야(조직학·전략경영 등)의 네트워크 패러독스 문헌은 표본에서 제외됨.
+              </li>
+              <li>
+                <strong>"Less-is-more" 접근의 초기 단계적 성격:</strong> "this input still needs to be considered as a beginning, and limitations exist... our less-is-more approach is useful at this stage." (§6, p.130) — 제안된 공진화적 프레임워크가 완결된 이론이 아니라 향후 발전이 필요한 출발점임을 스스로 명시.
+              </li>
+              <li>
+                <strong>검색 시점의 시간적 경계:</strong> "It was not temporally limited and occurred in July 2022; articles published after that date are not included." (§3, p.117) — 2022년 7월 이후 게재된 신규 문헌은 리뷰에 반영되지 못함.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">체계적 리뷰 방법론과 논증 구조를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 확증 편향 (Confirmation Bias) 가능성</span>
+                <p class="text-sm text-slate-700">
+                  두 저자가 독립적으로 논문을 읽고 포함 여부를 판단했으나 코더 간 신뢰도 지표(Cohen's kappa 등)가 보고되지 않았습니다. 애초에 "공진화 렌즈로 패러독스를 재해석"하려는 목적에서 출발했기 때문에, 코딩·테마화 단계에서 공진화 프레임에 부합하는 방향으로 해석이 유도되었을 위험(사후적 이론 적합화)을 배제하기 어렵습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 저널 필터링에 따른 표본 편향</span>
+                <p class="text-sm text-slate-700">
+                  ABS 리스트 마케팅 저널 및 JBR로 한정한 필터링은 전략경영·조직학·공급망관리 등 인접 분야의 네트워크 패러독스 연구를 체계적으로 배제했을 가능성이 있습니다. 조사 대상국 1위가 스웨덴(19%)이라는 지리적 편중이 결과 일반화에 미치는 영향도 논의되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 정성 편중 표본에서의 순환적 인과관계 과잉 해석</span>
+                <p class="text-sm text-slate-700">
+                  41편 중 정량적 실증 연구는 2편(5%)에 불과함에도, 저자들은 도덕적 행동 → 구조화 → 역량 개발 → 공적응 → 도덕적 행동으로 이어지는 순환적 인과 경로를 제안합니다. 이는 사례들을 사후적으로 종합한 서술적 추론이며, 어떤 논문에서도 이 순환 관계 자체가 직접 검증된 바 없어 인과적 확정성을 과대 주장할 위험이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 네트워크 경계 모호성의 자기 성찰 부재</span>
+                <p class="text-sm text-slate-700">
+                  본문은 "네트워크 경계에 대한 보편적으로 합의된 기준이 없다"(Guercini & Medlin, 2020 인용, p.121)는 점을 이론적으로 논의하면서도, 이 경계 모호성이 저자들 자신의 문헌 스크리닝·코딩 과정(어떤 연구를 "네트워크" 연구로 볼 것인가)에 미쳤을 영향에 대한 자기 성찰은 제시하지 않습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Business Network Paradoxes: A Literature Review and Co-Evolutionary Perspective</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

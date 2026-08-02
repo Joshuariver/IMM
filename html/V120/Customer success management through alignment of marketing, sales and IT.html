@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Success Management through Alignment of Marketing, Sales and IT - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management, Vol. 120 (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Qualitative Case Study</div>
+        <div class="badge badge-secondary text-white style-label">COMPLY Framework</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Customer success management through<br>
+            <span class="text-cyan-400">alignment of marketing, sales and IT</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Jan Philipp Graesch, Susanne Hensel-Börner, Jörg Henseler
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            마케팅, 영업, IT의 정렬을 통한<br>
+            <span class="text-indigo-300">고객성공관리(CSM)</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            단일 글로벌 기업 4개 사업부, M-S-I 매칭 삼자(triad) 12명 인터뷰로 도출한 6차원 20속성 정렬 프레임워크
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">마케팅·영업·IT를 따로 정렬하는 시대는 끝났다 — 세 행위자를 동시에 엮어야 진짜 고객성공관리가 작동한다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Digitalization unites marketing, sales and IT (M-S-I) actors in the context of customer interactions. However, currently, little is known about the dynamics underlying the interplay and the alignment of these three actors. Additionally, salespeople are increasingly challenged by customer success management (CSM) for remaining accountable to customers in the postpurchase phase of customers' journeys. This study examines the organizational alignment of M-S-I actors using a qualitative approach. Interviews were conducted in the context of a case study of four matched triads of M-S-I actors&mdash;including the executive directors of each company&mdash;throughout the customer journey to explore the dynamics underlying this trilateral alignment. The findings demonstrate six dimensions and twenty attributes of alignment, which are integrated into the COMPLY framework to provide guidance regarding how to adjust the alignment among M-S-I actors. This approach results in the discovery of novel key propositions for intradimensional alignment and ultimately interdimensional interventions, thereby revealing ways in which researchers and managers can analyze and adjust alignment among M-S-I actors, with the ultimate goal of facilitating CSM more effectively."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">디지털화</span>는 고객 상호작용의 맥락에서 마케팅, 영업, IT(M-S-I) 세 행위자를 하나로 결합시킨다. 그러나 현재까지 이 세 행위자 간 상호작용과 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">정렬(alignment)</span>을 뒷받침하는 역학 관계에 대해서는 알려진 바가 거의 없다. 또한 영업 담당자들은 고객 여정의 구매 후 단계에서 고객에 대한 책임을 계속 유지하도록 요구하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">고객성공관리(CSM)</span>로 인해 점점 더 많은 도전에 직면하고 있다. 본 연구는 질적 접근법을 사용하여 M-S-I 행위자들의 조직적 정렬을 검토한다. 이 삼자 정렬의 기저 역학을 탐구하기 위해, 각 기업의 임원급 책임자를 포함한 M-S-I 행위자 4개 매칭 삼자(triad) 사례 연구를 바탕으로 고객 여정 전반에 걸쳐 인터뷰를 실시하였다. 연구 결과 정렬의 6개 차원과 20개 속성이 확인되었으며, 이는 M-S-I 행위자 간 정렬을 조정하는 방법에 대한 지침을 제공하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">COMPLY 프레임워크</span>로 통합되었다. 이러한 접근은 차원 내 정렬을 위한 새로운 핵심 명제와, 궁극적으로는 차원 간 개입의 발견으로 이어지며, 연구자와 관리자가 M-S-I 행위자 간 정렬을 분석·조정하여 CSM을 보다 효과적으로 촉진할 수 있는 방법을 제시한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Alignment</td>
+                  <td>정렬</td>
+                  <td class="text-sm">여러 행위자의 니즈·목표·구조가 서로 일치하는 정도. "조정"과 구분해 "정렬"로 통일.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">M-S-I Actors</td>
+                  <td>M-S-I 행위자 (마케팅·영업·IT)</td>
+                  <td class="text-sm">마케팅, 영업, IT 세 기능의 담당자를 통칭하는 저자 고유의 약어를 그대로 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Customer Success Management (CSM)</td>
+                  <td>고객성공관리</td>
+                  <td class="text-sm">구매 후 고객의 목표 달성을 지속적으로 지원하는 관리 활동. CRM의 다음 진화 단계.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Customer Journey</td>
+                  <td>고객 여정</td>
+                  <td class="text-sm">인지-고려-평가-구매-확인-충성 6단계 순환 루프로 정의됨(Fig. 1).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">COMPLY Framework</td>
+                  <td>COMPLY 프레임워크</td>
+                  <td class="text-sm">6개 차원의 머리글자를 조합한 저자 고유 명명. 고유명사로 그대로 사용.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Intradimensional / Interdimensional</td>
+                  <td>차원 내 / 차원 간</td>
+                  <td class="text-sm">각 차원 내부 속성의 정렬(micro)과 여러 차원을 결합한 조정(macro)을 구분하는 용어.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">M-S-I 행위자 간 정렬은 어떻게 이루어지고, 어떻게 조정할 수 있는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">정렬은 6개 차원 20개 속성 &rarr; COMPLY 프레임워크로 통합된다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">최초의 M-S-I 삼자 동시 분석 + SET 이론 렌즈 적용</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 고객 상호작용 맥락에서 마케팅·영업·IT(M-S-I) 행위자 간 상호작용은 어떻게 정렬되며, CSM(고객성공관리) 수행을 위해 이 세 행위자가 고객 여정 전반에서 어떻게 협력해야 하는가?</li>
+                  <li><strong>핵심 발견:</strong> 4개 사업부의 M-S-I 매칭 삼자 12명 인터뷰를 통해 정렬의 <strong>6개 차원</strong>과 <strong>20개 속성</strong>을 발견했다. 차원 내 정렬을 위한 6개 핵심 명제(P1~P6)와, 여러 차원을 결합하는 3개의 차원 간 개입(IA, IB, IC)을 도출해 <strong>COMPLY 프레임워크</strong>로 통합했다.</li>
+                  <li><strong>이론/실무 기여:</strong> 기존의 이원적(마케팅-영업 등) 정렬 연구를 최초로 M-S-I 삼자 동시 분석으로 확장했고, 사회교환이론(SET)을 이론적 렌즈로 제시했다. 실무자에게는 코디네이터 도입, 공동 디지털 툴, 애자일 팀 구성 등 실행 가능한 조정 수단을 제공한다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "마케팅·영업·IT가 따로 정렬을 챙기는 시대는 끝났다 — 세 행위자를 동시에 엮어야 진짜 고객성공관리가 작동한다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실증적(질적) 근거의 원문 인용 및 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">CSM은 고객 여정 전반의 M-S-I 정렬을 요구</td>
+                <td class="text-sm italic text-slate-600">
+                  "the new demands of CSM require M-S-I actors to align with one another throughout the entire customer journey, ranging from early product awareness to purchase and brand loyalty"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.2, Introduction</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">기존 연구는 이원적 정렬만 다뤘고, M-S-I 삼자 연구는 부재</td>
+                <td class="text-sm italic text-slate-600">
+                  "none of the studies that were included in our literature review of 159 reviewed articles included a joint analysis of M-S-I actors"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.4, Sec. 3, Table 1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">SET(사회교환이론)이 정렬 분석의 적절한 이론적 렌즈</td>
+                <td class="text-sm italic text-slate-600">
+                  "if alignment exists among M-S-I actors, the behavior of the actors aims to obtain greater value for all three actors jointly... SET is an appropriate theoretical lens for investigating alignment"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.3, Sec. 2.3</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">정렬은 6개 차원 20개 속성으로 구성</td>
+                <td class="text-sm italic text-slate-600">
+                  "alignment is composed of six dimensions, which contain a total of 20 attributes, summarized in Table 3"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.6, Sec. 5, Table 3</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">6개 차원은 각각 차원 내 핵심 명제(P1~P6)로 요약</td>
+                <td class="text-sm italic text-slate-600">
+                  "P1. Transparent communication and digitalized information sharing must be established proactively." / "P6. The capability for skills must be respected, selected and combined..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.6&ndash;9, Sec. 5.1&ndash;5.6</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">3개의 차원 간 개입(IA/IB/IC)이 COMPLY 프레임워크를 구성</td>
+                <td class="text-sm italic text-slate-600">
+                  "IA (P1, P2, P3, P4): One parent top management coordinator... IB (P1, P2, P5): One jointly used digital tool... IC (P3, P5, P6): Interdisciplinary and flexible teams..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.9&ndash;11, Sec. 6.2, Fig. 3</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">단일 기업 4개 사업부, M-S-I 매칭 삼자 12명 인터뷰 설계</td>
+                <td class="text-sm italic text-slate-600">
+                  "this paper reports the results of a case study based on twelve interviews with four matched triads of M-S-I personnel"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.4&ndash;5, Sec. 4</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델(COMPLY 프레임워크) 및 핵심 구성 개념</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Constructs</span>
+        </div>
+
+        <div class="alert bg-amber-50 border border-amber-300 text-amber-900 rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-600 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <p class="text-sm">본 연구는 통계적으로 가설을 검증하는 양적 연구가 아닌 <strong>질적 사례연구</strong>다. 따라서 아래 다이어그램과 변수 카드는 전형적인 IV/DV 대신, 6개 차원을 정렬(Alignment)의 하위 구성요소로, COMPLY 프레임워크를 이를 통합하는 조정 메커니즘으로, 효과적 CSM을 최종 결과로 재구성한 것이다. 각 차원의 핵심 명제(P1~P6)는 가설에 상응하는 역할을 한다.</p>
+        </div>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (COMPLY 프레임워크 개념도)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 1000 520" class="w-full h-auto">
+              <!-- SET Theoretical Lens (top, amber) -->
+              <rect x="340" y="15" width="220" height="60" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="450" y="40" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">이론적 렌즈: SET</text>
+              <text x="450" y="58" text-anchor="middle" fill="#b45309" font-size="10">사회교환이론(권력·연계·몰입·정보공유)</text>
+
+              <!-- 6 Dimension boxes (left column, IV-like) -->
+              <rect x="20" y="10" width="230" height="64" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="135" y="35" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">① 커뮤니케이션 &amp; 정보</text>
+              <text x="135" y="52" text-anchor="middle" fill="#64748b" font-size="10">디지털화·선제성·투명성</text>
+
+              <rect x="20" y="90" width="230" height="64" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="135" y="115" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">② 목표(Objectives)</text>
+              <text x="135" y="132" text-anchor="middle" fill="#64748b" font-size="10">정의·우선순위화·측정가능성</text>
+
+              <rect x="20" y="170" width="230" height="64" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="135" y="195" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">③ 마인드셋 &amp; 지향성</text>
+              <text x="135" y="212" text-anchor="middle" fill="#64748b" font-size="10">의지·자기효능감·고객지향·혁신성</text>
+
+              <rect x="20" y="250" width="230" height="64" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="135" y="275" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">④ 권력(Power)</text>
+              <text x="135" y="292" text-anchor="middle" fill="#64748b" font-size="10">접근성·책임·평등</text>
+
+              <rect x="20" y="330" width="230" height="64" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="135" y="355" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">⑤ 연계 &amp; 자원</text>
+              <text x="135" y="372" text-anchor="middle" fill="#64748b" font-size="10">가용성·팀지향·빈도·근접성</text>
+
+              <rect x="20" y="410" width="230" height="64" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="135" y="435" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">⑥ 축적된 지식 &amp; 스킬</text>
+              <text x="135" y="452" text-anchor="middle" fill="#64748b" font-size="10">제품·도구·시장지향, 역량</text>
+
+              <!-- Alignment central construct (mediator-like, green) -->
+              <rect x="360" y="205" width="200" height="100" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="460" y="240" text-anchor="middle" font-weight="700" fill="#065f46" font-size="15">정렬 (Alignment)</text>
+              <text x="460" y="260" text-anchor="middle" fill="#047857" font-size="11">다차원 구성개념</text>
+              <text x="460" y="278" text-anchor="middle" fill="#047857" font-size="11">(6개 차원 · 20개 속성)</text>
+
+              <!-- COMPLY Framework box -->
+              <rect x="640" y="195" width="190" height="120" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="735" y="228" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">COMPLY 프레임워크</text>
+              <text x="735" y="248" text-anchor="middle" fill="#4338ca" font-size="10">차원 간 통합 메커니즘</text>
+              <text x="735" y="266" text-anchor="middle" fill="#4338ca" font-size="10">IA · IB · IC 개입</text>
+              <text x="735" y="284" text-anchor="middle" fill="#4338ca" font-size="9">(코디네이터·공동 툴·애자일 팀)</text>
+
+              <!-- Outcome: Effective CSM -->
+              <rect x="870" y="215" width="110" height="80" rx="8" fill="#fdf2f8" stroke="#db2777" stroke-width="2"/>
+              <text x="925" y="248" text-anchor="middle" font-weight="700" fill="#9d174d" font-size="12">효과적</text>
+              <text x="925" y="264" text-anchor="middle" font-weight="700" fill="#9d174d" font-size="12">CSM 실현</text>
+              <text x="925" y="282" text-anchor="middle" fill="#be185d" font-size="9">(고객 여정 전체)</text>
+
+              <!-- Arrows: 6 dimensions -> Alignment (P1~P6, solid) -->
+              <path d="M250 42 L 300 42 L 300 240 L 355 240" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="290" y="70" fill="#64748b" font-weight="700" font-size="11">P1</text>
+
+              <path d="M250 122 L 310 122 L 310 245 L 355 245" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="300" y="145" fill="#64748b" font-weight="700" font-size="11">P2</text>
+
+              <path d="M250 202 L 320 202 L 320 250 L 355 250" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="310" y="220" fill="#64748b" font-weight="700" font-size="11">P3</text>
+
+              <path d="M250 282 L 320 282 L 320 260 L 355 260" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="310" y="300" fill="#64748b" font-weight="700" font-size="11">P4</text>
+
+              <path d="M250 362 L 310 362 L 310 270 L 355 270" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="300" y="385" fill="#64748b" font-weight="700" font-size="11">P5</text>
+
+              <path d="M250 442 L 300 442 L 300 280 L 355 280" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="290" y="465" fill="#64748b" font-weight="700" font-size="11">P6</text>
+
+              <!-- SET lens -> Alignment (dashed, theoretical lens not a hypothesis path) -->
+              <path d="M450 75 L 450 200" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="460" y="130" fill="#b45309" font-weight="700" font-size="11">이론적 기반</text>
+
+              <!-- Alignment -> COMPLY -->
+              <path d="M560 255 L 635 255" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="565" y="248" fill="#047857" font-weight="700" font-size="11">차원간 통합</text>
+
+              <!-- COMPLY -> Outcome -->
+              <path d="M830 255 L 865 255" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="812" y="248" fill="#3730a3" font-weight="700" font-size="10">실행</text>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 text-center max-w-2xl">
+            굵은 회색 화살표(P1~P6)는 각 차원의 차원 내 핵심 명제(intradimensional proposition)를, 점선 화살표는 정렬 분석의 이론적 렌즈(SET)를, COMPLY 박스 내부의 IA·IB·IC는 여러 차원을 결합하는 차원 간 개입(interdimensional intervention)을 나타낸다.
+          </p>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Construct 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">핵심 구성개념</span>
+                <span class="text-xs text-slate-400 font-semibold">Alignment</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">정렬 (Alignment) — 상위 다차원 구성개념</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> "the degree to which the needs, demands, goals, objectives, and/or structures of one actor are consistent with the needs, demands, goals, objectives, and/or structures of another actor" (Nadler &amp; Tushman, 1977; Graesch et al., 2022).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 6개 차원(커뮤니케이션&amp;정보, 목표, 마인드셋&amp;지향성, 권력, 연계&amp;자원, 축적된 지식&amp;스킬)에 속한 20개 속성으로 관찰됨.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 12개 반구조화 인터뷰의 귀납·귀추적 코딩으로 도출(통계 척도 없음); 선행 개념연구(Homburg et al., 2008/2002; Le Meunier-FitzHugh &amp; Piercy, 2007a; Coltman et al., 2015; Biemans et al., 2010)의 도메인을 계승·확장.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Edwards(2001)의 다차원 구성개념 논의에 근거해 정렬을 상위 구성개념(superordinate construct), 6개 차원을 그 특정 발현물(specific manifestation)로 규정함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Dimension summary card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">6개 하위 차원</span>
+                <span class="text-xs text-slate-400 font-semibold">Dimensions (P1&ndash;P6)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">차원별 속성 및 핵심 명제</h3>
+              <div class="divider my-1"></div>
+              <div class="overflow-x-auto border rounded-lg">
+                <table class="table table-zebra w-full text-slate-700 text-sm">
+                  <thead>
+                    <tr class="bg-slate-50 text-slate-800">
+                      <th>차원</th>
+                      <th>속성 (Attributes)</th>
+                      <th>핵심 명제</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td class="font-semibold">① 커뮤니케이션 &amp; 정보</td><td>디지털화, 선제성, 투명성</td><td>P1: 투명한 커뮤니케이션과 디지털화된 정보공유가 선제적으로 확립되어야 한다</td></tr>
+                    <tr><td class="font-semibold">② 목표</td><td>정의, 우선순위화, 측정가능성</td><td>P2: 목표는 상호 정의되고, 우선순위화되고, 측정 가능한 핵심 결과를 포함해야 한다</td></tr>
+                    <tr><td class="font-semibold">③ 마인드셋 &amp; 지향성</td><td>의지·동기, 주의력·자기효능감, 고객지향, 혁신성</td><td>P3: 고객지향·적극적 협업·혁신적 마인드셋의 공동 동기가 확립되어야 한다</td></tr>
+                    <tr><td class="font-semibold">④ 권력</td><td>접근성, 책임, 평등</td><td>P4: 책임은 균등하게 분배되고, 접근 가능한 최고경영진이 확립되어야 한다</td></tr>
+                    <tr><td class="font-semibold">⑤ 연계 &amp; 자원</td><td>가용성, 팀지향, 빈도, 근접성</td><td>P5: 가용한 팀을 통한 긴밀한 근접성과 빈번한 연계가 공동 프로세스로 확립되어야 한다</td></tr>
+                    <tr><td class="font-semibold">⑥ 축적된 지식 &amp; 스킬</td><td>제품지향, 도구지향, 시장지향, 역량</td><td>P6: 스킬 역량은 존중·선별·결합되고, 제품·시장·도구 지식은 공유되어야 한다</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- SET theoretical lens card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">이론적 렌즈</span>
+                <span class="text-xs text-slate-400 font-semibold">SET</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">사회교환이론 (Social Exchange Theory)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 행위자들은 기대되는 보상에 의해 동기부여되는 자발적 교환 행동에 참여한다는 이론 (Homans, 1961; Blau, 1964).</p>
+              <p class="text-sm text-slate-700"><strong>역할:</strong> 정렬이 존재할 때 행위자들은 개인·조직 차원에서 더 큰 가치를 얻기 위해 협력·우선순위화·소통한다고 가정하는 이론적 렌즈.</p>
+              <p class="text-sm text-slate-600"><strong>관련 구성:</strong> 권력(power), 구조적 연계(structural linkage), 몰입(commitment), 정보 공유(information sharing).</p>
+            </div>
+          </div>
+
+          <!-- COMPLY Framework card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">통합 메커니즘</span>
+                <span class="text-xs text-slate-400 font-semibold">COMPLY</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">COMPLY 프레임워크 (차원 간 통합)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 6개 차원을 서로 얽어 짜는(intertwined braid) 방식으로 결합해 차원 간 정렬을 설명하는 개념 프레임워크 (Fig. 3).</p>
+              <p class="text-sm text-slate-700"><strong>구성 개입:</strong> IA(P1,P2,P3,P4 &mdash; 상위 코디네이터), IB(P1,P2,P5 &mdash; 공동 디지털 툴), IC(P3,P5,P6 &mdash; 애자일 다학제 팀).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> M-S-I 외 다른 행위자(R&amp;D, 법무, 재무 등)에도 적용 가능할지는 저자들이 향후 검증 과제로 남겨둠.
+              </p>
+            </div>
+          </div>
+
+          <!-- Outcome Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">최종 결과</span>
+                <span class="text-xs text-slate-400 font-semibold">Outcome</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">효과적인 고객성공관리 (Effective CSM)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 고객 여정 전반에서 M-S-I 행위자가 정렬됨으로써 고객이 파편적 경험이 아닌 일관된 여정을 인식하게 되는 상태.</p>
+              <p class="text-sm text-slate-700"><strong>선행 요인 흐름:</strong> 6개 차원의 정렬 &rarr; COMPLY 프레임워크의 차원 간 통합 개입(IA/IB/IC) &rarr; 삼자 협업 강화 &rarr; CSM 효과성 증대.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 동일한 질적 사례연구 절차를 그대로 <strong>추종 재현</strong>할 수 있도록 연구 과정을 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">사례 및 표본 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  단일 글로벌 기업(운송 유지보수 산업, 종업원 20,000명 이상, B2B 고객 800개사 이상, 연매출 50억 달러 이상)을 사례로 선정. 마케팅·영업·IT 부서를 자체적으로 보유한 4개 사업부를 식별해 동일 본사·경영진 하에서 산업별 비교가 가능하도록 설계.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Section 4</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">응답자 선정 (매칭 트라이어드)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  각 사업부에서 마케팅·영업·IT 담당 관리자 1인씩, 4개 사업부 &times; 3인 = 12명의 매칭 삼자(triad)를 선정(Table 2). SVP, CMO, CIO, Director 등 전체 프로세스를 조망할 수 있는 중간~고위 관리자로 한정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5, Section 4, Table 2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">반구조화 인터뷰 설계 및 실시</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  고객 여정 사이클(인지&rarr;고려&rarr;평가&rarr;구매&rarr;확인&rarr;충성)의 각 단계별로 동일 유형 질문을 구성해, 2021년 가을 2개월에 걸쳐 대면/온라인으로 평균 45분 인터뷰 진행 및 녹음. 마지막에 개방형 질문 추가.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 5&ndash;6, Section 4</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">편향 완화를 위한 트라이앵귤레이션</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  인터뷰는 저자 1인만 진행하고 나머지 2인은 참여 없이 객관적 감독만 수행. 현장노트, 인트라넷 파일, 조직도를 보조 자료로 수집해 구성타당도를 강화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6, Section 4</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">질적 내용분석 (4단계)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Mayring(2015) 절차 적용: (1) 전반적 정렬 vs 여정 단계별 이분, (2) 여정 단계별 12개 응답 순차 비교, (3) 개방적 귀납 코딩 후 상위 카테고리 결합, (4) 선행 개념연구 카테고리로 축코딩·선택적 코딩. 3인 저자가 다회 검토.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6, Section 4</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">차원·속성·명제 도출 (차원 내 정렬)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  코딩 결과를 6개 차원 20개 속성(Table 3)으로 정리하고, 차원별 조정 레버(Table 4)와 핵심 명제 P1&ndash;P6을 귀추적 추론(abductive reasoning)으로 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 6&ndash;9, Section 5, Table 3&ndash;4</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">차원 간 통합 (COMPLY 프레임워크 구축)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  인터뷰 자료를 재차 귀추적으로 축코딩해 여러 차원(P1~P6)을 결합하는 3개의 차원 간 개입(IA, IB, IC)을 도출하고 COMPLY 프레임워크(Fig. 3)로 시각화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 9&ndash;11, Section 6.2</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            표본 설계 기준, 인터뷰 프로토콜, 4단계 질적 내용분석 절차는 상세히 기술되어 있어 동일 방법론을 다른 기업에 적용할 수 있으나, 원 연구의 특정 기업·응답자는 재현 불가능하며 귀납적·귀추적 코딩은 연구자 해석에 크게 의존하므로 동일 자료로도 동일 프레임워크가 재도출된다는 보장은 없습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 7.3)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>응답자 진술에만 의존:</strong> "the findings are based solely on respondents' statements and are neither complete nor independent of the industry and its products." 전통 산업·신흥시장 기업에는 적용 가능성이 낮을 수 있음을 인정.
+              </li>
+              <li>
+                <strong>차원·속성 목록의 비완결성:</strong> "The dimensions and attributes listed in Table 4 are neither complete nor necessarily transferrable but rather indicate key areas."
+              </li>
+              <li>
+                <strong>고객 여정 단계별 정렬 변이 미탐구:</strong> 정렬이 여정 단계별로 어떻게 달라지는지는 충분히 개발되지 않았으며 향후 연구 과제로 남김.
+              </li>
+              <li>
+                <strong>면접자·확증 편향 잔존 가능성:</strong> "Interviewer bias and confirmation bias cannot be completely eliminated due to interactions with respondents." 표준화된 질문 순서와 1인 인터뷰+2인 객관적 검토로 완화를 시도했으나 완전 제거는 불가능하다고 명시.
+              </li>
+              <li>
+                <strong>일반화 가능성의 산업·제품 의존성:</strong> IT 통합이 필요한(전통+디지털 혼합) 제품군 산업에 더 적합하며, 전통 비즈니스·신흥시장에는 적용성이 낮을 수 있음을 인정.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 단일 사례 분석 메커니즘을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 단일 기업 사례의 조직문화 편향</span>
+                <p class="text-sm text-slate-700">
+                  4개 사업부가 모두 같은 본사·경영진 하에 있어 변수를 통제했다고 주장하지만, 역으로 발견된 정렬 다이나믹스가 <strong>이 특정 기업의 고유한 조직문화·리더십 스타일</strong>을 반영하는 것일 뿐, 다른 기업·산업 문화에서도 동일한 6개 차원이 재현될지는 검증되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 소표본 코딩의 연구자 주관성</span>
+                <p class="text-sm text-slate-700">
+                  데이터 포화(saturation)로 12명 표본을 정당화하지만, 실제 코딩(개방·축·선택)과 최종 프레임워크 구성은 <strong>3인 연구자의 해석</strong>에 크게 의존합니다. 트라이앵귤레이션이 있었다 해도 주관 개입 여지는 여전히 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 회고적 자기보고의 사회적 바람직성 편향</span>
+                <p class="text-sm text-slate-700">
+                  인터뷰는 실제 업무 관찰이 아닌 <strong>관리자의 회고적 진술</strong>에 의존합니다. 같은 회사·프로젝트에서 함께 일하는 동료(다른 M-S-I 행위자)와의 갈등은 축소 보고될 유인이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 고객 관점의 완전한 부재</span>
+                <p class="text-sm text-slate-700">
+                  CSM은 본질적으로 고객의 성공을 다루는 개념이지만, 이 연구는 <strong>내부 M-S-I 행위자만</strong> 인터뷰했습니다. 내부 정렬이 실제 고객 성공/만족으로 이어지는지는 검증되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 저자-기업 간 접근 경로로 인한 표본 편향</span>
+                <p class="text-sm text-slate-700">
+                  "one of the coauthors had access to its contact directory"라는 서술은, 공저자의 개인 네트워크를 통해 섭외된 응답자들이 <strong>연구에 우호적인 답변</strong>을 할 유인을 시사하나 별도 통제는 언급되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 시기적 특수성 (코로나19 디지털 전환기)</span>
+                <p class="text-sm text-slate-700">
+                  인터뷰가 2021년 가을(팬데믹발 디지털 전환 가속기)에 수집되어, 디지털화·IT 정렬의 중요성이 <strong>일시적으로 과대평가</strong>된 시점의 스냅샷일 가능성이 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Customer success management through alignment of marketing, sales and IT</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
