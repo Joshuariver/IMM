@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coopetition Strategies and Company Performance - IMM 2024</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
+    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
+    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
+    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+    html { scroll-behavior: smooth; }
+    @media (max-width: 1024px) {
+      .style-display { font-size: 38px; }
+      .style-h1 { font-size: 30px; }
+      .style-h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Coopetition / Resource-Based View</div>
+        <div class="badge badge-secondary text-white style-label">Survey (N=262 US Firms, OLS Regression)</div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            The relationship between coopetition strategies<br>
+            <span class="text-cyan-400">and company performance</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            James M. Crick, Wesley Friske, Todd A. Morgan
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            경쟁강도·시장역동성·기술격동성에 따른<br>
+            <span class="text-indigo-300">코피티션 전략과 기업성과의 관계</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            미국 262개 기업 설문으로 밝힌, 격동적 환경일수록 강해지는 코피티션의 반직관적 효과
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">경쟁이 치열하고 기술변화가 빠를수록, 경쟁자와 손잡는 전략의 성과효과는 오히려 더 커집니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "While coopetition (cooperation among competitors) is expected to increase company performance, environmental factors could de-stabilise such consequences. Specifically, volatile external forces might impose challenges surrounding how firms collaborate with their industry rivals, leading to negative impacts on their performance. As such, under the wider elements of resource-based theory (considering the macro-level environment and relational issues), our study evaluates the connection between coopetition strategies and company performance under different levels of competitive intensity, market dynamism, and technological turbulence. We acquired survey responses from 262 firms throughout the United States (operating across multiple sectors). After addressing several robustness checks, we employed an ordinary least squares regression analysis to test the components of our conceptual framework. Our results highlighted that although coopetition strategies drove company performance, this link was positively moderated by competitive intensity and technological turbulence, but was not influenced by market dynamism. Thus, we have provided stronger (i.e., counter-intuitive) evidence on how different macro-level environmental forces variably affect the performance outcomes of these business-to-business (B2B) marketing networks. Likewise, we have offered improved insights on the broader themes of the resource-based view, whereby, some decision-makers cooperate with their competitors to operate successfully in unpredictable market settings."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">코피티션</span>(경쟁자 간 협력)은 기업성과를 높일 것으로 기대되지만, 환경적 요인이 이러한 결과를 불안정하게 만들 수 있다. 구체적으로, 변동성이 큰 외부 요인은 기업이 산업 경쟁자와 협력하는 방식에 어려움을 초래하여 성과에 부정적 영향을 미칠 수 있다. 이에 본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">자원기반이론</span>의 확장된 요소들(거시환경과 관계적 이슈를 포괄)에 기반하여, 경쟁강도·시장역동성·기술격동성의 상이한 수준에서 코피티션 전략과 기업성과 간의 관계를 평가한다. 미국 전역의 여러 업종에 걸친 262개 기업으로부터 설문 응답을 확보하였다. 여러 강건성 검증을 거친 후, 개념적 프레임워크의 구성요소를 검증하기 위해 최소자승(OLS) 회귀분석을 실시하였다. 연구 결과, 코피티션 전략은 기업성과를 견인하였으나, 이 관계는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">경쟁강도와 기술격동성에 의해 정적으로 조절</span>되었고, 시장역동성의 영향은 없었다. 이로써 본 연구는 상이한 거시환경 요인이 이러한 B2B 마케팅 네트워크의 성과결과에 다양하게(즉, 직관에 반하는 방식으로) 영향을 미친다는 강력한 증거를 제시하였다. 아울러 일부 의사결정자들이 예측 불가능한 시장환경에서 성공적으로 운영하기 위해 경쟁자와 협력한다는, 자원기반관점의 확장된 주제에 대한 개선된 통찰을 제공하였다.
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">VRIN Framework</td>
+                  <td>VRIN 프레임워크</td>
+                  <td class="text-sm">가치·희소성·모방불가능성·대체불가능성으로 구성된 자원기반이론의 핵심 분석틀(Barney, 1991).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Competitive Intensity / Market Dynamism / Technological Turbulence</td>
+                  <td>경쟁강도 / 시장역동성 / 기술격동성</td>
+                  <td class="text-sm">본 연구의 3개 거시환경 조절변수. 각각 경쟁 치열함, 수요 변동성, 기술변화 속도를 측정.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Marker Variable Technique</td>
+                  <td>마커변수 기법</td>
+                  <td class="text-sm">동일방법편의를 통제하기 위해 이론적으로 무관한 변수(패션 의식)를 모형에 포함하는 기법.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Counter-intuitive Moderation</td>
+                  <td>반직관적 조절효과</td>
+                  <td class="text-sm">당초 부적 방향으로 가설화한 조절효과가 실제로는 정적으로 유의하게 나타난 본 연구의 핵심 발견.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">거시환경이 코피티션-성과 관계를 어떻게 조절하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">경쟁강도·기술격동성이 반직관적으로 정적 조절</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">거시환경 다차원 분해로 자원기반이론 확장</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 코피티션 전략과 기업성과 간의 관계는 경쟁강도·시장역동성·기술격동성이라는 거시환경 조건 하에서 어떻게 달라지는가?</li>
+                  <li><strong>핵심 발견:</strong> 코피티션은 성과를 높인다(H1 지지). 그러나 당초 "약화시킬 것"으로 가설화한 경쟁강도·기술격동성이 오히려 관계를 "강화"(H2, H4 반직관적 지지)시키며, 시장역동성은 유의한 영향이 없다(H3 기각).</li>
+                  <li><strong>이론/실무 기여:</strong> 거시환경을 다차원으로 분해해 각기 다른 조절효과를 규명, 코피티션의 "어두운 면"이 격동적 환경에서 반드시 발생하지 않음을 실증. 경쟁이 치열한 산업의 의사결정자에게 코피티션 회피보다 적극 고려를 권고.</li>
+                </ul>
+              </div>
+
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "코피티션 전략은 기업성과를 높이며, 이 효과는 경쟁이 치열하고 기술변화가 빠른 격동적 환경일수록 오히려 더 강해진다—당초 예상과 정반대의 결과이다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설과 통계적 검증 결과, 원문 인용 위치를 맵핑했습니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">코피티션이 기업성과에 정적 영향 (H1 지지)</td>
+                <td class="text-sm italic text-slate-600">"the coopetition strategies construct had a positive and significant connection with company performance. As such, H1 was supported."</td>
+                <td class="text-right font-medium text-slate-500">Sec. 4, Page 67</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">경쟁강도·기술격동성의 반직관적 정적 조절 (H2, H4)</td>
+                <td class="text-sm italic text-slate-600">"competitive intensity and technological turbulence positively and significantly moderated the link... we encountered the opposite findings for H2 and H4."</td>
+                <td class="text-right font-medium text-slate-500">Sec. 4, Page 67</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">시장역동성 조절효과 비유의 (H3 기각)</td>
+                <td class="text-sm italic text-slate-600">"market dynamism yielded a negative (but non-significant) moderation effect. Thus, H3 was unsupported."</td>
+                <td class="text-right font-medium text-slate-500">Sec. 4, Page 67</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">모형이 기업성과 분산의 46% 설명</td>
+                <td class="text-sm italic text-slate-600">"46.00% of the variance of the outcome variable was explained, alongside there being a significant F-statistic and VIF scores that did not denote multi-collinearity problems."</td>
+                <td class="text-right font-medium text-slate-500">Sec. 4, Table 6</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">동일방법편의는 마커변수 기법으로 통제, 문제 없음</td>
+                <td class="text-sm italic text-slate-600">"the fashion consciousness construct served as a suitable marker variable... when testing for evidence of common method variance."</td>
+                <td class="text-right font-medium text-slate-500">Table 5 note</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 가설 모형)</h3>
+
+          <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 400" class="w-full h-auto">
+              <rect x="20" y="150" width="220" height="80" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="130" y="180" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">코피티션 전략</text>
+              <text x="130" y="200" text-anchor="middle" fill="#64748b" font-size="10">경쟁자와의 자산공유·협력</text>
+
+              <rect x="560" y="150" width="220" height="80" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="670" y="180" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">기업 성과</text>
+              <text x="670" y="200" text-anchor="middle" fill="#4338ca" font-size="10">판매·수익 등 재무성과</text>
+
+              <path d="M240 190 L 555 190" fill="none" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow7)"/>
+              <text x="400" y="180" text-anchor="middle" fill="#334155" font-weight="700" font-size="13">H1 (+, 지지)</text>
+
+              <rect x="290" y="20" width="220" height="60" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+              <text x="400" y="43" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="12">조절1: 경쟁강도</text>
+              <text x="400" y="60" text-anchor="middle" fill="#b91c1c" font-size="10">가설(-) → 실제(+, 유의) ★반직관</text>
+              <path d="M400 80 L 400 150" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow7)"/>
+
+              <rect x="290" y="310" width="220" height="60" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+              <text x="400" y="333" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">조절2: 시장역동성</text>
+              <text x="400" y="350" text-anchor="middle" fill="#64748b" font-size="10">가설(-) → 실제(-, 비유의) H3 기각</text>
+              <path d="M400 310 L 400 232" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow7)"/>
+
+              <rect x="290" y="150" width="0" height="0"/>
+              <rect x="560" y="20" width="220" height="60" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+              <text x="670" y="43" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="12">조절3: 기술격동성</text>
+              <text x="670" y="60" text-anchor="middle" fill="#b91c1c" font-size="10">가설(-) → 실제(+, 유의) ★반직관</text>
+              <path d="M670 80 L 670 150" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow7)"/>
+
+              <rect x="20" y="290" width="220" height="70" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="130" y="315" text-anchor="middle" fill="#64748b" font-size="11" font-weight="600">통제변수</text>
+              <text x="130" y="333" text-anchor="middle" fill="#94a3b8" font-size="9">기업규모(log)/기업연령(log)</text>
+              <text x="130" y="348" text-anchor="middle" fill="#94a3b8" font-size="9">산업유형(더미)</text>
+
+              <defs>
+                <marker id="arrow7" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수</span>
+                <span class="text-xs text-slate-400 font-semibold">IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">코피티션 전략 (Coopetition Strategies)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 경쟁자와 공동목표 달성을 위해 자산을 공유하고 적극적으로 협력하는 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "경쟁자와 광범위하게 협력한다", "적극적 라이벌 기업과의 협업이 중요하다", "우리의 라이벌은 우리의 동맹이다" 등 3문항(척도정제 후, 7점 리커트).</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> Bouncken & Kraus(2013), Bouncken et al.(2018) 척도 응용.</p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-error style-label text-white">조절변수 1·3</span>
+                <span class="text-xs text-slate-400 font-semibold">반직관적 정적 조절</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">경쟁강도 / 기술격동성</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>경쟁강도:</strong> 산업 내 경쟁의 치열함 정도. 코피티션-성과 관계를 정적으로 조절(H2, 가설과 반대).</p>
+              <p class="text-sm text-slate-700"><strong>기술격동성:</strong> 산업 내 기술변화 속도. 코피티션-성과 관계를 정적으로 조절(H4, 가설과 반대).</p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">조절변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">비유의</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">시장역동성 (Market Dynamism)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 고객 선호·수요의 변동성 정도.</p>
+              <p class="text-sm text-slate-700"><strong>결과:</strong> 부적 방향이나 통계적으로 비유의(H3 기각) — 코피티션-성과 관계에 유의한 영향 없음.</p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">DV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기업 성과 (Company Performance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 전통적 재무성과(판매·수익 등)로 조작화. 모형이 분산의 46%를 설명.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 설문조사·회귀분석을 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">자원기반이론 기반 가설 개발</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  VRIN 프레임워크를 거시환경+이해관계자 네트워크 차원으로 확장(Fig. 1), H1(직접효과)+H2-H4(조절효과, 모두 부적 방향 가설화) 개발.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec. 2, Fig. 1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">다업종 설문 표본 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  미국 전역 여러 업종에 걸친 262개 기업 대상 설문조사 실시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec. 3.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">측정도구 정제 및 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  코피티션 전략 5문항 중 척도정제로 3문항 확정(Appendix 1). 신뢰도·타당도(평균분산추출값 등) 검증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec. 3.3, Table 3-4</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">동일방법편의 통제</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Harman 단일요인 검정 실시. 무관 구성개념 "패션 의식"을 마커변수로 포함해 편의 여부 통계적 검증(문제 없음).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec. 3.3, Table 5</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">OLS 회귀분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  경쟁강도·시장역동성·기술격동성을 절차적 통제로 모델링, 최소자승 회귀분석으로 H1-H4 검증(임계 t=1.65, 5% 단측검정).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec. 3.4, Sec. 4, Table 6</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">강건성 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  다중공선성(VIF), F통계량 유의성 확인, 스포트라이트 분석으로 조절효과 시각화(Appendix 2).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec. 4, Appendix 2</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            측정문항·신뢰도통계·회귀분석 절차가 상세히 공개되어 통계적 재현은 용이하나, 원 설문 데이터는 기밀로 비공개이며 262개 미국 기업이라는 특정 표본의 완전한 재현은 불가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 7)에서 연구진들이 직접 밝힌 연구의 한계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li><strong>자기보고식 자료 의존:</strong> "such information was self-reported. As such, we advise that future B2B marketing research should utilise a mixture of self-reported information... and archival data."</li>
+              <li><strong>전적으로 정량적 방법론:</strong> "our results were completely quantitative... we encourage future B2B marketing research to use a series of follow-up interviews to unpack the statistical evidence."</li>
+              <li><strong>미국 단일 국가 표본:</strong> "our empirical findings were driven from statistical data from companies in the United States... it would be interesting to evaluate these issues with the equivalent data from other countries."</li>
+              <li><strong>코로나19 팬데믹 별도 미고려:</strong> "our article did not concentrate on the COVID-19 pandemic as a moderating factor... we deemed this issue to be encapsulated within... market dynamism."</li>
+              <li><strong>전쟁·분쟁 등 극단적 환경격변 미고려:</strong> "we recommend that future B2B marketing research should evaluate wartime (and/or conflict-fuelled) situations."</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 결과 해석 특성을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 반직관적 결과의 사후적 정당화</span>
+                <p class="text-sm text-slate-700">가설과 정반대 방향의 결과를 "더 강력한 증거"로 프레이밍하는데, 방향 반전에 대한 사전 이론적 근거 없이 사후적으로만 설명되어 데이터 주도적 해석일 위험이 있음.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 횡단자료의 역인과관계 가능성</span>
+                <p class="text-sm text-slate-700">단일 시점 횡단 설문이므로 "이미 성과가 좋은 기업이 여유자원으로 코피티션에 나선다"는 역인과관계가 통계적으로 배제되지 않았으나 논의가 부족함.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. RBV 선택의 이론적 정합성 의문</span>
+                <p class="text-sm text-slate-700">각주에서 대안 이론(자원우위이론)의 존재를 인정하면서도 RBV 선택 이유를 심사자 요청에 따라 사후 보강하고 있어, 이론적 렌즈 선택이 편의적이었을 가능성이 있음.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 마커변수("패션 의식")의 산업 적합성 의문</span>
+                <p class="text-sm text-slate-700">B2B 산업재 기업 응답자에게 "패션 의식"은 다소 부자연스러운 구성개념일 수 있어, 마커변수의 이론적 무관련성 가정이 모든 응답자에게 균일하게 성립하는지 의문이 남음.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>The relationship between coopetition strategies and company performance under different levels of competitive intensity, market dynamism, and technological turbulence</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
