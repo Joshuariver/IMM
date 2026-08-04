@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leading the Transition to Multi-Sided Platforms (MSPs) in a B2B Context - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024, Vol. 116)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Platform Transition · Case Study</div>
+        <div class="badge badge-secondary text-white style-label">Gioia Method · Single Case</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Leading the transition to multi-sided platforms (MSPs) in a B2B context –<br>
+            <span class="text-cyan-400">The case of a recycling SME</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Lukas Budde, Roman Hänggi, Leonardo Laglia, Thomas Friedli
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            B2B 맥락에서 멀티사이드 플랫폼(MSP)으로의 전환을 주도하기 –<br>
+            <span class="text-indigo-300">재활용 SME 사례 연구</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            스위스 재활용 SME "Recycle"의 5년(2017–2022) 종단 사례를 통해 본 B2B 브라운필드 MSP 전환 프로세스 모델과 4대 명제
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">B2B-SME는 플랫폼을 한 번에 짓지 않는다. 기존 고객 관계로 한쪽 면부터 만들고, 내부 저항을 관리한 뒤, 통제된 속도로 문을 연다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Digital multi-sided platforms (MSP) are emerging as powerful forces to disrupt existing industry value chains in B2B. SMEs can play a crucial role in the emergence of digital platform ecosystems. Although much research has been carried out on the design and governance of digital platforms, research mainly focused on greenfield approaches in B2C and neglected the process of transformation of an established company in B2B to a MSP. Recognizing this unique opportunity for SMEs, we addressed this research gap by examining the journey of a B2B-SME to a MSP, capturing and presenting the dynamics of barriers, actions, and outcomes as generative mechanisms. Applying Moore's (1993) ecosystem lifecycle model, we developed a process model guiding SMEs to MSPs and discussed four propositions representing key activities supporting the transformation, reorganization, and emergence of the ecosystem."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "디지털 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">멀티사이드 플랫폼(MSP)</span>은 B2B 영역에서 기존 산업 가치사슬을 파괴하는 강력한 힘으로 부상하고 있다. 중소기업(SME)은 디지털 플랫폼 생태계 형성 과정에서 중요한 역할을 수행할 수 있다. 디지털 플랫폼의 설계와 거버넌스에 관한 연구는 많이 이루어졌으나, 기존 연구는 주로 B2C 영역의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">그린필드</span> 접근에 초점을 맞추었고, B2B에서 기존 기업이 MSP로 전환하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">브라운필드</span> 과정은 소홀히 다루어졌다. 본 연구는 SME에게 주어진 이러한 독특한 기회를 인식하고, B2B-SME가 MSP로 전환해가는 여정을 조사하여 이 연구 공백을 다룬다. 이 과정에서 장벽·행동·결과의 역동성을 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">생성적 메커니즘(generative mechanisms)</span>으로 포착하고 제시한다. 무어(Moore, 1993)의 생태계 수명주기 모델을 적용하여, 우리는 SME를 MSP로 이끄는 프로세스 모델을 개발하고, 전환·재조직·생태계 출현을 지원하는 핵심 활동을 나타내는 네 가지 명제를 논의한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Multi-sided Platform (MSP)</td>
+                  <td>멀티사이드 플랫폼</td>
+                  <td class="text-sm">둘 이상의 서로 다른 고객 집단을 매칭시켜 간접 네트워크 외부성을 창출하는 플랫폼. "양면 플랫폼"보다 포괄적인 원어를 그대로 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Brownfield / Greenfield</td>
+                  <td>브라운필드 / 그린필드</td>
+                  <td class="text-sm">기존 선형 사업을 전환(브라운필드) vs. 무에서 시작(그린필드). 국내 정착 번역어가 없어 원어 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Generative Mechanism</td>
+                  <td>생성적 메커니즘</td>
+                  <td class="text-sm">결과가 어떻게·왜 발생했는지를 설명하는 잠재적 인과 경로. 정성적 프로세스 연구의 핵심 설명 단위.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Gioia Method</td>
+                  <td>지오이아 방법론</td>
+                  <td class="text-sm">1차 개념→2차 테마→총괄 차원의 3단계 귀납적 코딩 절차(Gioia et al., 2013).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Ecosystem Lifecycle Model</td>
+                  <td>생태계 수명주기 모델</td>
+                  <td class="text-sm">Moore(1993)의 탄생-확장-리더십-자기쇄신 4단계 모델. 본 연구는 "탄생" 단계를 4개로 세분화.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Keystone Firm</td>
+                  <td>키스톤 기업 / 생태계 리더 기업</td>
+                  <td class="text-sm">생태계 참여자를 연결하고 핵심 자원을 제공하는 중심 기업(Iansiti & Levien, 2004).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">B2B-SME는 어떻게 선형 사업을 MSP로 전환하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">4단계 순차 프로세스와 4대 전략 명제</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">Moore 생태계 모델의 B2B 브라운필드 확장</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 자원이 제한된 B2B-SME는 어떻게 선형(linear) 공급망 비즈니스 모델에서 디지털 플랫폼 생태계(MSP) 비즈니스 모델로 전환할 수 있는가?</li>
+                  <li><strong>핵심 발견:</strong> 스위스 재활용 SME "Recycle"은 2017~2022년에 걸쳐 <strong>① 디지털 서비스 개시 및 공급망 재구상 → ② 저항 극복 및 채택 확산 → ③ 통합 가치제안 청사진 설계 → ④ 전략적 재포지셔닝 및 MSP 출시</strong>라는 4개 순차 국면을 거쳐 플랫폼 "ReciPlat"을 완성했습니다. 처음부터 양면을 동시에 구축하지 않고 기존 고객 한쪽 면만 먼저 디지털화했습니다.</li>
+                  <li><strong>이론/실무 기여:</strong> B2C 그린필드에 편중된 기존 플랫폼 생태계 연구를 B2B-SME 브라운필드 맥락으로 확장하고, 자원 제약 속에서 저항을 관리하며 통제된 개방을 실행하는 실무 로드맵(4대 명제)을 제시하였습니다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "B2B-SME는 플랫폼을 한 번에 완성하는 대신, 기존 고객·영업 관계를 활용해 한쪽 면부터 디지털 서비스로 전환하고, 내부 저항을 관리하며, 통제된 단계적 개방을 통해 브라운필드에서 멀티사이드 플랫폼으로 진화해야 합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실증 근거(원문 인용) 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">B2C 그린필드 편중 연구공백</td>
+                <td class="text-sm italic text-slate-600">
+                  "The existing concepts and techniques for greenfield B2C platform approaches cannot be equally applied and compared to the specific context of the B2B-SME brownfield."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 108 (Sec. 1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">종단적 단일 사례 & Gioia 방법론</td>
+                <td class="text-sm italic text-slate-600">
+                  "we conducted a longitudinal case study of a Swiss B2B-SME in the recycling sector... data analysis was built on an inductive research design by applying the Gioia method."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 108 (Sec. 1)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">한쪽 면부터 구축 (Proposition 1)</td>
+                <td class="text-sm italic text-slate-600">
+                  "B2B-SMEs should cut complexity in the value proposition design and implementation by focusing on existing customer groups... A cost-controlled step-by-step implementation with external IT partners..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 115 (Sec. 5.2.1)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">기존 영업자원 재활용 (Proposition 2)</td>
+                <td class="text-sm italic text-slate-600">
+                  "B2B-SMEs make use of existing sales and marketing resources to provide customer platform onboarding activities due to the platform-related resource savings..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 116 (Sec. 5.2.2)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">외부 역량 활용 생태계 사고 (Proposition 3)</td>
+                <td class="text-sm italic text-slate-600">
+                  "B2B-SMEs can make use of the data from the platform services for specific use cases with the support of external competencies (e.g., research) to foster ecosystem thinking..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 117 (Sec. 5.2.3)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">통제된 단계적 개방 (Proposition 4)</td>
+                <td class="text-sm italic text-slate-600">
+                  "B2B-SME should ensure a safe and stepwise transformation and scaling with a strategic and controlled early involvement of complementors, focusing on onboarding partners in close regions..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 117 (Sec. 5.2.4)</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">Moore 생태계 모델 세분화</td>
+                <td class="text-sm italic text-slate-600">
+                  "the aggregated dimensions derived in our data tree... can be understood as four distinct subphases of Moore's 'birth' phase."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 112 (Sec. 5.1)</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">실제 MSP(ReciPlat) 출시 완료</td>
+                <td class="text-sm italic text-slate-600">
+                  "In 2022, the full jump towards a MSP was made, with the launch of the platform ReciPlat, which began to orchestrate waste management transactions... between new customers and additional waste management companies (i.e., competitors)."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 109 (Sec. 3.1)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Process Model</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 논문은 가설을 통계 검정하는 정량 연구가 아니라 <strong>Gioia 방법론에 기반한 귀납적 프로세스 이론 구축</strong> 연구입니다.
+          따라서 IV/DV 대신, 데이터 트리(Fig. 3)에서 도출되고 Moore(1993) 생태계 수명주기의 "탄생" 단계를 세분화한
+          <strong>4개의 순차적 전환 국면(Phase)</strong>이 분석의 핵심 단위이며, 각 국면은 맥락(Context) → 핵심 메커니즘(Mechanism) → 결과(Outcome) 흐름으로 구성됩니다.
+        </p>
+
+        <!-- Process Model SVG Block (adapted stage diagram — no formal H1/H2 hypothesis model in this qualitative paper) -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">B2B-SME MSP 전환 프로세스 모델 (Moore 1993 '탄생' 단계의 4개 하위 국면)</h3>
+
+          <div class="w-full max-w-5xl bg-white p-4 rounded-lg shadow-sm border border-slate-100 overflow-x-auto">
+            <svg viewBox="0 0 1180 440" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" style="min-width:760px;">
+              <defs>
+                <marker id="arrow-flow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7"/>
+                </marker>
+                <marker id="arrow-grey" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+                </marker>
+              </defs>
+
+              <!-- Row labels -->
+              <text x="10" y="40" font-weight="700" fill="#94a3b8" font-size="11" letter-spacing="0.05em">CONTEXT (촉발요인)</text>
+              <text x="10" y="185" font-weight="700" fill="#0369a1" font-size="11" letter-spacing="0.05em">CORE MECHANISM (핵심 메커니즘)</text>
+              <text x="10" y="360" font-weight="700" fill="#7c3aed" font-size="11" letter-spacing="0.05em">OUTCOME (결과)</text>
+
+              <!-- Phase 1 -->
+              <rect x="20" y="55" width="260" height="55" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="150" y="78" text-anchor="middle" fill="#64748b" font-size="11">성장 정체 & 와해 위협, 데이터 통제 욕구</text>
+              <text x="150" y="96" text-anchor="middle" fill="#94a3b8" font-size="10">(경쟁 심화, 신기술 잠재력)</text>
+
+              <rect x="20" y="130" width="260" height="130" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="2.5"/>
+              <text x="150" y="158" text-anchor="middle" font-weight="700" fill="#0f172a" font-size="14">국면 1. 디지털 서비스 개시 &amp;</text>
+              <text x="150" y="176" text-anchor="middle" font-weight="700" fill="#0f172a" font-size="14">공급망 재구상</text>
+              <text x="150" y="200" text-anchor="middle" fill="#334155" font-size="10.5">고객과의 공동창조(co-creation)로</text>
+              <text x="150" y="216" text-anchor="middle" fill="#334155" font-size="10.5">한쪽 면(one-side) 디지털 서비스 설계</text>
+              <text x="150" y="240" text-anchor="middle" fill="#64748b" font-size="9.5" font-style="italic">Prop. 1 관련</text>
+
+              <rect x="20" y="305" width="260" height="55" rx="8" fill="#faf5ff" stroke="#a855f7" stroke-width="1.5"/>
+              <text x="150" y="328" text-anchor="middle" fill="#7c3aed" font-size="11" font-weight="600">일면 디지털 서비스 출시</text>
+              <text x="150" y="346" text-anchor="middle" fill="#9333ea" font-size="10">(주문/물류/청구 자동화)</text>
+
+              <!-- Arrow 1 -> 2 -->
+              <path d="M 280 195 L 320 195" fill="none" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arrow-flow)"/>
+
+              <!-- Phase 2 -->
+              <rect x="320" y="55" width="260" height="55" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="450" y="78" text-anchor="middle" fill="#64748b" font-size="11">영업직 역할 변화 반발, 고객 신뢰 부족</text>
+              <text x="450" y="96" text-anchor="middle" fill="#94a3b8" font-size="10">(내부/외부 저항)</text>
+
+              <rect x="320" y="130" width="260" height="130" rx="10" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+              <text x="450" y="158" text-anchor="middle" font-weight="700" fill="#0c4a6e" font-size="14">국면 2. 저항 극복 &amp;</text>
+              <text x="450" y="176" text-anchor="middle" font-weight="700" fill="#0c4a6e" font-size="14">채택 확산</text>
+              <text x="450" y="200" text-anchor="middle" fill="#075985" font-size="10.5">조직 정체성 재구성, 무료 온보딩</text>
+              <text x="450" y="216" text-anchor="middle" fill="#075985" font-size="10.5">지원으로 내·외부 신뢰 축적</text>
+              <text x="450" y="240" text-anchor="middle" fill="#0284c7" font-size="9.5" font-style="italic">Prop. 2 관련</text>
+
+              <rect x="320" y="305" width="260" height="55" rx="8" fill="#faf5ff" stroke="#a855f7" stroke-width="1.5"/>
+              <text x="450" y="328" text-anchor="middle" fill="#7c3aed" font-size="11" font-weight="600">고객 플랫폼 채택률 상승</text>
+              <text x="450" y="346" text-anchor="middle" fill="#9333ea" font-size="10">(기존 고객기반 편입)</text>
+
+              <!-- Arrow 2 -> 3 -->
+              <path d="M 580 195 L 620 195" fill="none" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arrow-flow)"/>
+
+              <!-- Phase 3 -->
+              <rect x="620" y="55" width="260" height="55" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="750" y="78" text-anchor="middle" fill="#64748b" font-size="11">디지털 서비스 운영 학습 축적</text>
+              <text x="750" y="96" text-anchor="middle" fill="#94a3b8" font-size="10">(데이터 가치 인식 확대)</text>
+
+              <rect x="620" y="130" width="260" height="130" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="2.5"/>
+              <text x="750" y="158" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">국면 3. 통합 가치제안</text>
+              <text x="750" y="176" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">청사진 설계</text>
+              <text x="750" y="200" text-anchor="middle" fill="#047857" font-size="10.5">경영진 몰입, 연구 파트너 협업,</text>
+              <text x="750" y="216" text-anchor="middle" fill="#047857" font-size="10.5">IT 조인트벤처로 기술 타당성 확보</text>
+              <text x="750" y="240" text-anchor="middle" fill="#10b981" font-size="9.5" font-style="italic">Prop. 3 관련</text>
+
+              <rect x="620" y="305" width="260" height="55" rx="8" fill="#faf5ff" stroke="#a855f7" stroke-width="1.5"/>
+              <text x="750" y="328" text-anchor="middle" fill="#7c3aed" font-size="11" font-weight="600">MSP 가치 블루프린트 확정</text>
+              <text x="750" y="346" text-anchor="middle" fill="#9333ea" font-size="10">(신규 사업모델 설계 완료)</text>
+
+              <!-- Arrow 3 -> 4 -->
+              <path d="M 880 195 L 920 195" fill="none" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arrow-flow)"/>
+
+              <!-- Phase 4 -->
+              <rect x="920" y="55" width="240" height="55" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="1040" y="78" text-anchor="middle" fill="#64748b" font-size="11">안정적 사용자기반 &amp; 기술 준비 완료</text>
+              <text x="1040" y="96" text-anchor="middle" fill="#94a3b8" font-size="10">(확장 모멘텀 확보)</text>
+
+              <rect x="920" y="130" width="240" height="130" rx="10" fill="#eef2ff" stroke="#4338ca" stroke-width="2.5"/>
+              <text x="1040" y="158" text-anchor="middle" font-weight="700" fill="#312e81" font-size="14">국면 4. 전략적 재포지셔닝</text>
+              <text x="1040" y="176" text-anchor="middle" font-weight="700" fill="#312e81" font-size="14">&amp; MSP 출시</text>
+              <text x="1040" y="200" text-anchor="middle" fill="#3730a3" font-size="10.5">거버넌스 유지하며 인접 지역</text>
+              <text x="1040" y="216" text-anchor="middle" fill="#3730a3" font-size="10.5">파트너부터 통제된 온보딩</text>
+              <text x="1040" y="240" text-anchor="middle" fill="#4f46e5" font-size="9.5" font-style="italic">Prop. 4 관련</text>
+
+              <rect x="920" y="305" width="240" height="55" rx="8" fill="#fdf4ff" stroke="#c026d3" stroke-width="1.5"/>
+              <text x="1040" y="328" text-anchor="middle" fill="#a21caf" font-size="11" font-weight="600">MSP "ReciPlat" 정식 출시</text>
+              <text x="1040" y="346" text-anchor="middle" fill="#c026d3" font-size="10">(경쟁사 포함 다면 생태계)</text>
+
+              <!-- Vertical connectors Context -> Mechanism -> Outcome for each phase -->
+              <path d="M150 110 L150 128" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-grey)"/>
+              <path d="M150 260 L150 303" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-grey)"/>
+              <path d="M450 110 L450 128" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-grey)"/>
+              <path d="M450 260 L450 303" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-grey)"/>
+              <path d="M750 110 L750 128" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-grey)"/>
+              <path d="M750 260 L750 303" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-grey)"/>
+              <path d="M1040 110 L1040 128" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-grey)"/>
+              <path d="M1040 260 L1040 303" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow-grey)"/>
+
+              <!-- Outcome feedback loop into next phase's context -->
+              <path d="M280 332 L320 332 L320 82 L318 82" fill="none" stroke="#c026d3" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow-grey)" opacity="0.55"/>
+              <path d="M580 332 L620 332 L620 82 L618 82" fill="none" stroke="#c026d3" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow-grey)" opacity="0.55"/>
+              <path d="M880 332 L920 332 L920 82 L918 82" fill="none" stroke="#c026d3" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow-grey)" opacity="0.55"/>
+
+              <!-- Legend -->
+              <text x="20" y="405" fill="#64748b" font-size="10">점선 화살표: 이전 국면 결과가 다음 국면의 촉발 맥락으로 이어지는 피드백 루프</text>
+              <text x="20" y="422" fill="#64748b" font-size="10">모델은 Moore(1993) 생태계 수명주기의 "탄생(Birth)" 단계를 4개 하위 국면으로 세분화한 것으로, 통계적 인과 경로(H1/H2)가 아닌 정성적 프로세스 흐름입니다.</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Phase 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">국면 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Initiating Digital Service</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">디지털 플랫폼 서비스 개시 &amp; 공급망 재구상</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 신기술(RFID/QR/IoT) 잠재력과 와해 위협 속에서 기존 고객과 협력해 (일면적) 디지털 서비스를 기획·구축하는 국면.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의(코딩 근거):</strong> CEO/재무책임자 인터뷰의 전략적 재지향 발언, 고객 공동 워크숍을 통한 프로토타입 개발 활동.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Gioia 코딩 2차 테마 "digital service design", "co-creation with customers" (Fig. 3 데이터 트리); 인터뷰·워크숍 전사자료.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Cusumano, Gawer, &amp; Yoffie(2019)의 "한쪽 면 먼저 구축" 전략과 연결되며, 브라운필드 특유의 chicken-or-egg 우회 전략으로 논의됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Phase 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">국면 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Overcoming Resistance</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">저항 극복 &amp; 디지털 서비스 채택 확산</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 자동화로 인한 영업직 역할 변화에 대한 내부 반발과 고객의 채택 저항을 동시에 관리하는 국면.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의(코딩 근거):</strong> "조직적 반대", "고객 플랫폼 채택 지원" 2차 테마로 코딩된 CEO/마케팅헤드/고객 인터뷰; 플랫폼 사용률 등 보조 KPI.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 정성적 코딩(인터뷰 45건, 워크숍 18회, Table 1·2).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Gawer &amp; Phillips(2013)의 "정체성 프리즘을 통한 실천 이해" 개념과 연결되어, 조직 정체성 재구성이 저항 완화의 핵심 기제로 논의됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Phase 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">국면 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Drafting the Value Blueprint</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">통합 가치제안 청사진 설계</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 디지털 서비스 운영 학습을 바탕으로 신규 파트너(공급자·경쟁 재활용업체)를 포함하는 멀티사이드 비즈니스 모델을 설계하고 기술 타당성을 확보하는 기획 국면.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의(코딩 근거):</strong> "신규 사업모델 설계", "미래 가치·역할 소통", "기술적 타당성 확인" 2차 테마; IT 파트너 조인트벤처 체결.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 프로젝트 그룹 시장조사 기록, 연구 파트너 공동작업 문서(2차 자료, Table 2).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Vargo &amp; Lusch(2018)의 경영진 몰입 논의, Li et al.(2016)의 e-리더십(디지털·비즈니스 비전 정렬) 개념과 연결됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Phase 4 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">국면 4</span>
+                <span class="text-xs text-slate-400 font-semibold">Strategic Repositioning &amp; Roll-out</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">전략적 재포지셔닝 &amp; MSP 출시</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 확보된 사용자 기반과 기술적 준비를 바탕으로 플랫폼을 타 지역·타 파트너에게 개방하고 데이터 기반 신규 서비스로 생태계를 확장하는 실행 국면.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의(코딩 근거):</strong> "제어 유지하며 확장", "파트너 참여 유도 및 공동창조", "데이터 활용 신규 서비스" 2차 테마; 2022년 ReciPlat 정식 출시 이벤트.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 플랫폼 버전 기록, 웹사이트/ERP 데이터(2차 자료, Table 2); 파일럿 파트너십 사례.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Eisenmann, Parker, &amp; Alstyne(2008)의 "개방-통제 균형" 프레임워크 및 Zhu &amp; Liu(2018)의 "보완자 영역 침범 회피" 논의와 직접 연결됨.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않은 후속 연구자가 동일한 종단적 사례 연구 및 Gioia 코딩 절차를 다른 B2B-SME 플랫폼 전환 사례에 그대로 <strong>추종 재현</strong>할 수 있도록 절차를 단계별로 분해했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">이론적 표본추출을 통한 극단 사례 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  순환경제·디지털 와해 압력을 동시에 받는 폐기물 관리 산업에서, 40년간 높은 마진을 누려온 스위스 SME "Recycle"을 극단 사례(extreme case)로 이론 기반 선정 (Seawright &amp; Gerring, 2008).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 108–109, Section 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">1차 데이터 수집: 개발 단계 (2018–2020)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  경영진(5회)·프로젝트 리더(2회)·고객(21회) 인터뷰 총 28건(28시간)과 경영진/프로젝트팀 워크숍 9회(87.5시간)를 수행해 디지털 서비스 개발 결정을 파악.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 109, Section 3.2 & Table 1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">2차 데이터 수집: 사용/확장 단계 (2021–2022)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  경영진(3회)·프로젝트 리더(4회)·운영(2회)·고객(8회) 인터뷰 17건(27시간)과 워크숍 6회(57시간)를 수행해 플랫폼 두 번째 사이드 확보 결정을 파악.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 109–110, Section 3.2 & Table 1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">2차 자료(문서) 수집을 통한 삼각검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  PPT 발표자료, 프로젝트 보고서, 플랫폼 목업/MVP, 웹사이트·ERP 데이터를 수집하여 인터뷰·워크숍 내용과 교차 검증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 110, Section 3.2 & Table 2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">Gioia 방법론 기반 3단계 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  1차 개념(응답자 언어 밀착) 추출 → 반복 비교로 2차 테마 압축 → 총괄 차원 통합. 연구팀 2인이 독립 코딩 후 체계적으로 비교해 분류 오류 최소화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 110–111, Section 3.2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">데이터 트리 및 프로세스 모델 구축</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  코딩 결과를 데이터 트리(Fig. 3)로 시각화하고, Moore(1993) "탄생" 단계를 4개 하위 국면으로 확장한 모델(Fig. 4)과 맥락-메커니즘-결과 흐름 프로세스 모델(Fig. 5)로 통합.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 112–113, Section 5.1 & Fig. 3–5</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">명제(Proposition) 도출 및 이론적 정박</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  각 국면의 핵심 메커니즘을 기존 플랫폼·생태계 이론(Eisenmann et al. 2008; Cusumano et al. 2019; Zhu &amp; Furr, 2016 등)과 연결해 4개 명제(P1–P4)로 정식화하고 이론-명제 매핑 표(Table 3)로 요약.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 115–117, Section 5.2 & Table 3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            Gioia 코딩 절차, 인터뷰/워크숍 횟수·시간, 데이터 소스 유형은 투명히 공개되어 있어 동일한 방법론적 프레임을 다른 사례에 적용하는 개념적 재현은 가능합니다. 다만 원 인터뷰 전사 데이터가 "confidential"로 비공개이며, 스위스 특유의 지역 독점적 폐기물 관리 산업 구조라는 맥락이 특수하여 동일 사례의 사실적 재현은 불가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6.3, Data availability)에서 연구진이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>탐색적 단일 사례 연구의 일반화 한계:</strong> "Our study is limited by the fact that it is an exploratory study based on a single case, although explored longitudinally. Hence, the main limitation of our study is its generalizability (Yin, 2018)." (Page 117)
+              </li>
+              <li>
+                <strong>사례 대표성의 한계:</strong> "our case company might not be representative for other business fields and supply chains... Therefore, our approach might be not sufficient to ensure a successful transformation into a MSP." (Page 117)
+              </li>
+              <li>
+                <strong>후속 연구 필요성(타 산업·정량 연구 부재):</strong> "Further research is needed to identify generative mechanisms to guide the transformation towards MSPs in a B2B context... Cases out of other industries as well as quantitative studies, could create contributions..." (Page 117)
+              </li>
+              <li>
+                <strong>데이터 비공개성:</strong> "The data that has been used is confidential." (Page 118, Data availability) — 원자료를 공개하지 않음을 스스로 명시하여 외부 검증 가능성의 한계를 인정함.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">정성적 종단 사례 연구 설계상 논문이 직접 다루지 않은 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 회고적 서술·사후 합리화 편향</span>
+                <p class="text-sm text-slate-700">
+                  2차 웨이브 인터뷰(2021–2022)는 초기 단계(2017–2020)의 결정을 사후적으로 회고합니다. CEO 인용문이 내러티브의 중심을 차지해, 실제로는 시행착오가 컸던 과정을 <strong>"일관된 전략적 비전"</strong>으로 재구성했을 사후 합리화 위험이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 생존자 편향 (Survivorship Bias)</span>
+                <p class="text-sm text-slate-700">
+                  MSP 전환에 <strong>"성공"한 단일 사례</strong>만을 연구했습니다. 유사 시도를 했으나 실패·중도포기한 B2B-SME와의 비교가 없어, 4개 명제가 성공의 인과 조건인지 이 사례에서 우연히 공존한 상관적 특징인지 구분할 수 없습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 연구진-사례기업 근접성(독립성 문제)</span>
+                <p class="text-sm text-slate-700">
+                  "Through collaborations with a research partner in the digitalization project, extensive market research was carried out..." (Page 116)는 저자 소속 기관이 Recycle의 디지털화 프로젝트에 실질적으로 관여했을 가능성을 시사합니다. 관찰자가 아닌 실행 관여자라면 자기충족적 서사가 만들어질 이해상충 위험이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 단일 핵심 정보제공자(키맨) 편향</span>
+                <p class="text-sm text-slate-700">
+                  핵심 인용문 대부분이 CEO·소수 경영진에서 나오며, 반대 의견을 가졌던 영업사원이나 회의적이었던 고객사의 목소리는 제한적으로 다루어져 "저항 극복"의 실제 강도가 과소평가되었을 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 맥락 특수성(지역 독점적 산업구조)</span>
+                <p class="text-sm text-slate-700">
+                  Recycle은 "물류 비용에 따른 높은 진입장벽으로 여러 지점이 없는 지역 SME는 전국 단위 경쟁이 어려운"(Page 110) 지역 독점적 시장에서 40년간 고마진을 누려온 기업입니다. 이 지리적 독점력 자체가 "통제된 단계적 개방" 전략을 가능케 한 특수 조건일 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 경제적 성과 데이터의 부재 / 역인과 가능성</span>
+                <p class="text-sm text-slate-700">
+                  매출·수익성·ROI 등 정량 재무 성과는 "confidential"로 전혀 공개되지 않아 경제적 성공 여부가 서사적으로만 주장됩니다. 또한 "안정적 재무 여력을 갖춘 기업이었기에 위험한 전환 시도 자체가 가능했다"는 역방향 인과 가능성도 배제할 수 없습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Leading the transition to multi-sided platforms (MSPs) in a B2B context – The case of a recycling SME</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

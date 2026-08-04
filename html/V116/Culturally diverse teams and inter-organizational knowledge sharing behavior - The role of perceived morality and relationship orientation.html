@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culturally Diverse Teams and Inter-Organizational Knowledge Sharing - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Cultural Diversity &amp; Knowledge Sharing</div>
+        <div class="badge badge-secondary text-white style-label">2 Experimental Studies (N=151 / N=320)</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Culturally diverse teams and inter-organizational knowledge sharing behavior:<br>
+            <span class="text-cyan-400">The role of perceived morality and relationship orientation</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Mai Nguyen, Piyush Sharma, Russel Kingshott, Ashish Malik
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            문화적으로 다양한 팀과 조직 간 지식 공유 행동:<br>
+            <span class="text-indigo-300">인지된 도덕성과 관계 지향성의 역할</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            두 건의 온라인 실험(N=151, N=320)을 통해 검증한 B2B 파트너 문화 다양성 → 도덕성 지각 → 지식 공유 행동 경로
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">문화적으로 다양한 B2B 파트너 팀은 도덕성 지각을 높여 지식 공유를 촉진하며, 이 효과는 자사가 관계 지향적일 때 더 강해집니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This paper draws on social exchange and social capital theories to explore knowledge-sharing behavior with culturally diverse teams from business-to-business (B2B) partners. We use two experimental studies to examine the direct effects of cultural diversity between B2B partners and its indirect effects through perceived morality on their knowledge-sharing behavior, along with the moderating effect of B2B relationship orientation on the link between cultural diversity and their KSB. Using a behavioral measure of knowledge-sharing behavior, this paper extends the B2B relationships literature by highlighting the value that intercultural relationships bring to these relationships. In addition, the results provide managers with a range of strategies in managing culturally diverse teams, such as leveraging their B2B relationship orientation directed towards culturally diverse teams from partner firms to improve knowledge sharing with them."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">사회교환이론</span>과 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">사회자본이론</span>을 바탕으로, B2B 파트너의 문화적으로 다양한 팀과의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">지식 공유 행동(KSB)</span>을 탐구한다. 두 건의 실험 연구를 통해 B2B 파트너 간 문화적 다양성이 지식 공유 행동에 미치는 직접 효과와, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">인지된 도덕성</span>을 매개로 한 간접 효과를 검증하였으며, 문화적 다양성과 KSB 간의 관계에서 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">B2B 관계 지향성</span>이 갖는 조절 효과도 함께 분석하였다. 지식 공유 행동을 행동적(behavioral) 측정치로 평가함으로써, 본 연구는 문화 간 관계가 B2B 관계에 가져다주는 가치를 조명하여 B2B 관계 문헌을 확장한다. 아울러 연구 결과는 파트너 기업의 문화적으로 다양한 팀을 대상으로 한 B2B 관계 지향성을 활용해 지식 공유를 개선하는 등, 문화적으로 다양한 팀을 관리하는 다양한 전략을 관리자들에게 제시한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Knowledge-Sharing Behavior (KSB)</td>
+                  <td>지식 공유 행동</td>
+                  <td class="text-sm">"의도(intention)"가 아닌 실제 "행동(behavior)"을 측정했다는 본 논문의 핵심 방법론적 차별점을 강조하기 위해 "행동"으로 고정 번역.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Culturally Diverse Team</td>
+                  <td>문화적으로 다양한 팀</td>
+                  <td class="text-sm">인종적 외양 사진으로 조작된 표면적(surface-level) 다양성 변수이므로 "다문화팀"보다 조작적 정의에 부합하는 직역을 사용.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Perceived Morality</td>
+                  <td>인지된 도덕성</td>
+                  <td class="text-sm">실제 도덕성이 아닌 상대방이 지각하는 도덕적 평판(judged morality)이므로 "인지된"을 유지하여 구성개념의 성격을 명확히 함.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">B2B Relationship Orientation</td>
+                  <td>B2B 관계 지향성</td>
+                  <td class="text-sm">관계적(relational)-거래적(transactional) 심리적 계약의 연속선(continuum) 개념이므로 "지향성"으로 번역.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Psychological Contract</td>
+                  <td>심리적 계약</td>
+                  <td class="text-sm">조직행동론의 표준 역어이며, 관계/거래 지향성 조작화의 이론적 근거가 되는 핵심 개념.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">문화적으로 다양한 B2B 파트너 팀은 지식 공유 행동을 촉진하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">도덕성 지각을 매개로, 관계 지향적일 때 더 강하게 작동한다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">사회자본이론과 사회교환이론을 결합한 행동적 KSB 측정</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B 파트너사의 구매팀이 문화적으로 다양할 때, 이를 상대하는 영업사원의 지식 공유 행동(KSB)이 달라지는가? 이 효과는 인지된 도덕성을 통해 매개되며, 자사의 B2B 관계 지향성에 의해 조절되는가?</li>
+                  <li><strong>핵심 발견:</strong> 문화적으로 다양한(vs 동질적인) 구매팀을 상대할 때 참가자들은 무보수 추가 지식 공유 과제에 더 기꺼이 참여했다(H1). 이 효과는 <strong>인지된 도덕성</strong>을 통해 부분매개되며(H2), 자사가 <strong>관계 지향적(relational)</strong>일 때 이 효과가 <strong>거래 지향적(transactional)</strong>일 때보다 더 강하게 나타났다(H3).</li>
+                  <li><strong>이론/실무 기여:</strong> 문화 다양성과 도덕성 지각의 연결을 조직 간 맥락에서 최초로 실증하였으며, 자기보고식 의도가 아닌 실제 행동으로 KSB를 측정하고, 관계적/거래적 지향을 하나의 연속선으로 재개념화하여 조절변수로 검증하였다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "문화적으로 다양한 B2B 파트너 팀은 상대 기업의 도덕성 지각을 높여 지식 공유 행동을 촉진하며, 이 효과는 자사가 관계 지향적일 때 더욱 강해집니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">H1: 문화 다양성이 높을수록 행동적 KSB 증가</td>
+                <td class="text-sm italic text-slate-600">
+                  "A chi-square test reported that participants in the high culturally diverse team condition were more willing to do the additional task compared to those in the low culturally diverse team condition... N low =12/77 [15.4%]; χ2(1) =12.0, p&lt;0.001)"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.124, Study 1 결과, Table 3</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">문화 다양성 조작 성공 (Manipulation Check)</td>
+                <td class="text-sm italic text-slate-600">
+                  "participants in the high culturally diverse team condition perceived a higher culturally diverse team (Mlow=2.13, SD=1.37, Mhigh=6.05, SD=0.94, t(151)=6.97, p=0.009)"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.124, Sec. 4.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">H2: 인지된 도덕성의 매개효과 (Study 1)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the indirect effect was significant (B=0.18, SE=0.10, 95% CI: 0.2 to 0.43). These findings support H2."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.124-125, Table 2</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">H2: 인지된 도덕성의 매개효과 재현 (Study 2)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the indirect effect was significant (B=0.20, SE=0.09, 95% CI: 0.03 to 0.40). These findings support H2 (Table 2)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.126, Sec. 4.2, Table 2</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">H3: B2B 관계 지향성의 조절효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "the analysis revealed a significant interaction effect (B=0.49, SE=0.24, Wald=4.04, p=0.044)... transactional orientation condition (48/165 [29%])... relational orientation condition (66/162 [40.7%])"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.126, Table 3, Fig. 2</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">종합 가설 검정 결과</td>
+                <td class="text-sm italic text-slate-600">
+                  "H1 Supported / H2 Supported / H3 Supported"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.126, Table 3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alert bg-slate-50 border border-slate-200 text-slate-600 text-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-slate-400 shrink-0 w-5 h-5" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span>근거 #5 인용문은 원문 서술("transactional에서 더 적극적")과 실제 수치(관계적 40.7% &gt; 거래적 29%)가 상충한다. 수치를 기준으로 하면 관계 지향 조건에서 참여율이 더 높아 H3를 지지하는 방향이며, 이는 원문의 서술 오류로 판단된다(STEP 6-B 참고).</span>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (Fig. 1, 연구 가설 모형)</h3>
+
+          <div class="w-full max-w-2xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 380" class="w-full h-auto">
+              <!-- IV -->
+              <rect x="20" y="150" width="220" height="80" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="130" y="182" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">문화적 팀 다양성</text>
+              <text x="130" y="202" text-anchor="middle" fill="#64748b" font-size="11">(Team Cultural Diversity, IV)</text>
+              <text x="130" y="218" text-anchor="middle" fill="#64748b" font-size="10">실험 조작: 고/저 2수준</text>
+
+              <!-- Mediator -->
+              <rect x="330" y="30" width="220" height="80" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="440" y="62" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">인지된 도덕성</text>
+              <text x="440" y="82" text-anchor="middle" fill="#047857" font-size="11">(Perceived Morality, Mediator)</text>
+              <text x="440" y="98" text-anchor="middle" fill="#047857" font-size="10">4문항 7점 의미차별화 척도</text>
+
+              <!-- DV -->
+              <rect x="580" y="150" width="200" height="80" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="680" y="182" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">지식 공유 행동</text>
+              <text x="680" y="202" text-anchor="middle" fill="#4338ca" font-size="11">(Knowledge-Sharing Behavior, DV)</text>
+              <text x="680" y="218" text-anchor="middle" fill="#4338ca" font-size="10">행동적 이분변수(0/1)</text>
+
+              <!-- Moderator -->
+              <rect x="380" y="290" width="240" height="70" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="500" y="318" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">B2B 관계 지향성</text>
+              <text x="500" y="336" text-anchor="middle" fill="#b45309" font-size="10">(Relational vs. Transactional, Moderator)</text>
+              <text x="500" y="352" text-anchor="middle" fill="#b45309" font-size="10">시나리오 텍스트 조작, 2수준</text>
+
+              <!-- Arrows -->
+              <!-- IV -> Mediator (H2a) -->
+              <path d="M180 150 L 250 90 L 320 70" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="205" y="100" fill="#047857" font-weight="700" font-size="12">H2a (+)</text>
+
+              <!-- Mediator -> DV (H2b) -->
+              <path d="M550 80 L 630 110 L 660 150" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="600" y="105" fill="#047857" font-weight="700" font-size="12">H2b (+)</text>
+
+              <!-- IV -> DV Direct (H1, dashed) -->
+              <path d="M240 195 L 575 195" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="405" y="188" text-anchor="middle" fill="#1d4ed8" font-weight="700" font-size="12">H1 직접 효과 (+)</text>
+
+              <!-- Moderator -> IV-DV path (H3) -->
+              <path d="M500 290 L 405 210" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="470" y="265" fill="#b45309" font-weight="700" font-size="12">H3 조절 (+)</text>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수</span>
+                <span class="text-xs text-slate-400 font-semibold">IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">문화적 팀 다양성 (Culturally Diverse Team)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> B2B 파트너사 구매팀을 구성하는 인원들이 서로 다른 문화적(주로 인종·민족적) 배경을 가진 정도(표면적 다양성).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 시나리오 실험 조작(2수준). 저다양성: 4인 구매팀원 사진이 동일 인종적 외양 / 고다양성: 4인이 서로 다른 인종적 외양(Khan &amp; Kalra, 2022 변형).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Khan and Kalra (2022, JCR) 조작 패러다임 채택; 조작 확인 2문항, 7점 Likert.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 표면적/심층적 다양성 구분(Khan &amp; Kalra, 2022; Van Knippenberg &amp; Mell, 2016) 문헌에 기반하나, 정작 조작은 표면적(사진 인종) 신호에만 의존.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">인지된 도덕성 (Perceived Morality)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> B2B 파트너팀의 행동/의사결정이 소수 이익이 아닌 더 큰 공동체적 선(the greater good)에 부합한다고 지각되는 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 4문항, 7점 의미차별화 척도(비윤리적/윤리적, 비도덕적/도덕적, 부정직한/정직한, 신뢰불가/신뢰가능).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Samper, Yang, and Daniels (2018, JCR) / Study1 α=0.96(AVE=0.85), Study2 α=0.97(AVE=0.89).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> SCT 관점의 "더 큰 공동체적 선" 논리(Khan &amp; Kalra, 2022); van der Lee et al.(2017) 도덕성 지각의 맥락 민감성 문헌과 연결.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">B2B 관계 지향성 (B2B Relationship Orientation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자사 직원이 파트너사와의 관계 구축 활동 성격에 대해 갖는 신념. 관계적(장기적 관계 중시)-거래적(단기 거래 완결만 중시) 지향을 하나의 연속선으로 재개념화.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 시나리오 텍스트 조작(2수준). 거래적: "거래만 완결, 추가지원 불필요" / 관계적: "장기관계 구축 기대, 유연근무·추가지원 기대".</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Kingshott et al. (2021, IMM) 심리적 계약 프레임 기반 자체 개발; 조작 확인 2문항, 7점 Likert.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> SET의 심리적 계약(psychological contract) 개념(Kingshott, 2006; Kingshott et al., 2020, 2021).
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">DV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">지식 공유 행동 (Knowledge-Sharing Behavior, KSB)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> B2B 파트너 기업 간 정보와 지식을 교환하는 행위(Loebbecke, Van Fenema, &amp; Powell, 2016).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 행동적 이분변수 — 무보수 추가 과제(약 3분, 기술시장 지식 공유, 파트너사 포럼 게시 고지)에 참여 여부(1=예, 0=아니오).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 본 연구 자체 설계(Khan &amp; Kalra, 2022 "추가 과제" 구조 차용); 이분형 단일 문항.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Nguyen &amp; Malik (2020) 등 기존 KSB 연구가 자기보고식 "공유 의도"만 측정한 것과 달리 실제 행동을 관찰했다는 점이 방법론적 기여.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 두 실험 연구(Study 1, Study 2)를 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">이론적 모형·가설 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  사회교환이론(SET: Thibaut &amp; Kelley, 1959; Homans, 1958)과 사회자본이론(SCT: Coleman, 1988)을 결합해 문화 다양성→인지된 도덕성→KSB 및 B2B 관계 지향성의 조절효과를 포함한 개념모형(Fig.1)을 구성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.121-123, Sec. 2-3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">Study 1 설계 및 표본 모집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  1요인 2수준(문화 다양성: 고/저) 피험자 간 설계. Prolific에서 미국 거주 151명 모집(여성 36%, 평균연령 37.80세), 단순무작위추출, 사전 B2B 산업 경력 스크리닝 적용.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.123-124, Table 1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">Study 1 시나리오·측정 실시</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  "NoveOne" 영업팀원으로서 "Atalink" 구매팀(4인, 사진으로 다양성 조작)을 상대하는 시나리오 제시 → 무보수 추가 과제 참여 여부(행동적 KSB) 측정 → 인지된 도덕성 4문항 척도 응답 → 조작 확인 및 공통방법편의 점검.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.124, Appendix I</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">Study 1 분석 (H1, H2)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  H1은 카이제곱 검정(고/저 다양성 조건 간 과제 참여율, χ2(1)=12.0, p&lt;.001). H2는 Hayes PROCESS Model 4, 부트스트랩 5000회로 매개효과 검정(B=0.18, 95%CI[0.2, 0.43]).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.124-125, Table 2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">Study 2 설계 및 표본 모집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  2(문화 다양성: 고/저) × 2(B2B 관계 지향성: 관계적/거래적) 피험자 간 설계로 Study 1 재현 + H3 검정 추가. Prolific 320명 모집(여성 37%, 평균연령 41.35세), Study 1과 동일 스크리닝.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.124-125, Table 1, Sec. 4.2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">Study 2 시나리오·측정 실시</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Study 1과 동일한 문화 다양성 시나리오에 B2B 관계 지향성 조작 텍스트 추가(거래적/관계적). 동일한 행동적 KSB 측정, 동일한 도덕성 척도(α=.97), 양쪽 조작 확인 및 공통방법편의 재점검.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.125-126, Appendix I</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">Study 2 분석 (H2 재검정, H1&amp;H3)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  PROCESS Model 4로 H2 재검정(B=0.20, 95%CI[0.03, 0.40]). 로지스틱 회귀로 문화 다양성 주효과(Wald=10.65, p=.001), 관계 지향성 주효과 및 상호작용효과(Wald=4.04, p=.044) 검정해 H1·H3 확정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.126, Table 2, Table 3, Fig. 2</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            시나리오 원문(Appendix I), 측정 척도 출처, 분석 기법이 상세히 공개되어 절차 재현은 가능하나, 다양성 조작에 쓰인 실제 인물 사진 자극물이 비공개이고 "authors do not have permission to share data"로 원자료 접근이 불가해 계수까지 완전 동일하게 재현하기는 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>KSB의 단일차원 측정:</strong> "it might be beneficial for researchers to take a much closer look at its dimension aspects, such as knowledge donating and knowledge collecting."
+              </li>
+              <li>
+                <strong>다양성 유형의 협소함:</strong> "it would be worthwhile to examine different types of diversity within teams to widen the framework."
+              </li>
+              <li>
+                <strong>상대방(영업팀)의 다양성 미고려:</strong> "the lack of information about the diversity of the other team in the B2B engagement, which might affect the accuracy of claims regarding cultural diversity's impact."
+              </li>
+              <li>
+                <strong>문화 지능(cultural intelligence) 미포함:</strong> "cultural intelligence was not investigated in this paper."
+              </li>
+              <li>
+                <strong>국가 간 문화 차이 의도적 배제:</strong> "to avoid compound effects, in this paper, we did not investigate the salesforce team's cultural diversity and the country's culture differences."
+              </li>
+              <li>
+                <strong>제한된 연구 예산으로 인한 조작물의 한계:</strong> "Due to our limited research budget, we used the well-established manipulation scenario of Khan and Kalra (2022)... future researchers may want to incorporate more sound/voice manipulations."
+              </li>
+              <li>
+                <strong>자기보고식 실험의 한계:</strong> "the self-reported experiment has inherent drawbacks. Future studies may account for measuring objective results, such as B2B job performance as demonstrated by revenue or profit data."
+              </li>
+              <li>
+                <strong>인구통계 정보의 제한성:</strong> "We captured some participant characteristics (age and gender); however, further information on B2B employee experiences would help provide more insights."
+              </li>
+              <li>
+                <strong>일반화 가능성의 제한:</strong> "caution should be taken to generalize the paper's results to other B2B situations... caution should be used when projecting the results to other contexts, including Asia, since the data were collected from people in the United States."
+              </li>
+              <li>
+                <strong>원자료 비공개:</strong> "The authors do not have permission to share data." (Data availability)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 원문 서술을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 낮은 생태학적 타당성</span>
+                <p class="text-sm text-slate-700">
+                  실제 지적재산·재무 리스크가 결부되지 않은 짧은 가상 시나리오와 사진 자극만으로 지식 공유 행동을 유도했다. 3분짜리 무보수 설문 참여는 실제 조직 간 고위험 지식 공유와 심리적 과정이 다를 수 있어 일반화에 한계가 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 사진 조작의 교란변수 문제</span>
+                <p class="text-sm text-slate-700">
+                  "문화적 다양성"을 인종적 외양 사진만으로 조작해, 매력도·친근감·사회경제적 지위에 대한 고정관념적 추론과 혼입될 수 있다. 본 연구에서 이러한 통제변수를 직접 측정·보고한 근거는 제시되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. DV 조작화의 타당성 문제</span>
+                <p class="text-sm text-slate-700">
+                  "무보수 추가 과제 수락"은 매우 저위험·저비용의 순응 행동으로, 이를 지적재산·기밀정보 위험을 수반하는 실제 KSB의 대리지표로 삼는 것은 과대해석의 소지가 있다. 일반적 친사회성·순응 성향이 효과를 상당 부분 설명할 가능성이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 표본 대표성·사회적 바람직성 편향</span>
+                <p class="text-sm text-slate-700">
+                  Prolific 온라인 패널의 "B2B 산업 경력"은 자기보고 스크리닝 하나로만 검증되어 실제 B2B 실무자 표본이라는 보장이 없다. 도덕성 문항에 특히 취약한 사회적 바람직성 편향 가능성도 논의되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 공통시점·공통방법 편의 잔존</span>
+                <p class="text-sm text-slate-700">
+                  실험설계로 IV→DV 인과방향은 통제되었지만, 매개변수와 종속변수가 동일 세션에서 순차적 자기보고로 측정되어 공통시점 편의로 인한 매개효과 과대추정 가능성, 다양성 지각 확인 문항의 맥락점화 효과가 남아있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 원문 내 수치·서술 불일치</span>
+                <p class="text-sm text-slate-700">
+                  Table 2(Study 2)에서 도덕성→KSB 계수의 z=2.31인데 같은 행 p값이 0.210으로 기재되어 통계적으로 모순된다. H3 관련 서술도 뒤따르는 수치(거래적 29% &lt; 관계적 40.7%)와 반대로 읽혀 원문 오탈자 가능성이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">7. 셀별 표본 크기 불명확</span>
+                <p class="text-sm text-slate-700">
+                  Study 2에서 총 320명이 2×2=4개 조건에 어떻게 배분되었는지 명시되지 않아, 상호작용효과 검정력(power) 검증이 어렵다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">8. 이분형 단일문항 DV의 정보 손실</span>
+                <p class="text-sm text-slate-700">
+                  KSB를 0/1 이분변수로만 측정해 공유의 양·질·깊이 등 풍부한 변이를 포착하지 못하며, 통계적 검정력 및 효과크기 해석에도 제약이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">9. 이론-조작 불일치(구성타당도)</span>
+                <p class="text-sm text-slate-700">
+                  서론에서 표면적/심층적 다양성을 구분하며 심층적 다양성이 더 강력한 기제라 설명하면서도, 실제 조작은 "사진상 인종 외양"이라는 표면적 신호에만 의존해 이론과 조작이 불일치한다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">10. 단일 산업·국가 맥락 특수성</span>
+                <p class="text-sm text-slate-700">
+                  모든 시나리오가 고기술기업 B2B 영업 맥락, 미국 거주 응답자로 한정되어, 다양성에 우호적인 미국의 사회적 규범 자체가 결과 방향을 이끌었을 가능성은 논문에서 전혀 논의되지 않았다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Culturally diverse teams and inter-organizational knowledge sharing behavior: The role of perceived morality and relationship orientation</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

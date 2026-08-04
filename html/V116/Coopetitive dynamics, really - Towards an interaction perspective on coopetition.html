@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coopetitive Dynamics, Really? - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Coopetition Theory</div>
+        <div class="badge badge-secondary text-white style-label">Conceptual / Perspective Paper</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Coopetitive dynamics, really?<br>
+            <span class="text-cyan-400">Towards an interaction perspective on coopetition</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Angelos Kostis, Sascha Albers, Johanna Vanderstraeten, Sameer Chinchanikar, Maria Bengtsson
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            정말 "코피티션 동학"인가?<br>
+            <span class="text-indigo-300">코피티션에 대한 상호작용 관점을 향하여</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            협력-경쟁 상호작용의 미시적 기초(microfoundations)를 규명하는 개념적 논문 — 실증 데이터 없이 이론을 재구성한 관점 제안 논문
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">코피티션의 진짜 동학은 '관계 상태 이동'이 아니라, 파트너들이 놀라움에 즉흥적으로 반응하는 미시적 상호작용에서 나온다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-sm bg-cyan-400 hover:bg-cyan-300 border-none text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Prior research has traditionally understood the dynamic nature of coopetition as shifts between relational states of coopetition over time and has treated coopetition interplay and coopetitive dynamics tautologically. This understanding is problematic because it fails to capture the continuous flux of changes in coopetitive relationships based on the finer details of partners' situated interactions on the micro-level. To overcome this limitation, this conceptual paper introduces the interaction perspective on coopetition, which allows us to uncover the microfoundations of the cooperation-competition interplay that bring about shifts in coopetitive relationships. By focusing researchers' attention on managers' reflecting-in-action, coopetition work that propels temporal interactions, and the relational embeddedness of their interactions, the interaction perspective helps us better understand the dynamic nature of coopetition and uncover the coopetitive dynamics feeding into the coopetition interplay and triggering moves towards new relational states. This paper makes four key contributions to the coopetition literature, outlines methodological implications of the suggested interaction perspective, and identifies avenues for further research."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              기존 연구는 전통적으로 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">코피티션</span>의 동태적 본질을 시간에 따른 관계적 상태 간 이동으로 이해해 왔으며, "코피티션 상호작용(interplay)"과 "코피티션 동학(dynamics)"을 사실상 동어반복적으로 다루어 왔다. 이는 파트너들의 미시적 수준의 상황적 상호작용이 만들어내는 끊임없는 변화의 흐름을 포착하지 못한다는 점에서 문제가 있다. 이를 극복하기 위해 본 개념적 논문은 코피티션에 대한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">상호작용 관점</span>을 도입하여, 코피티션 관계의 변화를 유발하는 협력-경쟁 상호작용의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">미시적 기초</span>를 규명하고자 한다. 경영자의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">행위 중 성찰</span>, 시간적 상호작용을 추동하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">코피티션 워크</span>, 그리고 상호작용의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">관계적 배태성</span>에 연구자들의 관심을 집중시킴으로써, 상호작용 관점은 코피티션의 동태적 본질을 더 잘 이해하고 새로운 관계적 상태로의 이동을 촉발하는 코피티션 동학을 규명하는 데 도움을 준다. 본 논문은 코피티션 문헌에 네 가지 핵심 기여를 하며, 제안된 관점의 방법론적 함의를 제시하고 향후 연구 방향을 제안한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Coopetition</td>
+                  <td>코피티션 (협력-경쟁 동시 추구)</td>
+                  <td class="text-sm">국내 학계에서도 음역이 일반적. 전략적으로 중요한 자원 활용을 위해 협력과 경쟁을 동시에 추구하는 기업 간 관계.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Coopetition Interplay</td>
+                  <td>코피티션 상호작용 (관계 수준)</td>
+                  <td class="text-sm">조직 간(interorganizational) 수준에서 협력·경쟁이 서로 영향을 주고받는 현상. 거시(macro) 수준 개념.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Coopetitive Dynamics</td>
+                  <td>코피티션 동학 (미시 수준)</td>
+                  <td class="text-sm">파트너들이 사건·놀라움에 대응해 만드는 상황적 행위·반응·즉흥적 재조정의 흐름. Interplay와 명확히 구분되는 논문의 핵심 개념.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Reflecting-in-Action</td>
+                  <td>행위 중 성찰</td>
+                  <td class="text-sm">Schön(1983) 개념. 행위를 멈추지 않은 채 그 도중에 성찰하며 즉흥적으로 대응/재구성하는 것.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Coopetition Work</td>
+                  <td>코피티션 워크</td>
+                  <td class="text-sm">경계 작업(boundary work) 개념을 코피티션에 적용. 협력·경쟁 지향성에 영향을 미치기 위한 지속적·목적적 노력.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Relational Embeddedness / Cascading Uncertainty</td>
+                  <td>관계적 배태성 / 연쇄적 불확실성</td>
+                  <td class="text-sm">상호작용이 더 넓은 관계적 맥락에 내재되어 있으며, 한 관계(t)의 불확실성이 다른 관계(t+1)로 전이·확산되는 현상.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">코피티션의 "동적 본질"을 무엇이 실제로 추동하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">interplay와 dynamics는 동어반복이 아니라 서로 다른 분석 수준이다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">미시적 기초에 근거한 '상호작용 관점' 제안</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 코피티션이 시간에 따라 "동태적"이라고 할 때, 이 이동을 실제로 추동하는 파트너들의 미시적 상호작용(코피티션 동학)은 무엇이며, 왜 기존 연구는 이를 관계 수준의 interplay와 혼동해 왔는가?</li>
+                  <li><strong>핵심 발견:</strong> 기존 "관계 관점"은 인지주의·집합적 균형·탈맥락화라는 3가지 한계를 가진다. 저자들은 이를 극복하기 위해 <strong>행위 중 성찰, 코피티션 워크, 관계적 배태성/연쇄적 불확실성</strong>이라는 3축으로 구성된 "상호작용 관점"을 제안한다.</li>
+                  <li><strong>이론/실무 기여:</strong> ① interplay-dynamics 개념 정리 ② "균형(balance)" 개념 재고 ③ 코피티션 워크의 시간적 역할 규명 ④ 관계적 맥락의 중요성 및 구체적 방법론(종단연구·섀도잉·다중현장 데이터) 제시.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "코피티션의 진짜 동학은 기업 간 '관계 상태의 이동'이 아니라, 파트너들이 놀라움에 즉흥적으로 반응하고 성찰하며 재조정하는 미시적 상호작용에서 나온다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 논문은 실증 데이터가 아닌 <strong>논증(argument)</strong>에 기반한 개념 논문이므로, 아래 "근거"는 통계적 증거가 아니라 각 핵심 주장을 뒷받침하는 저자들의 원문 서술 및 정의를 의미합니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">interplay와 dynamics의 동어반복적 혼동</td>
+                <td class="text-sm italic text-slate-600">
+                  "Prior research... has treated coopetition interplay and coopetitive dynamics tautologically."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract / p.158</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">관계 관점의 3가지 한계</td>
+                <td class="text-sm italic text-slate-600">
+                  "The first limitation is its emphasis on cognitivist explanations... Second... emphasizes aggregate relational states and balance... Third... fails to account for the broader relational context..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.159, Sec. 1 / Sec. 2.2</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">미시적 기초 접근으로의 전환</td>
+                <td class="text-sm italic text-slate-600">
+                  "Drawing on Coleman (1990) and Felin et al. (2015), we argue that we need to employ a microfoundation approach to move away from the aggregate level..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.163, Sec. 3</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">상호작용 관점의 세 축</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the interaction perspective provides researchers with interactional concepts... via its three emphases: (i) reflecting-in-action... (ii) coopetition work propelling temporal interactions... and (iii) relational embeddedness and cascading uncertainty..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.162, Sec. 3</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">균형(balance) 개념의 재고</td>
+                <td class="text-sm italic text-slate-600">
+                  "A coopetitive relationship is seldom 'in balance,' and might not even need to be... a balancing act may even create negative repercussions..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.167, Sec. 5</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">새로운 방법론 요구</td>
+                <td class="text-sm italic text-slate-600">
+                  "...we propose that researchers studying coopetition do three things: (1) collect data from key partners... (2) collect longitudinal data... (3) collect data from multiple stakeholders and sites..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.164–165, Sec. 4</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">연쇄적 불확실성의 전이</td>
+                <td class="text-sm italic text-slate-600">
+                  "Cascading uncertainty, accordingly, occurs when the interactions in one relationship are unpredictable at time t, and this unpredictability cascades and spreads to other relationships at time t+1."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.164, Sec. 3.3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Conceptual Framework & Constructs -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 개념 모델 및 구성개념 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Conceptual Framework</span>
+        </div>
+
+        <div class="alert bg-amber-50 border border-amber-300 text-amber-900 text-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-600 shrink-0 w-5 h-5" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span>본 논문은 실증(설문/사례) 논문이 아닌 <strong>개념적 논문</strong>이므로 통계적 가설 모형(SEM)이나 조작적 정의·측정 척도가 존재하지 않습니다. 아래는 저자들이 제시한 <strong>3개 이론적 구성개념(pillars)</strong>이 미시 수준의 코피티션 동학을 거쳐 거시 수준의 코피티션 상호작용으로 이어지는 개념적 흐름을 도식화한 것입니다 (논문의 Table 1 논리 구조를 재구성).</span>
+        </div>
+
+        <!-- Conceptual Framework SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual Framework (상호작용 관점 개념도)</h3>
+
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 430" class="w-full h-auto">
+              <!-- Three pillar boxes (inputs) -->
+              <rect x="20" y="30" width="220" height="90" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="130" y="58" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">행위 중 성찰</text>
+              <text x="130" y="76" text-anchor="middle" fill="#047857" font-size="11">Reflecting-in-Action</text>
+              <text x="130" y="94" text-anchor="middle" fill="#059669" font-size="10">놀라움에 대한 즉흥적 대응 &amp;</text>
+              <text x="130" y="107" text-anchor="middle" fill="#059669" font-size="10">관여적 선취(engaged prolepsis)</text>
+
+              <rect x="290" y="30" width="220" height="90" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+              <text x="400" y="58" text-anchor="middle" font-weight="700" fill="#1e3a8a" font-size="14">코피티션 워크</text>
+              <text x="400" y="76" text-anchor="middle" fill="#1d4ed8" font-size="11">Coopetition Work</text>
+              <text x="400" y="94" text-anchor="middle" fill="#2563eb" font-size="10">시간적 상호작용을 추동하는</text>
+              <text x="400" y="107" text-anchor="middle" fill="#2563eb" font-size="10">경계 유지·재구성 작업</text>
+
+              <rect x="560" y="30" width="220" height="90" rx="8" fill="#fdf4ff" stroke="#a855f7" stroke-width="2"/>
+              <text x="670" y="58" text-anchor="middle" font-weight="700" fill="#6b21a8" font-size="14">관계적 배태성</text>
+              <text x="670" y="76" text-anchor="middle" fill="#7e22ce" font-size="11">Relational Embeddedness</text>
+              <text x="670" y="94" text-anchor="middle" fill="#9333ea" font-size="10">연쇄적 불확실성(cascading</text>
+              <text x="670" y="107" text-anchor="middle" fill="#9333ea" font-size="10">uncertainty)이 타 관계로 전이</text>
+
+              <!-- Arrows down to mediator -->
+              <path d="M130 120 L 130 160 L 380 160 L 380 190" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow2)"/>
+              <path d="M400 120 L 400 190" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow2)"/>
+              <path d="M670 120 L 670 160 L 420 160 L 420 190" fill="none" stroke="#a855f7" stroke-width="2" marker-end="url(#arrow2)"/>
+
+              <!-- Mediator: Coopetitive Dynamics (micro level) -->
+              <rect x="270" y="195" width="260" height="80" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+              <text x="400" y="228" text-anchor="middle" font-weight="700" fill="#9a3412" font-size="14">코피티션 동학 (미시 수준)</text>
+              <text x="400" y="247" text-anchor="middle" fill="#c2410c" font-size="11">Coopetitive Dynamics</text>
+              <text x="400" y="263" text-anchor="middle" fill="#c2410c" font-size="10">상황적 행위·반응·즉흥적 재조정의 흐름</text>
+
+              <!-- Arrow to Interplay -->
+              <path d="M400 275 L 400 320" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow2)"/>
+              <text x="480" y="302" fill="#334155" font-weight="700" font-size="12">feeds into ↑</text>
+
+              <!-- Final outcome: Coopetition Interplay (macro level) -->
+              <rect x="230" y="325" width="340" height="80" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="400" y="358" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">코피티션 상호작용 (거시/관계 수준)</text>
+              <text x="400" y="377" text-anchor="middle" fill="#4338ca" font-size="11">Coopetition Interplay</text>
+              <text x="400" y="393" text-anchor="middle" fill="#4338ca" font-size="10">관계적 상태(협력/경쟁/균형) 간 이동 촉발</text>
+
+              <defs>
+                <marker id="arrow2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 max-w-2xl text-center">
+            ※ 이 다이어그램은 논문의 Table 1(p.161) 및 Section 3 논증 구조를 저자 팀이 재구성한 개념도이며, 저자들이 논문 내에서 직접 제시한 통계적 가설-경로 다이어그램이 아닙니다. 원문 Fig. 1(p.160)은 저자들이 <strong>비판하는 대상</strong>인 기존 "관계 관점"의 상태 이동 도식입니다.
+          </p>
+        </div>
+
+        <!-- Construct Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Construct 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">구성개념 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Pillar 1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">행위 중 성찰 (Reflecting-in-Action)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> Schön(1983)에서 차용. 행위를 중단하지 않은 채 그 도중 즉흥적으로 성찰하며 재구성하는 것. 예상치 못한 사건(surprise)에 대한 상황적·즉흥적 대응을 포함.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의 / 측정:</strong> 없음 — 개념적 구성개념으로 측정 척도가 존재하지 않음. 저자들은 종단적 관찰(섀도잉, 대화분석)로 포착할 것을 제안.</p>
+              <p class="text-sm text-slate-600"><strong>이론적 뿌리:</strong> Schön (1983); Yanow &amp; Tsoukas (2009)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 관계 관점의 "인지주의적 편향"을 극복하는 핵심 장치. "관여적 선취(engaged prolepsis)" — 문제를 미리 예견하고 상호작용 방향을 재편하는 실천을 포함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">구성개념 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Pillar 2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">코피티션 워크 (Coopetition Work)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 경계 작업(boundary work, Langley et al., 2019) 문헌에 기반. 협력적·경쟁적 지향성에 영향을 미치기 위한 개인·조직의 지속적·목적적 노력. 경계 유지와 경계를 넘나드는 교류를 동시에 수행.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의 / 측정:</strong> 없음 — 시간(과거-현재-미래의 얽힘)과 경계의 지속적 재구성을 통해 관찰되어야 하는 과정적 개념.</p>
+              <p class="text-sm text-slate-600"><strong>이론적 뿌리:</strong> Langley et al. (2019); Ligthart et al. (2016)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 관계 관점의 "집합적 상태/균형 편중, 시계(clock time) 중심 시간관" 한계를 극복. 시간을 "구성되고 협상된 조직화"로 재정의(Granqvist &amp; Gustafsson, 2016).
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge style-label text-white" style="background-color:#a855f7; border-color:#a855f7;">구성개념 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Pillar 3</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">관계적 배태성과 연쇄적 불확실성 (Relational Embeddedness &amp; Cascading Uncertainty)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 양자(dyadic) 상호작용이 더 넓은 관계적 네트워크·맥락에 내재되어 있으며, 한 관계 내 상호작용의 불확실성이 시간이 지나며(t → t+1) 다른 관계로 연쇄적으로 확산된다는 개념.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의 / 측정:</strong> 없음 — 다자간(triadic/multilateral) 관계 및 제3자(고객, 공급자 등)의 영향을 포함하는 관찰 대상.</p>
+              <p class="text-sm text-slate-600"><strong>이론적 뿌리:</strong> Chen &amp; Miller (2012); Andrevski &amp; Miller (2022); Kostis et al. (2022)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 관계 관점의 "탈맥락화" 한계를 극복. 파트너 기회주의·행동적 불확실성 논의를 관계적 맥락 수준으로 확장.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Outcome constructs note -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 mt-2">
+          <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">결과 개념 (Outcome Constructs)</h4>
+          <p class="text-sm text-slate-700 mt-2"><strong>코피티션 동학 (미시 수준):</strong> "the flow of partners' situated actions, reactions, and spontaneous readjustments made over time in response to events and surprises they encounter in their interactions with partners." (p.159)</p>
+          <p class="text-sm text-slate-700 mt-1"><strong>코피티션 상호작용 (거시/관계 수준):</strong> 조직 간 수준에서 협력·경쟁이 서로 영향을 미치는 관계로, 협력지배적/경쟁지배적/약한·강한 균형 등 관계적 상태 간 이동으로 나타남.</p>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Theory-Building Procedure -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. "Method" 재현 순서 분해 — 이론 구축 절차</h2>
+          <span class="badge badge-primary style-label uppercase">Theory-Building</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 논문은 실증 데이터·통계분석이 없는 개념적 논문입니다. 아래는 저자들이 이론을 구축한 <strong>논증 전개 절차</strong>와, 후속 실증연구자에게 제안하는 <strong>방법론적 권고안</strong>을 타임라인으로 정리한 것입니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">문제 설정 — 관계 관점의 3가지 한계 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  코피티션 문헌을 검토해 관계 관점의 3가지 기여(협력-경쟁 공존, 역설/균형 렌즈, 관계 상태 분류)를 정리하고, 인지주의 편향·집합적 균형 편중·탈맥락화라는 3가지 한계를 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.159–160, Sec. 2.1–2.2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">이론적 토대 설정 — 미시적 기초 접근 도입</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Coleman (1990)의 사회이론과 Felin et al. (2015)의 미시적 기초 운동을 근거로, 거시(집합) 수준 설명에서 개인·상호작용 수준 설명으로 분석 수준을 전환하는 논리를 수립.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.163, Sec. 3 도입부</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">핵심 구성개념 3축 개발</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  (i) 행위 중 성찰(Schön, 1983), (ii) 코피티션 워크(경계 작업 문헌), (iii) 관계적 배태성·연쇄적 불확실성(경쟁 다이내믹스 문헌)을 순차적으로 정의·전개하고 각각이 관계 관점의 한계를 어떻게 보완하는지 논증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.162–164, Sec. 3.1–3.3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">기여 도출 및 종합 표(Table 1) 구성</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  3가지 한계 각각에 대응하는 상호작용 관점의 강조점·의미·향후 연구 제안을 매핑한 Table 1을 구성하고, 4가지 핵심 기여(① 개념 정리 ② 균형 재고 ③ 시간적 역할 ④ 관계적 맥락)를 Discussion에서 상술.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.161 (Table 1), p.166–168, Sec. 5</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">후속 실증연구를 위한 방법론적 권고 제시</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Jarzabkowski et al. (2019)을 참고해 ① 사건 중심 장기 추적, ② 개인 상호작용 섀도잉을 통한 종단적 필드워크, ③ 다중 이해관계자·다중 현장 데이터 및 zoom-in/zoom-out 분석을 제안. 아카이브·이메일·채팅로그·온라인 에스노그래피·유사실험·관계적 사건 모델링 등 구체적 데이터원도 제시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.164–166, Sec. 4</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">재현 불가 (Not Empirically Replicable)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            실증 데이터·표본·통계모형이 없는 개념적 논문으로 전통적 의미의 "재현"은 성립하지 않습니다. 다만 논증 구조(STEP 1~4)는 동일 문헌을 따라가면 논리적으로 재구성 가능하며, 저자들이 제시한 방법론적 권고(STEP 5)는 후속 실증연구자가 실제로 채택·적용할 수 있는 구체적 지침입니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <div class="alert bg-rose-100 border border-rose-300 text-rose-900 text-sm">
+              <span><strong>주의:</strong> 저자들은 Discussion 서두에서 "향후 연구 방향과 함께 한계점을 제시한다(we... outline its limitations, p.166)"고 예고하지만, 본문에는 <strong>자신들이 제안한 상호작용 관점 자체의 한계</strong>를 별도 소제목으로 명시한 절이 확인되지 않습니다. 아래는 본문에서 간접적으로 확인되는 자기 한정적 서술입니다.</span>
+            </div>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>제안에 그친 개념적 도구, 경험적 검증 부재:</strong> "This conceptual paper gives coopetition researchers both concrete examples and ideas that they can expand on to develop their own novel and creative methods for their empirical work." — 저자 스스로 본 논문이 실증적 검증이 아닌 "출발점"에 불과함을 인정 (p.165).
+              </li>
+              <li>
+                <strong>제안된 방법론 자체의 실행 난이도:</strong> "Researchers can also design experiments to instigate surprises... This task is challenging, but these settings are where coopetition takes place." — 새로운 데이터 수집 방법이 "도전적"임을 인정 (p.165).
+              </li>
+              <li>
+                <strong>형식화된 자기비판 절의 부재(암묵적 한계):</strong> 논문은 명시적 "Limitations" 소제목 없이 4가지 기여 논의 직후 곧바로 CRediT authorship/References로 종결되어, 통상적인 실증논문의 "Limitations and future research" 절과 같은 형식화된 자기비판 구획이 존재하지 않음 (p.167 전후).
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">개념 논문의 이론 구성 방식과 방법론적 제안을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 반증 가능성(falsifiability) 부재</span>
+                <p class="text-sm text-slate-700">
+                  "행위 중 성찰", "코피티션 워크", "관계적 배태성" 등 3개 구성개념은 조작적 정의·측정 방법이 전혀 제시되지 않아, 이 개념 틀이 실증적으로 반증 가능한지 불분명합니다. 제안된 방법론(섀도잉 등)이 실제로 세 개념을 명확히 구분·측정해낼 수 있을지는 검증되지 않은 가정입니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 스트로맨(strawman) 비판 위험</span>
+                <p class="text-sm text-slate-700">
+                  저자들은 관계 관점을 "인지주의적·정태적·탈맥락적"이라 규정하지만, 인용된 관계 관점 문헌(예: Bengtsson &amp; Raza-Ullah, in press) 중 일부는 이미 시간성·맥락성을 부분적으로 다루고 있을 가능성이 있어, 차별성을 부각하기 위해 기존 관점을 다소 이분법적으로 단순화했을 위험이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 미시-거시 집계 메커니즘의 모호성</span>
+                <p class="text-sm text-slate-700">
+                  "미시 수준의 코피티션 동학이 거시 수준의 코피티션 상호작용을 만들어낸다"고 주장하지만, 개별 관리자의 행위 중 성찰이 어떻게 집계(aggregate)되어 조직 간 관계 상태 변화로 이어지는지 구체적 집계 메커니즘은 제시되지 않습니다. 미시적 기초 접근의 고질적 난제입니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 실행 가능성 및 데이터 접근 제약</span>
+                <p class="text-sm text-slate-700">
+                  권고 방법(장기 섀도잉, 다중 현장 데이터, 이메일·채팅 로그 등)은 극도로 자원 집약적이며, 경쟁 관계 기업들이 연구자의 근접 관찰이나 내부 소통 로그 접근을 허용할 유인이 낮습니다. 민감한 전략적 맥락에서 실현 가능성에 대한 논의가 부족합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 산업·맥락 편중된 예시</span>
+                <p class="text-sm text-slate-700">
+                  제시된 예시(로보틱스·자동화 산업, 자동차 산업 등)는 대부분 프로젝트 기반 B2B 산업에 편중되어 있습니다. 소비재, 플랫폼·디지털 생태계 등 성격이 다른 산업에서도 동일한 개념이 적용 가능한지는 검증되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. "보완"인가 "대체"인가의 이론적 위상 모호성</span>
+                <p class="text-sm text-slate-700">
+                  저자들은 상호작용 관점이 관계 관점을 "대체"가 아닌 "보완(complement)"한다고 밝히지만(Abstract), 균형(balance) 개념 자체를 재고할 것을 주장하는 등 관계 관점의 핵심 전제와 정면으로 배치되는 주장도 포함되어 있어 두 관점의 실제 관계가 불분명합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Coopetitive dynamics, really? Towards an interaction perspective on coopetition</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

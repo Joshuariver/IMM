@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Capabilities that Matter for Business Failure versus Survival - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (No Navbar as requested) -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Dynamic Capabilities</div>
+        <div class="badge badge-secondary text-white style-label">fsQCA · COVID-19 · India</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Dynamic capabilities that matter for<br>
+            <span class="text-cyan-400">business failure versus survival</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Narain Gupta, Deepak Sardana, Richard Lee
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            기업의 실패와 생존을 가르는<br>
+            <span class="text-indigo-300">동적 역량(Dynamic Capabilities)</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            인도 B2B 서비스 기업 16개사 심층 인터뷰와 fsQCA(퍼지셋 질적비교분석)를 통한 팬데믹 생존/실패 조건 규명
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">디지털 전환이 아니라, 핵심 이해관계자와의 협력적 역량이 코로나19 위기 속 기업의 생존과 실패를 갈랐습니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Due to the severity and length of the COVID-19 pandemic, some businesses have failed whereas others, including those in the same industry, have survived. Drawing on dynamic capability theory, we explored the dynamic capabilities, whose presence or absence are conditions for business failure or survival. We conducted 16 in-depth semi-structured interviews with owners/executives of firms from the travel and tourism, catering and hospitality, and agricultural export industries in India. Using fuzzy set qualitative comparative analysis (fsQCA) technique, we found three causal configurations for the business failure phenomenon, and two causal configurations for business survival phenomenon. The absence of collaborative capability with key stakeholders was observed as key to business failure, and the absence of leadership adaptive capability and the ability to leverage government support were found in two of the three causal configurations. In contrast, leadership adaptive capability and collaborative capability were present in the two causal configurations for business survival. Contrary to common viewpoints, digital transformation capability was neither sufficient to prevent failure nor necessary to ensure survival. By focusing on firms' dynamic capabilities as the conditions that differentiate business failure from survival, this study advances scholarship, and offers guidance to managers on navigating through a crisis."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "코로나19 팬데믹의 심각성과 지속 기간으로 인해 어떤 기업은 실패한 반면, 같은 산업에 속한 다른 기업들은 생존하였다. 본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">동적 역량</span> 이론에 기반하여, 그 존재 또는 부재가 기업의 실패 혹은 생존의 조건이 되는 동적 역량들을 탐구하였다. 우리는 인도의 여행·관광, 케이터링·숙박, 농산물 수출 산업에 종사하는 기업 소유주/임원들을 대상으로 16건의 심층 반구조화 인터뷰를 수행하였다. <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">퍼지셋 질적비교분석(fsQCA)</span> 기법을 사용하여, 기업 실패 현상에 대해 3개의 인과적 구성, 기업 생존 현상에 대해 2개의 인과적 구성을 도출하였다. 핵심 이해관계자와의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">협력적 역량</span>의 부재가 기업 실패의 핵심 요인으로 관찰되었으며, 리더십 적응 역량과 정부 지원 활용 능력의 부재는 3개의 인과적 구성 중 2개에서 발견되었다. 반대로, 리더십 적응 역량과 협력적 역량은 기업 생존에 관한 2개의 인과적 구성 모두에서 존재하는 것으로 나타났다. 통념과 달리, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">디지털 전환 역량</span>은 실패를 막기에 충분하지도, 생존을 보장하기에 필요하지도 않은 조건이었다. 기업의 실패와 생존을 가르는 조건으로서 동적 역량에 초점을 맞춤으로써, 본 연구는 학문적 논의를 진전시키고 위기를 헤쳐나가는 관리자들에게 실무적 지침을 제공한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Dynamic Capability</td>
+                  <td>동적 역량</td>
+                  <td class="text-sm">변화하는 사업 환경에 맞춰 자원을 재구성·통합·구축하는 능력. 정태적 자원(resource)과 구분되는 프로세스적 성격을 강조합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">fsQCA</td>
+                  <td>퍼지셋 질적비교분석</td>
+                  <td class="text-sm">사례 단위로 조건들의 논리적 조합을 분석해 결과에 대한 필요·충분 조건을 규명하는 정성-정량 혼합 집합론적 기법입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Necessary / Sufficient Condition</td>
+                  <td>필요조건 / 충분조건</td>
+                  <td class="text-sm">회귀분석의 '유의한 영향'과 다른 집합론적 개념으로, 결과 발생에 반드시 있어야 하는지(필요) 그 자체로 충분한지(충분)를 구분합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Causal Configuration</td>
+                  <td>인과적 구성(배합)</td>
+                  <td class="text-sm">여러 조건들의 특정 논리적 조합이 결과를 발생시키는 하나의 충분 경로. 동일 결과로 가는 복수 경로(등종국성)가 가능함을 내포합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Collaborative Decision-making Capability</td>
+                  <td>협력적 의사결정 역량</td>
+                  <td class="text-sm">공급자·고객 등 핵심 이해관계자와의 관계에서 얻는 지원·협업 수준을 의사결정에 반영하는 능력으로, 본 연구의 핵심 차별화 변수입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">위기 속 생존/실패를 가르는 필요·충분 역량은 무엇인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">협력 역량이 핵심, 디지털 전환은 만능이 아니다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">fsQCA로 규명한 실패/생존의 등종국적 경로</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 코로나19 팬데믹 속에서 인도 B2B 서비스 기업의 생존을 위해 반드시 필요·충분한 동적 역량은 무엇이며, 반대로 실패를 유발하는 필요·충분 역량은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> <strong>협력적 의사결정 역량(CDC)</strong>의 존재/부재가 16개 사례 전체(5개 구성)에서 생존/실패를 가르는 필요조건으로 확인되었습니다. 실패는 '정부지원 부재 + 협력역량 부재'(6개 사례), 생존은 '리더십 적응역량 + 협력역량'(5개 사례)의 조합이 등종국적 필요조건이었습니다. 반면 <strong>디지털 전환 역량(DIG)</strong>은 실패를 막기에 충분하지도, 생존에 필요하지도 않았습니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 동적 역량 이론을 팬데믹발 실패/생존이라는 이분법적 현상에 적용하고, fsQCA를 통해 소표본에서도 인과 조합을 규명할 수 있음을 보였습니다. 경영자에게는 디지털 투자보다 이해관계자 협력관계 구축이 위기 대응의 우선순위임을 시사합니다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "코로나19 위기에서 기업의 생존과 실패를 가른 결정적 차별화 요인은 디지털 전환이 아니라 핵심 이해관계자와의 협력적 역량이었으며, 여기에 정부지원 부재(실패)나 리더십 적응역량 보유(생존)가 결합될 때 각 결과로의 충분 경로가 완성되었다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장을 뒷받침하는 원문 인용과 페이지·절 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">협력적 역량(CDC)의 존재/부재가 생존/실패의 필요조건</td>
+                <td class="text-sm italic text-slate-600">
+                  "we observed that the absence (presence) of collaborative capability was a necessary condition for business failure (business survival). This necessary condition was observed across all the five configurations covering 11 business cases."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 47–48 (Sec. 4.3)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">실패의 등종국적 필요조건: 정부지원 부재 + 협력역량 부재</td>
+                <td class="text-sm italic text-slate-600">
+                  "the absence of the capability to leverage government support, and the lack of collaborative capability, were the necessary conditions (*~GSL*~CDC) for the business failure outcome... covering six business failure cases."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 47 (Sec. 4.3)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">생존의 등종국적 필요조건: 리더십 적응역량 + 협력역량</td>
+                <td class="text-sm italic text-slate-600">
+                  "the presence of strategic leadership adaptive capability and collaborative capability (LAC*CDC) were the necessary conditions... covering five business survival cases."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 47 (Sec. 4.3)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">디지털 전환 역량은 필요·충분조건이 아님</td>
+                <td class="text-sm italic text-slate-600">
+                  "digital transformation capability was neither a necessary nor a sufficient condition for business survival. We found that companies that failed had digital transformation capability, just as we found that some companies were able to survive without being digitally capable."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 48 (Sec. 5.1)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">실패 구성 A 사례 예시 (여행/카고 업종)</td>
+                <td class="text-sm italic text-slate-600">
+                  "configuration 'A' (~LAC*~GSL*~CDC*DIG*~ESM)... is a sufficient recipe for the business failure outcome... the investors discontinued funding, the firm could not leverage government support, the suppliers did not collaborate, and employees' emotions and stress was not managed; consequently, the companies became insolvent."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 45 (Sec. 4.1)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">정부지원 활용 불능이 실패의 필요·충분 요인</td>
+                <td class="text-sm italic text-slate-600">
+                  "the inability to leverage government support was a necessary and sufficient contributor to business failure during this pandemic."
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 48 (Sec. 5.1)</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">표본 개요: 16개 B2B 기업, 8실패/8생존</td>
+                <td class="text-sm italic text-slate-600">
+                  "Of the 16 interviewed firms, six were from the travel and tourism industry, four were from the catering/hospitality industry and six were from the agricultural export/trading industry... eight firms were labelled 'business survival' and eight as 'business failure'"
+                </td>
+                <td class="text-right font-medium text-slate-500">Page 43–44 (Sec. 3.2, Table 1)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables (Configurational, no H1/H2 DAG) -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-900">
+          <strong>연구 설계 안내:</strong> 본 연구는 회귀분석 기반의 선형 가설검증(H1/H2 경로) 모형이 아니라, <strong>fsQCA(퍼지셋 질적비교분석)</strong>를 사용한 <strong>구성적(configurational) 모형</strong>입니다. 5개의 인과조건이 개별적으로 결과에 미치는 '효과 크기'를 추정하는 대신, 조건들의 <strong>논리적 조합(AND/NOT)</strong>이 결과(실패/생존)에 필요·충분한지를 집합론적으로 분석합니다. 이에 따라 화살표 기반 가설 경로 다이어그램(DAG)은 해당 사항이 없어 생략하고, 5개 인과조건 변수와 결과 변수를 카드로 정리합니다.
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- Condition 1: LAC -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">인과조건 1</span>
+                <span class="text-xs text-slate-400 font-semibold">LAC</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">리더십 적응 역량 (Leadership Adaptive Capability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 자금을 확보·관리하여 재무 위기로부터 사업을 보호하고, 자금관리에 기반한 전략적 계획을 통해 필요한 자원을 구축하는 리더십의 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 부채 상환·이자 지급 유지, 투자자와의 신뢰/브랜드 가치 보존 여부를 기준으로 0.875~0.125의 4단계 퍼지 점수 부여.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Cortez & Johnston (2020) 이론 기반 인터뷰 주제 → NVivo 코딩 → 연구자 캘리브레이션(Table 3)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 위기 시 리더십의 역할론(Cortez & Johnston, 2020)과 내부 요인으로서의 경영 미숙(Amankwah-Amoah & Wang, 2019) 논의와 대비되는 '적응적 리더십' 개념.
+              </p>
+            </div>
+          </div>
+
+          <!-- Condition 2: GSL -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">인과조건 2</span>
+                <span class="text-xs text-slate-400 font-semibold">GSL</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">정부지원 활용 역량 (Ability to Leverage Government Support)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 중앙정부·주정부의 직간접 재정 지원(대출, 세제 유예, MSME 지원 등)을 실제로 확보해내는 능력.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> MSME 대출·세제 유예 등 정부지원 프로그램의 실제 수혜 정도(전면적 수혜~전무)를 기준으로 4단계 퍼지 캘리브레이션.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Rodgers, Stokes, Tarba, & Khan (2019); Rodgers et al. (2022) 기반 인터뷰 → NVivo 키워드(government, MSME 등) → 캘리브레이션</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 신흥시장의 제도적 공백(institutional voids, Palepu & Khanna, 1998)과 정부지원의 정당성/전략적 가치(Khan, 2020; Zhu et al., 2020) 논의와 연결.
+              </p>
+            </div>
+          </div>
+
+          <!-- Condition 3: CDC -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition ring-2 ring-cyan-400">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-secondary style-label text-white">인과조건 3 (핵심)</span>
+                <span class="text-xs text-slate-400 font-semibold">CDC</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">협력적 의사결정 역량 (Collaborative Decision-making Capability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 기존 공급자·고객으로부터 얻는 지원(신용공급, 결제 유연성 등)을 의사결정 과정에 반영하는 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 공급자의 신용공급 지속 여부, 고객의 결제 시기 준수 여부를 기준으로 한 4단계 퍼지 점수.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Crick & Crick (2020) 기반 인터뷰 주제 → NVivo 키워드(customer, supplier, negotiation 등) → 캘리브레이션</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 관계론적 관점(Relational View, Dyer & Singh, 1998), 집단주의 문화(인도)의 이해관계자 신뢰 구축 논의(Chen, Chen, & Meindl, 1998)와 연결. 본 연구 <strong>최종 핵심 발견</strong>과 직결.
+              </p>
+            </div>
+          </div>
+
+          <!-- Condition 4: DIG -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">인과조건 4</span>
+                <span class="text-xs text-slate-400 font-semibold">DIG</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">디지털 전환 역량 (Digital Transformation Capability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> Industry 4.0 시대에 기업이 운영·프로세스·의사결정에 기술을 전략적으로 재편·배치하는 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 블록체인/AI/모바일앱 등 고도화된 디지털화(0.875)부터 최소한의 모바일 커뮤니케이션(0.125)까지 4단계 퍼지 캘리브레이션.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Warner & Wäger (2019); Crick & Crick (2020) 기반 인터뷰 → NVivo 키워드(digital, Zoom, online 등) → 캘리브레이션</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> "디지털 성숙도가 생존을 좌우한다"는 McKinsey(2020)·Abed(2021) 등 통념적 문헌과 대비되는 <strong>반증적 발견</strong>의 핵심 변수.
+              </p>
+            </div>
+          </div>
+
+          <!-- Condition 5: ESM -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">인과조건 5</span>
+                <span class="text-xs text-slate-400 font-semibold">ESM</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">감정·스트레스 관리 역량 (Emotion and Stress Management)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 위기 상황에서 경영진 스스로와 직원들의 감정·스트레스를 관리하기 위해 기울이는 조직적 노력.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 정기 웰빙 미팅, 의료 상담, 재정 지원 등 적극적 관리(0.875)부터 관리 실패로 인한 심각한 불안 유발(0.125)까지 4단계 퍼지 캘리브레이션.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Cortez & Johnston (2020) 기반 인터뷰 → NVivo 키워드(employee, salary, families, vaccinated 등) → 캘리브레이션</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 직원 건강관리의 사회적 정당성/규제 준수 관점(Rodgers, Vershinina, Khan, & Stokes, 2022)과 연결. 단독 필요조건은 아니었고 다른 조건과 결합해서만 유의미.
+              </p>
+            </div>
+          </div>
+
+          <!-- Outcome Variable -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-error style-label text-white">결과변수 (Outcome)</span>
+                <span class="text-xs text-slate-400 font-semibold">Failure / Survival</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기업 실패 대 생존 (Business Failure vs. Survival)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 실패=지급불능·부실매각·폐업·매출회복 실패, 생존=재무적으로 존속하며 주요 사업을 상당 부분 또는 완전히 회복.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 2021년 말~2022년 초 상태 기준 0.875(매각/소멸)~0.125(경미한 타격)의 4단계 퍼지 점수(Table 2). 생존 분석 시 반전(1−x) 재계산.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Table 1의 사례별 매출/인력 데이터 → 연구진 캘리브레이션 판단</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않은 연구자도 fsQCA 절차를 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">이론적 프레이밍 및 5개 동적 역량 식별</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  선행 문헌(Amankwah-Amoah et al., 2021; Cortez & Johnston, 2020; Warner & Wäger, 2019)을 검토해 팬데믹 생존/실패와 관련된 5개 동적 역량(디지털 전환, 협력적 의사결정, 감정/스트레스 관리, 리더십 적응, 정부지원 활용)을 이론적으로 확정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 42-43, Section 2.2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">연구 맥락 설정 및 표본 모집 (스노우볼/목적 표집)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  인도 B2B 서비스 업종(여행/관광, 케이터링/숙박, 농산물 수출) 중 팬데믹 타격이 컸던 기업을 저자들의 개인 네트워크·동문 인맥을 통해 스노우볼·목적 표집. 실패/생존 기업을 업종별 2개사 이상 균형 있게 포함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 43-44, Section 3.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">반구조화 인터뷰 가이드 개발</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  5개 동적 역량 각각에 대한 주제(theme)를 선행 문헌 기반으로 개발(예: 디지털 전환 → 온라인 쇼룸, 전자상거래, 데이터 분석 등)하고 인터뷰 참조점으로 활용.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 44, Section 3.3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">심층 인터뷰 실시 (16건)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  전화로 참여 동의 확보 후, 온라인(9건)·전화(4건)·대면(3건) 방식으로 저자들이 직접 인터뷰 진행. 익명성 보장 및 녹음 동의 확보.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 44, Section 3.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">NVivo 기반 전사본 코딩 및 워드클라우드 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  두 연구자가 16개 전사본을 독립 코딩(일치도 80% 이상)해 5개 조건별 통합 파일 생성. NVivo 단어 빈도 쿼리(매칭 임계값 25%)와 조건별 상위 50개 단어 워드클라우드 산출(Fig. 1).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 44-45, Section 3.4</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">결과·조건 변수 퍼지 점수 캘리브레이션</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  워드 빈도 분석과 전사본에 대한 심층적 이해를 결합해 결과 변수(Table 2)와 5개 조건 변수(Table 3) 각각에 0.875/0.625/0.375/0.125의 4단계 캘리브레이션 스키마를 개발·적용.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 44-46, Section 3.5</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">트루스 테이블 및 Quine-McCluskey 분석 (실패 결과)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  fsQCA 소프트웨어(v3.1b)로 트루스 테이블(Table 4) 작성. 빈도 컷오프=2, 일관성 컷오프 0.8 미만 제거 후 복합해 도출. 실패: solution consistency 0.944, coverage 0.858 (Config A/B/C).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 45-46, Section 4.1</span>
+              </div>
+              <hr class="bg-slate-900"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-900"/>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">결과 변수 반전 후 동일 분석 (생존 결과)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  결과 변수를 반전(생존=1, 실패=0)하여 동일한 빈도/일관성 컷오프로 재분석. 생존: solution consistency 0.821, coverage 0.646 (Config X 3사례, Config Y 2사례).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 46-47, Section 4.2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 9 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">9</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 9</time>
+                <div class="text-lg font-bold text-slate-800">등종국적 축약해 및 필요조건 일관성·커버리지 산출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  실패/생존 각각의 복합해를 축약해로 재차 환원해 등종국적 필요조건(실패: ~GSL·~CDC / 생존: LAC·CDC) 도출. 5개 조건 개별 필요조건 일관성·커버리지 계산(Table 6).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 47-48, Section 4.3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            캘리브레이션 스키마, 트루스 테이블, 소프트웨어 버전(fsQCA 3.1b), 컷오프 기준이 투명히 공개되어 통계적 절차는 재현 가능하나, 원본 인터뷰 전사본은 "confidential"로 비공개이며 퍼지 점수 캘리브레이션이 연구자의 정성적 해석에 의존하므로 완전한 독립 재현은 제한적입니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.3)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>소표본(N=16)의 한계:</strong> "One evident shortcoming is the relatively small number of cases included." 실패 기업의 낙인효과로 인한 자료 접근 제약을 fsQCA 기법으로 상쇄했다고 주장하나, 근본적 표본 규모의 한계는 남음. (Page 49)
+              </li>
+              <li>
+                <strong>더 많은 산업으로 확장된 대표본 필요:</strong> "a larger sample size across more industries would shed further light on the factors underlying business failure versus survival." (Page 49)
+              </li>
+              <li>
+                <strong>비배타적(non-exhaustive) 인과 구성:</strong> 도출된 3개(실패)+2개(생존) 구성이 전체 가능한 경로를 망라하지 못하며, 유사 맥락에서 더 많은 인과 구성이 존재할 수 있음. (Page 49)
+              </li>
+              <li>
+                <strong>지리적 특수성 (Tier I·II 도시 한정):</strong> 소도시·농촌 지역에서는 동적 역량 조건이 다르게 나타날 수 있음. (Page 49)
+              </li>
+              <li>
+                <strong>B2B 한정, B2C로의 일반화 불확실:</strong> 고객이 더 다양하고 많은 B2C 맥락에서는 다른 역량 구성이 필요조건으로 등장할 가능성. (Page 49)
+              </li>
+              <li>
+                <strong>팬데믹이라는 특정 위기 맥락 한정:</strong> 화폐개혁(2016년 인도 demonetization) 등 제도발 위기처럼 다른 유형의 위기에서는 상이한 결과가 나타날 수 있음. (Page 49)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계와 방법론적 성격을 근거로 제기하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 역인과관계·사후 정당화 (Reverse Causality)</span>
+                <p class="text-sm text-slate-700">
+                  인터뷰는 팬데믹 결과(실패/생존)가 이미 확정된 2021년 말~2022년 초에 진행되었습니다. <strong>"역량이 있어서 생존했다"</strong>가 아니라, <strong>원래 재무 여유가 있던 기업이 생존 후 자신의 행동을 '적응적 리더십'·'협력역량'으로 사후 서사화(narrate)했을 가능성</strong>이 큽니다. 실패 기업은 외부 요인(정부지원 부재)으로 귀인하고 생존 기업은 자기 역량을 강조하는 자기고양적 편향이 통제되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 접근성 표본 편향 (Access/Snowball Bias)</span>
+                <p class="text-sm text-slate-700">
+                  저자들의 개인 네트워크·동문 인맥을 통한 스노우볼·목적 표집은 연구진에게 접근 가능하고 인터뷰에 응할 의향이 있는 기업에 편중되었을 가능성이 있습니다. 낙인으로 인터뷰 자체를 거부한 극단적 실패 기업은 표본에서 애초에 배제되었을 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 소표본·다조건 결합의 구성적 과적합</span>
+                <p class="text-sm text-slate-700">
+                  5개 조건(2⁵=32개 가능 조합)에 16개 사례만 존재해 다수의 논리적 잔여(logical remainder)가 발생합니다. 특정 필요조건(예: ~GSL·~CDC)이 안정적 인과구조인지, 이 16개 사례의 우연적 조합에서 비롯된 것인지 구분하기 어렵습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 퍼지 점수 캘리브레이션의 순환성</span>
+                <p class="text-sm text-slate-700">
+                  조건 변수의 퍼지 점수는 결과(실패/생존)를 이미 알고 있는 동일 연구자 2인이 인터뷰 내용을 질적으로 판단해 부여했습니다. 결과와 일치하는 방향으로 조건 점수가 무의식적으로 편향되었을 순환적 측정 위험(confirmation bias)을 배제할 수 없습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 디지털 전환 '무효과' 발견의 산업 특수성</span>
+                <p class="text-sm text-slate-700">
+                  표본 산업(여행/관광, 케이터링, 농산물 수출)은 상대적으로 지식집약도가 낮고 디지털 성숙도가 이미 정체되어 있었을 가능성이 있습니다. 이 반증적 핵심 발견이 디지털 집약도가 높은 B2B 산업(IT서비스, 금융, 제조업)에는 일반화되지 않을 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 단일 시점 횡단적 스냅샷의 시간 혼입</span>
+                <p class="text-sm text-slate-700">
+                  '2021년 말~2022년 초'라는 단일 관측 시점은 팬데믹이 여전히 진행 중인 시기였습니다. 기업이 관측 시점에 우연히 회복 사이클의 어느 단계에 있었는지가 역량 판정에 영향을 미쳤을 수 있어, 안정적 인과관계가 아닌 일시적 시점 효과(timing artifact)를 포착했을 가능성이 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Dynamic capabilities that matter for business failure versus survival</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

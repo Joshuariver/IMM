@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industrial Innovation Management in the Age of Digital Transformation - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Sales & Innovation Adoption</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Industrial innovation management in the age of digital transformation:<br>
+            <span class="text-cyan-400">The risk of too strong selling capabilities</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Herbert Endres, Julia Auburger, Roland Helm (University of Regensburg, Germany)
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            디지털 전환 시대의 산업 혁신 관리:<br>
+            <span class="text-indigo-300">지나치게 강한 판매 역량의 위험</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            독일 전동공구 공급업체의 B2B 고객 91명 설문 + 객관적 구매 데이터 분석
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">판매 역량은 많을수록 좋은 것이 아니다 — 고객 지식 채택에는 역U자형 최적 수준이 존재한다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "In the rapidly evolving landscape of industrial innovation, a major hurdle for business customers is the inherent uncertainty associated with adopting new products. This uncertainty is often exacerbated by the digital transformation, which contributes to an overwhelming influx of information. Central to this challenge is the inadequacy of knowledge transfer from salespeople to business customers, leading to a suboptimal understanding of the new offerings and consequently, a reluctance to adopt these innovations. Our study addresses this gap by examining the impact of salespeople's selling capabilities on the adoption of knowledge by business customers. This research is pioneering in empirically establishing that the adoption of knowledge by customers acts as a mediating factor between salespeople's selling capabilities and the purchase of innovations. Intriguingly, our findings reveal the existence of an optimal level of selling capability necessary for effective knowledge transfer, which varies depending on specific contingencies. We recommend the integration of additional strategies, such as assertive listening, to enhance knowledge transfer, preventing the pitfalls of overreliance on selling capabilities alone."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              산업 혁신이 빠르게 진화하는 환경 속에서, 비즈니스 고객이 겪는 주요 장벽은 신제품 채택에 내재된 불확실성이다. 이 불확실성은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">디지털 전환</span>으로 정보가 과도하게 유입되면서 더욱 심화된다. 문제의 핵심에는 판매원으로부터 고객에게 전달되는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">지식 이전</span>의 부적절함이 있으며, 이는 이해 부족과 혁신 채택 기피로 이어진다. 본 연구는 판매원의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">판매 역량</span>이 고객의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">지식 채택</span>에 미치는 영향을 조사한다. 본 연구는 고객의 지식 채택이 판매 역량과 혁신 구매 사이를 매개함을 실증적으로 규명한 최초의 연구다. 흥미롭게도, 효과적인 지식 이전을 위한 판매 역량에는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">최적 수준</span>이 존재하며 이는 상황 조건에 따라 달라진다. 본 연구는 지식 이전을 향상시키기 위해 적극적 경청과 같은 보완 전략의 통합을 권장하며, 이를 통해 판매 역량에 대한 과도한 의존이 초래하는 함정을 예방할 수 있다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Selling capability</td>
+                  <td>판매 역량</td>
+                  <td class="text-sm">Rentz et al.(2002) 정의를 따라 대인관계·세일즈맨십·기술지식 3요소로 구성된 포괄적 "역량" 개념으로 번역함.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Knowledge adoption</td>
+                  <td>지식 채택</td>
+                  <td class="text-sm">단순 정보(information)가 아니라 고객이 의미를 부여해 내면화한 "지식"이 채택된다는 Rogers(2003) 개념을 살려 직역.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Cue / Signal</td>
+                  <td>단서 / 신호</td>
+                  <td class="text-sm">신호이론·단서 활용 이론 맥락의 학술 용어로 원어 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Inverted U-shape</td>
+                  <td>역U자형(비선형) 관계</td>
+                  <td class="text-sm">2차항 회귀계수가 음(−)인 곡선 관계, 즉 중간 수준에서 최댓값을 갖는 형태를 지칭.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Perceived degree of innovation</td>
+                  <td>지각된 혁신 정도</td>
+                  <td class="text-sm">제품의 상대적 신규성에 대한 고객의 주관적 지각 수준.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">판매 역량은 많을수록 항상 좋은가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">지식 채택은 역U자형 최적 수준에서 최대화된다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">신호이론에 기반한 매개·이중조절 모형 최초 실증</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 판매 역량은 많이 쓸수록 항상 고객의 지식 채택에 도움이 되는가? 고객 혁신성과 지각된 혁신 정도는 이 관계를 어떻게 조절하는가?</li>
+                  <li><strong>핵심 발견:</strong> 지식 채택은 판매 역량과 구매 결정을 완전 매개한다(H1). 판매 역량은 지식 채택에 선형적(+) 효과가 있지만(H2a), 동시에 <strong>역U자형(H2b)</strong> 곡선 효과를 보여 지나치게 강한 판매 역량은 오히려 지식 채택을 저해한다. 이 곡선의 형태는 고객 혁신성(H3)과 지각된 혁신 정도(H4)에 따라 달라진다.</li>
+                  <li><strong>이론/실무 기여:</strong> 신호이론·단서 활용 이론을 판매 역량 맥락에 처음 적용했으며, 실무적으로는 "많을수록 좋다"는 통념을 반박하고 고객 특성별 맞춤형 판매 전략(CRM 활용, 적극적 경청 등)의 필요성을 제시한다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "판매 역량은 무조건 많을수록 좋은 것이 아니라 고객 혁신성과 지각된 혁신 정도에 따라 적정 수준이 존재하며, 그 적정 수준의 역량이 지식 채택을 거쳐야만 실제 구매로 이어진다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">지식 채택의 완전 매개 효과(H1)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the relationship between salespeople's selling capability and customer's final purchase is fully mediated by customer's knowledge adoption... (Adoption indirect effect =.97, CI =0.41 to 2.88)... supporting Hypothesis 1."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.377, Sec. 6.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">판매 역량 → 지식 채택 선형 효과(H2a)</td>
+                <td class="text-sm italic text-slate-600">
+                  "We found a linear relationship between selling capability and customers' knowledge adoption (β =0.31, p &lt;.05). Thus, Hypothesis 2a is supported."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.378, Sec. 6.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">역U자형 곡선 효과(H2b)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the change in ΔR2 was statistically significant (ΔR2 =0.02, p &lt;.01)... the inverted u-shaped relationship... Hypothesis 2b is supported (β = −0.19, p &lt;.10)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.378, Sec. 6.1</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">고객 혁신성의 조절 효과(H3)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the interaction term between salespeople's selling capability squared and customers' innovativeness... was statistically significant (β =0.25, p &lt;.10). Thus, Hypothesis 3 is supported."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.378, Sec. 6.1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">지각된 혁신 정도의 조절 효과(H4)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the interaction term between salespeople's selling capability squared and degree of innovation... was statistically significant (β =−0.51, p &lt;.05). Thus, Hypothesis 4 is supported."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.378, Sec. 6.1</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">하위차원별 상이한 효과(강건성 검정)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the inverted u-shaped relationship... is found for interpersonal selling capability (−0.29**) and salesmanship capability (−0.19*), but not for technical knowledge capability, where a linear relationship is found (0.38**)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.379, Sec. 6.3</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">제2 데이터셋을 통한 재확인</td>
+                <td class="text-sm italic text-slate-600">
+                  "The analysis of this second data set also indicates a significant (p &lt;.10) inverted U-shaped effect between selling capability and knowledge adoption."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.379, Sec. 6.4</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 가설 모형)</h3>
+
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 860 440" class="w-full h-auto">
+              <!-- IV: Selling capability -->
+              <rect x="20" y="180" width="220" height="90" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="130" y="210" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">판매 역량</text>
+              <text x="130" y="228" text-anchor="middle" fill="#334155" font-size="11">(Selling Capability)</text>
+              <text x="130" y="248" text-anchor="middle" fill="#64748b" font-size="11">대인관계·세일즈맨십·기술지식</text>
+
+              <!-- Mediator: Knowledge adoption -->
+              <rect x="330" y="180" width="220" height="90" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="440" y="212" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">고객의 지식 채택</text>
+              <text x="440" y="230" text-anchor="middle" fill="#065f46" font-size="11">(Knowledge Adoption)</text>
+              <text x="440" y="250" text-anchor="middle" fill="#047857" font-size="11">인지·이해·비교 가능성</text>
+
+              <!-- DV: Purchase decision -->
+              <rect x="640" y="180" width="200" height="90" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="740" y="212" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">혁신 구매 결정</text>
+              <text x="740" y="230" text-anchor="middle" fill="#3730a3" font-size="11">(Purchase Decision)</text>
+              <text x="740" y="250" text-anchor="middle" fill="#4338ca" font-size="11">객관적 구매/미구매 데이터</text>
+
+              <!-- Moderator 1: Customers' innovativeness -->
+              <rect x="330" y="20" width="220" height="80" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="440" y="48" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">고객 혁신성</text>
+              <text x="440" y="65" text-anchor="middle" fill="#92400e" font-size="10">(Customers' Innovativeness)</text>
+              <text x="440" y="83" text-anchor="middle" fill="#b45309" font-size="10">H3: 곡선 완만화(−)</text>
+
+              <!-- Moderator 2: Perceived degree of innovation -->
+              <rect x="330" y="340" width="220" height="80" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+              <text x="440" y="368" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="13">지각된 혁신 정도</text>
+              <text x="440" y="385" text-anchor="middle" fill="#991b1b" font-size="10">(Perceived Degree of Innovation)</text>
+              <text x="440" y="403" text-anchor="middle" fill="#b91c1c" font-size="10">H4: 곡선 심화(+)</text>
+
+              <!-- Control: Duration of business relationship -->
+              <rect x="20" y="330" width="220" height="60" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="130" y="356" text-anchor="middle" font-weight="700" fill="#475569" font-size="12">거래 관계 기간 (통제)</text>
+              <text x="130" y="374" text-anchor="middle" fill="#64748b" font-size="10">Duration of Business Relationship</text>
+
+              <!-- Arrows -->
+              <!-- IV -> Mediator (H2a linear, solid) -->
+              <path d="M240 210 L 320 210" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="280" y="200" text-anchor="middle" fill="#0369a1" font-weight="700" font-size="12">H2a (+)</text>
+
+              <!-- IV -> Mediator (H2b curvilinear, dashed) -->
+              <path d="M240 240 L 320 240" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+              <text x="280" y="262" text-anchor="middle" fill="#0369a1" font-weight="700" font-size="12">H2b 역U자(−)</text>
+
+              <!-- Mediator -> DV -->
+              <path d="M550 220 L 630 220" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="590" y="210" text-anchor="middle" fill="#047857" font-weight="700" font-size="12">(+)</text>
+
+              <!-- IV -> DV via mediation label (H1, curved dashed) -->
+              <path d="M130 180 C 130 120, 700 120, 740 178" fill="none" stroke="#4338ca" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="430" y="110" text-anchor="middle" fill="#3730a3" font-weight="700" font-size="12">H1: 지식 채택을 통한 완전 매개</text>
+
+              <!-- Moderator 1 -> IV-Mediator path -->
+              <path d="M440 100 L 440 175" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="452" y="140" fill="#b45309" font-weight="700" font-size="11">H3 조절</text>
+
+              <!-- Moderator 2 -> IV-Mediator path -->
+              <path d="M440 340 L 440 275" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="452" y="315" fill="#b91c1c" font-weight="700" font-size="11">H4 조절</text>
+
+              <!-- Control -> Mediator & DV -->
+              <path d="M240 350 L 300 350 L 300 260 L 320 260" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="2 3" marker-end="url(#arrow)"/>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 max-w-2xl text-center">
+            판매 역량은 지식 채택에 선형(H2a, 실선)과 곡선(H2b, 점선·역U자) 효과를 동시에 가지며, 이 곡선의 기울기는 고객 혁신성(H3)과 지각된 혁신 정도(H4)에 의해 조절된다. 지식 채택은 판매 역량과 최종 구매 결정 사이를 완전 매개한다(H1).
+          </p>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수</span>
+                <span class="text-xs text-slate-400 font-semibold">IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">판매 역량 (Salespeople's Selling Capability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 개인이 판매원의 과업(대인관계 유지, 세일즈맨십, 기술적 지식 전달)을 수행하는 학습된 능력(Rentz et al., 2002).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 고객이 지각한 대인관계·세일즈맨십·기술지식 3요소 평가값(6점 Likert), 곡선효과 검증을 위해 제곱항도 함께 투입.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Behavioral Performance Scale (Miao et al., 2007) / 3문항, α=.93, AVE=.83, CR=.93</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 신호이론(Signaling Theory, Connelly et al., 2011) — 고객이 관찰·신뢰 가능한 외재적 단서(extrinsic cue)로 작동.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">고객의 지식 채택 (Customers' Knowledge Adoption)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 신제품에 대한 지식을 획득하고 고객이 그 정보에 의미를 부여하는 과정(Rogers, 2003).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 혁신 제품에 대한 인지도, 기능/특징 이해도, 타 제품과의 비교 가능성(6점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 자체 개발 척도(Jamieson & Bass, 1989; Coupey et al., 1998 등 참고) / 4문항, α=.92, AVE=.73, CR=.91</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Rogers(2003) 혁신 채택 과정의 초기 단계 — 최종 구매결정을 선행하는 중개 변수.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">고객 혁신성 (Customers' Innovativeness)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 의사결정자가 타인보다 먼저 혁신을 수용하려는 성향(Rogers, 2003).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 기술 혁신 정보에 대한 능동적 탐색, 신제품 조기 채택 성향 등(6점 Likert, 역채점 문항 포함).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Kirton(1976) Adaption-Innovation Inventory 각색 (Bagozzi & Foxall, 1995; Xu & Tuttle, 2012) / 5문항, α=.84, AVE=.61, CR=.88</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 혁신 확산 이론 — 고객 특성이 신호 해석에 미치는 영향(Connelly et al., 2011).
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-error style-label text-white">조절변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">지각된 혁신 정도 (Perceived Degree of Innovation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 신제품이 기존 대안 대비 지각된 혁신성의 정도(Kuester et al., 2017; Rogers, 2003).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 기존 제품 대비 진보성, 획기성에 대한 고객의 주관적 평가(6점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Product Newness Scale (Kuester et al., 2012) / 3문항, α=.92, AVE=.73, CR=.89</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 신호 환경(signaling environment) 개념 — 혁신 정도가 정보 비대칭을 증폭/완화(Connelly et al., 2011).
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Dependent Variable (DV)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">혁신 구매 결정 (Innovation Purchase / Final Purchase Decision)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 고객이 신제품을 실제로 구매했는지 여부.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 협력사 고객 데이터베이스에서 확보한 구매/미구매 이진(binary) 객관 데이터.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 협력사(독일 전동공구 공급업체) 사내 판매기록 — 설문이 아닌 실거래 데이터로 공통방법편의를 완화.</p>
+              <p class="text-xs text-slate-600 mt-1"><strong>통제변수:</strong> 거래 관계 기간(Duration of Business Relationship) — 고객이 공급업체와 거래해온 연수(manifest 변수).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 연구 모델 및 데이터 검증을 그대로 <strong>추종 재현</strong>할 수 있도록 실증 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">표본·맥락 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  독일의 전문 전동공구 공급업체 1곳을 파트너사로 확보. 신제품을 제안받은 적이 있는 모든 비즈니스 고객(구매자·비구매자 모두)을 조사 대상으로 하여 pro-innovation bias를 회피.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.376-377, Sec. 5.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">혁신 자극물 확정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  조사 대상 혁신으로 "전문가용 코드리스 스크루드라이버"(토크렌치·방향/속도 제어 기술 탑재, 점진적 혁신)를 선정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.377, Sec. 5.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">설문 설계 및 사전 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  문헌 검토로 기존 척도 재사용, 6점 Likert로 통일. 관리자·고객 탐색적 인터뷰 → 학계 전문가·임원 대상 사전테스트 → 수정 후 고객 표본으로 재검증. Podsakoff et al.(2003) 절차로 공통방법편의(CMB) 통제.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.377, Sec. 5.1-5.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">설문 배포·회수 및 편의 검정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  206개 고객 대상 발송, 응답률 55.34%(114건), 사용 가능 91건(구매 의사결정 책임자만). Armstrong & Overton(1977) 방식으로 무응답 편의 검정 → 유의한 차이 없음(p&lt;.10).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.377, Sec. 5.1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">측정모형 검증 및 매개효과 검정(H1)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  CR≥0.70, AVE≥0.50, Fornell-Larcker 판별타당도 확인(Table 2). SPSS PROCESS Macro Model 4, 부트스트랩 5,000회, 95% CI로 매개효과 검정(간접효과=.97, CI[0.41, 2.88]).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.377-378, Sec. 6.1, Table 2·3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">위계적 회귀분석(H2a-H4) 및 사후 프로빙</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  SPSS 23.0, 예측변수 평균중심화 후 상호작용항 생성. 5단계 위계적 투입(통제→선형→제곱항→조절변수→상호작용항). SPSS PROCESS Model 2로 유의 영역(regions of significance) 계산(Fig. 2).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.378-379, Sec. 6.1-6.2, Table 4</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">강건성 검정 및 제2 데이터셋 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  판매 역량의 3개 하위차원(대인관계/기술지식/세일즈맨십)별로 동일 모형 반복(Appendix B). 다른 독일 공급업체의 고객 112명(오비탈 샌더) 대상 별도 설문으로 역U자 효과 사후 검증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.379, Sec. 6.3-6.4</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            측정 문항(Appendix A)과 통계 절차(PROCESS Model 2/4, 위계적 회귀 단계)는 상세히 공개되어 있어 분석 기법은 재현 가능하나, 원 설문 데이터는 "confidential"로 명시되어 있고 특정 파트너사 고객 표본에 대한 접근이 불가능하여 동일 데이터로의 완전한 재현은 불가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 7.3, p.380)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>최적 수준의 구체적 수치 제시 불가:</strong> "we cannot recommend a specific level of selling capability" — 역U자 관계는 확인했으나 실무에 적용할 구체적 최적 수치는 제시하지 못함.
+              </li>
+              <li>
+                <strong>설문 기반 데이터의 한계:</strong> 판매 역량 지각 자체는 고객의 사후 회고적 평가에 의존하여 기억 편의·설문 피로 가능성을 배제할 수 없으며, 종단적 설계의 필요성을 인정함.
+              </li>
+              <li>
+                <strong>간결성을 위한 변수 제한:</strong> 고객/판매원의 가용 시간 등 다른 변수를 모형에 포함하지 않음.
+              </li>
+              <li>
+                <strong>제품 수명주기 단계에 대한 일반화 제약:</strong> 신제품(혁신)에 초점을 맞춰, 수명주기 후반의 기존 제품에는 결과가 일반화되지 않을 수 있음.
+              </li>
+              <li>
+                <strong>국가/문화적 특수성:</strong> 데이터가 독일의 두 공급업체 고객에 한정되어 권력거리·개인주의 성향이 다른 문화권에서는 결과가 다를 수 있음.
+              </li>
+              <li>
+                <strong>개인 수준 분석의 한계:</strong> 개인 수준에서만 분석하여 집단·조직문화 등 다층적 효과는 포착하지 못함.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계와 데이터 수집 방식을 근거로 도출한 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 역인과성 / 사후 정당화 편향</span>
+                <p class="text-sm text-slate-700">
+                  판매 역량 지각은 구매 후 시점에 측정되었을 가능성이 높다. 이미 구매를 결정했거나 만족한 고객이 <strong>사후적으로 판매원의 역량을 재평가(post-purchase rationalization)</strong>했을 수 있으며, 판매원 역시 고객의 초기 반응에 맞춰 자신의 역량 투입을 조정했을 수 있어 판매 역량이 외생적 원인이 아니라 고객 반응의 결과일 가능성이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 표본의 협소성과 일반화 한계</span>
+                <p class="text-sm text-slate-700">
+                  독일 전동공구 공급업체 2곳, 특히 71%가 수공업(craft firm)에 편중된 표본이며, 제품도 "코드리스 스크루드라이버"라는 유형 제품 단일 카테고리에 국한된다. 무형의 복잡한 산업재 솔루션(소프트웨어, 시스템 등)이나 타 업종·국가로 일반화하기 어렵다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 소표본 대비 모형 복잡도</span>
+                <p class="text-sm text-slate-700">
+                  91명(주 연구), 112명(검증 연구)의 소규모 표본으로 2차항·2원·3원 상호작용까지 포함한 복잡한 조절곡선 모형을 추정했다. 다수의 핵심 계수가 <strong>p&lt;.10(단측검정)</strong>이라는 관대한 유의수준에서만 유의하여 통계적 강건성에 의구심이 남는다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 잔존하는 동일방법편의 및 횡단설계 한계</span>
+                <p class="text-sm text-slate-700">
+                  구매 여부만 객관적 데이터로 분리되었을 뿐, 판매 역량·고객 혁신성·지식 채택은 모두 동일 응답자가 동일 시점에 응답한 자기보고식 데이터다. 지식이 축적되는 시간적 과정을 단일 시점 횡단 설계로는 포착할 수 없어 인과관계 식별에 근본적 제약이 있으며, 이진(binary) 구매 변수 또한 구매 시점·수량 등 풍부한 정보를 손실시킨다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Industrial innovation management in the age of digital transformation: The risk of too strong selling capabilities</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

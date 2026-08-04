@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Configurational Approach to Relationship Characteristics in Servitization - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (no navbar per pipeline rule) -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Servitization · fsQCA</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            A configurational approach to understanding<br>
+            relationship characteristics in differing<br>
+            <span class="text-cyan-400">levels of servitization</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Victoria Kramer, Manfred Krafft, Kaj Storbacka
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            서비스화 수준별 고객-공급자 관계<br>
+            특성을 이해하기 위한 <span class="text-indigo-300">구성형 접근</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            182명의 산업재 영업사원 설문을 fsQCA로 분석하여 11개 서비스화 수준에 associated된 등종국적 관계 구성형 도출
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">서비스화는 하나의 사다리가 아니라, 신뢰·커뮤니케이션·역량·고객성향·가격민감도의 조합이 만드는 다중 경로 현상입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "In their transition from product-based to value-based offerings, B2B suppliers progress through different levels of servitization. These levels are characterized by the type of offering sold (products, services, bundles, or solutions) and the nature of business interaction (transactional vs. relational). This study sheds light on which configurations of customer-supplier relationship characteristics are associated with specific levels of servitization. Emerging from the theories-in-use concept, the authors build a conceptual framework entailing such characteristics and levels of servitization. To empirically investigate this framework, a survey with 182 industrial salespeople is analyzed using fuzzy-set qualitative comparative analysis (fsQCA). The authors identify equifinal relationship configurations of 'trust and dependence', 'communication', 'supplier competence', 'customer predispositions', and 'price sensitivity' for 11 different servitization levels. This research extends academia's understanding of servitization by contextualizing when and how different types of offerings are sold. Suppliers can use these insights to better identify the appropriate offering type and business interaction approach for the context in which they are operating."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              제품 중심 제공물에서 가치 중심 제공물로 전환하는 과정에서 B2B 공급자는 서로 다른 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">서비스화(servitization)</span> 수준을 거치게 된다. 이러한 수준은 판매되는 제공물의 유형(제품, 서비스, 번들, 솔루션)과 사업 상호작용의 성격(거래적 vs. 관계적)으로 특징지어진다. 본 연구는 어떤 고객-공급자 관계 특성의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">구성형(configuration)</span>이 특정 서비스화 수준과 결부되는지를 규명한다. <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">실행중이론(theories-in-use)</span> 개념에서 출발하여, 저자들은 이러한 관계 특성과 서비스화 수준을 포괄하는 개념적 프레임워크를 구축한다. 이 프레임워크를 실증적으로 검증하기 위해 182명의 산업재 영업사원을 대상으로 한 설문 데이터를 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">퍼지셋 질적비교분석(fsQCA)</span>으로 분석하였다. 저자들은 11개의 서로 다른 서비스화 수준에 대해 '신뢰와 의존', '커뮤니케이션', '공급자 역량', '고객 성향', '가격 민감도'로 구성된 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">등종국적(equifinal)</span> 관계 구성형을 도출하였다. 본 연구는 어떤 유형의 제공물이 언제, 어떻게 판매되는지를 맥락화함으로써 서비스화에 대한 학계의 이해를 확장한다. 공급자는 이러한 통찰을 활용해 자사가 처한 맥락에 적합한 제공물 유형과 사업 상호작용 방식을 더 잘 식별할 수 있다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Servitization</td>
+                  <td>서비스화</td>
+                  <td class="text-sm">국내 경영학/마케팅 문헌에서 통용되는 번역어로, 제품 중심에서 서비스 중심 사업모델로의 전환을 뜻함.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Configuration / Configurational</td>
+                  <td>구성형 / 구성형적</td>
+                  <td class="text-sm">개별 변수의 선형적 순효과가 아니라 여러 변수가 함께 이루는 "패턴·조합"을 뜻하므로 배열의 뉘앙스를 살려 번역.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">fsQCA (fuzzy-set QCA)</td>
+                  <td>퍼지셋 질적비교분석</td>
+                  <td class="text-sm">분석기법 고유명사이므로 본문 전체에서는 영문 약어 fsQCA를 그대로 사용.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Theories-in-use</td>
+                  <td>실행중이론</td>
+                  <td class="text-sm">실무자가 실제로 따르는 암묵적 인지모델을 체계화하는 질적 연구 접근(Argyris & Schön 계열).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Equifinal / Equifinality</td>
+                  <td>등종국적 / 등종국성</td>
+                  <td class="text-sm">하나의 결과에 이르는 경로가 여러 개 존재할 수 있다는 구성이론의 핵심 개념.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Core / Peripheral Condition</td>
+                  <td>핵심 조건 / 주변(보조) 조건</td>
+                  <td class="text-sm">fsQCA에서 파슈모니어스해와 중간해 비교를 통해 식별되는 조건의 중요도 구분.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">어떤 관계 특성 조합이 어떤 서비스화 수준과 결부되는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">서비스화는 단일 사다리가 아닌 11개의 다중 경로 현상</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">서비스화 2차원 재개념화 + 관계 구성형 프레임워크</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 신뢰와 의존, 커뮤니케이션, 공급자 역량, 고객 성향, 가격 민감도라는 5개 관계 조건 중 어떤 조합(현존/부재, 핵심/주변)이 제품·서비스·번들·솔루션이라는 제공물 유형과 거래적/관계적 상호작용의 결합(=서비스화 수준)을 설명하는가?</li>
+                  <li><strong>핵심 발견:</strong> 거래적 서비스화 수준은 필요조건이 없는 반면(제품/서비스/번들 각 1개 구성형), 관계적 서비스화 수준은 커뮤니케이션과 공급자 역량이 공통 필요조건이며 그 위에 8개의 서로 다른(등종국적) 관계 구성형이 존재한다.</li>
+                  <li><strong>이론/실무 기여:</strong> 서비스화를 "제공물 복잡도"와 "거래→관계 전환"이라는 2차원 개념으로 재정의하고, 공급자·고객·공동 영역을 아우르는 관계 특성 프레임워크를 실행중이론 기반 질적 연구로 도출한 뒤 fsQCA로 검증하여 서비스화-성과 연구 일변도였던 기존 문헌의 공백을 메운다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "서비스화는 '제품→솔루션'이라는 단일 사다리가 아니라, 신뢰·커뮤니케이션·역량·고객성향·가격민감도의 서로 다른 조합이 각기 다른 제공물 유형과 거래/관계 방식을 만들어내는 다중 경로(등종국적) 현상입니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">서비스화 수준의 2차원 정의</td>
+                <td class="text-sm italic text-slate-600">
+                  "we define levels of servitization as the ways in which firms provide different types of servitized offerings, characterized by both the nature of the offering sold ... and the nature of the business interaction (transactional or relational)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.44, Sec. 2.2</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">5개 관계 조건은 질적 인터뷰(theories-in-use)에서 도출</td>
+                <td class="text-sm italic text-slate-600">
+                  "The central relationship characteristics are derived from a theories-in-use study, and include supplier competence, customer predispositions ... and exchange of information between supplier and customer"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.43, Sec. 1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">거래적 서비스화 수준은 필요조건 없음</td>
+                <td class="text-sm italic text-slate-600">
+                  "In our analyses, we found no necessary conditions for transactional levels of servitization. ... any configuration (presence or absence) of the considered conditions can lead to a transactional servitization level."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.50, Sec. 4.3</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">관계적 서비스화 수준의 필요조건: 커뮤니케이션·공급자 역량</td>
+                <td class="text-sm italic text-slate-600">
+                  "we identified several necessary conditions for relational levels of servitization. For products, product-service bundles, and solutions, the necessary conditions were communication and supplier competence, while trust and dependence emerged as an additional necessary condition for services."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.50, Sec. 4.3</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">거래적 제품 판매는 신뢰·의존의 부재가 특징</td>
+                <td class="text-sm italic text-slate-600">
+                  "For products, we identified a configuration characterized by an absence of trust and dependence. All other conditions ... are present and highly pronounced (core conditions)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.50, Sec. 5.1, Table 5</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">관계적 수준에서 8개의 등종국적 구성형 도출</td>
+                <td class="text-sm italic text-slate-600">
+                  "For relational levels of servitization, on the other hand, eight different, equifinal configurations of relationship characteristics emerge."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.52, Sec. 6.1</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">제품·번들 구성형의 유사성 → 표준화 서비스 추가로 전이 가능</td>
+                <td class="text-sm italic text-slate-600">
+                  "we show that the configurations for products and product-service bundles appear similar, as firms can easily add standardized, digitally-enabled services to their product offerings"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.52, Sec. 6.2</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">일관성(consistency) 0.75~0.95의 높은 결과 신뢰도</td>
+                <td class="text-sm italic text-slate-600">
+                  "The identified configurations for each servitization level demonstrated high consistency scores ranging between 0.75 and 0.95."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.49, Sec. 4.2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Configurational Conditions -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델(구성형) 및 조건-결과 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Configurational Model</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 연구는 IV→DV 인과 경로 모델이 아니라 <strong>구성이론(configuration theory)</strong>과 <strong>fsQCA</strong>를 사용합니다. 5개 "조건(conditions)"의 조합(현존/부재, 핵심/주변)이 "결과(outcome)"인 서비스화 수준에 대해 충분조건을 이루는지를 분석하므로, 인과 DAG 대신 조건-결과 카드 구조로 정리했습니다.
+        </p>
+
+        <!-- Outcome block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest">결과 변수 (Outcome) — 서비스화 수준 (Levels of Servitization)</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-white p-4 rounded-lg border border-slate-200">
+              <p class="font-bold text-slate-800 mb-1">① 제공물 유형 (Type of Offering)</p>
+              <p class="text-sm text-slate-600">제품(Products) · 서비스(Services) · 번들(Product-Service Bundles) · 솔루션(Solutions) 4개 범주. 응답기업 매출 비중 25% 초과 시 해당 유형에 "포커스"하는 것으로 분류.</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg border border-slate-200">
+              <p class="font-bold text-slate-800 mb-1">② 상호작용 성격 (Nature of Interaction)</p>
+              <p class="text-sm text-slate-600">거래적(Transactional, 1회성) vs. 관계적(Relational, 장기적) 사업 상호작용. Autry et al.(2013) 응용 척도로 개인 영업사원 수준에서 측정.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 bg-cyan-50 border border-cyan-200 rounded-lg p-4">
+            <span class="badge badge-primary text-white style-label">결과</span>
+            <p class="text-sm text-slate-700">두 차원의 조합 중 "솔루션×거래적"은 개념적으로 성립하지 않아 제외 → 관계적 8개 + 거래적 3개 = <strong>총 11개 서비스화 수준</strong>이 식별됨.</p>
+          </div>
+        </div>
+
+        <!-- Condition cards grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- Condition 1 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">조건 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Supplier Sphere</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공급자 역량 (Supplier Competence)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 공급자가 고객 요구에 대응하고 그에 맞는 제공물을 개발할 수 있는 능력.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Know-how, References, Commercial Flexibility, Human Resources, Internal Coordination 5개 하위지표를 상위 형성적 구성개념으로 합산.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Rentz et al.(2002); Terho & Jalkala(2017); Noordewier et al.(1990); Srinivasan et al.(2020); Atuahene-Gima(2005)/Powers et al.(2016) 응용</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 관계적 서비스화 수준 전체(제품/서비스/번들/솔루션)의 공통 필요조건으로 식별됨(Ulaga & Eggert, 2006 지지).
+              </p>
+            </div>
+          </div>
+
+          <!-- Condition 2 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">조건 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Customer Sphere</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">고객 성향 (Customer Predispositions)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 고객이 자신의 프로세스를 조정하고 공급자와의 관계에 관여할 의사가 있는 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Customer Adaptiveness(적응 의지), Willingness to Engage(관여/몰입 의지) 2개 하위지표 합산.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Kumar, Scheer & Steenkamp(1995) 응용</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> "고객주도형(customer-driven)" 관계적 구성형(제품/서비스/솔루션)의 핵심(core) 조건으로 등장.
+              </p>
+            </div>
+          </div>
+
+          <!-- Condition 3 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조건 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Customer Sphere</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">가격 민감도 (Price Sensitivity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 구매 의사결정 과정에서 고객이 가격에 두는 상대적 비중.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 단일 문항, 7점 리커트(가격이 구매결정에서 갖는 중요도).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Homburg, Allmann & Klarmann(2014) 응용, 단일지표라 신뢰도/AVE 별도 평가 없음</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> "공급자주도형(supplier-driven)" 관계적 구성형(번들/솔루션/서비스)의 핵심 조건이며, 거래적 제품·번들 판매에서도 핵심 조건으로 등장.
+              </p>
+            </div>
+          </div>
+
+          <!-- Condition 4 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">조건 4</span>
+                <span class="text-xs text-slate-400 font-semibold">Joint Sphere</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">신뢰와 의존 (Trust and Dependence)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 공급자의 전문성·성실성에 대한 믿음(신뢰) 및 상호 의존 관계의 균형 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Credibility, Benevolence(공급자·고객 양방향), Mutual Dependence(거래특유투자) 하위지표 합산.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Ganesan(1994) 응용</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 서비스의 관계적 수준에서는 필요조건, 제품·솔루션에서는 핵심 조건. 거래적 제품·번들 판매에서는 오히려 "부재"가 특징적 조건.
+              </p>
+            </div>
+          </div>
+
+          <!-- Condition 5 (full width) -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">조건 5</span>
+                <span class="text-xs text-slate-400 font-semibold">Joint Sphere</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">커뮤니케이션 (Communication)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 당사자 간 교환되는 정보의 양·빈도·질 및 영업사원의 커뮤니케이션 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Quality(공식성), Amount(양방향성), Frequency(빈도) + Behavioral·Affective·Cognitive Communication·Sales Acumen 7개 하위지표 합산.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Mohr, Fisher & Nevin(1996) 응용 + Koponen, Julkunen & Asai(2019) 기반 신규 척도</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 공급자 역량과 함께 관계적 서비스화 수준 전체의 공통 필요조건. 위험 완화 및 정보 조율을 통해 서비스화 전이를 매개하는 핵심 관계 메커니즘(Parida & Jovanovic, 2022 지지).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary table of configurations -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">11개 서비스화 수준별 구성형 요약 (● 핵심 현존 / • 주변 현존 / ❍ 부재 / 공란 = 무관)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table table-zebra w-full text-slate-700 text-sm">
+              <thead>
+                <tr class="bg-slate-900 text-white">
+                  <th>구성형</th>
+                  <th>상호작용</th>
+                  <th>제공물</th>
+                  <th>신뢰·의존</th>
+                  <th>커뮤니케이션</th>
+                  <th>공급자 역량</th>
+                  <th>고객 성향</th>
+                  <th>가격 민감도</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="font-semibold">제품(거래적)</td><td>거래적</td><td>제품</td><td>❍</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+                <tr><td class="font-semibold">서비스(거래적)</td><td>거래적</td><td>서비스</td><td>•</td><td>•</td><td>•</td><td>•</td><td>❍</td></tr>
+                <tr><td class="font-semibold">번들(거래적)</td><td>거래적</td><td>번들</td><td>❍</td><td>●</td><td> </td><td>●</td><td>●</td></tr>
+                <tr><td class="font-semibold">정착고객형(P_RI1)</td><td>관계적</td><td>제품</td><td> </td><td>•</td><td>•</td><td> </td><td>●</td></tr>
+                <tr><td class="font-semibold">고객주도형(P_RI2)</td><td>관계적</td><td>제품</td><td>●</td><td>•</td><td>•</td><td>●</td><td> </td></tr>
+                <tr><td class="font-semibold">고객주도형(S_RI1)</td><td>관계적</td><td>서비스</td><td>•</td><td>•</td><td>•</td><td>●</td><td> </td></tr>
+                <tr><td class="font-semibold">공급자주도형(S_RI2)</td><td>관계적</td><td>서비스</td><td>●</td><td>•</td><td>•</td><td> </td><td>●</td></tr>
+                <tr><td class="font-semibold">공급자주도형(B_RI1)</td><td>관계적</td><td>번들</td><td>●</td><td>•</td><td>•</td><td> </td><td>●</td></tr>
+                <tr><td class="font-semibold">장기지향형(B_RI2)</td><td>관계적</td><td>번들</td><td> </td><td>•</td><td>•</td><td>●</td><td>●</td></tr>
+                <tr><td class="font-semibold">고객주도형(SOL_RI1)</td><td>관계적</td><td>솔루션</td><td>•</td><td>•</td><td>•</td><td>●</td><td> </td></tr>
+                <tr><td class="font-semibold">공급자주도형(SOL_RI2)</td><td>관계적</td><td>솔루션</td><td>●</td><td>•</td><td>•</td><td> </td><td>●</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-slate-500 mt-2">출처: Table 5·6 (p.50–51). ● 핵심 현존(large circle), • 주변 현존(small circle), ❍ 부재, 공란은 해당 조건이 무관함을 의미.</p>
+        </div>
+
+        <!-- Related theory discussion -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+          <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+            <p class="font-bold text-slate-800 text-sm mb-1">구성이론 (Meyer, Tsui & Hinings, 1993)</p>
+            <p class="text-xs text-slate-600">복잡한 조직 현상은 개별 변수의 선형효과가 아니라 여러 조건이 함께 작동하는 전체 패턴으로 가장 잘 설명됨.</p>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+            <p class="font-bold text-slate-800 text-sm mb-1">등종국성 (Doty, Glick & Huber, 1993)</p>
+            <p class="text-xs text-slate-600">하나의 결과에 이르는 경로가 여러 개 존재할 수 있다는 가정 — 관계적 수준의 8개 구성형이 실증적 예시.</p>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+            <p class="font-bold text-slate-800 text-sm mb-1">서비스 지배 논리 (Vargo & Lusch, 2004)</p>
+            <p class="text-xs text-slate-600">공급자·고객·공동(joint) 영역의 3분법으로 프레임워크를 구조화하는 이론적 근거(Grönroos & Voima, 2013).</p>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+            <p class="font-bold text-slate-800 text-sm mb-1">관계수명주기이론 (Jap & Anderson, 2007)</p>
+            <p class="text-xs text-slate-600">결과를 공급자·구매자·관계·시장이라는 4개 병렬적 수명주기 개념과 연결하여 논의.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 질적 선행연구부터 fsQCA 결과 해석까지 그대로 <strong>추종 재현</strong>할 수 있도록 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">질적 선행연구(theories-in-use)로 관계 특성 후보 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  4개 공급기업(10명)+2개 고객기업(3명), 총 13명 대상 반구조화 심층 인터뷰(30~60분). 개방/축/선택 코딩 및 상호평가자 신뢰도(PRL=0.74) 검증, 이론적 포화 시점까지 표본 수집.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.45–46, Sec.3 / Table A.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">개념적 프레임워크 구축</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  인터뷰에서 5개 관계 특성과 하위 차원을 식별하고, Grönroos & Voima(2013)의 공급자·고객·공동 영역 구조에 배치하여 Fig. 1 개념 프레임워크 완성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.45, Sec.3, Fig.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">설문 표본 설계 및 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  독일 시장조사 대행업체를 통해 제조/기계공학, SW/IT, 운송/물류 3개 산업의 영업사원·관리자 대상 온라인 설문(2021년 1월, 10일 게재). 202부 회수 → 응답시간 미달 20부 제외 → 최종 n=182.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.47–48, Sec.4.1, Table 2·A.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">측정도구 적용 및 검증(PLS-SEM)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  기존 검증 척도를 소폭 조정하여 5개 조건을 고차 형성적 구성개념으로 측정, 반복지표법(Sarstedt et al., 2019)으로 SmartPLS 3에서 타당도/신뢰도(α·CR·AVE, VIF&lt;5, Fornell-Larcker, HTMT) 검증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.48–49, Sec.4.1, Table 3·4, App.B</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">서비스화 수준(결과변수) 분류</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  응답기업의 제공물별 매출 비중(&gt;25% 기준, 20%/30% 민감도 분석 실시) 및 Autry et al.(2013) 응용 척도로 거래적/관계적 점수화. 제품 122개사, 서비스 36개사, 번들 40개사, 솔루션 29개사(중복 소속 가능).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.49, Sec.4.1</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">퍼지셋 보정(Calibration)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  fsQCA 3.0(Ragin & Davey, 2016) 사용. 7점 리커트 기준 비소속(2점→0.05), 무관(4점→0.5), 완전소속(6점→0.95)의 3개 정박점으로 조건·결과 점수를 0~1 퍼지셋 점수로 변환.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.49, Sec.4.2</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">필요조건 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  일관성&gt;0.9, 커버리지&gt;0.75 기준으로 서비스화 수준별 필요조건 점검. 거래적 수준은 필요조건 없음, 관계적 수준은 커뮤니케이션·공급자 역량(서비스는 신뢰와 의존 추가)이 필요조건으로 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.49–50, Sec.4.3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">충분조건 분석(진리표 구축 및 축약)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  서비스화 수준별 진리표(Appendix C.1–C.4) 구축 → 일관성 임계값 0.75, PRI 임계값 0.75(또는 PRI 급락 지점) 적용 → 불리언 최소화로 파슈모니어스/중간해 비교해 핵심·주변 조건 식별.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.50, Sec.4.4, Table 5·6, App.C</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 9 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">9</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 9</time>
+                <div class="text-lg font-bold text-slate-800">결과 해석 및 그룹화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  거래적(제품/서비스/번들 각 1개) 및 관계적(8개) 구성형을 "정착고객형", "고객주도형", "공급자주도형", "장기지향고객형"으로 그룹화하여 해석.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.50–52, Sec.5.1–5.2</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            척도 문항(Table B.1), 보정 임계값, fsQCA 소프트웨어·일관성/PRI 임계값이 상세히 공개되어 통계 절차는 투명하게 재현 가능하나, 원 설문 데이터가 비공개(confidential)이고 독일 시장조사 대행업체 패널에 대한 접근권이 없어 표본 자체의 복제는 불가능함.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Sec. 6.4)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>성과(performance)와의 연결 부재:</strong> "we have not captured how the different configurations affect the performance of suppliers, owing to the somewhat descriptive nature of our study." 관계 구성형이 실제 성과에 미치는 영향은 검증하지 않은 기술적(descriptive) 연구.
+              </li>
+              <li>
+                <strong>고객 관점의 제한성:</strong> "the customer perspective of our study is limited because the survey was conducted from the suppliers' perspective." 정량 설문은 전적으로 공급자(영업사원) 시각에서만 수집됨.
+              </li>
+              <li>
+                <strong>산업 범위의 제한:</strong> "our study included a selection of three relevant industries ... Further studies could investigate our framework ... within the contexts of other industries, such as health care, construction, and automotive." 독일 기준 3개 산업에 한정.
+              </li>
+              <li>
+                <strong>조건 수의 제약:</strong> "the number of conditions that we could feasibly include ... was limited. This is because the number of possible combinations of conditions increases exponentially with every additional condition." fsQCA 조합 폭발 문제로 5개 상위 조건으로 압축.
+              </li>
+              <li>
+                <strong>제공물 범주화의 조악함:</strong> "our categorization of servitized offerings ... is not fine-grained ... some respondents might have struggled to assign their company's offerings to either the solutions or the product-service bundles category."
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 횡단 분석 메커니즘을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 역인과성/동시성 편향</span>
+                <p class="text-sm text-slate-700">
+                  횡단면 설계이므로 "관계 구성형이 있어 특정 서비스화 수준으로 판매하게 되었다"가 아니라 <strong>"이미 특정 서비스화 수준(예: 관계적 솔루션)을 판매 중이던 결과로 신뢰·커뮤니케이션이 발달했다"</strong>는 역방향 인과를 배제할 수 없다. fsQCA는 충분조건을 식별할 뿐 시간적 선후관계를 증명하지 않는다는 점이 논의되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 단일 응답자 자기보고 편향</span>
+                <p class="text-sm text-slate-700">
+                  "고객 측" 항목(Customer Credibility, Customer Benevolence 등)까지도 실제 고객이 아니라 <strong>공급자 측 영업사원 1인이 대리 응답</strong>했다. 동일방법편향(CMB) 및 자사 역량 과대평가 위험이 있으나 Harman 단일요인 검정 등 통제 절차가 보고되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 보정(Calibration) 임계값의 자의성</span>
+                <p class="text-sm text-slate-700">
+                  리커트 2/4/6점을 비소속/무관/완전소속 정박점으로 설정한 것은 이론적으로 정당화되었으나 연구자 재량에 의존하며, <strong>임계값을 달리했을 때(예: 3/4/5) 구성형이 얼마나 민감하게 변하는지</strong>에 대한 강건성 검정이 보고되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 표본 자기선택 편향</span>
+                <p class="text-sm text-slate-700">
+                  시장조사 대행사 패널 온라인 설문 특성상, <strong>애초에 고객관계 관리에 관심이 높은 기업/영업사원</strong>이 응답에 더 적극적이었을 가능성이 있으나 무응답자와의 특성 비교(초기/후기 응답자 t-검정 등)가 보고되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. COVID-19 팬데믹 시점 특수성</span>
+                <p class="text-sm text-slate-700">
+                  설문은 2021년 1월, 대면 상호작용이 제약된 팬데믹 한복판에 수행되었다. 이 시기의 거래적/관계적 상호작용 패턴이 평시에도 성립하는 일반적 구성형인지, <strong>외생적 충격에 의한 일시적 왜곡</strong>인지 구분되지 않는다(척도 문항에 COVID 제약 각주가 있었음에도 한계로 명시 논의되지 않음).
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 가격 민감도의 단일 문항 측정</span>
+                <p class="text-sm text-slate-700">
+                  Price Sensitivity는 유일하게 <strong>단일 지표로 측정</strong>되어 신뢰도·수렴 타당도 평가 자체가 불가능한 조건인데도, 다문항으로 구성된 다른 4개 조건과 동일한 위상으로 fsQCA에 투입되었다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>A configurational approach to understanding relationship characteristics in differing levels of servitization</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

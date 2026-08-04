@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Is Segmentation a Theory? - IMM 2024</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2024)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Segmentation Theory</div>
+        <div class="badge badge-secondary text-white style-label">Conceptual / Theoretical Paper</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Is segmentation a theory?<br>
+            <span class="text-cyan-400">Improving the theoretical basis of a foundational concept in B2B marketing</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Thomas Ritter, Carsten Lund Pedersen
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            세분화는 이론인가?<br>
+            <span class="text-indigo-300">B2B 마케팅 근본 개념의 이론적 기반 개선</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            Sandberg &amp; Alvesson(2021)의 이론 7요소·5유형 프레임워크로 B2B 세분화 문헌을 진단한 메타이론적 리뷰 논문
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">B2B 세분화는 실무에서 당연시되지만, 개념적 명확성·경계 조건·지적 통찰이 부족해 여전히 "이론화" 단계에 머물러 있습니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Despite segmentation's importance for marketing in general and the extensive research published on the topic over several decades, business-to-business segmentation is still not fully developed as a general theory—a status that may decrease academic interest in the field. Based on a recent contribution on the definition and typology of theory, this paper explores the degree to which segmentation can be considered a theory and, more specifically, which elements and perspectives are currently underdeveloped. We highlight some fundamental challenges that must be addressed to establish a better theoretical foundation for segmentation's evolution into a more developed theory. We also present questions for future research to guide the advancement of business-to-business segmentation, which is necessary for a concept so central to business-to-business marketing."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">세분화(segmentation)</span>가 마케팅 전반에서 갖는 중요성과 수십 년에 걸쳐 발표된 방대한 관련 연구에도 불구하고, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">B2B 세분화</span>는 여전히 일반 이론(general theory)으로 완전히 발전하지 못한 상태이며, 이러한 지위는 해당 분야에 대한 학문적 관심을 감소시킬 수 있다. 이론의 정의와 유형론(typology)에 관한 최근 연구를 토대로, 본 논문은 세분화가 어느 정도까지 이론으로 간주될 수 있는지, 더 구체적으로는 현재 어떤 요소와 관점이 미발달 상태인지를 탐구한다. 세분화가 보다 발전된 이론으로 진화하기 위해 해결되어야 할 근본적인 과제들을 제시한다. 또한 B2B 마케팅에서 핵심적인 위치를 차지하는 이 개념의 발전을 위해 반드시 필요한 향후 연구 질문들을 제시한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">B2B Segmentation</td>
+                  <td>B2B 세분화</td>
+                  <td class="text-sm">이론(theory)으로서 다루는 대상(construct)임을 강조하기 위해 '시장 세분화'가 아닌 '세분화'로 짧게 번역했습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Sandberg &amp; Alvesson (2021a, b) Theory Typology</td>
+                  <td>이론 7요소·5유형 프레임워크</td>
+                  <td class="text-sm">본 논문 전체의 분석 도구(meta-theory)로, 목적·현상·개념적 질서·지적 통찰·관련성 기준·경험적 지지·경계 조건의 7요소와 explaining/comprehending/ordering/enacting/provoking 5유형을 제시합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Theorizing vs. Theory</td>
+                  <td>이론화 vs. 이론</td>
+                  <td class="text-sm">Weick(1995)의 구분으로, '이론화'는 완결된 이론을 향한 잠정적 과정(interim struggle)을, '이론'은 그 과정의 완성된 산물을 의미합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Pseudo-segmentation</td>
+                  <td>유사 세분화</td>
+                  <td class="text-sm">고객 니즈가 아닌 인구통계 등 무관한 변수로 고객을 나누고도 '세분화'라 칭하는 실무적 오용을 가리키는 저자들의 조어입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">B2B 세분화 연구들은 합쳐져 하나의 완결된 '이론'이 되는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">정리·이해 이론은 강하지만 설명·도발 이론은 취약하다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">메타이론적 진단과 5대 향후 연구 의제 제시</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 수십 년간 축적된 B2B 세분화 연구들이 실제로 하나의 완결된 "B2B 세분화 이론"을 구성하는가? Sandberg &amp; Alvesson(2021a)의 7요소·5유형 프레임워크로 진단한다.</li>
+                  <li><strong>핵심 발견:</strong> 목적·현상·관련성 기준·경험적 지지는 충족되지만, <strong>개념적 질서·지적 통찰·경계 조건</strong>은 미흡하다. 이론 유형으로는 <strong>정리(ordering)·이해(comprehending) 이론</strong>은 강하나 <strong>설명(explaining)·도발(provoking) 이론</strong>은 취약하다.</li>
+                  <li><strong>이론/실무 기여:</strong> B2B 세분화 문헌 전체를 체계적으로 진단한 최초의 메타이론적 리뷰이며, 개념적 명확성·경계 조건·지적 통찰·세그먼트 안정성·도발적 아이디어라는 5대 연구 의제를 제시한다. 실무적으로는 "유사 세분화"와 "과도한 재세분화"의 위험을 경고한다.</li>
+                </ul>
+              </div>
+
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "B2B 세분화는 실무적으로 유용하지만, 개념적 명확성·경계 조건·지적 통찰이 부족해 여전히 '이론화' 단계에 머물러 있으며, 완성된 '설명 이론'으로 발전하려면 구체적인 후속 연구가 필요하다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 원문 인용 및 페이지·절 위치를 맵핑했습니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">연구 질문의 명시</td>
+                <td class="text-sm italic text-slate-600">"we seek to address the following research question: To what extent do the many contributions that theorize about B2B segmentation add up to an actual B2B segmentation theory?"</td>
+                <td class="text-right font-medium text-slate-500">p.83, Sec. 1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">분석 프레임워크 채택</td>
+                <td class="text-sm italic text-slate-600">"To address this question, we utilize the seven fundamental elements of theories (Sandberg &amp; Alvesson, 2021a, 2021b)."</td>
+                <td class="text-right font-medium text-slate-500">p.83, Sec. 1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">이론의 7개 최소 구성 요소</td>
+                <td class="text-sm italic text-slate-600">"...the minimal defining elements to consider in terms of theory: purpose, phenomenon, conceptual order, intellectual insights, relevance criteria, empirical support, and boundary conditions."</td>
+                <td class="text-right font-medium text-slate-500">p.84, Sec. 3</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">목적(Purpose) 요소는 충족</td>
+                <td class="text-sm italic text-slate-600">"Thus, segmentation has had an explicit and clear purpose since its inception."</td>
+                <td class="text-right font-medium text-slate-500">p.84, Sec. 3.1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">현상 정의 위반이 핵심 장벽</td>
+                <td class="text-sm italic text-slate-600">"We view the violation of the phenomenon's definition as one of the key barriers to the development of segmentation theory..."</td>
+                <td class="text-right font-medium text-slate-500">p.84, Sec. 3.2</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">개념적 질서는 취약</td>
+                <td class="text-sm italic text-slate-600">"Thus, conceptual order is not a stronghold of B2B segmentation."</td>
+                <td class="text-right font-medium text-slate-500">p.85, Sec. 3.3</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">지적 통찰 부족 — "자기 성공의 희생자"</td>
+                <td class="text-sm italic text-slate-600">"...the further development of B2B segmentation may have become a victim of its own success."</td>
+                <td class="text-right font-medium text-slate-500">p.85, Sec. 3.4</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">관련성 기준 3가지</td>
+                <td class="text-sm italic text-slate-600">"...three criteria determine B2B segmentation's relevance: 1 Sufficient reduction of complexity, 2 Sufficient stability, and 3 Different reactions to offerings."</td>
+                <td class="text-right font-medium text-slate-500">p.86, Sec. 3.5</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td class="font-semibold text-slate-900">경험적 지지는 충족</td>
+                <td class="text-sm italic text-slate-600">"The body of empirical evidence suggests that B2B segmentation largely fulfills this element."</td>
+                <td class="text-right font-medium text-slate-500">p.86, Sec. 3.6</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td class="font-semibold text-slate-900">경계 조건 논의는 희소</td>
+                <td class="text-sm italic text-slate-600">"Explicit treatments of boundary conditions in relation to B2B segmentation are rare."</td>
+                <td class="text-right font-medium text-slate-500">p.86, Sec. 3.7</td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td class="font-semibold text-slate-900">이론 유형별 강약 종합</td>
+                <td class="text-sm italic text-slate-600">"...we find that the field is strongest in terms of comprehending and ordering theory, and the weakest in terms of explaining and provoking theory."</td>
+                <td class="text-right font-medium text-slate-500">p.87–88, Sec. 4.5</td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td class="font-semibold text-slate-900">설명 이론 부재가 학문적 관심 저하의 원인</td>
+                <td class="text-sm italic text-slate-600">"Unfortunately, the B2B segmentation literature has little to offer in terms of this type of theory, which we regard as a main driver of the lack of publications and academic effort..."</td>
+                <td class="text-right font-medium text-slate-500">p.87–88, Sec. 4.5</td>
+              </tr>
+              <tr>
+                <td>13</td>
+                <td class="font-semibold text-slate-900">종합 결론: 제한적 이론적 지위</td>
+                <td class="text-sm italic text-slate-600">"B2B segmentation has a rather limited theoretical anchoring... it can pinpoint and categorize a relevant, real-world phenomenon, but it cannot do much more than that."</td>
+                <td class="text-right font-medium text-slate-500">p.87, Sec. 4 요약</td>
+              </tr>
+              <tr>
+                <td>14</td>
+                <td class="font-semibold text-slate-900">유사 세분화(Pseudo-segmentation)의 위험</td>
+                <td class="text-sm italic text-slate-600">"Pseudo-segmentation... does not qualify as segmentation, even if it looks like it on the surface."</td>
+                <td class="text-right font-medium text-slate-500">p.90, Sec. 6</td>
+              </tr>
+              <tr>
+                <td>15</td>
+                <td class="font-semibold text-slate-900">이론적 엄밀성이 실무적 관련성의 전제</td>
+                <td class="text-sm italic text-slate-600">"...we argue that theoretical rigor is a prerequisite for practical relevance."</td>
+                <td class="text-right font-medium text-slate-500">p.90, Sec. 6</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Analytical Framework (in place of Research Model & Variables) -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 분석 프레임워크: 이론의 7대 요소 &amp; 5대 유형</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Framework</span>
+        </div>
+
+        <div class="alert bg-slate-50 border border-slate-200 text-slate-700 style-body">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-slate-500 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span>본 논문은 설문·통계로 가설을 검증하는 실증 연구가 아닌 <strong>개념적 문헌 진단(conceptual review)</strong> 논문으로, 독립/매개/조절/종속변수로 구성된 인과 가설 모형(DAG)이 존재하지 않습니다. 대신 Sandberg &amp; Alvesson(2021a, b)의 <strong>이론 7대 요소</strong>와 <strong>5대 유형론</strong>을 진단 도구로 사용하므로, 아래에서는 이를 "구성 변수"에 준하는 형식으로 정리했습니다.</span>
+        </div>
+
+        <!-- 7 Elements -->
+        <div class="mt-2">
+          <h3 class="style-h3 text-slate-800 mb-4">① 이론의 7대 구성 요소 — B2B 세분화 문헌 진단 결과</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+              <div class="card-body p-6 gap-3">
+                <div class="flex items-center justify-between">
+                  <span class="badge badge-success style-label text-white">충족 (Strong)</span>
+                  <span class="text-xs text-slate-400 font-semibold">Element 1</span>
+                </div>
+                <h3 class="style-h3 text-slate-900">목적 (Purpose)</h3>
+                <div class="divider my-1"></div>
+                <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 이론이 무엇을 위한 것인지 제시하는 요소.</p>
+                <p class="text-sm text-slate-700"><strong>조작적 평가:</strong> Chéron &amp; Kleinschmidt(1985)의 정의를 통해 "전략적 의사결정 지원"이라는 명시적 목적이 처음부터 존재했는지로 평가.</p>
+                <p class="text-sm text-slate-600"><strong>출처(도구):</strong> Jaccard &amp; Jacoby(2010); Weber(2012) 기반 Sandberg &amp; Alvesson(2021a) 기준</p>
+                <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                  <strong>관련 논의:</strong> Smith(1956)의 최초 정의부터 목적이 명확히 존재했음.
+                </p>
+              </div>
+            </div>
+
+            <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+              <div class="card-body p-6 gap-3">
+                <div class="flex items-center justify-between">
+                  <span class="badge badge-warning style-label text-amber-950">부분 충족 (Moderate)</span>
+                  <span class="text-xs text-slate-400 font-semibold">Element 2</span>
+                </div>
+                <h3 class="style-h3 text-slate-900">현상 (Phenomenon)</h3>
+                <div class="divider my-1"></div>
+                <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 실재하며 지각 가능한 대상에 이론이 결부되어야 함.</p>
+                <p class="text-sm text-slate-700"><strong>조작적 평가:</strong> "고객 니즈의 차이"만이 정당한 현상인지, 실무에서 매출·수익성 등 무관한 기준으로 세분화를 오용하는 사례가 얼마나 많은지로 평가.</p>
+                <p class="text-sm text-slate-600"><strong>출처(도구):</strong> Ritter &amp; Andersen(2014)의 "you perspective" 개념</p>
+                <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                  <strong>관련 논의:</strong> 니즈 기반이 아닌 그룹화는 세분화 이론에 포함되지 않으며, 이것이 개념적 모호성의 원천임.
+                </p>
+              </div>
+            </div>
+
+            <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+              <div class="card-body p-6 gap-3">
+                <div class="flex items-center justify-between">
+                  <span class="badge badge-error style-label text-white">취약 (Weak)</span>
+                  <span class="text-xs text-slate-400 font-semibold">Element 3</span>
+                </div>
+                <h3 class="style-h3 text-slate-900">개념적 질서 (Conceptual Order)</h3>
+                <div class="divider my-1"></div>
+                <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 구성 개념 간 관계를 통해 생산적 구분을 만들어내야 함.</p>
+                <p class="text-sm text-slate-700"><strong>조작적 평가:</strong> 세그먼트/거시-미시 세그먼트/세분화 변수/프로세스 등 개념 간 합의된 정의·상호관계가 존재하는지 평가.</p>
+                <p class="text-sm text-slate-600"><strong>출처(도구):</strong> Webster &amp; Wind(1972); Freytag &amp; Clarke(2001)의 프로세스 모델</p>
+                <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                  <strong>관련 논의:</strong> "다른 반응을 보여야 세그먼트인가, 세그먼트의 결과로 다른 반응이 나오는가"라는 순환논리(tautology)가 존재함.
+                </p>
+              </div>
+            </div>
+
+            <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+              <div class="card-body p-6 gap-3">
+                <div class="flex items-center justify-between">
+                  <span class="badge badge-error style-label text-white">취약 (Weak)</span>
+                  <span class="text-xs text-slate-400 font-semibold">Element 4</span>
+                </div>
+                <h3 class="style-h3 text-slate-900">지적 통찰 (Intellectual Insights)</h3>
+                <div class="divider my-1"></div>
+                <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 독자를 "다르게 생각하게" 만드는 새로운 관점 제공.</p>
+                <p class="text-sm text-slate-700"><strong>조작적 평가:</strong> Smith(1956) 이후 새로운 통찰이 지속적으로 생산되었는지, 다른 이론에 준 영향으로 간접 평가.</p>
+                <p class="text-sm text-slate-600"><strong>출처(도구):</strong> Corley &amp; Gioia(2011) 기준</p>
+                <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                  <strong>관련 논의:</strong> 포지셔닝(Porter 1996)·파괴적 혁신(Christensen 1997)·혁신확산(Rogers 2003) 이론에 영감을 주었으나, 정작 세분화 자체는 정체되어 "자기 성공의 희생자"가 됨.
+                </p>
+              </div>
+            </div>
+
+            <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+              <div class="card-body p-6 gap-3">
+                <div class="flex items-center justify-between">
+                  <span class="badge badge-info style-label text-slate-900">사례의존 (Dynamic)</span>
+                  <span class="text-xs text-slate-400 font-semibold">Element 5</span>
+                </div>
+                <h3 class="style-h3 text-slate-900">관련성 기준 (Relevance Criteria)</h3>
+                <div class="divider my-1"></div>
+                <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 이론이 실무적·학문적으로 얼마나 유용한지 평가하는 기준.</p>
+                <p class="text-sm text-slate-700"><strong>조작적 평가:</strong> 복잡성 감소, 안정성, 오퍼링에 대한 차별적 반응이라는 3대 기준의 충족 여부(사례별 상이).</p>
+                <p class="text-sm text-slate-600"><strong>출처(도구):</strong> Corley &amp; Gioia(2011); Jaccard &amp; Jacoby(2010)</p>
+                <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                  <strong>관련 논의:</strong> 인용도·실무 적용도는 높으나 사례마다 3대 기준을 모두 충족하지는 못함.
+                </p>
+              </div>
+            </div>
+
+            <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+              <div class="card-body p-6 gap-3">
+                <div class="flex items-center justify-between">
+                  <span class="badge badge-success style-label text-white">충족 (Strong)</span>
+                  <span class="text-xs text-slate-400 font-semibold">Element 6</span>
+                </div>
+                <h3 class="style-h3 text-slate-900">경험적 지지 (Empirical Support)</h3>
+                <div class="divider my-1"></div>
+                <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 이론을 뒷받침하는 경험적 증거의 존재.</p>
+                <p class="text-sm text-slate-700"><strong>조작적 평가:</strong> Abratt(1993), Rangan et al.(1992), Dibb(1998) 등 다수 사례연구·실무 사례가 유용성을 입증하는지 평가.</p>
+                <p class="text-sm text-slate-600"><strong>출처(도구):</strong> 인용 수 기반 문헌 축적 (Appendix Table A1)</p>
+                <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                  <strong>관련 논의:</strong> "proof-of-concept" 수준의 지지는 충분하나, 세분화 프로세스의 질에 따라 성과가 달라짐.
+                </p>
+              </div>
+            </div>
+
+            <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+              <div class="card-body p-6 gap-3">
+                <div class="flex items-center justify-between">
+                  <span class="badge badge-error style-label text-white">취약 (Weak)</span>
+                  <span class="text-xs text-slate-400 font-semibold">Element 7</span>
+                </div>
+                <h3 class="style-h3 text-slate-900">경계 조건 (Boundary Conditions)</h3>
+                <div class="divider my-1"></div>
+                <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 이론이 적용/배제되는 범위와 상황을 규정해야 함.</p>
+                <p class="text-sm text-slate-700"><strong>조작적 평가:</strong> 독점시장(고객 1인)과 같은 명백한 경계 외에, 커스터마이제이션과의 관계 등 체계적 논의가 존재하는지 평가.</p>
+                <p class="text-sm text-slate-600"><strong>출처(도구):</strong> Bacharach(1989); Freytag &amp; Clarke(2001)의 단순-복잡 거래 스케일(유일한 예외 사례)</p>
+                <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                  <strong>관련 논의:</strong> 산업·지역 불문 적용 가능하다는 암묵적 전제만 있을 뿐, 명시적 경계 조건 연구는 거의 없음.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 Theory Types -->
+        <div class="mt-8">
+          <h3 class="style-h3 text-slate-800 mb-4">② 이론의 5대 유형론 — 유형별 발전 정도</h3>
+          <div class="overflow-x-auto border rounded-xl shadow-inner">
+            <table class="table table-zebra w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-900 text-white">
+                  <th>유형</th>
+                  <th>정의</th>
+                  <th>B2B 세분화 문헌 사례</th>
+                  <th class="text-right">발전 정도</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">도발 이론<br><span class="text-xs text-slate-400">Provoking</span></td>
+                  <td class="text-sm">설명이 아니라 대안적·파괴적 관점으로 통념에 도전</td>
+                  <td class="text-sm">Smith(1956)의 최초 이질적 시장 개념, Levitt(1983)의 "시장의 세계화"</td>
+                  <td class="text-right"><span class="badge badge-error text-white style-label">취약</span></td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">이해 이론<br><span class="text-xs text-slate-400">Comprehending</span></td>
+                  <td class="text-sm">조직 현상의 의미를 질적·해석적으로 규명</td>
+                  <td class="text-sm">Abratt(1993)의 남아공 32개 산업재 기업 사례, Rangan et al.(1992)</td>
+                  <td class="text-right"><span class="badge badge-success text-white style-label">강함</span></td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">정리 이론<br><span class="text-xs text-slate-400">Ordering</span></td>
+                  <td class="text-sm">경험적 복잡성에 개념적 질서를 부여하는 유형론/분류체계</td>
+                  <td class="text-sm">Webster &amp; Wind(1972)의 4단계 중첩 모델, Andersen &amp; Ritter(2008)</td>
+                  <td class="text-right"><span class="badge badge-success text-white style-label">강함</span></td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">실행 이론<br><span class="text-xs text-slate-400">Enacting</span></td>
+                  <td class="text-sm">현상이 시간에 따라 지속적으로 생산·재생산되는 과정에 주목</td>
+                  <td class="text-sm">Clarke &amp; Freytag(2023), Venter et al.(2015)의 수행적 세분화 연구</td>
+                  <td class="text-right"><span class="badge badge-info text-slate-900 style-label">초기 단계</span></td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">설명 이론<br><span class="text-xs text-slate-400">Explaining</span></td>
+                  <td class="text-sm">변수 간 인과관계·가설 검증으로 "내적 작동 원리"를 규명</td>
+                  <td class="text-sm">세분화는 다른 도메인 이론의 변수/방법으로만 자주 쓰이고, 세분화 자체를 도메인 이론으로 검증한 연구는 드묾</td>
+                  <td class="text-right"><span class="badge badge-error text-white style-label">취약</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method(분석 절차) 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 논문은 실증 데이터 수집이 없는 개념적 문헌 평가 논문으로, 서술 순서를 바탕으로 재구성한 절차입니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">문제 제기 및 연구 질문 설정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  B2B 세분화 연구의 감소 원인을 "이론적 기반의 부재"로 규정하고, Mora Cortez et al.(2021)의 리뷰(다수가 비이론적)를 근거로 연구 질문을 수립함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.82–83, Sec. 1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">분석 프레임워크(메타이론) 선정 및 정당화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Sandberg &amp; Alvesson(2021a, b)의 7요소 프레임워크를 선택한 이유(포괄성, 다차원적 평가 가능, 학제적 다양성 반영)를 명시적으로 논증함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.83–84, Sec. 1 &amp; 3</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">분석 대상 문헌 코퍼스 구성</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  "잘 인용된(well-cited)" 핵심 논문 10편(Appendix Table A1), 주요 리뷰 논문(Table A2), 세분화 정의 모음(Table A3)을 선정. 명시적 검색식·포함/배제 기준은 제시되지 않음.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.83, Sec. 1 / p.91–92, Appendix</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">7대 요소별 적용·평가</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  목적·현상·개념적 질서·지적 통찰·관련성 기준·경험적 지지·경계 조건 7개 요소 각각에 대해 코퍼스 문헌을 근거로 충족/미충족 여부를 정성적으로 논증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.84–87, Sec. 3.1–3.7</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">5대 이론 유형별 분류</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  동일한 문헌 코퍼스를 도발/이해/정리/실행/설명 이론 5개 유형에 재배치하여 강점/약점 분포를 서술적으로 평가(Fig. 1, Fig. 2).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.87–89, Sec. 4.1–4.5</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">종합 진단 및 향후 연구 의제 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  취약한 3개 요소(개념적 질서, 경계 조건, 지적 통찰)를 중심으로 5개의 구체적 연구 방향을 제시함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.89–90, Sec. 5.1–5.5</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">관리적 시사점 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  이론적 지위 논의를 실무로 연결하여 "유사 세분화"와 "과도한 재세분화"의 위험을 경고하고, 이론적 엄밀성이 실무적 관련성의 전제임을 주장.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.90–91, Sec. 6</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            분석 프레임워크와 핵심 문헌 목록(Appendix A1–A3)은 투명하게 공개되어 동일한 코퍼스·프레임워크 적용은 가능하나, 각 요소·유형의 "충족/미충족" 판정은 검색식·코딩 프로토콜·평정자 간 신뢰도 없이 저자 2인의 정성적 해석에 의존하므로 동일한 결론이 보장되지 않습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문에서 저자들이 직접 유보하거나 인정한 지점입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>이론이란 무엇인가에 대한 논쟁 자체는 다루지 않음:</strong> "While it is beyond the scope of the present paper to settle this long-standing discussion..." 저자들은 상위 메타 논쟁을 해결하려 하지 않고 기존 프레임워크를 그대로 채택함. (p.83, Sec. 2)
+              </li>
+              <li>
+                <strong>B2C 세분화로의 일반화에 대한 자기 유보:</strong> "...these two areas of segmentation differ in some respects, the views on B2B segmentation discussed here may translate rather directly to consumer marketing." B2C 확장 가능성을 주장하면서도 두 영역이 다름을 스스로 인정함. (p.91, Sec. 7)
+              </li>
+              <li>
+                <strong>Levitt(1983) 논거의 B2B 적합성에 대한 유보:</strong> "Levitt (1983) argument may appear to be more provocative for B2C than B2B markets... We are grateful to an anonymous reviewer for raising this point." 심사자의 지적을 받아 핵심 예시 중 하나가 B2B에 완벽히 부합하지 않을 수 있음을 각주로 인정. (p.87, 각주 3)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">개념적 문헌 진단 논문이라는 성격을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 문헌 코퍼스 선정의 인용 편향</span>
+                <p class="text-sm text-slate-700">
+                  분석 대상 문헌은 <strong>"well-cited"</strong>(구글스칼라 인용 수) 기준으로 선정되었다. 인용 수는 영향력의 지표일 뿐 이론적 엄밀성·최신성의 지표가 아니며, 검색식·데이터베이스·포함기준을 전혀 공개하지 않아 저자들이 비판하는 "체계적 리뷰의 부재"를 자신의 방법론에서도 반복하고 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 정성적 판정의 주관성</span>
+                <p class="text-sm text-slate-700">
+                  7개 요소·5개 유형에 대한 "충족/미충족" 판정이 저자 2인의 해석에만 의존하며, 독립적 코더에 의한 교차검증이나 평정자 간 신뢰도(inter-rater reliability) 지표가 전혀 제시되지 않는다. 이는 이 논문이 비판하는 "개념적 명확성 부족"을 분석 방법 자체에도 그대로 적용할 수 있는 자기지시적 취약점이다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 프레임워크 선택의 순환성</span>
+                <p class="text-sm text-slate-700">
+                  Sandberg &amp; Alvesson(2021a, b)의 정의를 유일한 잣대로 사용한다. 다른 이론철학 프레임워크(예: Sutton &amp; Staw 1995의 엄격한 "설명" 중심 정의)를 적용했다면 결론이 크게 달라졌을 수 있으나, 이 의존성에 대한 민감도 분석은 없다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 서구 중심 맥락 특수성</span>
+                <p class="text-sm text-slate-700">
+                  인용된 핵심 문헌·저널(JM, IMM, HBR 등)이 대부분 미국·유럽계 학술 생태계에 편중되어 있다. "세분화는 산업·지역을 불문하고 보편 적용 가능하다"는 경계 조건 주장이 비서구권 B2B 시장 문헌을 충분히 검토하지 않은 채 내려진 결론일 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 자기 인용 편향</span>
+                <p class="text-sm text-slate-700">
+                  저자(Ritter)의 선행 연구(Ritter 2014; Ritter &amp; Andersen 2014; Ritter &amp; Pedersen 2020; Pedersen &amp; Ritter 2022)가 핵심 논거를 뒷받침하는 근거로 반복 인용되어, 폭넓은 학계 합의인지 저자 관점의 재확인인지 구분하기 어렵다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 연구 의제의 실행 가능성 미검증</span>
+                <p class="text-sm text-slate-700">
+                  5장에서 제안된 연구 방향(세그먼트 (불)안정성의 4개 하위 유형 등)은 개념적 제안에 그치며, 측정·조작화 가능성에 대한 예비 실증 검토나 파일럿 사례가 전혀 없어 실행 가능성이 미지수다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200 md:col-span-2">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">7. 핵심 진단("설명 이론 부재")의 정량적 근거 부족</span>
+                <p class="text-sm text-slate-700">
+                  가장 중요한 결론인 "B2B 세분화 문헌 대부분이 설명 이론으로 발전하지 못했다"는 주장은 정성적 서술로만 뒷받침되며, 실제 가설-검증형 연구가 차지하는 비율을 체계적으로 계수하거나 Mora Cortez et al.(2021)의 체계적 리뷰 데이터와 교차 검증하지 않아 확증성이 제한적이다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Is segmentation a theory? Improving the theoretical basis of a foundational concept in business-to-business marketing</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
