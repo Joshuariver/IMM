@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Reverse Auctions Research in Marketing versus SCM - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Systematic Literature Review</div>
+        <div class="badge badge-secondary text-white style-label">Marketing vs. SCM Comparison</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Online reverse auctions research in marketing versus SCM:<br>
+            <span class="text-cyan-400">A review and future directions</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Roberto Mora Cortez, Pablo Cabanelas, Jon Charterina
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            마케팅 대 SCM 분야의 온라인 역경매(ORA) 연구:<br>
+            <span class="text-indigo-300">체계적 문헌고찰과 향후 연구방향</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            2002~2020년 마케팅 24편·SCM 50편 문헌을 비교 분석해 3계층(개념화-프로세스-연구맥락) 프레임워크와 연구 의제를 제시
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">실무의 ORA 활용은 늘어나는데 학술 연구는 줄어드는 역설 속에서, 이 논문은 마케팅·SCM 문헌을 체계적으로 통합해 새로운 연구 지도를 그린다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- Paper type notice -->
+      <div class="alert bg-indigo-50 border border-indigo-200 text-indigo-900 rounded-box shadow-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-indigo-600 shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span class="style-body">본 논문은 실증(가설 검증) 연구가 아닌 <strong>체계적 문헌고찰(Systematic Literature Review)</strong> 논문입니다. 이에 따라 아래 "연구 모델 및 변수" 섹션은 저자들이 제안한 3계층 개념 프레임워크로, "Method 재현" 섹션은 문헌 검색·선별·코딩 절차로 대체하여 구성했습니다.</span>
+      </div>
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "An online reverse auction (ORA) is a dynamic procurement mechanism that allows suppliers to compete in real time via a platform to gain a buyer's business. The ORA is a technological tool introduced in the late 1990s, gaining proponents and detractors among practitioners and academics. Remarkably, while practitioner interest in ORAs has grown, related marketing and supply chain management (SCM) research has declined. This contradiction between theory and practice suggests the need to conduct a systematic review to provide readers with a state-of-the-art understanding of ORAs and recommend fruitful avenues for further research. We focus on the marketing literature and contrast the findings with SCM literature, in such an analysis practical relevance is stressed. Our study offers three main contributions: (1) integration of the cumulative marketing knowledge on ORAs in the 2002–2020 period, (2) development of a three-layer framework of the ORA domain (i.e., conceptualization, ORA as a process, and research setting), and (3) construction of a new research agenda to deal with scholarly challenges and emerging trends."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              온라인 역경매(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">ORA</span>)는 플랫폼을 통해 공급업체들이 실시간으로 경쟁하여 구매기업의 비즈니스를 따내도록 하는 역동적 조달 메커니즘이다. ORA는 1990년대 후반에 도입된 기술 도구로서, 실무자와 학계 모두에서 지지자와 반대자를 낳고 있다. 주목할 점은, 실무 현장에서 ORA에 대한 관심은 커지고 있는 반면, 관련 마케팅 및 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">공급망관리(SCM)</span> 연구는 오히려 감소해왔다는 것이다. 이러한 이론과 실무 간 모순은 최신 이해를 제공하고 향후 연구방향을 제안하기 위한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">체계적 문헌고찰</span>의 필요성을 시사한다. 본 연구는 마케팅 문헌에 초점을 맞추고 결과를 SCM 문헌과 대조하며 실무적 함의를 강조한다. 본 연구의 세 가지 기여는 다음과 같다. (1) 2002~2020년 ORA 관련 마케팅 지식의 통합, (2) ORA 영역의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">3계층 프레임워크</span>(개념화, 프로세스로서의 ORA, 연구 맥락) 개발, (3) 학술적 과제와 새로운 트렌드를 다루기 위한 새로운 연구 의제의 구축.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Online Reverse Auction (ORA)</td>
+                  <td>온라인 역경매</td>
+                  <td class="text-sm">구매자가 아닌 판매자(공급자)가 가격을 낮추며 경쟁 입찰하는 "역방향" 경매 구조를 살린 표준 번역입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Market-maker</td>
+                  <td>마켓메이커(중개 플랫폼)</td>
+                  <td class="text-sm">구매자·판매자 외 제3의 행위자로, ORA 플랫폼/소프트웨어를 제공·운영하는 주체(Ariba 등)를 지칭하는 문헌 고유 용어입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Centrality</td>
+                  <td>(논문 내) ORA의 중심성</td>
+                  <td class="text-sm">해당 문헌에서 ORA가 논지 전개의 핵심 요소로 다뤄지는 정도로, 논문 선별 기준(0~2점)으로 사용됩니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Pre-/During-/Post-auction</td>
+                  <td>경매 전/중/후 단계</td>
+                  <td class="text-sm">저자들이 제안한 프로세스 기반 3단계 모델의 명칭으로, 본 리포트 전반에서 그대로 사용합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Winner's curse</td>
+                  <td>승자의 저주</td>
+                  <td class="text-sm">낙찰자가 원가를 과소평가해 계약이행에 실패하는 현상을 가리키는 경매이론 표준 용어입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">마케팅 ORA 연구는 SCM 대비 어떤 상태인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">실무 활용 증가 vs. 학술 연구 감소의 역설</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">3계층 프레임워크와 새로운 연구 의제 제시</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 2002~2020년 ORA 관련 마케팅 문헌은 어떻게 진화했는가? 이를 포착할 개념 모델은 무엇인가? SCM 분야 대비 마케팅 분야의 연구 상태는 어떠하며, 향후 어떤 연구 의제가 필요한가?</li>
+                  <li><strong>핵심 발견:</strong> ORA 실무 활용은 지난 20년간 15%→50%로 성장했지만 마케팅·SCM 학술 연구는 오히려 감소 추세다. 마케팅 문헌은 3단계(사전/경매중/경매후) 중 일부에만 집중되어 있으며, 어떤 논문도 3단계를 동시에 심층적으로 다루지 않았다. 마켓메이커는 여전히 "블랙박스"로 남아있다.</li>
+                  <li><strong>이론/실무 기여:</strong> 2002~2020년 누적 마케팅 지식을 SCM 문헌과 최초로 체계적으로 비교하고, "개념화-프로세스-연구맥락"의 3계층 통합 프레임워크를 새롭게 제안했으며, 행위자·단계별 세부 연구 질문을 담은 연구 의제(Table 3)를 구축했다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "실무에서는 ORA 활용이 늘고 있는데 마케팅 학계의 관심은 오히려 줄어드는 역설 속에서, 이 논문은 마케팅·SCM 문헌을 체계적으로 비교·통합해 3계층 프레임워크와 구체적인 향후 연구 의제를 제시한다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 근거 데이터의 원문 인용 및 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">실무 관심 증가 vs. 학술 연구 감소의 역설</td>
+                <td class="text-sm italic text-slate-600">"while ORA usage has grown from 15% to 50% in the last two decades (Forde, 2019), research on ORAs is relatively scarce."</td>
+                <td class="text-right font-medium text-slate-500">p.439, §1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">마케팅·SCM 출판량 격차의 통계적 유의성</td>
+                <td class="text-sm italic text-slate-600">"there is a significant difference in the number of publications in the 2002–2020 period between SCM and marketing (t =2.24, df =34, p &lt; 0.05)."</td>
+                <td class="text-right font-medium text-slate-500">p.441, §3.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">최종 표본 규모와 신뢰도 확보</td>
+                <td class="text-sm italic text-slate-600">"The result was 24 marketing and 50 SCM articles for review... reaching an excellent level of 0.94 (Rust &amp; Cooil, 1994)."</td>
+                <td class="text-right font-medium text-slate-500">p.441, §2</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">3단계를 동시에 심층 분석한 마케팅 논문 전무</td>
+                <td class="text-sm italic text-slate-600">"none of the marketing articles focuses on the three stages simultaneously with a minimal degree of depth."</td>
+                <td class="text-right font-medium text-slate-500">p.441, §3.2</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">IMM·JM이 마케팅 ORA 연구의 절반 차지</td>
+                <td class="text-sm italic text-slate-600">"IMM (37.5%) and JM (12.5%), which account for 50% of the total publications, are the main outlets for ORA research."</td>
+                <td class="text-right font-medium text-slate-500">p.441, §3.1, Table 1</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">마켓메이커 연구 부족("블랙박스")</td>
+                <td class="text-sm italic text-slate-600">"the market-maker is a 'black-box' in both SCM and marketing literature."</td>
+                <td class="text-right font-medium text-slate-500">p.444, §4.1.2</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">3계층 프레임워크(개념화-프로세스-연구맥락) 제안</td>
+                <td class="text-sm italic text-slate-600">"The model consists of three layers (conceptualization, ORA as a process, and research setting)."</td>
+                <td class="text-right font-medium text-slate-500">p.442-443, §4, Fig. 3</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">연구 유형이 개념적/분석적 연구에서 정량 연구로 이동</td>
+                <td class="text-sm italic text-slate-600">"conceptual research moving from seven articles in 2002–07... to zero in 2014–20; ... quantitative research accounting for three articles in 2002–07, three in 2008–13, and two in 2014–20."</td>
+                <td class="text-right font-medium text-slate-500">p.443, §3.3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Conceptual Framework & Key Concepts -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 프레임워크(3계층 모델) 및 핵심 개념</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Framework & Concepts</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 논문은 가설 검증형 변수 모델이 아니라, 문헌고찰을 통해 귀납적으로 도출한 <strong>3계층 개념 프레임워크</strong>(Fig. 3, p.443)를 제시합니다. 아래 다이어그램은 인과적 가설 경로가 아닌, 개념화 → 경매 프로세스(사전/중/후) → 연구 맥락(경계조건)으로 이어지는 <strong>기술적(descriptive) 구조</strong>를 나타냅니다.
+        </p>
+
+        <!-- Conceptual Framework SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual Framework (3계층 개념 프레임워크, Fig. 3 재구성)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 400" class="w-full h-auto">
+              <!-- Layer 1: Conceptualization -->
+              <rect x="20" y="120" width="170" height="130" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+              <text x="105" y="150" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">개념화</text>
+              <text x="105" y="168" text-anchor="middle" fill="#475569" font-size="10">(Conceptualization)</text>
+              <text x="105" y="192" text-anchor="middle" fill="#64748b" font-size="10">정의 · 기원</text>
+              <text x="105" y="208" text-anchor="middle" fill="#64748b" font-size="10">3대 특성(기술/정보/가격)</text>
+              <text x="105" y="224" text-anchor="middle" fill="#64748b" font-size="10">3대 행위자(구매자/판매자/</text>
+              <text x="105" y="238" text-anchor="middle" fill="#64748b" font-size="10">마켓메이커)</text>
+
+              <!-- Layer 2: Process (3 stages) -->
+              <rect x="250" y="30" width="150" height="90" rx="8" fill="#ecfeff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="325" y="58" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="13">사전-경매</text>
+              <text x="325" y="74" text-anchor="middle" fill="#0284c7" font-size="10">기대·시장의사결정</text>
+              <text x="325" y="90" text-anchor="middle" fill="#0284c7" font-size="10">프로세스 통제</text>
+
+              <rect x="440" y="30" width="150" height="90" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+              <text x="515" y="58" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">경매-중</text>
+              <text x="515" y="74" text-anchor="middle" fill="#4338ca" font-size="10">위험·불확실성·감정</text>
+              <text x="515" y="90" text-anchor="middle" fill="#4338ca" font-size="10">입찰자 행동</text>
+
+              <rect x="630" y="30" width="150" height="90" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="705" y="58" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">경매-후</text>
+              <text x="705" y="74" text-anchor="middle" fill="#047857" font-size="10">공급자 선정·품질</text>
+              <text x="705" y="90" text-anchor="middle" fill="#047857" font-size="10">관계·경제 성과</text>
+
+              <!-- Arrows: Conceptualization -> Pre -->
+              <path d="M190 160 L 240 90 L 245 75" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow2)"/>
+              <!-- Pre -> During -->
+              <path d="M400 75 L 435 75" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow2)"/>
+              <!-- During -> Post -->
+              <path d="M590 75 L 625 75" fill="none" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow2)"/>
+
+              <!-- Layer 3: Research Setting (boundary condition, dashed box spanning all) -->
+              <rect x="20" y="290" width="760" height="80" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="2" stroke-dasharray="6 4"/>
+              <text x="400" y="318" text-anchor="middle" font-weight="700" fill="#92400e" font-size="14">연구 맥락 / 경계조건 (Research Setting)</text>
+              <text x="400" y="340" text-anchor="middle" fill="#b45309" font-size="11">부문: 공공 vs. 민간   ·   지리적 범위: 지역 vs. 국제</text>
+              <text x="400" y="358" text-anchor="middle" fill="#b45309" font-size="10">개념화 및 프로세스 3단계 전체에 걸쳐 배경적 경계조건으로 작용</text>
+
+              <!-- Dashed vertical arrows from Research Setting up to each layer -->
+              <path d="M105 290 L 105 250" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow2)"/>
+              <path d="M325 290 L 325 122" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow2)"/>
+              <path d="M515 290 L 515 122" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow2)"/>
+              <path d="M705 290 L 705 122" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow2)"/>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" style="color:#94a3b8"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="text-xs text-slate-400 max-w-2xl text-center">
+            * 본 다이어그램은 가설 검증용 인과 모형(H1, H2 등)이 아니라, 논문이 문헌고찰을 통해 귀납적으로 도출한 기술적(descriptive) 개념 구조입니다.
+          </p>
+        </div>
+
+        <!-- Concept Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Layer 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">레이어 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Conceptualization</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">개념화 (Conceptualization)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>정의:</strong> "a real-time, dynamic market institution based on an online platform where a buyer allows bids from multiple sellers" — 저자들의 종합 정의(Jap, 2002/2003; Grewal et al., 2010; Sambhara et al., 2017 기반).</p>
+              <p class="text-sm text-slate-700"><strong>구성요소:</strong> ① 기원(1995년 GE→FreeMarkets.com→Ariba 인수) ② 3대 특성(기술/정보 비대칭/동적 가격결정) ③ 3대 행위자(구매자 37.5%, 판매자 12.5%, 마켓메이커 8.3%, Table 2).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 마켓메이커는 실무적으로 핵심 서비스 제공자(Ariba, A.T. Kearney 등)이나 학술 연구 대상으로는 거의 다뤄지지 않아 "블랙박스"로 남아있음.
+              </p>
+            </div>
+          </div>
+
+          <!-- Layer 2 Pre-auction Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">프로세스 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Pre-auction</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">사전-경매 (Pre-auction)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>정의:</strong> 경매 실시 이전, 구매자·판매자가 참여 기대·시장 의사결정·프로세스 통제를 설정하는 단계.</p>
+              <p class="text-sm text-slate-700"><strong>하위 구성:</strong> 기대와 참여 근거, 시장 의사결정(소싱전략·대상품목·사전자격심사), 프로세스 통제(lot 크기·가격 가시성·시간설정·행동강령).</p>
+              <p class="text-sm text-slate-600"><strong>근거:</strong> Jap (2002, 2007); Daly &amp; Nath (2005a,b); Schrader et al. (2004) — §4.2, p.445-447</p>
+            </div>
+          </div>
+
+          <!-- Layer 2 During-auction Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-secondary style-label text-white">프로세스 2</span>
+                <span class="text-xs text-slate-400 font-semibold">During-auction</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">경매-중 (During-auction)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>정의:</strong> 실제 입찰이 진행되는 동안 발생하는 위험, 감정, 행동을 다루는 단계.</p>
+              <p class="text-sm text-slate-700"><strong>하위 구성:</strong> 위험·불확실성(기회주의 의심·행동적 불확실성·담합), 감정(승리의 흥분/패배의 좌절), 행동(입찰 횟수·응답 속도·가격 양보 = 입찰자 공격성).</p>
+              <p class="text-sm text-slate-600"><strong>근거:</strong> Jap (2003); Grewal et al. (2010); Jap &amp; Haruvy (2008); Haruvy &amp; Jap (2013) — §4.3, p.446-448</p>
+            </div>
+          </div>
+
+          <!-- Layer 2 Post-auction Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">프로세스 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Post-auction</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">경매-후 (Post-auction)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>정의:</strong> 경매 종료 이후 공급자 선정과 그 결과(품질·관계·경제성과)를 평가하는 단계로, 저자들은 "가장 관리적 의사결정 비중이 높은 단계"로 평가함.</p>
+              <p class="text-sm text-slate-700"><strong>하위 구성:</strong> ① 공급자 선정(Supplier Selection) ② 오퍼링 품질(Offering Quality) ③ 관계 품질(Relationship Quality) ④ 경제적 성과(Economic Performance).</p>
+              <p class="text-sm text-slate-600"><strong>근거:</strong> Emiliani &amp; Stec (2005); Mora Cortez &amp; Johnston (2020); Daly &amp; Nath (2005a,b) — §4.4, p.448-450</p>
+            </div>
+          </div>
+
+          <!-- Layer 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">레이어 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Research Setting (경계조건)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">연구 맥락 (Research Setting)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>정의:</strong> 개념화 및 프로세스 3단계 전체에 영향을 미치는 배경적 경계조건. 전통적 "조절변수"라기보다 프레임워크 전체를 감싸는 맥락 요인으로 제시됨.</p>
+              <p class="text-sm text-slate-700"><strong>구성요소:</strong> ① 부문(Sector): 공공 vs. 민간 — 민간 부문이 마케팅 연구의 지배적 맥락 ② 지리적 범위(Geographical scope): 지역 vs. 국제 — ORA는 본질적으로 글로벌 도구이나 다수 연구는 국내로 한정.</p>
+              <p class="text-sm text-slate-600"><strong>근거:</strong> §4.5.1-4.5.2, p.449-450</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method (Systematic Review) Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method(체계적 문헌고찰) 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 논문은 실증 데이터 분석이 아닌 <strong>체계적 문헌고찰(Systematic Literature Review, Snyder 2019 기반)</strong> 방법론을 사용했습니다. 검색-선별-코딩-분석의 4단계를 타임라인으로 정리했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">준비 (Preparation) — 대상 저널 확정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  마케팅 전략 최상위 저널 6종(JM, JMR, JAMS, MS, JR, IJRM) + B2B 특화 저널 4종(IMM, JBIM, JBBM, JBMM) + CABS 2018 3점 이상 저널 13종 + JBR = 총 24종 확정. SCM은 학자 패널 14명(Kendall's W=0.58)의 합의로 9종 확정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.440, §2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">논문 사전선별 (Pre-selection)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  키워드("auction," "e-procurement," "reverse auction" 등)로 제목·초록·키워드를 EBSCO, ABI/INFORM, ProQuest, Scopus, Google Scholar에서 검색하고 저널 웹사이트로 교차검증. 마케팅 74편 + SCM 139편 = 213편 확보(Endnote 파일).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.441, §2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">논문 선별 (Selection) — 중심성 평가</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  저자 1인 + 시니어 학자 1인이 213편을 독립적으로 정독, ORA 중심성을 0(전혀 아님)~2(전적)로 채점. 합산 ≥2인 논문만 채택. 평가자 간 신뢰도(PRL) 0.94. 최종 마케팅 24편, SCM 50편 확정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.441, §2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">논문 분석 (Analysis) — 코딩 및 프레임워크 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Excel 코딩 시트(목적/관점/유형/논증방식/발견)로 5편 파일럿→10편 재검토→3인이 74편 전체 코딩, 무작위 8편 재코딩으로 평가자 간 신뢰도 0.80 확보. 귀납적 내용분석으로 3계층 프레임워크 도출 후 실무자 인터뷰로 타당성 재확인(Web Appendix E).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.441, §2</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            검색 키워드, 데이터베이스, 저널 목록, 채점 척도, 신뢰도 지표(PRL 0.94/0.80)는 명확히 공개되어 검색·선별 절차는 재현 가능하나, 원문 코딩 시트와 상세 코딩값은 비공개이며 "중심성" 판단·귀납적 프레임워크 도출은 본질적으로 정성적 해석에 의존해 완전 재현은 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(§6 Limitations, p.451-452)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>표본의 비완전성:</strong> "our systematic review does not claim to incorporate each publication in the ORA field. The analyses are based on a selection of articles from high ranked marketing journals... more topical research findings might emerge from lower ranked marketing journals."
+              </li>
+              <li>
+                <strong>SCM 문헌과의 완전 통합 미실시:</strong> "we compared ORA marketing literature with the SCM literature. However, future studies could consolidate both research streams..." 정보시스템(Information Systems) 분야의 ORA 연구(Sambhara, 2020)도 별도로 다루지 않음.
+              </li>
+              <li>
+                <strong>조직구매행동 이론과의 명시적 연결 부재:</strong> "while we focused on ORAs as a purchasing tool used in organizational buying behavior... we did not explicitly add our findings to such a research stream."
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">문헌고찰 설계 및 통계 처리 방식을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 저널 선정의 순환성</span>
+                <p class="text-sm text-slate-700">
+                  마케팅 저널 목록에 IMM(자기 게재지 포함)을 넣고 CABS 3점 이상이라는 자체 기준으로 저널을 선정했는데, 이 임계값 설정 자체가 "IMM이 37.5%로 1위"라는 핵심 발견에 상당한 영향을 미칠 수 있습니다. 임계값 민감도 분석은 제시되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 코더의 확증 편향 가능성</span>
+                <p class="text-sm text-slate-700">
+                  저자 본인이 채점자로 직접 참여했고, 최종적으로 저자들이 스스로 제안한 3계층 프레임워크에 맞춰 귀납적 코딩을 수행했다는 점에서, 프레임워크가 데이터로부터 완전히 귀납된 것인지 사전 이론적 기대가 코딩에 영향을 준 것인지 구분하기 어렵습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 검색 시점과 출판 시점의 간극</span>
+                <p class="text-sm text-slate-700">
+                  검색 시점이 "early 2020"으로 한정되었으나 논문은 2023년에 출판되었습니다. 팬데믹 이후(2020-2023) 디지털 조달·플랫폼 급성장기의 최신 ORA 연구가 리뷰 대상에서 빠졌을 가능성이 크며, 이는 "실무-연구 간 괴리" 진단의 시의성을 약화시킬 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 소표본 통계의 과잉해석 위험</span>
+                <p class="text-sm text-slate-700">
+                  t-검정(df=34), Spearman 상관(n=24), Likelihood ratio 검정(df=6) 등은 표본이 매우 작아(마케팅 논문 n=24) 통계적 검정력이 낮고, p&lt;0.1 수준의 약한 유의성을 근거로 한 해석이 과잉해석될 위험이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. "실무-이론 괴리" 전제의 인과성 부족</span>
+                <p class="text-sm text-slate-700">
+                  실무 활용률 증가(Forde, 2019)와 학술 논문 수 감소는 서로 다른 자료원·방법론에서 도출된 수치로, 두 추세를 "모순"으로 규정하는 것은 상관관계이지 인과관계가 아닙니다. ORA가 실무에서 이미 표준화·성숙되어 더 이상 새로운 학술적 퍼즐이 아니게 되었다는 대안적 설명도 가능합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 마켓메이커 공백의 원인 불명확</span>
+                <p class="text-sm text-slate-700">
+                  "마켓메이커가 블랙박스"라는 비판의 근거인 검색 키워드·저널 선정 기준 자체가 마켓메이커(플랫폼 기업)를 연구 주체로 다루기 어려운 학술 생태계(마케팅/SCM 학술지 중심)를 반영한 결과일 수 있어, 이 공백이 문헌의 실제 공백인지 검색 전략의 산물인지 구분이 필요합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Online reverse auctions research in marketing versus SCM: A review and future directions</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

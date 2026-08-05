@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crisis Induced CSR Innovation - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 34px;
+      }
+      .style-h1 {
+        font-size: 28px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B CSR / SME</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Longitudinal Study (Gioia Method)</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Crisis induced CSR innovation:<br>
+            <span class="text-cyan-400">CSR implementation in B2B firms before and after COVID-19</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Solon Magrizos, Lloyd C. Harris
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            위기가 촉발한 CSR 혁신:<br>
+            <span class="text-indigo-300">코로나19 전후 B2B 기업의 CSR 실행</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            그리스 B2B 기업 24개사(대기업 12·중소기업 12)를 대상으로 한 코로나19 전/후 종단 인터뷰 연구
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">위기는 CSR을 위축시키기만 하는 것이 아니라, 자원이 제한된 중소기업이 사업 역량과 사회적 목적을 결합해 창의적으로 재발명할 기회가 될 수 있다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Only recently has CSR literature moved beyond a one-size-fits-all approach and explored different contexts, characteristics, or sizes of the studied firms. CSR in SMEs is unique, due to the peculiar characteristics of Small and Medium Sized firms. Literature in the CSR initiatives of B2B firms is even more limited. We aim to contribute to the literature by focusing on CSR in B2B SMEs. We do so via a longitudinal study. With extensive interviews of 24 B2B firms prior and after the COVID-19 Pandemic we explore i) how CSR differs between small and larger B2B firms, and ii) how can a crisis, such as the one caused due to COVID-19 affect these firms' implementation, motivation, and outcome of their CSR strategy. Our findings contribute to various streams of literature including B2M marketing, crises management and responsible innovations."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              최근에서야 CSR 문헌은 획일적 접근을 넘어 연구 대상 기업의 다양한 맥락, 특성, 규모를 탐구하기 시작했다. 중소기업(SME)의 고유한 특성으로 인해 SME의 CSR은 독특한 양상을 보이며, B2B 기업의 CSR 이니셔티브에 관한 문헌은 더욱 제한적이다. 본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">B2B 중소기업의 CSR</span>에 초점을 맞춰 이러한 문헌 공백에 기여하고자 한다. 이를 위해 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">종단 연구(longitudinal study)</span>를 수행했다. 코로나19 팬데믹 전후 24개 B2B 기업에 대한 심층 인터뷰를 통해 i) 중소기업과 대기업 간 B2B CSR 실행이 어떻게 다른지, ii) 코로나19와 같은 위기가 이들 기업의 CSR 전략의 실행·동기·성과에 어떤 영향을 미치는지 탐구한다. 본 연구의 발견은 B2B 마케팅, 위기관리, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">책임 있는 혁신(responsible innovation)</span> 등 여러 문헌 흐름에 기여한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Crisis Induced CSR Innovation</td>
+                  <td>위기 촉발형 CSR 혁신</td>
+                  <td class="text-sm">본 논문의 핵심 신조어. 위기가 방아쇠가 되어 CSR 전략을 창의적으로 재편한다는 의미를 살렸습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Gioia methodology</td>
+                  <td>Gioia 방법론</td>
+                  <td class="text-sm">1차 코드 → 2차 범주 → 총괄 차원으로 상향 추상화하는 귀납적 질적 코딩 기법입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Sensemaking / Sense decoupling</td>
+                  <td>센스메이킹 / 센스 디커플링</td>
+                  <td class="text-sm">Weick(1995)의 조직이론 용어. '의미 구성' / 기존 공약을 문제 차원에서 분리해 실패를 용인하는 과정입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Survivability vs Sustainability</td>
+                  <td>생존 vs 지속가능성</td>
+                  <td class="text-sm">Carroll(2021)이 제시한 위기 시 기업의 딜레마 개념 쌍입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Pit-stop view of recessions</td>
+                  <td>불황의 '피트스톱' 관점</td>
+                  <td class="text-sm">Caballero & Hammour(1991). 불황이 오히려 저기회비용 시기로서 혁신 실험을 촉진한다는 대안적 시각입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">대기업과 SME는 CSR을 어떻게 다르게 실행하며, 위기는 이를 어떻게 바꾸는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">대기업은 '더 많은 같은 것', 일부 SME는 '위기 촉발형 혁신'</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">B2B CSR·책임혁신·위기 전후 종단 연구로의 확장</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> ① B2B 대기업과 중소기업 간 CSR 실행은 어떻게 다른가? ② 코로나19는 B2B 중소기업의 CSR 실행에 어떤 영향을 미쳤는가? ③ B2B 기업은 CSR 커뮤니케이션으로 어떻게 사업적 이익을 더 늘릴 수 있는가?</li>
+                  <li><strong>핵심 발견:</strong> 코로나19 이전 대기업은 전략적·체계적 3단계 프로세스(결정→선택→평가)를, SME는 즉흥적·단일 이해관계자 중심 접근을 취했다. 코로나19 이후 대다수 대기업은 반복적이고 쉽게 잊혀지는 대응에 그친 반면, 일부 SME는 사업 역량과 CSR을 결합한 <strong>위기 촉발형 CSR 혁신(Crisis Induced CSR Innovation)</strong>을 통해 적은 투자로 큰 언론·이해관계자 주목과 긍정적 사업 성과를 얻었다.</li>
+                  <li><strong>이론/실무 기여:</strong> B2C 중심이던 CSR 문헌을 B2B·SME 맥락으로 확장하고, 위기가 혁신을 위축시킨다는 통설과 달리 자원 제약이 오히려 CSR 재발명의 촉매가 될 수 있음을 실증했으며, 이 현상이 나타나는 재현 가능한 7단계 프로세스(Fig. 3)를 제시했다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "위기는 CSR을 위축시키기만 하는 것이 아니라, 자원이 제한된 중소기업이 사업 역량과 사회적 목적을 결합해 창의적으로 재발명할 기회가 될 수 있다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실증(인터뷰) 근거의 원문 인용 및 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">대기업의 전략적·체계적 CSR 실행 프로세스</td>
+                <td class="text-sm italic text-slate-600">
+                  "Large firms displayed a well-defined, strategic approach to choosing which CSR actions to implement. Using efficient corporate governance, their CSR strategy was oriented internally... and externally..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.48-49, Sec. 4.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">SME의 즉흥적·단일 이해관계자 중심 CSR</td>
+                <td class="text-sm italic text-slate-600">
+                  "Most SMEs' approach in choosing specific initiatives was very different... the 'resource-poor' SMEs implemented a very limited array of CSR actions, almost always focusing on only one dimension"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.49, Sec. 4.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">코로나19 후 대기업 CSR은 '더 많은 같은 것'에 그침</td>
+                <td class="text-sm italic text-slate-600">
+                  "Not much has changed after COVID-19 from our side... Our donation of 2 ICUs... signified a rather large initiative... However, if you asked today our business partners, no one would remember"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.51, Sec. 4.2</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">일부 SME의 위기 촉발형 CSR 혁신 정의</td>
+                <td class="text-sm italic text-slate-600">
+                  "We define as a Crisis Induced CSR Innovation any action of modifying the firm's CSR strategy to create value, defend against effects of a crisis and exploit new opportunities."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.52, Sec. 5</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">위기 촉발형 CSR 혁신의 재현 가능한 7단계 프로세스</td>
+                <td class="text-sm italic text-slate-600">
+                  "we attempted to document common strategies and processes across seven common steps. This process is illustrated graphically in Fig. 3. The first step has been to recognise the issue..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.52-53, Sec. 5; Fig. 3</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">위기 촉발형 혁신 기업의 압도적 긍정 사업 성과</td>
+                <td class="text-sm italic text-slate-600">
+                  "the firms that implemented what we refer to as Crisis Induced CSR Innovation overwhelmingly reported positive business benefits, perhaps due to these initiatives demonstrating significant CSR commitment..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.53, Sec. 5</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">기존 CSR 실행 기업만이 전환의 정당성을 확보</td>
+                <td class="text-sm italic text-slate-600">
+                  "our respondents were unique in that they were firms with already active CSR plans which gave them legitimacy to either reduce or disrupt and adapt their previous strategies"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.53, Sec. 5</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Constructs -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성개념 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Constructs</span>
+        </div>
+
+        <div class="alert bg-amber-50 border border-amber-300 text-amber-900 text-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-600 shrink-0 h-5 w-5" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span>본 논문은 정량적 SEM/회귀분석이 아닌 <strong>Gioia 방법론 기반 귀납적 질적 연구</strong>입니다. 통계적으로 측정된 IV/DV/매개/조절 변수는 존재하지 않으며, 아래는 코딩으로 도출된 핵심 이론적 구성개념을 동일한 시각 문법(IV·DV·조절 대응)으로 재구성한 것입니다.</span>
+        </div>
+
+        <!-- Research Model SVG Block: Fig.3 process DAG -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">위기 촉발형 CSR 혁신의 프로세스 모델 (Fig. 3 재구성)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 1000 400" class="w-full h-auto">
+              <!-- Facilitators (moderator-style, amber) -->
+              <rect x="380" y="10" width="240" height="55" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="500" y="32" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">촉진 요인 (Facilitators)</text>
+              <text x="500" y="50" text-anchor="middle" fill="#b45309" font-size="10">기업가정신 · Grand Challenge 프레이밍 · 윤리적 CSR</text>
+
+              <!-- Trigger (slate, antecedent) -->
+              <rect x="20" y="105" width="180" height="65" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="110" y="132" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">코로나19 위기 충격</text>
+              <text x="110" y="150" text-anchor="middle" fill="#64748b" font-size="10">외생적 크라이시스 트리거</text>
+
+              <!-- Row 1 steps 1-4 (sky) -->
+              <rect x="230" y="105" width="170" height="65" rx="8" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="315" y="130" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="12">① 인지 (Recognition)</text>
+              <text x="315" y="148" text-anchor="middle" fill="#0284c7" font-size="10">변화 우선순위 조기 포착</text>
+
+              <rect x="420" y="105" width="170" height="65" rx="8" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="505" y="130" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="12">② 센스메이킹</text>
+              <text x="505" y="148" text-anchor="middle" fill="#0284c7" font-size="10">새로운 조직 현실 구성</text>
+
+              <rect x="610" y="105" width="170" height="65" rx="8" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="695" y="130" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="12">③ 센스 디커플링</text>
+              <text x="695" y="148" text-anchor="middle" fill="#0284c7" font-size="10">기존 CSR 공약을 분리</text>
+
+              <rect x="800" y="105" width="180" height="65" rx="8" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="890" y="130" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="12">④ 클렌징 (Cleansing)</text>
+              <text x="890" y="148" text-anchor="middle" fill="#0284c7" font-size="10">낡은 관행 종료·부상</text>
+
+              <!-- Row 2 steps 5-7 (emerald), reversed direction -->
+              <rect x="800" y="250" width="180" height="65" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="890" y="275" text-anchor="middle" font-weight="700" fill="#065f46" font-size="12">⑤ 정당화/수용</text>
+              <text x="890" y="293" text-anchor="middle" fill="#047857" font-size="10">이해관계자의 전환 수용</text>
+
+              <rect x="610" y="250" width="170" height="65" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="695" y="275" text-anchor="middle" font-weight="700" fill="#065f46" font-size="12">⑥ 소통 (Communication)</text>
+              <text x="695" y="293" text-anchor="middle" fill="#047857" font-size="10">전환의 동기를 설명</text>
+
+              <rect x="420" y="250" width="170" height="65" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="505" y="275" text-anchor="middle" font-weight="700" fill="#065f46" font-size="12">⑦ 학습 (Learning)</text>
+              <text x="505" y="293" text-anchor="middle" fill="#047857" font-size="10">재귀적·능동적 학습</text>
+
+              <!-- Outcome (indigo) -->
+              <rect x="150" y="250" width="220" height="65" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="260" y="275" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="12">위기 촉발형 CSR 혁신 (Outcome)</text>
+              <text x="260" y="293" text-anchor="middle" fill="#4338ca" font-size="10">가치창출 · 방어 · 기회포착</text>
+
+              <!-- Arrows: Trigger -> Step1 -> 2 -> 3 -> 4 -->
+              <path d="M200 137 L 225 137" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M400 137 L 415 137" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M590 137 L 605 137" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M780 137 L 795 137" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Step4 -> Step5 (down, right side) -->
+              <path d="M890 170 L 890 245" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Step5 -> 6 -> 7 (right to left) -->
+              <path d="M795 282 L 785 282" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M605 282 L 595 282" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Step7 -> Outcome -->
+              <path d="M415 282 L 375 282" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Feedback loop (dashed, recursive learning) -->
+              <path d="M260 250 L 260 200 L 40 200 L 40 105" fill="none" stroke="#4f46e5" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+              <text x="45" y="195" fill="#4338ca" font-weight="700" font-size="10">재귀적 학습 → 차기 위기 대응력 (간접효과)</text>
+
+              <!-- Facilitator vertical arrows into Step1/Step2 (moderator-style) -->
+              <path d="M450 65 L 400 100" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M500 65 L 500 100" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="330" y="90" fill="#b45309" font-weight="700" font-size="10">촉진(+)</text>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500">
+            * 정량 SEM의 가설번호(H1, H2...) 대신, 논문 Fig. 3에 제시된 7단계 순서 번호(①~⑦)를 프로세스 화살표 라벨로 사용했습니다. 점선은 재귀적(비-순차적) 학습 피드백 루프를 나타냅니다.
+          </p>
+        </div>
+
+        <!-- Construct Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Construct 1 Card: Firm size -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">비교 조건</span>
+                <span class="text-xs text-slate-400 font-semibold">Comparative Condition</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기업 규모 범주 (Firm Size Category)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 대기업(종업원 1,600명↑)과 중소기업(SME, 7~240명)의 이분법적 대조축. CSR 실행의 체계성·자원·동기 구조를 가르는 핵심 변수.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Table 1의 종업원 수 기준(EU SME 정의 준용, 250인 미만=SME)으로 대기업 12개사 vs SME 12개사 사전 매칭.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 저자 자체 구축 표본 프레임(Table 1)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Preuss & Perschke(2010, SME=윤리적 동기) vs Babiak & Trendafilova(2011, 대기업=전략적 동기). 본 연구는 두 동기가 양쪽 모두에 혼재함을 발견.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 2 Card: COVID-19 trigger -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">트리거/준-조절</span>
+                <span class="text-xs text-slate-400 font-semibold">Crisis Trigger</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">코로나19 팬데믹 (COVID-19 Shock)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 예측 불가능한 외생적 충격으로서 기존 CSR 궤적의 방향·강도를 재편하는 촉매.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Wave 1(코로나19 이전) vs Wave 2(2022년 중후반, 포스트 코로나) 두 시점 비교.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 자연실험적 종단 설계. 18/24개사가 두 시점 모두 응답(75% 유지)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Conz & Magnani(2020) 기업 회복탄력성 프레임워크 — 여유자원 보유 기업은 '저항', 유연하지만 자원 부족한 기업은 '적응' 전략을 택함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 3 Card: baseline CSR process -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">기준 프로세스</span>
+                <span class="text-xs text-slate-400 font-semibold">Baseline Process</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">CSR 실행 3단계 프로세스</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> CSR 실행 결정(Step 1) → 구체적 활동 선택(Step 2) → 편익 평가·환류(Step 3)의 순차적 관리 프로세스.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Table 2·3의 1차 코드(31개) → 2차 범주 → 총괄 차원으로 코딩된 인터뷰 발화.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Gioia, Corley, & Hamilton(2013) 3단계 코딩 절차</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Bridoux & Vishwanathan(2018) "all-stakeholder strategy"(대기업) vs Visser(2014) "CSR 1.0"(SME 임기응변형)와 대응.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 4 Card: facilitators -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">촉진 요인</span>
+                <span class="text-xs text-slate-400 font-semibold">Facilitators (Moderator-like)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기업가정신 · 위기 프레이밍 · CSR 유형</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 위기를 CSR 혁신으로 전환시키는 데 정성적으로 관찰된 촉진 조건들(SME 기업가정신, 위기를 'Grand Challenge'로 프레이밍, 윤리적/자선적 CSR 유형).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 혁신 성공 기업 vs 실패/무관심 기업의 인터뷰 발화를 대조하며 귀납적으로 식별.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Greco et al.(2022) Grand Challenge 프레임; Mohammed, Ferraris, & Troise(2021) CSR 유형별 창의성 효과</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 정량적으로 검증된 조절변수가 아니라 대조 사례 분석으로 도출된 정성적 촉진 조건임에 유의.
+              </p>
+            </div>
+          </div>
+
+          <!-- Outcome Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">핵심 결과 구성개념</span>
+                <span class="text-xs text-slate-400 font-semibold">Core Outcome Construct</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">위기 촉발형 CSR 혁신 (Crisis Induced CSR Innovation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 가치 창출, 위기 방어, 새 기회 포착을 위해 기업의 CSR 전략을 수정하는 모든 행위.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 기존 CSR 자원·역량을 재조합해 완전히 새로운 제품/서비스/파트너십을 만든 사례(예: 알루미늄 창호업체의 병원용 격리 챔버 소재 기부, 포장재 업체의 재사용 위생커버 개발)를 질적으로 식별.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 저자 자체 신규 개념화 — Conz & Magnani(2020) resilience 이론, Caballero & Hammour(1991) "cleansing effect of recessions" 이론에서 파생. 7단계 프로세스는 Fig. 3.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 표본 설계와 3단계 Gioia 코딩 절차를 그대로 <strong>추종 재현</strong>할 수 있도록 연구 절차를 타임라인으로 단계화했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 설계 선택</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  이론이 미성숙하고 탐색적 성격의 연구 질문이므로 가설 검증이 아닌 귀납적, 비교 사례 연구(inductive comparative case study) 설계를 채택 (Miles & Huberman, 1994).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 3, Sec. 3 서두</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">표본 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  그리스 단일국가에서 대기업 12개사 + SME 12개사, 총 24개 B2B 기업을 선정. 모든 참여 기업은 사전에 높은 CSR 관여도를 입증. EU CSR 국가 얼라이언스 네트워크를 통해 접촉.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 3, Sec. 3; Table 1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">인터뷰이 선정 기준</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  CEO, CSR 디렉터, SME 오너 등 CSR 전략 설계에 직접 관여하는 시니어·영향력 있는 내부 정보제공자를 선정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 3, Sec. 3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">Wave 1 데이터 수집 (코로나19 이전)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  CSR·SME·위기 문헌 검토 후 개발한 반구조화 인터뷰 가이드로 24건의 대면 인터뷰 실시, 소요 시간 45~100분.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 3, Sec. 3; Table 1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">Wave 2 데이터 수집 (포스트 코로나19)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  약 3년 뒤인 2022년 중후반 동일 기업을 재접촉. 24개사 중 18개사가 재참여(유지율 75%). 짧은 온라인 인터뷰(10~30분) 또는 드물게 이메일 서면 응답.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 3, Sec. 3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">1차·2차 코딩 (Gioia 방법론)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  인터뷰이 원어 표현을 보존하며 31개 1차 코드 도출 → Strauss & Corbin(1998) 축코딩 방식으로 2차 범주(예: "기업 거버넌스")로 통합. 코딩 초기에는 문헌에 준-무지 상태 유지(선행가설 편향 방지).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4, Sec. 3; Table 2, 3</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">총괄 차원 도출 및 결과 구조화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  2차 범주를 총괄 차원으로 재클러스터링하고, 선행 문헌으로 이론적 정당성을 부여. 결과를 (a) 코로나19 이전 CSR(Fig.1), (b) 코로나19 이후 CSR(Fig.2), (c) 위기 촉발형 CSR 혁신의 7단계 프로세스(Fig.3)로 구조화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 4-10, Sec. 4-5</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            표본 선정 기준, 인터뷰 프로토콜, 3단계 Gioia 코딩 절차는 상세히 기술되어 절차적 재현은 가능하나, 실제 코딩 결과(1차→2차→총괄 차원 매핑)는 연구자 해석에 크게 의존하며, 그리스 CSR 얼라이언스를 통한 고관여 기업 표집 경로는 다른 연구자가 재현하기 어려운 사회적 자본에 의존합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 결론부(Section 6)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>질적 연구의 일반화 제약:</strong> "The qualitative nature of our study suggests that our insights can't be generalised to firms beyond those of our sample" — 표본을 넘어선 일반화가 불가능함을 저자들이 명시.
+              </li>
+              <li>
+                <strong>단일 국가·소표본 한정:</strong> "we were limited to one country, and we were able to interview only 24 firms" — 그리스라는 단일 맥락, 24개사라는 소표본에 국한.
+              </li>
+              <li>
+                <strong>정량적 후속 검증 필요:</strong> "it is up to future quantitative work... to explore the antecedents and effect of CSR innovation to the business performance" — CSR 혁신의 선행요인·성과효과에 대한 정량 검증은 후속 연구 과제로 남김.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 표집·코딩 절차를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 표본 이탈에 따른 생존자 편향</span>
+                <p class="text-sm text-slate-700">
+                  Wave 1의 24개사 중 6개사(25%)가 Wave 2에서 이탈했다. 이탈이 무작위임을 검증한 절차가 없으며, 오히려 CSR 여력을 잃은 '혁신 실패' 기업이 체계적으로 응답을 회피했을 가능성이 있어 표본이 성공 사례 쪽으로 편향됐을 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 고관여 CSR 기업 사전 선택 편향</span>
+                <p class="text-sm text-slate-700">
+                  "All participating firms had demonstrated high levels of CSR involvement"라는 표집 기준 자체가 CSR에 무관심한 다수의 B2B 기업을 원천 배제한다. 대기업 vs SME 비교 결론이 CSR 적극 기업군에만 유효할 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 회고적 자기보고의 신뢰성 문제</span>
+                <p class="text-sm text-slate-700">
+                  Wave 2 인터뷰에서 참여자들은 최대 3년 전(코로나19 이전)의 CSR 동기·절차를 회고적으로 진술한다. 기억 왜곡, 사후 합리화, 사회적 바람직성 편향(social desirability bias)에 취약하다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 코더 간 신뢰도(inter-rater reliability) 미보고</span>
+                <p class="text-sm text-slate-700">
+                  1차→2차→총괄 차원 추상화는 본질적으로 해석적 과정이나, 복수 코더 간 일치도 검증이나 제3자 검토 절차가 보고되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 사업 성과의 객관적 검증 부재</span>
+                <p class="text-sm text-slate-700">
+                  '위기 촉발형 CSR 혁신'이 "압도적으로 긍정적 사업 성과"를 낳았다는 결론은 매출·수익성 등 객관 지표가 아니라 응답자의 주관적 진술("바이럴이 됐다", "언론이 주목했다")에 전적으로 의존한다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 역인과 가능성</span>
+                <p class="text-sm text-slate-700">
+                  이미 자원·역량이 풍부하거나 팬데믹 이전부터 혁신 지향적 문화를 가진 기업이 '위기를 기회로 활용'할 여력이 애초에 더 컸을 수 있다. 이 경우 CSR 혁신은 원인이 아니라 기업의 근본적 회복탄력성의 결과(증상)일 수 있다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Crisis induced CSR innovation: CSR implementation in B2B firms before and after COVID-19</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

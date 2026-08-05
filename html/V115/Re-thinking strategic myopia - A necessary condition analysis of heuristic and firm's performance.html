@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Re-thinking Strategic Myopia - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Managerial Cognition &amp; NCA</div>
+        <div class="badge badge-secondary text-white style-label">2024 Corrigendum 반영</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Re-thinking strategic myopia:<br>
+            <span class="text-cyan-400">A necessary condition analysis of heuristic and firm's performance</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Wojciech Czakon, Patrycja Klimas, Arkadiusz Kawa
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            전략적 근시안의 재고찰:<br>
+            <span class="text-indigo-300">휴리스틱과 기업 성과에 관한 필요조건분석(NCA)</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            폴란드 관리자 658명(최종 628명) 설문 조사를 기반으로, 낮은 전략적 근시안이 정말 고성과의 "필요조건"인지 필요조건분석(NCA)으로 검증
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">관리자가 근시안적이라고 해서 반드시 성과가 낮아지진 않는다 — 유일한 예외는 '장기 성과를 위해서는 학습적 근시안을 낮게 유지해야 한다'는 것뿐이다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "At times of fast paced technology progress and global disruptions strategic myopia can be particularly harmful to firms. A narrow view of actors, events and tendencies is a firm's environment, combined with short-term preferences is widely recognized in the literature as leading to belated or inadequate responses to challenges. Manager's myopia is typically portrayed as a systematic bias, inducing underperformance. However, empirical evidence is more than nuanced in this respect. In this study, we view strategic myopia as an effective heuristic triggered in uncertain environments and specific task conditions. We use the necessary condition analysis (NCA) to examine the association between strategic myopia and firm performance through a necessity logic lens. This innovative method provides insights into the relationship between low levels of strategic myopia dimensions and firm performance in both the short- and long term. We measure strategic myopia and firm performance as multidimensional constructs on a representative sample of 658 Polish managers. Our results challenge the conventional wisdom that low strategic myopia is necessary for high performance. We highlight the nuanced role of myopia across its dimensions (i.e., competitive, cooperative, temporal, and learning) and shed light on its implications for both short- and long-term performance."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              급속한 기술 진보와 글로벌 충격의 시대에 전략적 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">근시안(myopia)</span>은 기업에 특히 해로울 수 있다. 행위자·사건·경향에 대한 좁은 시야가 단기 선호와 결합된 상태는 문헌에서 널리 도전 과제에 대한 지연되거나 부적절한 대응으로 이어진다고 인정된다. 관리자의 근시안은 통상 성과 저하를 유발하는 체계적 편향으로 묘사되지만, 실증 증거는 이보다 훨씬 미묘하다. 본 연구는 전략적 근시안을 불확실한 환경과 특정 과업 조건에서 촉발되는 효과적인 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">휴리스틱(heuristic)</span>으로 본다. 우리는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">필요조건분석(NCA)</span>을 활용하여 필요성 논리의 렌즈로 전략적 근시안과 기업 성과 간의 연관성을 검토한다. 이 혁신적 방법은 근시안 각 차원의 낮은 수준과 단기·장기 기업 성과 간 관계에 대한 통찰을 제공한다. 우리는 폴란드 관리자 658명의 대표성 있는 표본에서 근시안과 기업 성과를 다차원 구성개념으로 측정하였다. 연구 결과는 "낮은 전략적 근시안이 높은 성과를 위한 필요조건"이라는 통념에 도전한다. 우리는 근시안의 각 차원(경쟁적·협력적·시간적·학습적)에 걸친 미묘한 역할을 부각시키고, 단기 및 장기 성과에 대한 함의를 조명한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Strategic Myopia</td>
+                  <td>전략적 근시안</td>
+                  <td class="text-sm">마케팅 근시안(Levitt, 1960) 개념을 관리자 인지 차원으로 확장한 것으로, "시야가 좁다"는 은유를 그대로 살렸습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Heuristic</td>
+                  <td>휴리스틱(어림법)</td>
+                  <td class="text-sm">카너먼(2011)의 용어를 음차하여, "완벽하지 않지만 빠르고 효과적인 문제해결 절차"라는 뉘앙스를 보존했습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Necessary Condition Analysis (NCA)</td>
+                  <td>필요조건분석</td>
+                  <td class="text-sm">회귀 기반 충분조건 검증과 대비되는 별도 방법론임을 명확히 하기 위해 정식 명칭을 사용했습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Necessity Logic</td>
+                  <td>필요성 논리</td>
+                  <td class="text-sm">sufficiency logic(충분성 논리)과 대비되는 개념으로 병기했습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Ceiling Line (CE-FDH)</td>
+                  <td>상한선(경험적 자유분포 상한)</td>
+                  <td class="text-sm">NCA 산점도의 좌상단 빈 공간을 구분 짓는 경계선으로, 효과크기 산출의 기준이 됩니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">낮은 근시안은 정말 고성과의 필요조건인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">8개 가설 중 7개는 기각, 학습적 근시안-장기성과만 지지</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">근시안=편향이 아닌 적응적 휴리스틱으로 재해석</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 관리자의 낮은 전략적 근시안(경쟁적/협력적/시간적/학습적 4차원)은 단기·장기 기업 성과를 위한 "필요조건"인가? 기존 통념처럼 근시안이 있으면 반드시 성과가 낮아지는가?</li>
+                  <li><strong>핵심 발견:</strong> 2023년 원 논문에서는 8개 가설(H1a~H4b) 전부 기각되어 근시안이 어떤 차원·시평에서도 필요조건이 아니었습니다. 그러나 2024년 1월 발표된 <strong>Corrigendum(정정문)</strong>에서 계산 오류가 정정되면서, <strong>학습적 근시안이 낮은 것은 장기 고성과의 필요조건(H4b)</strong>이라는 결과만 유일하게 지지되는 것으로 뒤집혔습니다(효과크기 d=0.125, 중간 수준, p=0.042).</li>
+                  <li><strong>이론/실무 기여:</strong> 근시안을 "합리성을 저해하는 편향"이 아닌 "불확실성 하에서 적응적으로 작동하는 휴리스틱"으로 재해석하며, 관리자 개인의 근시안 교정보다 팀/조직/환경 요인이 성과에 더 결정적일 수 있음을 시사합니다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "관리자가 근시안적이라고 해서 반드시 기업 성과가 나빠지는 것은 아니다 — 유일한 예외는 '장기 성과를 위해서는 학습적 근시안을 낮게 유지해야 한다'는 것뿐이다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실증적 근거의 원문 인용 및 위치를 맵핑했습니다. 2024년 Corrigendum 근거도 함께 표기합니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">원 논문: 8개 가설 전부 기각</td>
+                <td class="text-sm italic text-slate-600">
+                  "all of the necessary condition hypotheses (H1a, H2a, H3a, H4a, H1b, H2b, H3b, H4b) have to be rejected."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.105-106 (Sec. 4)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">효과크기가 임계값 0.1 미만</td>
+                <td class="text-sm italic text-slate-600">
+                  "The effect size... does not reach the level of 0.1, i.e., minimum level of d understood as a small necessity effect of X for Y"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.105 (Sec. 4)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">병목분석: 어떤 성과 수준에도 낮은 근시안 불필요</td>
+                <td class="text-sm italic text-slate-600">
+                  "to generate high performance (no matter if at 10%, 30%, 70%, or even 100%) a low strategic myopia is not a necessary condition"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.106 (Sec. 4)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-emerald-700">[Corrigendum] H4b 결과 뒤집힘 (지지됨)</td>
+                <td class="text-sm italic text-slate-600">
+                  "we identify a medium and significant effect for learning myopia. Therefore, the hypothesis assuming low learning myopia as a necessary condition for high long-term performance should not be rejected" (d=0.125, p=0.042)
+                </td>
+                <td class="text-right font-medium text-slate-500">p.171 (Corrigendum, Table 2)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">근시안을 적응적 휴리스틱으로 재해석</td>
+                <td class="text-sm italic text-slate-600">
+                  "we view strategic myopia as an effective heuristic triggered in uncertain environments and specific task conditions"
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract, p.99</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">표본 및 측정: 폴란드 관리자 658명(최종 628명)</td>
+                <td class="text-sm italic text-slate-600">
+                  "We collect data from a representative sample of 658 Polish firms... the final sample consists of 628 observations."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.104-105 (Sec. 3.1, 3.3)</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">기존 통념(근시안=실패 요인)에 대한 도전</td>
+                <td class="text-sm italic text-slate-600">
+                  "Our goal is to challenge the long-standing view that strategic myopia is a critical failure factor (Levitt, 1960)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.101 (Sec. 1)</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">개인 인지 수준보다 환경/팀 요인이 더 중요할 수 있음</td>
+                <td class="text-sm italic text-slate-600">
+                  "the individual level of analysis is not critical for performance... critical factors for performance might well relate to the decision-making environment"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.107 (Sec. 5.1)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델(필요조건 가설) 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          이 연구는 매개·조절 관계를 갖는 SEM류 모델이 아니라, 근시안 4개 차원 각각과 단기·장기 성과 각각 사이의 <strong>8개 독립적 필요조건(necessity) 관계</strong>를 개별 검정하는 구조입니다. 아래 다이어그램은 8개 가설(H1a~H4b)과, 2024년 Corrigendum으로 유일하게 지지된 H4b 경로를 시각화한 것입니다.
+        </p>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (필요조건 가설 관계도)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 470" class="w-full h-auto">
+              <!-- IV boxes: 4 myopia dimensions -->
+              <rect x="30" y="20" width="230" height="80" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+              <text x="145" y="52" text-anchor="middle" font-weight="700" fill="#334155" font-size="15">경쟁적 근시안</text>
+              <text x="145" y="72" text-anchor="middle" fill="#64748b" font-size="11">Competitive Myopia</text>
+              <text x="145" y="88" text-anchor="middle" fill="#94a3b8" font-size="10">인접 경쟁자에만 집중, 원거리 경쟁자 간과</text>
+
+              <rect x="30" y="130" width="230" height="80" rx="8" fill="#f8fafc" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="145" y="162" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="15">협력적 근시안</text>
+              <text x="145" y="182" text-anchor="middle" fill="#0284c7" font-size="11">Cooperative Myopia</text>
+              <text x="145" y="198" text-anchor="middle" fill="#7dd3fc" font-size="10">협력·win-win 기회를 인식하지 못함</text>
+
+              <rect x="30" y="240" width="230" height="80" rx="8" fill="#f8fafc" stroke="#a855f7" stroke-width="2"/>
+              <text x="145" y="272" text-anchor="middle" font-weight="700" fill="#7e22ce" font-size="15">시간적 근시안</text>
+              <text x="145" y="292" text-anchor="middle" fill="#9333ea" font-size="11">Temporal Myopia</text>
+              <text x="145" y="308" text-anchor="middle" fill="#d8b4fe" font-size="10">단기 목표 위해 장기 지출(R&amp;D 등) 축소</text>
+
+              <rect x="30" y="350" width="230" height="90" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="3"/>
+              <text x="145" y="382" text-anchor="middle" font-weight="700" fill="#065f46" font-size="15">학습적 근시안 ★</text>
+              <text x="145" y="402" text-anchor="middle" fill="#047857" font-size="11">Learning Myopia</text>
+              <text x="145" y="418" text-anchor="middle" fill="#10b981" font-size="10">장기목표·전략 갱신·미래 고객니즈 무시</text>
+              <text x="145" y="433" text-anchor="middle" fill="#059669" font-size="9" font-weight="700">유일하게 필요조건으로 지지(H4b)</text>
+
+              <!-- DV boxes: short-term / long-term performance -->
+              <rect x="630" y="90" width="240" height="90" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="750" y="122" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">단기 기업 성과</text>
+              <text x="750" y="142" text-anchor="middle" fill="#4338ca" font-size="11">Short-term Performance</text>
+              <text x="750" y="158" text-anchor="middle" fill="#818cf8" font-size="10">매출목표·매출성장·수익성 달성</text>
+
+              <rect x="630" y="290" width="240" height="90" rx="8" fill="#fff7ed" stroke="#d97706" stroke-width="2"/>
+              <text x="750" y="322" text-anchor="middle" font-weight="700" fill="#92400e" font-size="15">장기 기업 성과</text>
+              <text x="750" y="342" text-anchor="middle" fill="#b45309" font-size="11">Long-term Performance</text>
+              <text x="750" y="358" text-anchor="middle" fill="#fbbf24" font-size="10">전략목표·신제품 출시·시장 성공</text>
+
+              <!-- Arrows: rejected (gray dashed) -->
+              <!-- H1a Competitive -> Short -->
+              <path d="M260,60 C 430,60 480,120 630,135" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+              <text x="345" y="78" fill="#94a3b8" font-size="11" font-weight="600">H1a (기각)</text>
+
+              <!-- H1b Competitive -> Long -->
+              <path d="M260,70 C 460,70 520,300 630,330" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+              <text x="560" y="255" fill="#94a3b8" font-size="11" font-weight="600">H1b (기각)</text>
+
+              <!-- H2a Cooperative -> Short -->
+              <path d="M260,160 C 400,160 480,145 630,150" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+              <text x="345" y="163" fill="#94a3b8" font-size="11" font-weight="600">H2a (기각)</text>
+
+              <!-- H2b Cooperative -> Long -->
+              <path d="M260,185 C 430,185 500,300 630,335" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+              <text x="560" y="285" fill="#94a3b8" font-size="11" font-weight="600">H2b (기각)</text>
+
+              <!-- H3a Temporal -> Short -->
+              <path d="M260,265 C 400,265 480,170 630,165" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+              <text x="345" y="240" fill="#94a3b8" font-size="11" font-weight="600">H3a (기각)</text>
+
+              <!-- H3b Temporal -> Long -->
+              <path d="M260,290 C 420,290 500,320 630,340" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+              <text x="560" y="313" fill="#94a3b8" font-size="11" font-weight="600">H3b (기각)</text>
+
+              <!-- H4a Learning -> Short -->
+              <path d="M260,375 C 420,375 500,200 630,175" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+              <text x="420" y="300" fill="#94a3b8" font-size="11" font-weight="600">H4a (기각)</text>
+
+              <!-- H4b Learning -> Long: SUPPORTED (highlighted solid) -->
+              <path d="M260,395 C 430,395 500,375 630,360" fill="none" stroke="#059669" stroke-width="3.5" marker-end="url(#arrowGreen)"/>
+              <text x="400" y="425" fill="#047857" font-size="13" font-weight="800">H4b (지지됨, d=0.125, p=.042)</text>
+
+              <!-- SVG Arrow Markers -->
+              <defs>
+                <marker id="arrowGray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#cbd5e1"/>
+                </marker>
+                <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 text-center max-w-2xl">
+            회색 점선 = 필요조건 기각(effect size &lt; 0.1) / 초록 실선 = 2024년 Corrigendum 재계산 후 유일하게 지지된 필요조건 경로(H4b: 학습적 근시안 낮음 → 장기 고성과 필요)
+          </p>
+        </div>
+
+        <!-- Corrigendum comparison table -->
+        <div class="overflow-x-auto border rounded-lg mt-2">
+          <table class="table table-bordered w-full text-slate-700 text-sm">
+            <thead>
+              <tr class="bg-slate-100 text-slate-800">
+                <th>가설</th>
+                <th>내용</th>
+                <th>원 논문(2023) 결과</th>
+                <th>Corrigendum(2024) 결과</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>H1a / H1b</td><td>경쟁적 근시안 낮음 → 단기/장기 고성과 필요</td><td>기각</td><td>기각 (변동 없음)</td></tr>
+              <tr><td>H2a / H2b</td><td>협력적 근시안 낮음 → 단기/장기 고성과 필요</td><td>기각</td><td>기각 (변동 없음)</td></tr>
+              <tr><td>H3a / H3b</td><td>시간적 근시안 낮음 → 단기/장기 고성과 필요</td><td>기각</td><td>기각 (변동 없음)</td></tr>
+              <tr><td>H4a</td><td>학습적 근시안 낮음 → 단기 고성과 필요</td><td>기각</td><td>기각 (변동 없음)</td></tr>
+              <tr class="bg-emerald-50"><td class="font-bold text-emerald-800">H4b</td><td class="font-bold text-emerald-800">학습적 근시안 낮음 → 장기 고성과 필요</td><td>기각</td><td class="font-bold text-emerald-800">기각되지 않음 (d=0.125, p=0.042)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">IV1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">경쟁적 근시안 (Competitive Myopia)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 인접 경쟁자에게만 주의를 집중하고, 더 먼 거리의 경쟁자·경쟁 위협을 인지하지 못하는 경향.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "우리는 잠재적 경쟁자·고객·공급자·대체 입찰자의 협상력을 평가한다" 등 5문항, 7점 Likert(역채점).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Richard et al. (1993) / 5문항 (Cronbach's α = 0.879)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 경쟁행동 수렴(red queen effect)과 사각지대(blind spot) 이론이 상충하는 예측을 제공하며, 본 연구는 어느 시평에서도 필요조건이 아님을 확인.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">독립변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">IV2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">협력적 근시안 (Cooperative Myopia)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 경쟁자·공급자·고객과의 협력(win-win) 기회를 인지하지 못하는 경향.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "신규 고객 확보를 위한 잠재적 경쟁자와의 협력 기회를 무시한다" 등 4문항, 7점 Likert.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Czakon & Kawa (2018); Soda et al. (2021) / 4문항 (Cronbach's α = 0.786)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 네트워크 이론상 정보·자원 접근 불균형과 관련되나, 본 연구에서는 성과와의 필요조건 관계가 발견되지 않음.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge style-label text-white" style="background-color:#a855f7;">독립변수 3</span>
+                <span class="text-xs text-slate-400 font-semibold">IV3</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">시간적 근시안 (Temporal Myopia)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 단기 재무 목표 달성을 위해 인적자원·R&amp;D·마케팅 등 장기 투자성 지출을 축소하는 경향.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "단기 재무목표 달성을 위해 R&amp;D 지출을 줄인다" 등 4문항, 7점 Likert.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Miller (2002); Ridge et al. (2014); Sato (2015) / 4문항 (Cronbach's α = 0.715)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 관리 문헌에서 가장 널리 연구된 근시안 차원이나, NCA 결과 단기·장기 성과 모두에서 필요조건이 아니었음.
+              </p>
+            </div>
+          </div>
+
+          <!-- IV 4 Card (highlighted - the one supported dimension) -->
+          <div class="card bg-emerald-50 border-2 border-emerald-400 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">독립변수 4 ★ 유일 지지</span>
+                <span class="text-xs text-emerald-600 font-semibold">IV4</span>
+              </div>
+              <h3 class="style-h3 text-emerald-900">학습적 근시안 (Learning Myopia)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 장기 목표, 환경변화의 큰 그림, 실패로부터의 학습을 무시하는 인지적 경향 — 현재 전략에 대한 관성적 고집을 유발.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "우리는 장기 목표를 무시한다", "미래 고객 니즈를 무시한다" 등 3문항, 7점 Likert.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Levinthal & March (1993) / 3문항 (Cronbach's α = 0.733)</p>
+              <p class="text-xs text-emerald-800 bg-white p-2.5 rounded border border-emerald-200">
+                <strong>관련 논의:</strong> Corrigendum(2024) 재계산 결과, 4개 차원 중 유일하게 "낮은 학습적 근시안"이 장기 고성과의 필요조건(d=0.125, 중간효과)으로 확인됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Dependent Variable (DV) — 단기 / 장기 성과</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기업 성과 (Firm Performance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 관리자가 지각한 회사의 당해 재무 목표 달성도(단기) 및 전략목표·신제품 성공도(장기).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의(단기):</strong> "매출 목표를 달성한다", "매출이 성장한다", "수익성 목표를 달성한다" 등 4문항, 7점 Likert.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의(장기):</strong> "전략목표를 달성한다", "신제품/서비스를 출시한다", "신제품이 시장에서 성공한다" 등 4문항.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Ben-Oz &amp; Greve (2015); Mizik &amp; Jacobson (2007); Ricciardi et al. (2022) / 단기 α=0.774~0.815, 장기 α=0.707</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          이 연구는 개념적 논증이 아닌 실증(설문+NCA) 연구이므로, 데이터 수집부터 통계 분석까지의 절차를 타임라인으로 단계화했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">표본설계 (층화 할당표집)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  폴란드 통계청 등록 기업 모집단(소기업 48,911개/중기업 14,780개/대기업 3,751개, 2019년 기준)을 규모별로 층화하고, 규모 비중에 비례하여 표본을 배분.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 104, Sec. 3.1, Table 1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">데이터 수집 (CATI)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  전문 조사기관을 통해 2020년 5~6월 컴퓨터지원 전화면접(CATI) 방식으로 최고경영진(elite informant) 658명 응답 확보. 최소 10인 이상 고용 기업만 대상, 1인/초소형기업 제외.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 104, Sec. 3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">측정도구 적용</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  검증된 근시안 척도(Czakon, Klimas, Kawa &amp; Kraus, 2023) 4차원 16문항 + 단기/장기 성과 척도(다수 선행연구) 적용, 7점 Likert.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 104-105, Sec. 3.2, Appendix A/B</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">신뢰도·공통방법편의(CMB) 점검</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Cronbach's α 산출(모든 차원 &gt;0.7), Harman 단일요인법으로 CMB 점검(단일요인 설명력 &lt;70%). 문항 순서 counter-balancing, 완전 익명성 보장 등 절차적 구제책 사전 적용.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 105, Sec. 3.2.1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">데이터 정제 및 정규성 검정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  결측치·이상치·중복 점검, 문항별 변동계수(CVMADM) 확인. 성과 변수에서 이상치 30건 제거 → 최종 N=628. Skewness/Kurtosis, Shapiro-Wilk, K-S 검정(비정규 분포 확인, 진행에는 문제없음).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 105, Sec. 3.3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">NCA 실행 (CE-FDH 상한선 기법)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  SPSS ver.26 사전 처리 후 R의 NCA 패키지 실행. 근시안 4개 차원 × 성과 2개(단기/장기) = 8개 조합에 대해 상한선(ceiling line), 효과크기(d), c-정확도, 순열검정(1000회) p값 산출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 105-106, Sec. 3.3, Table 2, Fig. 1</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">병목분석 (Bottleneck Analysis)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  목표 성과수준(10~100%)별로 필요한 근시안의 최대 허용 수준을 표로 산출, 어떤 성과 목표에도 "낮은 근시안이 필수"는 아니었음을 재확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Page 106, Sec. 4</span>
+              </div>
+              <hr class="bg-slate-900"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-900"/>
+              <div class="timeline-middle">
+                <span class="bg-emerald-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-emerald-800">[사후 수정] Corrigendum 재계산</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  2023년 12월, 저자들이 Table 2의 H4b 관련 계산 오류를 발견해 2024년 1월 정정 게재. 변수 최솟값·최댓값 등 세부 수치 공개 및 H4b 결과 뒤집힘.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-emerald-600">Page 170-172, Corrigendum (2024)</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            측정 문항(부록 A/B)과 통계 절차(SPSS/R, NCA 패키지, 효과크기·p값 산출 기준)가 투명하게 공개되어 기법적으로는 재현 가능하나, 상업적 CATI 조사기관을 통한 폴란드 대표 표본을 동일하게 재확보할 수 없고, 원 논문 Table 2 자체에 계산 오류가 있었다는 점(Corrigendum)이 첫 발표본 재현 시 결과 불일치 가능성을 시사합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.3)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>지각적(perceptual) 데이터의 한계:</strong> "NCA is recommended to examine relationship between observable characteristics while in our case both measurement scales adopt subjective, Likert-based evaluations." — 근시안과 성과 모두 주관적 자기보고 방식이라는 한계를 인정.
+              </li>
+              <li>
+                <strong>재무성과의 주관적 측정:</strong> 재무성과를 관리자의 주관적 견해로 측정했으며, 객관적 성과지표(회계자료 등)를 사용하지 않음.
+              </li>
+              <li>
+                <strong>단일 국가(폴란드) 맥락 한정:</strong> "the context of one country might constrain the generalizability of our findings" — 다양한 산업을 포괄하지만 한 국가에 국한됨.
+              </li>
+              <li>
+                <strong>코로나19 팬데믹 기간 데이터 수집의 특수성:</strong> "our data collection was done during the covid19 pandemic, which may have focused the attention of some managers'... We therefore encourage replication during less extreme periods."
+              </li>
+              <li>
+                <strong>성과 세부 차원 미분해:</strong> 혁신·시장·재무·사회적 성과 등으로 세분화하지 않고 단기/장기로만 다룸 — 향후 과제로 명시.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 사후 정정(Corrigendum) 사실을 근거로 제기하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. Corrigendum이 남긴 신뢰성 의문</span>
+                <p class="text-sm text-slate-700">
+                  최초 게재본에서 8개 가설 전부가 기각되었으나 사후 계산 오류로 1개(H4b)가 뒤집혔다는 사실은, NCA의 상한선(ceiling line) 산출·이상치 제거(30건)·소프트웨어 처리 과정이 결과에 얼마나 민감한지 보여줍니다. 나머지 7개 가설의 "완전 기각(effect size=0.000)"도 동일한 오류 가능성에서 자유로운지 재검증이 필요합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 역인과관계 (Reverse Causality)</span>
+                <p class="text-sm text-slate-700">
+                  근시안과 성과를 동일 시점·동일 설문에서 동시에 측정했기 때문에, "근시안이 낮아서 장기 성과가 높다"가 아니라 <strong>"이미 장기 성과가 좋은 관리자가 자신을 사후적으로 덜 근시안적이라 회고 응답했을"</strong> 역인과 내지 동시성 편향 가능성을 배제할 수 없습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 단일 응답자 자기보고 편향</span>
+                <p class="text-sm text-slate-700">
+                  관리자 본인이 자신의 근시안 수준과 회사 성과를 함께 평가하므로, 사회적 바람직성 편향과 자기고양적 귀인(성과가 좋으면 자신을 덜 근시안적으로 회고 평가)이 결과를 왜곡했을 가능성이 있습니다. Harman 단일요인법은 CMB를 완전히 배제하는 강력한 방법으로 간주되지 않습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 임계값·이상치 제거의 자의성</span>
+                <p class="text-sm text-slate-700">
+                  효과크기 임계값 0.1은 관례적 기준일 뿐이며, 성과 변수에서 이상치 30건을 제거한 기준과 그 제거가 최종 상한선 형태·효과크기 계산에 미친 영향의 강건성(제거 전/후 비교 등) 검증이 보고되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 팬데믹 초기 국면의 특수성</span>
+                <p class="text-sm text-slate-700">
+                  데이터가 코로나19 초기 국면(2020년 5~6월)의 폴란드에서 수집되었음에도, 결과는 근시안 일반에 대한 이론적 명제로 일반화됩니다. 고불확실성 위기 상황에서 "근시안적 빠른 대응"이 일시적으로 유리했을 수 있으며, 평시 환경에서도 동일한 결과가 재현될지는 검증되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 서열척도의 연속형 처리</span>
+                <p class="text-sm text-slate-700">
+                  근시안·성과 각 차원을 문항 평균/합산 점수로 계산해 NCA에 투입했는데, Likert 척도의 서열성을 연속형으로 취급하는 것이 CE-FDH 상한선 추정의 계단형 특성에 인위적 굴곡을 만들 수 있다는 방법론적 논쟁이 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Re-thinking strategic myopia: A necessary condition analysis of heuristic and firm's performance</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

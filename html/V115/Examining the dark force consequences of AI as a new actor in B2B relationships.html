@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Examining the Dark Force Consequences of AI as a New Actor in B2B Relationships - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">AI in B2B Relationships</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Study · 34 Interviews</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Examining the dark force consequences of AI<br>
+            <span class="text-cyan-400">as a new actor in B2B relationships</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Brendan James Keegan, Sophie Iredale, Peter Naudé
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            B2B 관계에서 새로운 행위자로 부상한<br>
+            <span class="text-indigo-300">AI의 다크포스 결과에 관한 고찰</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            AI 마케팅 솔루션 구매자·공급자 34인 반구조화 인터뷰를 통한 ARA(행위자-자원-활동) 모델 재개념화
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">AI는 이제 B2B 네트워크의 새로운 행위자이며, 비인간화·자원비용상승·책임성결여라는 다크포스로 관계를 훼손합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Artificial intelligence (AI) in industrial marketing has seen significant research attention through various theoretical lenses with an emerging thread examining the dark side effects of AI. Thirty-four semi-structured interviews were conducted with buyers and suppliers of AI marketing solutions to investigate the consequences of AI 'dark forces' on B2B relationships. We posit AI as a new actor that has blurred the lines of the actors-resources-activities model. Findings show AI is now considered a new actor within B2B networks wielding dark force consequences such as algorithmic gatekeeping, which initiates dehumanization effects. In addition, AI is reliant on access to datasets which drives up resource costs. A lack of accountability of AI marketing solutions leads to opportunistic behaviours compromising actor relationships. Our conceptual model maps our understanding of the dark force consequences underpinning theoretical and managerial implications and recommendations for increased awareness and mitigation of dark forces."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              산업재 마케팅 분야에서 AI는 다양한 이론적 렌즈를 통해 상당한 연구 관심을 받아왔으며, 최근 AI의 어두운 측면을 다루는 연구 흐름이 부상하고 있다. 본 연구는 AI 마케팅 솔루션의 구매자와 공급자 34명을 대상으로 반구조화 인터뷰를 실시하여 AI '<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">다크포스</span>'가 B2B 관계에 미치는 결과를 조사하였다. 본 연구는 AI를 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">행위자-자원-활동(ARA) 모델</span>의 경계를 흐트러뜨리는 새로운 행위자로 규정한다. 연구 결과 AI는 B2B 네트워크 내에서 새로운 행위자로 간주되며, 알고리즘 게이트키핑과 같은 다크포스적 결과를 행사해 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">비인간화</span> 효과를 촉발하는 것으로 나타났다. 또한 AI는 데이터셋 접근에 의존하는데 이는 자원 비용을 상승시키며, AI 마케팅 솔루션의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">책임성</span> 결여는 기회주의적 행동으로 이어져 행위자 간 관계를 훼손한다. 본 연구의 개념적 모델은 다크포스 결과에 대한 이해를 정리한 것으로, 이론적·관리적 함의와 함께 다크포스 인식 제고 및 완화 방안을 제언한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Dark Force(s)</td>
+                  <td>다크포스 (어두운 힘)</td>
+                  <td class="text-sm">스타워즈 '다크사이드'에서 착안한 은유. AI 도입이 초래하는 은밀하고 부정적인 파급 효과를 지칭하며, 저자 의도의 은유적 뉘앙스를 보존하기 위해 원어를 병기함.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">ARA Model</td>
+                  <td>행위자-자원-활동(ARA) 모델</td>
+                  <td class="text-sm">Håkansson & Johanson(1992)의 산업 네트워크 고전 모델. 행위자·자원·활동 3요소로 B2B 관계를 설명.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Algorithmic Gatekeeping</td>
+                  <td>알고리즘 게이트키핑</td>
+                  <td class="text-sm">빅테크·AI 알고리즘이 정보·기능·의사결정의 공개 여부를 통제하는 현상.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Dehumanization</td>
+                  <td>비인간화</td>
+                  <td class="text-sm">AI 프로세스가 인간 행위자를 의사결정·상호작용에서 배제시켜 대인관계적 요소를 소외시키는 현상.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Accountability</td>
+                  <td>책임성(책무성)</td>
+                  <td class="text-sm">AI 결과에 대해 누가 책임을 지는지 규명·추적할 수 있는 정도. AI 불투명성으로 인해 흐려지는 문제를 지칭.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">AI가 초래하는 다크포스는 무엇이며 ARA 모델을 어떻게 재구성하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">AI는 이제 자원·활동을 넘어 새로운 행위자다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">ARA 모델의 경계를 흐트러뜨리는 AI 행위자성 이론화</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> AI 마케팅 솔루션의 구매자·공급자 관계에서 AI가 초래하는 '다크포스' 결과는 무엇이며, 전통적 ARA(행위자-자원-활동) 모델의 경계를 어떻게 교란하는가?</li>
+                  <li><strong>핵심 발견:</strong> AI는 행위자(Actor)·자원(Resource)·활동(Activity)의 세 지위를 동시에 지니며, 각 차원에서 (1) 알고리즘 게이트키핑 → 비인간화, (2) 데이터 의존 → 자원비용 상승, (3) 불투명성 → 책임성 결여·기회주의라는 세 가지 다크포스가 발생함.</li>
+                  <li><strong>이론/실무 기여:</strong> 34년 역사의 ARA 모델에 AI를 세 번째 유형의 행위자로 편입시켜 재개념화하였으며, 관리자에게 AI를 블랙박스형 유사 행위자로 취급하고 초기 도입 단계부터 책임 소재 규칙을 수립할 것을 제언함.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "AI는 이제 B2B 네트워크의 새로운 행위자로 인식되며, 그로 인해 발생하는 비인간화·자원비용상승·책임성결여라는 세 가지 다크포스가 전통적 ARA 모델의 경계를 근본적으로 흐트러뜨립니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실증적 근거(인터뷰 인용 및 Table 2 집계)의 원문 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">AI는 ARA 모델의 경계를 흐트러뜨리는 새로운 행위자임</td>
+                <td class="text-sm italic text-slate-600">"We posit AI as a new actor that has blurred the lines of the actors-resources-activities model."</td>
+                <td class="text-right font-medium text-slate-500">Abstract, p.228</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">알고리즘 게이트키핑이 비인간화 효과를 촉발함 (P1)</td>
+                <td class="text-sm italic text-slate-600">"...algorithmic gatekeeping, which initiates dehumanization effects." / "I think the big tech companies are gatekeepers, they have the bigger control of AI solutions, which is less obvious to clients" (S5)</td>
+                <td class="text-right font-medium text-slate-500">Abstract; Findings 4.1, p.234</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">AI 자원은 데이터셋 의존성으로 비용이 크게 증가함 (P2)</td>
+                <td class="text-sm italic text-slate-600">"AI Resources are strongly characterised by their ability to perform tasks, but are highly reliant on datasets which incur significant costs."</td>
+                <td class="text-right font-medium text-slate-500">Discussion 5.1, p.236</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">AI 활동의 책임성 결여가 기회주의적 행동으로 이어짐 (P3)</td>
+                <td class="text-sm italic text-slate-600">"Activities performed by AI are not fully understood, lacking accountability for its actions and can at times lead to opportunistic behaviours..." / "It is easy to fake it..." (S9)</td>
+                <td class="text-right font-medium text-slate-500">Discussion 5.1, p.236; Findings 4.3</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">AI는 행위자·자원·활동의 세 지위를 동시에 지님</td>
+                <td class="text-sm italic text-slate-600">"AI is an Activity as well as an Actor and Resource, representing a merging of viewpoints...through the kaleidoscope of the ARA model."</td>
+                <td class="text-right font-medium text-slate-500">Findings 4.3, p.235</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">구매자는 데이터 통제권을 양도하지만 공급자는 IP를 유지하려 함</td>
+                <td class="text-sm italic text-slate-600">"Buyers cede direct control over their data to algorithms...Suppliers of solutions gain indirect control over data and processes, yet are still keen to retain their intellectual property."</td>
+                <td class="text-right font-medium text-slate-500">Table 2, p.232-233</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">구매자들은 AI의 블랙박스 특성으로 통제력 상실을 느낌</td>
+                <td class="text-sm italic text-slate-600">"Despite the black box side of Google Cloud, one thing that is certain is that no one has a say over what it does." (S6)</td>
+                <td class="text-right font-medium text-slate-500">Findings 4.1, p.234</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 연구는 질적 개념모형 연구이므로 통계적 변수 대신, ARA 프레임워크의 세 핵심 구성개념(Actor·Resource·Activity)과 각 구성개념에서 파생된 다크포스 결과(P1~P3), 그리고 이들이 수렴하는 상위 결과 개념을 아래 다이어그램과 카드로 정리합니다.
+        </p>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (The AI Dark Forces ARA Model, Fig. 1 개념 재구성)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 520" class="w-full h-auto">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+
+              <!-- Central Actor: AI as New Actor -->
+              <rect x="350" y="20" width="200" height="80" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="2.5"/>
+              <text x="450" y="52" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">AI: 새로운 행위자</text>
+              <text x="450" y="72" text-anchor="middle" fill="#4338ca" font-size="11">(Actor + Resource + Activity)</text>
+              <text x="450" y="88" text-anchor="middle" fill="#4338ca" font-size="10">ARA 모델 경계를 흐트러뜨림</text>
+
+              <!-- Actor Dimension box -->
+              <rect x="30" y="160" width="220" height="70" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+              <text x="140" y="190" text-anchor="middle" font-weight="700" fill="#1d4ed8" font-size="14">행위자(Actor) 차원</text>
+              <text x="140" y="210" text-anchor="middle" fill="#1e40af" font-size="10">알고리즘 게이트키핑 · 블랙박스</text>
+
+              <!-- Resource Dimension box -->
+              <rect x="340" y="200" width="220" height="70" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+              <text x="450" y="230" text-anchor="middle" font-weight="700" fill="#047857" font-size="14">자원(Resource) 차원</text>
+              <text x="450" y="250" text-anchor="middle" fill="#065f46" font-size="10">데이터셋 의존 · 표준화 곤란</text>
+
+              <!-- Activity Dimension box -->
+              <rect x="650" y="160" width="220" height="70" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="760" y="190" text-anchor="middle" font-weight="700" fill="#92400e" font-size="14">활동(Activity) 차원</text>
+              <text x="760" y="210" text-anchor="middle" fill="#92400e" font-size="10">불투명성 · 변화하는 알고리즘</text>
+
+              <!-- Dark Force Outcome 1: Dehumanization -->
+              <rect x="10" y="330" width="260" height="80" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+              <text x="140" y="360" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="14">비인간화 (Dehumanization)</text>
+              <text x="140" y="380" text-anchor="middle" fill="#b91c1c" font-size="10">인간 행위자의 의사결정 배제</text>
+              <text x="140" y="396" text-anchor="middle" fill="#b91c1c" font-size="10">P1 결과</text>
+
+              <!-- Dark Force Outcome 2: Resource Cost -->
+              <rect x="320" y="330" width="260" height="80" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+              <text x="450" y="360" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="14">자원비용 상승 · 데이터 전쟁</text>
+              <text x="450" y="380" text-anchor="middle" fill="#b91c1c" font-size="10">데이터 확보/정제 비용 급증</text>
+              <text x="450" y="396" text-anchor="middle" fill="#b91c1c" font-size="10">P2 결과</text>
+
+              <!-- Dark Force Outcome 3: Accountability/Opportunism -->
+              <rect x="630" y="330" width="260" height="80" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+              <text x="760" y="360" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="14">책임성 결여 · 기회주의</text>
+              <text x="760" y="380" text-anchor="middle" fill="#b91c1c" font-size="10">성과 저조 시 책임 회피/변명</text>
+              <text x="760" y="396" text-anchor="middle" fill="#b91c1c" font-size="10">P3 결과</text>
+
+              <!-- Converging Outcome: B2B Relationship Tension -->
+              <rect x="300" y="450" width="300" height="60" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="2.5"/>
+              <text x="450" y="478" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="14">B2B 관계 훼손 · 긴장 (Relationship Tensions)</text>
+              <text x="450" y="496" text-anchor="middle" fill="#475569" font-size="10">구매자-공급자 신뢰·협력 저해</text>
+
+              <!-- AI center -> three dimension boxes (solid, actor-defines-dimension) -->
+              <path d="M400 100 L 200 160" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M450 100 L 450 200" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M500 100 L 720 160" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Actor dimension -> Dehumanization (P1) -->
+              <path d="M140 230 L 140 328" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="150" y="290" fill="#1d4ed8" font-weight="700" font-size="12">P1 (+)</text>
+
+              <!-- Resource dimension -> Resource cost (P2) -->
+              <path d="M450 270 L 450 328" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="460" y="305" fill="#047857" font-weight="700" font-size="12">P2 (+)</text>
+
+              <!-- Activity dimension -> Accountability/Opportunism (P3) -->
+              <path d="M760 230 L 760 328" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="770" y="290" fill="#92400e" font-weight="700" font-size="12">P3 (+)</text>
+
+              <!-- Three outcomes converge to relationship tension -->
+              <path d="M140 410 L 140 440 L 440 440 L 440 448" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <path d="M450 410 L 450 448" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <path d="M760 410 L 760 440 L 460 440 L 460 448" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+
+              <!-- AI direct dashed line to relationship tension (overarching direct blur effect) -->
+              <path d="M350 60 L 100 60 L 100 480 L 298 480" fill="none" stroke="#4f46e5" stroke-width="1.5" stroke-dasharray="3 5" marker-end="url(#arrow)"/>
+              <text x="30" y="480" fill="#4338ca" font-weight="600" font-size="10">직접효과: ARA 경계 붕괴</text>
+            </svg>
+          </div>
+          <p class="text-xs text-slate-500 max-w-2xl text-center">
+            참고: 원문 Fig. 1은 스타워즈 은하제국 엠블럼을 차용한 육각형 개념도로, 행위자·자원·활동 세 차원이 AI로 인해 어떻게 변형되는지와 그 사이의 연결 관계를 시각화합니다. 본 다이어그램은 논문의 세 명제(P1-P3)와 서술적 논증 구조를 실선(직접 파생)·점선(수렴적 간접효과)으로 재구성한 것입니다.
+          </p>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Actor Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">핵심 매개적 구성개념</span>
+                <span class="text-xs text-slate-400 font-semibold">Central Construct</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">새로운 행위자로서의 AI (AI as a New Actor)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> ARA 모델에서 '행위자'는 활동을 수행하고/하거나 자원을 통제하는 주체인데, AI(알고리즘·이를 운영하는 빅테크/공급자)가 자율적 판단·통제·해석 행위를 통해 이 행위자 지위를 획득했다고 개념화함.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "big tech companies are gatekeepers", "the algorithm decided", "no one has a say over what it does" 등 AI에 인격적 행위자성을 부여하는 1차 코드를 "actors must relinquish control" 등 2차 코드로 통합(Table 2).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Table 2 (Abductive sequential data structure) Actors 열 / Kot &amp; Leszczyński (2020) interlocutor status / Pardo, Wei, &amp; Ivens (2022) Act-Source 개념</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> AI가 실제 의식·의도성을 결여함에도(p.234) B2B 행위자들이 AI를 행위자로 '지각'한다는 점에서 인지적·관계적 차원의 새로운 행위자 지위를 주장함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Dehumanization Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">결과 구성개념 (P1)</span>
+                <span class="text-xs text-slate-400 font-semibold">Actor → Outcome</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">비인간화 효과 (Dehumanization Effect)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 빅테크·AI 공급자의 알고리즘 게이트키핑으로 인간 행위자가 의사결정 과정과 프로세스에서 점진적으로 배제·소외되는 현상.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "actors are often invisible", "loss of interaction/control" 등 1차 코드를 "actors must relinquish control over resources and activities" 2차 테마로 통합(Table 2 Actors 열).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 인터뷰 인용(S5, S6, S7, B3, B5, B6, B11) / Table 2 Actors 집계 차원 / Gligor, Pillai, &amp; Golgeci (2021)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Alabed, Javornik, &amp; Gregory-Smith (2022)의 AI 의인화 논의가 반대 방향에서 이 현상을 뒷받침(인간이 AI를 행위자처럼 인식할수록 인간 개입은 축소됨).
+              </p>
+            </div>
+          </div>
+
+          <!-- Resource Cost Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">결과 구성개념 (P2)</span>
+                <span class="text-xs text-slate-400 font-semibold">Resource → Outcome</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">자원비용 상승 · 데이터 의존 (Resource Cost & Data Dependency)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> AI가 자원으로 기능하려면 대규모·고품질 데이터셋이 필수인데, 데이터 확보·정제·유지 비용이 자원 가치를 압도하며 표준화를 어렵게 만드는 현상.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "AI solutions have commandeered the resources...", "AI adoption requires ceding control across the entire network" 등 1차/2차 코드(Table 2 Resources 열).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 인터뷰 인용(S2, S3, S4, S6, B4, B12) / Table 2 Resources 집계 차원 / Hossain et al. (2022)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> RBV의 자원 희소성=경쟁우위 명제와 달리, '누가 데이터를 통제하는가'에 따른 권력 비대칭 심화를 강조 (Grewal et al., 2021의 uniqueness neglect와 연계).
+              </p>
+            </div>
+          </div>
+
+          <!-- Accountability/Opportunism Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">결과 구성개념 (P3)</span>
+                <span class="text-xs text-slate-400 font-semibold">Activity → Outcome</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">책임성 결여 · 기회주의 (Accountability Gap-driven Opportunism)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> AI 알고리즘의 지속적 변경·불투명성으로 성과 저조의 원인 규명이 어려워지고, 이 정보 비대칭을 공급자가 책임 회피 수단으로 활용하는 현상.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "activities performed by AI are not fully understood, lacking accountability", "suppliers exhibit opportunistic behaviours" 등 1차/2차 코드(Table 2 Activities 열).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 인터뷰 인용(S3, S5, S6, S9, S10, B1, B3, B6) / Table 2 Activities 집계 차원 / Mikalef et al. (2021); Cao et al. (2021)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 거래비용경제학의 기회주의 개념이 비인간 행위자(AI)가 매개하는 관계에도 적용됨을 시사하며, 전통적 자기교정 메커니즘이 AI 관계에서는 작동하지 않음을 강조.
+              </p>
+            </div>
+          </div>
+
+          <!-- Converging Outcome Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">수렴적 상위 결과</span>
+                <span class="text-xs text-slate-400 font-semibold">Converging Outcome</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">B2B 관계 훼손 · 긴장 (B2B Relationship Tensions &amp; Compromise)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 비인간화·자원비용상승·책임성결여-기회주의라는 세 다크포스가 누적적으로 작용해 구매자-공급자 간 신뢰·협력·상호이해가 저해되는 최종 관계 결과.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 별도 척도로 측정되지 않으며, Fig. 1(다크사이드 엠블럼 기반 개념도)을 통해 세 다크포스의 통합적 영향을 시각적으로 개념화함.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Fig. 1 "The AI dark forces ARA model" (p.234) / 논문 전체 서술적 내러티브(Table 2)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          해석적 질적 연구(절충적 순차 비교 + Gioia 방법론)를 외부 연구자가 그대로 <strong>추종 재현</strong>할 수 있도록 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 설계 및 방법론적 정당화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  질적 인터뷰 방식을 채택한 3가지 근거 제시: (1) AI 다크사이드 관련 질적 실증연구 부족, (2) 익명성 하에 부정적 경험을 솔직히 이야기할 수 있는 환경, (3) 이론적 토대 부족한 신생 주제 탐색에 적합.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3, p.230-231</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">목적표집(Purposive Sampling) 기준 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  AI 마케팅 솔루션의 구매(조달/도입) 또는 공급(상업적 경험, 대표/CEO급 우선) 경험 보유자를 목표 모집단으로 설정. 유사 직무·유사 지리적 권역 내 참여자 모집.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.1, p.231</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">참가자 모집 (34명)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  구매자(Buyer) 24명(B1-B24, 금융서비스·통신·IT·헬스케어 등)과 공급자(Supplier) 10명(S1-S10, 제약·SaaS·전자상거래 등 대행사 경력자) 모집. 성별·경력(4~20년)·업종 Table 1에 명시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.1 &amp; Table 1, p.231</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">반구조화 인터뷰 실시</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  화상회의 또는 대면으로 45~60분 진행. Appendix A 프로토콜(역할/경력, AI 이해도, 혜택·어려움, 조직적 영향, 미래 역할, 구매자-공급자 상호 인식, 윤리 6개 영역) 사용. 녹음 후 전사 및 익명화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.2, p.231; Appendix A, p.238</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">초기 스크리닝 및 반영적 주제분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  전사본 초기 검토에서 AI의 부정적 결과가 반복 등장함을 확인. Braun &amp; Clarke (2019) 반영적 주제분석을 적용해 초기 분석 코드·범주 생성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.2, p.231</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">절충적 순차 비교 (Abductive Systematic Combining)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Dubois &amp; Gadde (2002)의 체계적 결합 방식으로 경험적 관찰과 ARA 이론 사이를 반복적으로 오가며 해석. 이론 검증이 아닌 새로운 개념·관계 '발견'에 초점.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.2, p.231</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">Gioia 방법론 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  1차 참여자 언어 코드 → 2차 이론적 코드 → 테마 및 통합 차원(Aggregate Dimensions)으로 조직화(Table 2). NVIVO로 저자 독립 분석 후 라운드테이블 논의로 교차 검증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.2, p.231; Table 2, p.232-233</span>
+              </div>
+              <hr class="bg-slate-700"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-700"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">개념모형(Fig. 1) 도출 및 명제(P1-P3) 정식화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  ARA 3요소별 다크포스 결과를 통합해 "AI dark forces ARA model"(Fig. 1)을 구성하고, 데이터-근거 내러티브 기반으로 명제 P1(행위자)·P2(자원)·P3(활동)을 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 4-5, Fig. 1 p.234; Section 5.1, p.235-236</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            표집 기준, 인터뷰 프로토콜(Appendix A 전문 공개), Gioia 코딩 절차의 논리는 상세히 기술되어 유사 절차 반복은 가능하나, 원 전사 데이터는 "confidential"로 비공개이며 저자 간 라운드테이블 합의 과정은 외부 연구자가 동일하게 재현하기 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">본 논문은 별도의 "Limitations" 소제목 없이 Conclusion(6장) 내 함의·향후연구 서술로 곧바로 넘어갑니다. 다만 본문 곳곳에 저자들이 스스로 인정하거나 암묵적으로 한정한 사항이 존재합니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>AI를 '행위자'로 규정하는 것 자체의 논쟁 가능성:</strong> "Indeed, in its current state, AI lacks true consciousness, self-awareness, and intentionality thereby the notion of AI as an actor within the B2B relationship may be controversial." — 핵심 이론적 주장이 논쟁적일 수 있음을 명시적으로 인정 (Discussion 5.1, p.234).
+              </li>
+              <li>
+                <strong>자료 비공개성으로 인한 검증 제한:</strong> Data availability 항목에 "The data that has been used is confidential."라고 명시되어, 원자료 기반 외부 검증이 불가능함을 사실상 인정 (Data availability, p.239).
+              </li>
+              <li>
+                <strong>AI 개념 정의의 불명확성/파편화 인정:</strong> "understanding of AI is becoming more fragmented... future studies should attempt to define a clear and unambiguous understanding of the term AI" — AI에 대한 정의가 아직 통일되지 않았음을 인정 (Future Research Agenda 6.2, p.239).
+              </li>
+              <li>
+                <strong>지리적·직군적으로 유사한 표본에 대한 암묵적 한정:</strong> 목적표집을 "유사한 직무·유사한 지리적 권역" 내에서 실시했다고 밝힘 — 대표성 확보를 위한 선택이라 서술하지만 표본 편중을 동시에 자인한 것 (Section 3.1, p.231).
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">질적 연구 설계 및 분석 절차를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 표본의 자기선택 편향</span>
+                <p class="text-sm text-slate-700">
+                  "participants who were able to <strong>articulate the dark force consequences</strong>"라는 표집 문구 자체가, 애초에 AI에 대한 부정적 경험을 언어화할 수 있는 사람들 위주로 표본을 구성했음을 시사합니다. 연구 설계 단계부터 '다크포스'라는 결론을 유도하는 확증편향적 프레이밍일 가능성이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 구매자-공급자 비대칭 표본(24:10)</span>
+                <p class="text-sm text-slate-700">
+                  구매자 24명 대 공급자 10명으로 표본이 불균형해, 공급자 관점의 다양성(소규모 vs. 대형 에이전시 간 차이)이 상대적으로 덜 반영되었을 가능성이 있습니다. 이 불균형에 대한 논의나 정당화가 본문에 없습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 인터뷰 시점과 기술 변화 속도의 괴리</span>
+                <p class="text-sm text-slate-700">
+                  ChatGPT/EinsteinGPT(2023년 3월)를 서두에서 강조하지만, 34건 인터뷰와 코딩·라운드테이블 분석 소요 기간(투고 2022.11 ~ 게재확정 2023.10)을 감안하면 실제 인터뷰는 생성형 AI 붐 이전 세대의 예측/추천 알고리즘 경험에 기반했을 가능성이 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 코더 간 합의 과정의 불투명성</span>
+                <p class="text-sm text-slate-700">
+                  "roundtable discussion...to ensure the validity"는 표준적 관행이지만, 합의에 이르는 구체적 판단 기준·이견 해소 방식이 기술되지 않아 코더 간 신뢰도(inter-coder reliability)를 정량적으로 확인할 방법이 없습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 은유적 프레이밍의 과잉 일반화 위험</span>
+                <p class="text-sm text-slate-700">
+                  스타워즈 다크사이드 엠블럼을 차용한 Fig. 1은 서사적 흡인력이 강하지만, P1-P3가 상호 독립적인지 혹은 하나의 근본 원인(불투명성)에서 파생된 동일 현상의 세 측면인지에 대한 이론적 구분이 명확하지 않습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 부정적 경험자 응답 동기 편향</span>
+                <p class="text-sm text-slate-700">
+                  이미 AI 도입에 실패했거나 부정적 경험을 겪은 참여자일수록 인터뷰 요청에 더 적극적으로 응했을 가능성이 있으며, 이러한 응답 동기 편향은 정성적 연구 설계상 통제되지 않습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Examining the dark force consequences of AI as a new actor in B2B relationships</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uncovering the Dark Side of AI-Based Decision-Making - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header (navbar 없음, 단일 스크롤 흐름) -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">AI Dark Side / B2B Case Study</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Single Case Study</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Uncovering the dark side of AI-based decision-making:<br>
+            <span class="text-cyan-400">A case study in a B2B context</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Emmanouil Papagiannidis, Patrick Mikalef, Kieran Conboy, Rogier Van de Wetering
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            AI 기반 의사결정의 어두운 이면 파헤치기:<br>
+            <span class="text-indigo-300">B2B 맥락에서의 사례 연구</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            노르웨이 에너지 트레이딩 기업 14명 인터뷰 축코딩(axial coding)을 통한 AI 다크사이드 질적 사례 연구
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">AI 트레이딩 봇은 트레이더를 매매자에서 감독자로 바꾸었지만, 디스킬링·책임 소재 불분명·부서 간 갈등이라는 새로운 다크사이드를 함께 남겼다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-sm bg-cyan-400 hover:bg-cyan-300 border-none text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Over the last decade, many organizations worldwide have been assimilating Artificial Intelligence (AI) technologies to increase their productivity and attain a competitive advantage. As with any technology, intelligence systems come with potential downsides. Despite the efforts to mitigate any negative consequences of AI, businesses and employees continue to confront the dilemmas of adopting AI, so it is essential to explore in detail the rising concerns around such technologies. In this paper, we used a single case study to investigate the dark aspects of AI in a Norwegian energy trading firm. We gathered data through semi-structured interviews and secondary data. Specifically, we interviewed AI managers, traders and developers who have worked on deploying and using AI tools over the last three years. Our aim is to identify the dark side of AI use in trading, how AI trading bots affect the relationship between traders and AI developers and how the firm adjusts to this new reality. The findings indicate that negative or unintended consequences of AI can be grouped into three clusters related to (1) the nature of the work; (2) conflicts and effects; and (3) responsibility. The paper concludes with future research and practical implications that can help organizations mitigate the negative aspects of AI use."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              지난 10년간 전 세계 많은 조직들이 생산성 향상과 경쟁우위 확보를 위해 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">인공지능(AI)</span> 기술을 흡수해왔다. 다른 모든 기술과 마찬가지로 지능형 시스템에도 잠재적 부작용이 존재한다. AI의 부정적 결과를 완화하려는 노력에도 불구하고 기업과 직원들은 여전히 AI 도입의 딜레마에 직면하고 있으며, 이러한 기술을 둘러싼 우려가 커지고 있어 이를 자세히 탐구하는 것이 필수적이다. 본 논문은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">단일 사례 연구</span>를 활용하여 노르웨이의 한 에너지 트레이딩 기업에서 나타난 AI의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">다크사이드(dark aspects)</span>를 조사하였다. 반구조화 인터뷰와 2차 데이터를 통해 자료를 수집하였다. 구체적으로는 지난 3년간 AI 도구를 배치·활용해온 AI 관리자, 트레이더, 개발자를 인터뷰하였다. 본 연구의 목적은 트레이딩에서의 AI 다크사이드를 식별하고, AI 트레이딩 봇이 트레이더와 AI 개발자 간의 관계에 어떤 영향을 미치는지, 그리고 기업이 이러한 새로운 현실에 어떻게 적응하는지를 밝히는 것이다. 연구 결과, AI의 부정적이거나 의도치 않은 결과는 (1) <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">업무의 본질</span>, (2) <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">갈등과 영향</span>, (3) <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">책임</span>의 세 가지 클러스터로 그룹화될 수 있는 것으로 나타났다. 본 논문은 조직이 AI 사용의 부정적 측면을 완화하는 데 도움이 될 수 있는 향후 연구 방향과 실무적 시사점을 제시하며 마무리한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Dark side of AI</td>
+                  <td>AI의 다크사이드(어두운 이면)</td>
+                  <td class="text-sm">긍정적 효과 이면의 의도치 않은 부정적 결과를 지칭하는 학계 관용어. "다크사이드"를 병기하여 원어 뉘앙스를 유지.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Deskilling</td>
+                  <td>디스킬링(탈숙련화)</td>
+                  <td class="text-sm">자동화로 노동자의 숙련 기술이 퇴화·상실되는 현상을 가리키는 노동사회학 용어.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Explainability (XAI)</td>
+                  <td>설명가능성(설명 가능 AI)</td>
+                  <td class="text-sm">AI 판단 근거를 인간이 이해 가능한 형태로 제시하는 능력. 책임 소재 규명의 전제조건으로 반복 강조됨.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Axial coding</td>
+                  <td>축코딩</td>
+                  <td class="text-sm">Charmaz(2006, 2014) 근거이론 방법론에서 개방코딩 이후 범주 간 관계를 재구성하는 코딩 단계.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Nodes (societal / organizational / interpersonal / individual)</td>
+                  <td>노드(사회/조직/대인관계/개인 수준)</td>
+                  <td class="text-sm">Ragins &amp; Sundstrom(1989)의 권력 분석 틀을 차용, 관찰을 4개 분석 수준으로 범주화.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Hybrid (trader-supervisor)</td>
+                  <td>하이브리드(트레이더 겸 AI 감독자)</td>
+                  <td class="text-sm">트레이더가 직접 매매 대신 AI 산출물을 모니터링·감독하는 역할로 전환된 상태.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">B2B 에너지 트레이딩에서 AI의 다크사이드는 무엇인가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">업무본질·갈등효과·책임의 3개 테마로 수렴</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">4노드×3테마 축코딩 프레임워크와 실무 완화전략</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> AI 기반 의사결정이 B2B(에너지 트레이딩) 맥락에서 초래하는 부정적 결과는 무엇이며, AI 트레이딩 봇이 트레이더-AI 개발자 관계와 조직 적응에 어떤 영향을 미치는가?</li>
+                  <li><strong>핵심 발견:</strong> 14건의 반구조화 인터뷰를 축코딩한 결과, 다크사이드는 (1) 업무의 본질(디스킬링·실직 공포·해킹 위협), (2) 갈등과 효과(신뢰문제·부서갈등·시장조작 우려), (3) 책임(설명가능성 부재·책임소재 불분명)의 3개 테마로 수렴함. 트레이더는 매매자에서 "AI 감독자"로 하이브리드화됨.</li>
+                  <li><strong>이론/실무 기여:</strong> 희소했던 B2B 맥락의 AI 다크사이드 연구를 심층 사례로 확장하고, 4개 노드(사회/조직/대인관계/개인) × 3개 테마 축코딩 프레임워크를 제시. 실무적으로는 설명가능 AI 도입, 문화적 전환, 트레이더 역할 재설계 등 구체적 완화 전략을 제시함.</li>
+                </ul>
+              </div>
+
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "AI 트레이딩 봇은 트레이더를 매매자에서 감독자로 바꾸었지만, 디스킬링·책임 소재 불분명·부서 간 갈등이라는 새로운 다크사이드를 함께 남겼다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 인터뷰 인용문의 원문 위치를 맵핑했습니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">3개 클러스터로 수렴하는 부정적 결과</td>
+                <td class="text-sm italic text-slate-600">
+                  "...negative or unintended consequences of AI can be grouped into three clusters related to (1) the nature of the work; (2) conflicts and effects; and (3) responsibility."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract, p.253</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">인트라데이 트레이딩 확대에 따른 트레이더 디스킬링</td>
+                <td class="text-sm italic text-slate-600">
+                  "Due to intraday trading... traders lose their competence, and deskilling will be a challenge in the upcoming years..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.258, Sec. 4.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">설명가능성 도구 부재가 책임 소재 규명을 저해</td>
+                <td class="text-sm italic text-slate-600">
+                  "The lack of explainability tools may contribute to that as it is hard to deal with concerns surrounding transparency and bias."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.259, Sec. 4.2</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">트레이더-AI 개발자 간 전문용어 차이로 인한 소통 갈등</td>
+                <td class="text-sm italic text-slate-600">
+                  "Whenever we talk to experts, we cannot just talk in terms of what a feature does in the model... We need to use vocabulary that they understand." (R7)
+                </td>
+                <td class="text-right font-medium text-slate-500">p.260–261, Sec. 4.3</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">모니터링룸 신설을 통한 트레이더 역할의 하이브리드화</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the company shifted traders to another department and set up a monitoring room where traders monitor patterns and detect any anomalies..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.259, Sec. 4.1</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">AI 트레이딩 의사결정이 에너지 소비·가격에 미치는 사회적 영향</td>
+                <td class="text-sm italic text-slate-600">
+                  "...short-term profitability can shape the nature of consumption, supply and demand, as energy companies cannot generate an infinite amount of energy."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.261, Sec. 4.3</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">해킹·보안 위협도 다크사이드의 한 축</td>
+                <td class="text-sm italic text-slate-600">
+                  "You have to ensure that systems are secured... Last year, two companies (in this sector)... were hacked" (R11)
+                </td>
+                <td class="text-right font-medium text-slate-500">p.259–260, Sec. 4.1</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">회사는 설명가능 AI 우선 채택 및 문화적 전환으로 대응</td>
+                <td class="text-sm italic text-slate-600">
+                  "The company prioritized the use of explainable AI over higher-margin options that carried potential unknown risks."
+                </td>
+                <td class="text-right font-medium text-slate-500">Table 3, p.262</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model / Analytical Framework & Constructs -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델(분석 프레임워크) 및 핵심 개념 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Framework &amp; Constructs</span>
+        </div>
+
+        <div class="alert bg-slate-100 border border-slate-300 text-slate-700 rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-slate-500 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span class="style-body">본 논문은 <strong>정량적 가설검증 연구가 아닌 질적 단일 사례 연구</strong>이므로 독립변수·매개변수·조절변수·종속변수로 구성된 통계적 인과 모형(DAG)이 존재하지 않습니다. 대신 저자들은 근거이론의 <strong>축코딩(axial coding)</strong>을 통해 인터뷰 관찰을 아래 "4개 분석 노드 × 3개 테마" 매트릭스로 범주화하였으며(Table 2 기반), 이를 시각화하여 대체합니다.</span>
+        </div>
+
+        <!-- Node x Theme matrix -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest">축코딩 분석 프레임워크 (Nodes × Themes, Table 2 기반)</h3>
+          <div class="overflow-x-auto">
+            <table class="table table-bordered w-full text-slate-700 bg-white rounded-lg">
+              <thead>
+                <tr class="bg-slate-800 text-white">
+                  <th>테마 \ 노드</th>
+                  <th>Individual (개인)</th>
+                  <th>Interpersonal (대인관계)</th>
+                  <th>Organizational (조직)</th>
+                  <th>Societal (사회)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold bg-emerald-50 text-emerald-900">Nature of work<br><span class="text-xs font-normal">업무의 본질</span></td>
+                  <td class="text-sm">디스킬링, 업무 흥미 상실</td>
+                  <td class="text-sm text-slate-400">—</td>
+                  <td class="text-sm">AI 거짓 기대, 인적자본 재배치, 해킹 시도</td>
+                  <td class="text-sm">실업(Unemployment), 해킹 시도</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold bg-amber-50 text-amber-900">Responsibility<br><span class="text-xs font-normal">책임</span></td>
+                  <td class="text-sm text-slate-400">—</td>
+                  <td class="text-sm">AI 책무성 부재</td>
+                  <td class="text-sm">AI 의사결정 설명가능성 부재, AI 책무성 부재</td>
+                  <td class="text-sm">시장 조작(Manipulating the market)</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold bg-indigo-50 text-indigo-900">Conflicts &amp; effects<br><span class="text-xs font-normal">갈등과 효과</span></td>
+                  <td class="text-sm">포트폴리오 리스크</td>
+                  <td class="text-sm">관리자-트레이더 이해상충, 개발자-트레이더 갈등, AI/비AI 트레이더 갈등</td>
+                  <td class="text-sm text-slate-400">—</td>
+                  <td class="text-sm">과소비 유발, 해외 판매로 인한 에너지 부족</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="style-small text-slate-500">※ 4개 노드는 Ragins &amp; Sundstrom(1989)의 권력 분석틀을, 3개 테마는 Linstead, Maréchal &amp; Griffin(2014)의 조직 다크사이드 이론을 차용해 구성됨.</p>
+        </div>
+
+        <!-- Key construct cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">핵심 개념 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Dark Side of AI</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">AI 다크사이드 (Dark Side of AI)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> AI 기술 도입이 의도치 않게 유발하는 부정적 결과 전반(잡손실, 프라이버시 침해, 머신윤리, 보안, 초지능 리스크 등).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의(본 연구):</strong> 14명의 인터뷰이가 언급한 부정적 경험·우려·관찰을 축코딩으로 범주화한 3개 테마.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 별도 설문 척도 없음 — 반구조화 인터뷰 전사록(NVivo) 질적 코딩.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Grundner &amp; Neuhofer(2021), Wirtz et al.(2020), Linstead et al.(2014)의 조직행동 다크사이드 이론 계승.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">핵심 개념 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Trader Hybridization</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">트레이더의 하이브리드화 (Trader-as-Supervisor)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> AI 트레이딩 봇 도입으로 트레이더가 직접 매매 대신 AI 산출물을 모니터링·검증하는 역할로 전환되는 현상.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 회사가 신설한 모니터링룸에서 트레이더가 24/7 이상탐지·패턴 관찰을 수행하는 업무 형태(R3, R13).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 인터뷰 관찰(R3, R8, R10, R13) 기반 질적 서술.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Rai(2020) explainable AI 논의, Mikalef et al.(2022) responsible AI 프레임워크와 연결.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">핵심 개념 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Explainability</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">AI 설명가능성 (AI Explainability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> AI 산출물의 도출 근거를 인간이 이해·검증할 수 있게 제공하는 능력.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "trade가 왜 이루어졌는지 설명할 수 있는 능력"(R9)으로 조작화되며 별도 정량 척도는 없음.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 인터뷰 진술(R9) 기반.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Rai(2020) black-box→glass-box 전환 논의; Keegan, Dennehy &amp; Naudé(2022) 신뢰 구축 논의.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">핵심 개념 4</span>
+                <span class="text-xs text-slate-400 font-semibold">Accountability</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">책임소재의 모호성 (Ambiguous Accountability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> AI 단독 또는 AI-인간 협업 의사결정에서 결과에 대한 법적·조직적 책임 주체가 불분명한 상태.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "누가 책임져야 하는가"라는 반복적 인터뷰 진술(R3, R9, R10)로 확인됨.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 인터뷰 진술(R3, R9, R10) 기반.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Azzutti, Ringe &amp; Stiehl(2022) 알고리즘 시장조작 책임 논의, Mikalef et al.(2022).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 질적 사례 연구 절차를 그대로 <strong>추종 재현</strong>할 수 있도록 단계화하였습니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 설계 선택 — 질적 단일 사례 연구</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  실생활 맥락에서 복잡한 현상을 다면적으로 탐구하기 위해 사례 연구 방법론 채택. 질적 방법론이 유연성과 심층 논의를 가능케 한다는 근거로 선정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3, p.257</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">사례 선정 — 노르웨이 에너지 트레이딩 기업</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  약 500명 규모, 65년 업력의 노르웨이 전력산업 기업 선정. 선정 기준: (1) 스칸디나비아의 높은 ICT 도입 수준, (2) 구성원의 높은 디지털 역량, (3) 기업의 AI 확장 비전 및 B2B 경쟁우위 전략.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.1, p.257</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">응답자 표집 및 인터뷰 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  14건의 반구조화 인터뷰(평균 45분), 트레이딩·AI 부서 양쪽에서 응답자 확보(Table 1). 질문지는 3부(AI 도입 전 업무방식 / AI 도입 후 영향 / 부정적 측면)로 구성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.1, p.257, Table 1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">데이터 수집 — 인터뷰 + 2차 자료</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  인터뷰와 함께 보고서, 사내 문서 등 2차 자료를 결합해 데이터를 보완·검증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.1, p.257</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">전사 및 소프트웨어 처리</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  인터뷰 전사록을 질적 분석 소프트웨어 NVivo에 입력.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.2, p.257</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">축코딩(Axial Coding) 수행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Charmaz(2006, 2014)의 축코딩 절차 적용, 데이터 간 연결관계를 재구성해 코드·범주·하위범주 도출. Ragins &amp; Sundstrom(1989) 틀을 차용해 사회/조직/대인관계/개인 4개 노드로 분류.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.2, p.257</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">테마 도출 (Table 2 생성)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  관찰들을 그룹화하여 업무의 본질, 책임, 갈등과 효과의 3개 테마로 정리. Linstead, Maréchal &amp; Griffin(2014)의 조직 다크사이드 이론과 연계.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.2, p.257–258, Table 2</span>
+              </div>
+              <hr class="bg-slate-700"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-700"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">서사 분석 및 논의 종합</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  직원들의 경험·이야기를 활용한 서사 분석으로 테마별 인터뷰 인용을 배치해 귀납적으로 결론 도출(Section 4). 기존 문헌과 비교(Table 3), 향후 연구 아젠다 제시(Table 4, Section 5).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 4–5, p.258–263</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            응답자 구성(Table 1), 인터뷰 가이드 구조, 코딩 절차(축코딩·4노드 프레임워크)는 상세히 기술되어 있으나, 실제 인터뷰 전사록과 NVivo 코드북은 "The data that has been used is confidential"(p.264)로 비공개이며 특정 회사(익명 처리)와의 접근권이 필요해 외부 연구자가 동일 사례로 완전히 재현하기는 불가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.4)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>단일 조직 기반 데이터:</strong> "the information was gathered through interviews with only one organization; as a result, our data may be biased or offer an inadequate picture of the problems surrounding relevant procedures." (p.263)
+              </li>
+              <li>
+                <strong>특정 시점 데이터 수집의 한계:</strong> "our data was gathered at a specific point in time and may not accurately reflect the full range of activities." (p.263)
+              </li>
+              <li>
+                <strong>AI 도입 경험이 상대적으로 긍정적인 회사를 표집:</strong> "the company had used AI for only five years and in general had a positive experience due to the slow, steady and careful development of AI to prevent risks; therefore, the results may be affected by that factor." (p.263)
+              </li>
+              <li>
+                <strong>일반화 가능성 문제:</strong> 위 세 요인으로 "generalization may be a problem that should be considered." 향후 연구는 실증 데이터를 추가 수집하고 실증주의적 관점에서 다크사이드 개념을 정립할 것을 제안함. (p.263–264)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">질적 사례 연구 설계와 서술 방식을 근거로 제기하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 선정 편향 (Selection Bias)</span>
+                <p class="text-sm text-slate-700">
+                  사례 기업은 "AI 확장 비전과 B2B 경쟁우위 전략"을 이유로 선정되었다(Section 3.1). 즉 AI 도입에 상대적으로 성공적이고 신중했던 <strong>"모범 사례" 기업이 의도적으로 선택</strong>된 것으로, 다크사이드가 더 심각했을 실패 기업 사례는 애초에 배제되었을 가능성이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 사회적 바람직성 편향·권력 비대칭</span>
+                <p class="text-sm text-slate-700">
+                  Chief AI Officer 등 관리자급과 트레이더가 함께 인터뷰되었는데, 조직 위계상 하급자인 트레이더가 <strong>경영진 정책에 대한 비판을 온전히 솔직하게</strong> 표현했는지 검증할 익명성 보장·삼각검증 절차가 명시되어 있지 않다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 맥락 특수성 — 고도로 규제된 단일 산업</span>
+                <p class="text-sm text-slate-700">
+                  노르웨이 에너지 트레이딩은 엄격한 시장조작 규제, 소수 정예 인력(약 500명), 북유럽의 높은 ICT 성숙도라는 특수 맥락을 지닌다. <strong>제조업·서비스업 등 상이한 B2B 산업</strong>에 동일한 3개 테마 프레임워크가 일반화될지는 검증되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 회고적 응답의 신뢰성</span>
+                <p class="text-sm text-slate-700">
+                  다수 인용문이 "예전에는(before AI)" 방식의 과거 회상에 의존하며, 실직 공포·디스킬링 등 일부 우려는 <strong>아직 실현되지 않은 예측·추측성 진술</strong>이다. 실제 발생한 결과와 응답자의 주관적 불안을 구분하는 절차가 부족하다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 객관적 검증 데이터의 부재</span>
+                <p class="text-sm text-slate-700">
+                  해킹 사건(R11), 모델 예측 실패(R3, R4, R14) 등 핵심 주장이 <strong>구술 진술에만 의존</strong>하며, 실제 재무손실 규모나 보안사고 로그 등 객관적 2차 지표로 교차검증되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 코더 간 신뢰도 미보고</span>
+                <p class="text-sm text-slate-700">
+                  축코딩 과정에서 복수 연구자의 독립 코딩 후 일치도(Cohen's kappa 등)를 산출했다는 언급이 없어, <strong>단일 연구자의 해석적 편향</strong>이 테마 도출에 개입되었을 가능성을 배제할 수 없다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Uncovering the dark side of AI-based decision-making: A case study in a B2B context</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

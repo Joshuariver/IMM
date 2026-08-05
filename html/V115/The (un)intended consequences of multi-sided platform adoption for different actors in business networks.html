@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The (Un)intended Consequences of Multi-sided Platform Adoption - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management, Vol. 115 (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Multi-sided Platforms · Business Networks</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Embedded Case Study</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            The (un)intended consequences of multi-sided platform adoption for<br>
+            <span class="text-cyan-400">different actors in business networks</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Mark Micallef, Joona Keränen, Olga Kokshagina
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            다중측면 플랫폼(MSP) 도입이 비즈니스 네트워크 내<br>
+            <span class="text-indigo-300">다양한 행위자들에게 미치는 (의도치 않은) 결과</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            호주 주택건축 산업 비즈니스 네트워크에 대한 25건 인터뷰 기반 내포적(embedded) 단일사례연구
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">MSP 도입은 오케스트레이터의 전략(형성·최적화·확장)에 따라 다른 네트워크 행위자에게 서로 다른, 때로는 부정적인 결과를 초래합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Multi-sided platforms (MSPs) are digital platforms that connect two or more actor groups and are increasingly used in business-to-business (B2B) markets. While the prior research has shown that MSP adoption changes network dynamics, most of the extant studies tend to focus on the consequences for lead firms who orchestrate MSPs, offering fewer insights into the consequences for other actors in business networks. Addressing that gap, this study examines how alternative MSP adoption strategies can lead to different consequences for actors in different network roles. We derive empirical insights from an embedded single-case study centered on a specific business network in the Australian residential building industry, including 25 interviews with different network actors and a rich source of secondary data. Our findings reveal three network management-driven MSP adoption strategies (network shaping, network optimization, network expansion), and illustrate the intentional and unintentional consequences each strategy creates for different network actors, depending on their role. We show that the consequences of MSP adoption are not always positive for all network actors but can also be detrimental and negative. This study advances the contemporary MSP literature by analyzing different MSP adoption strategies and providing a holistic multi-actor account of the implications of MSP adoption for different actors in business networks. For managers, this study provides insights into how to use MSPs to manage their business networks."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">다중측면 플랫폼(MSP)</span>은 둘 이상의 행위자 집단을 연결하는 디지털 플랫폼으로, B2B 시장에서 그 활용이 점차 확대되고 있다. 선행연구는 MSP 도입이 네트워크 동학을 변화시킨다는 점을 보여주었으나, 대부분 MSP를 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">오케스트레이션</span>하는 선도기업의 관점에 초점을 맞추어 왔고, 비즈니스 네트워크 내 다른 행위자들이 겪는 결과에 대한 통찰은 부족했다. 이러한 공백을 메우기 위해 본 연구는 서로 다른 MSP 도입 전략이 네트워크 내 상이한 역할을 맡은 행위자들에게 어떻게 다른 결과를 초래하는지 살펴본다. 본 연구는 호주 주택건축 산업의 특정 비즈니스 네트워크를 대상으로 한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">내포적(embedded) 단일사례연구</span>를 통해 실증적 통찰을 도출하였으며, 다양한 네트워크 행위자를 대상으로 한 25건의 인터뷰와 풍부한 2차 자료를 활용하였다. 연구 결과, 세 가지 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">네트워크 관리 주도형 MSP 도입 전략</span>(네트워크 형성, 네트워크 최적화, 네트워크 확장)이 확인되었으며, 각 전략이 역할에 따라 서로 다른 네트워크 행위자에게 초래하는 의도적·비의도적 결과를 제시한다. 본 연구는 MSP 도입의 결과가 모든 네트워크 행위자에게 항상 긍정적인 것은 아니며, 때로는 해롭고 부정적일 수 있음을 보여준다. 이 연구는 서로 다른 MSP 도입 전략을 분석하고, 비즈니스 네트워크 내 다양한 행위자들에게 미치는 함의를 종합적·다행위자적 관점에서 제시함으로써 현대 MSP 문헌에 기여한다. 실무적으로는 관리자들이 자사의 비즈니스 네트워크를 관리하기 위해 MSP를 어떻게 활용할 수 있는지에 대한 통찰을 제공한다."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Multi-sided Platform (MSP)</td>
+                  <td>다중측면 플랫폼</td>
+                  <td class="text-sm">"둘 이상의 서로 다른 행위자 집단(side)"을 매개한다는 원어의 핵심 의미를 살리기 위해 "다중측면"을 유지하고 약어 MSP를 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Network Management</td>
+                  <td>네트워크 관리</td>
+                  <td class="text-sm">Möller & Halinen(2017)이 정립한 B2B 마케팅 이론적 렌즈의 표준 명칭으로, 원어 그대로 직역함.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Orchestrator / Complementor / User / Outsider</td>
+                  <td>오케스트레이터 / 보완자 / 이용자 / 국외자</td>
+                  <td class="text-sm">플랫폼 생태계 문헌의 표준 역할 용어. 국문 번역과 원어를 병기하여 혼동을 방지함.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">(Un)intended Consequences</td>
+                  <td>(의도치 않은) 결과</td>
+                  <td class="text-sm">의도된 결과와 의도치 않은 결과를 동시에 다룬다는 논문 제목의 핵심 프레이밍을 그대로 살림.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Embedded Single-Case Study</td>
+                  <td>내포적 단일사례연구</td>
+                  <td class="text-sm">하나의 사례(비즈니스 네트워크) 안에 여러 분석단위(행위자·역할)가 내포된 사례연구 설계(Yin & Campbell, 2018)를 지칭.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">MSP 도입이 다른 행위자에게도 늘 이로운가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">전략과 역할에 따라 결과는 긍정적일 수도, 부정적일 수도 있다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">오케스트레이터 중심 시각을 넘어선 다행위자 관점</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 기존 비즈니스 네트워크 내 기업들은 어떤 MSP 도입 전략을 사용하며(RQ1), 서로 다른 전략은 네트워크 내 다양한 행위자에게 어떤 결과를 초래하는가(RQ2)?</li>
+                  <li><strong>핵심 발견:</strong> 기업의 MSP 도입은 <strong>네트워크 형성(Shaping), 최적화(Optimization), 확장(Expansion)</strong>이라는 3가지 네트워크 관리 전략으로 유형화되며, 각 전략은 행위자가 맡는 역할(오케스트레이터/보완자/이용자/국외자)에 따라 서로 다른 결과를 낳는다. 최적화는 대체로 모두에게 긍정적이지만, 형성·확장은 혼재되거나 부정적 결과를 낳을 수 있다.</li>
+                  <li><strong>이론/실무 기여:</strong> 오케스트레이터 중심의 기존 문헌을 넘어 네트워크 관리 관점에서 "모든 참여자가 혜택을 본다"는 가정을 반박하고, 관리자가 MSP 도입·가입·불참 결정을 네트워크 전체 수준에서 전략적으로 내리도록 안내한다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "MSP 도입은 오케스트레이터의 네트워크 관리 전략에 따라 다른 행위자들에게 서로 다른, 때로는 부정적인 의도치 않은 결과를 초래하므로, 도입·가입·불참 결정은 네트워크 전체 수준에서 전략적으로 이루어져야 합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실증적 근거(인터뷰 인용 등)의 원문 인용 및 페이지·절 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">기존 문헌은 MSP가 모두에게 이롭다고 가정</td>
+                <td class="text-sm italic text-slate-600">
+                  "the current literature tends to assume MSP adoptions derive benefits for all platform participants, and thus offers only limited insights on the potential adverse or non-positive outcomes..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.215, Sec.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">3가지 네트워크 관리 주도형 MSP 도입 전략 확인</td>
+                <td class="text-sm italic text-slate-600">
+                  "Our findings reveal three network management-driven MSP adoption strategies (network shaping, network optimization, network expansion)..."
+                </td>
+                <td class="text-right font-medium text-slate-500">Abstract; p.219, Sec.4.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">네트워크 형성 = 시장지배력·통제력 강화 목표</td>
+                <td class="text-sm italic text-slate-600">
+                  "firms adopting MSPs for network shaping did so with the goal of improving their own market power and control over other members of the network."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.220, Sec.4.1.1</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">락인 효과가 설치업체 저항을 유발</td>
+                <td class="text-sm italic text-slate-600">
+                  "We've resisted joining some platforms because it would mean we'd lose control of our own destiny." — Installer 1 (Director)
+                </td>
+                <td class="text-right font-medium text-slate-500">p.221, Sec.4.1.1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">네트워크 최적화는 전 역할에 유사하게 긍정적</td>
+                <td class="text-sm italic text-slate-600">
+                  "the benefits of MSP adoption for network optimization were similar for all roles... including improved process efficiency, enhanced resource coordination, and the creation and capture of new value."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.222, Sec.4.2.2</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">보완자는 의존도 심화라는 대가를 치름</td>
+                <td class="text-sm italic text-slate-600">
+                  "these benefits came with some costs, including the need for complementors to commit their limited resources to the MSP, which increased their dependence on the MSP and its orchestrator."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.222, Sec.4.2.2</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">네트워크 확장은 통제권을 외부 MSP 제공자에 이양</td>
+                <td class="text-sm italic text-slate-600">
+                  "the choice to adopt certain MSPs for network expansion meant firms conceded network control to the MSP provider... [they] would give preference to certain suppliers... if they paid higher advertising fees."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.223, Sec.4.2.3</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">국외자도 예상외로 부정적 결과를 경험</td>
+                <td class="text-sm italic text-slate-600">
+                  "outsiders...might expect to be exempt from the consequences of MSP adoption by other firms, our findings reveal that they actually experience unexpected, mostly negative, and often unrecognized consequences."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.223–224, Sec.5</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td class="font-semibold text-slate-900">강한 네트워크 지위 기업이 오케스트레이터가 될 가능성이 높음</td>
+                <td class="text-sm italic text-slate-600">
+                  "established firms with strong network position were most likely to assume the role of an orchestrator... these firms (i.e., the supplier and reseller) were able to best understand network dynamics..."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.224, Sec.5</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Constructs -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성개념 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Constructs</span>
+        </div>
+
+        <div class="alert bg-slate-100 border border-slate-300 text-slate-700 style-small">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-slate-500 shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" /></svg>
+          <span>이 논문은 정량적 가설검증 연구가 아니라 <strong>귀납적 코딩(Gioia method)에 기반한 질적 사례연구</strong>입니다. 통계적 IV/DV/매개/조절"변수"는 존재하지 않으며, 아래 다이어그램과 카드는 데이터 구조(Fig. 2)·결과 프레임워크(Fig. 3)에서 도출된 핵심 <strong>구성개념(construct)</strong>을 변수 분석 틀에 대응시켜 재구성한 것입니다.</span>
+        </div>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual Framework (질적 개념 모형 — Fig. 2 & Fig. 3 기반 재구성)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 460" class="w-full h-auto">
+              <!-- Moderator: Network Position & Resources -->
+              <rect x="330" y="10" width="240" height="70" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="450" y="38" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">행위자의 기존 네트워크 지위·자원</text>
+              <text x="450" y="58" text-anchor="middle" fill="#b45309" font-size="10">Established Network Position & Resources</text>
+
+              <!-- IV: 3 strategy boxes -->
+              <rect x="20" y="130" width="230" height="60" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="135" y="155" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">네트워크 형성 (Shaping)</text>
+              <text x="135" y="174" text-anchor="middle" fill="#64748b" font-size="10">시장지배력·통제력 강화 목적</text>
+
+              <rect x="20" y="210" width="230" height="60" rx="8" fill="#f1f5f9" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="135" y="235" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="13">네트워크 최적화 (Optimization)</text>
+              <text x="135" y="254" text-anchor="middle" fill="#0284c7" font-size="10">기존 관계의 효율·가치 향상 목적</text>
+
+              <rect x="20" y="290" width="230" height="60" rx="8" fill="#f1f5f9" stroke="#6366f1" stroke-width="2"/>
+              <text x="135" y="315" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">네트워크 확장 (Expansion)</text>
+              <text x="135" y="334" text-anchor="middle" fill="#4338ca" font-size="10">외부 신규 행위자 연결 목적</text>
+
+              <!-- Mediator: Network Role -->
+              <rect x="360" y="190" width="200" height="100" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="460" y="220" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">행위자의 네트워크 역할</text>
+              <text x="460" y="240" text-anchor="middle" fill="#047857" font-size="11">오케스트레이터 / 보완자 /</text>
+              <text x="460" y="256" text-anchor="middle" fill="#047857" font-size="11">이용자 / 국외자</text>
+              <text x="460" y="275" text-anchor="middle" fill="#059669" font-size="9">(Table 3 매핑)</text>
+
+              <!-- DV: Consequences -->
+              <rect x="650" y="130" width="220" height="70" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="760" y="158" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">의도적 결과 (Intended)</text>
+              <text x="760" y="178" text-anchor="middle" fill="#4338ca" font-size="10">효율성·통제력·신규가치 창출 등</text>
+
+              <rect x="650" y="280" width="220" height="70" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+              <text x="760" y="308" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="13">비의도적 결과 (Unintended)</text>
+              <text x="760" y="328" text-anchor="middle" fill="#b91c1c" font-size="10">종속성 심화·저항·통제권 상실 등</text>
+
+              <!-- Arrows: Strategy -> Role -->
+              <path d="M250 160 L 300 160 L 300 220 L 355 220" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="270" y="195" fill="#64748b" font-weight="700" font-size="11">형성→역할</text>
+
+              <path d="M250 240 L 355 240" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="265" y="233" fill="#0284c7" font-weight="700" font-size="11">최적화→역할</text>
+
+              <path d="M250 320 L 300 320 L 300 260 L 355 260" fill="none" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="270" y="300" fill="#4338ca" font-weight="700" font-size="11">확장→역할</text>
+
+              <!-- Arrows: Role -> Consequences -->
+              <path d="M560 220 L 610 220 L 610 165 L 645 165" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="575" y="195" fill="#047857" font-weight="700" font-size="11">역할→결과(+)</text>
+
+              <path d="M560 260 L 610 260 L 610 315 L 645 315" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="575" y="288" fill="#047857" font-weight="700" font-size="11">역할→결과(-)</text>
+
+              <!-- Direct dashed effect: Strategy -> Consequences (network optimization mostly positive for all) -->
+              <path d="M135 210 L 135 400 L 760 400 L 760 350" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="440" y="416" text-anchor="middle" fill="#0284c7" font-weight="700" font-size="11">최적화의 직접효과: 전 역할에 대체로 긍정적(Sec.4.2.2)</text>
+
+              <!-- Moderator arrow pointing to Strategy->Role path -->
+              <path d="M420 80 L 300 80 L 300 200" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="330" y="105" fill="#b45309" font-weight="700" font-size="11">지위·자원이 강할수록 오케스트레이터 역할 획득 가능성↑</text>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Construct Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 상당 (IV)</span>
+                <span class="text-xs text-slate-400 font-semibold">Strategy</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">네트워크 관리 주도형 MSP 도입 전략</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 기업이 MSP를 통해 비즈니스 네트워크 내 행위자 간 관계·상호작용을 관리하기 위해 취하는 목표지향적 접근법. 네트워크 형성/최적화/확장 3개 상위범주.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 25건 인터뷰 및 2차자료에 대한 Gioia식 귀납적 코딩(1차 코드→2차 테마→상위범주)으로 도출.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Gioia, Corley, & Hamilton (2012) 방법론 / Fig. 2 데이터 구조</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Möller & Halinen(2017) 네트워크 관리 이론, build-or-join 문헌(Cusumano et al., 2020)과 연결. 3전략은 상호배타적이지 않고 동시 구사 가능(multi-platform strategy).
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수 상당 (Mediator)</span>
+                <span class="text-xs text-slate-400 font-semibold">Role</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">행위자의 네트워크 역할</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 특정 MSP 생태계 내에서 행위자가 수행하는 위치적 역할(오케스트레이터/보완자/이용자/국외자). 도입 전략에 따라 결정되며 다중 겸임 가능.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Table 3에서 actor × MSP 매트릭스로 역할을 매핑하여 도출.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Abdelkafi et al. (2019); Hein, Schreieck, Riasanow et al. (2019) 플랫폼 역할 유형론</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 기존 문헌은 오케스트레이터·보완자에 국한(Wallbach, 2020)되었으나 본 연구는 이용자·국외자까지 포괄한 다행위자 관점을 제시.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 상당 (Moderator)</span>
+                <span class="text-xs text-slate-400 font-semibold">Position</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기존 네트워크 지위 및 자원</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 행위자가 MSP 도입 이전부터 보유한 시장 내 영향력·점유율·자원 수준. 어떤 역할(특히 오케스트레이터 여부)을 맡게 되는지에 영향.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 초점 공급자·재판매자가 "시장 지배적 대형 행위자"임을 재무·시장자료로 확인.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 재무보고서(2017–2022), 시장 규모 자료 (Table 2)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> "강한 네트워크 지위 기업일수록 오케스트레이터가 될 가능성이 높다"는 결과(Discussion, p.224)와 연결되며 자원기반관점(RBV), 네트워크 권력 문헌과 연관.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수 상당 (DV)</span>
+                <span class="text-xs text-slate-400 font-semibold">Consequences</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">(의도적/비의도적) 결과</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 특정 전략과 역할 조합에서 발생하는, 참여자 관점에서 인지된 긍정적·부정적 결과. 의도성 × 방향성 2차원 매트릭스로 코딩.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 인터뷰 진술 기반 오픈코딩→테마 클러스터링→역할별 교차분석 (Sec. 3.4).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Fig. 3 "The (un)intended consequences of MSP adoption for different roles"</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> "모두에게 이익" 가정(Anderson et al., 2022; McIntyre et al., 2021)에 대한 반증 자료로 기능하며 네트워크 회복력 논의로 이어짐.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 사례연구 및 코딩 절차를 그대로 <strong>추종 재현</strong>할 수 있도록 질적 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 접근법 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  복잡한 기술·사회적 현상을 심층적으로 이해하기 위해 질적, 내포적(embedded) 단일사례연구 설계를 채택 (Scholz & Tietje, 2002; Yin & Campbell, 2018).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.216, Sec.3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">연구 맥락 및 사례 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  저디지털화·디지털전환 중인 호주 주택건축 산업을 맥락으로 선정. 목적표집(purposive sampling)으로 강하고 제도화된 관계·다양한 MSP 도입·연구 접근성을 갖춘 비즈니스 네트워크(공급자·재판매자·설치업체 3곳·소비자)를 확정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.216–217, Sec.3.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">1차 인터뷰 (탐색적, 15건)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  2021년 1~6월, 공급자(11건)·재판매자(1건)·설치업체 3곳(각 1건)을 대상으로 Teams 반구조화 인터뷰(평균 약 60분, 전사) 실시. MSP 유형과 네트워크 상호작용 변화 파악.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.217, Sec.3.3, Table 1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">2차 인터뷰(후속, 9건) + 2차자료 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  2022년 3~10월 후속 인터뷰(총 25건, 1360분)로 도입 이유·결과를 심층 프로빙. 재무보고서, CRM, 플레이북, 설치업체 전화조사(702건), 소비자 포커스그룹(4회, 35명) 등 2차자료 확보.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.217–218, Sec.3.3, Table 1&2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">MSP 식별 및 유형화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  1·2차 자료 분석으로 네트워크 내 총 15개 MSP 식별. 거래형/비거래형/혼합형(Trabucchi & Buganza, 2021)으로 분류하고, 각 MSP별 행위자의 역할(오케스트레이터/보완자/이용자)을 매핑 (Table 3).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.219, Sec.3.4</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">귀납적 코딩 (Gioia method)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  오픈코딩(incident-to-incident, Charmaz 2006) → 1차 코드 클러스터링 → 2차 테마 → 3개 상위범주(형성/최적화/확장) 도출. 경험자료와 네트워크 관리 문헌을 반복 교차대조 (Fig. 2).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.219, Sec.3.4</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">결과(consequence) 분석 및 역할별 교차분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  인터뷰 데이터를 재검토해 MSP 도입 결과를 의도적/비의도적으로 클러스터링. 행위자가 맡은 역할별로 교차분석하여 Fig. 3 도출, 원문 인용구로 결과 제시(Sec.4.1~4.2).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.219–224, Sec.3.4 & 4</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            사례선정 기준, 인터뷰 프로토콜(Appendix B), Gioia 코딩 절차가 투명하게 기술되어 유사한 절차를 다른 맥락에 적용하는 것은 가능하나, 원 연구의 특정 기업·인터뷰 데이터는 비공개("The authors do not have permission to share data")이며, 질적 코딩 특유의 연구자 해석 개입으로 완전히 동일한 결과의 재현은 불가능함.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 7)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>맥락 특수성:</strong> "the findings are context-specific and relate to one embedded business network in the building industry." — 다른 시장·맥락으로의 비교 및 더 크고 다양한 이해관계자를 포함한 생태계로의 확장이 필요함.
+              </li>
+              <li>
+                <strong>질적 방법론의 한계:</strong> "Future research could employ quantitative research designs to test and verify the impacts and performance effects of different consequences."
+              </li>
+              <li>
+                <strong>정태적(횡단적) 분석:</strong> "the nature of our analysis was relatively static, and a longitudinal approach could be used to examine how the consequences experienced by each actor evolve over time..."
+              </li>
+              <li>
+                <strong>긴장(tension) 및 대응전략 미분석:</strong> 행위자들이 MSP 도입 시 겪는 긴장과 대처전략에 대한 심층분석은 향후 연구과제로 남김.
+              </li>
+              <li>
+                <strong>멀티플랫폼 번들 전략 미분석:</strong> "our data indicated that established firms tend to adopt multiple MSPs at once, in bundles. However, prior research has not fully analyzed the multi-platform strategies of established businesses."
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 표본 구성을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 오케스트레이터(공급자) 편향</span>
+                <p class="text-sm text-slate-700">
+                  25건 중 다수가 공급자·재판매자(오케스트레이터 후보) 관계자와의 인터뷰로 구성되어(Table 1: 공급자 관련 16건, 재판매자 2건, 설치업체 7건), 오케스트레이터 편향적 서사가 결과 해석에 반영되었을 가능성이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 소비자(최종 이용자) 목소리 결여</span>
+                <p class="text-sm text-slate-700">
+                  소비자는 25건의 직접 인터뷰 대상에서 제외되고 2019년 수행된 4개 포커스그룹(35명, 2차자료)으로만 대표되어, "이용자"로서 겪는 결과에 대한 주장이 시점 불일치 및 심층성 부족의 우려가 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 선정 편향 (생존/우호 관계 표본)</span>
+                <p class="text-sm text-slate-700">
+                  조사 대상 설치업체 3곳은 모두 "공급자와 긴밀한 관계"를 가진 곳으로 선정되어, 관계가 소원하거나 MSP 도입 실패로 퇴출된 행위자는 표본에서 배제됨. "국외자 결과가 대체로 부정적"이라는 결론이 생존자 편향의 영향을 받았을 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 사후 정당화(자기보고) 위험</span>
+                <p class="text-sm text-slate-700">
+                  인터뷰가 MSP 도입 이후 시점에 이루어져, 특히 오케스트레이터 임원들이 자사 전략적 의도를 사후 합리화했을 가능성이 있으며, "의도적/비의도적" 구분 자체가 자기보고에 전적으로 의존해 검증 불가능하다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 산업 특수성 및 경계조건 부재</span>
+                <p class="text-sm text-slate-700">
+                  호주 주택건축업은 저디지털화·전통적 유통구조 산업으로, 이미 디지털 네이티브이거나 유통망이 짧은 B2B 산업에서는 역할·지위의 상호작용 양상이 다를 수 있음에도 경계조건 논의가 없다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 결과 크기·강도의 정량화 부재</span>
+                <p class="text-sm text-slate-700">
+                  결과는 의도성×방향성의 정성적 매트릭스(Fig. 3)로만 제시되며 매출 손실 규모, 이탈률 등 상대적 크기가 정량화되지 않아 "얼마나 부정적인가"의 판단이 전적으로 연구자의 질적 해석에 의존한다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>The (Un)intended Consequences of Multi-sided Platform Adoption for Different Actors in Business Networks</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

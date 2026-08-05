@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collaboration with Machines in B2B Marketing - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Human-AI Collaboration / XAI</div>
+        <div class="badge badge-secondary text-white style-label">3 Experimental Studies · N &gt; 700</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Collaboration with machines in B2B marketing:<br>
+            <span class="text-cyan-400">Overcoming managers' aversion to AI-CRM with explainability</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Piotr Gaczek, Grzegorz Leszczyński, Amira Mouakher
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            B2B 마케팅에서 기계와의 협업:<br>
+            <span class="text-indigo-300">설명가능성으로 관리자의 AI-CRM 회피 극복하기</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            700명 이상의 B2B CRM 담당 관리자를 대상으로 한 세 건의 실험을 통해, 설명가능 AI(XAI)가 AI 협업의 어두운 측면을 완화하는 메커니즘을 검증
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">"설명가능하다"는 라벨이 아니라 "실제로 이해된다"는 사실이 관리자의 AI-CRM 회피를 줄입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This paper links negative emotions to AI and examines their influence on aversion to collaborating with AI in customer relationship management. It aims to understand working with AI-CRM and considers AI-based recommendations in marketing decision-making. This article is empirically supported by three experimental studies involving over seven hundred B2B customer relationship management-committed managers. It demonstrates that eXplainable Artificial Intelligence (XAI) is a tool that can help mitigate the dark sides of collaboration with AI and increase the propensity to incorporate its suggestions in customer relationship management decision-making."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              본 논문은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">부정적 감정</span>을 AI와 연결하여, 이것이 고객관계관리(CRM)에서 AI와의 협업에 대한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">회피(aversion)</span>에 미치는 영향을 검토한다. 본 연구는 AI-CRM과 함께 일하는 방식을 이해하고, 마케팅 의사결정에서 AI 기반 추천을 고려하는 것을 목표로 한다. 본 논문은 700명이 넘는 B2B 고객관계관리 담당 관리자를 대상으로 한 세 건의 실험 연구로 실증적으로 뒷받침된다. 연구 결과, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">설명가능 인공지능(XAI)</span>이 AI와의 협업이 지닌 어두운 측면을 완화하고, 고객관계관리 의사결정에서 AI의 제안을 반영하려는 성향을 높이는 도구가 될 수 있음을 보여준다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Aversion to collaborating with AI</td>
+                  <td>AI 협업 회피</td>
+                  <td class="text-sm">algorithm aversion 개념을 관리자-AI 협업 맥락으로 확장한 표현이므로 '회피'로 직역.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">AI-CRM</td>
+                  <td>AI-CRM</td>
+                  <td class="text-sm">AI가 탑재된 CRM 시스템을 지칭하는 논문 고유 약어로 그대로 사용.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">eXplainable AI (XAI)</td>
+                  <td>설명가능 인공지능(XAI)</td>
+                  <td class="text-sm">학계 표준 번역어이며 원어 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Dark sides (of collaboration)</td>
+                  <td>어두운 측면</td>
+                  <td class="text-sm">AI 협업의 부정적 부작용(저항, 부정적 감정 등)을 포괄하는 논문 고유 표현.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">TTAT / IAAAM</td>
+                  <td>기술위협회피이론 / 통합 AI 수용-회피 모형</td>
+                  <td class="text-sm">Liang & Xue(2009), Cao et al.(2021)의 IS 분야 표준 이론 명칭 번역.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">관리자는 왜 AI-CRM 추천을 꺼리는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">"설명가능하다"보다 "실제로 이해된다"가 핵심</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">TTAT×IAAAM 결합, 감정·인지 이중 경로 제시</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> B2B 마케팅 관리자는 AI-CRM의 추천을 받아들이기를 왜 꺼리는가? 설명가능성(XAI)을 부여하면 이 회피를 줄일 수 있는가?</li>
+                  <li><strong>핵심 발견:</strong> 부정적 감정이 지식공유 저항을 매개하지만(H1), 단순한 "설명가능하다"는 정보는 이해 불가에 대한 위협이 낮을 때만 효과가 있다(H2a/H2b). 위협이 높을 때 효과를 내는 것은 <strong>자연어 텍스트 설명</strong>으로, 이해가능성을 높여 감정을 낮춘다(H3a/H3b). 저항이 줄면 관리자는 AI에게 더 많은 의사결정 권한을 내어준다(H4, 단 팀 피드백을 잘 이해하는 관리자에 한함).</li>
+                  <li><strong>이론/실무 기여:</strong> "설명가능성 정보 제공"과 "설명의 실제 이해가능성"을 구분하여 블랙박스 AI 회피 문제에 감정적·인지적 이중 경로를 제시. CRM 벤더는 단순 라벨링이 아닌 이해 가능한 자연어 설명을 제공해야 함을 실무적으로 시사.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "AI가 설명가능하다는 라벨이 아니라 그 설명이 실제로 이해된다는 사실이 B2B 관리자의 AI-CRM 협업 저항을 낮추고 AI에게 더 많은 의사결정 권한을 내어주게 만듭니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">부정적 감정이 지식공유 저항을 매개 (H1)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the regression analysis showed a significant effect of the anticipated negative emotions on the resistance to share managerial knowledge (b = 0.59, p &lt; .001)"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.133, Study 1 (Sec. 4.2)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">XAI의 감정 완화 효과는 저위협에서만 유의 (H2a/H2b)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the effect of the Condition on anticipated negative emotions is significant only in the low-threat group (b = −0.76, p = .001) but not in the high-threat group (b = −0.06, p = .827)"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.133, Study 1 Results</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">텍스트 XAI → 이해가능성 → 부정적 감정 순차매개 (H3a/H3b)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the effect of AI vs. textual XAI on recommendation understandability is significant (b = 0.11, p &lt; .001)... a significant effect of understandability on negative emotions (b = −0.73, p &lt; .001)... we confirmed the serial mediation"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.134, Study 2 (Sec. 5.2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">텍스트 XAI 조건에서 이해가능성·명료성·이해도 사전검증</td>
+                <td class="text-sm italic text-slate-600">
+                  "MAI = 4.32 vs. Mtextual XAI = 5.01; F(1,81) = 5.29, p = .024" (understanding); "F(1,81) = 9.98, p = .002" (clarity); "F(1,81) = 7.08, p = .009" (comprehension)
+                </td>
+                <td class="text-right font-medium text-slate-500">p.136, Study 3 (Sec. 6.1.3)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">저항 감소 → AI-인간 파트너십 증대, 팀 피드백 이해도 조절 (H4)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the interaction effect between the Condition and understandability of sales team feedback on AI–human partnership is significant (b = 0.27, p = .031)... significant only for high scores of understandability of sales team feedback"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.137, Study 3 (Sec. 6.2.1)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">대안 조절변수(AI 추천 이해가능성) 사용 시 효과 불안정</td>
+                <td class="text-sm italic text-slate-600">
+                  "the index of moderated mediation is non-significant (b = −0.1, LCI = −0.25, UCI = 0.01), same as all conditional effect at three different values of the moderator (ps &gt; 0.05)"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.137, Study 3 (Sec. 6.2.2)</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">종합 가설 검증표</td>
+                <td class="text-sm italic text-slate-600">
+                  Table 1 "Verification of hypothesis" — H1 확인(부분), H2a·H2b 확인, H3a·H3b 확인, H4 부분 확인
+                </td>
+                <td class="text-right font-medium text-slate-500">p.138, Sec. 7</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 연구는 세 개의 실험(Study 1~3)으로 구성되며, 각각 PROCESS Model 7 · 6 · 14를 사용해 통합 이론모형(TTAT+IAAAM 기반)의 서로 다른 경로를 검증합니다. 아래 DAG는 세 연구의 가설 경로를 하나의 통합 모형으로 재구성한 것입니다.
+        </p>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 가설 모형 — 3개 스터디 통합)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 480" class="w-full h-auto">
+              <!-- IV -->
+              <rect x="20" y="190" width="190" height="90" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="115" y="222" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">AI 설명가능성 조건</text>
+              <text x="115" y="242" text-anchor="middle" fill="#64748b" font-size="11">AI vs. XAI / 텍스트 XAI</text>
+              <text x="115" y="260" text-anchor="middle" fill="#94a3b8" font-size="10">(Study 1·2·3 공통 조작)</text>
+
+              <!-- Mediator 2: Understandability -->
+              <rect x="290" y="60" width="190" height="80" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+              <text x="385" y="90" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">AI 추천 이해가능성</text>
+              <text x="385" y="110" text-anchor="middle" fill="#4338ca" font-size="11">Understandability</text>
+              <text x="385" y="128" text-anchor="middle" fill="#818cf8" font-size="10">(Study 2 매개변수)</text>
+
+              <!-- Mediator 1: Negative Emotions -->
+              <rect x="290" y="200" width="190" height="80" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="385" y="230" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">예상 부정적 감정</text>
+              <text x="385" y="250" text-anchor="middle" fill="#047857" font-size="11">Negative Emotions</text>
+              <text x="385" y="268" text-anchor="middle" fill="#34d399" font-size="10">(좌절·불안·공포, α=.89)</text>
+
+              <!-- Moderator 1: Threat -->
+              <rect x="300" y="330" width="170" height="70" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="385" y="358" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">이해 불가 위협</text>
+              <text x="385" y="376" text-anchor="middle" fill="#b45309" font-size="10">Threat (고/저), Study 1·2</text>
+
+              <!-- Mediator 3: Resistance -->
+              <rect x="560" y="200" width="190" height="80" rx="8" fill="#fdf2f8" stroke="#db2777" stroke-width="2"/>
+              <text x="655" y="230" text-anchor="middle" font-weight="700" fill="#9d174d" font-size="14">지식공유 저항</text>
+              <text x="655" y="250" text-anchor="middle" fill="#be185d" font-size="11">Resistance to Sharing</text>
+              <text x="655" y="268" text-anchor="middle" fill="#f472b6" font-size="10">(Study 1·2 DV / Study 3 매개)</text>
+
+              <!-- DV: AI-human partnership -->
+              <rect x="770" y="205" width="115" height="90" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="827" y="235" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">AI-인간</text>
+              <text x="827" y="253" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">파트너십</text>
+              <text x="827" y="273" text-anchor="middle" fill="#4338ca" font-size="10">(Study 3 DV, 0~100%)</text>
+              <text x="827" y="288" text-anchor="middle" fill="#818cf8" font-size="9">11점 척도</text>
+
+              <!-- Moderator 2: Team feedback understandability -->
+              <rect x="750" y="330" width="160" height="70" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="830" y="356" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">팀 피드백</text>
+              <text x="830" y="372" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">이해가능성 (Study 3)</text>
+              <text x="830" y="388" text-anchor="middle" fill="#b45309" font-size="9">cut-off = 6.01</text>
+
+              <!-- Arrows -->
+              <!-- IV -> Understandability (H3a) -->
+              <path d="M170 190 L 250 130 L 285 105" fill="none" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="200" y="145" fill="#4338ca" font-weight="700" font-size="12">H3a (+)</text>
+
+              <!-- IV -> Negative Emotions (H2a/H2b) -->
+              <path d="M210 235 L 285 235" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="215" y="228" fill="#047857" font-weight="700" font-size="12">H2a/H2b</text>
+
+              <!-- Understandability -> Negative Emotions (H3b, serial mediation) -->
+              <path d="M385 140 L 385 195" fill="none" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="395" y="172" fill="#4338ca" font-weight="700" font-size="12">H3b (−)</text>
+
+              <!-- Negative Emotions -> Resistance (H1) -->
+              <path d="M480 240 L 555 240" fill="none" stroke="#db2777" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="490" y="232" fill="#9d174d" font-weight="700" font-size="12">H1 (+)</text>
+
+              <!-- Threat moderates IV -> Negative Emotions path -->
+              <path d="M385 330 L 385 282" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="395" y="315" fill="#b45309" font-weight="700" font-size="11">조절</text>
+
+              <!-- Resistance -> AI-human partnership (H4) -->
+              <path d="M750 240 L 765 240" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="700" y="228" fill="#3730a3" font-weight="700" font-size="12">H4 (−)</text>
+
+              <!-- Team feedback understandability moderates Resistance -> DV path -->
+              <path d="M830 330 L 827 296" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="840" y="315" fill="#b45309" font-weight="700" font-size="11">조절</text>
+
+              <!-- Direct effect: IV -> Resistance (dashed, non-significant direct paths reported) -->
+              <path d="M115 190 L 115 40 L 655 40 L 655 195" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+              <text x="380" y="32" fill="#64748b" font-weight="700" font-size="11">직접효과 (Total effect, 대부분 비유의)</text>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 max-w-2xl text-center">
+            실선 화살표 = 유의한 매개 경로, 점선 화살표 = 직접효과(Total effect, 대체로 비유의), 수직 화살표 = 조절 작용. 노란 박스는 조절변수(Study별로 상이), 보라 박스는 이해가능성 매개(Study 2), 초록 박스는 감정 매개(Study 1·2), 분홍 박스는 저항 매개/DV(Study 1·2 DV, Study 3 매개), 남색 박스는 최종 DV(Study 3).
+          </p>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수</span>
+                <span class="text-xs text-slate-400 font-semibold">IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">AI 설명가능성 조건 (Condition: AI vs. XAI)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> AI-CRM 시스템이 추천의 근거를 설명해주는지 여부(및 형식). Study 1은 "설명가능하다"는 정보 제공 유무, Study 2·3은 자연어 텍스트 설명 제공 유무로 조작.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Vignette 자극물에서 참가자를 AI(비설명형) vs. XAI/텍스트 XAI 조건에 무작위 배정하는 2수준 between-subjects 조작.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 실험 조작(자체 설계 Appendix C), 조작 점검으로 유의성 확인(F(1,172)=5.31~5.82, p&lt;.05)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Explanation Theory(Miller, 2019), XAI 유형론(numeric/rule-based/visual/textual; Islam et al., 2022), 텍스트 설명의 설득력 우위(Kouki et al., 2020).
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">이해 불가 위협 (Threat of Not Understanding)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 사용자가 AI 추천을 이해하지 못할 가능성 및 그로 인한 해로움에 대한 인지된 위협(TTAT의 threat appraisal 적용).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 자극물에서 고위협/저위협 시나리오 조작(2수준 between-subjects).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 성과위험 3문항(Gürhan-Canli & Batra, 2004), 지각된 기술위협 3문항(Cao et al., 2021)으로 조작 점검</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> TTAT(Liang & Xue, 2009), IAAAM(Cao et al., 2021), Threat appraisal 이론(Lazarus & Folkman, 1984).
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">예상 부정적 감정 (Anticipated Negative Emotions)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 시스템에 정보를 공유하는 것과 관련해 관리자가 느끼는 좌절·불안·공포 등 부정적 정서 반응(Perspective Theory, risk-as-feeling 가설 근거).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 시스템과 지식을 공유하는 것에 대해 느끼는 6가지 부정적 감정 정도(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 자체 개발 6문항 (Cronbach's α = .89, M=3.23, SD=1.26)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Kahneman & Tversky Perspective Theory, 부정성 편향(Gal & Rucker, 2018), algorithm aversion과 감정(Prahl & Van Swol, 2021).
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">매개변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator (Study 2)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">AI 추천 이해가능성 (Recommendation Understandability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 사용자가 AI-CRM이 제시한 추천/설명을 얼마나 쉽게 이해할 수 있는가에 대한 주관적 평가.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "위 설명을 얼마나 이해하기 쉬운가" 등 5문항(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Lu et al.(2019) 수정 척도, 5문항 (Cronbach's α = .61, M=4.31, SD=0.9)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> "설명되었다"와 "이해되었다"의 구분(Yeomans et al., 2019; Lu et al., 2019), 설명 유형론과 이해가능성(Speith, 2022).
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator/DV 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-secondary style-label text-white">매개/종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator (S3) / DV (S1·S2)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">관리 지식 공유 저항 (Resistance to Sharing)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 관리자가 자신이 보유한 고객 관련 지식·정보를 AI-CRM 시스템과 공유하기를 꺼리는 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "시스템에 정보 공유를 피하고 싶다" 류의 3문항(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Abubakar & Arasli(2016) 수정 척도, 3문항 (α=.8, Study1·2 / α=.71, Study3)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Algorithm aversion(Dietvorst & Bharti, 2020), human-in-the-loop(Monarch, 2021), human-AI partnership(Haesevoets et al., 2021).
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator (Study 3)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">팀 피드백 이해가능성 (Understandability of Sales Team Feedback)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 관리자가 동료(영업팀)로부터 받은 피드백을 얼마나 잘 이해했는가.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "팀 피드백을 얼마나 이해하기 쉬운가" 등 2문항.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Lu et al.(2019) 응용, Johnson-Neyman cut-off = 6.01(7점 척도)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> human-in-the-loop, 팀 협업 맥락에서 정보의 상호 이해가 AI 파트너십 수용에 미치는 영향.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Dependent Variable (Study 3)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">AI-인간 파트너십 (AI-Human Partnership)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 특정 의사결정(고객 선정 등)에서 관리자가 AI 추천과 인간(동료) 추천 각각에 부여하는 상대적 비중.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 1문항 11점 척도(1=100% 인간·0% AI ~ 11=100% AI·0% 인간)로 배분을 직접 선택.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Haesevoets et al.(2021) 응용 1문항 척도</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않은 연구자가 세 실험을 순서대로 그대로 재현할 수 있도록, 각 단계를 타임라인으로 분해하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">이론적 틀 및 가설 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  TTAT(Liang & Xue, 2009)와 IAAAM(Cao et al., 2021)을 결합하여 H1(부정적 감정 매개), H2a/H2b(위협의 조절), H3a/H3b(텍스트 XAI의 이해가능성·감정 효과), H4(저항 매개를 통한 파트너십)를 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">pp.130-132, Sec. 2-3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">Study 1 설계 및 실행 (N=174)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Prolific으로 영어권 B2B 마케팅 관리자 174명 모집. Vignette method로 신규 AI-CRM 도입 상황 제시. 2(AI vs XAI)×2(고/저위협) 설계, 4조건 무작위 배정. 부정적 감정(6문항, α=.89), 저항(3문항, α=.8) 측정 후 PROCESS Model 7로 조절된 매개분석.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.133, Sec. 4.1-4.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">XAI 유형 예비연구 (파일럿)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  numeric/rule-based/visual/textual 4가지 XAI 유형과 무설명 통제집단을 비교하는 예비연구 실시. 일원배치 ANOVA(F(4,240)=3.71, p=.006) 및 Bonferroni 사후검정으로 텍스트 XAI만 이해가능성이 유의하게 높음을 확인, Study 2·3에 채택.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.134, Sec. 5.1.4 & Appendix D</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">Study 2 설계 및 실행 (N=387)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Prolific으로 387명 모집. 2(AI vs 텍스트 XAI)×2(고/저위협) 설계. 이해가능성(5문항, α=.61) 척도 추가, PROCESS Model 6(순차 이중매개: 이해가능성 → 부정적 감정 → 저항, threat는 공변량)으로 분석.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">pp.134-135, Sec. 5.1-5.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">Study 3 설계 및 실행 (N=165)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Prolific으로 165명 모집. AI vs 텍스트 XAI 2수준. "영업팀 피드백+AI 추천"을 함께 제시하고 고객선정 계획에서 AI 대 인간 비중을 결정. AI-인간 파트너십(1문항 11점 척도)으로 측정. 자극물은 이해도·명료성·이해력 3개 지표로 사전 파일럿 검증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">pp.135-136, Sec. 6.1</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">Study 3 조절매개분석 및 강건성 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  PROCESS Model 14(저항이 매개, 팀 피드백 이해가능성이 조절)로 분석, Johnson-Neyman 기법으로 유의구간(cut-off=6.01) 산출. 대안 조절변수(AI 추천 이해가능성)로 재검증했으나 유의하지 않음을 확인해 강건성 점검.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">pp.136-137, Sec. 6.2</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">결과 종합 및 가설 검증표 작성</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  3개 연구 결과를 통합해 Table 1(가설 검증표)로 정리 — H1 부분 확인, H2a/H2b 확인, H3a/H3b 확인, H4 부분 확인(팀 피드백 이해가능성이 높은 관리자에서만 유의).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">pp.137-138, Sec. 7</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            척도 문항 출처, Cronbach's α, PROCESS 모델 번호, 표본 크기·인구통계는 상세히 제시되어 있으나, 실제 vignette 자극물 전문과 설문지 전체가 온라인 Appendix에만 있어 본문만으로는 완전한 재현이 어렵고, Prolific 크라우드워커 스크리닝 로직도 요약적으로만 기술되어 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Sec. 7.3)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>실험/크라우드워커 표본의 대표성 문제:</strong> "This study's main limitation is related to experimental research... our results can be biased by the sample being more tech-savvy and more comfortable with technology than average." — Prolific 표본이 일반 관리자보다 기술 친화적일 가능성.
+              </li>
+              <li>
+                <strong>비네트(vignette) 방법론의 한계:</strong> "The study is also limited by the methodology of vignette-based experiments... the situation and the outlook for AI-CRM might vary from what we tested in the real world." — 실제 현장 데이터가 아닌 가상 시나리오 기반.
+              </li>
+              <li>
+                <strong>텍스트 XAI 단일 유형에 국한:</strong> "Our research tested textual XAI, but several authors used the SHAP framework to generate explanations containing joint numbers, texts, and visualizations... research could test mix-mode XAI." — 혼합형 XAI는 미검토.
+              </li>
+              <li>
+                <strong>의사결정 상황의 제한적 다양성:</strong> "In the presented research, we tested everyday decisions about business customers... This set of decisions is limited." — 고객 선정 등 일부 결정 유형만 다룸.
+              </li>
+              <li>
+                <strong>부정적 감정에만 초점, 긍정적 감정 미검토:</strong> "Further research could focus on the role of positive emotions in using AI in organizations... Such emotions, e.g., excitement with AI, could help to accept this technology." — valence(부정)에만 집중, 감정의 동태적 변화는 미다룸.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">실험 설계 및 측정 방식을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 외적 타당성(생태학적 타당성)</span>
+                <p class="text-sm text-slate-700">
+                  Prolific 크라우드워커가 실제 관리자 신분을 정확히 자기보고했는지 검증이 제한적이며, 실험실 vignette 상의 반응이 실제 조직에서의 AI-CRM 채택 반응과 얼마나 일치하는지 불확실하다. 명목상 소액 보상을 받는 크라우드워커의 동기부여 수준은 실제 업무상 고부담 의사결정과 다를 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 이해가능성 척도의 낮은 신뢰도</span>
+                <p class="text-sm text-slate-700">
+                  Study 2의 이해가능성 척도 Cronbach's α가 .61로 통상적 기준(.7)에 미달하는데도 매개분석에 그대로 사용되었다. 낮은 내적일관성은 측정오차를 증가시켜 매개효과 추정치를 왜곡할 위험이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 단일 노출 실험의 시간적 일반화 문제</span>
+                <p class="text-sm text-slate-700">
+                  모든 실험이 1회성 노출로 설계되어, 반복적 AI-CRM 사용 경험이 누적되었을 때도 텍스트 XAI 효과가 지속되는지, 혹은 신기성(novelty) 효과가 소멸하는지는 검증되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 정보량 교란(confound) 가능성</span>
+                <p class="text-sm text-slate-700">
+                  텍스트 XAI 조건은 AI 조건보다 정보량 자체가 더 많다. 따라서 관찰된 효과가 "설명의 질(이해가능성)" 때문인지, 단순히 제공된 정보량이 많아서인지 완전히 분리되지 않았을 가능성이 있다(정보량을 통제한 placebo 조건 부재).
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 조절변수 사후 선택(post-hoc) 의혹</span>
+                <p class="text-sm text-slate-700">
+                  Study 3에서 "AI 추천 이해가능성"을 조절변수로 쓴 모형은 유의하지 않았고, 대신 "팀 피드백 이해가능성"을 조절변수로 쓴 모형만 유의했다. 두 모형을 순차 보고하는 방식은 다중검정에 따른 false positive 위험 및 사후가설화(HARKing) 가능성을 배제하기 어렵다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 표본 특성 왜곡</span>
+                <p class="text-sm text-slate-700">
+                  세 연구 모두 74%가 "고객 데이터를 정기적으로 사용한다"고 응답해, 데이터 활용도가 낮은 관리자 집단에서는 결과가 다르게 나타날 수 있는 표본 편향 가능성이 있다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Collaboration with machines in B2B marketing: Overcoming managers' aversion to AI-CRM with explainability</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

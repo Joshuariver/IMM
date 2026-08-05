@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Influence of Sustainability and Digitalisation on Business Model Innovation - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
+    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
+    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
+    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+
+    html { scroll-behavior: smooth; }
+
+    @media (max-width: 1024px) {
+      .style-display { font-size: 38px; }
+      .style-h1 { font-size: 30px; }
+      .style-h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Multi-sided Platform</div>
+        <div class="badge badge-secondary text-white style-label">Gioia Methodology · Case Study</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            The influence of sustainability and digitalisation on business model innovation:<br>
+            <span class="text-cyan-400">The case of a multi-sided platform for food surplus redistribution</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Ludovica Principato, Caterina Trevisan, Marco Formentini, Luca Secondi, Camilla Comis, Carlo Alberto Pratesi
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            지속가능성과 디지털화가 비즈니스 모델 혁신에 미치는 영향:<br>
+            <span class="text-indigo-300">식품 잉여 재분배를 위한 다면 플랫폼 사례</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            식품 재분배 플랫폼 Regusto의 진화에 관한 종단적 Gioia 방법론 사례연구, 4개의 이론적 명제 도출
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">플랫폼 리더가 외부 압력을 걸러 비즈니스 모델·지속가능성·디지털 기술을 맞물리게 할 때 모두가 이익을 얻는 진화가 일어납니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "While digital multi-sided platforms have been primarily investigated from a technical or economic perspective, the evolution of their business models over time and the significance of social and environmental sustainability for their success received relatively less attention. Through a longitudinal case study on the evolution of a digital platform for food surplus redistribution, we analyse how the business model of a multi-sided platform evolved to balance and integrate the objectives of economic viability with social and environmental sustainability goals. Data were collected through interviews with the platform stakeholders and then coded following the Gioia methodology. By adopting the lens of sociotechnical theory, we develop a set of four propositions to provide a generalisation of our findings to the broader literature on digital multi-sided platforms. Based on the results, we argue that the sustainable business model innovation process of a digital multi-sided platform must consider the mutual influence between business model innovation, sustainability dimensions internal to the business model, and the leverage of opportunities offered by digital technologies. Eventually, we underline the fundamental role of the platform leader in guiding such evolutionary process and its ability to generate benefits for all stakeholders through both sustainability and digitalisation levers."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              디지털 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">다면 플랫폼(multi-sided platform)</span>은 주로 기술적·경제적 관점에서 연구되어 왔으며, 시간에 따른 비즈니스 모델의 진화와 그 성공에 있어 사회·환경적 지속가능성이 갖는 중요성은 상대적으로 적은 주목을 받아왔다. 본 연구는 식품 잉여 재분배를 위한 디지털 플랫폼의 진화에 관한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">종단적 사례연구</span>를 통해, 다면 플랫폼의 비즈니스 모델이 경제적 존속 가능성과 사회·환경적 지속가능성 목표를 어떻게 균형 있게 통합하며 진화했는지를 분석한다. 데이터는 플랫폼 이해관계자와의 인터뷰를 통해 수집되었으며, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">Gioia 방법론</span>에 따라 코딩되었다. <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">사회기술이론</span>의 관점을 채택하여, 우리는 디지털 다면 플랫폼에 관한 광범위한 문헌으로 연구 결과를 일반화하기 위한 네 개의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">명제(propositions)</span>를 도출한다. 분석 결과를 토대로, 우리는 디지털 다면 플랫폼의 지속가능한 비즈니스 모델 혁신(SBMI) 과정이 비즈니스 모델 혁신, 비즈니스 모델 내부의 지속가능성 차원, 디지털 기술이 제공하는 기회의 활용 사이의 상호 영향을 반드시 고려해야 한다고 주장한다. 마지막으로, 우리는 이 진화 과정을 이끄는 플랫폼 리더의 근본적 역할과, 지속가능성 및 디지털화라는 두 레버를 통해 모든 이해관계자에게 편익을 창출하는 능력을 강조한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Multi-sided platform</td>
+                  <td>다면 플랫폼</td>
+                  <td class="text-sm">2개 이상의 상호 연결된 고객군(side)을 매개하는 플랫폼을 지칭하는 학술 표준 용어.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Business Model Innovation (BMI)</td>
+                  <td>비즈니스 모델 혁신</td>
+                  <td class="text-sm">가치제안·가치창출·가치포착 요소를 새롭게 설계하거나 조정하는 것(Foss &amp; Saebi, 2017).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Sustainable BMI (SBMI)</td>
+                  <td>지속가능한 비즈니스 모델 혁신</td>
+                  <td class="text-sm">환경·사회에 긍정적 영향을 만들고 부정적 영향을 줄이도록 가치제안/창출/포착 방식을 바꾸는 혁신(Bocken &amp; Geradts, 2020).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Sociotechnical theory</td>
+                  <td>사회기술이론</td>
+                  <td class="text-sm">조직을 구조·기술·과업·행위자 4요소가 상호작용하는 시스템으로 보는 이론(Kapoor et al., 2021).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Gioia methodology</td>
+                  <td>Gioia 방법론</td>
+                  <td class="text-sm">질적 인터뷰 자료를 1차 개념→2차 테마→포괄적 차원으로 귀납적으로 구조화하는 코딩 기법(Gioia et al., 2013).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Proposition</td>
+                  <td>명제</td>
+                  <td class="text-sm">질적 연구에서 가설(hypothesis)에 대응하는 개념으로, 통계 검증 대신 이론적 일반화를 목표로 제시하는 잠정적 주장.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">다면 플랫폼의 BM은 어떻게 지속가능성 목표와 균형을 이루며 진화하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">BM 혁신·지속가능성·디지털 기술의 상호작용을 리더가 조율해야 한다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">사회기술이론에 지속가능성 관점을 최초로 통합</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 디지털 다면 플랫폼의 비즈니스 모델은 시간이 지남에 따라 어떻게 진화하여 경제적 지속가능성과 사회·환경적 지속가능성 목표를 균형 있게 통합하는가?</li>
+                  <li><strong>핵심 발견:</strong> 이탈리아 식품 재분배 플랫폼 Regusto의 진화(2016→현재)를 분석한 결과, 지속가능한 BM 혁신은 (1)BM 혁신, (2)비즈니스 모델에 내재된 지속가능성 차원의 층화, (3)디지털 기술(블록체인) 활용이라는 세 요소의 <strong>상호 영향</strong>에서 비롯되며, 플랫폼 리더가 외부 압력을 걸러 이를 조율한다.</li>
+                  <li><strong>이론/실무 기여:</strong> 사회기술이론에 지속가능성 관점을 최초로 통합했고, 연구가 부족한 B2B·비영리 대상 플랫폼을 다루며, 크레딧(NFT) 기반 지속가능성 편익 거래라는 새로운 BM 유형을 제시했다.</li>
+                </ul>
+              </div>
+
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "플랫폼은 기술을 많이 도입한다고 살아남는 것이 아니라, 리더가 외부 압력을 걸러 비즈니스 모델에 녹이고 그것이 디지털 기술 활용 및 TBL 지속가능성 내재화와 맞물릴 때 비로소 모든 이해관계자가 이익을 보는 지속가능한 진화가 가능합니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실증(질적) 근거 데이터의 원문 인용 및 위치를 맵핑했습니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">연구 목적: BM의 경제·사회·환경 지속가능성 균형 진화 규명</td>
+                <td class="text-sm italic text-slate-600">"the main aim of this study is to investigate the evolution of a multi-sided platform's business model, balancing the objectives of economic sustainability with social and environmental sustainability goals."</td>
+                <td class="text-right font-medium text-slate-500">p.157, Sec. 1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">Regusto는 지속적으로 BM을 진화시킨 예외적("exemplar") 사례</td>
+                <td class="text-sm italic text-slate-600">"Unlike these platforms, Regusto is an interesting example because the company was able to sustain the continued evolution of its business model over time..."</td>
+                <td class="text-right font-medium text-slate-500">p.160, Sec. 3.1.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">BM은 B2C(a)→B2B 확장(b)→완전B2B(c)→크레딧기반(d) 4단계로 진화</td>
+                <td class="text-sm italic text-slate-600">"Business model (a): The beginning as a traditional food surplus redistribution platform" … "Business model (d): The credits-based business model"</td>
+                <td class="text-right font-medium text-slate-500">p.161-162, Table 2</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">내생적 지속가능성 차원이 시간에 따라 점진적으로 층화됨</td>
+                <td class="text-sm italic text-slate-600">"we crafted the theme 'evolution of endogenous sustainability dimensions' to indicate the emerging concept of the progressive layering of social, environmental, and economic sustainability dimensions..."</td>
+                <td class="text-right font-medium text-slate-500">p.162, Sec. 4.2.1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">블록체인 도입이 신뢰·투명성을 매개로 BM 혁신에 기여</td>
+                <td class="text-sm italic text-slate-600">"the adoption of blockchain technology undoubtedly contributed to building and promoting a trustworthy, secure, and innovation-oriented image of customer companies and of the platform itself"</td>
+                <td class="text-right font-medium text-slate-500">p.162-163, Sec. 4.2.1</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">플랫폼 리더가 외부 요인을 필터링·균형화해 BM에 통합 (P1)</td>
+                <td class="text-sm italic text-slate-600">"the platform leader should identify contextual factors and exogenous sustainability requirements and include them in the business model, filtering and balancing such factors with the objectives and expectations of all the platform's stakeholders."</td>
+                <td class="text-right font-medium text-slate-500">p.164, Sec. 5.1</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">TBL 지속가능성이 네트워크 효과·이해관계자 편익을 강화 (P4)</td>
+                <td class="text-sm italic text-slate-600">"Sustainability, according to a TBL perspective, has the potential to increase the benefits for both the platform leader and its customers, thus strengthening the network effects..."</td>
+                <td class="text-right font-medium text-slate-500">p.166, Sec. 5.3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 개념 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Concepts</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 논문은 통계적 가설검증이 아닌 <strong>질적 사례연구(Gioia methodology)</strong>를 사용합니다. 엄밀한 의미의 회귀분석 변수 대신, 데이터 구조(Fig. 3)에서 도출된 이론적 구성개념 간 관계를 <strong>그라운디드 모델(Fig. 4)</strong>과 4개의 <strong>명제(Proposition)</strong>로 제시합니다. 아래 다이어그램은 이 그라운디드 모델을 독립/매개/조절/종속 개념 구조에 대응시켜 재구성한 것입니다.
+        </p>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual Framework (그라운디드 모델 · Fig.4 기반 재구성)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 1000 480" class="w-full h-auto">
+              <!-- Antecedent: Contextual factors -->
+              <rect x="20" y="150" width="190" height="110" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="115" y="182" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">맥락적 요인 &amp;</text>
+              <text x="115" y="200" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">외생적 지속가능성 요구</text>
+              <text x="115" y="222" text-anchor="middle" fill="#64748b" font-size="10">시장경쟁·팬데믹·규제변화</text>
+              <text x="115" y="238" text-anchor="middle" fill="#64748b" font-size="10">그린워싱 방지 요구</text>
+
+              <!-- Moderator: Platform Leadership -->
+              <rect x="380" y="15" width="230" height="75" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="495" y="42" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">플랫폼 리더십</text>
+              <text x="495" y="60" text-anchor="middle" fill="#b45309" font-size="10">top-down 통제 &amp; bottom-up 생성</text>
+              <text x="495" y="75" text-anchor="middle" fill="#b45309" font-size="10">외부요인 필터링·균형화</text>
+
+              <!-- Mediator 1: Business Model Innovation (central) -->
+              <rect x="380" y="150" width="230" height="110" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="495" y="182" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">비즈니스 모델 혁신</text>
+              <text x="495" y="200" text-anchor="middle" fill="#047857" font-size="10">구조(Structure) &amp; 과업(Task) 재편</text>
+              <text x="495" y="217" text-anchor="middle" fill="#047857" font-size="10">고객세그먼트 · 수익원 전환</text>
+              <text x="495" y="234" text-anchor="middle" fill="#047857" font-size="10">(Table 2·3·4)</text>
+
+              <!-- Mediator 2: Endogenous sustainability -->
+              <rect x="190" y="330" width="230" height="110" rx="8" fill="#ecfeff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="305" y="362" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="13">내생적 지속가능성 차원</text>
+              <text x="305" y="380" text-anchor="middle" fill="#0284c7" font-size="10">경제·사회·환경(TBL) 내재화</text>
+              <text x="305" y="397" text-anchor="middle" fill="#0284c7" font-size="10">18개 영향지표, 크레딧 환산</text>
+              <text x="305" y="414" text-anchor="middle" fill="#0284c7" font-size="10">(진행 층화, layering)</text>
+
+              <!-- Mediator 3: Digital technology opportunities -->
+              <rect x="580" y="330" width="230" height="110" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+              <text x="695" y="362" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">디지털 기술 활용 기회</text>
+              <text x="695" y="380" text-anchor="middle" fill="#4338ca" font-size="10">블록체인 도입(2019)</text>
+              <text x="695" y="397" text-anchor="middle" fill="#4338ca" font-size="10">거래 투명성·추적성·NFT 크레딧</text>
+              <text x="695" y="414" text-anchor="middle" fill="#4338ca" font-size="10">(기술 core 강화)</text>
+
+              <!-- DV: Benefits for stakeholders -->
+              <rect x="850" y="170" width="135" height="130" rx="8" fill="#fdf4ff" stroke="#a21caf" stroke-width="2"/>
+              <text x="917" y="202" text-anchor="middle" font-weight="700" fill="#86198f" font-size="12">이해관계자</text>
+              <text x="917" y="218" text-anchor="middle" font-weight="700" fill="#86198f" font-size="12">공동 편익</text>
+              <text x="917" y="238" text-anchor="middle" fill="#a21caf" font-size="9">네트워크 효과</text>
+              <text x="917" y="253" text-anchor="middle" fill="#a21caf" font-size="9">경제적 지속가능성</text>
+              <text x="917" y="268" text-anchor="middle" fill="#a21caf" font-size="9">디지털 역량 이전</text>
+
+              <!-- Arrows -->
+              <!-- Contextual factors -> BM Innovation : P1, P2 -->
+              <path d="M210 195 L 370 200" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="250" y="188" fill="#475569" font-weight="700" font-size="12">P1, P2 (+)</text>
+
+              <!-- Leader -> midpoint of Contextual->BM arrow (moderating/filtering) -->
+              <path d="M470 90 L 400 150" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="405" y="120" fill="#b45309" font-weight="700" font-size="11">필터링·조절</text>
+
+              <!-- BM Innovation <-> Endogenous sustainability : mutual influence -->
+              <path d="M430 258 L 350 332" fill="none" stroke="#0ea5e9" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+              <text x="330" y="300" fill="#0284c7" font-weight="700" font-size="11">상호영향</text>
+
+              <!-- BM Innovation <-> Digital tech : mutual influence P3a/P3b -->
+              <path d="M565 258 L 645 332" fill="none" stroke="#6366f1" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+              <text x="575" y="300" fill="#4338ca" font-weight="700" font-size="11">P3a/P3b</text>
+
+              <!-- Endogenous sustainability <-> Digital tech : mutual influence -->
+              <path d="M420 385 L 580 385" fill="none" stroke="#7c3aed" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+              <text x="500" y="378" text-anchor="middle" fill="#6d28d9" font-weight="700" font-size="11">상호영향</text>
+
+              <!-- BM Innovation -> Benefits (DV), P4 -->
+              <path d="M610 190 L 848 210" fill="none" stroke="#a21caf" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="700" y="185" fill="#86198f" font-weight="700" font-size="12">P4 (+)</text>
+
+              <!-- Endogenous sustainability -> Benefits (indirect, dashed) -->
+              <path d="M420 400 Q 700 470 850 280" fill="none" stroke="#a21caf" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+
+              <!-- Digital tech -> Benefits (indirect, dashed) -->
+              <path d="M810 375 Q 860 340 880 300" fill="none" stroke="#a21caf" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500">실선 화살표=직접 영향(P1/P2/P4), 양방향 화살표=상호 영향(mutual influence, P3a/P3b 포함), 점선 화살표=간접 경로. 플랫폼 리더십은 외부 요인이 BM에 반영되는 경로를 필터링·조절하는 역할.</p>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Antecedent Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">선행요인(독립변수적 개념)</span>
+                <span class="text-xs text-slate-400 font-semibold">Antecedent</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">맥락적 요인 &amp; 외생적 지속가능성 요구</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 플랫폼 외부에서 발생해 BM 진화를 촉발하는 시장 경쟁, 팬데믹 등 공급망 충격, 규제 변화, 시장이 요구하는 지속가능성 성과 기준.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의(자료 근거):</strong> 1차 개념 "(9) Market competition and Covid-19 pandemic", "(11) Higher sustainability standards are required", "(12) Need to avoid greenwashing" (Table A1).</p>
+              <p class="text-sm text-slate-600"><strong>측정/출처:</strong> Gioia 코딩 → "Contextual factors", "Sustainability requirements" 2차 테마 (Fig. 3)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Saebi, Lien &amp; Foss (2017)의 BM 적응 문헌을 확장, 맥락적 요인과 외생적 지속가능성 요구를 짝지어야 외부 드라이버의 포괄적 이해가 가능하다고 주장.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절적 역할</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">플랫폼 리더십 (Platform Leadership)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 역할·표준·원칙을 설정하는 top-down 통제와, 기술 어포던스를 활용한 새로운 행위자·제도의 bottom-up 창발을 동시에 관리하는 리더의 능력(Haki, 2021).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> B2B 세그먼트로의 전략적 전환, 블록체인 도입, 크레딧 기반 모델 설계 등 공동창업자(COO)의 의사결정 사례.</p>
+              <p class="text-sm text-slate-600"><strong>측정/출처:</strong> 공동창업자 인터뷰 5회(총 4h36m, Table 1)에서 도출</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Doz &amp; Kosonen(2010)의 전략적 민첩성 개념과 연결. 리더십을 "외부 압력을 필터링해 BM에 통합하는 매개 채널"로 개념화(Proposition 1).
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개적 개념 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">비즈니스 모델 혁신 (BMI)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 가치제안, 고객세그먼트, 수익구조 등 BM 핵심 요소의 의도적이고 비자명한 변화(Foss &amp; Saebi, 2017).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Table 2(진화 타임라인) · Table 3(고객세그먼트) · Table 4(수익원) — 수수료→구독료→크레딧 판매로 전환.</p>
+              <p class="text-sm text-slate-600"><strong>측정/출처:</strong> 1차개념 "(1)~(3)" → 2차 테마 "(a) Business model innovation" (Fig. 3, Table A1)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Osterwalder et al.(2005), Chesbrough(2010)의 BM 3요소(가치제안/창출·전달/포착) 프레임과 직접 연결.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">매개적 개념 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">내생적 지속가능성 차원의 진화</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 사회·환경·경제적 지속가능성(TBL)이 BM 내부에 점진적으로 층화되어 내재화되는 과정.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 사회 차원(2020년 자선단체 기부 시작), 환경 차원(회피 CO2·물·토지 지표화, 18개 지표), 경제 차원(수익모델 전환).</p>
+              <p class="text-sm text-slate-600"><strong>측정/출처:</strong> 1차개념 "(7)(8)" → 2차 테마 "(c) Evolution of endogenous sustainability dimensions" (Fig. 3)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Bocken et al.(2014), Freudenreich et al.(2020) 지속가능 BM 아키타입 논의와 연결. "1크레딧=1식 기부+0.5kg CO2 절감+3m³ 물+10m² 토지" 환산.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator 3 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">매개적 개념 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">디지털 기술 활용 기회</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 플랫폼이 디지털 자산·역량(특히 블록체인)을 활용해 신뢰·투명성·효율성을 창출하고 새로운 BM 구성요소를 가능케 하는 과정.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 2019년 블록체인 도입(거래 투명성·추적성), 크레딧의 NFT 발행, 공공 원장을 통한 데이터 공개.</p>
+              <p class="text-sm text-slate-600"><strong>측정/출처:</strong> 1차개념 "(4)~(6)" → 2차 테마 "(b) Leveraging opportunities offered by digital technologies" (Fig. 3)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Yoo et al.(2012)의 디지털 어포던스(생성성) 개념과 연결. Gregori &amp; Holzmann(2020)의 "디지털 기술이 지속가능 BM을 가능케 한다"는 주장을 사례로 뒷받침.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">결과(종속변수적 개념)</span>
+                <span class="text-xs text-slate-400 font-semibold">Outcome</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">이해관계자 공동 편익 (Benefits for Platform's Stakeholders)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 플랫폼 참여를 통해 공급측(기부기업)·수요측(자선단체)·비거래측(지자체, 크레딧 구매기업)이 얻는 기술적 역량 향상, 신규 파트너십, 지속가능성 성과 측정치 등 상호적 편익.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 신규 파트너십 형성 속도, 자선단체의 무료 디지털 트래킹 도구 접근, CSR 보고 활용 데이터, 지자체의 기부 흐름 가시성.</p>
+              <p class="text-sm text-slate-600"><strong>측정/출처:</strong> 1차개념 "(13)~(17)" → 2차 테마 "Enhanced technological performance", "Mutually beneficial sustainability performance" (Fig. 3, Table A1)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Propositions summary table -->
+        <div class="mt-2">
+          <h4 class="style-h3 text-slate-800 mb-3">4개 명제(Propositions) 요약</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/12">명제</th>
+                  <th class="w-8/12">내용</th>
+                  <th class="w-3/12 text-right">위치</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-bold">P1</td>
+                  <td class="text-sm">플랫폼 리더는 맥락적 요인과 외생적 지속가능성 요구를 파악해 이해관계자 기대와 균형을 맞추며 BM에 통합해야 한다</td>
+                  <td class="text-right text-sm text-slate-500">p.164</td>
+                </tr>
+                <tr>
+                  <td class="font-bold">P2</td>
+                  <td class="text-sm">다면 플랫폼은 변화하는 환경에 적응할 수 있는 충분히 유연한 구조를 갖추어 구조-과업 정합을 지속적으로 달성해야 한다</td>
+                  <td class="text-right text-sm text-slate-500">p.164</td>
+                </tr>
+                <tr>
+                  <td class="font-bold">P3a/P3b</td>
+                  <td class="text-sm">디지털 기술 기회는 (a) 구조 관점에서 새 지속가능 BM 창출 및 기술 core 강화, (b) 네트워크 관점에서 디지털 역량 강화 및 신규 파트너십 창출에 기여한다</td>
+                  <td class="text-right text-sm text-slate-500">p.166</td>
+                </tr>
+                <tr>
+                  <td class="font-bold">P4</td>
+                  <td class="text-sm">TBL 관점의 지속가능성은 플랫폼 리더와 고객 모두의 편익을 증가시켜 네트워크 효과와 가치포착 유인을 강화한다</td>
+                  <td class="text-right text-sm text-slate-500">p.166</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 Gioia 방법론 기반 질적 사례연구 절차를 그대로 <strong>추종 재현</strong>할 수 있도록 단계별로 분해했습니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">사례 선정 및 접근</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Regusto(2016년 설립)를 Pagell &amp; Wu(2009)의 "exemplar" 기준(업계 평균 상회 사회/환경 성과 + 경제적 존속가능성 동시 달성)에 부합하는 대표적 단일 사례로 선정. Siggelkow(2007)의 단일사례 정당화 논리 원용.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.160, Sec. 3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">반구조화 인터뷰를 통한 자료 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  2022년 3월~9월, Regusto 생태계의 8개 유형 이해관계자(플랫폼 제공자, 블록체인 기술제공자, 제3섹터 조직, 기부기업 2곳, 크레딧 구매기업, 지자체 등) 대상 총 14회 인터뷰(8시간54분) 수행. 응답자 유형별로 질문 스코프 조정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.160-161, Sec. 3.1.2, Table 1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">종단적 사건 재구성 (코딩 Step 1)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  공동창업자 인터뷰를 바탕으로 BM 진화의 전환점을 식별하고, 각 시점별 경제모형(비용/수익원), 고객관계, 정보/실물흐름을 재구성. 산출물은 Table 2의 진화 타임라인(BM a→b→c→d).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.161, Sec. 3.1.3, Step 1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">데이터 코딩 — Gioia 방법론 (코딩 Step 2)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  NVivo에 전사자료 입력, 정독하며 1차 개념 코딩(약 50개→18개로 그룹화)→7개 2차 테마로 군집화→재라벨링 반복해 포괄적 차원으로 추상화. 대표 인용문은 부록 Table A1, 최종 데이터 구조는 Fig. 3.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.161-162, Sec. 3.1.3, Step 2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">이론적 프레임워크 개발 (코딩 Step 3)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Gioia et al.(2013) 방법을 따라 2차 테마 간 상호관계를 그라운디드 모델(Fig. 4)로 구성하고, 사회기술이론(구조·기술·과업·행위자) 렌즈로 재검토하여 4개 명제(P1-P4) 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.162, Sec. 3.1.3, Step 3; Sec. 5</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">신뢰성 확보를 위한 자료 삼각검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  스타트업/플랫폼 공개정보, 웹사이트 등 2차 자료를 인터뷰와 통합해 맥락 이해를 보강하고 데이터 신뢰성을 제고.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.161, Sec. 3.1.2</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            Gioia 코딩 절차(1차 개념→2차 테마→포괄적 차원)와 분석 단계는 상세히 기술되어 방법론적으로 추종 가능하나, 원 인터뷰 전사자료는 "Data availability: confidential"로 비공개이며 단일 기업(Regusto)에 대한 독점적 접근이 전제되므로 동일 표본으로의 완전한 재현은 불가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6, p.166-167)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>질적 연구의 정량적 검증 부재:</strong> "as our study is qualitative, additional efforts in exploring the relationships among the emerged themes quantitively might lead to interesting results." — 도출된 4개 명제 간 관계가 통계적으로 검증되지 않았음을 인정.
+              </li>
+              <li>
+                <strong>단일 산업/타 위기 유형에 대한 일반화 제한:</strong> "other waste-intensive industries (e.g., the fashion industry), could be improved by studying existing multi-sided platforms..." — 식품 이외 산업으로의 일반화는 향후 연구 과제로 유보.
+              </li>
+              <li>
+                <strong>이론적 프레임워크의 타 맥락 검증 필요:</strong> "future studies could introduce new business model, and test the validity of our theoretical framework in different contexts." — 저자 스스로 "cross-context applicability"를 실증 없이 "믿는다"고만 서술.
+              </li>
+              <li>
+                <strong>데이터 기밀성:</strong> "Data availability: The data that has been used is confidential." — 원자료 비공개로 인한 외부 검증 제한을 사실상 인정.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">단일사례 연구설계와 코딩 절차를 근거로 제기하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 성공 사례 편향 (Survivorship Bias)</span>
+                <p class="text-sm text-slate-700">
+                  Regusto는 "exemplar"로 의도적으로 선정된 성공 사례이며, 유사 시기 실패·정체한 경쟁 플랫폼과의 비교가 전혀 없다. P1-P4가 사실은 <strong>"성공한 플랫폼에서 사후적으로 관찰되는 공통 서사"</strong>에 불과할 위험이 있는, 전형적인 선택편향(selection-on-the-dependent-variable) 문제.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 핵심 정보원 편중</span>
+                <p class="text-sm text-slate-700">
+                  14회 인터뷰 중 5회(시간 기준 4h36m/8h54m ≈ 52%)가 공동창업자 1인에게 집중됐다. 창업자의 <strong>사후 합리화된 성공 서사(self-serving narrative)</strong>가 데이터 구조에 과대 반영됐을 가능성이 있고, 블록체인 제공자·지자체는 각 1회 인터뷰로 상호검증 강도가 불균등하다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 재무 성과의 실증 뒷받침 부재</span>
+                <p class="text-sm text-slate-700">
+                  "경제적 지속가능성"이 핵심 개념으로 반복 강조되지만, 실제 매출·수익성·손익 등 정량 재무지표는 논문 어디에도 제시되지 않는다. 크레딧·구독 모델이 "경제적으로 지속가능"하다는 주장은 인터뷰 진술에 전적으로 의존한다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 연구비 지원 주체와 주제 근접성</span>
+                <p class="text-sm text-slate-700">
+                  본 연구는 이탈리아 대학연구부의 "Fisr DONO ERGO SUM"(기부 관련) 프로젝트 지원을 받았다. 연구자와 사례기업 간 관계의 성격이 명시되지 않아 <strong>결과 해석의 우호적 편향(favorable framing)</strong> 가능성을 완전히 배제하기 어렵다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 회고적 인터뷰의 기억 편향</span>
+                <p class="text-sm text-slate-700">
+                  2016~2022년 약 6년간의 BM 진화를 2022년 시점의 회고적 인터뷰로 재구성했다. 특히 초기 단계(a, 2016) 서술은 6년 이상 지난 기억에 의존하므로, 사건 순서·인과관계가 <strong>사후적으로 재구성(retrospective sensemaking)</strong>됐을 가능성이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 코더 간 신뢰도 미보고</span>
+                <p class="text-sm text-slate-700">
+                  Gioia 방법론을 표방했으나, 1차 개념(50→18개)·2차 테마(7개) 도출 과정에서 복수 코더 간 일치도(Cohen's κ 등) 같은 정량 신뢰도 지표가 보고되지 않아 코딩의 주관성 개입 정도를 외부에서 평가하기 어렵다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>The influence of sustainability and digitalisation on business model innovation: The case of a multi-sided platform for food surplus redistribution</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

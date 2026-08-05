@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Impact of Digital Tools on Sales-Marketing Interactions and Perceptions - IMM 2023</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management 115 (2023) 395–407</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Sales-Marketing Interface</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Study · 86 Informants · 56 Firms</div>
+      </div>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            The impact of digital tools on<br>
+            <span class="text-cyan-400">sales-marketing interactions and perceptions</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Wim Biemans, Faculty of Economics and Business, University of Groningen
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            디지털 도구가 영업-마케팅 상호작용과<br>
+            <span class="text-indigo-300">상호 인식에 미치는 영향</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            56개 기업 86명의 정보제공자 인터뷰를 통해 본 디지털 도구의 양면성과 조절 요인
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">디지털 도구는 영업-마케팅 관계를 효율화하지만 인간적 교류와 힘의 균형을 흔들며, 그 효과는 도입 이전 SMI의 건강도에 달려 있습니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Creating superior value for customers requires an effective sales-marketing interface (SMI), but unfortunately these two departments are not always aligned, which drains resources and reduces profitability. The COVID-19 pandemic forced B2B firms to move their sales-marketing interactions online, using digital tools such as Teams, Zoom, and WhatsApp, which dramatically changed how the two departments interact and perceive each other and their relationship. The study presented in this paper, based on interviews with 86 informants in 56 firms, explores the impact of digital tools on sales-marketing interactions and perceptions. The findings contribute to the SMI literature by untangling the positive and negative effects of digital tools, emphasizing the role of informal interactions, exploring the impact of digital tools on the power balance between marketing and sales, and suggesting several variables that may moderate the impact of digital tools on the SMI."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              고객에게 우수한 가치를 제공하려면 효과적인 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">영업-마케팅 인터페이스(SMI)</span>가 필요하지만, 안타깝게도 두 부서는 항상 정렬되어 있지 않으며 이는 자원을 낭비하고 수익성을 저해한다. 코로나19 팬데믹은 B2B 기업들로 하여금 영업-마케팅 상호작용을 온라인으로 옮기도록 강제했고, Teams, Zoom, WhatsApp과 같은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">디지털 도구</span>를 사용하게 되면서 두 부서가 서로를 상호작용하고 인식하는 방식, 그리고 관계 자체가 극적으로 변화했다. 본 논문은 56개 기업 86명의 정보제공자 인터뷰를 기반으로 디지털 도구가 영업-마케팅 상호작용과 인식에 미치는 영향을 탐구한다. 이 연구 결과는 디지털 도구의 긍정적·부정적 효과를 구분하고, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">비공식적 상호작용</span>의 역할을 강조하며, 디지털 도구가 마케팅과 영업 간의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">힘의 균형</span>에 미치는 영향을 탐색하고, SMI에 대한 디지털 도구의 영향을 조절할 수 있는 여러 변수를 제안함으로써 SMI 문헌에 기여한다.
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Sales-Marketing Interface (SMI)</td>
+                  <td>영업-마케팅 인터페이스</td>
+                  <td class="text-sm">영업·마케팅 부서 간 상호작용과 상호 인식을 아우르는 학술 표준 용어로, 선행 문헌 표기를 그대로 계승했습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Untangling</td>
+                  <td>구분/분리</td>
+                  <td class="text-sm">혼재되어 있던 디지털 도구의 긍정·부정 효과를 풀어내겠다는 저자의 방법론적 의도를 살린 번역입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Theories-in-use Approach</td>
+                  <td>이론사용중심 접근 (원어 병기)</td>
+                  <td class="text-sm">근거이론과 유사하되 참여자의 실무적 사고 틀을 포착하는 데 초점을 둔 질적 방법론입니다(Zeithaml et al., 2020).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Power Balance</td>
+                  <td>힘의 균형</td>
+                  <td class="text-sm">자원의존이론 관점에서 부서 간 통제 자원(고객 관계 등)의 상대적 배분을 뜻합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Informant</td>
+                  <td>정보제공자</td>
+                  <td class="text-sm">질적 연구에서 인터뷰 대상자를 지칭하는 표준 용어입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">디지털 도구는 SMI에 득이 되는가, 실이 되는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">양날의 검 — 효율은 오르지만 인간적 교류는 준다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">권력 균형 변화와 조절요인의 발견</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 코로나19로 폭증한 디지털 도구 사용은 영업-마케팅 간 상호작용(커뮤니케이션, 정보공유)과 상호 인식(신뢰, 응집력)에 각각 어떤 이점과 단점을 가져오며, 이를 조절하는 변수는 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> 커뮤니케이션 효율성·정보 투명성·협업·신뢰는 향상되지만, 맥락적 정보 풍부성 결여·스트레스·응집력 저하·도입 문제·영업의 역할 불안이라는 부작용이 동시에 나타나는 "양날의 검"입니다. 특히 공식 도구(Teams/Zoom)와 비공식 도구(WhatsApp/Viber)는 서로 다른 기능을 수행하며, 비공식적·즉흥적 교류(워터쿨러 대화)의 감소가 응집력에 부정적입니다.</li>
+                  <li><strong>이론/실무 기여:</strong> 자원의존이론 관점에서 디지털 도구가 마케터에게 고객 접근권을 부여하여 영업-마케팅 간 힘의 균형을 바꿀 수 있음을 제시하고, 기업 규모·국가 문화보다 <strong>도입 이전 SMI의 초기 품질</strong>이 진짜 조절 변수임을 밝혔습니다.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "디지털 도구는 영업-마케팅 관계를 정보 투명성과 효율성 측면에서 향상시키지만 비공식적 인간적 교류를 잠식하고 권력 균형을 흔들며, 최종 효과는 도입 이전 SMI의 건강도에 달려 있습니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 인터뷰 근거 인용, 원문 페이지·절 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">86명, 56개 기업 대상 질적 연구</td>
+                <td class="text-sm italic text-slate-600">"A total of 86 informants in 56 companies from several European countries... participated in the study."</td>
+                <td class="text-right font-medium text-slate-500">p.398 (Sec. 3.1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">커뮤니케이션 효율성 향상</td>
+                <td class="text-sm italic text-slate-600">"The 24/7 access to digital tools makes it easier to reach out to colleagues and increases the speed of communication."</td>
+                <td class="text-right font-medium text-slate-500">p.399 (Sec. 4.2.1)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">정보 투명성이 신뢰·응집력에 기여</td>
+                <td class="text-sm italic text-slate-600">"This improves information transparancy, which helps to... enhance interfunctional trust and mutual appreciation."</td>
+                <td class="text-right font-medium text-slate-500">p.400 (Sec. 4.2.2)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">맥락적 정보 풍부성 결여</td>
+                <td class="text-sm italic text-slate-600">"The most frequently mentioned drawback of digital tools is a lack of contextual information richness..."</td>
+                <td class="text-right font-medium text-slate-500">p.400–401 (Sec. 4.3.1)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">24/7 접근성이 스트레스 유발</td>
+                <td class="text-sm italic text-slate-600">"The boundary between work and private life becomes increasingly blurred..."</td>
+                <td class="text-right font-medium text-slate-500">p.401 (Sec. 4.3.2)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">디지털 전환이 응집력을 저해할 수 있음</td>
+                <td class="text-sm italic text-slate-600">"...employees may feel more isolated and less connected to the team..."</td>
+                <td class="text-right font-medium text-slate-500">p.402 (Sec. 4.3.3)</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">디지털 도구가 힘의 균형을 변화</td>
+                <td class="text-sm italic text-slate-600">"...digital tools allow marketers to encroach on sales' territory, by directly interacting with individual customers..."</td>
+                <td class="text-right font-medium text-slate-500">p.402–403 (Sec. 4.3.5)</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">초기 SMI 품질이 진짜 조절변수</td>
+                <td class="text-sm italic text-slate-600">"...the underlying driver of the impact of digital tools is not firm size, but the initial quality of the SMI."</td>
+                <td class="text-right font-medium text-slate-500">p.403 (Sec. 4.4)</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td class="font-semibold text-slate-900">국가 문화의 조절 가능성</td>
+                <td class="text-sm italic text-slate-600">"...the Chinese may be an exception. Because the Chinese are more used to digital communication..."</td>
+                <td class="text-right font-medium text-slate-500">p.403 (Sec. 4.4)</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td class="font-semibold text-slate-900">SMI가 건강한 기업이 최대 수혜자</td>
+                <td class="text-sm italic text-slate-600">"...firms with well-functioning SMIs stand to benefit the most from using digital tools..."</td>
+                <td class="text-right font-medium text-slate-500">p.405 (Sec. 6)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <div class="alert bg-amber-50 border border-amber-300 text-amber-900 text-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-600 shrink-0 h-5 w-5" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span>본 연구는 통계적으로 검정된 가설(H1, H2…)이 없는 <strong>탐색적 질적 연구</strong>입니다. 아래 다이어그램은 논문 Fig. 1의 개념적 프레임워크와 Section 4의 서술적 발견을 근거로 재구성한 <strong>개념적 변수 체계</strong>이며, 경로 라벨은 통계적 유의성이 아닌 논문이 보고한 효과의 방향(긍정/부정)을 나타냅니다.</span>
+        </div>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (개념적 연구 프레임워크)</h3>
+
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 820 480" class="w-full h-auto">
+              <!-- IV: Digital Tools -->
+              <rect x="20" y="200" width="200" height="90" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="120" y="232" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">디지털 도구 사용</text>
+              <text x="120" y="252" text-anchor="middle" fill="#64748b" font-size="11">Teams · Zoom · WhatsApp</text>
+              <text x="120" y="268" text-anchor="middle" fill="#64748b" font-size="11">SharePoint · Trello 등</text>
+
+              <!-- Mediator 1: Interactions (Flow) -->
+              <rect x="300" y="90" width="220" height="100" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="410" y="118" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">영업-마케팅 상호작용</text>
+              <text x="410" y="138" text-anchor="middle" fill="#047857" font-size="11">(Flow 변수)</text>
+              <text x="410" y="156" text-anchor="middle" fill="#047857" font-size="11">커뮤니케이션 효율성 · 정보</text>
+              <text x="410" y="172" text-anchor="middle" fill="#047857" font-size="11">투명성 · 협업</text>
+
+              <!-- Mediator 2: Perceptions (Stock) -->
+              <rect x="300" y="300" width="220" height="100" rx="8" fill="#fdf2f8" stroke="#db2777" stroke-width="2"/>
+              <text x="410" y="328" text-anchor="middle" font-weight="700" fill="#9d174d" font-size="14">영업-마케팅 인식</text>
+              <text x="410" y="348" text-anchor="middle" fill="#be185d" font-size="11">(Stock 변수)</text>
+              <text x="410" y="366" text-anchor="middle" fill="#be185d" font-size="11">신뢰 · 응집력 · 권력 균형</text>
+
+              <!-- DV -->
+              <rect x="610" y="195" width="190" height="100" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="705" y="228" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">SMI 효과성</text>
+              <text x="705" y="248" text-anchor="middle" fill="#4338ca" font-size="11">(부서 간 정렬 및</text>
+              <text x="705" y="264" text-anchor="middle" fill="#4338ca" font-size="11">관계 품질)</text>
+
+              <!-- Moderators -->
+              <rect x="330" y="10" width="160" height="55" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="410" y="34" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">초기 SMI 품질</text>
+              <text x="410" y="50" text-anchor="middle" fill="#b45309" font-size="10">(핵심 조절변수)</text>
+
+              <rect x="10" y="410" width="150" height="55" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="85" y="434" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">기업 규모</text>
+              <text x="85" y="450" text-anchor="middle" fill="#b45309" font-size="10">(표면적 조절)</text>
+
+              <rect x="180" y="410" width="150" height="55" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="255" y="434" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">국가 문화</text>
+              <text x="255" y="450" text-anchor="middle" fill="#b45309" font-size="10">(예: 중국 사례)</text>
+
+              <rect x="350" y="410" width="150" height="55" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="425" y="434" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">직원 연령/성향</text>
+              <text x="425" y="450" text-anchor="middle" fill="#b45309" font-size="10">(불일치된 근거)</text>
+
+              <!-- Arrows -->
+              <!-- IV -> Interactions -->
+              <path d="M180 210 L 250 210 L 250 150 L 300 150" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="200" y="185" fill="#047857" font-weight="700" font-size="12">긍정 (+)</text>
+
+              <!-- IV -> Perceptions (negative, dashed direct) -->
+              <path d="M180 270 L 250 270 L 250 340 L 300 340" fill="none" stroke="#db2777" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+              <text x="192" y="300" fill="#be185d" font-weight="700" font-size="12">직접효과 (-)</text>
+
+              <!-- Interactions <-> Perceptions bidirectional -->
+              <path d="M420 190 L 420 300" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+              <text x="428" y="250" fill="#0369a1" font-weight="700" font-size="12">양방향 (Flow↔Stock)</text>
+
+              <!-- Interactions -> DV -->
+              <path d="M520 150 L 580 150 L 580 230 L 610 230" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="530" y="140" fill="#047857" font-weight="700" font-size="12">효율·투명성 (+)</text>
+
+              <!-- Perceptions -> DV -->
+              <path d="M520 350 L 580 350 L 580 270 L 610 270" fill="none" stroke="#db2777" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="530" y="368" fill="#be185d" font-weight="700" font-size="12">신뢰·응집력 (+/-)</text>
+
+              <!-- Moderator: Initial SMI Quality -> Interactions<->Perceptions link -->
+              <path d="M410 65 L 410 90" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="418" y="82" fill="#b45309" font-weight="700" font-size="11">조절</text>
+
+              <!-- Moderator: Firm size -> IV->Interactions path -->
+              <path d="M85 410 L 85 300 L 220 300 L 220 200" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+              <text x="95" y="380" fill="#b45309" font-weight="700" font-size="11">조절(표면적)</text>
+
+              <!-- Moderator: National culture -> negative direct path -->
+              <path d="M255 410 L 255 385 L 225 385 L 225 350" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+              <text x="145" y="405" fill="#b45309" font-weight="700" font-size="11">조절</text>
+
+              <!-- Moderator: Employee mentality -> IV node -->
+              <path d="M425 410 L 425 390 L 120 390 L 120 292" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 (초점 현상)</span>
+                <span class="text-xs text-slate-400 font-semibold">IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">디지털 도구 사용 (Use of Digital Tools)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> Teams, Zoom, WhatsApp, Viber, SharePoint, Trello 등 영업-마케팅 부서 간 커뮤니케이션·협업에 사용되는 디지털 플랫폼의 도입 및 활용.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 근거:</strong> 상명하달식 도구(Teams/Zoom, 경영진 주도)와 상향식 도구(WhatsApp/Viber, 부서 자율 도입)로 인터뷰 코딩상 구분됨.</p>
+              <p class="text-sm text-slate-600"><strong>측정/출처:</strong> 척도 없음; McCracken(1988) 프로토콜 기반 반구조화 인터뷰 서술 데이터.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 미디어 풍부성 이론(Daft & Lengel, 1986), 미디어 동시성 이론(Dennis et al., 2008)이 도구 선택의 적합성을 설명.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개적 구성개념 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Interactions (Flow)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">영업-마케팅 상호작용</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 시간 경과에 따라 두 부서가 서로에게 보이는 행동 — 커뮤니케이션, 정보 공유, 영향 전술.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 근거:</strong> 커뮤니케이션 효율성(4.2.1), 정보 투명성(4.2.2), 협업(4.2.3) 하위 범주로 코딩.</p>
+              <p class="text-sm text-slate-600"><strong>측정/출처:</strong> Fig. 2 코딩 스킴(in-vivo code → 1차 범주 → 2차 테마), 축코딩(Corbin & Strauss, 2014).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 회계·경제학의 flow-stock 변수 개념(Clower, 1968) — 상호작용(flow)이 누적되어 인식(stock)을 형성.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge style-label text-white" style="background-color:#db2777;">매개적 구성개념 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Perceptions (Stock)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">영업-마케팅 인식</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 특정 시점에 두 부서가 서로와 그 관계를 바라보는 시각 — 신뢰, 응집력, 갈등, 권력 균형.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 근거:</strong> 신뢰·응집력(4.2.4, 긍정), 응집력 저하(4.3.3, 부정), 영업 역할·권력 균형(4.3.5)으로 코딩.</p>
+              <p class="text-sm text-slate-600"><strong>측정/출처:</strong> 질적 코딩 기반(척도 미사용). 선행 SMI 문헌은 척도화하기도 함(Dawes & Massey, 2006).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 자원의존이론(Pfeffer & Salancik, 1978)이 도구 통제력과 권력 배분의 연관성을 설명.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 (3종)</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderators</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">초기 SMI 품질 · 기업 규모 · 국가 문화</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> ①초기 SMI 품질(핵심 조절변수) — 도입 이전 부서 관계의 건강도. ②기업 규모 — 근접성·지리적 분산. ③국가 문화 — 비언어적 단서에 대한 민감도.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 근거:</strong> Section 4.4 인터뷰 코딩; 저자는 기업 규모의 표면적 상관을 넘어 초기 SMI 품질이 실질적 동인이라고 해석.</p>
+              <p class="text-sm text-slate-600"><strong>측정/출처:</strong> 척도 없음; 정보제공자 간 의견 불일치가 존재(특히 연령/성향 요인).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 사회교환이론·네트워크 이론이 비공식 네트워크와 사회적 자본의 조절적 역할을 뒷받침.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속 결과 (관찰된 결과 패턴)</span>
+                <span class="text-xs text-slate-400 font-semibold">Outcome</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">SMI 효과성 (부서 간 정렬 및 관계 품질)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 영업과 마케팅이 얼마나 정렬되어 협력하고, 상호 신뢰·응집력을 유지하며, 고객에게 우수한 가치를 제공할 수 있는가를 나타내는 총체적 결과.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 근거:</strong> 논문은 이를 별도 종속변수로 척도화하지 않으며, "SMI가 건강한 기업일수록 디지털 도구의 혜택을 크게 누린다"는 결론적 패턴으로 서술됨(Sec. 6).</p>
+              <p class="text-sm text-slate-600"><strong>측정/출처:</strong> 별도 척도 없음 — 질적 결론(narrative conclusion)으로 제시.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않은 연구자도 동일한 질적 연구 절차를 그대로 <strong>추종 재현</strong>할 수 있도록 데이터 수집·분석 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 설계 선택</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  기존 문헌의 상충된 결과(Hauer et al. 2021 vs. Yang et al. 2022)를 고려해 근거이론 요소와 이론사용중심 접근(Zeithaml et al., 2020)을 결합한 탐색적 질적 연구설계를 채택.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.397–398, Sec. 3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">이론적 표집 및 정보제공자 모집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  냉전화·입소문·인맥·추천으로 산업/규모/직책 다양성을 극대화. 최종 86명(마케팅 45, 영업 34, 경영진 7), 56개 기업, 6개 유럽국 표본 확보.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.398, Sec. 3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">화상 인터뷰 실시</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  코로나19로 전원 화상(video chat) 인터뷰, 40~80분. McCracken(1988) 프로토콜 순서(연구 설명 → 배경 질문 → SMI 일반 질문 → 디지털 도구 영향 질문)로 대화체 진행.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.398, Sec. 3.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">전사 및 In-vivo 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  약 95시간 녹음을 전사. 정보제공자의 실제 발화 언어를 그대로 in-vivo 코드로 포착(포함 기준: 다맥락 적용 가능 + 복수 정보제공자 언급).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.398, Sec. 3.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">축코딩 및 테마 구조화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  in-vivo 코드 → 1차 범주 → 2차 테마로 위계화(Fig. 2). 데이터 수집·분석을 반복 통합(iterative)하며 진행.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.398–399, Sec. 3.2 & Fig. 2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">일탈 사례 탐색</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  전체 발견과 유의미하게 상충되는 사례를 능동적으로 탐색했으나 발견되지 않음.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.398, Sec. 3.2</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">멤버체크 및 일관성 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  무작위 6인에게 해석 결과 공유·검증(멤버체크). 산업 간·직무 간(영업 vs. 마케팅) 일관성 분석 — 4.3.5(역할 변화)를 제외하고 유의한 차이 없음.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.398, Sec. 3.2</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            연구 설계, 표집 전략, 인터뷰 프로토콜, 코딩 절차(in-vivo → axial → theme)는 상세히 기술되어 있어 방법론적 재현은 가능하나, 원시 전사본이 "기밀(confidential)"로 비공개이고 스노우볼 표집 특유의 특정 표본 재현이 불가능하며, 질적 해석에 연구자의 주관이 개입되어 완전한 결과 재현은 원천적으로 제한됩니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.3)에서 저자가 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>정보제공자 모집의 어려움:</strong> 코로나19 상황에서 참여 설득이 어려워, 모든 기업에서 마케팅·영업 양측 정보제공자를 함께 인터뷰하지 못함. 원문: "persuading informants to participate in times of COVID-19 proved to be challenging. As a result, it was not possible to interview both marketing and sales informants in all companies." (p.405)
+              </li>
+              <li>
+                <strong>잠정적 발견:</strong> 탐색적 연구 특성상 도출된 주요 테마는 향후 실증적으로 검증되어야 함 (p.405).
+              </li>
+              <li>
+                <strong>비언어적 단서 논쟁 미해소:</strong> 텍스트 메시지가 신뢰를 낮춘다는 주장(Babutsidze et al., 2021)과 사람들이 적응한다는 주장(McGloin et al., 2022)이 상충하며, 본 연구는 이를 향후 과제로 남김 (p.405).
+              </li>
+              <li>
+                <strong>데이터 비공개:</strong> "The data that has been used is confidential." — 원자료(인터뷰 전사본)를 공개하지 않아 외부 검증이 제한됨 (Data availability, p.405).
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 서술 구조를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 회고적 응답 편향</span>
+                <p class="text-sm text-slate-700">
+                  "Now that the world has moved on from pandemic restrictions…"(p.403)라는 서술로 볼 때 인터뷰는 팬데믹 진정 이후 진행된 것으로 보이며, 응답자가 봉쇄 초기 경험을 사후적으로 재구성·미화했을 가능성이 있습니다. 인터뷰 정확한 시점이 명시되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 스노우볼 표집의 동질성 위험</span>
+                <p class="text-sm text-slate-700">
+                  초기 접촉자에게 카운터파트 추천을 요청하는 방식은 유사한 네트워크·조직문화의 정보제공자로 표본이 수렴할 위험이 있으며, "일탈 사례 없음"이라는 결과 자체가 표본 다양성 부족의 산물일 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 마케팅 편중 표본</span>
+                <p class="text-sm text-slate-700">
+                  86명 중 마케팅 45명, 영업 34명, 경영진 7명으로 마케팅 정보제공자가 더 많아, 고객 접근성 확대 등 마케팅 관점이 상대적으로 과대 대표되었을 가능성이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 단일 연구자 해석 편향</span>
+                <p class="text-sm text-slate-700">
+                  코딩·테마 도출이 사실상 저자 1인에 의해 수행되며(공저자 없음), 6인 멤버체크만으로는 연구자 주관성을 완전히 상쇄하기 어렵고 상호코더 신뢰도도 보고되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 객관적 지표의 부재</span>
+                <p class="text-sm text-slate-700">
+                  커뮤니케이션 효율성·정보 투명성·응집력 등 모든 핵심 개념이 주관적 진술로만 포착되며, 실제 이메일/채팅 로그나 성과 지표 등 객관적 트라이앵귤레이션 자료는 사용되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 초기 SMI 품질의 순환논리 가능성</span>
+                <p class="text-sm text-slate-700">
+                  "SMI가 좋은 기업일수록 디지털 도구 효과가 좋다"는 결론의 근거인 '초기 SMI 품질' 자체도 같은 응답자가 인터뷰 시점에 사후적으로 평가한 것이어서, 결과와 원인이 응답자 인지 속에서 혼동되었을 동시성 편향 가능성을 배제하기 어렵습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>The Impact of Digital Tools on Sales-Marketing Interactions and Perceptions</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
