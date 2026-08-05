@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Industrial BRAND-personality formation in a B2B stakeholder network: A service-dominant logic approach - IMM 2023</title>
+  <title>Industrial Brand Personality in a B2B Stakeholder Network - IMM 2023</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- DaisyUI 4 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   <!-- Pretendard Font Import -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  
+
   <script>
     tailwind.config = {
       theme: {
@@ -32,228 +32,723 @@
       color: #1e293b;
       word-break: keep-all;
     }
-    .style-display { font-size: 40px; font-weight: 700; line-height: 1.2; }
-    .style-h1 { font-size: 32px; font-weight: 700; line-height: 1.2; }
-    .style-h2 { font-size: 24px; font-weight: 600; line-height: 1.3; }
-    .style-h3 { font-size: 18px; font-weight: 600; line-height: 1.4; }
+
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
     .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
     .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
     .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+
+    html { scroll-behavior: smooth; }
+
+    @media (max-width: 1024px) {
+      .style-display { font-size: 38px; }
+      .style-h1 { font-size: 30px; }
+      .style-h2 { font-size: 22px; }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-  <!-- Header / Hero Section (No Navbar, single scroll flow) -->
-  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-14 px-4 lg:px-8 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto flex flex-col gap-4 relative z-10">
+  <!-- Navbar (plain, non-sticky) -->
+  <div class="navbar bg-slate-900 text-white shadow-md px-4 lg:px-8">
+    <div class="flex-1">
+      <a class="btn btn-ghost normal-case text-xl font-bold tracking-tight text-cyan-400" href="#">IMM Research Brief</a>
+    </div>
+    <div class="flex-none hidden lg:block">
+      <ul class="menu menu-horizontal px-1 gap-2 text-slate-300 style-label">
+        <li><a href="#abstract" class="hover:text-cyan-400">초록</a></li>
+        <li><a href="#claims" class="hover:text-cyan-400">핵심 주장</a></li>
+        <li><a href="#evidence" class="hover:text-cyan-400">근거 데이터</a></li>
+        <li><a href="#model" class="hover:text-cyan-400">개념모델 & 구성개념</a></li>
+        <li><a href="#method" class="hover:text-cyan-400">사례연구 방법론</a></li>
+        <li><a href="#limitations" class="hover:text-cyan-400">한계점 & 비판</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
       <div class="flex flex-wrap gap-2">
-        <span class="badge badge-outline border-cyan-400 text-cyan-300 style-label uppercase">Industrial Marketing Management Vol. 114 (2023), pp. 313-330</span>
-        <span class="badge badge-secondary text-white style-label">Academic Paper Analysis</span>
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Service-Dominant Logic</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative · Longitudinal Single-Case Study</div>
       </div>
-      
-      <h1 class="style-display text-white mt-2">Industrial BRAND-personality formation in a B2B stakeholder network: A service-dominant logic approach</h1>
-      <h2 class="text-2xl font-semibold text-cyan-300">B2B 이해관계자 네트워크에서의 산업 브랜드 개성 형성- 서비스 중심 논리 접근</h2>
-      <p class="text-slate-400 style-small mt-1">저자: Marina Kovalchuk, Mika Gabrielsson, Minna Rollins</p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Industrial BRAND-personality formation in a B2B stakeholder network:<br>
+            <span class="text-cyan-400">A service-dominant logic approach</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Marina Kovalchuk, Mika Gabrielsson, Minna Rollins
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            B2B 이해관계자 네트워크에서의 산업재 브랜드 개성 형성:<br>
+            <span class="text-indigo-300">서비스 지배적 논리(SDL) 접근</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            파일 드라이빙 기계 제조사(PMP)의 6년간 SDL 전환 과정을 24건 인터뷰로 추적한 종단적 단일 사례연구
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">산업재 브랜드 개성은 기업이 홀로 만드는 게 아니라 이해관계자 네트워크의 밀접성·산업 소속감·집단성을 통해 함께 빚어집니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content Body -->
-  <main class="max-w-6xl mx-auto w-full px-4 lg:px-8 py-10 space-y-12 flex-1">
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
 
-    <!-- STEP 1: Title & Abstract Translation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-cyan-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
-      </div>
+    <div class="flex flex-col gap-16">
 
-      <div class="grid lg:grid-cols-2 gap-6">
-        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200/60">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-ghost badge-sm">EN</span> Abstract (Original)
-          </h3>
-          <blockquote class="text-slate-600 style-small leading-relaxed italic">
-            "Grounded in Service-Dominant (S-D) logic, this qualitative study explores how multi-stakeholder interactions, value co-creation practices, and network alignment shape industrial brand personality perceptions."
-          </blockquote>
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
         </div>
 
-        <div class="bg-cyan-50/40 p-6 rounded-xl border border-cyan-100">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-info badge-sm text-white">KO</span> Abstract (한국어 번역)
-          </h3>
-          <blockquote class="text-slate-700 style-small leading-relaxed">
-            "서비스 중심 논리(S-D Logic)에 입각하여 다자간 이해관계자 상호작용과 자원 통합 실천이 산업 브랜드 개성 인식을 어떻게 형성하는지 분석한다."
-          </blockquote>
-        </div>
-      </div>
-
-      <div class="mt-6 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-600">
-        <span class="font-bold text-slate-800">💡 주요 학술 용어 번역 메모:</span> Service-Dominant (S-D) Logic 및 Industrial Brand Personality 분석.
-      </div>
-    </section>
-
-    <!-- STEP 2: Core Claims (1-Minute Pitch) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-indigo-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="p-4 bg-indigo-50/50 rounded-xl border border-indigo-100">
-          <div class="font-bold text-indigo-900 text-sm uppercase tracking-wide">1. 연구 질문 (Research Question)</div>
-          <div class="text-slate-700 mt-1 style-body">B2B 이해관계자 네트워크에서의 자원 통합과 서비스 제공 과정은 산업 브랜드 개성을 어떻게 형성하는가?</div>
-        </div>
-
-        <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100">
-          <div class="font-bold text-emerald-900 text-sm uppercase tracking-wide">2. 핵심 발견 (Key Findings)</div>
-          <div class="text-slate-700 mt-1 style-body">브랜드 개성은 다자간 자원 통합과 가치 공동창출 경험에 의해 공동 생성(Co-created)됨.</div>
-        </div>
-
-        <div class="p-4 bg-purple-50/50 rounded-xl border border-purple-100">
-          <div class="font-bold text-purple-900 text-sm uppercase tracking-wide">3. 학술적 & 실무적 기여 (Contributions)</div>
-          <div class="text-slate-700 mt-1 style-body">B2B 브랜드 관리를 단기업 중심에서 S-D logic 네트워크 공동 창출 관점으로 전환함.</div>
-        </div>
-
-        <div class="alert alert-info shadow-sm bg-cyan-50 border-cyan-200 text-cyan-900 mt-4">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <div>
-            <span class="font-bold">한 줄 요약:</span> 산업 브랜드 개성은 네트워크 이해관계자들 간의 서비스 상호작용과 자원 통합을 통해 형성되는 네트워크 자산이다.
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Business-to-business (B2B) companies have strategically developed industrial brand personalities. Nevertheless, research on industrial brand personality remains limited and the seller-centric standpoint dominates, which makes it difficult to isolate the meaning of an industrial brand personality and how one is formed. This research is guided by service-dominant logic and explores the formation of meaningful brand personality associations in a stakeholder network. We employ a longitudinal case study to investigate brand personality from a multiple-stakeholder standpoint in the context of an industrial firm's six-year-long transformation toward adopting service-dominant logic in its marketing. We present a conceptual model showing the formation of industrial brand personality through its engagement with stakeholder interactions and a network's social processes. Our findings extend current knowledge on service-dominant logic and branding by demonstrating that industrial brand personality becomes meaningful when embedded in the network's institutional context and reflecting the operant resources of stakeholder co-creation."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "B2B(기업 간 거래) 기업들은 전략적으로 산업재 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">브랜드 개성</span>을 개발해 왔다. 그러나 이에 관한 연구는 여전히 제한적이며 판매자 중심(seller-centric) 관점이 지배적인데, 이 때문에 산업재 브랜드 개성이 실제로 무엇을 의미하며 어떻게 형성되는지를 규명하기 어렵다. 본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">서비스 지배적 논리(SDL)</span>를 이론적 지침으로 삼아 이해관계자 네트워크 안에서 의미 있는 브랜드 개성 연상이 형성되는 과정을 탐구한다. 우리는 한 산업재 기업이 마케팅에서 SDL을 채택해 나가는 6년에 걸친 전환 과정을 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">종단적 단일 사례연구</span>로 조사하여, 다중 이해관계자 관점에서 브랜드 개성을 살펴본다. 우리는 이해관계자 상호작용 및 네트워크의 사회적 과정과의 관여를 통해 산업재 브랜드 개성이 형성되는 과정을 보여주는 개념적 모델을 제시한다. 본 연구의 발견은, 산업재 브랜드 개성이 네트워크의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">제도적 맥락에 착근(embedded)</span>되고 이해관계자 공동창출의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">오퍼런트 자원</span>을 반영할 때 비로소 의미를 갖게 됨을 보여줌으로써 SDL 및 브랜딩 관련 기존 지식을 확장한다."
+            </blockquote>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- STEP 3: Evidence Alignment Table -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-blue-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거(Evidence)와 원문 위치</h2>
-      </div>
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Service-Dominant Logic (SDL)</td>
+                  <td>서비스 지배적 논리</td>
+                  <td class="text-sm">Vargo & Lusch(2004)의 SDL 이론을 지칭하는 마케팅 학계 정착 번역어. 재화 중심이 아니라 가치공동창출 중심으로 경제활동을 바라보는 관점.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Operant resources</td>
+                  <td>오퍼런트 자원</td>
+                  <td class="text-sm">정적 자원(operand resources)과 대비되는, 스킬·지식처럼 능동적으로 가치를 창출하는 자원. 국내 SDL 문헌 관행에 따라 원어 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Embeddedness</td>
+                  <td>착근성 / 임베디드니스</td>
+                  <td class="text-sm">Granovetter(1985)의 사회학 개념으로, 경제활동이 사회적 관계망 속에 뿌리내려 있다는 의미.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Stakeholder network</td>
+                  <td>이해관계자 네트워크</td>
+                  <td class="text-sm">공급자-고객 이원관계(dyad)를 넘어 딜러·자회사·확장 커뮤니티까지 포괄하는 다자간 관계망.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Grounded theory</td>
+                  <td>근거이론</td>
+                  <td class="text-sm">Strauss & Corbin(1998)의 질적 연구방법론 명칭의 표준 번역어.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
-      <div class="overflow-x-auto">
-        <table class="table table-zebra w-full text-slate-700">
-          <thead class="bg-slate-100 text-slate-800">
-            <tr>
-              <th class="w-12">#</th>
-              <th class="w-1/3">핵심 주장</th>
-              <th>근거 (원문 인용)</th>
-              <th class="w-32">원문 위치</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-            <td class="font-bold">1</td>
-            <td>브랜드 개성의 공동 창출</td>
-            <td class="text-xs font-mono bg-slate-50 p-2 rounded">B2B brand personality is a multi-actor construct co-created through network resource integration.</td>
-            <td class="text-xs text-slate-500">p. 318</td>
-        </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
 
-    <!-- STEP 4: Research Model & Variables (DAG Included) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-teal-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
-      </div>
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
 
-      <!-- SVG DAG Model -->
-      <div class="mb-8 p-6 bg-slate-50 rounded-xl border border-slate-200">
-        <h3 class="style-h3 text-slate-800 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12H4z"></path></svg>
-          연구 가설 / 개념적 구조 모델 (Research DAG Framework)
-        </h3>
-        <svg viewBox="0 0 900 300" class="w-full h-auto bg-slate-50 border border-slate-200 rounded-xl" xmlns="http://www.w3.org/2000/svg">
-  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0891b2"/></marker></defs>
-  <rect x="30" y="80" width="220" height="140" rx="10" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
-  <text x="140" y="110" text-anchor="middle" font-weight="bold" fill="#1e293b" font-size="14">이해관계자 네트워크 Actors</text>
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">SDL 전환 중 산업재 브랜드 개성은 이해관계자 네트워크에서 어떻게 형성되는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">브랜드 개성은 판매자가 만드는 게 아니라 이해관계자들이 함께 빚어낸다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">브랜드 개성을 SDL의 오퍼런트 자원·네트워크 착근 개념으로 재정의</p>
+                </div>
+              </li>
+            </ul>
 
-  <rect x="310" y="80" width="260" height="140" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
-  <text x="440" y="110" text-anchor="middle" font-weight="bold" fill="#0369a1" font-size="14">S-D Logic 자원통합 실천</text>
+            <div class="divider divider-horizontal hidden md:flex"></div>
 
-  <rect x="630" y="80" width="240" height="140" rx="10" fill="#faf5ff" stroke="#9333ea" stroke-width="2"/>
-  <text x="750" y="110" text-anchor="middle" font-weight="bold" fill="#7e22ce" font-size="15">산업 브랜드 개성 형성</text>
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 판매자 중심 관점을 넘어, B2B 기업이 SDL로 전환하는 과정에서 산업재 브랜드 개성(IBP)이 다수의 이해관계자(직원·딜러·자회사·고객·확장 커뮤니티) 네트워크 속에서 어떻게 형성되는가?</li>
+                  <li><strong>핵심 발견:</strong> 24건 인터뷰를 근거이론으로 분석한 결과, IBP 착근을 이끄는 세 가지 사회적 동인 — <strong>밀접성(Closeness, 미시 수준)</strong>, <strong>산업 소속감(Industry Belongingness, 중위 수준)</strong>, <strong>집단성(Collectiveness, 거시 수준)</strong>을 도출. 세 수준은 상호 영향을 주며 하나의 시스템을 이룸(P1–P4).</li>
+                  <li><strong>이론/실무 기여:</strong> 브랜드 개성을 "판매자의 판촉 도구"가 아니라 "이해관계자 공동창출의 상징적 매개체"로 재정의. 후방(기술) 직원의 배제가 브랜드 연상(예: 혁신성)을 약화시킨다는 실무적 시사점 제시.</li>
+                </ul>
+              </div>
 
-  <path d="M250 150 H310" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M570 150 H630" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
-</svg>
-      </div>
-
-      <!-- Detailed Variable / Construct Breakdown -->
-      <div class="space-y-4">
-        <div class="border border-purple-200 bg-purple-50/50 p-5 rounded-xl"><h3 class="style-h3 text-purple-900">1. 산업 브랜드 개성</h3></div>
-      </div>
-    </section>
-
-    <!-- STEP 5: Method Replication Sequence -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-amber-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
-      </div>
-
-      <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-        <li>
-            
-            <div class="timeline-start font-bold text-cyan-600">STEP 1</div>
-            <div class="timeline-middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-cyan-500"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg></div>
-            <div class="timeline-end timeline-box bg-slate-50 border-slate-200 shadow-sm p-4">
-                <div class="font-semibold text-slate-800">핀란드 B2B 기업 및 네트워크 31개 심층 인터뷰 실시</div>
-                <div class="text-xs text-slate-400 mt-1">원문 위치: pp. 315-317</div>
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "산업재 브랜드 개성은 기업이 일방적으로 만드는 것이 아니라, 이해관계자 네트워크의 밀접성·산업 소속감·집단성이라는 사회적 과정을 통해 함께 빚어지고 계속 진화하는 살아있는 산물이다."
+                </p>
+              </div>
             </div>
-            
-        </li>
-      </ul>
-
-      <div class="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 font-semibold text-center">
-        ⚡ 재현 가능성 평가: 부분 재현 가능.
-      </div>
-    </section>
-
-    <!-- STEP 6: Limitations & Critical Evaluation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-rose-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 6. Limitation 분리 및 비판적 검토</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="collapse collapse-arrow bg-rose-50/70 border border-rose-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-rose-900 flex items-center gap-2">
-            <span class="badge badge-error text-white">Part A</span> 논문 저자가 명시적으로 인정한 한계점 (Self-acknowledged Limitations)
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 북유럽 기술 산업 특화 한계 (p. 328)</li>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          각 핵심 주장을 뒷받침하는 원문 인용과 페이지·절 위치를 맵핑했습니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">기존 연구의 판매자 중심 편향</td>
+                <td class="text-sm italic text-slate-600">"Overall, industrial brand personality has been approached mainly as a static set of characteristics intended by the seller and perceived by the customer... The lack of research on the formation of brand personality in a stakeholder network contrasts starkly..."</td>
+                <td class="text-right font-medium text-slate-500">p.314 (Sec. 1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">단일 사례연구 및 대상기업 선정</td>
+                <td class="text-sm italic text-slate-600">"We conducted an in-depth longitudinal single-case study... Following Flyvbjerg (2006) recommendations concerning strategic case selection, we implemented an information-oriented selection..."</td>
+                <td class="text-right font-medium text-slate-500">p.316 (Sec. 3.1–3.2)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">24건 인터뷰 + 2차자료 삼각검증</td>
+                <td class="text-sm italic text-slate-600">"Data collection was primarily through 24 in-depth interviews... several data sources, such as interview transcripts, promotion materials, and websites to establish triangulation..."</td>
+                <td class="text-right font-medium text-slate-500">pp.316–317 (Table 2·3)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">밀접성(Closeness)의 미시 수준 작용</td>
+                <td class="text-sm italic text-slate-600">"This study demonstrates that closeness between stakeholders is an important driver... It is evident at the micro (dyadic) level..." / "Friend. It's not necessary to communicate because it's natural." (Dealer: Brazil)</td>
+                <td class="text-right font-medium text-slate-500">pp.320–321 (Sec. 4.2.1)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">산업 소속감(Belongingness)의 중위 수준 작용</td>
+                <td class="text-sm italic text-slate-600">"Industry belongingness perceived by the stakeholders... is another important driver... evident at the meso (industrial) level..." / "Our niche is very specific, very narrow... we know them all." (Customer: Russia)</td>
+                <td class="text-right font-medium text-slate-500">pp.321–322 (Sec. 4.2.2)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">집단성(Collectiveness)과 기술직원 소외 효과</td>
+                <td class="text-sm italic text-slate-600">"Finally, collectiveness drives industrial brand personality formation; it is evident at the macro (extended community) level..." / "a head of repairs at PMP admitted that the role involves little contact with customers."</td>
+                <td class="text-right font-medium text-slate-500">pp.322–323 (Sec. 4.2.3)</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">개념모델 및 명제 P1–P4</td>
+                <td class="text-sm italic text-slate-600">"Proposition 1. During a B2B company's transformation toward SDL, industrial brand personality as a network-embedded concept develops through closeness among the stakeholders and contributes to developing that closeness."</td>
+                <td class="text-right font-medium text-slate-500">pp.323–324 (Sec. 4.3, Fig.1)</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">브랜드가 네트워크 발전의 동인이 될 수 있다는 기여</td>
+                <td class="text-sm italic text-slate-600">"our findings promote an understanding of a brand itself as a driver of the development of a network... brand personality... is a natural element of the network's social context."</td>
+                <td class="text-right font-medium text-slate-500">pp.324–325 (Sec. 5.1)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Conceptual Model & Constructs (qualitative adaptation) -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 개념모델 및 핵심 구성개념 (질적 연구 - 변수/가설 대신 구성개념/명제)</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Constructs</span>
+        </div>
+
+        <div class="alert bg-slate-50 border border-slate-200 text-slate-700 text-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-slate-500 shrink-0 w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span>본 논문은 정량적 변수-가설 검증 연구가 아니라 <strong>종단적 단일 사례연구 + 근거이론</strong>을 통해 개념모델과 4개의 <strong>명제(Proposition)</strong>를 귀납적으로 도출한 질적 연구입니다. 따라서 독립/매개/조절/종속변수 틀 대신, 3개의 제도적 수준(미시·중위·거시)과 각 수준의 사회적 동인(social driver)으로 구성된 개념모델을 아래에 시각화했습니다.</span>
+        </div>
+
+        <!-- Conceptual Framework SVG (concentric levels, replacing hypothesis DAG) -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual Framework (Fig. 1 재구성 — 네트워크 제도적 수준에 따른 IBP 착근 모델)</h3>
+
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 800 600" class="w-full h-auto">
+              <!-- Institutional level rings -->
+              <circle cx="400" cy="290" r="210" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <circle cx="400" cy="290" r="160" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <circle cx="400" cy="290" r="100" fill="#eff6ff" stroke="#0ea5e9" stroke-width="2"/>
+              <!-- Center: IBP -->
+              <circle cx="400" cy="290" r="62" fill="#4f46e5" stroke="#3730a3" stroke-width="2"/>
+              <text x="400" y="283" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="14">산업재 브랜드 개성</text>
+              <text x="400" y="301" text-anchor="middle" fill="#e0e7ff" font-size="11">(IBP) 착근성</text>
+
+              <!-- Level labels stacked along top axis (within each band) -->
+              <text x="400" y="208" text-anchor="middle" fill="#075985" font-weight="700" font-size="13">미시(Micro) · 밀접성 Closeness</text>
+              <text x="400" y="223" text-anchor="middle" fill="#0369a1" font-size="10">공급자-딜러/고객 이원관계(dyad)</text>
+
+              <text x="400" y="160" text-anchor="middle" fill="#065f46" font-weight="700" font-size="13">중위(Meso) · 산업 소속감 Belongingness</text>
+              <text x="400" y="175" text-anchor="middle" fill="#047857" font-size="10">니치 산업 구성원과의 동질감</text>
+
+              <text x="400" y="112" text-anchor="middle" fill="#92400e" font-weight="700" font-size="13">거시(Macro) · 집단성 Collectiveness</text>
+              <text x="400" y="127" text-anchor="middle" fill="#b45309" font-size="10">확장 커뮤니티 · 대인/집단 상호작용 체계</text>
+
+              <!-- Bidirectional spokes P1/P2/P3 -->
+              <path d="M400 352 L 330 372" fill="none" stroke="#0ea5e9" stroke-width="2.5" marker-end="url(#arrow2)" marker-start="url(#arrow2)"/>
+              <text x="300" y="398" text-anchor="middle" fill="#0369a1" font-weight="700" font-size="12">P1</text>
+
+              <path d="M400 352 L 400 418" fill="none" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow2)" marker-start="url(#arrow2)"/>
+              <text x="418" y="400" text-anchor="middle" fill="#047857" font-weight="700" font-size="12">P2</text>
+
+              <path d="M400 352 L 480 470" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrow2)" marker-start="url(#arrow2)"/>
+              <text x="500" y="450" text-anchor="middle" fill="#b45309" font-weight="700" font-size="12">P3</text>
+
+              <!-- P4: systemic simultaneous interaction across levels -->
+              <path d="M250 470 Q 400 560 550 470" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrow2)" marker-start="url(#arrow2)"/>
+              <text x="400" y="580" text-anchor="middle" fill="#475569" font-weight="700" font-size="12">P4: 세 수준의 동시적 상호작용 (system-level interplay)</text>
+
+              <defs>
+                <marker id="arrow2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 text-center max-w-2xl">P1–P3은 인과의 화살표(A→B)가 아니라 "IBP는 X를 통해 발전하며 동시에 X의 발전에 기여한다"는 상호구성적(mutually constitutive) 관계를 나타냄. P4는 미시·중위·거시 수준이 서로 영향을 주고받는 시스템적 동시성을 뜻함.</p>
+        </div>
+
+        <!-- Construct Detail Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Center construct: IBP -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">중심 구성개념</span>
+                <span class="text-xs text-slate-400 font-semibold">IBP</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">산업재 브랜드 개성 (Industrial Brand Personality)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> "the set of human characteristics associated with the brand"(Aaker, 1997)를 B2B 산업재 맥락에 적용한 것으로, 공급기업 법인 브랜드에 부여되는 인간적 특성 집합.</p>
+              <p class="text-sm text-slate-700"><strong>조작화(질적):</strong> Herbst & Merz(2011) IBP 척도(성능/감각/신뢰성 3차원)를 형용사 핸드아웃(Appendix B) 및 원형 이미지 투사기법(Appendix C)의 자극재로 활용해 "PMP Guy"라는 가상 인물에 특성을 매칭시키는 방식으로 인터뷰 중 도출.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Herbst & Merz(2011) 산업재 브랜드 개성 척도(형용사 목록·원형 이미지 6종).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 전통적으로 "판매자가 만들고 고객이 지각"하는 정적 개념이었으나(Coleman et al., 2011), 본 연구는 이를 "이해관계자 공동창출의 상징적 행위자"로 재정의.
+              </p>
+            </div>
+          </div>
+
+          <!-- Closeness -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">사회적 동인 1 · 미시</span>
+                <span class="text-xs text-slate-400 font-semibold">Closeness</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">밀접성 (Closeness)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 정서·인지·행동적 상호의존 상태(Berscheid, Snyder, & Omoto, 1989); 조직 간 관계에서는 정서·인지·행동적 근접성과 관계 지속성(Heide & John, 1990).</p>
+              <p class="text-sm text-slate-700"><strong>조작화:</strong> 이원관계(dyad)에서의 정서적 유대(친구 같은 느낌), 기능적 근접성(신속한 응답·접근성)에 관한 인터뷰 진술로 코딩(Table 5).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 이론적 근거 - Berscheid et al.(1989), Dibble et al.(2012) URCS; 실제로는 척도화하지 않고 개방/축/선택 코딩으로 도출.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> "down-to-earth"·"trustworthy" 연상과 연결되며, 딜러 매개 관계에서는 밀접성이 약화되어 연상이 희석됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Industry Belongingness -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">사회적 동인 2 · 중위</span>
+                <span class="text-xs text-slate-400 font-semibold">Belongingness</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">산업 소속감 (Industry Belongingness)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> "perceived homogeneity with other members of a group"(Hinsz, Tindale, & Vollrath, 1997, p.55) — 산업 내 전형적 구성원(예: 기술자)과의 동질감.</p>
+              <p class="text-sm text-slate-700"><strong>조작화:</strong> 원형 이미지(Appendix C)를 "전형적 엔지니어" 이미지와 매칭시키는 투사기법, "우리 업계는 매우 좁고 특수하다"는 진술로 코딩.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Hinsz et al.(1997) 집단 동질성 이론; 인터뷰 코딩(Appendix E, "Industry belongingness" 카테고리).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 저자는 "문화적 소속감보다 산업 소속감이 브랜드 연상 형성에 더 강력한 힘일 수 있다"고 제안(P2 앞부분).
+              </p>
+            </div>
+          </div>
+
+          <!-- Collectiveness -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">사회적 동인 3 · 거시</span>
+                <span class="text-xs text-slate-400 font-semibold">Collectiveness</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">집단성 (Collectiveness)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> "a contextually determined system of interpersonal and intergroup interactions"(Morgeson & Hofmann, 1999) — 대인·집단 간 상호작용의 복합 체계.</p>
+              <p class="text-sm text-slate-700"><strong>조작화:</strong> 고객·딜러·확장 커뮤니티를 회의·협상·공동 R&D에 참여시키는 정도, 후방(기술) 직원이 프론트라인 상호작용에서 배제될 때 연상이 약화되는 현상으로 코딩.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Morgeson & Hofmann(1999) 집단 구성개념 이론; 인터뷰 코딩(Appendix E, "Collectiveness" 카테고리).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 혁신성·역량 연상과 연결되며, 기술직원 소외가 "혁신적 브랜드" 지각을 훼손하는 역설적 발견으로 이어짐.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Propositions table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">명제 (Propositions) — 가설(Hypothesis)이 아님</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table table-bordered w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/12">#</th>
+                  <th>내용</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-bold text-sky-700">P1</td>
+                  <td class="text-sm">SDL 전환 중 IBP는 이해관계자 간 <strong>밀접성</strong>을 통해 발전하며, 동시에 그 밀접성 발전에 기여한다 (미시 수준, 양방향).</td>
+                </tr>
+                <tr>
+                  <td class="font-bold text-emerald-700">P2</td>
+                  <td class="text-sm">SDL 전환 중 IBP는 이해관계자의 <strong>산업 소속감</strong>을 통해 발전하며, 동시에 그 소속감 발전에 기여한다 (중위 수준, 양방향).</td>
+                </tr>
+                <tr>
+                  <td class="font-bold text-amber-700">P3</td>
+                  <td class="text-sm">SDL 전환 중 IBP는 이해관계자 간 <strong>집단성</strong>을 통해 발전하며, 동시에 그 집단성 발전에 기여한다 (거시 수준, 양방향).</td>
+                </tr>
+                <tr>
+                  <td class="font-bold text-slate-700">P4</td>
+                  <td class="text-sm">SDL 전환 중 IBP는 미시·중위·거시 제도적 수준에서 <strong>동시에</strong> 형성되며, 각 수준의 형성 과정은 서로 영향을 주고받는다 (다층 동시성).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication (qualitative case study steps) -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해 (질적 사례연구 설계)</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 사례연구 및 근거이론 코딩 절차를 그대로 <strong>추종 재현</strong>할 수 있도록 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">정보지향적 사례 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Flyvbjerg(2006)의 전략적 사례 선정 원칙에 따라 "흥미로운 특성 조합"을 지닌 사례를 의도적으로 선택. 학계-산업 네트워크 및 매치메이킹 행사를 통해 순수 B2B 니치(파일 드라이빙 기계), 40개국 수출 유럽 SME "PMP"를 선정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.316, Sec. 3.2</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">1차 라운드 인터뷰 설계 및 실시 (2015–2016)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  경영진 미팅 2회 → 경영진 그룹 인터뷰(도입) → 개인 인터뷰(직원 10명, 딜러 3명, 고객 4명). 반구조화 형식, 형용사 핸드아웃(Appendix B) + 원형 이미지 투사기법(Appendix C) + 관계지향 매트릭스(Appendix D) 활용.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">pp.316–318, Table 2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">2차 자료 수집 및 삼각검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  2011–2020년 프로모션 브로셔(6종), 보도자료(2종), 웹사이트(2개 시점), Facebook/Instagram 페이지를 인터뷰 진술과 지속적으로 대조.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.317, Table 3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">확장 커뮤니티 인터뷰 (스노우볼 샘플링)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  학계 연구자 1명, 산업 컨설턴트 2명(미국)을 사례기업의 도움을 받아 스노우볼 샘플링으로 확보, 산업/사회적 트렌드에 대한 인터뷰 실시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.317, Table 2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">2차 라운드 인터뷰 (2020)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  경영진 그룹 인터뷰 재실시(CEO 포함 신규 임원진 반영, 핵심 정보원 1명 유지), 자회사 리더 1명·국제 고객 2명 추가. 총 24건 인터뷰 완료, 전원 녹음 후 전사.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">pp.317–318, Table 2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">근거이론 코딩 (개방→축→선택)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Strauss & Corbin(1998) 근거이론에 따라 개방 코딩으로 시작해 축·선택 코딩으로 범주화. SDL·브랜드 공동창출·산업재 브랜딩 문헌의 이론 주도 코드를 병행 추출(연역+귀납, Appendix E). 연구자 4인이 독립 분석 후 결과 비교·논의.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.318, Sec. 3.4, Appendix E</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">개념모델·명제 도출 및 사례기업 피드백</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  코딩 결과에서 3개 사회적 동인과 3개 제도적 수준을 도출해 Fig.1 개념모델과 명제 P1–P4로 통합. 결과를 사례기업과 지속 논의하여 실제 브랜딩 관행 개선에 반영.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">pp.323–324, Sec. 4.3</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            인터뷰 핸드아웃(형용사 목록·이미지·관계 매트릭스), 코딩 프레임(Appendix E), 표본 구성(Table 2·3)이 상세히 공개되어 절차적 프레임워크는 재현 가능하나, 특정 사례기업(PMP)에 대한 6년간의 독점적 접근권, 동일 인터뷰이 네트워크, 근거이론 코딩에 내재한 연구자의 해석적 판단은 본질적으로 재현 불가능함.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted, Section 6)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6, p.325)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>이해관계자 대표성의 한계:</strong> "while our study covers a multiple-stakeholder perspective, it could not represent the views of all industrial parties, such as competitors and logistics partners."
+              </li>
+              <li>
+                <strong>검증되지 않은 개념모델:</strong> "our conceptual model is meant to inspire further testing. At the same time, it offers options to investigate the three processes within which industrial brand personality associations are shaped..." — 통계적으로 검증된 인과모델이 아니라 향후 검증을 위한 출발점임을 인정.
+              </li>
+              <li>
+                <strong>일반화 가능성의 제약:</strong> "the single-case study approach... has limitations in terms of generalizing the results to a broader population. Hence, future studies might involve a multiple-case study or a cross-sectional, survey-based study employing more robust quantitative research methods..."
+              </li>
             </ul>
           </div>
         </div>
 
-        <div class="collapse collapse-arrow bg-amber-50/70 border border-amber-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-amber-900 flex items-center gap-2">
-            <span class="badge badge-warning text-white">Part B</span> 독자/연구자 관점의 독립적 비판적 검토 (Critical Methodological & Theoretical Concerns)
+        <!-- Limitation B: Critical Doubts -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 네트워크 파트너 간 권력 불균형 효과 미반영</li>
-            </ul>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 서술 구조를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 회고적 서사 편향</span>
+                <p class="text-sm text-slate-700">
+                  두 시점(2015–16, 2020) 인터뷰에서 경영진은 그 사이 기간의 "전환 과정"을 회고적으로 재구성한다. "We are genuine... the customer sees the person in us" 같은 진술은 사후적으로 다듬어진 브랜드 내러티브일 가능성이 높고, 당시의 혼란·시행착오·내부 갈등은 축소되어 보고되었을 위험이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 연구자-사례기업 유착 편향</span>
+                <p class="text-sm text-slate-700">
+                  "the analysis was also continuously discussed with the case company's representatives; the results were considered by the company and aided in updating the firm's branding practice"(p.318)라고 명시되어 있다. 연구자와 사례기업의 반복적 피드백 루프가 회사에 유리한 브랜드 스토리로 서사가 수렴하도록 영향을 미쳤을 이해상충 가능성이 있으나 논문은 이를 한계로 논의하지 않는다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 인터뷰이 접근 편향</span>
+                <p class="text-sm text-slate-700">
+                  딜러·고객 인터뷰 대상이 "사례기업의 도움을 받아" 스노우볼 방식으로 선정되었다(p.317). 회사와 관계가 틀어졌거나 이탈한 딜러, 계약 종료 고객, 비판적 이해관계자는 표본에서 사실상 배제되었을 가능성이 크며, Table 5의 인용이 예외 없이 우호적이라는 점이 이를 뒷받침한다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 명제의 순환성</span>
+                <p class="text-sm text-slate-700">
+                  P1–P3은 "IBP는 X를 통해 발전하며 동시에 X의 발전에 기여한다"는 상호구성적 서술로, 원인과 결과가 서로를 강화하는 순환 구조다. 이론적으로 풍부하지만 반증 가능한 명제로 검증하기 어렵고, 동어반복적 주장으로 흐를 위험이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 단일 성공 사례의 생존자 편향</span>
+                <p class="text-sm text-slate-700">
+                  PMP는 SDL 전환에 "성공"한 사례로 그려진다. 유사한 전환을 시도했다가 실패·중단한 반대 사례(counter-case)가 없어, 세 가지 사회적 동인이 IBP 착근의 필요충분조건인지 아니면 성공을 사후적으로 설명하기 위해 선택적으로 부각된 요인인지 검증할 수 없다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 상업적 결정의 이론적 재포장 위험</span>
+                <p class="text-sm text-slate-700">
+                  딜러 수 축소·자회사 강화 결정을 "브랜드가 고객에게 더 가까워지기 위한" SDL적 선택으로 해석하지만(Table 4), 이는 통상적인 유통비용 절감·통제력 강화라는 상업적 동기로도 충분히 설명 가능하다. SDL/브랜드 착근 이론으로의 포장이 연구자의 사후 이론적 프레이밍일 가능성을 배제할 수 없다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">7. 니치 산업 맥락의 특수성</span>
+                <p class="text-sm text-slate-700">
+                  "산업 소속감"이 강력한 동인으로 나타난 것은 매우 좁고 폐쇄적인 니치 산업(소수 경쟁사, 엔지니어 중심 문화)이라는 맥락 특수성에서 기인했을 가능성이 크다. 개방적이거나 소비재에 가까운 B2B 산업에서도 동일하게 작동할지는 미지수이며, 경계조건이 명시적으로 논의되지 않는다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">8. 표본 구성의 인공물 가능성</span>
+                <p class="text-sm text-slate-700">
+                  기술직원의 브랜드 형성 소외라는 발견은 흥미롭지만, 인터뷰 설계 자체가 프론트라인(영업·서비스) 중심으로 편중되어 기술직 인터뷰이가 상대적으로 적었기 때문일 수도 있다(Table 2). 실제 조직 현상인지 표본 구성의 인공물인지 구분하기 어렵다.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+    </div>
   </main>
 
   <!-- Footer -->
-  <footer class="footer footer-center bg-slate-900 text-slate-400 p-8 border-t border-slate-800">
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
     <div>
-      <p class="font-bold text-slate-200">Industrial Marketing Management (IMM) Paper Analysis Archive</p>
-      <p class="text-xs text-slate-500 mt-1">Industrial BRAND-personality formation in a B2B stakeholder network: A service-dominant logic approach | Industrial Marketing Management Vol. 114 (2023), pp. 313-330</p>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Industrial BRAND-personality formation in a B2B stakeholder network: A service-dominant logic approach</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
     </div>
   </footer>
 

@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tensions in value spaces: The organizational buying center and advanced services - IMM 2023</title>
+  <title>Tensions in Value Spaces - IMM 2023</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- DaisyUI 4 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   <!-- Pretendard Font Import -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  
+
   <script>
     tailwind.config = {
       theme: {
@@ -32,228 +32,881 @@
       color: #1e293b;
       word-break: keep-all;
     }
-    .style-display { font-size: 40px; font-weight: 700; line-height: 1.2; }
-    .style-h1 { font-size: 32px; font-weight: 700; line-height: 1.2; }
-    .style-h2 { font-size: 24px; font-weight: 600; line-height: 1.3; }
-    .style-h3 { font-size: 18px; font-weight: 600; line-height: 1.4; }
-    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
-    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
-    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Active navigation styling */
+    .nav-active {
+      color: #0f172a !important;
+      font-weight: 600;
+      border-left: 2px solid #3b82f6;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-  <!-- Header / Hero Section (No Navbar, single scroll flow) -->
-  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-14 px-4 lg:px-8 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto flex flex-col gap-4 relative z-10">
+  <!-- Navbar (plain, non-fixed) -->
+  <div class="navbar bg-slate-900 text-white shadow-md px-4 lg:px-8">
+    <div class="flex-1">
+      <a class="btn btn-ghost normal-case text-xl font-bold tracking-tight text-cyan-400" href="#">IMM Research Brief</a>
+    </div>
+    <div class="flex-none hidden lg:block">
+      <ul class="menu menu-horizontal px-1 gap-2 text-slate-300 style-label">
+        <li><a href="#abstract" class="hover:text-cyan-400">초록</a></li>
+        <li><a href="#claims" class="hover:text-cyan-400">핵심 주장</a></li>
+        <li><a href="#evidence" class="hover:text-cyan-400">근거 데이터</a></li>
+        <li><a href="#model" class="hover:text-cyan-400">개념 프레임워크</a></li>
+        <li><a href="#method" class="hover:text-cyan-400">연구 방법</a></li>
+        <li><a href="#limitations" class="hover:text-cyan-400">한계점 & 비판</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
       <div class="flex flex-wrap gap-2">
-        <span class="badge badge-outline border-cyan-400 text-cyan-300 style-label uppercase">Industrial Marketing Management Vol. 114 (2023), pp. 196-210</span>
-        <span class="badge badge-secondary text-white style-label">Academic Paper Analysis</span>
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Organizational Buying Center</div>
+        <div class="badge badge-secondary text-white style-label">Exploratory Qualitative Study · 22 Interviews</div>
       </div>
-      
-      <h1 class="style-display text-white mt-2">Tensions in value spaces: The organizational buying center and advanced services</h1>
-      <h2 class="text-2xl font-semibold text-cyan-300">가치 공간에서의 긴장- 조직 구매 센터와 고급 서비스</h2>
-      <p class="text-slate-400 style-small mt-1">저자: Judy Zolkiewski, Vicky M. Story, Jamie Burton, Chris Raddats, Tim Baines, Dominic Medway</p>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Tensions in value spaces:<br>
+            <span class="text-cyan-400">The organizational buying center and advanced services</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Judy Zolkiewski, Vicky M. Story, Jamie Burton, Chris Raddats, Tim Baines, Dominic Medway
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            가치 공간에서의 긴장:<br>
+            <span class="text-indigo-300">조직 구매센터와 어드밴스드 서비스</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            22명의 고위 임원 반구조화 인터뷰를 통해 밝힌, 어드밴스드 서비스 생애주기 전반의 구매센터(BC)-판매센터(SC) 영역 긴장 분석
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">어드밴스드 서비스 전환은 가치 창출이 아니라, BC와 SC가 서로의 영역을 침범하며 벌이는 협상의 연속입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content Body -->
-  <main class="max-w-6xl mx-auto w-full px-4 lg:px-8 py-10 space-y-12 flex-1">
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
 
-    <!-- STEP 1: Title & Abstract Translation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-cyan-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
-      </div>
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
 
-      <div class="grid lg:grid-cols-2 gap-6">
-        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200/60">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-ghost badge-sm">EN</span> Abstract (Original)
-          </h3>
-          <blockquote class="text-slate-600 style-small leading-relaxed italic">
-            "This study investigates the operational, strategic, and relational value tensions that emerge within organizational buying centers (OBCs) when evaluating advanced service offerings."
-          </blockquote>
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
         </div>
 
-        <div class="bg-cyan-50/40 p-6 rounded-xl border border-cyan-100">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-info badge-sm text-white">KO</span> Abstract (한국어 번역)
-          </h3>
-          <blockquote class="text-slate-700 style-small leading-relaxed">
-            "고급 서비스(Servitization) 도입 시 고객사 조직 구매 센터(OBC) 내부의 가치 공간(운영, 전략, 관계)에서 발생하는 4대 긴장의 원인과 해결 메커니즘을 규명한다."
-          </blockquote>
-        </div>
-      </div>
-
-      <div class="mt-6 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-600">
-        <span class="font-bold text-slate-800">💡 주요 학술 용어 번역 메모:</span> Servitization 및 Value Tensions 분석.
-      </div>
-    </section>
-
-    <!-- STEP 2: Core Claims (1-Minute Pitch) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-indigo-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="p-4 bg-indigo-50/50 rounded-xl border border-indigo-100">
-          <div class="font-bold text-indigo-900 text-sm uppercase tracking-wide">1. 연구 질문 (Research Question)</div>
-          <div class="text-slate-700 mt-1 style-body">고급 서비스 도입 시 OBC 내부의 가치 공간에서 어떠한 긴장이 발생하는가?</div>
-        </div>
-
-        <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100">
-          <div class="font-bold text-emerald-900 text-sm uppercase tracking-wide">2. 핵심 발견 (Key Findings)</div>
-          <div class="text-slate-700 mt-1 style-body">OBC 내부에는 자원 배분, 위험 분담, 지식 갭, 통제권/권력 4대 긴장이 발생하며, 이를 조율하는 것이 고급 서비스 채택의 핵심임.</div>
-        </div>
-
-        <div class="p-4 bg-purple-50/50 rounded-xl border border-purple-100">
-          <div class="font-bold text-purple-900 text-sm uppercase tracking-wide">3. 학술적 & 실무적 기여 (Contributions)</div>
-          <div class="text-slate-700 mt-1 style-body">서비타이제이션 연구를 공급업체에서 고객사 OBC 내부 긴장 관점으로 시각을 전환함.</div>
-        </div>
-
-        <div class="alert alert-info shadow-sm bg-cyan-50 border-cyan-200 text-cyan-900 mt-4">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <div>
-            <span class="font-bold">한 줄 요약:</span> 고급 서비스 채택은 OBC 내부의 운영·전략·관계적 가치 공간에서 발생하는 4대 긴장을 유연하게 해결할 때 달성된다.
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Advanced services necessitate redistribution of activities and new value co-creation processes and configurations, which are negotiated through interactions between organizations' buying centers (BCs) and selling centers (SCs). Transition to advanced services is rarely smooth because ecosystem actors often move into value spaces or territories (in which value is created/co-created) occupied and/or coveted by other actors. An exploratory qualitative approach was used to explore the value-space tensions (22 semi-structured interviews with senior executives from a range of industrial sectors and ecosystem positions). Our findings identify four advanced services lifecycle phases and demonstrate how managing these tensions across phases and BCs and SCs within the ecosystem is a necessary negotiated process impacting value creation/co-creation. We adopt a new theoretical lens (combining territorial servitization and territoriality from economic geography) to explore value spaces within-and-between BCs and SCs in advanced services ecosystems, and contribute to extant literature by: (1) delineating servitization value-space tensions as either cognitive/relational or Cartesian/physical; (2) illustrating how value-space tensions within-and-between BCs and SCs hamper advanced service implementation; (3) revealing how value-space tensions within-and-between BCs and SCs impact value co-creation; and, (4) demonstrating how different tensions manifest between BCs and SCs across the advanced services lifecycle."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              어드밴스드 서비스(advanced services)는 활동의 재분배와 새로운 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">가치 공동창출</span> 프로세스 및 구성을 필요로 하며, 이는 조직의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">구매센터(BC)</span>와 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">판매센터(SC)</span> 간 상호작용을 통해 협상된다. 어드밴스드 서비스로의 전환이 순조롭게 이루어지는 경우는 드문데, 이는 생태계 행위자들이 다른 행위자가 이미 점유하고 있거나 탐내는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">가치 공간(value space)</span> 혹은 영역(territory)으로 이동하는 경우가 많기 때문이다. 이 가치 공간 긴장을 탐색하기 위해 탐색적 질적 접근을 채택하여, 다양한 산업 부문 및 생태계 위치의 고위 임원 22명을 대상으로 반구조화 인터뷰를 실시하였다. 연구 결과는 어드밴스드 서비스의 4개 생애주기 국면(lifecycle phases)을 도출하였으며, 생태계 내에서 이 국면들과 BC·SC 전반에 걸쳐 긴장을 관리하는 것이 가치 창출/공동창출에 영향을 미치는 필수적인 협상 과정임을 보여준다. 본 연구는 (영역적 서비스화와 경제지리학의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">영역성(territoriality)</span> 개념을 결합한) 새로운 이론적 렌즈를 채택하여 다음 네 가지로 기존 문헌에 기여한다: (1) 서비스화 가치 공간 긴장을 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">인지적/관계적</span> 긴장과 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">데카르트적/물리적</span> 긴장으로 구분; (2) BC·SC 내부 및 상호 간 가치 공간 긴장이 어드밴스드 서비스 구현을 저해함을 예증; (3) 이 긴장들이 가치 공동창출에 미치는 영향을 규명; (4) 생애주기 전반에 걸쳐 서로 다른 긴장이 어떻게 발현되는지 논증한다.
+            </blockquote>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- STEP 3: Evidence Alignment Table -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-blue-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거(Evidence)와 원문 위치</h2>
-      </div>
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Value Space</td>
+                  <td>가치 공간</td>
+                  <td class="text-sm">가치가 창출/공동창출되는 관계적·물리적 영역을 지칭하는 저자들의 고유 개념. 원어의 장소성 뉘앙스를 살리기 위해 직역.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Territory / Territoriality</td>
+                  <td>영역 / 영역성</td>
+                  <td class="text-sm">경제지리학(Brighenti, 2010)에서 차용한 개념으로, 행위자가 통제권을 주장하며 경계를 설정하는 과정.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Buying Center (BC) / Selling Center (SC)</td>
+                  <td>구매센터 / 판매센터</td>
+                  <td class="text-sm">B2B 마케팅에서 이미 정착된 표준 번역어(Johnston &amp; Bonoma, 1981; Hutt et al., 1985).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Cognitive/Relational Tension</td>
+                  <td>인지적/관계적 긴장</td>
+                  <td class="text-sm">신뢰, 문화, 역할 인식 등 관계·인지 차원에서 발생하는 긴장.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Cartesian/Physical Tension</td>
+                  <td>데카르트적/물리적 긴장</td>
+                  <td class="text-sm">지리적 위치, 인력·설비 배치 등 공간적·물질적 차원에서 발생하는 긴장.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Advanced Services Lifecycle</td>
+                  <td>어드밴스드 서비스 생애주기</td>
+                  <td class="text-sm">설계(Design)-도입(Adoption)-관여(Engagement)-재협상(Renegotiation)의 4단계 진행 과정.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Template Analysis</td>
+                  <td>템플릿 분석</td>
+                  <td class="text-sm">King(2004)의 질적 코딩 기법. 국내 번역어 혼재로 원어를 병기.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
-      <div class="overflow-x-auto">
-        <table class="table table-zebra w-full text-slate-700">
-          <thead class="bg-slate-100 text-slate-800">
-            <tr>
-              <th class="w-12">#</th>
-              <th class="w-1/3">핵심 주장</th>
-              <th>근거 (원문 인용)</th>
-              <th class="w-32">원문 위치</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-            <td class="font-bold">1</td>
-            <td>OBC 가치 공간 4대 긴장</td>
-            <td class="text-xs font-mono bg-slate-50 p-2 rounded">Advanced services trigger four distinct value tensions: resource, risk, knowledge, and control tensions.</td>
-            <td class="text-xs text-slate-500">p. 202</td>
-        </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
 
-    <!-- STEP 4: Research Model & Variables (DAG Included) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-teal-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
-      </div>
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
 
-      <!-- SVG DAG Model -->
-      <div class="mb-8 p-6 bg-slate-50 rounded-xl border border-slate-200">
-        <h3 class="style-h3 text-slate-800 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12H4z"></path></svg>
-          연구 가설 / 개념적 구조 모델 (Research DAG Framework)
-        </h3>
-        <svg viewBox="0 0 900 300" class="w-full h-auto bg-slate-50 border border-slate-200 rounded-xl" xmlns="http://www.w3.org/2000/svg">
-  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0891b2"/></marker></defs>
-  <rect x="30" y="90" width="200" height="120" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
-  <text x="130" y="120" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="14">고급 서비스 전환</text>
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">BC/SC가 서로의 가치 공간에 들어갈 때 어떤 긴장이 발생하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">긴장은 인지적/관계적 · 데카르트적/물리적으로 나뉘고, 4개 국면마다 양상이 다르다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">영역적 서비스화 + 경제지리학 영역성의 새로운 이론적 렌즈</p>
+                </div>
+              </li>
+            </ul>
 
-  <rect x="290" y="40" width="280" height="220" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
-  <text x="430" y="70" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="15">OBC 가치 공간 긴장 (Tensions)</text>
+            <div class="divider divider-horizontal hidden md:flex"></div>
 
-  <rect x="630" y="90" width="240" height="120" rx="10" fill="#faf5ff" stroke="#9333ea" stroke-width="2"/>
-  <text x="750" y="125" text-anchor="middle" font-weight="bold" fill="#7e22ce" font-size="15">서비스 채택 성과</text>
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 제조기업이 어드밴스드 서비스로 전환할 때, BC와 SC가 서로 다른 행위자의 "가치 공간(영역)"으로 이동하며 어떤 긴장을 겪는가? 이 긴장은 생애주기에 따라 어떻게 달라지는가?</li>
+                  <li><strong>핵심 발견:</strong> 긴장은 <strong>인지적/관계적</strong> 긴장과 <strong>데카르트적/물리적</strong> 긴장으로 구분되며, <strong>행위자 내부(within)</strong>와 <strong>행위자 간(between)</strong> 양 차원에서 발생한다. 설계·도입 등 초기 국면에는 물리적 긴장이, 관여·재협상 등 후기 국면에는 인지적 긴장이 상대적으로 두드러진다.</li>
+                  <li><strong>이론/실무 기여:</strong> 서비스화가 항상 추가적 가치를 창출한다는 통념에 반해, 서비스화는 종종 생태계 내 다른 행위자로부터의 <strong>가치 전유(value appropriation)</strong>를 수반한다는 대조적 관점을 제시. 관리자는 국면별 긴장 유형을 매핑해 선제적 대응 전략을 세울 수 있다.</li>
+                </ul>
+              </div>
 
-  <path d="M230 150 H290" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M570 150 H630" stroke="#ea580c" stroke-width="2" marker-end="url(#arrow)"/>
-</svg>
-      </div>
-
-      <!-- Detailed Variable / Construct Breakdown -->
-      <div class="space-y-4">
-        <div class="border border-orange-200 bg-orange-50/50 p-5 rounded-xl"><h3 class="style-h3 text-orange-900">1. 가치 공간 긴장</h3></div>
-      </div>
-    </section>
-
-    <!-- STEP 5: Method Replication Sequence -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-amber-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
-      </div>
-
-      <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-        <li>
-            
-            <div class="timeline-start font-bold text-cyan-600">STEP 1</div>
-            <div class="timeline-middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-cyan-500"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg></div>
-            <div class="timeline-end timeline-box bg-slate-50 border-slate-200 shadow-sm p-4">
-                <div class="font-semibold text-slate-800">영국/유럽 제조업체 및 고객사 OBC 36회 인터뷰 분석</div>
-                <div class="text-xs text-slate-400 mt-1">원문 위치: pp. 198-207</div>
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "어드밴스드 서비스로의 전환에서 가치 창출은 한 행위자의 몫 챙기기가 아니라, BC와 SC가 생애주기 4단계에 걸쳐 서로의 인지적·물리적 영역 침범을 지속적으로 협상해가는 과정이다."
+                </p>
+              </div>
             </div>
-            
-        </li>
-      </ul>
-
-      <div class="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 font-semibold text-center">
-        ⚡ 재현 가능성 평가: 부분 재현 가능.
-      </div>
-    </section>
-
-    <!-- STEP 6: Limitations & Critical Evaluation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-rose-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 6. Limitation 분리 및 비판적 검토</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="collapse collapse-arrow bg-rose-50/70 border border-rose-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-rose-900 flex items-center gap-2">
-            <span class="badge badge-error text-white">Part A</span> 논문 저자가 명시적으로 인정한 한계점 (Self-acknowledged Limitations)
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 영국/유럽 제조업 중심 사례 한계 (p. 209)</li>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          질적 연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실제 인터뷰/서술 근거의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">연구 목적: 가치 공간 이동 시 발생하는 BC/SC 긴장 규명</td>
+                <td class="text-sm italic text-slate-600">"Our study research objective is to understand what sort of tensions arise when BC or SC actors attempt move into another actor's value space."</td>
+                <td class="text-right font-medium text-slate-500">p.197 (§1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">긴장의 두 유형: 인지적/관계적 vs 데카르트적/물리적</td>
+                <td class="text-sm italic text-slate-600">"...delineating servitization value-space tensions as either cognitive/relational or Cartesian/physical..."</td>
+                <td class="text-right font-medium text-slate-500">p.196 (Abstract)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">긴장의 두 축: 행위자 내부(within) vs 행위자 간(between)</td>
+                <td class="text-sm italic text-slate-600">"The findings reveal two major groups of tensions: within-actor value-space tensions (BC or SC) and value-space tensions that manifest between ecosystem actors (e.g., BC and SC)."</td>
+                <td class="text-right font-medium text-slate-500">p.200 (§4)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">4개 생애주기 국면 확인</td>
+                <td class="text-sm italic text-slate-600">"We found that the tensions occurred in four, clearly delineated phases (design, adoption, engagement, renegotiation) representative of the advanced services lifecycle."</td>
+                <td class="text-right font-medium text-slate-500">p.200 (§4)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">초기 국면=물리적 긴장, 후기 국면=인지적 긴장 우세</td>
+                <td class="text-sm italic text-slate-600">"...in the early phases, we observe more physical tensions and, in the later phases, more cognitive tensions."</td>
+                <td class="text-right font-medium text-slate-500">p.207 (§5.1)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">서비스화 = 가치 전유(appropriation), 통념에 대한 반증</td>
+                <td class="text-sm italic text-slate-600">"...some firms' servitization activities involve value appropriation (from the rest of the ecosystem)... we offer a revelatory contrasting perspective, challenging the narrative norm that servitization creates additional value..."</td>
+                <td class="text-right font-medium text-slate-500">p.206–207 (§5.1)</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">설계 국면 물리적 긴장 사례 (인력 부족)</td>
+                <td class="text-sm italic text-slate-600">"We are in the process of doubling the size of the UK team: Not easy to do because the base skills aren't freely available in the UK." (Power manufacturer)</td>
+                <td class="text-right font-medium text-slate-500">p.201 (§4.1.1)</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">기존 연구(Tóth et al., 2022) 대비 미시적 BC/SC 특정성 차별화</td>
+                <td class="text-sm italic text-slate-600">"Tóth et al. (2022) have previously identified 'intra- and inter-organizational' servitization tensions... but do not focus on detailed specificities of BC and SC activities."</td>
+                <td class="text-right font-medium text-slate-500">p.206 (§5.1)</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td class="font-semibold text-slate-900">표본 구성: 22개 인터뷰, 3개 행위자 유형</td>
+                <td class="text-sm italic text-slate-600">"Out of this initial pool, 30 responded... 22 participated. Our final sample contained six manufacturers, nine intermediaries and seven customers."</td>
+                <td class="text-right font-medium text-slate-500">p.199 (§3.1)</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td class="font-semibold text-slate-900">실무 함의: 긴장 유형별 매핑을 통한 선제적 관리</td>
+                <td class="text-sm italic text-slate-600">"Understanding that value-space tensions occur across the advanced services lifecycle enables managers to map the pressures from multiple actors..."</td>
+                <td class="text-right font-medium text-slate-500">p.207 (§5.2)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Conceptual Framework & Constructs (adapted: qualitative paper has no IV/DV hypothesis model) -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델(개념적 프레임워크) 및 핵심 구성개념</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Conceptual Framework</span>
+        </div>
+
+        <div class="alert bg-slate-100 border border-slate-300 text-slate-700 text-sm rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-slate-500 shrink-0 w-5 h-5" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span>본 논문은 정량적 가설검증(IV→매개→DV) 모형이 아니라 <strong>탐색적 질적 연구</strong>입니다. 아래는 저자들이 템플릿 분석을 통해 도출한 <strong>핵심 개념 간 관계 프레임워크</strong>이며, 화살표는 통계적 인과 경로가 아니라 데이터에서 관찰된 <strong>긴장의 발생 축과 방향</strong>을 나타냅니다.</span>
+        </div>
+
+        <!-- Conceptual Framework SVG Block (replaces hypothesis DAG) -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Value-Space Tension Framework (가치 공간 긴장 프레임워크)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 600" class="w-full h-auto">
+              <!-- Lifecycle phase timeline -->
+              <rect x="20" y="20" width="190" height="70" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="115" y="50" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">설계 (Design)</text>
+              <text x="115" y="70" text-anchor="middle" fill="#64748b" font-size="10">신사업 구조화·조직화</text>
+
+              <rect x="250" y="20" width="190" height="70" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="345" y="50" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">도입 (Adoption)</text>
+              <text x="345" y="70" text-anchor="middle" fill="#64748b" font-size="10">BC 내부 조율·수용</text>
+
+              <rect x="480" y="20" width="190" height="70" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="575" y="50" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">관여 (Engagement)</text>
+              <text x="575" y="70" text-anchor="middle" fill="#64748b" font-size="10">계약 이행 중 상호작용</text>
+
+              <rect x="710" y="20" width="170" height="70" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="795" y="50" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">재협상 (Renegotiation)</text>
+              <text x="795" y="70" text-anchor="middle" fill="#64748b" font-size="10">계약 갱신·재계약 힘겨루기</text>
+
+              <!-- timeline arrows -->
+              <path d="M210 55 L 250 55" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M440 55 L 480 55" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M670 55 L 710 55" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- down arrow to framework -->
+              <path d="M450 90 L 450 128" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="460" y="112" fill="#475569" font-size="11">국면마다 긴장 패턴이 달라짐</text>
+
+              <!-- Within-actor loops -->
+              <path d="M70 160 C 70 120 270 120 270 160" fill="none" stroke="#e11d48" stroke-width="2" stroke-dasharray="3 3" marker-end="url(#arrowRose)"/>
+              <text x="170" y="118" text-anchor="middle" fill="#be123c" font-size="11" font-weight="700">내부(Within) 긴장</text>
+
+              <path d="M630 160 C 630 120 830 120 830 160" fill="none" stroke="#0369a1" stroke-width="2" stroke-dasharray="3 3" marker-end="url(#arrowSky)"/>
+              <text x="730" y="118" text-anchor="middle" fill="#0369a1" font-size="11" font-weight="700">내부(Within) 긴장</text>
+
+              <!-- BC box -->
+              <rect x="40" y="160" width="260" height="100" rx="10" fill="#fff1f2" stroke="#e11d48" stroke-width="2"/>
+              <text x="170" y="195" text-anchor="middle" font-weight="700" fill="#9f1239" font-size="15">구매센터 (BC)</text>
+              <text x="170" y="215" text-anchor="middle" fill="#be123c" font-size="11">사용자·구매담당·게이트키퍼</text>
+              <text x="170" y="232" text-anchor="middle" fill="#be123c" font-size="11">고객사 / 통합 중개상(BC측)</text>
+
+              <!-- SC box -->
+              <rect x="600" y="160" width="260" height="100" rx="10" fill="#f0f9ff" stroke="#0369a1" stroke-width="2"/>
+              <text x="730" y="195" text-anchor="middle" font-weight="700" fill="#0c4a6e" font-size="15">판매센터 (SC)</text>
+              <text x="730" y="215" text-anchor="middle" fill="#0369a1" font-size="11">마케팅·서비스·엔지니어링팀</text>
+              <text x="730" y="232" text-anchor="middle" fill="#0369a1" font-size="11">제조사 / 통합 중개상(SC측)</text>
+
+              <!-- Between-actor tension arrows (bidirectional) -->
+              <path d="M300 195 L 600 195" fill="none" stroke="#4f46e5" stroke-width="2" marker-start="url(#arrowIndigoStart)" marker-end="url(#arrowIndigo)"/>
+              <text x="450" y="187" text-anchor="middle" fill="#4338ca" font-size="11" font-weight="700">인지적/관계적 긴장</text>
+
+              <path d="M300 228 L 600 228" fill="none" stroke="#4f46e5" stroke-width="2" stroke-dasharray="5 4" marker-start="url(#arrowIndigoStart)" marker-end="url(#arrowIndigo)"/>
+              <text x="450" y="246" text-anchor="middle" fill="#4338ca" font-size="11" font-weight="700">데카르트적/물리적 긴장</text>
+
+              <!-- Ecosystem 3rd actor box -->
+              <rect x="320" y="330" width="260" height="90" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="450" y="360" text-anchor="middle" font-weight="700" fill="#92400e" font-size="14">생태계 3자 행위자</text>
+              <text x="450" y="378" text-anchor="middle" fill="#b45309" font-size="10">정부/규제기관 · 경쟁 SC · 중개상</text>
+              <text x="450" y="393" text-anchor="middle" fill="#b45309" font-size="10">(간(between) 긴장의 제3의 축)</text>
+
+              <!-- Diagonal between-actor-and-ecosystem arrows -->
+              <path d="M220 260 L 220 300 L 380 300 L 380 330" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrowAmber)"/>
+              <path d="M680 260 L 680 300 L 580 300 L 580 330" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrowAmber)"/>
+              <text x="450" y="296" text-anchor="middle" fill="#b45309" font-size="11">간(Between) 긴장</text>
+
+              <!-- Straight arrows down to outcome -->
+              <path d="M120 260 L 120 468" fill="none" stroke="#64748b" stroke-width="1.5" stroke-dasharray="2 3" marker-end="url(#arrowSlate)"/>
+              <path d="M780 260 L 780 468" fill="none" stroke="#64748b" stroke-width="1.5" stroke-dasharray="2 3" marker-end="url(#arrowSlate)"/>
+              <path d="M450 420 L 450 468" fill="none" stroke="#64748b" stroke-width="1.5" stroke-dasharray="2 3" marker-end="url(#arrowSlate)"/>
+
+              <!-- Outcome box -->
+              <rect x="100" y="470" width="700" height="80" rx="10" fill="#eef2ff" stroke="#4338ca" stroke-width="2"/>
+              <text x="450" y="502" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">가치 창출/공동창출 성과에 대한 영향</text>
+              <text x="450" y="522" text-anchor="middle" fill="#4338ca" font-size="11">Impact on Value Creation / Co-creation Outcomes in the Ecosystem</text>
+              <text x="450" y="540" text-anchor="middle" fill="#4338ca" font-size="10">(긴장 관리 성공 여부가 서비스화 성과의 분기점)</text>
+
+              <!-- Arrow markers -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker>
+                <marker id="arrowRose" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e11d48"/></marker>
+                <marker id="arrowSky" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0369a1"/></marker>
+                <marker id="arrowIndigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/></marker>
+                <marker id="arrowIndigoStart" viewBox="0 0 10 10" refX="4" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 10 0 L 0 5 L 10 10 z" fill="#4f46e5"/></marker>
+                <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/></marker>
+                <marker id="arrowSlate" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Concept Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Concept 1: Value Space -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">중심 개념</span>
+                <span class="text-xs text-slate-400 font-semibold">Core Construct</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">가치 공간 / 영역 (Value Space / Territory)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 행위자가 반복적 활동, 지식 기반(스킬·역량), 또는 타 행위자와의 관계를 통해 "자신의 것"으로 인식하는 활동·지식·관계의 공간. 물리적 위치에 국한되지 않는 홀리스틱한 사회경제적 구성물(Balland, Boschma, &amp; Frenken, 2015).</p>
+              <p class="text-sm text-slate-700"><strong>데이터 상 식별 방식:</strong> "우리 영역", "그들이 우리 시장으로 들어왔다" 등의 소유·침범 의식 표현으로 코딩. 예: 제조사가 유통업체 대신 유지보수 서비스를 직접 고객에게 제공하는 사례(p.197).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Brighenti(2010)의 영역=물리적 공간이 아닌 "영역적 행위가 수행되는 장소"라는 정의; Palmer, Medway &amp; Warnaby(2017)의 관계적 공간 vs 데카르트적 공간 구분.
+              </p>
+            </div>
+          </div>
+
+          <!-- Concept 2: BC/SC -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">분석 단위</span>
+                <span class="text-xs text-slate-400 font-semibold">Unit of Analysis</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">구매센터(BC) & 판매센터(SC)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> BC는 구매 의사결정에 관여하는 조직 내 다부서적 행위자 집합(Johnston &amp; Bonoma, 1981); SC는 대응하는 판매측 다부서 행위자 집합(Hutt et al., 1985).</p>
+              <p class="text-sm text-slate-700"><strong>데이터 상 식별 방식:</strong> 표집 자체가 구분을 조작화 — 6개 제조사(SC), 7개 고객사(BC), 9개 중개상(BC+SC 겸)으로 표본 구성(Table 1, p.200).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Ehret, Johnston &amp; Ritter(2021)의 "BC 연구 추가 발전 필요성"; Cabanelas et al.(2023)의 BC 통한 가치 공동창출 논의.
+              </p>
+            </div>
+          </div>
+
+          <!-- Concept 3: Cognitive/Relational Tension -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-secondary style-label text-white">긴장 유형 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Cognitive/Relational</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">인지적/관계적 긴장</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 신뢰 부족, 문화적 저항, 역할 인식 차이, 정보 비대칭 등 사회적·인지적 차원에서 발생하는 긴장.</p>
+              <p class="text-sm text-slate-700"><strong>데이터 상 식별 방식:</strong> "제품 SBU 직원과 서비스 판매팀 간 긴장. 직원들이 새 가치창출 활동 지원을 꺼림"(Table 2, p.202) 등 문화적 충돌 인용문으로 코딩.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Boschma(2005a,b)의 인지적/사회적 근접성; Castilhos, Dolbec &amp; Veresiu(2017)의 사회적 의미가 각인된 장소(place) 개념.
+              </p>
+            </div>
+          </div>
+
+          <!-- Concept 4: Cartesian/Physical Tension -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">긴장 유형 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Cartesian/Physical</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">데카르트적/물리적 긴장</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 지리적 거리, 인력·설비의 물리적 배치, 법적/규제적 국경 등 공간적·물질적 차원에서 발생하는 긴장.</p>
+              <p class="text-sm text-slate-700"><strong>데이터 상 식별 방식:</strong> "영국 팀 규모를 두 배로 늘리는 중인데... 기본 기술을 가진 인력을 구하기 어렵다"(Power manufacturer, p.201); 중국→중앙아시아 철도운송 금지로 로테르담 경유(p.206).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Lafuente, Vaillant &amp; Vendrell-Herrero(2017, 2019)의 영역적 서비스화; Palmer et al.(2017)의 지도·격자·경관에 비유되는 데카르트적 공간 개념.
+              </p>
+            </div>
+          </div>
+
+          <!-- Concept 5: Within/Between -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">구조적 차원</span>
+                <span class="text-xs text-slate-400 font-semibold">Within vs Between</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">행위자 내부(Within) vs 행위자 간(Between) 긴장</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 긴장이 한 조직(BC 또는 SC) 내부 하위 부서/집단 사이에서 발생하는지, 서로 다른 조직 사이에서 발생하는지를 구분하는 분석 축.</p>
+              <p class="text-sm text-slate-700"><strong>데이터 상 식별 방식:</strong> 6가지 하위 유형으로 코딩 — 고객 BC 내부, 제조사 SC 내부, SC-BC 사이, 경쟁 SC 사이, 중개상 포함 SC-BC 사이, SC-정부/3자 사이(p.200).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Sheth(1973), Lau, Goh &amp; Phua(1999)의 구매센터 내 갈등 개념을 조직 간 서비스 생태계로 확장.
+              </p>
+            </div>
+          </div>
+
+          <!-- Concept 6: Lifecycle Phase -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">맥락 차원</span>
+                <span class="text-xs text-slate-400 font-semibold">Contextual / Temporal Dimension</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">어드밴스드 서비스 생애주기 국면 (설계 · 도입 · 관여 · 재협상)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 설계(신사업 구조화) → 도입(BC 내부 조율·수용) → 관여(계약 이행 중 상호작용) → 재협상(계약 갱신 시점 힘겨루기)의 4단계 시간적 흐름.</p>
+              <p class="text-sm text-slate-700"><strong>데이터 상 식별 방식:</strong> Table 2(설계)·Table 3(도입)·Table 4(관여)·Table 5(재협상)에 각각 매핑된 인용 데이터(p.202–206).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Baines &amp; Lightfoot(2014)의 서비스화 생애주기 개념을 BC/SC 지속적 관여 분석에 최초 적용; Rabetino et al.(2015)의 생애주기 서비스 오퍼링과 대비(본 연구는 판매자 여정이 아닌 BC-SC 상호작용에 초점).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          정량 통계분석이 아닌 <strong>질적 연구 설계</strong>이므로, 논문을 읽지 않은 연구자가 표집·인터뷰·템플릿 분석 절차를 그대로 따라 할 수 있도록 단계별로 타임라인화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 공백 및 이론적 렌즈 확정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  서비스화 문헌에서 BC-SC 상호작용 연구가 부족함을 확인하고, 영역적 서비스화(territorial servitization)와 경제지리학의 영역성(territoriality) 개념을 결합한 이론적 렌즈를 사전에 설정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">§2, p.196–199</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">목적표집(Purposive Sampling) 기준 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  세 가지 자격 기준 중 하나를 충족하는 조직을 대상: ① 어드밴스드 서비스 구매 고객(BC), ② 어드밴스드 서비스 제공 제조사(SC), ③ 제조사·고객 BC와 함께 일하는 통합 중개상(BC+SC 겸).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">§3.1, p.199</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">대상자 발굴 및 리크루팅</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  LinkedIn·웹사이트·뉴스보도·조직도를 통해 영국 내 250명 이상 규모 B2B 기업 고위 임원 파악 → 이메일/전화 접촉(50개사 적격) → 30개사 응답 → 최종 22명 참여(제조사 6, 중개상 9, 고객사 7).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">§3.1, p.199 & Table 1, p.200</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">반구조화 인터뷰 가이드 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  응답자 유형(BC/SC/중개상)별 맞춤 질문지 개발 — 서비스화를 위한 조직 변화, 타 행위자와의 협업 방식, 가치 인식의 촉진/저해 요인, 가치 창출·공동창출 및 관찰된 긴장에 대한 질문 포함.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">§3.1, p.199</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">데이터 수집 (대면 인터뷰 + 2차 자료)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  대면 인터뷰 45~60분 진행, 음성 녹음 및 전사, 응답자 정확성 검증(respondent validation). 웹페이지·뉴스기사·공유 보고서 등 2차 자료로 보완.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">§3.1, p.199</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">템플릿 분석(King, 2004) 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  축어록·인터뷰 노트로 초기 템플릿(가치공간·긴장 코드) 설정 → 반복적·귀추적 대조로 코드 추가 → 두 연구자가 각 전사본 정독, 코딩 구조 합의 → 새 코드가 도출되지 않는 이론적 포화 시점에서 최종 확정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">§3.2, p.200</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">타당성 확보 절차</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  두 연구자의 독립 코딩 및 합의, 인터뷰 자료와 2차 자료의 삼각검증(triangulation), 해석에 대한 연구팀 성찰을 통해 신뢰성(credibility) 확보.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">§3.2, p.200</span>
+              </div>
+              <hr class="bg-slate-900"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-900"/>
+              <div class="timeline-middle">
+                <span class="bg-rose-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">결과 구조화 (Table 2–5 매핑)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  도출된 긴장을 4개 생애주기 국면 × 인지적·관계적/데카르트적·물리적 차원으로 교차 배열해 Table 2–5로 제시하고, within/between 6개 하위유형으로 추가 분류.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">§4, p.200–206</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            표집 기준, 리크루팅 경로, 인터뷰 프로토콜, 템플릿 분석의 절차적 단계는 상세히 기술되어 있어 동일한 질적 방법론 접근은 재현 가능하나, 실제 전사본·최종 코딩 템플릿·접촉 조직 명단은 공개되지 않으며("The authors do not have permission to share data", p.209), 목적표집으로 확보된 특정 22개 조직을 동일하게 재현하는 것은 원천적으로 불가능합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted, §5.3)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(§5.3, p.207–208)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>일반화 가능성 제약:</strong> "Limitations of generalizability are notable in exploratory qualitative research that adopts purposive sampling." 탐색적 질적 연구와 목적표집 특성상 일반화에 한계가 있음을 인정.
+              </li>
+              <li>
+                <strong>분석기법의 대안 가능성:</strong> "Template analysis was used, but due to the nature of researcher interpretation alternative forms of abductive theoretical analysis might have led to slightly different outcomes." 다른 귀추적 분석 기법을 썼다면 다른 결과가 나왔을 수 있음.
+              </li>
+              <li>
+                <strong>무응답 편향 미검증:</strong> "Non-responses can create issues of bias and it would be useful to attain responses from the 28 organizations approached that ultimately did not take part." 접촉한 50개사 중 22개사만 참여, 나머지 28개사 특성 미확인.
+              </li>
+              <li>
+                <strong>양자/삼자 관계 미포착:</strong> "it could be useful to consider dyadic and triadic relationships, interviewing all the participant organizations within them." 실제 거래관계에 있는 BC-SC 쌍을 의도적으로 배제하고 서로 무관한 3개 유형의 독립적 응답만 수집.
+              </li>
+              <li>
+                <strong>지리적·기업규모 국한성:</strong> "This research considers advanced services for large B2B UK centric organizations (&gt;250 employees) further research would be needed in order to generalize the findings more widely." 영국 중심, 250인 이상 대기업에 국한.
+              </li>
             </ul>
           </div>
         </div>
 
-        <div class="collapse collapse-arrow bg-amber-50/70 border border-amber-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-amber-900 flex items-center gap-2">
-            <span class="badge badge-warning text-white">Part B</span> 독자/연구자 관점의 독립적 비판적 검토 (Critical Methodological & Theoretical Concerns)
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 서비스 계약 실패 시 법적/계약적 분쟁 해결 메커니즘 미반영</li>
-            </ul>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">질적 연구 설계와 코딩 절차를 근거로 제기하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 회고적 자기보고 편향</span>
+                <p class="text-sm text-slate-700">
+                  45~60분 단발성 인터뷰에서 응답자가 과거 여러 시점의 사건을 회고적으로 재구성한다. 자사 대응이 성공적이었던 것으로 각색될 유인이 있으며, 실제 행동 데이터(계약서·이메일·회의록)로 교차검증되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 이론 선행 코딩의 순환성</span>
+                <p class="text-sm text-slate-700">
+                  인터뷰 이전에 이미 "영역적 서비스화 + 경제지리학 영역성" 렌즈를 확정한 뒤 귀추적 코딩을 수행했다. 인지적/관계적 vs 데카르트적/물리적이라는 이분법 자체가 데이터에서 자연발생했다기보다 사전에 부과된 틀일 가능성이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 비(非)이자간 설계의 일방적 재구성</span>
+                <p class="text-sm text-slate-700">
+                  "We did not seek organizations that were in dyadic relationships with each other"(p.199)라고 명시된 바, "BC-SC 사이의 긴장"은 실제 상호작용하는 두 당사자를 대조한 것이 아니라 서로 무관한 22명의 응답자가 상상/경험한 "상대방"에 대한 일방적 서술을 사후 짜맞춘 것이다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 단일 응답자의 조직 전체 대표성 문제</span>
+                <p class="text-sm text-slate-700">
+                  BC/SC는 정의상 여러 역할(사용자·구매담당·게이트키퍼 등)로 구성된 다부서 집단이나, 조직당 1명의 고위 임원 인터뷰에 의존한다. "BC 내부 긴장"조차 경영진 시각으로 필터링되었을 가능성이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 자발적 참여에 따른 선택 편향</span>
+                <p class="text-sm text-slate-700">
+                  조직 내부 갈등이라는 민감한 주제에 응한 22명은 이미 이 주제에 개방적이거나 성찰적인 임원일 가능성이 있다. 무응답 편향(A-3)에 더해, 응답자 자체가 모집단을 대표하지 않을 위험이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 횡단 자료로 종단적 생애주기 패턴 주장</span>
+                <p class="text-sm text-slate-700">
+                  "초기=물리적, 후기=인지적 긴장" 패턴(p.207)은 서로 다른 기업·시점의 사례를 종합한 것이지, 하나의 서비스화 여정을 시간에 따라 추적한 종단 자료가 아니다. 실제 시간적 진행인지, 표본 구성의 우연인지 구분할 수 없다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">7. 영국 특유의 제도적 맥락 혼입</span>
+                <p class="text-sm text-slate-700">
+                  EU 조달 규정, 영국 내 기술인력 부족 등(p.201, 206) 상당수 사례가 영국/EU 특유의 규제·노동시장 환경에 기인해, 저자들이 인정한 지리적 한계보다 더 깊은 수준에서 유사 경제권에서도 재현되지 않을 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">8. 코딩 신뢰도 지표 미보고</span>
+                <p class="text-sm text-slate-700">
+                  "코딩 구조에 합의했다"고만 서술할 뿐, 코더 간 일치도(kappa 등) 정량 지표는 제시되지 않는다. 두 긴장 유형의 경계가 모호한 인용문에 대한 판단 불일치 가능성이 투명하게 검증되지 않았다.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+    </div>
   </main>
 
   <!-- Footer -->
-  <footer class="footer footer-center bg-slate-900 text-slate-400 p-8 border-t border-slate-800">
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
     <div>
-      <p class="font-bold text-slate-200">Industrial Marketing Management (IMM) Paper Analysis Archive</p>
-      <p class="text-xs text-slate-500 mt-1">Tensions in value spaces: The organizational buying center and advanced services | Industrial Marketing Management Vol. 114 (2023), pp. 196-210</p>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Tensions in value spaces: The organizational buying center and advanced services</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
     </div>
   </footer>
 

@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Driving sustainability in emerging markets: The leading role of multinationals - IMM 2023</title>
+  <title>Driving Sustainability in Emerging Markets - IMM 2023</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- DaisyUI 4 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   <!-- Pretendard Font Import -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  
+
   <script>
     tailwind.config = {
       theme: {
@@ -32,233 +32,824 @@
       color: #1e293b;
       word-break: keep-all;
     }
-    .style-display { font-size: 40px; font-weight: 700; line-height: 1.2; }
-    .style-h1 { font-size: 32px; font-weight: 700; line-height: 1.2; }
-    .style-h2 { font-size: 24px; font-weight: 600; line-height: 1.3; }
-    .style-h3 { font-size: 18px; font-weight: 600; line-height: 1.4; }
-    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
-    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
-    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-  <!-- Header / Hero Section (No Navbar, single scroll flow) -->
-  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-14 px-4 lg:px-8 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto flex flex-col gap-4 relative z-10">
+  <!-- Navbar (plain, non-fixed, scrolls with page) -->
+  <div class="navbar bg-slate-900 text-white shadow-md px-4 lg:px-8">
+    <div class="flex-1">
+      <a class="btn btn-ghost normal-case text-xl font-bold tracking-tight text-cyan-400" href="#">IMM Research Brief</a>
+    </div>
+    <div class="flex-none hidden lg:block">
+      <ul class="menu menu-horizontal px-1 gap-2 text-slate-300 style-label">
+        <li><a href="#abstract" class="hover:text-cyan-400">초록</a></li>
+        <li><a href="#claims" class="hover:text-cyan-400">핵심 주장</a></li>
+        <li><a href="#evidence" class="hover:text-cyan-400">근거 데이터</a></li>
+        <li><a href="#model" class="hover:text-cyan-400">연구 모델 & 구성개념</a></li>
+        <li><a href="#method" class="hover:text-cyan-400">분석 방법론</a></li>
+        <li><a href="#limitations" class="hover:text-cyan-400">한계점 & 비판</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
       <div class="flex flex-wrap gap-2">
-        <span class="badge badge-outline border-cyan-400 text-cyan-300 style-label uppercase">Industrial Marketing Management Vol. 114 (2023), pp. 211-225</span>
-        <span class="badge badge-secondary text-white style-label">Academic Paper Analysis</span>
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023), Vol.114</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">MNE Sustainability & Market-Driving</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Case Study · 2 Firms · 19 Interviews</div>
       </div>
-      
-      <h1 class="style-display text-white mt-2">Driving sustainability in emerging markets: The leading role of multinationals</h1>
-      <h2 class="text-2xl font-semibold text-cyan-300">신흥시장에서의 지속가능성 추진- 다국적기업의 리더십 역할</h2>
-      <p class="text-slate-400 style-small mt-1">저자: Ulf Elg, Sara Melén Hånell</p>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Driving sustainability in emerging markets:<br>
+            <span class="text-cyan-400">The leading role of multinationals</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Ulf Elg (Lund University), Sara Melén Hånell (Stockholm School of Economics / Mälardalen University)
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            신흥시장에서의 지속가능성 견인:<br>
+            <span class="text-indigo-300">다국적기업의 주도적 역할</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            Ericsson과 H&M, 두 스웨덴 다국적기업의 신흥시장(방글라데시·중동·라틴아메리카·인도) 사례를 통해 본 지속가능성 시장견인 4단계 프로세스
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">MNE는 규범에 순응하는 대신, 모니터링→아레나 조성→몰입→제도화의 4단계로 신흥시장의 지속가능성을 직접 견인할 수 있다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content Body -->
-  <main class="max-w-6xl mx-auto w-full px-4 lg:px-8 py-10 space-y-12 flex-1">
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
 
-    <!-- STEP 1: Title & Abstract Translation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-cyan-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
-      </div>
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
 
-      <div class="grid lg:grid-cols-2 gap-6">
-        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200/60">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-ghost badge-sm">EN</span> Abstract (Original)
-          </h3>
-          <blockquote class="text-slate-600 style-small leading-relaxed italic">
-            "Multinational Corporations (MNCs) play a pivotal role in promoting environmental and social sustainability in emerging markets. Based on an in-depth qualitative study, this paper investigates how MNCs combine global sustainability capabilities with local relational and structural embeddedness to drive institutional change and local capacity building across emerging market business networks."
-          </blockquote>
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
         </div>
 
-        <div class="bg-cyan-50/40 p-6 rounded-xl border border-cyan-100">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-info badge-sm text-white">KO</span> Abstract (한국어 번역)
-          </h3>
-          <blockquote class="text-slate-700 style-small leading-relaxed">
-            "다국적기업(MNC)이 글로벌 지속가능성 역량을 현지 관계적·구조적 매개성(Embeddedness)과 결합하여 신흥시장 비즈니스 네트워크 전반에 걸쳐 제도적 변화와 현지 역량 강화를 이끄는 메커니즘을 규명한다."
-          </blockquote>
-        </div>
-      </div>
-
-      <div class="mt-6 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-600">
-        <span class="font-bold text-slate-800">💡 주요 학술 용어 번역 메모:</span> Relational & Structural Embeddedness는 "관계적·구조적 매개성"으로 번역함.
-      </div>
-    </section>
-
-    <!-- STEP 2: Core Claims (1-Minute Pitch) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-indigo-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="p-4 bg-indigo-50/50 rounded-xl border border-indigo-100">
-          <div class="font-bold text-indigo-900 text-sm uppercase tracking-wide">1. 연구 질문 (Research Question)</div>
-          <div class="text-slate-700 mt-1 style-body">신흥시장에서 MNC의 지속가능성 리더십 실행 메커니즘과 현지 매개성의 역할은 무엇인가?</div>
-        </div>
-
-        <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100">
-          <div class="font-bold text-emerald-900 text-sm uppercase tracking-wide">2. 핵심 발견 (Key Findings)</div>
-          <div class="text-slate-700 mt-1 style-body">MNC는 관계적·구조적 매개성을 바탕으로 현지 역량 강화(Capacity building)와 환경 규범 정립을 주도함.</div>
-        </div>
-
-        <div class="p-4 bg-purple-50/50 rounded-xl border border-purple-100">
-          <div class="font-bold text-purple-900 text-sm uppercase tracking-wide">3. 학술적 & 실무적 기여 (Contributions)</div>
-          <div class="text-slate-700 mt-1 style-body">신흥시장 지속가능성 연구를 B2B 임베디드니스 및 리더십 프레임워크 관점으로 재해석함.</div>
-        </div>
-
-        <div class="alert alert-info shadow-sm bg-cyan-50 border-cyan-200 text-cyan-900 mt-4">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <div>
-            <span class="font-bold">한 줄 요약:</span> MNC의 신흥시장 지속가능성 리더십은 글로벌 역량과 현지 관계적·구조적 매개성의 결합을 통해 달성된다.
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "This paper focuses on the different activities that multinational enterprises (MNEs) can develop to promote sustainability through a market-driving process that shapes market conditions and influences critical stakeholders. Our focus is on interactions with external and internal stakeholders that drive sustainability. Empirically, this study is based on qualitative case studies of two Swedish MNEs that have a relatively long history of assuming responsibility for different sustainability aspects. We have studied how they drive sustainability internally as well as in their relationships with business, social, and political actors in emerging markets. The empirical material consists of interviews and secondary data, such as sustainability reports. We contribute to the literature by discussing how a market-driving sustainability process can be implemented – each step involving a set of critical, supporting activities. For managers, it is crucial to understand and continuously manage these steps. A conceptual model is presented that suggests four critical steps. We also make an important empirical contribution to the literature by providing unique insights from the activities and sustainability strategies of two well-known MNEs."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              본 논문은 다국적기업(MNE)이 시장 조건을 형성하고 핵심 이해관계자에게 영향을 미치는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">시장 견인(market-driving)</span> 프로세스를 통해 지속가능성을 증진하기 위해 전개할 수 있는 다양한 활동에 초점을 맞춘다. 우리의 초점은 지속가능성을 견인하는 외부 및 내부 이해관계자와의 상호작용에 있다. 실증적으로 본 연구는 서로 다른 지속가능성 측면에 대해 비교적 오랜 책임 이행 역사를 가진 두 개 스웨덴 다국적기업에 대한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">질적 사례연구</span>에 기반한다. 우리는 이들 기업이 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">신흥시장</span>에서 비즈니스, 사회적, 정치적 행위자와의 관계 속에서, 그리고 내부적으로 어떻게 지속가능성을 견인하는지를 연구하였다. 실증 자료는 인터뷰와 지속가능성 보고서 등 2차 자료로 구성된다. 우리는 시장 견인 지속가능성 프로세스가 어떻게 구현될 수 있는지 — 각 단계마다 이를 뒷받침하는 일련의 핵심 활동이 수반된다는 점 — 을 논의함으로써 문헌에 기여한다. 관리자에게는 이러한 단계들을 이해하고 지속적으로 관리하는 것이 매우 중요하다. 우리는 네 가지 핵심 단계를 제시하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">개념 모형</span>을 제안한다. 또한 두 유명 다국적기업의 활동과 지속가능성 전략에 대한 독특한 통찰을 제공함으로써 중요한 실증적 기여를 한다.
+            </blockquote>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- STEP 3: Evidence Alignment Table -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-blue-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거(Evidence)와 원문 위치</h2>
-      </div>
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Market-driving</td>
+                  <td>시장 견인 (시장 선도)</td>
+                  <td class="text-sm">Market-driven(시장 순응)과 대비되는, 시장 조건과 이해관계자의 사고방식을 능동적으로 형성한다는 개념(Jaworski, Kohli & Sahay, 2000; Kumar et al., 2000)이므로 "이끌다"의 의미를 살림.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Emerging markets</td>
+                  <td>신흥시장</td>
+                  <td class="text-sm">제도·규범이 급속히 발전 중이며 상대적으로 불안정한 국가 시장(Meyer & Peng, 2016)을 지칭하는 국제경영학 표준 용어.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Business / Political / Social Actors</td>
+                  <td>비즈니스 / 정치적 / 사회적 행위자</td>
+                  <td class="text-sm">Hadjikhani, Lee & Ghauri (2008)의 3분류 이해관계자 네트워크 체계를 그대로 채용.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Corporate Sustainability (Triple Bottom Line)</td>
+                  <td>기업 지속가능성 (트리플 바텀라인)</td>
+                  <td class="text-sm">경제·환경·사회 3대 축을 포괄하는 구성개념(Bansal & Song, 2017)으로, 본 논문이 채택한 지속가능성의 정의.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Conceptual model (Four steps)</td>
+                  <td>개념 모형 (4단계)</td>
+                  <td class="text-sm">정량적 구조방정식 모형이 아니라, 질적 사례분석에서 귀납적으로 도출된 프로세스 이론임을 명시하기 위해 "개념"을 병기.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
-      <div class="overflow-x-auto">
-        <table class="table table-zebra w-full text-slate-700">
-          <thead class="bg-slate-100 text-slate-800">
-            <tr>
-              <th class="w-12">#</th>
-              <th class="w-1/3">핵심 주장</th>
-              <th>근거 (원문 인용)</th>
-              <th class="w-32">원문 위치</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-            <td class="font-bold">1</td>
-            <td>관계적·구조적 매개성의 역할</td>
-            <td class="text-xs font-mono bg-slate-50 p-2 rounded">MNCs drive sustainability by intertwining relational trust with structural network positions.</td>
-            <td class="text-xs text-slate-500">p. 216, Section 4.2</td>
-        </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
 
-    <!-- STEP 4: Research Model & Variables (DAG Included) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-teal-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
-      </div>
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
 
-      <!-- SVG DAG Model -->
-      <div class="mb-8 p-6 bg-slate-50 rounded-xl border border-slate-200">
-        <h3 class="style-h3 text-slate-800 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12H4z"></path></svg>
-          연구 가설 / 개념적 구조 모델 (Research DAG Framework)
-        </h3>
-        <svg viewBox="0 0 900 300" class="w-full h-auto bg-slate-50 border border-slate-200 rounded-xl" xmlns="http://www.w3.org/2000/svg">
-  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0891b2"/></marker></defs>
-  <rect x="30" y="100" width="200" height="100" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
-  <text x="130" y="130" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="14">MNC 글로벌 지속가능성 역량</text>
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">MNE는 신흥시장에서 지속가능성을 어떻게 '견인'하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">4대 영역의 활동이 4단계 프로세스로 통합된다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">시장견인 문헌과 기업 지속가능성 문헌의 결합</p>
+                </div>
+              </li>
+            </ul>
 
-  <rect x="300" y="30" width="260" height="100" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
-  <text x="430" y="60" text-anchor="middle" font-weight="bold" fill="#0369a1" font-size="14">관계적 매개성 & 신뢰</text>
+            <div class="divider divider-horizontal hidden md:flex"></div>
 
-  <rect x="300" y="170" width="260" height="100" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
-  <text x="430" y="200" text-anchor="middle" font-weight="bold" fill="#0369a1" font-size="14">구조적 매개성 & 네트워크</text>
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> MNE는 신흥시장에서 비즈니스·정치·사회 행위자, 그리고 내부 조직과의 상호작용을 통해 어떤 단계와 활동으로 지속가능성을 견인(시장에 영향)할 수 있는가?</li>
+                  <li><strong>핵심 발견:</strong> MNE의 지속가능성 활동은 교육·지식공유 / 경쟁조건 변화 / 공급망 개발 / 사회 가치관 영향이라는 4대 영역(Fig.1)으로 구성되고, 이는 다시 <strong>① 모니터링·리스크최소화 → ② 상호작용 아레나 조성 → ③ 몰입 확보 → ④ 제도화 확산</strong>의 4단계 프로세스(Fig.2)로 통합된다. 이 단계는 순차적이면서도 지속·병행적으로 작동한다.</li>
+                  <li><strong>이론/실무 기여:</strong> 시장견인(market-driving) 이론을 기업 지속가능성(CS) 문헌과 결합해 "지속가능성이 장기 프로세스로 실행되는 방식"을 최초로 개념화했으며, 관리자에게 KPI 설계·전담 부서·공급업체 비즈니스 케이스 제시 등 구체적 실행 지침을 제공한다.</li>
+                </ul>
+              </div>
 
-  <rect x="630" y="100" width="240" height="100" rx="10" fill="#faf5ff" stroke="#9333ea" stroke-width="2"/>
-  <text x="750" y="130" text-anchor="middle" font-weight="bold" fill="#7e22ce" font-size="15">신흥시장 지속가능 성과</text>
-
-  <path d="M230 130 L300 80" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M230 170 L300 220" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M560 80 L630 130" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M560 220 L630 170" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
-</svg>
-      </div>
-
-      <!-- Detailed Variable / Construct Breakdown -->
-      <div class="space-y-4">
-        <div class="border border-green-200 bg-green-50/50 p-5 rounded-xl"><h3 class="style-h3 text-green-900">1. 관계적·구조적 매개성</h3></div>
-      </div>
-    </section>
-
-    <!-- STEP 5: Method Replication Sequence -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-amber-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
-      </div>
-
-      <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-        <li>
-            
-            <div class="timeline-start font-bold text-cyan-600">STEP 1</div>
-            <div class="timeline-middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-cyan-500"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg></div>
-            <div class="timeline-end timeline-box bg-slate-50 border-slate-200 shadow-sm p-4">
-                <div class="font-semibold text-slate-800">아시아/남미 신흥국 진출 MNC 4개사 심층 질적 사례 연구 (38회 인터뷰)</div>
-                <div class="text-xs text-slate-400 mt-1">원문 위치: pp. 213-216</div>
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "MNE는 지속가능성 규범에 수동적으로 적응하는 대신, 모니터링→역량구축 아레나→몰입→제도화라는 4단계 장기 프로세스를 통해 신흥시장을 지속가능성 방향으로 능동적으로 견인할 수 있으며, 구체적 전략은 기업의 시장 지위에 따라 달라진다."
+                </p>
+              </div>
             </div>
-            
-        </li>
-      </ul>
-
-      <div class="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 font-semibold text-center">
-        ⚡ 재현 가능성 평가: 부분 재현 가능.
-      </div>
-    </section>
-
-    <!-- STEP 6: Limitations & Critical Evaluation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-rose-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 6. Limitation 분리 및 비판적 검토</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="collapse collapse-arrow bg-rose-50/70 border border-rose-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-rose-900 flex items-center gap-2">
-            <span class="badge badge-error text-white">Part A</span> 논문 저자가 명시적으로 인정한 한계점 (Self-acknowledged Limitations)
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 아시아/남미 신흥국 사례 중심 한계 (p. 224)</li>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실증적 근거의 원문 인용 및 페이지 위치를 맵핑했습니다. (페이지는 저널 인쇄본 pp.211–225 기준)
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">MNE 영향력의 압도성 및 연구 필요성</td>
+                <td class="text-sm italic text-slate-600">"a study showed that 100 companies were responsible for 71% of global emissions (Griffin, 2017)."</td>
+                <td class="text-right font-medium text-slate-500">p.211, §1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">기존 문헌의 공백(연구 갭)</td>
+                <td class="text-sm italic text-slate-600">"there is a dearth of empirical research on how an MNE can develop an overall market-driving approach for sustainability through their international operations..."</td>
+                <td class="text-right font-medium text-slate-500">p.211, §1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">지속가능성 견인 4대 영역 규정 (Fig.1)</td>
+                <td class="text-sm italic text-slate-600">"we identify four areas where an MNE can drive the market... i) educating and sharing knowledge, ii) changing competitive conditions, iii) developing the supply chain, and iv) influencing sustainability values in society."</td>
+                <td class="text-right font-medium text-slate-500">p.213, §2.2</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">사례 선정 논리 (대비되는 산업·시장지위)</td>
+                <td class="text-sm italic text-slate-600">"we finally decided to study Ericsson–a telecommunication giant focusing on the B2B market, and H&M–a global fashion retailer and mainly a B2C company..."</td>
+                <td class="text-right font-medium text-slate-500">p.214, §3.1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">실증자료: 19개 인터뷰 + 2차 자료 삼각검증</td>
+                <td class="text-sm italic text-slate-600">"The former included 19 interviews conducted with managers... We conducted nine interviews...at Ericsson. At H&M, we completed 10 interviews..."</td>
+                <td class="text-right font-medium text-slate-500">p.215, §3.2, Table 1–3</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">핵심 발견 — 4단계 프로세스 모형 (Fig.2)</td>
+                <td class="text-sm italic text-slate-600">"these activities can be integrated into four different steps that include involvement and support from different types of stakeholders (Fig. 2)."</td>
+                <td class="text-right font-medium text-slate-500">p.220, §5</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">1단계 모니터링은 '학습' 메커니즘으로 재해석됨</td>
+                <td class="text-sm italic text-slate-600">"...monitoring includes a strong component of learning and knowledge development for a market-driving MNE and is not merely a matter of reactively responding to critical incidents."</td>
+                <td class="text-right font-medium text-slate-500">p.220, §5</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">시장 지위에 따른 전략 차별화 (경계조건)</td>
+                <td class="text-sm italic text-slate-600">"an actor with many competitors and a smaller share of the market, such as H&M, might be more dependent on horizontal cooperation... A larger and more dominant actor, like Ericsson is not equally dependent on the support of competitors."</td>
+                <td class="text-right font-medium text-slate-500">p.222, §6</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td class="font-semibold text-slate-900">내부 조직·직원 관여의 중요성</td>
+                <td class="text-sm italic text-slate-600">"This study also sheds new light on the important role of employees, and internal processes and employees."</td>
+                <td class="text-right font-medium text-slate-500">p.223, §6</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td class="font-semibold text-slate-900">저자 스스로 인정한 일반화 한계</td>
+                <td class="text-sm italic text-slate-600">"...this study has, to some extent, focused on the corporate level and strategic documents. Data on how market-driving sustainability activities are perceived in the local emerging markets is somewhat limited."</td>
+                <td class="text-right font-medium text-slate-500">p.223, §7</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Constructs -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수(구성개념) 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Constructs</span>
+        </div>
+
+        <div class="alert bg-amber-50 border border-amber-300 text-amber-900 rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-600 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <span class="text-sm">본 논문은 정량 서베이가 아닌 <strong>질적 사례연구(2개 사례, 19개 인터뷰)</strong>입니다. 아래 IV/매개/조절/DV 구도는 저자들이 제시한 Fig.1(4대 영역)·Fig.2(4단계 프로세스) 구성개념을 통계적 변수 틀에 상응하도록 재정리한 것이며, "측정 및 출처"는 설문 척도가 아니라 <strong>NVivo 코딩 규칙과 자료 출처</strong>를 의미합니다.</span>
+        </div>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Conceptual Process Model (시장견인 지속가능성 4단계 프로세스, Fig.1 & Fig.2 통합 재구성)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 480" class="w-full h-auto">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+
+              <!-- Row A: Stakeholder / Context inputs -->
+              <rect x="20" y="20" width="185" height="55" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="112" y="42" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">비즈니스 행위자</text>
+              <text x="112" y="58" text-anchor="middle" fill="#64748b" font-size="9">공급업체·고객·경쟁사</text>
+
+              <rect x="220" y="20" width="185" height="55" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="312" y="42" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">정치적 행위자</text>
+              <text x="312" y="58" text-anchor="middle" fill="#64748b" font-size="9">정부·정책결정자</text>
+
+              <rect x="420" y="20" width="185" height="55" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+              <text x="512" y="42" text-anchor="middle" font-weight="700" fill="#334155" font-size="12">사회적 행위자</text>
+              <text x="512" y="58" text-anchor="middle" fill="#64748b" font-size="9">미디어·NGO·노조</text>
+
+              <rect x="620" y="20" width="190" height="55" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="715" y="42" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">내부 조직</text>
+              <text x="715" y="58" text-anchor="middle" fill="#b45309" font-size="9">경영진·직원 (전 단계 공통 투입)</text>
+
+              <!-- connectors from stakeholder boxes down to bus -->
+              <path d="M112 75 L112 95" stroke="#94a3b8" stroke-width="2"/>
+              <path d="M312 75 L312 95" stroke="#94a3b8" stroke-width="2"/>
+              <path d="M512 75 L512 95" stroke="#94a3b8" stroke-width="2"/>
+              <path d="M715 75 L715 95" stroke="#d97706" stroke-width="2"/>
+
+              <!-- dashed bus line -->
+              <path d="M112 95 L715 95" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 4"/>
+              <text x="413" y="88" text-anchor="middle" fill="#64748b" font-size="10" font-style="italic">4대 이해관계자 유형 — 전 단계에 공통 관여 (Fig.1)</text>
+
+              <!-- drops from bus into each step box -->
+              <path d="M112 95 L112 138" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M312 95 L312 138" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M512 95 L512 138" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M715 95 L715 138" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Row B: Four-step process chain -->
+              <rect x="20" y="140" width="185" height="95" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="2.5"/>
+              <text x="112" y="164" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="13">① 모니터링・</text>
+              <text x="112" y="180" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="13">리스크 최소화</text>
+              <text x="112" y="200" text-anchor="middle" fill="#475569" font-size="9">코드 수용, 교육, 컴플라이언스</text>
+              <text x="112" y="213" text-anchor="middle" fill="#475569" font-size="9">라인 (진행형 학습 메커니즘)</text>
+
+              <rect x="220" y="140" width="185" height="95" rx="8" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2.5"/>
+              <text x="312" y="164" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="13">② 상호작용・</text>
+              <text x="312" y="180" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="13">역량구축 아레나</text>
+              <text x="312" y="200" text-anchor="middle" fill="#0284c7" font-size="9">물리적/가상 포럼, 워크숍,</text>
+              <text x="312" y="213" text-anchor="middle" fill="#0284c7" font-size="9">중립적 교류의 장</text>
+
+              <rect x="420" y="140" width="185" height="95" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2.5"/>
+              <text x="512" y="164" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">③ 몰입 확보</text>
+              <text x="512" y="180" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">(Commitment)</text>
+              <text x="512" y="200" text-anchor="middle" fill="#047857" font-size="9">KPI·보상체계 내재화,</text>
+              <text x="512" y="213" text-anchor="middle" fill="#047857" font-size="9">공급업체 비즈니스 케이스</text>
+
+              <rect x="620" y="140" width="190" height="95" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2.5"/>
+              <text x="715" y="164" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">④ 제도화</text>
+              <text x="715" y="180" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="13">(Institutionalisation)</text>
+              <text x="715" y="200" text-anchor="middle" fill="#4338ca" font-size="9">법·규제 변화 견인(로비),</text>
+              <text x="715" y="213" text-anchor="middle" fill="#4338ca" font-size="9">사회 전반 가치관 확산</text>
+
+              <!-- sequential arrows between steps -->
+              <path d="M205 187 L218 187" fill="none" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)"/>
+              <path d="M405 187 L418 187" fill="none" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)"/>
+              <path d="M605 187 L618 187" fill="none" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+              <!-- Moderator: Firm's market position -->
+              <rect x="230" y="290" width="360" height="60" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="410" y="315" text-anchor="middle" font-weight="700" fill="#92400e" font-size="13">조절 요인: 기업의 시장 지위</text>
+              <text x="410" y="333" text-anchor="middle" fill="#b45309" font-size="10">지배적 대기업(Ericsson: 직접 정치·사회 교섭) vs. 파편적 경쟁시장(H&M: 경쟁사 수평협력)</text>
+
+              <path d="M480 290 L480 236" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+              <text x="560" y="270" fill="#b45309" font-weight="700" font-size="11">전략 유형 조절</text>
+
+              <!-- Outcome box -->
+              <rect x="290" y="390" width="320" height="70" rx="8" fill="#4338ca" stroke="#3730a3" stroke-width="2"/>
+              <text x="450" y="418" text-anchor="middle" font-weight="700" fill="#ffffff" font-size="13">지속가능성의 장기적 정착</text>
+              <text x="450" y="436" text-anchor="middle" fill="#c7d2fe" font-size="10">Triple Bottom Line: 경제・환경・사회</text>
+
+              <!-- arrow Step4 -> Outcome -->
+              <path d="M715 235 L715 405 L612 405" fill="none" stroke="#4338ca" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+              <!-- feedback loop (dashed): ongoing/cyclical process -->
+              <path d="M290 425 L60 425 L60 236" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+              <text x="45" y="330" fill="#475569" font-size="10" font-style="italic" transform="rotate(-90 45 330)">지속적 반복 (Ongoing, p.220)</text>
+            </svg>
+          </div>
+          <p class="text-xs text-slate-500 max-w-3xl text-center">
+            ※ 원문의 Fig.1(4대 시장견인 영역 × 이해관계자)과 Fig.2(4단계 프로세스)를 하나의 흐름도로 통합 재구성한 것으로, 원문 그림을 그대로 복제한 것이 아니라 저자의 서술(§2.2, §5)에 근거한 시각화입니다.
+          </p>
+        </div>
+
+        <!-- Construct Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Construct 1: Market-driving activity areas -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수 상응</span>
+                <span class="text-xs text-slate-400 font-semibold">Activity Areas</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">시장견인 활동 4대 영역 (Market-Driving Activity Areas)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> MNE가 이해관계자의 사고·행동을 사전적으로 변화시키기 위해 수행하는 4개 유형의 개입 활동(교육·지식공유 / 경쟁조건 변화 / 공급망 개발 / 사회 가치관 영향).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "교육"=지식·사고방식 변화 관련 발화, "경쟁조건 변화"=경쟁 로직·경쟁사 협력 발화, "공급망 개발"=가치사슬 관행 재평가 발화, "사회가치관 영향"=사회 제도적 기반 영향 발화로 코딩.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> NVivo 12 1차 연역적 코딩(p.215-216) / 인터뷰 19건 + 지속가능성 보고서·연차보고서·언론기사(Table 1)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Jaworski, Kohli & Sahay(2000)의 market-driven vs. market-driving 이분법, Kumar et al.(2000)의 시장견인 개념을 지속가능성 문맥으로 재구성.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 2: Stakeholder groups -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">맥락 요인</span>
+                <span class="text-xs text-slate-400 font-semibold">Stakeholder Groups</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">이해관계자 유형 (Business / Political / Social / Internal)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> Hadjikhani, Lee & Ghauri(2008)의 네트워크 관점에 따른 4개 관여 대상 그룹 — 비즈니스(공급업체·고객·경쟁사), 정치(정부), 사회(미디어·NGO·노조), 내부 조직.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 인터뷰 응답자가 언급한 상호작용 대상(예: WWF=사회적 행위자, Business Sweden=정치 연계, ACT 이니셔티브 경쟁사=비즈니스 행위자)에 따라 분류.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 인터뷰 질문 설계 자체에 반영(p.215) + 2차 문서(H&M-WWF 파트너십 자료 등)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Ekman, Röndell, Kowalkowski, Thompson & Raggio(2021)의 시장형성(market-shaping) 네트워크 관점과 연결.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 3: Four-step process -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">핵심 메커니즘(순차적 프로세스)</span>
+                <span class="text-xs text-slate-400 font-semibold">Four-Step Process (Fig.2)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">4단계 시장견인 지속가능성 프로세스</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 개별 시장견인 활동이 결합되어 지속가능성이 장기적 우선순위로 정착되는 데 이르는 4개 누적적·병행적 단계(모니터링·리스크최소화 → 아레나조성 → 몰입확보 → 제도화). 각 단계는 이전 단계보다 더 깊은 신뢰·헌신을 요구.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Section 4(Table 4·5)의 주제(theme)별 활동 패턴을 저자가 사후적으로 4단계로 통합·이론화 — 응답자에게 직접 "몇 단계인가"를 질문한 것이 아니라 연구자의 해석적 통합(abductive synthesis) 산물.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Table 4(H&M), Table 5(Ericsson) 주제별 인용문 매핑 결과(p.216-220)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Baker & Nenonen(2020)의 collective market work, Storbacka & Nenonen(2015)의 market learning 개념과 연결. "모니터링=반응적"이라는 전통적 통념을 "모니터링=사전적 학습"으로 재해석한 것이 핵심 이론적 기여(p.222).
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 4: Firm's market position (moderator) -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절 요인</span>
+                <span class="text-xs text-slate-400 font-semibold">Moderator</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기업의 시장 지위 (Competitive/Market Position)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 산업 내 시장 점유율·경쟁자 수에 따른 상대적 시장 지배력. 정량 지표가 아니라 두 사례의 질적 대비로 제시.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Ericsson="large and dominant player"(통신 인프라 소수 글로벌 공급자) vs. H&M="only has a few percent of the global market"(파편화된 패션 소매 경쟁구조).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 저자의 산업 서술적 판단 + 연차보고서(p.222) — HHI 등 계량 지표 없음.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 왜 Ericsson은 경쟁사 포럼을 만들지 않았는지(기술=경쟁우위, 공유 회피), H&M은 왜 ACT 등 경쟁협력에 적극적인지(개별기업만으로는 임금협상력 부족)를 설명하는 경계조건.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 5: Outcome -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수 상응</span>
+                <span class="text-xs text-slate-400 font-semibold">Outcome (DV)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기업 지속가능성 (Corporate Sustainability, Triple Bottom Line)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 경제·환경·사회 3대 축을 포괄하는 기업의 총체적 책임 수행(Bansal & Song, 2017; Wilson, 2015).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 별도 측정 없이, "Forbes 100대 지속가능 기업" 랭킹(평판 지표)과 기업 자체 목표(H&M 2030 GHG 감축 목표, Ericsson Zero Tolerance Safety Rules)로 대리.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Forbes(2020), SwedWatch(2014) + 기업 자체 보고서(H&M 2019b/2020b; Ericsson 2019b/2020c)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않은 연구자도 Section 3(p.214-216)의 질적 사례연구 설계를 그대로 <strong>추종 재현</strong>할 수 있도록 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 접근법 선택 — 탐색적 질적 사례연구</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  실증·개념적 지식이 부족한 현상이므로 탐색적 질적 연구(exploratory qualitative research)를 채택. 서로 다른 산업(B2B 통신 vs. B2C 패션)에서 대비되는 사례를 선정하기로 결정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.214, §3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">사례 선정 기준 수립 및 최종 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  (i) 글로벌 시장 활동, (ii) 명확한 지속가능성 기업전략, (iii) 글로벌-로컬 연계 전략문서 보유라는 3개 기준으로 필터링. Ericsson(B2B 통신)과 H&M(B2C 패션)을 최종 선정 — 둘 다 세계 100대 지속가능 기업 랭킹 & 비판 이력 동시 보유.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.214, §3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">자료 수집 1단계 (2019.5~) — 본사(HQ) 인터뷰</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  양사 본사의 지속가능성 담당 관리자 대상 물리적 면담으로 정책·행동강령·현지 소통 루틴 파악. Ericsson 9건 + H&M 10건 = 총 19개 인터뷰(회당 2~4인 참여), 전문 서비스로 전사(transcription).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.215-216, §3.2, Table 1-3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">자료 수집 2단계 (2020~) — 신흥시장 현지 인터뷰</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  방글라데시·중동·라틴아메리카·인도 현지 관리자 인터뷰로 전환(주로 Zoom/Skype 화상 면담). 최대 2~4인의 현지 관리자와 동시 인터뷰 진행(예: 방글라데시 지역 4인 동시 화상 인터뷰).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.215, §3.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">2차 자료 수집 및 삼각검증(Triangulation)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  기업 웹사이트의 연차·지속가능성 보고서·보도자료 + Retriever Business DB에서 "기업명+지속가능성" 키워드로 언론기사 검색. 인터뷰 진술을 2차 자료와 교차 검증(예: Ericsson 컴플라이언스 라인).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.215-216, §3.2, Table 1</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">1차 연역적 코딩 (NVivo 12)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  NVivo 12로 전사자료를 이론적으로 사전 정의된 4대 시장견인 영역(교육/경쟁조건/공급망/사회가치관)에 따라 1차 연역적 코딩(deductive coding) 수행.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.216, §3.2</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">반복적(Iterative) 2차 분석 및 사례 간 종합</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  코딩→내러티브 작성→문헌 재검토를 반복하는 귀납적 분석으로 Table 4(H&M)·Table 5(Ericsson) 주제별 요약표를 구성하고, 이를 최종적으로 4단계 프로세스 모형(Fig.2)으로 통합.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.216-220, §4; p.220, §5</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            사례 선정 기준, 자료수집 2단계 설계, 1차 연역적 코딩 프레임은 명확히 기술되어 절차 자체는 재현 가능하나, 원 인터뷰 전사본은 비공개("The authors do not have permission to share data", p.223)이며 2차 귀납적 코딩과 4단계 모형 도출은 연구자의 해석적 판단에 크게 의존하므로 동일한 결론 도달은 보장되지 않습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted, §7)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 7, p.223)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>통계적 일반화 불가:</strong> "this study is based on a qualitative, in-depth study of two Swedish MNEs... does not allow us to make formal statistical generalisations of the findings to a wider group of MNEs. For example, Swedish MNEs may differ in their approach compared to companies from other parts of the world."
+              </li>
+              <li>
+                <strong>현지 관점 자료의 제한성:</strong> "in the data collection, this study has, to some extent, focused on the corporate level and strategic documents. Data on how market-driving sustainability activities are perceived in the local emerging markets is somewhat limited."
+              </li>
+              <li>
+                <strong>이론적 일반화의 잠정성:</strong> "the model represents a theoretical generalisation that can be evaluated in relation to other empirical contexts (Eisenhardt, 1989; Flyvbjerg, 2006)" — 아직 검증되지 않은 잠정 이론임을 인정하며 향후 정량 연구·현지 관점 질적 연구를 제안.
+              </li>
+              <li>
+                <strong>표본(사례) 자체의 한계:</strong> "this research has investigated two firms that claim to have a proactive approach to sustainability. Consequently, the steps and activities presented here may not be found in MNEs where sustainability plays a more marginal role."
+              </li>
             </ul>
           </div>
         </div>
 
-        <div class="collapse collapse-arrow bg-amber-50/70 border border-amber-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-amber-900 flex items-center gap-2">
-            <span class="badge badge-warning text-white">Part B</span> 독자/연구자 관점의 독립적 비판적 검토 (Critical Methodological & Theoretical Concerns)
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 지속가능성 활동의 홍보용 그린워싱 위험 감증 부족</li>
-            </ul>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계와 자료의 성격을 근거로 제시하는, 저자가 다루지 않은 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 사례 선정의 성공 편향</span>
+                <p class="text-sm text-slate-700">
+                  두 사례는 처음부터 "Forbes 100대 지속가능 기업" 랭킹에 들고 "25년 이상 지속가능성 리더십"을 자임하는 <strong>이미 성공한 소수 사례로 의도적 선정</strong>되었다(p.214). 4단계 모형 자체가 성공 사례에서만 관찰되는 사후적 정당화 서사(post-hoc success narrative)일 위험이 충분히 논의되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 자기서술 자료 의존과 그린워싱 가능성</span>
+                <p class="text-sm text-slate-700">
+                  핵심 자료가 기업 자체 지속가능성 보고서와 HQ 관리자 인터뷰다. H&M의 "패스트패션-지속가능성 모순" 비판(Stål & Corvellec, 2021)과 Ericsson의 뇌물수수 스캔들(Dagens Nyheter, 2021)을 인용은 하지만, 이 비판이 논문의 "선도 서사"와 어떻게 정합/모순되는지 깊이 검토하지 않아 <strong>디커플링(그린워싱)</strong> 가능성이 통제되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 역인과·방향성 문제</span>
+                <p class="text-sm text-slate-700">
+                  Fig.2의 4단계 순서는 <strong>회고적 횡단 인터뷰</strong>에서 사후 재구성된 것으로, 종단 추적 데이터가 아니다. 이 순서가 실제 시간적 인과관계(temporal precedence)인지, 연구자가 논리적으로 배열한 이론적 편의상의 순서인지 구분할 방법이 없다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 이해관계자 목소리의 비대칭성</span>
+                <p class="text-sm text-slate-700">
+                  19건 인터뷰는 전원 MNE 소속 관리자이며, 강조 대상인 <strong>현지 공급업체 노동자·NGO·정부 담당자의 직접 목소리는 전혀 수집되지 않았다.</strong> "MNE가 이해관계자에 미치는 영향"이라는 핵심 주장이 오직 MNE 측 자기 서술에만 근거해, 온정주의적·자사중심적 서사로 왜곡될 위험이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 코딩의 순환성(이론확증 구조)</span>
+                <p class="text-sm text-slate-700">
+                  1차 코딩 프레임(4대 영역)은 실증 조사 이전 Section 2의 이론적 배경(Fig.1)에서 이미 연역적으로 확정되었다(p.213). Fig.2의 4단계는 그 틀에 맞춰 코딩된 자료를 재배열한 결과일 가능성이 있어, "발견"이라기보다 "이론이 예상한 범주의 재확인"에 가까울 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 국가·산업의 이중 특수성</span>
+                <p class="text-sm text-slate-700">
+                  두 사례 모두 스웨덴(강한 CSR 규범 문화) 기업이며 산업도 통신 인프라(자본·기술집약) vs. 패션 소매(노동집약 아웃소싱)로 이질적이다. 저자는 국가 특수성만 짧게 언급했을 뿐(위 A-1), 4단계 모형이 이 두 산업의 우연한 조합에서만 성립하는 것은 아닌지 검토가 없다.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+    </div>
   </main>
 
   <!-- Footer -->
-  <footer class="footer footer-center bg-slate-900 text-slate-400 p-8 border-t border-slate-800">
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
     <div>
-      <p class="font-bold text-slate-200">Industrial Marketing Management (IMM) Paper Analysis Archive</p>
-      <p class="text-xs text-slate-500 mt-1">Driving sustainability in emerging markets: The leading role of multinationals | Industrial Marketing Management Vol. 114 (2023), pp. 211-225</p>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Driving sustainability in emerging markets: The leading role of multinationals (Elg & Melén Hånell, 2023)</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
     </div>
   </footer>
 

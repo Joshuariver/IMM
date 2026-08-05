@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Value capture in open innovation: A literature review and a research agenda - IMM 2023</title>
+  <title>Value Capture in Open Innovation - IMM 2023</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- DaisyUI 4 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   <!-- Pretendard Font Import -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  
+
   <script>
     tailwind.config = {
       theme: {
@@ -32,228 +32,815 @@
       color: #1e293b;
       word-break: keep-all;
     }
-    .style-display { font-size: 40px; font-weight: 700; line-height: 1.2; }
-    .style-h1 { font-size: 32px; font-weight: 700; line-height: 1.2; }
-    .style-h2 { font-size: 24px; font-weight: 600; line-height: 1.3; }
-    .style-h3 { font-size: 18px; font-weight: 600; line-height: 1.4; }
-    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
-    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
-    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Active navigation styling */
+    .nav-active {
+      color: #0f172a !important;
+      font-weight: 600;
+      border-left: 2px solid #3b82f6;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-  <!-- Header / Hero Section (No Navbar, single scroll flow) -->
-  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-14 px-4 lg:px-8 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto flex flex-col gap-4 relative z-10">
+  <!-- Navbar (plain, non-sticky, non-fixed) -->
+  <div class="navbar bg-slate-900 text-white shadow-md px-4 lg:px-8">
+    <div class="flex-1">
+      <a class="btn btn-ghost normal-case text-xl font-bold tracking-tight text-cyan-400" href="#">IMM Research Brief</a>
+    </div>
+    <div class="flex-none hidden lg:block">
+      <ul class="menu menu-horizontal px-1 gap-2 text-slate-300 style-label">
+        <li><a href="#abstract" class="hover:text-cyan-400">초록</a></li>
+        <li><a href="#claims" class="hover:text-cyan-400">핵심 주장</a></li>
+        <li><a href="#evidence" class="hover:text-cyan-400">근거 데이터</a></li>
+        <li><a href="#model" class="hover:text-cyan-400">조직화 프레임워크</a></li>
+        <li><a href="#method" class="hover:text-cyan-400">리뷰 방법론</a></li>
+        <li><a href="#limitations" class="hover:text-cyan-400">한계점 &amp; 비판</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
       <div class="flex flex-wrap gap-2">
-        <span class="badge badge-outline border-cyan-400 text-cyan-300 style-label uppercase">Industrial Marketing Management Vol. 114 (2023), pp. 297-312</span>
-        <span class="badge badge-secondary text-white style-label">Academic Paper Analysis</span>
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management, 114 (2023) 297-312</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Integrative Literature Review</div>
+        <div class="badge badge-secondary text-white style-label">Open Innovation × Value Capture</div>
       </div>
-      
-      <h1 class="style-display text-white mt-2">Value capture in open innovation: A literature review and a research agenda</h1>
-      <h2 class="text-2xl font-semibold text-cyan-300">개방형 혁신에서의 가치 포착- 체계적 문헌 고찰 및 향후 연구 의제</h2>
-      <p class="text-slate-400 style-small mt-1">저자: Adrian Toroslu, Brita Schemmann, Maryse M.H. Chappin, Carolina Castaldi, Andrea M. Herrmann</p>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Value capture in open innovation:<br>
+            <span class="text-cyan-400">A literature review and a research agenda</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Adrian Toroslu, Brita Schemmann, Maryse M.H. Chappin, Carolina Castaldi, Andrea M. Herrmann
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            개방형 혁신에서의 가치 포착:<br>
+            <span class="text-indigo-300">문헌 리뷰와 향후 연구 의제</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            개방형 혁신(OI)에서 가치 포착을 다룬 실증 연구 69편에 대한 통합 문헌 리뷰 — 무엇을(What)·누가(Who)·어떻게(How) 포착하는가
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">OI 연구는 가치 창출은 많이 다뤘지만, 그 가치를 &ldquo;누가·무엇을·어떻게&rdquo; 실제로 챙겨가는지는 파편적으로만 연구되어 왔습니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content Body -->
-  <main class="max-w-6xl mx-auto w-full px-4 lg:px-8 py-10 space-y-12 flex-1">
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
 
-    <!-- STEP 1: Title & Abstract Translation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-cyan-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
-      </div>
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
 
-      <div class="grid lg:grid-cols-2 gap-6">
-        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200/60">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-ghost badge-sm">EN</span> Abstract (Original)
-          </h3>
-          <blockquote class="text-slate-600 style-small leading-relaxed italic">
-            "Based on a systematic review of 124 articles, this paper synthesizes the state of research on value capture in OI, identifies key governance and appropriability mechanisms, and proposes a comprehensive future research agenda."
-          </blockquote>
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
         </div>
 
-        <div class="bg-cyan-50/40 p-6 rounded-xl border border-cyan-100">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-info badge-sm text-white">KO</span> Abstract (한국어 번역)
-          </h3>
-          <blockquote class="text-slate-700 style-small leading-relaxed">
-            "124편의 학술 논문에 대한 체계적 문헌 고찰(Systematic Literature Review)을 통해 개방형 혁신에서의 가치 포착(Value Capture) 현황을 종합하고 5대 연구 의제를 제시한다."
-          </blockquote>
-        </div>
-      </div>
-
-      <div class="mt-6 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-600">
-        <span class="font-bold text-slate-800">💡 주요 학술 용어 번역 메모:</span> Value Capture는 "가치 포착"으로 번역함.
-      </div>
-    </section>
-
-    <!-- STEP 2: Core Claims (1-Minute Pitch) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-indigo-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="p-4 bg-indigo-50/50 rounded-xl border border-indigo-100">
-          <div class="font-bold text-indigo-900 text-sm uppercase tracking-wide">1. 연구 질문 (Research Question)</div>
-          <div class="text-slate-700 mt-1 style-body">개방형 혁신(OI) 맥락에서 가치 창출과 가치 포착 간의 불균형을 해결하는 메커니즘은 무엇인가?</div>
-        </div>
-
-        <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100">
-          <div class="font-bold text-emerald-900 text-sm uppercase tracking-wide">2. 핵심 발견 (Key Findings)</div>
-          <div class="text-slate-700 mt-1 style-body">가치 포착은 계약적/관계적 거버넌스, 지식재산권/보완적 자산(Appropriability Regimes), 플랫폼 생태계 아키텍처에 의해 결정됨.</div>
-        </div>
-
-        <div class="p-4 bg-purple-50/50 rounded-xl border border-purple-100">
-          <div class="font-bold text-purple-900 text-sm uppercase tracking-wide">3. 학술적 & 실무적 기여 (Contributions)</div>
-          <div class="text-slate-700 mt-1 style-body">개방형 혁신 분야 124편 논문을 종합하여 가치 포착 통합 프레임워크를 정립함.</div>
-        </div>
-
-        <div class="alert alert-info shadow-sm bg-cyan-50 border-cyan-200 text-cyan-900 mt-4">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <div>
-            <span class="font-bold">한 줄 요약:</span> 개방형 혁신 성과는 외부 지식 수용을 넘어 전유성 체계와 거버넌스를 결합한 가치 포착 메커니즘 설계에 달려 있다.
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "While empirical research on open innovation initially focused on value creation, there has been a growing interest in value capture among academics and companies. Understanding value capture is crucial, as the success of open innovation activities depends on the value capture potential of all actors involved. To provide an overview of the key findings and guide future research, we conducted an integrative literature review of 69 empirical studies on value capture in open innovation. When analyzing these studies, we focused on what value is captured, who captures it, and how actor strategies influence the value captured in collaborative innovation activities. Our analysis identified four areas for further research, namely (i) broadening concepts and measures of value, (ii) understanding the importance of contextual factors in capturing value, (iii) adopting a dynamic perspective in studying value capture, and (iv) capturing social and environmental value in light of wicked problems."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              개방형 혁신(OI)에 관한 초기 실증 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">가치 창출(value creation)</span>에 주로 초점을 맞추었으나, 최근 학계와 기업 모두에서 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">가치 포착(value capture)</span>에 대한 관심이 커지고 있다. OI 활동의 성패가 참여하는 모든 행위자의 가치 포착 잠재력에 달려 있다는 점에서 이에 대한 이해는 매우 중요하다. 본 연구는 주요 연구 결과를 개관하고 향후 연구를 안내하기 위해, OI에서의 가치 포착을 다룬 실증 연구 69편에 대한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">통합 문헌 리뷰</span>를 수행하였다. 이들 연구를 분석하면서 (1) 어떤 가치가 포착되는지, (2) 누가 그 가치를 포착하는지, (3) 협력적 혁신 활동에서 행위자의 전략이 포착되는 가치에 어떻게 영향을 미치는지에 초점을 맞추었다. 분석 결과 향후 연구를 위한 4개 영역, 즉 (i) 가치의 개념과 측정 방식 확장, (ii) 가치 포착에서 맥락 요인의 중요성 이해, (iii) 가치 포착에 대한 동태적 관점 도입, (iv) 난제에 대응한 사회적·환경적 가치 포착을 확인하였다.
+            </blockquote>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- STEP 3: Evidence Alignment Table -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-blue-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거(Evidence)와 원문 위치</h2>
-      </div>
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Value Capture</td>
+                  <td>가치 포착</td>
+                  <td class="text-sm">Chesbrough et al.(2018)의 정의(&ldquo;가치 창출로부터 재무적·비재무적 수익을 확보하는 과정&rdquo;)를 살리기 위해 &lsquo;획득&rsquo;·&lsquo;전유&rsquo; 대신 &lsquo;포착&rsquo;을 채택.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Value Partaking / Value Negotiation</td>
+                  <td>가치 분담 / 가치 협상</td>
+                  <td class="text-sm">전자는 타 행위자의 가치 창출에 참여해 수익을 얻는 것, 후자는 자사 자원의 접근·소유로부터 수익을 얻는 것으로 구분되는 Chesbrough et al.(2018)의 하위 개념.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Integrative Literature Review</td>
+                  <td>통합 문헌 리뷰</td>
+                  <td class="text-sm">체계적 리뷰(systematic review)와 달리 개념 간 관계를 재구성하고 새 관점(연구 의제)을 종합 제시하는 Torraco(2005, 2016) 방법론이므로 &lsquo;통합적&rsquo;을 유지.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Appropriability Regime</td>
+                  <td>전유 가능성 체제</td>
+                  <td class="text-sm">Teece(1986)의 원 개념으로, 혁신으로부터의 수익을 법적·기술적으로 보호할 수 있는 산업 환경적 조건을 의미.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Paradox of Openness</td>
+                  <td>개방성의 역설</td>
+                  <td class="text-sm">지식 공유(협력)와 지식 보호(전유) 사이의 근본적 긴장을 지칭하는 OI 문헌의 표준 용어.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Wicked Problems</td>
+                  <td>난제(難題)</td>
+                  <td class="text-sm">복잡성과 불확실성이 높아 단일 행위자로 해결 불가능한 사회·환경 문제를 지칭하는 정책학 용어를 그대로 차용.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
-      <div class="overflow-x-auto">
-        <table class="table table-zebra w-full text-slate-700">
-          <thead class="bg-slate-100 text-slate-800">
-            <tr>
-              <th class="w-12">#</th>
-              <th class="w-1/3">핵심 주장</th>
-              <th>근거 (원문 인용)</th>
-              <th class="w-32">원문 위치</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-            <td class="font-bold">1</td>
-            <td>가치 창출 대비 가치 포착 연구의 불균형</td>
-            <td class="text-xs font-mono bg-slate-50 p-2 rounded">While OI heavily emphasizes value creation, mechanisms for value capture remain under-theorized.</td>
-            <td class="text-xs text-slate-500">p. 301</td>
-        </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
 
-    <!-- STEP 4: Research Model & Variables (DAG Included) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-teal-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
-      </div>
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 리뷰 논문의 안내 질문(guiding questions), 핵심 발견, 기여도를 단계별로 구조화했습니다.
+          </p>
 
-      <!-- SVG DAG Model -->
-      <div class="mb-8 p-6 bg-slate-50 rounded-xl border border-slate-200">
-        <h3 class="style-h3 text-slate-800 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12H4z"></path></svg>
-          연구 가설 / 개념적 구조 모델 (Research DAG Framework)
-        </h3>
-        <svg viewBox="0 0 900 300" class="w-full h-auto bg-slate-50 border border-slate-200 rounded-xl" xmlns="http://www.w3.org/2000/svg">
-  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0891b2"/></marker></defs>
-  <rect x="30" y="80" width="220" height="140" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
-  <text x="140" y="110" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="14">선행/전유성 요인</text>
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Guiding Questions</span>
+                  <p class="font-bold text-slate-800">무엇을(What)·누가(Who)·어떻게(How) 가치를 포착하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">재무 중심·기업 중심·정태적 스냅샷 편중</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">파편화된 실증 증거의 최초 통합 + 4대 연구 의제</p>
+                </div>
+              </li>
+            </ul>
 
-  <rect x="310" y="80" width="260" height="140" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
-  <text x="440" y="110" text-anchor="middle" font-weight="bold" fill="#0369a1" font-size="14">개방형 혁신 거버넌스</text>
+            <div class="divider divider-horizontal hidden md:flex"></div>
 
-  <rect x="630" y="80" width="240" height="140" rx="10" fill="#faf5ff" stroke="#9333ea" stroke-width="2"/>
-  <text x="750" y="110" text-anchor="middle" font-weight="bold" fill="#7e22ce" font-size="15">가치 포착 (Value Capture)</text>
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> OI 활동에서 가치 포착에 관한 실증 증거를 통합하기 위해 &ldquo;무엇이 포착되는가&rdquo;, &ldquo;누가 포착하는가&rdquo;, &ldquo;어떻게 포착되는가&rdquo;라는 3개 안내 질문을 설정 (선정 기준이 아닌 분석 프레임).</li>
+                  <li><strong>핵심 발견:</strong> 69편 중 15편만 재무·비재무 가치를 함께 다루고, 54편은 어느 한쪽에만 집중. 가치 포착 주체는 대부분 조직(기업)이며 개인·네트워크·시장·환경을 다룬 논문은 10편에 불과. 가치 포착은 공식/비공식 IP 메커니즘 → 전략·신뢰·파트너선택 등 촉진/저해 요인 → 기업규모·흡수역량·지리 등 맥락 특성의 3층 구조로 나타남.</li>
+                  <li><strong>이론/실무 기여:</strong> Chesbrough(2003) 이후 파편화된 가치 포착 실증 연구를 최초로 체계적으로 통합하고, 경영자를 위한 &ldquo;무엇을·누가·어떻게&rdquo; 체크리스트를 제시하며 4개 향후 연구 영역(개념 확장, 맥락, 동학, 사회적 가치)을 제안.</li>
+                </ul>
+              </div>
 
-  <path d="M250 150 H310" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M570 150 H630" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
-</svg>
-      </div>
-
-      <!-- Detailed Variable / Construct Breakdown -->
-      <div class="space-y-4">
-        <div class="border border-purple-200 bg-purple-50/50 p-5 rounded-xl"><h3 class="style-h3 text-purple-900">1. 가치 포착 (Value Capture)</h3></div>
-      </div>
-    </section>
-
-    <!-- STEP 5: Method Replication Sequence -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-amber-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
-      </div>
-
-      <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-        <li>
-            
-            <div class="timeline-start font-bold text-cyan-600">STEP 1</div>
-            <div class="timeline-middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-cyan-500"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg></div>
-            <div class="timeline-end timeline-box bg-slate-50 border-slate-200 shadow-sm p-4">
-                <div class="font-semibold text-slate-800">Web of Science 및 Scopus 124편 주요 논문 체계적 문헌고찰 및 분류</div>
-                <div class="text-xs text-slate-400 mt-1">원문 위치: pp. 298-305</div>
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "OI에서 가치 포착 연구는 여전히 재무·기업·정태적 스냅샷 중심으로 편중되어 있으며, 앞으로는 비재무적 가치, 맥락 요인, 시간적 동학, 사회적 가치까지 포괄해야 합니다."
+                </p>
+              </div>
             </div>
-            
-        </li>
-      </ul>
-
-      <div class="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 font-semibold text-center">
-        ⚡ 재현 가능성 평가: 완전 재현 가능.
-      </div>
-    </section>
-
-    <!-- STEP 6: Limitations & Critical Evaluation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-rose-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 6. Limitation 분리 및 비판적 검토</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="collapse collapse-arrow bg-rose-50/70 border border-rose-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-rose-900 flex items-center gap-2">
-            <span class="badge badge-error text-white">Part A</span> 논문 저자가 명시적으로 인정한 한계점 (Self-acknowledged Limitations)
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 영문 피어리뷰 학술지에 한정 (p. 311)</li>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          리뷰의 신뢰도를 보장하기 위해 각 핵심 주장과 원문 인용 및 페이지·절 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">69편 실증 연구에 대한 통합 리뷰</td>
+                <td class="text-sm italic text-slate-600">"we conducted an integrative literature review of 69 empirical studies on value capture in open innovation."</td>
+                <td class="text-right font-medium text-slate-500">Abstract, p.297</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">가치 창출 → 가치 포착으로의 연구 중심 이동</td>
+                <td class="text-sm italic text-slate-600">"initial empirical work in this field primarily focused on value creation... there has been a growing awareness among academics and companies alike of the need to also examine value capture in OI."</td>
+                <td class="text-right font-medium text-slate-500">p.297</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">검색 전략: Scopus, 2개 키워드 그룹 AND 결합</td>
+                <td class="text-sm italic text-slate-600">"We searched the literature by combining the search terms from the first and the second keyword groups using the 'AND' operator... yielded an initial set of 315 articles"</td>
+                <td class="text-right font-medium text-slate-500">Sec. 3.1, p.299</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">3단계 스크리닝으로 315편→69편 축소</td>
+                <td class="text-sm italic text-slate-600">"we excluded 176 articles... exclusion of an additional 61 articles... we excluded nine more articles, which resulted in the final sample of 69 articles"</td>
+                <td class="text-right font-medium text-slate-500">Sec. 3.2, pp.299-300</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">가치는 재무·비재무로 대별되며 비재무가 다소 우세</td>
+                <td class="text-sm italic text-slate-600">"a slightly greater portion of research on value capture in OI has focused on non-financial value outcomes... only 15 examining both financial and non-financial outcomes together."</td>
+                <td class="text-right font-medium text-slate-500">Sec. 4.2, p.302</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">가치 포착 주체는 압도적으로 조직(기업)</td>
+                <td class="text-sm italic text-slate-600">"The majority of studies focus on organizations capturing financial or non-financial value from OI... Only ten of the 69 analyzed articles investigate value capture by other actors."</td>
+                <td class="text-right font-medium text-slate-500">Sec. 4.3, pp.302-303</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">공식·비공식 IP 메커니즘의 긍정적 효과</td>
+                <td class="text-sm italic text-slate-600">"formal and informal protection mechanisms have a positive impact on firm value capture, while also reducing the risk of intellectual property infringement"</td>
+                <td class="text-right font-medium text-slate-500">Sec. 4.4.1, p.303</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">신뢰(trust)가 가치 포착을 증대</td>
+                <td class="text-sm italic text-slate-600">"Trust between actors plays an instrumental role in safeguarding against potential value capture tensions and increasing value capture by reducing negotiation costs, the risk of fraud, and misappropriation"</td>
+                <td class="text-right font-medium text-slate-500">Sec. 4.4.2, p.303</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td class="font-semibold text-slate-900">기업규모·흡수역량 등 맥락 특성의 영향</td>
+                <td class="text-sm italic text-slate-600">"Small and medium firms lack the relevant collaboration experience needed to capture value from OI... Focal firms that possess high absorptive capacity... are likely to capture more financial/non-financial value from OI"</td>
+                <td class="text-right font-medium text-slate-500">Sec. 4.4.3, pp.304-305</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td class="font-semibold text-slate-900">4개 향후 연구 영역 제안</td>
+                <td class="text-sm italic text-slate-600">"four research areas are identified as particularly important for advancing our understanding of value capture in and through OI."</td>
+                <td class="text-right font-medium text-slate-500">Sec. 5, p.306</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Organizing Framework & Constructs (replaces IV/DV model for literature review) -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 리뷰의 조직화 프레임워크 및 구성 개념 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Framework &amp; Constructs</span>
+        </div>
+        <p class="style-body text-slate-600">
+          본 논문은 가설-검증형 실증 연구가 아닌 <strong>통합 문헌 리뷰</strong>이므로, IV/매개/조절/DV 박스 대신 저자들이 실제로 사용한 <strong>What&ndash;Who&ndash;How 3분 분석 프레임</strong>과 그 하위 유형학을 시각화했습니다.
+        </p>
+
+        <!-- Organizing Framework SVG Block (replaces hypothesis DAG) -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Organizing Framework (리뷰의 개념적 조직화 프레임워크)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 610" class="w-full h-auto">
+              <defs>
+                <marker id="arrow2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+
+              <!-- Top: OI corpus -->
+              <rect x="300" y="15" width="300" height="55" rx="10" fill="#0f172a" stroke="#0f172a" stroke-width="2"/>
+              <text x="450" y="38" text-anchor="middle" font-weight="700" fill="#ffffff" font-size="14">OI 가치 포착 실증 연구 69편</text>
+              <text x="450" y="57" text-anchor="middle" fill="#cbd5e1" font-size="11">Integrative Literature Review Corpus</text>
+
+              <!-- Connector lines to 3 branches -->
+              <path d="M450 70 L450 90 L110 90 L110 108" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow2)"/>
+              <path d="M450 70 L450 108" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow2)"/>
+              <path d="M450 70 L450 90 L790 90 L790 108" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow2)"/>
+
+              <!-- WHAT column -->
+              <rect x="20" y="108" width="260" height="56" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+              <text x="150" y="132" text-anchor="middle" font-weight="700" fill="#1d4ed8" font-size="14">WHAT (무엇이 포착되는가)</text>
+              <text x="150" y="150" text-anchor="middle" fill="#2563eb" font-size="10">포착되는 가치의 유형</text>
+
+              <rect x="20" y="180" width="260" height="34" rx="6" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+              <text x="150" y="201" text-anchor="middle" fill="#1e40af" font-size="11" font-weight="600">재무적 가치 (매출/이익/시장가치)</text>
+              <rect x="20" y="222" width="260" height="34" rx="6" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+              <text x="150" y="243" text-anchor="middle" fill="#1e40af" font-size="11" font-weight="600">비재무적 가치 (5유형: 신제품/지적가치/특허/품질/파트너십)</text>
+
+              <!-- WHO column -->
+              <rect x="320" y="108" width="260" height="56" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="450" y="132" text-anchor="middle" font-weight="700" fill="#047857" font-size="14">WHO (누가 포착하는가)</text>
+              <text x="450" y="150" text-anchor="middle" fill="#059669" font-size="10">가치 포착 행위자</text>
+
+              <rect x="320" y="180" width="260" height="34" rx="6" fill="#d1fae5" stroke="#34d399" stroke-width="1.5"/>
+              <text x="450" y="201" text-anchor="middle" fill="#065f46" font-size="11" font-weight="600">조직 (Organization) — 69편 중 압도적 다수</text>
+              <rect x="320" y="222" width="260" height="34" rx="6" fill="#d1fae5" stroke="#34d399" stroke-width="1.5"/>
+              <text x="450" y="243" text-anchor="middle" fill="#065f46" font-size="11" font-weight="600">개인 / 네트워크 / 시장 / 자연환경 (10편)</text>
+
+              <!-- HOW column -->
+              <rect x="620" y="108" width="260" height="56" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="750" y="132" text-anchor="middle" font-weight="700" fill="#92400e" font-size="14">HOW (어떻게 포착되는가)</text>
+              <text x="750" y="150" text-anchor="middle" fill="#b45309" font-size="10">메커니즘 · 요인 · 맥락 3층 구조</text>
+
+              <rect x="620" y="180" width="260" height="28" rx="6" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5"/>
+              <text x="750" y="198" text-anchor="middle" fill="#92400e" font-size="10.5" font-weight="600">① 공식/비공식 IP 메커니즘</text>
+              <path d="M750 208 L750 216" stroke="#d97706" stroke-width="1.5" marker-end="url(#arrow2)"/>
+              <rect x="620" y="216" width="260" height="28" rx="6" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5"/>
+              <text x="750" y="234" text-anchor="middle" fill="#92400e" font-size="10.5" font-weight="600">② 촉진/저해 요인 (전략·신뢰·파트너선택)</text>
+              <path d="M750 244 L750 252" stroke="#d97706" stroke-width="1.5" marker-end="url(#arrow2)"/>
+              <rect x="620" y="252" width="260" height="28" rx="6" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5"/>
+              <text x="750" y="270" text-anchor="middle" fill="#92400e" font-size="10.5" font-weight="600">③ 맥락 특성 (규모·흡수역량·지리)</text>
+
+              <!-- Convergence lines down to synthesis -->
+              <path d="M150 256 L150 300 L450 300 L450 320" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow2)"/>
+              <path d="M450 280 L450 320" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow2)"/>
+              <path d="M750 280 L750 300 L450 300 L450 320" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow2)"/>
+
+              <!-- Synthesis box -->
+              <rect x="270" y="320" width="360" height="55" rx="10" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+              <text x="450" y="343" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="14">통합·종합 (Synthesis)</text>
+              <text x="450" y="361" text-anchor="middle" fill="#475569" font-size="10.5">Torraco (2005, 2016) 비판적 분석 &amp; 재구성</text>
+
+              <path d="M450 375 L450 398" fill="none" stroke="#6366f1" stroke-width="2.5" marker-end="url(#arrow2)"/>
+
+              <!-- Research agenda box -->
+              <rect x="80" y="398" width="740" height="185" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="450" y="424" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">4개 향후 연구 의제 (Research Agenda)</text>
+
+              <rect x="100" y="440" width="340" height="60" rx="8" fill="#ffffff" stroke="#818cf8" stroke-width="1.5"/>
+              <text x="270" y="462" text-anchor="middle" fill="#3730a3" font-size="11.5" font-weight="700">① 가치의 개념·측정 확장</text>
+              <text x="270" y="480" text-anchor="middle" fill="#4338ca" font-size="9.5">재무/비재무 측정치의 타당화 &amp; 정합성</text>
+
+              <rect x="460" y="440" width="340" height="60" rx="8" fill="#ffffff" stroke="#818cf8" stroke-width="1.5"/>
+              <text x="630" y="462" text-anchor="middle" fill="#3730a3" font-size="11.5" font-weight="700">② 맥락 요인의 중요성</text>
+              <text x="630" y="480" text-anchor="middle" fill="#4338ca" font-size="9.5">기업규모 · 지리 · 산업의 영향</text>
+
+              <rect x="100" y="508" width="340" height="60" rx="8" fill="#ffffff" stroke="#818cf8" stroke-width="1.5"/>
+              <text x="270" y="530" text-anchor="middle" fill="#3730a3" font-size="11.5" font-weight="700">③ 동태적(dynamic) 관점</text>
+              <text x="270" y="548" text-anchor="middle" fill="#4338ca" font-size="9.5">OI 생애주기 전반의 가치 포착 변화</text>
+
+              <rect x="460" y="508" width="340" height="60" rx="8" fill="#ffffff" stroke="#818cf8" stroke-width="1.5"/>
+              <text x="630" y="530" text-anchor="middle" fill="#3730a3" font-size="11.5" font-weight="700">④ 사회적·환경적 가치</text>
+              <text x="630" y="548" text-anchor="middle" fill="#4338ca" font-size="9.5">난제(wicked problem) 대응과 시스템 수준 가치</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Concept Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- WHAT Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">개념 1</span>
+                <span class="text-xs text-slate-400 font-semibold">WHAT</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">포착되는 가치의 유형 (Type of Value Captured)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> Chesbrough et al.(2018, p.933)에 따라 &ldquo;가치 창출로부터 재무적 또는 비재무적 수익을 확보하는 과정&rdquo;. 가치 분담(value partaking)과 가치 협상(value negotiation)으로 세분.</p>
+              <p class="text-sm text-slate-700"><strong>코딩 방식(조작화):</strong> 정량 연구는 방법론의 조작화를, 정성 연구는 결과 섹션의 가치 결과를 코딩하여 재무/비재무로 분류.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처(Table 2):</strong> 재무 — 매출·이익·Tobin's q (Bien et al. 2014; Belderbos et al. 2014). 비재무 — 신제품/서비스, 지적가치, 특허, 혁신품질, 신규 파트너십 (Radziwon et al. 2017; Reypens et al. 2016 등).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 신제품/특허는 재무 성과에 직결되나 지적가치·신규 파트너십은 &ldquo;중간 결과&rdquo;로 간주됨 — appropriability(전유 가능성) vs appropriation(실현된 전유) 구분과 연결.
+              </p>
+            </div>
+          </div>
+
+          <!-- WHO Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">개념 2</span>
+                <span class="text-xs text-slate-400 font-semibold">WHO</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">가치를 포착하는 행위자 (Value-Capturing Actor)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> OI 활동에 직접 참여하거나 스필오버를 통해 간접적으로 가치를 얻는 주체.</p>
+              <p class="text-sm text-slate-700"><strong>코딩 방식:</strong> 논문 내 언급된 행위자(개인/조직/네트워크/환경)를 가치 포착과 관련하여 코딩, 복수 행위자는 각각 명기.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처(Table 3):</strong> 조직이 압도적 다수; 크라우드소싱/커뮤니티 참여자 5편(Kohler 2015 등); 네트워크·시장·자연환경은 스필오버 효과로만 언급(★표시, 3~2편).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 원래 OI는 known-agent 협력을 전제(Chesbrough, 2003)했으나 디지털화로 unknown-agent(크라우드소싱)도 가능해짐에도, 선정 논문의 84%가 여전히 known-agent 맥락에 편중.
+              </p>
+            </div>
+          </div>
+
+          <!-- HOW Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">개념 3</span>
+                <span class="text-xs text-slate-400 font-semibold">HOW</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">가치 포착의 메커니즘·요인·맥락 특성 (3-Layer Structure)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> ①공식/비공식 IP 메커니즘, ②촉진/저해 요인(전략·신뢰·파트너선택), ③맥락 특성(기업규모·흡수역량·지리)의 3층 구조.</p>
+              <p class="text-sm text-slate-700"><strong>코딩 방식:</strong> 결과·논의 섹션에서 메커니즘·요인을 목록화하여 동일 주제끼리 그룹화 (Table 4 매트릭스).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처(Table 4):</strong> 흡수역량 = 특허 보유량·R&amp;D 인력(Devarakonda et al. 2022); 지역 지식역량 = 특허 수·R&amp;D 지출(Guerrero et al. 2022).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 대부분 흡수역량은 정(+)의 효과를 보고하나 2편(Jirjahn &amp; Kraft 2011; Wang &amp; Jiang 2020)은 경쟁자 관찰 상황에서 부(-)의 효과를 보고 — 결과 혼재.
+              </p>
+            </div>
+          </div>
+
+          <!-- Research Agenda Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">개념 4</span>
+                <span class="text-xs text-slate-400 font-semibold">Research Agenda</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">4개 향후 연구 의제 (Table 5)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>정의:</strong> 리뷰의 종합 결과물로 제시된 향후 탐구 방향 — (1)가치 개념·측정, (2)맥락 요인, (3)동태적 관점, (4)사회적 가치.</p>
+              <p class="text-sm text-slate-700"><strong>도출 방식:</strong> Torraco(2005, 2016)의 비판적 분석을 통해 문헌 주제와 공백(gap)을 종합.</p>
+              <p class="text-sm text-slate-600"><strong>출처:</strong> Section 5.1&ndash;5.4, Table 5, pp.306&ndash;308.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Review Methodology Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. 리뷰 방법론 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          실증 연구의 실험/설문 절차가 아닌, <strong>통합 문헌 리뷰의 탐색(Searching)&middot;스크리닝(Screening)&middot;추출·종합(Extraction &amp; Synthesis)</strong> 절차를 단계별로 분해했습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">접근법 선택 및 키워드 그룹 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Torraco(2005, 2016)의 통합 문헌 리뷰 방법론 채택. 문헌 스코핑을 통해 Group I(OI 관련 용어)과 Group II(가치 포착 관련 용어) 2개 키워드 그룹을 구성(Table 1), *·?·"" 와일드카드 규칙 명시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3, 3.1 / Table 1, p.299</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">데이터베이스 선정 및 검색 실행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Scopus를 1차 데이터베이스로 선정(영어권 편향 가능성 인정). Group I AND Group II 키워드를 제목·키워드·초록에 한정, 영어 논문으로 제한. 2022년 6월 20일 검색 → 1970&ndash;2022년 315편 확보.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.1, p.299</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">1&middot;2&middot;3차 스크리닝 (315 → 69편)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  1차(제목/키워드/초록): 176편 제외 → 139편. 2차(초록 정독): 61편 제외 → 78편. 3차(전문 정독): 9편 제외 → <strong>최종 69편</strong>. Fig. 1에 PRISMA 유사 흐름도로 시각화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.2, Fig.1, pp.299-301</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">선정 절차 신뢰성 검증 (삼각검증)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  학술 훈련을 받은 독립 평가자 2명에게 동일 브리핑·기준 제공. 139편 중 무작위 10편을 재판정 → 9/10 일치(불일치 1건은 기준 오해로 확인).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.2, p.300</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">데이터 추출 (Extraction)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  각 논문에서 연구 맥락(협력 유형·산업·국가), 데이터 출처, 분석 단위, 가치의 정의, 핵심 발견을 목록화. 정량 연구는 조작화를, 정성 연구는 결과 섹션의 가치 결과를 코딩.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.3, p.300</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">주제별 코딩 (What/Who/How)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  &ldquo;무엇이 포착되는가&rdquo;는 가치의 정의/측정치, &ldquo;누가&rdquo;는 행위자 유형, &ldquo;어떻게&rdquo;는 메커니즘·요인을 목록화해 동일 주제끼리 그룹화(Table 2~4 매트릭스 구성).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.3, p.300</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">통합·종합 및 연구 의제 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Torraco의 비판적 분석 절차에 따라 문헌 주제와 공백을 종합하여 4개 연구 영역과 잠재적 연구 질문(Table 5)을 구성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Section 3.3, p.300; Section 5, pp.306-308</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            데이터베이스·키워드 조합·검색일·3단계 배제 인원(176/61/9)까지 투명히 공개되어 검색 단계는 그대로 재현 가능하나, 최종 69편의 세부 코딩 규칙(코드북)이 전체 공개되지 않고 신뢰성 검증도 2차 스크리닝의 10편에만 국한되어 정성적 분류·종합 단계는 완전한 재현이 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 5.5 및 3.1)에서 연구진들이 직접 한정 지은 리뷰의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>실증 논문만 포함:</strong> &ldquo;we only focused on empirical articles, which may have limited our understanding of the conceptual and theoretical aspects of value capture in OI.&rdquo; — 개념적·이론적 문헌(Chesbrough et al., 2018 등)을 배제하여 이론적 깊이가 제한될 수 있음을 인정 (p.308).
+              </li>
+              <li>
+                <strong>3개 안내 질문의 광의성:</strong> &ldquo;our analysis of the selected articles was guided by three specific questions of 'what', 'who' and 'how'... intentionally framed in a broad manner.&rdquo; — What/Who/How 프레임 자체가 분석 범위를 이미 형성했으며, 다른 주제 축이 있었을 가능성을 배제하지 않음 (p.308).
+              </li>
+              <li>
+                <strong>데이터베이스 편향 가능성:</strong> &ldquo;the use of Scopus as the bibliographic database could potentially introduce bias in favor of research from countries that tend to publish in English language journals&rdquo; — Scopus 단일 사용에 따른 영어권/국가 편향 가능성을 사전에 인정 (p.299).
+              </li>
             </ul>
           </div>
         </div>
 
-        <div class="collapse collapse-arrow bg-amber-50/70 border border-amber-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-amber-900 flex items-center gap-2">
-            <span class="badge badge-warning text-white">Part B</span> 독자/연구자 관점의 독립적 비판적 검토 (Critical Methodological & Theoretical Concerns)
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 생성형 AI 기반 개방형 혁신에서의 소유권 논의 미반영</li>
-            </ul>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">리뷰의 검색·코딩·종합 절차를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 키워드 구성 타당도</span>
+                <p class="text-sm text-slate-700">
+                  &lsquo;profit&rsquo;, &lsquo;acquiring&rsquo;, &lsquo;selling&rsquo;, &lsquo;sourcing&rsquo;, &lsquo;revealing&rsquo; 등 관련 용어를 의도적으로 배제(p.299)했는데, 이런 용어를 사용하는 실증 연구가 체계적으로 누락됐을 가능성이 있음에도 검증되지 않음.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 단일 데이터베이스 의존</span>
+                <p class="text-sm text-slate-700">
+                  Web of Science 등과의 교차 검증 없이 Scopus만 사용. 편향 가능성은 인정했으나 실제 커버리지 갭에 대한 정량적 검증(중복률 비교 등)은 수행되지 않음.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 투표계산식 종합의 한계</span>
+                <p class="text-sm text-slate-700">
+                  횡단 설문·패널·사례연구 등 이질적 연구설계(정량 70%/정성 30%)를 효과크기 가중 없이 서술적으로 통합. &ldquo;긍정적 효과&rdquo;라는 결론이 방법론적 이질성을 통제하지 않은 다수결에 근거함.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 신뢰성 검증 범위 제한</span>
+                <p class="text-sm text-slate-700">
+                  삼각검증은 2차 스크리닝 139편 중 10편(약 7%)에만 적용되고, 가장 주관적인 3차 전문 정독 및 Table 2&ndash;4 코딩 단계에는 적용되지 않음. 코더 간 신뢰도 통계치(kappa 등)도 미보고.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 출판·회색문헌 편향</span>
+                <p class="text-sm text-slate-700">
+                  동료심사 저널 논문만 포함, 워킹페이퍼·학위논문·null 결과 연구는 배제되어 가치 포착 메커니즘의 &lsquo;긍정적 효과&rsquo;가 과대 대표되었을 가능성.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 검색 시점의 시의성</span>
+                <p class="text-sm text-slate-700">
+                  검색은 2022년 6월, 출판은 2023년 9월. 저자 스스로 &ldquo;2016년 이후 급성장&rdquo;(p.302)한다고 밝힌 분야인데, 심사·출판 지연 기간 동안의 신규 연구가 반영되지 못했을 가능성.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">7. 가치 유형학의 단순화</span>
+                <p class="text-sm text-slate-700">
+                  &lsquo;지적 가치&rsquo; 범주에 기술적·시장적·관리적 지식을 통합(p.301)함으로써, 저자들이 비판한 &ldquo;정의의 비교가능성 부족&rdquo; 문제를 리뷰 스스로 완전히 해소하지 못했을 가능성.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">8. 맥락적 쏠림 미보고</span>
+                <p class="text-sm text-slate-700">
+                  Table 4의 국가·산업 코딩에서 특정 지역(유럽/동아시아)·산업(고기술) 쏠림이 관찰되나, 이에 대한 집계 통계나 논의가 본문에 제공되지 않아 일반화 가능성 판단이 어려움.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+    </div>
   </main>
 
   <!-- Footer -->
-  <footer class="footer footer-center bg-slate-900 text-slate-400 p-8 border-t border-slate-800">
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
     <div>
-      <p class="font-bold text-slate-200">Industrial Marketing Management (IMM) Paper Analysis Archive</p>
-      <p class="text-xs text-slate-500 mt-1">Value capture in open innovation: A literature review and a research agenda | Industrial Marketing Management Vol. 114 (2023), pp. 297-312</p>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Value capture in open innovation: A literature review and a research agenda</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
     </div>
   </footer>
 

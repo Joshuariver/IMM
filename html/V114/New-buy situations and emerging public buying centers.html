@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New-buy situations and emerging public buying centers - IMM 2023</title>
+  <title>New-buy Situations and Emerging Public Buying Centers - IMM 2023</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- DaisyUI 4 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   <!-- Pretendard Font Import -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  
+
   <script>
     tailwind.config = {
       theme: {
@@ -32,232 +32,849 @@
       color: #1e293b;
       word-break: keep-all;
     }
-    .style-display { font-size: 40px; font-weight: 700; line-height: 1.2; }
-    .style-h1 { font-size: 32px; font-weight: 700; line-height: 1.2; }
-    .style-h2 { font-size: 24px; font-weight: 600; line-height: 1.3; }
-    .style-h3 { font-size: 18px; font-weight: 600; line-height: 1.4; }
-    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
-    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
-    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Active navigation styling */
+    .nav-active {
+      color: #0f172a !important;
+      font-weight: 600;
+      border-left: 2px solid #3b82f6;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-  <!-- Header / Hero Section (No Navbar, single scroll flow) -->
-  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-14 px-4 lg:px-8 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto flex flex-col gap-4 relative z-10">
+  <!-- Navbar (plain, non-fixed/non-sticky) -->
+  <div class="navbar bg-slate-900 text-white shadow-md px-4 lg:px-8">
+    <div class="flex-1">
+      <a class="btn btn-ghost normal-case text-xl font-bold tracking-tight text-cyan-400" href="#">IMM Research Brief</a>
+    </div>
+    <div class="flex-none hidden lg:block">
+      <ul class="menu menu-horizontal px-1 gap-2 text-slate-300 style-label">
+        <li><a href="#abstract" class="hover:text-cyan-400">초록</a></li>
+        <li><a href="#claims" class="hover:text-cyan-400">핵심 주장</a></li>
+        <li><a href="#evidence" class="hover:text-cyan-400">근거 데이터</a></li>
+        <li><a href="#model" class="hover:text-cyan-400">모델 & 구성개념</a></li>
+        <li><a href="#method" class="hover:text-cyan-400">연구 방법론</a></li>
+        <li><a href="#limitations" class="hover:text-cyan-400">한계점 & 비판</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
       <div class="flex flex-wrap gap-2">
-        <span class="badge badge-outline border-cyan-400 text-cyan-300 style-label uppercase">Industrial Marketing Management Vol. 114 (2023), pp. 125-136</span>
-        <span class="badge badge-secondary text-white style-label">Academic Paper Analysis</span>
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Public Buying / Buying Center</div>
+        <div class="badge badge-secondary text-white style-label">Qualitative Case Study · Gioia Method</div>
       </div>
-      
-      <h1 class="style-display text-white mt-2">New-buy situations and emerging public buying centers</h1>
-      <h2 class="text-2xl font-semibold text-cyan-300">신규 구매 상황과 공공 구매 센터의 동적 출현</h2>
-      <p class="text-slate-400 style-small mt-1">저자: Majbritt Rostgaard Evald, Per Vagn Freytag, Ann Højbjerg Clarke</p>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            New-buy situations and<br>
+            <span class="text-cyan-400">emerging public buying centers</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Majbritt Rostgaard Evald, Per Vagn Freytag, Ann Højbjerg Clarke — University of Southern Denmark
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            신규 구매 상황과<br>
+            <span class="text-indigo-300">부상하는 공공 구매센터</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            덴마크 4개 상업화 이전 조달(PCP) 프로젝트에 대한 탐색적 다중 사례연구
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">기업은 정보 공유·기대 정렬·전략적 재포지셔닝의 반복적 협력을 통해, 아직 존재하지 않는 공공 구매센터를 공공기관과 함께 '만들어' 나갑니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content Body -->
-  <main class="max-w-6xl mx-auto w-full px-4 lg:px-8 py-10 space-y-12 flex-1">
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
 
-    <!-- STEP 1: Title & Abstract Translation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-cyan-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
+
+      <!-- Notice: qualitative study adaptation -->
+      <div class="alert bg-indigo-50 border border-indigo-200 text-indigo-900 shadow-sm rounded-xl">
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-indigo-600 shrink-0 w-6 h-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span class="style-body">본 논문은 정량 가설검증 연구가 아니라 <strong>질적 탐색적 다중 사례연구(Gioia 방법론)</strong>입니다. 따라서 아래 STEP 4·5는 "변수/가설 모형" 대신 <strong>개념적 프로세스 모델과 질적 연구방법</strong>으로 조정하여 제시합니다.</span>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-6">
-        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200/60">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-ghost badge-sm">EN</span> Abstract (Original)
-          </h3>
-          <blockquote class="text-slate-600 style-small leading-relaxed italic">
-            "Focusing on "new-buy" situations, this study investigates how Public Buying Centers (PBCs) dynamically emerge, how role configurations evolve across procurement stages, and how public-private network tensions are navigated."
-          </blockquote>
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
         </div>
 
-        <div class="bg-cyan-50/40 p-6 rounded-xl border border-cyan-100">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-info badge-sm text-white">KO</span> Abstract (한국어 번역)
-          </h3>
-          <blockquote class="text-slate-700 style-small leading-relaxed">
-            "신규 구매 상황에서 공공 구매 센터(PBC)가 동적으로 출현하고 단계별로 역할 구성이 진화하는 구조를 규명한다."
-          </blockquote>
-        </div>
-      </div>
-
-      <div class="mt-6 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-600">
-        <span class="font-bold text-slate-800">💡 주요 학술 용어 번역 메모:</span> Public Buying Center (PBC)는 "공공 구매 센터"로 번역함.
-      </div>
-    </section>
-
-    <!-- STEP 2: Core Claims (1-Minute Pitch) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-indigo-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="p-4 bg-indigo-50/50 rounded-xl border border-indigo-100">
-          <div class="font-bold text-indigo-900 text-sm uppercase tracking-wide">1. 연구 질문 (Research Question)</div>
-          <div class="text-slate-700 mt-1 style-body">신규 구매 상황에서 공공 구매 센터(PBC)는 어떠한 구조와 과정으로 동적 출현하는가?</div>
-        </div>
-
-        <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100">
-          <div class="font-bold text-emerald-900 text-sm uppercase tracking-wide">2. 핵심 발견 (Key Findings)</div>
-          <div class="text-slate-700 mt-1 style-body">PBC는 구매 단계(발현 -> 역할 구성 -> 네트워크 상호작용 -> 계약)에 따라 정치적·기술적 행위자가 재조정되는 동적 네트워크임.</div>
-        </div>
-
-        <div class="p-4 bg-purple-50/50 rounded-xl border border-purple-100">
-          <div class="font-bold text-purple-900 text-sm uppercase tracking-wide">3. 학술적 & 실무적 기여 (Contributions)</div>
-          <div class="text-slate-700 mt-1 style-body">전통 B2B 구매 센터 이론을 공공 구매 맥락으로 확장하고 PBC 출현 프레임워크를 정립함.</div>
-        </div>
-
-        <div class="alert alert-info shadow-sm bg-cyan-50 border-cyan-200 text-cyan-900 mt-4">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <div>
-            <span class="font-bold">한 줄 요약:</span> 공공 신규 구매 상황에서 PBC는 정치적·기술적·행정적 이해관계가 얽힌 동적 네트워크 출현체이다.
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "The buying center concept and various buying situations are core components of industrial marketing research. Currently, organisational buying literature neglects public buying and has difficulties understanding new-buy situations involving innovation processes. Based on an exploratory case study, we examine four pre-commercial procurement projects which provide valuable insight into new-buy situations that involve innovation processes. Firms (suppliers) collaborate with public organisations (customers) and learn about emerging public buying centers throughout the projects. We contribute with a model highlighting the value of collaboration between firms and public organisations based on information sharing, expectation alignment and strategic repositioning. Over time, the collaboration supports firms and public organisations to influence and identify emerging buying centers and gain understanding of how they are organised and operate and the decision-makers within them."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">구매센터(Buying Center, BC)</span> 개념과 다양한 구매 상황은 산업재 마케팅 연구의 핵심 구성요소이다. 그러나 현재 조직구매 문헌은 공공 구매를 소홀히 다루고 있으며, 혁신 프로세스를 수반하는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">신규 구매 상황(new-buy situations)</span>을 이해하는 데 어려움을 겪고 있다. 본 연구는 탐색적 사례연구를 바탕으로, 4개의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">상업화 이전 조달(PCP)</span> 프로젝트를 검토한다. 기업(공급자)은 공공기관(고객)과 협력하면서 프로젝트 전반에 걸쳐 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">부상하는 공공 구매센터</span>에 대해 학습한다. 본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">정보 공유, 기대 정렬, 전략적 재포지셔닝</span>에 기반한 기업-공공기관 간 협력의 가치를 강조하는 모델을 제시한다. 시간이 지남에 따라 이러한 협력은 기업과 공공기관이 부상하는 구매센터를 식별·영향을 미치고, 구매센터가 어떻게 조직·운영되는지, 그 안의 의사결정자가 누구인지를 이해하도록 돕는다."
+            </blockquote>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- STEP 3: Evidence Alignment Table -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-blue-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거(Evidence)와 원문 위치</h2>
-      </div>
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Buying Center (BC)</td>
+                  <td>구매센터</td>
+                  <td class="text-sm">Webster & Wind(1972)의 고전 개념. 구매 의사결정에 참여하는 개인·집단의 집합을 지칭하는 산업재마케팅 표준 용어로 국내에서도 "구매센터"로 통용됨.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">New-buy situation</td>
+                  <td>신규 구매 상황</td>
+                  <td class="text-sm">Robinson, Faris & Wind(1967)의 buyclass(신규구매/수정재구매/단순재구매) 분류 중, 처음 구매하는 탐색적·혁신적 구매 상황.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Pre-commercial Procurement (PCP)</td>
+                  <td>상업화 이전 조달</td>
+                  <td class="text-sm">EU 혁신조달 정책 용어로, 아직 시장 상용화되지 않은 솔루션 개발을 R&D 단계부터 공공기관이 지원·구매하는 절차.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Emerging (public) BC</td>
+                  <td>부상하는 (공공) 구매센터</td>
+                  <td class="text-sm">BC가 사전에 정해진 것이 아니라 "형성되어 가는 과정"임을 강조하기 위한 표현 — "생성/부상"으로 번역.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Gioia methodology</td>
+                  <td>Gioia 방법론(1·2차 코딩)</td>
+                  <td class="text-sm">Gioia, Corley & Hamilton(2012)의 귀납적 질적 코딩 절차(1차 코드→2차 테마→총괄 차원)를 가리키는 방법론 고유명사.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
-      <div class="overflow-x-auto">
-        <table class="table table-zebra w-full text-slate-700">
-          <thead class="bg-slate-100 text-slate-800">
-            <tr>
-              <th class="w-12">#</th>
-              <th class="w-1/3">핵심 주장</th>
-              <th>근거 (원문 인용)</th>
-              <th class="w-32">원문 위치</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-            <td class="font-bold">1</td>
-            <td>PBC의 동적 출현적 속성</td>
-            <td class="text-xs font-mono bg-slate-50 p-2 rounded">Public buying centers are not static entities but dynamically emerge.</td>
-            <td class="text-xs text-slate-500">p. 129</td>
-        </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
 
-    <!-- STEP 4: Research Model & Variables (DAG Included) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-teal-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
-      </div>
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
 
-      <!-- SVG DAG Model -->
-      <div class="mb-8 p-6 bg-slate-50 rounded-xl border border-slate-200">
-        <h3 class="style-h3 text-slate-800 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12H4z"></path></svg>
-          연구 가설 / 개념적 구조 모델 (Research DAG Framework)
-        </h3>
-        <svg viewBox="0 0 900 280" class="w-full h-auto bg-slate-50 border border-slate-200 rounded-xl" xmlns="http://www.w3.org/2000/svg">
-  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0891b2"/></marker></defs>
-  <rect x="30" y="90" width="180" height="100" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
-  <text x="120" y="120" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="13">Stage 1. 신규 구매 트리거</text>
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">기업은 어떻게 공공기관과 협력해 부상하는 구매센터를 식별하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">구매센터는 발견되는 것이 아니라 협력을 통해 '만들어진다'</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">공공 구매센터 형성(BC formation)에 관한 동적 프로세스 모델 제시</p>
+                </div>
+              </li>
+            </ul>
 
-  <rect x="250" y="90" width="200" height="100" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
-  <text x="350" y="120" text-anchor="middle" font-weight="bold" fill="#0369a1" font-size="13">Stage 2. PBC 동적 출현</text>
+            <div class="divider divider-horizontal hidden md:flex"></div>
 
-  <rect x="490" y="90" width="200" height="100" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
-  <text x="590" y="120" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="13">Stage 3. 네트워크 상호작용</text>
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 혁신 프로세스를 수반하는 신규 구매 상황에서, 기업은 공공기관과 어떻게 협력하여 아직 존재하지 않는 공공 구매센터를 식별하고 영향을 미치는가?</li>
+                  <li><strong>핵심 발견:</strong> 기업은 (1) 4가지 방식으로 공공 구매조직에 영향을 미치고, (2) 정보 공유 → 기대 정렬 → 전략적 재포지셔닝의 반복을 통해 구매센터를 식별하며, (3) 그 결과 공공 행위자는 소유의식을 획득하고 스스로 주도자가 되어 구매센터에 헌신(commit)하게 된다.</li>
+                  <li><strong>이론/실무 기여:</strong> BC 형성 문헌이 간과해온 공-사 협력(co-development)의 역할을 신규구매 상황에 통합했고, 전문가(의사·간호사 등)가 구매과정 초기 단계에서 핵심적 영향력을 가진다는 점을 공공 맥락에서 재확인·확장하였다.</li>
+                </ul>
+              </div>
 
-  <rect x="730" y="90" width="140" height="100" rx="10" fill="#faf5ff" stroke="#9333ea" stroke-width="2"/>
-  <text x="800" y="130" text-anchor="middle" font-weight="bold" fill="#7e22ce" font-size="13">공공 가치 구매</text>
-
-  <path d="M210 140 H250" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M450 140 H490" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M690 140 H730" stroke="#ea580c" stroke-width="2" marker-end="url(#arrow)"/>
-</svg>
-      </div>
-
-      <!-- Detailed Variable / Construct Breakdown -->
-      <div class="space-y-4">
-        <div class="border border-sky-200 bg-sky-50/50 p-5 rounded-xl"><h3 class="style-h3 text-sky-900">1. 공공 구매 센터 (PBC)</h3></div>
-      </div>
-    </section>
-
-    <!-- STEP 5: Method Replication Sequence -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-amber-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
-      </div>
-
-      <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-        <li>
-            
-            <div class="timeline-start font-bold text-cyan-600">STEP 1</div>
-            <div class="timeline-middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-cyan-500"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg></div>
-            <div class="timeline-end timeline-box bg-slate-50 border-slate-200 shadow-sm p-4">
-                <div class="font-semibold text-slate-800">북유럽 공공 구매 3년 종단 심층 사례 분석 (42회 인터뷰)</div>
-                <div class="text-xs text-slate-400 mt-1">원문 위치: pp. 127-134</div>
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "공공기관을 위한 혁신적 신규 구매 상황에서, 기업은 정보 공유·기대 정렬·전략적 재포지셔닝을 반복하는 밀접한 협력을 통해 아직 존재하지 않는 공공 구매센터를 공공기관과 함께 만들어 나간다."
+                </p>
+              </div>
             </div>
-            
-        </li>
-      </ul>
-
-      <div class="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 font-semibold text-center">
-        ⚡ 재현 가능성 평가: 부분 재현 가능.
-      </div>
-    </section>
-
-    <!-- STEP 6: Limitations & Critical Evaluation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-rose-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 6. Limitation 분리 및 비판적 검토</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="collapse collapse-arrow bg-rose-50/70 border border-rose-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-rose-900 flex items-center gap-2">
-            <span class="badge badge-error text-white">Part A</span> 논문 저자가 명시적으로 인정한 한계점 (Self-acknowledged Limitations)
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 북유럽 투명한 공공 행정 맥락 한계 (p. 135)</li>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">연구 공백: 공공 구매·혁신 수반 신규구매</td>
+                <td class="text-sm italic text-slate-600">
+                  "Organisational buying literature currently struggles to comprehensively understand new-buy situations with novel solutions and complex buying processes… Public purchasing and public BCs are, unfortunately, an overlooked research area."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.126, Sec.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">연구질문(RQ) 및 4개 PCP 프로젝트 설계</td>
+                <td class="text-sm italic text-slate-600">
+                  "The research question is: How do firms collaborate with public organisations in new-buy situations involving innovation processes to influence and identify emerging public buying centers?"
+                </td>
+                <td class="text-right font-medium text-slate-500">p.126, Sec.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">Gioia 방법론 채택</td>
+                <td class="text-sm italic text-slate-600">
+                  "As our RQ is posed openly and without well-defined hypotheses or propositions, an exploratory approach to data analysis has been used… Therefore, the Gioia data analysis approach was chosen (Gioia, Corley, & Hamilton, 2012)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.128, Sec.3.3</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">기업의 4가지 공공조직 영향 방식</td>
+                <td class="text-sm italic text-slate-600">
+                  "We identified four different ways to influence public buying organisations that all centers on close collaboration with public actors."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.130, Sec.4.1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">구매센터 식별의 3대 협력 하위 프로세스</td>
+                <td class="text-sm italic text-slate-600">
+                  "Three sub-processes of collaboration are essential for firms to become able to identify the emerging BC over time: Information sharing, expectation alignment, and strategic repositioning."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.131, Sec.4.2</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">공공 행위자의 헌신 경로(소유의식→주도자화)</td>
+                <td class="text-sm italic text-slate-600">
+                  "We identified two core elements that influence how the public actors eventually understand their role and the value of the emerging BC and decide to act: 1) gaining ownership and 2) becoming a driver themselves."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.132–133, Sec.4.3</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">종합 프로세스 모델과 피드백 루프</td>
+                <td class="text-sm italic text-slate-600">
+                  "This process involves feedback loops between the firms and public actors who play a vital role in generating the necessary insight and knowledge to understand the contours of the emerging BC."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.133, Sec.5.1</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">이론적 기여: BC 문헌의 공-사 협력 간과</td>
+                <td class="text-sm italic text-slate-600">
+                  "Most BC literature overlooks the importance of collaboration in the form of close collaboration between the public and private sectors where novel solutions are being developed."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.133–134, Sec.5.2</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td class="font-semibold text-slate-900">저자 인정 한계: 4개 사례·단일 국가</td>
+                <td class="text-sm italic text-slate-600">
+                  "Study limitations are, firstly, that the study is empirically limited, as it is based on only four projects… Secondly, the projects are from one country within the European Union."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.135–136, Sec.6</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Core Constructs (qualitative framework, no hypothesis DAG) -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델(개념적 프레임워크) 및 핵심 구성개념 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Framework & Constructs</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 논문은 가설검증형 변수 모형이 아니므로, Fig. 1 "Firm's influencing and identifying emerging public buying centers"에 제시된
+          <strong>순환적 프로세스 모델</strong>을 재구성했습니다. 화살표에는 가설번호 대신 논문이 실제 명명한 프로세스 라벨을 표기했습니다.
+        </p>
+
+        <!-- Process Flow Diagram (adapted from hypothesis-DAG guidance for qualitative studies) -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Process Framework (Fig. 1 재구성 — 프로세스 모델)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 380" class="w-full h-auto">
+              <!-- Left box: Firm influencing public buying organisations -->
+              <rect x="20" y="150" width="220" height="90" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+              <text x="130" y="178" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">기업의 공공 구매조직 영향</text>
+              <text x="130" y="198" text-anchor="middle" fill="#475569" font-size="11">4가지 협력 방식 (지역/협회/</text>
+              <text x="130" y="213" text-anchor="middle" fill="#475569" font-size="11">상업파트너/전국 NGO)</text>
+
+              <!-- Middle dashed container: Identifying emerging BC -->
+              <rect x="330" y="30" width="260" height="320" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="2" stroke-dasharray="6 4"/>
+              <text x="460" y="55" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13">구매센터 식별 프로세스</text>
+
+              <rect x="355" y="75" width="210" height="60" rx="6" fill="#ffffff" stroke="#10b981" stroke-width="1.5"/>
+              <text x="460" y="100" text-anchor="middle" font-weight="700" fill="#047857" font-size="12">정보 공유</text>
+              <text x="460" y="118" text-anchor="middle" fill="#059669" font-size="10">Information Sharing</text>
+
+              <rect x="355" y="155" width="210" height="60" rx="6" fill="#ffffff" stroke="#10b981" stroke-width="1.5"/>
+              <text x="460" y="180" text-anchor="middle" font-weight="700" fill="#047857" font-size="12">기대 정렬</text>
+              <text x="460" y="198" text-anchor="middle" fill="#059669" font-size="10">Expectation Alignment</text>
+
+              <rect x="355" y="235" width="210" height="60" rx="6" fill="#ffffff" stroke="#10b981" stroke-width="1.5"/>
+              <text x="460" y="260" text-anchor="middle" font-weight="700" fill="#047857" font-size="12">전략적 재포지셔닝</text>
+              <text x="460" y="278" text-anchor="middle" fill="#059669" font-size="10">Strategic Repositioning</text>
+
+              <!-- Right box: Public actors committing -->
+              <rect x="660" y="150" width="220" height="90" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="770" y="178" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">공공 행위자의 헌신</text>
+              <text x="770" y="198" text-anchor="middle" fill="#4338ca" font-size="11">소유의식 획득 →</text>
+              <text x="770" y="213" text-anchor="middle" fill="#4338ca" font-size="11">주도자화 (Becoming a driver)</text>
+
+              <!-- sequential internal arrows within middle box -->
+              <path d="M460 135 L 460 155" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M460 215 L 460 235" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+
+              <!-- Left -> Middle -->
+              <path d="M240 195 L 330 105" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="255" y="140" fill="#334155" font-weight="700" font-size="11">협력 개시</text>
+
+              <!-- Middle -> Right -->
+              <path d="M590 265 L 660 195" fill="none" stroke="#4f46e5" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="595" y="240" fill="#3730a3" font-weight="700" font-size="11">식별 결과 이전</text>
+
+              <!-- Feedback loop: Right -> Left (dashed) -->
+              <path d="M770 150 L 770 20 L 130 20 L 130 150" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+              <text x="450" y="15" text-anchor="middle" fill="#0369a1" font-weight="700" font-size="12">피드백 루프 (Feedback Loops) — 반복적 재협력</text>
+
+              <!-- SVG Arrow Marker -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 max-w-2xl text-center">
+            좌측(기업의 영향력 행사) → 중앙(3단계 식별 하위 프로세스: 정보공유→기대정렬→전략적 재포지셔닝) → 우측(공공 행위자의 헌신)이
+            순차적으로 진행되되, 우측에서 좌측으로 다시 피드백 루프가 형성되어 프로젝트 전 기간에 걸쳐 반복됩니다(p.133, Sec.5.1).
+          </p>
+        </div>
+
+        <!-- Construct Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Construct 1 -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">총괄 차원 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Aggregate Dimension 1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기업의 공공 구매조직 영향 (Firm's Influencing Public Buying Organisations)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 기업(공급자)이 밀접한 협력을 통해 공공기관(구매자) 및 주변 행위자(지역 협회, 상업 파트너, 전국 NGO)에 영향을 미치는 4가지 협력 유형.</p>
+              <p class="text-sm text-slate-700"><strong>질적 지표(조작화):</strong> ① 지역 공공 행위자만, ② +지역 협회, ③ +상업적 유통 파트너, ④ +전국 협회/NGO — 4개 프로젝트가 각기 다른 조합을 보임(Project 1=①, 2=①+②, 3=①+②+③, 4=①+②+④).</p>
+              <p class="text-sm text-slate-600"><strong>자료 출처:</strong> 인터뷰 3건/프로젝트, 관찰(워크숍 3회×5.5h), 문서(사업계획서·시장진출계획) — Table 1, p.127</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Chandler & Johnston(2012)의 BC 프레임워크, Oinonen et al.(2018)의 "co-development" 개념과 연결됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 2: Information Sharing -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">식별 하위과정 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Sub-process</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">정보 공유 (Information Sharing)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> BC 행위자 간 지식·정보를 상호 교환하려는 근본적 의지 및 그 실행.</p>
+              <p class="text-sm text-slate-700"><strong>질적 지표:</strong> "Close interaction for in-depth knowledge", "New knowledge of citizens, work processes and related work practices" (Table 6 1차 코드).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Holma et al.(2020)의 user-producer interaction, Dawes et al.(1998)의 정보 통제·영향력 논의.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 3: Expectation Alignment -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">식별 하위과정 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Sub-process</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기대 정렬 (Expectation Alignment)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 문제 이해방식, 소통 대상, 전략적 포지셔닝 방식에 대한 당사자 간 정렬 과정.</p>
+              <p class="text-sm text-slate-700"><strong>질적 지표:</strong> "Problem and need identification and confirmation", "Public decision-making actors" (Table 6 1차 코드).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 정보 공유에 의존하되, 외부 행위자(주택조합, 상업 유통업체, NGO)와의 상호작용에 의해 추가로 정교화됨(p.131, Sec.4.2).
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 4: Strategic Repositioning -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">식별 하위과정 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Sub-process</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">전략적 재포지셔닝 (Strategic Repositioning)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 정렬된 기대에 기반해 기업이 솔루션·커뮤니케이션·협력 접근방식을 재조정하는 반복적 과정.</p>
+              <p class="text-sm text-slate-700"><strong>질적 지표:</strong> "Test and documentation of effects", "Communication narratives", "Establish where the public market are attractive" (Table 6).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Project 2·3에서 관측된 두 차례의 전략적 재포지셔닝 사례(유통업체 이탈, 시장 세분화)가 대표적(p.132, Sec.4.2).
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 5: Public actors committing -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">총괄 차원 3</span>
+                <span class="text-xs text-slate-400 font-semibold">Aggregate Dimension 3</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공공 행위자의 헌신 (Public Actors Committing)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 공공 행위자가 프로젝트에 능동적으로 참여하며 소유감을 느끼고(gaining ownership), 나아가 스스로 BC 형성을 추진하는 주체(becoming a driver)로 전환되는 2단계 과정.</p>
+              <p class="text-sm text-slate-700"><strong>질적 지표:</strong> "Making partners co-players/feeling ownership", 운영위원회·자문위원회를 통한 최상위 계층(관리자, 정치인) 정당성 확보(p.132–133).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Howard & Doyle(2006)의 이해관계 증대에 따른 행위자 관여, Bachkirov(2019)·Sheth(1973)의 정치화(politicking) 논의.
+              </p>
+            </div>
+          </div>
+
+          <!-- Construct 6: BC actor typology (background construct) -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">배경 개념</span>
+                <span class="text-xs text-slate-400 font-semibold">BC Actor Typology & PCP Context</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">구매센터 행위자 유형론 & 신규구매/PCP 맥락</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>행위자 유형:</strong> initiators, users, buyers, decision-makers, influencers, gatekeepers (Forman, 2014), sellers (Schiele, 2006; Webster & Wind, 1972). 4개 사례별 Table 2–5에서 실제 역할-행위자 매핑 제시(예: Project 1 — 간호사=Users, 치매코디네이터=Decision-makers, 관리자=Purchasers, 정치인=Decision-maker, 전문가=Influencers).</p>
+              <p class="text-sm text-slate-700"><strong>맥락(Context):</strong> 신규구매 상황(Robinson et al., 1967 buyclass)이 EU PCP 제도 틀 안에서 구현됨 — 2016–2019년 진행된 4개 프로젝트(각 1–1.5년), 디지털 플랫폼 솔루션(Safe Home / Coping Life / Digital Dyslexia Teaching / Supportive Digital Community) (p.127, Sec.3.1).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps (qualitative case study procedure) -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해 (질적 사례연구)</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 사례연구 설계와 Gioia 코딩 절차를 그대로 <strong>추종 재현</strong>할 수 있도록 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 갭 설정 및 RQ 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  조직구매 문헌에서 공공구매 및 혁신 수반 신규구매 상황에 대한 이해 부족을 확인하고 "기업은 어떻게 공공기관과 협력하여 부상하는 공공 구매센터를 식별·영향을 미치는가"라는 개방형 연구질문을 수립.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.126, Sec.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">질적 다중사례 연구설계 채택</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  탐색적이며 사전 정의가 어려운 현상을 다루기 위해 Creswell(2002)의 사례연구 정의를 채택하고, 4개 사례로 구성된 다중사례 설계를 결정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.127, Sec.3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">이론적 사례 선정 (Delineation)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  "혁신 프로세스 수반 신규구매", "공공 섹터", "PCP 맥락(고불확실성·고신규성)"이라는 3가지 delineation 기준으로 동일 EU 프로그램 소속 4개 프로젝트 선정(대표성이 아닌 사례 경계 설정 논리 적용).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.127, Sec.3.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">다원적 자료 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  프로젝트별 반구조화 인터뷰 3건(각 1.5시간 이상, 프로젝트 시작/중간/종료/사후), 관찰(워크숍 3회×5.5시간), 문서(사업계획서, 시장진출계획, 회사 정량/정성 데이터) 수집 — Table 1.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.127–128, Sec.3.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">사례별 서술 및 역할-행위자 매핑</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  4개 프로젝트(Safe Home / Coping Life / Digital Dyslexia Teaching / Supportive Digital Community) 각각의 솔루션·개시자·핵심 역할-행위자 매핑을 Table 2–5로 문서화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.127–129, Sec.3.2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">Gioia 귀추적 코딩 (1차→2차→총괄 차원)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  연구자 2인이 전사자료·관찰노트를 반복 교차검토하여 1차 코드(정보제공자 언어) → 2차 테마(이론적 언어) → 3개 총괄 차원으로 집약, 문헌과의 반복적 대조(abductive iteration) 수행 — Table 6.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.128, Sec.3.3 & Table 6 (p.129)</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">Findings 구조화 (3대 차원 순 서술)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  4.1 기업의 영향력 행사 → 4.2 구매센터 식별 → 4.3 공공행위자의 헌신 순서로 4개 사례를 비교·대조하며 서술.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.129–133, Sec.4</span>
+              </div>
+              <hr class="bg-slate-900"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-900"/>
+              <div class="timeline-middle">
+                <span class="bg-cyan-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">프로세스 모델 도출 및 이론적 위치 지정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  3개 총괄 차원과 피드백 루프를 Fig. 1로 시각화하고, 각 구간을 기존 BC 문헌(Hult et al. 2007; Howard & Doyle 2006; Chase & Murtha 2019 등)과 대조하며 이론적 논의 전개.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.132–134, Sec.5.1–5.2</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            사례 선정 기준, 자료수집 방법(Table 1), Gioia 코딩 절차는 투명하게 기술되어 있어 방법론적 재현은 가능하나, 원자료(인터뷰 녹취록)가
+            "confidential"로 명시되어 있고("Data availability: The data that has been used is confidential.", p.135) 1차→2차 코드의 이론적 해석은
+            연구자의 판단에 의존하므로 완전한 재현은 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 결론부(Section 6)에서 연구진이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>경험적 범위의 제한:</strong> "the study is empirically limited, as it is based on only four projects. A broader empirical basis could contribute with additional insights." (p.135–136)
+              </li>
+              <li>
+                <strong>단일 국가·서구 중심성:</strong> "the projects are from one country within the European Union and may be seen as an expression of Western-centric theorising (Bachkirov, 2019)." (p.136)
+              </li>
+              <li>
+                <strong>신규구매 초기 단계에 대한 지식 부족 잔존:</strong> "more needs to be known about the early phase of new-buy situations involving innovation processes and how different actors in public organisations and the organisation's environments influence the process (Cabanelas et al., 2023)." (p.136)
+              </li>
             </ul>
           </div>
         </div>
 
-        <div class="collapse collapse-arrow bg-amber-50/70 border border-amber-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-amber-900 flex items-center gap-2">
-            <span class="badge badge-warning text-white">Part B</span> 독자/연구자 관점의 독립적 비판적 검토 (Critical Methodological & Theoretical Concerns)
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 정치적 개입으로 인한 의사결정 지연 비용 정량화 미흡</li>
-            </ul>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">질적 사례연구 설계와 서술 구조를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 회고적 서술·생존자 편향</span>
+                <p class="text-sm text-slate-700">
+                  인터뷰가 프로젝트 시작·중간·종료·사후에 이루어졌다지만, Findings의 서사는 이미 종료된 프로젝트를 사후적으로 정리한 스토리라인으로 읽힌다.
+                  EU PCP 프로그램의 실제 실패율을 고려하면, <strong>구매센터 형성에 실패한 프로젝트</strong>가 표본에서 배제되었을 가능성이 있어
+                  협력 프로세스의 긍정적 효과가 과장되었을 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 코딩 신뢰도 검증 부재</span>
+                <p class="text-sm text-slate-700">
+                  연구자 2인이 전사자료를 반복 검토해 코드를 통합했다고 서술하나(p.128), <strong>코더 간 신뢰도(inter-coder reliability) 수치나
+                  불일치 해소 절차</strong>가 제시되지 않아 1차→2차 코드로의 이론적 도약이 얼마나 재현 가능한 절차였는지 검증하기 어렵다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 동일 조달제도로 인한 인공물(Artifact) 가능성</span>
+                <p class="text-sm text-slate-700">
+                  4개 사례 모두 <strong>동일 EU PCP 프로그램</strong> 하에서 진행되어, 사전 자금지원·경쟁완화라는 특정 조달 제도의 유인 구조 자체가
+                  협력 패턴(정보공유, 기대정렬)을 만들어냈을 가능성이 있다. 즉 발견이 "신규구매 상황 일반"이 아니라 PCP라는 특정 메커니즘의 산물일 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 공공 측 목소리의 간접성</span>
+                <p class="text-sm text-slate-700">
+                  Table 1의 인터뷰 대상(혁신 매니저, 세일즈 매니저, 오너 매니저)은 모두 <strong>기업(공급자) 측 인사</strong>로 명시되어 있다.
+                  "공공 행위자가 소유의식을 갖고 주도자가 된다"는 4.3절 서술이 공공 측의 직접 진술이 아니라
+                  <strong>기업 응답자의 인식을 통해 매개된 2차적 추론</strong>일 위험이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 사후적 순서 부여 (인과 아님)</span>
+                <p class="text-sm text-slate-700">
+                  "정보공유 → 기대정렬 → 전략적 재포지셔닝"이라는 Fig. 1의 순차적 흐름은 실제 시간적 선행성을 입증한 것이 아니라, 상관적으로 관찰된
+                  활동들에 대해 연구자가 사후적으로 부여한 <strong>논리적·서사적 배열</strong>일 가능성을 배제할 수 없다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 산업적 동질성으로 인한 이중 제약</span>
+                <p class="text-sm text-slate-700">
+                  저자들은 "단일 국가"라는 한계는 인정했지만, 4개 사례 모두 <strong>디지털 플랫폼/소프트웨어 솔루션</strong>이라는 동일한 산업적 성격을
+                  공유한다는 점은 언급하지 않는다. 물리적 인프라·국방·의료기기 등 비-디지털 PCP 프로젝트에도 동일한 3단계 프로세스가 적용되는지는 불분명하다.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+    </div>
   </main>
 
   <!-- Footer -->
-  <footer class="footer footer-center bg-slate-900 text-slate-400 p-8 border-t border-slate-800">
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
     <div>
-      <p class="font-bold text-slate-200">Industrial Marketing Management (IMM) Paper Analysis Archive</p>
-      <p class="text-xs text-slate-500 mt-1">New-buy situations and emerging public buying centers | Industrial Marketing Management Vol. 114 (2023), pp. 125-136</p>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>New-buy situations and emerging public buying centers (Industrial Marketing Management, 2023)</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
     </div>
   </footer>
 

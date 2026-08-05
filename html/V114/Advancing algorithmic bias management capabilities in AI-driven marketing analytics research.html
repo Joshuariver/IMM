@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Advancing algorithmic bias management capabilities in AI-driven marketing analytics research - IMM 2023</title>
+  <title>Advancing Algorithmic Bias Management Capabilities - IMM 2023</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- DaisyUI 4 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   <!-- Pretendard Font Import -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  
+
   <script>
     tailwind.config = {
       theme: {
@@ -32,290 +32,855 @@
       color: #1e293b;
       word-break: keep-all;
     }
-    .style-display { font-size: 40px; font-weight: 700; line-height: 1.2; }
-    .style-h1 { font-size: 32px; font-weight: 700; line-height: 1.2; }
-    .style-h2 { font-size: 24px; font-weight: 600; line-height: 1.3; }
-    .style-h3 { font-size: 18px; font-weight: 600; line-height: 1.4; }
-    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
-    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
-    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-  <!-- Header / Hero Section (No Navbar, single scroll flow) -->
-  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-14 px-4 lg:px-8 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto flex flex-col gap-4 relative z-10">
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
       <div class="flex flex-wrap gap-2">
-        <span class="badge badge-outline border-cyan-400 text-cyan-300 style-label uppercase">Industrial Marketing Management Vol. 114 (2023), pp. 243-261</span>
-        <span class="badge badge-secondary text-white style-label">Academic Paper Analysis</span>
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Algorithmic Bias &amp; Customer Equity</div>
+        <div class="badge badge-secondary text-white style-label">Vol. 114, pp.243-261</div>
       </div>
-      
-      <h1 class="style-display text-white mt-2">Advancing algorithmic bias management capabilities in AI-driven marketing analytics research</h1>
-      <h2 class="text-2xl font-semibold text-cyan-300">AI 기반 마케팅 분석에서 알고리즘 편향 관리 역량의 고도화</h2>
-      <p class="text-slate-400 style-small mt-1">저자: Shahriar Akter, Katina Michael, Muhammad Ismail Hossain, Md. Shamim Hossain</p>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Advancing algorithmic bias management<br>
+            <span class="text-cyan-400">capabilities in AI-driven marketing analytics research</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Shahriar Akter, Saida Sultana, Marcello Mariani, Samuel Fosso Wamba, Konstantina Spanaki, Yogesh K. Dwivedi
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            AI 기반 마케팅 애널리틱스 연구에서<br>
+            <span class="text-indigo-300">알고리즘 편향 관리 역량의 진전</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            호주 대형 은행 애널리틱스 전문가 200명 &amp; 고객 200명 설문을 기반으로 한 데이터·모델·배포 편향 관리 역량과 고객자산의 관계 분석
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">AI 마케팅 알고리즘의 편향은 데이터 관리 역량에서 시작해 모델·배포 역량으로 이어지며, 세 역량 모두 고객의 가치·브랜드·관계자산을 높입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content Body -->
-  <main class="max-w-6xl mx-auto w-full px-4 lg:px-8 py-10 space-y-12 flex-1">
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
 
-    <!-- STEP 1: Title & Abstract Translation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-cyan-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
-      </div>
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
 
-      <div class="grid lg:grid-cols-2 gap-6">
-        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200/60">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-ghost badge-sm">EN</span> Abstract (Original)
-          </h3>
-          <blockquote class="text-slate-600 style-small leading-relaxed italic">
-            "Algorithms in the age of artificial intelligence (AI) constantly transform customer behaviour, marketing programs, and marketing strategies in industrial markets. However, algorithms often fail to perform as expected due to data, model, and market biases. Drawing on dynamic capability theory, this study develops and validates algorithmic bias management capability through a literature review, thematic analysis, and two surveys of analytics professionals (n=200) and business customers (n=200) in Australian financial services."
-          </blockquote>
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
         </div>
 
-        <div class="bg-cyan-50/40 p-6 rounded-xl border border-cyan-100">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-info badge-sm text-white">KO</span> Abstract (한국어 번역)
-          </h3>
-          <blockquote class="text-slate-700 style-small leading-relaxed">
-            "인공지능(AI) 시대의 알고리즘은 산업 시장에서 고객 행동, 마케팅 프로그램, 마케팅 전략을 지속적으로 변화시키고 있다. 그러나 알고리즘은 데이터, 모형, 시장 편향으로 인해 기대한 대로 작동하지 못하는 경우가 자주 발생한다. 본 연구는 동적 역량 이론(Dynamic Capability Theory)에 입각하여 문헌 고찰, 주제 분석, 그리고 호주 금융 서비스 산업의 분석 실무자(n=200) 및 기업 고객(n=200)을 대상으로 한 두 차례의 설문을 통해 알고리즘 편향 관리 역량(Algorithmic Bias Management Capability, ABMC)을 개발하고 실증적으로 검증한다."
-          </blockquote>
-        </div>
-      </div>
-
-      <div class="mt-6 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-600">
-        <span class="font-bold text-slate-800">💡 주요 학술 용어 번역 메모:</span> Algorithmic Bias Management Capability는 "알고리즘 편향 관리 역량"으로, Customer Equity는 "고객자산(가치·브랜드·관계 자산)"으로 번역함.
-      </div>
-    </section>
-
-    <!-- STEP 2: Core Claims (1-Minute Pitch) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-indigo-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="p-4 bg-indigo-50/50 rounded-xl border border-indigo-100">
-          <div class="font-bold text-indigo-900 text-sm uppercase tracking-wide">1. 연구 질문 (Research Question)</div>
-          <div class="text-slate-700 mt-1 style-body">AI 마케팅 분석에서 알고리즘 편향(Data, Model, Deployment Bias)을 예방하고 관리하기 위해 B2B 기업이 갖춰야 하는 조직적 역량(ABMC)의 차원 구조는 무엇이며, 이것이 고객자산(Value, Brand, Relationship Equity) 형성에 어떻게 기여하는가?</div>
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Algorithms in the age of artificial intelligence (AI) constantly transform customer behaviour, marketing programs, and marketing strategies in industrial markets. However, algorithms often fail to perform as expected due to various data, model, and market biases. Motivated by this challenge, this study presents a framework of algorithmic bias management capabilities for industrial markets that contribute to customer equity in terms of value, brand and relationship equity. Drawing on the dynamic capability theory, this study fills this gap by conducting a literature review, thematic analysis, and two rounds of surveys (n=200 analytics professionals and n=200 business customers) in the financial service industry in Australia. The findings show that algorithmic bias management capability consists of three primary dimensions (data, model, and deployment capabilities) and nine subdimensions. These findings have important implications for scholars and managers interested in developing algorithmic bias management capabilities to influence customer equity in industrial markets."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              인공지능(AI) 시대의 알고리즘은 산업재 시장(industrial markets)에서 고객 행동, 마케팅 프로그램, 마케팅 전략을 끊임없이 변화시킨다. 그러나 알고리즘은 다양한 데이터·모델·시장 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">편향(bias)</span>으로 인해 기대만큼 성과를 내지 못하는 경우가 많다. 이러한 문제의식에서 출발하여, 본 연구는 가치자산·브랜드자산·관계자산 측면에서 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">고객자산(customer equity)</span>에 기여하는 산업재 시장용 알고리즘 편향 관리 역량 프레임워크를 제시한다. <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">동적 역량 이론</span>에 기반하여, 문헌 리뷰와 주제 분석, 그리고 2회에 걸친 설문조사(호주 금융서비스 산업의 애널리틱스 전문가 n=200, 기업 고객 n=200)를 통해 이 연구 공백을 메운다. 분석 결과 알고리즘 편향 관리 역량은 3개의 상위 차원(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">데이터·모델·배포 역량</span>)과 9개의 하위 차원으로 구성됨을 확인하였다. 이러한 발견은 산업재 시장에서 고객자산에 영향을 미치는 알고리즘 편향 관리 역량 개발에 관심 있는 연구자와 관리자에게 중요한 시사점을 제공한다.
+            </blockquote>
+          </div>
         </div>
 
-        <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100">
-          <div class="font-bold text-emerald-900 text-sm uppercase tracking-wide">2. 핵심 발견 (Key Findings)</div>
-          <div class="text-slate-700 mt-1 style-body">알고리즘 편향 관리 역량(ABMC)은 데이터, 모형, 배포 편향 관리의 3대 차원으로 구성됨. 데이터 편향 관리가 모형 및 배포 편향 관리를 촉진하고, 이들이 매개하여 고객자산(Value, Brand, Relationship Equity)을 유의미하게 향상시킴.</div>
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Algorithmic Bias Management Capability</td>
+                  <td>알고리즘 편향 관리 역량</td>
+                  <td class="text-sm">데이터·모델·배포 단계에서 체계적 왜곡(bias)을 감지·완화하는 조직의 동적 역량을 지칭합니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Customer Equity (CUSEQ)</td>
+                  <td>고객자산</td>
+                  <td class="text-sm">전체 고객의 할인된 생애가치 총합 개념(Rust et al., 2000)을 반영해 "만족도"가 아닌 "자산"으로 번역했습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Value / Brand / Relationship Equity</td>
+                  <td>가치자산 / 브랜드자산 / 관계자산</td>
+                  <td class="text-sm">고객자산의 3대 하위 구성요소로, equity 개념의 일관성을 유지하기 위해 "OO자산"으로 통일했습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Data / Model / Deployment Bias Mgmt Capability</td>
+                  <td>데이터 / 모델 / 배포 편향 관리 역량</td>
+                  <td class="text-sm">알고리즘 편향의 발생 단계(학습데이터 → 모형 설계 → 실제 서비스 적용)에 대응하는 3개 상위 차원입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Dynamic Capability (DC) Theory</td>
+                  <td>동적 역량 이론</td>
+                  <td class="text-sm">Teece(2007) 계열 전략경영 이론의 국내 학계 표준 번역어입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
         </div>
 
-        <div class="p-4 bg-purple-50/50 rounded-xl border border-purple-100">
-          <div class="font-bold text-purple-900 text-sm uppercase tracking-wide">3. 학술적 & 실무적 기여 (Contributions)</div>
-          <div class="text-slate-700 mt-1 style-body">AI 마케팅 분석 분야에서 최초로 알고리즘 편향 관리 역량(ABMC) 개념을 동적 역량 관점에서 체계화하고 실증 척도를 개발함.</div>
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">알고리즘 편향 관리 역량의 하위 차원은 무엇이고 고객자산에 어떻게 영향을 미치는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">데이터→모델→배포 3단계 역량이 순차·병렬적으로 고객자산을 견인한다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">알고리즘 편향 연구와 고객자산 연구의 최초 접목</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 산업재 시장에서 AI 알고리즘의 편향을 관리하는 역량은 어떤 하위 차원으로 구성되며, 이것이 고객자산(가치·브랜드·관계자산)에 어떻게 영향을 미치는가?</li>
+                  <li><strong>핵심 발견:</strong> 문헌리뷰·주제분석을 통해 데이터(완전성·형식·정확성), 모델(신뢰성·유연성·양면성), 배포(역량·선의성·성실성) 3차원·9하위차원을 도출. PLS-SEM 검증 결과 데이터 편향 관리 역량이 모델(β=0.595)·배포(β=0.565) 역량에 영향을 미치고, 세 역량 모두 고객자산에 직접 영향(β=0.396/0.218/0.298)을 미치며, 모델·배포 역량이 부분매개(간접효과 0.130/0.153) 역할을 수행함.</li>
+                  <li><strong>이론/실무 기여:</strong> 동적 역량 이론을 알고리즘 편향의 미시토대(microfoundation) 규명에 적용했고, 그동안 분리되어 있던 "알고리즘 편향" 연구와 "고객자산" 연구를 최초로 연결했으며, 관리자가 편향 발생 단계를 데이터/모델/배포로 진단할 수 있는 실무적 도구를 제공함.</li>
+                </ul>
+              </div>
+
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "AI 마케팅 알고리즘의 편향은 데이터 관리 역량을 출발점으로 모델·배포 역량으로 순차 전이되며, 이 세 역량 모두가 직접 및 매개 경로를 통해 고객의 가치·브랜드·관계자산을 높입니다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
         </div>
 
-        <div class="alert alert-info shadow-sm bg-cyan-50 border-cyan-200 text-cyan-900 mt-4">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">연구공백: 편향 관리 역량-고객자산 미연결</td>
+                <td class="text-sm italic text-slate-600">
+                  "virtually no study has linked algorithmic bias management capabilities with customer equity... the role of algorithmic bias management capability in enhancing customer equity remains a research gap."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.247, Sec. 2.1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">3차원·9하위차원 도출 (주제분석)</td>
+                <td class="text-sm italic text-slate-600">
+                  "the study identifies three major dimensions (data, model, and deployment) and nine subdimensions in algorithmic bias management capabilities."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.248-249, Sec. 3</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">H1/H2/H3: 데이터→모델→배포 경로</td>
+                <td class="text-sm italic text-slate-600">
+                  "DABMC has a significant, positive impact on MOBMC (β=0.595) and DPBMC (β=0.565). MOBMC significantly influences DPBMC (β=0.376)... we confirm H1, H2 and H3."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.254, Table 6</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">H4/H5/H6: 세 역량→고객자산 직접효과</td>
+                <td class="text-sm italic text-slate-600">
+                  "DABMC (β=0.396), MOBMC (β=0.218) and DPBMC (β=0.298) have a significant positive influence on CUSEQ, explaining 57% of the variance."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.254, Table 6</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">H7a/H7b: 모델·배포 역량의 부분매개</td>
+                <td class="text-sm italic text-slate-600">
+                  "the indirect effects of MOBMC (β=0.130) and DPBMC (β=0.153)... we further confirm MOBMC and DPBMC as partial mediators."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.255, Table 7</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">동일방법편의(CMB) 통제</td>
+                <td class="text-sm italic text-slate-600">
+                  "we collected data using theoretically unrelated variables as marker variables... a non-significant relationship (r=0.063–0.071, p&gt;0.05)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.253, Sec. 5.4</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">연구 맥락 (호주 대형 은행)</td>
+                <td class="text-sm italic text-slate-600">
+                  "The research setting is based on one of the leading banks in Australia with more than 15.9 million customers and 48000 employees."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.251, Sec. 5.1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          이 모델은 별도의 조절변수 없이, 하나의 선행변수(데이터 편향 관리 역량)가 두 개의 순차·병렬 매개변수(모델·배포 편향 관리 역량)를 거쳐 결과변수(고객자산)에 이르는
+          <strong>직렬-병렬 매개모형(serial-parallel mediation model)</strong>입니다. 4개 구성개념 모두 3개의 1차 반영 하위차원을 갖는 2차 고차 반영모형(repeated-indicator 방식)으로 추정되었습니다.
+        </p>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 가설 모형)</h3>
+
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 900 420" class="w-full h-auto">
+              <!-- IV: DABMC -->
+              <rect x="20" y="160" width="200" height="100" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
+              <text x="120" y="192" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="14">데이터 편향 관리 역량</text>
+              <text x="120" y="210" text-anchor="middle" fill="#334155" font-size="11">(DABMC · 독립변수)</text>
+              <text x="120" y="230" text-anchor="middle" fill="#64748b" font-size="10">완전성 · 형식 · 정확성</text>
+              <text x="120" y="246" text-anchor="middle" fill="#64748b" font-size="10">(애널리틱스 실무자 응답)</text>
+
+              <!-- Mediator 1: MOBMC -->
+              <rect x="340" y="20" width="220" height="90" rx="8" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="450" y="48" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="14">모델 편향 관리 역량</text>
+              <text x="450" y="66" text-anchor="middle" fill="#0284c7" font-size="11">(MOBMC · 매개변수 1)</text>
+              <text x="450" y="84" text-anchor="middle" fill="#0369a1" font-size="10">신뢰성 · 유연성 · 양면성</text>
+
+              <!-- Mediator 2: DPBMC -->
+              <rect x="340" y="310" width="220" height="90" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="450" y="338" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">배포 편향 관리 역량</text>
+              <text x="450" y="356" text-anchor="middle" fill="#047857" font-size="11">(DPBMC · 매개변수 2)</text>
+              <text x="450" y="374" text-anchor="middle" fill="#065f46" font-size="10">역량 · 선의성 · 성실성</text>
+
+              <!-- DV: CUSEQ -->
+              <rect x="660" y="160" width="200" height="100" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="760" y="192" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">고객자산</text>
+              <text x="760" y="210" text-anchor="middle" fill="#4338ca" font-size="11">(CUSEQ · 종속변수)</text>
+              <text x="760" y="230" text-anchor="middle" fill="#64748b" font-size="10">가치 · 브랜드 · 관계자산</text>
+              <text x="760" y="246" text-anchor="middle" fill="#64748b" font-size="10">(은행 고객 응답)</text>
+
+              <!-- H1: DABMC -> MOBMC -->
+              <path d="M220 190 L 280 190 L 280 90 L 340 90" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrowSlate)"/>
+              <text x="245" y="150" fill="#334155" font-weight="700" font-size="12">H1 (+)</text>
+
+              <!-- H2: DABMC -> DPBMC -->
+              <path d="M220 230 L 280 230 L 280 340 L 340 340" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrowSlate)"/>
+              <text x="245" y="292" fill="#334155" font-weight="700" font-size="12">H2 (+)</text>
+
+              <!-- H3: MOBMC -> DPBMC (vertical) -->
+              <path d="M450 110 L 450 310" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrowSky)"/>
+              <text x="460" y="215" fill="#0284c7" font-weight="700" font-size="12">H3 (+)</text>
+
+              <!-- H4: DABMC -> CUSEQ direct (dashed) -->
+              <path d="M120 160 L 120 45 L 760 45 L 760 160" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#arrowGray)"/>
+              <text x="440" y="35" text-anchor="middle" fill="#64748b" font-weight="700" font-size="12">H4 (+) 직접효과</text>
+
+              <!-- H5: MOBMC -> CUSEQ -->
+              <path d="M560 90 L 620 90 L 620 190 L 660 190" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrowSky)"/>
+              <text x="585" y="150" fill="#0284c7" font-weight="700" font-size="12">H5 (+)</text>
+
+              <!-- H6: DPBMC -> CUSEQ -->
+              <path d="M560 340 L 620 340 L 620 230 L 660 230" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrowGreen)"/>
+              <text x="585" y="300" fill="#047857" font-weight="700" font-size="12">H6 (+)</text>
+
+              <!-- Arrow Markers -->
+              <defs>
+                <marker id="arrowSlate" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+                </marker>
+                <marker id="arrowSky" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0ea5e9"/>
+                </marker>
+                <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+                </marker>
+                <marker id="arrowGray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+
+          <!-- Mediation legend -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-3xl mt-2">
+            <div class="bg-sky-50 border border-sky-200 rounded-lg p-3 text-sm text-sky-900">
+              <span class="font-bold">H7a (부분매개):</span> 데이터 편향 관리 역량 → 모델 편향 관리 역량 → 고객자산 (간접효과 β=0.130, p&lt;0.001)
+            </div>
+            <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3 text-sm text-emerald-900">
+              <span class="font-bold">H7b (부분매개):</span> 데이터 편향 관리 역량 → 배포 편향 관리 역량 → 고객자산 (간접효과 β=0.153, p&lt;0.001)
+            </div>
+          </div>
+          <p class="text-xs text-slate-500 max-w-3xl">
+            * H4(회색 점선)는 매개변수를 거치지 않는 데이터 편향 관리 역량의 직접효과이며, H7a/H7b는 위 실선 경로(H1→H5, H2/H3→H6)를 통해 성립하는 간접효과입니다.
+          </p>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수</span>
+                <span class="text-xs text-slate-400 font-semibold">IV (DABMC)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">데이터 편향 관리 역량 (Data Bias Management Capability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 동적 환경에서 완전성·형식·정확성을 보장하며 데이터셋의 특성을 관리하는 애널리틱스 실무자의 동적 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 완전성(COMP)·형식(FORM)·정확성(ACCU) 3개 하위차원 × 3문항(총 9문항), 7점 리커트.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Wixom &amp; Todd (2005); Nelson, Todd &amp; Wixom (2005) / CR 0.882-0.928, AVE 0.714-0.811</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 데이터 품질 문헌에 근거하며, Apple 신용카드 성차별·Amazon 채용 알고리즘 성별 편향 사례 등 실제 편향 사고 대부분이 학습데이터 불완전성/대표성 부족에서 기인함을 근거로 제시.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">매개변수 1</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator (MOBMC)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">모델 편향 관리 역량 (Model Bias Management Capability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 마케팅 모델의 설계·개발에 영향을 미치는 신뢰성·유연성·양면성에 관한 방법론적·절차적 지침을 관리하는 동적 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 신뢰성(RELI)·유연성(FLEX)·양면성(AMBI) 3개 하위차원 × 3문항(총 9문항), 7점 리커트.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Nelson et al. (2005); De Luca et al. (2021) / CR 0.866-0.888, AVE 0.684-0.726</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> "모델은 코딩되는 것이 아니라 통계적 규칙으로 구성된다"(Walsh et al., 2020)는 관점에서 잘못된 모델 명세가 편향을 유발한다고 봄. 세 하위차원 중 양면성(R²=0.726)이 가장 중요.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator (DPBMC)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">배포 편향 관리 역량 (Deployment Bias Management Capability)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 사회적 지위·종교·성적지향·연령 등에서 발생하는 사회적 편향을 다루기 위해 역량(competence)·선의성(benevolence)·성실성(integrity)을 발휘하는 동적 역량.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 역량(COMP)·선의성(BENE)·성실성(INTE) 3개 하위차원 × 3문항(총 9문항). 문항 주체는 "은행(the bank)"으로 조직 신뢰 척도에 가까움.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Akter, D'Ambra &amp; Ray (2011) / CR 0.885-0.941, AVE 0.720-0.841</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 배포단계 편향은 "모델이 설계 의도와 다르게 해석·사용될 때"(Suresh &amp; Guttag, 2021) 발생. Facebook 인종차별 광고, UnitedHealth 편향 알고리즘 사례 인용. 선의성(R²=0.841)이 가장 중요.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">DV (CUSEQ)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">고객자산 (Customer Equity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 기업 고객군 전체의 할인된 생애가치의 총합으로서 알고리즘 편향 관리 역량의 결과물(Kim &amp; Ko, 2012; Lemon et al., 2001).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 가치자산(VAEQ)·브랜드자산(BREQ)·관계자산(REEQ) 3개 하위차원 × 3문항(총 9문항). 유일하게 <strong>은행 고객 표본</strong>에서 측정(다른 3개 변수는 실무자 표본).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Ou, Verhoef &amp; Wiesel (2017); Rust, Lemon &amp; Zeithaml (2004) / CR 0.868-0.929, AVE 0.687-0.813</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> B2B 맥락에서 CE 연구가 부족했다는 문제의식(Grewal et al., 2022)에서 도입. 가치자산(R²=0.813)이 가장 중요한 하위차원.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Control variables table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">통제변수 (형성적 구성개념)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table table-bordered w-full text-slate-700 text-sm">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th>표본</th>
+                  <th>통제변수</th>
+                  <th>VIF</th>
+                  <th>고객자산(CUSEQ)에 대한 효과</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>애널리틱스 실무자 (COVA-F)</td>
+                  <td>연령, 성별, 경력, 직무유형</td>
+                  <td>1.230 - 1.473</td>
+                  <td>비유의 (p&gt;0.05)</td>
+                </tr>
+                <tr>
+                  <td>고객 (COVA-C)</td>
+                  <td>연령, 성별, 소득, 서비스유형</td>
+                  <td>1.356 - 1.639</td>
+                  <td>비유의 (p&gt;0.05)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 문헌리뷰부터 실증분석까지 그대로 <strong>추종 재현</strong>할 수 있도록 연구 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">체계적 문헌리뷰 설계 및 실행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  ABI/Inform, Emerald, ScienceDirect, EBSCO Business Source Complete, Wall Street Journal 5개 DB에서 "artificial intelligence", "bias", "marketing" 등 검색어로 탐색. 관련성·품질·중복 기준 스크리닝을 거쳐 최종 45편 확정(Tranfield et al. 2003 프로토콜).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.245-246, Section 3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">주제 분석으로 차원/하위차원 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  QSR NVivo 12로 45편을 코딩, Braun &amp; Clarke(2006) 절차에 따라 데이터·모델·배포 3대 차원과 9개 하위차원 도출. 학계 2인+실무 3인 전문가 패널이 Q-소팅으로 채점, inter-rater reliability=0.82 확보.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.247-249, Section 3</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">개념모형 및 가설 개발</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  동적 역량 이론에 근거해 DABMC→MOBMC(H1), DABMC→DPBMC(H2), MOBMC→DPBMC(H3), 세 역량→고객자산(H4-H6), 모델·배포 역량의 매개(H7a/H7b) 가설을 설정(연구모형 Fig. 2).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.249-251, Section 4</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">척도 개발 및 사전/파일럿 테스트</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  기존 검증 척도(Wixom &amp; Todd 2005; Nelson et al. 2005; Akter et al. 2011; Ou et al. 2017; Rust et al. 2004)를 차용해 총 36문항(7점 리커트) 구성. 사전테스트 n=25, 파일럿(실무자 55명+고객 55명)으로 측정속성 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.252, Section 5.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">본조사 표본 수집 (2개 독립 표본)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  15.9백만 고객 규모 호주 대형은행(H2O.ai 제휴)을 연구 맥락으로 선정. 전문 시장조사기관을 통해 애널리틱스 실무자 781명 패널→233명 응답→최종 200명, 고객 678명 패널(단순무작위)→241명 응답→최종 200명 확정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.252-253, Section 5.1 &amp; 5.3</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">동일방법편의(CMB) 통제</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  사전(a priori) 통제로 선행변수(실무자)와 결과변수(고객)를 다른 응답자군에서 수집. 사후(post-hoc) 마커변수(예: "블록체인을 들어본 적 없다")와 3개 선행변수 간 상관 r=0.063-0.071(p&gt;0.05, 비유의) 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.253, Section 5.4</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">측정모형(1차 반영모형) 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  SmartPLS 4.0, repeated-indicator 방식으로 고차 구성개념 추정. 적재값(&gt;0.70), CR(&gt;0.80), AVE(&gt;0.50) 확인. Fornell-Larcker 및 HTMT(&lt;0.90) 기준으로 판별타당도, 통제변수 VIF(≤5)로 다중공선성 점검.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.253-254, Section 5.5, Table 3-4</span>
+              </div>
+              <hr class="bg-slate-700"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-700"/>
+              <div class="timeline-middle">
+                <span class="bg-cyan-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">고차 구조모형 및 가설 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  부트스트래핑 5,000회, path weighting scheme 적용. H1-H6 각각의 β·R²·f² 산출, 형성적 통제변수의 CUSEQ에 대한 효과 확인(모두 비유의).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.254, Section 5.6, Table 5-6</span>
+              </div>
+              <hr class="bg-cyan-600"/>
+            </li>
+
+            <!-- Step 9 -->
+            <li>
+              <hr class="bg-cyan-600"/>
+              <div class="timeline-middle">
+                <span class="bg-emerald-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">9</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 9</time>
+                <div class="text-lg font-bold text-slate-800">매개효과 검증 (H7a/H7b)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Preacher &amp; Hayes(2008), Hayes et al.(2010) 절차에 따라 95% CI 부트스트래핑으로 MOBMC(간접효과=0.130)와 DPBMC(간접효과=0.153)의 부분매개 확인(Baron &amp; Kenny 1986 기준).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.255, Section 5.6, Table 7</span>
+              </div>
+              <hr class="bg-emerald-600"/>
+            </li>
+
+            <!-- Step 10 -->
+            <li>
+              <hr class="bg-emerald-600"/>
+              <div class="timeline-middle">
+                <span class="bg-indigo-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">10</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 10</time>
+                <div class="text-lg font-bold text-slate-800">예측 타당성(PLSpredict) 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Shmueli et al.(2019) PLSpredict 적용. 학습표본(n=200)과 홀드아웃 표본(n=20)으로 분할해 RMSE 산출, 선형회귀 벤치마크보다 낮은 예측오차로 예측 타당성 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.255-256, Section 5.6</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <span class="font-bold">한 줄 요약:</span> 알고리즘 편향 관리 역량(ABMC)은 데이터·모형·배포의 3대 차원으로 구성되며, AI 마케팅 분석 환경에서 B2B 고객자산을 크게 강화하는 핵심 동적 역량이다.
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
           </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            문헌 검색 프로토콜, 코딩 절차, 척도 전 문항(Table 2), PLS-SEM 세부 설정은 투명하게 공개되어 통계적 절차 자체는 재현 가능하나, 익명 처리된 특정 호주 은행의 내부 고객·직원 패널 접근권이 없으면 동일 표본 확보가 불가능하고, 5인 전문가 패널의 Q-소팅 결과는 독립적으로 재현하기 어려움("Data will be made available on request").
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- STEP 3: Evidence Alignment Table -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-blue-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거(Evidence)와 원문 위치</h2>
-      </div>
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
 
-      <div class="overflow-x-auto">
-        <table class="table table-zebra w-full text-slate-700">
-          <thead class="bg-slate-100 text-slate-800">
-            <tr>
-              <th class="w-12">#</th>
-              <th class="w-1/3">핵심 주장</th>
-              <th>근거 (원문 인용)</th>
-              <th class="w-32">원문 위치</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-            <td class="font-bold">1</td>
-            <td>알고리즘 편향의 3대 원인 구분</td>
-            <td class="text-xs font-mono bg-slate-50 p-2 rounded">Algorithmic bias stems from three main sources: data bias, model bias, and deployment bias.</td>
-            <td class="text-xs text-slate-500">pp. 244-245, Section 2</td>
-        </tr><tr>
-            <td class="font-bold">2</td>
-            <td>ABMC의 3차 구조 실증 타당성</td>
-            <td class="text-xs font-mono bg-slate-50 p-2 rounded">The statistical results support the hierarchical reflective-reflective third-order model of ABMC.</td>
-            <td class="text-xs text-slate-500">p. 253, Section 6.2</td>
-        </tr><tr>
-            <td class="font-bold">3</td>
-            <td>고객자산에 대한 영향력 검증</td>
-            <td class="text-xs font-mono bg-slate-50 p-2 rounded">ABMC significantly influences customer equity through the complete mediation of model and deployment bias management.</td>
-            <td class="text-xs text-slate-500">p. 255, Section 6.4</td>
-        </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- STEP 4: Research Model & Variables (DAG Included) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-teal-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
-      </div>
-
-      <!-- SVG DAG Model -->
-      <div class="mb-8 p-6 bg-slate-50 rounded-xl border border-slate-200">
-        <h3 class="style-h3 text-slate-800 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12H4z"></path></svg>
-          연구 가설 / 개념적 구조 모델 (Research DAG Framework)
-        </h3>
-        <svg viewBox="0 0 900 320" class="w-full h-auto bg-slate-50 border border-slate-200 rounded-xl" xmlns="http://www.w3.org/2000/svg">
-  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0891b2"/></marker></defs>
-  <rect x="30" y="110" width="180" height="100" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
-  <text x="120" y="140" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="15">선행 요인 (Antecedents)</text>
-  <text x="120" y="165" text-anchor="middle" fill="#166534" font-size="12">• 윤리적 AI 의도</text>
-  <text x="120" y="185" text-anchor="middle" fill="#166534" font-size="12">• 데이터 거버넌스 체계</text>
-
-  <rect x="270" y="30" width="220" height="75" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
-  <text x="380" y="60" text-anchor="middle" font-weight="bold" fill="#0369a1" font-size="14">데이터 편향 관리 역량</text>
-  <text x="380" y="80" text-anchor="middle" fill="#075985" font-size="11">(표본편향·수집편향 차단)</text>
-
-  <rect x="270" y="125" width="220" height="75" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
-  <text x="380" y="155" text-anchor="middle" font-weight="bold" fill="#0369a1" font-size="14">모형 편향 관리 역량</text>
-  <text x="380" y="175" text-anchor="middle" fill="#075985" font-size="11">(알고리즘 투명성·검증)</text>
-
-  <rect x="270" y="220" width="220" height="75" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
-  <text x="380" y="250" text-anchor="middle" font-weight="bold" fill="#0369a1" font-size="14">배포 편향 관리 역량</text>
-  <text x="380" y="270" text-anchor="middle" fill="#075985" font-size="11">(피드백 루프·윤리적 배포)</text>
-
-  <rect x="570" y="90" width="280" height="140" rx="10" fill="#faf5ff" stroke="#9333ea" stroke-width="2"/>
-  <text x="710" y="120" text-anchor="middle" font-weight="bold" fill="#7e22ce" font-size="16">고객자산 (Customer Equity)</text>
-  <text x="710" y="150" text-anchor="middle" fill="#6b21a8" font-size="13">H3,H5 (+)</text>
-  <text x="710" y="175" text-anchor="middle" fill="#581c87" font-size="12">• 가치 자산 (Value Equity)</text>
-  <text x="710" y="195" text-anchor="middle" fill="#581c87" font-size="12">• 브랜드 자산 (Brand Equity)</text>
-  <text x="710" y="215" text-anchor="middle" fill="#581c87" font-size="12">• 관계 자산 (Relationship Equity)</text>
-
-  <path d="M210 160 H270" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M380 105 V125" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="390" y="118" fill="#0284c7" font-size="11" font-weight="bold">H1 (+)</text>
-  <path d="M490 162 H570" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="520" y="155" fill="#0284c7" font-size="11" font-weight="bold">H3,H5 (+)</text>
-  <path d="M490 257 Q530 257 570 200" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="520" y="245" fill="#0284c7" font-size="11" font-weight="bold">H4,H6 (+)</text>
-</svg>
-      </div>
-
-      <!-- Detailed Variable / Construct Breakdown -->
-      <div class="space-y-4">
-        
-<div class="border border-sky-200 bg-sky-50/50 p-5 rounded-xl">
-  <h3 class="style-h3 text-sky-900">1. 데이터 편향 관리 역량 (Data Bias Management Capability)</h3>
-  <p class="text-slate-700 style-small mt-2"><b>개념적 정의:</b> AI 마케팅 분석에 입력되는 데이터의 편향성을 식별 및 교정하는 역량.</p>
-</div>
-
-      </div>
-    </section>
-
-    <!-- STEP 5: Method Replication Sequence -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-amber-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
-      </div>
-
-      <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-        <li>
-            
-            <div class="timeline-start font-bold text-cyan-600">STEP 1</div>
-            <div class="timeline-middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-cyan-500"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg></div>
-            <div class="timeline-end timeline-box bg-slate-50 border-slate-200 shadow-sm p-4">
-                <div class="font-semibold text-slate-800">문헌고찰 및 문맥 정의: AI 알고리즘 편향 및 마케팅 분석 역량 차원 도출</div>
-                <div class="text-xs text-slate-400 mt-1">원문 위치: pp. 244-247, Section 2</div>
-            </div>
-            <hr>
-        </li><li>
-            <hr>
-            <div class="timeline-start font-bold text-cyan-600">STEP 2</div>
-            <div class="timeline-middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-cyan-500"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg></div>
-            <div class="timeline-end timeline-box bg-slate-50 border-slate-200 shadow-sm p-4">
-                <div class="font-semibold text-slate-800">질적 주제 분석: 호주 금융 B2B 전문가 24명 심층 인터뷰</div>
-                <div class="text-xs text-slate-400 mt-1">원문 위치: pp. 248-249, Section 4</div>
-            </div>
-            <hr>
-        </li><li>
-            <hr>
-            <div class="timeline-start font-bold text-cyan-600">STEP 3</div>
-            <div class="timeline-middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-cyan-500"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg></div>
-            <div class="timeline-end timeline-box bg-slate-50 border-slate-200 shadow-sm p-4">
-                <div class="font-semibold text-slate-800">실무자 설문(Study 1): n=200 대상 EFA/CFA 3차 구조 검증</div>
-                <div class="text-xs text-slate-400 mt-1">원문 위치: pp. 250-252, Section 5</div>
-            </div>
-            <hr>
-        </li><li>
-            <hr>
-            <div class="timeline-start font-bold text-cyan-600">STEP 4</div>
-            <div class="timeline-middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-cyan-500"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg></div>
-            <div class="timeline-end timeline-box bg-slate-50 border-slate-200 shadow-sm p-4">
-                <div class="font-semibold text-slate-800">고객 설문(Study 2): n=200 대상 PLS-SEM 구조방정식 검증</div>
-                <div class="text-xs text-slate-400 mt-1">원문 위치: pp. 253-256, Section 6</div>
-            </div>
-            
-        </li>
-      </ul>
-
-      <div class="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 font-semibold text-center">
-        ⚡ 재현 가능성 평가: 부분 재현 가능.
-      </div>
-    </section>
-
-    <!-- STEP 6: Limitations & Critical Evaluation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-rose-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 6. Limitation 분리 및 비판적 검토</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="collapse collapse-arrow bg-rose-50/70 border border-rose-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-rose-900 flex items-center gap-2">
-            <span class="badge badge-error text-white">Part A</span> 논문 저자가 명시적으로 인정한 한계점 (Self-acknowledged Limitations)
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 호주 금융 서비스 단일 산업 한정 (p. 258)</li>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6.4)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>차원의 불완전성 가능성:</strong> "there might be a few more capabilities that are not contemplated. Future research might dig in depth about this." — 3차원/9하위차원 분류가 완결적이지 않을 수 있음.
+              </li>
+              <li>
+                <strong>하위차원 가중치의 시간적 불변성 가정:</strong> "Technology advancement and changes in customer needs... might make some of these subdimensions weigh differently over time." — 횡단 설계로 하위차원 중요도 변화를 포착하지 못함.
+              </li>
+              <li>
+                <strong>단일 산업/단일 기업 맥락의 일반화 한계:</strong> "further empirical studies should be undertaken across different industries and different contexts. This would significantly increase the generalizability of the findings." — 호주 금융서비스 산업 단일 은행 표본.
+              </li>
+              <li>
+                <strong>네트워크 경제 관점의 미반영:</strong> "given that we live in a networked economy, it would be interesting to understand what algorithmic bias management capabilities are drivers of customer equity."
+              </li>
             </ul>
           </div>
         </div>
 
-        <div class="collapse collapse-arrow bg-amber-50/70 border border-amber-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-amber-900 flex items-center gap-2">
-            <span class="badge badge-warning text-white">Part B</span> 독자/연구자 관점의 독립적 비판적 검토 (Critical Methodological & Theoretical Concerns)
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 자기보고식 응답 편향 가능성</li>
-            </ul>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계 및 횡단 분석 메커니즘을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 역인과관계/동시성 편향</span>
+                <p class="text-sm text-slate-700">
+                  횡단 설계이므로 "편향 관리 역량이 높아 고객자산이 높다"가 아니라, <strong>이미 고객자산(브랜드 신뢰)이 높은 은행이 여유 자원으로 더 정교한 편향 관리 역량에 투자</strong>했거나, 관측되지 않은 조직 우수성이 두 변수 모두를 견인하는 공통원인일 가능성을 배제하지 못함.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 이질적 표본을 하나의 인과사슬로 연결</span>
+                <p class="text-sm text-slate-700">
+                  DABMC/MOBMC/DPBMC는 "실무자" 200명, CUSEQ는 전혀 다른 "고객" 200명에서 측정. 두 표본은 <strong>짝지어지지(matched) 않은 독립 횡단표본</strong>인데 PLS-SEM이 이를 하나의 인과 체인처럼 집계 수준에서 결합·추정함. H4-H6은 무관한 두 표본 간 평균 상관을 인과관계처럼 제시한 것에 가까움.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 자기보고 사회적 바람직성 편향</span>
+                <p class="text-sm text-slate-700">
+                  배포 역량의 선의성·성실성 문항("우리 은행은 선의적이다")은 응답자가 자신이 속한 조직의 윤리성을 낮게 평가할 유인이 없어, "책임 있는 AI"에 대한 사회적 압력이 높은 시기(2022-2023)에 상방 편향이 체계적으로 개입했을 가능성.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 생존자 편향 (고객 표본)</span>
+                <p class="text-sm text-slate-700">
+                  고객 표본은 "최소 3년간 AI 서비스 이용" 기존 고객으로 한정. 실제로 편향된 알고리즘으로 대출이 거부되었거나 이탈한 고객은 표본에서 애초에 배제되어, 논문이 다루는 문제의식(불공정 배제)과 배치되는 방식으로 CUSEQ 점수가 상향 편향되었을 가능성.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 모형-동기 간 괴리 (취약집단 이질효과 미검정)</span>
+                <p class="text-sm text-slate-700">
+                  서론은 인종·성별·연령에 따른 실제 알고리즘 차별 사례(Facebook, Apple, RoboDebt)를 상세히 다루지만, 정작 실증모형은 성별·연령·소득을 "통제변수"로 처리해 그 효과를 제거할 뿐, 편향 관리 역량이 취약집단에 더 크게 작용하는지의 조절효과는 전혀 검정하지 않음.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 판별타당도 경계선상 수치</span>
+                <p class="text-sm text-slate-700">
+                  Appendix 3 HTMT에서 FLEX-RELI(0.836), AMBI-RELI(0.815), INTE-RELI(0.799) 등 모델·배포 하위차원 간 상관이 0.80 안팎으로 높음. 임계치(0.90) 미만으로 통과했으나 "모델 편향"과 "배포 편향"의 개념적 중첩 가능성을 시사하며 논문은 이를 논의하지 않음.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+    </div>
   </main>
 
   <!-- Footer -->
-  <footer class="footer footer-center bg-slate-900 text-slate-400 p-8 border-t border-slate-800">
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
     <div>
-      <p class="font-bold text-slate-200">Industrial Marketing Management (IMM) Paper Analysis Archive</p>
-      <p class="text-xs text-slate-500 mt-1">Advancing algorithmic bias management capabilities in AI-driven marketing analytics research | Industrial Marketing Management Vol. 114 (2023), pp. 243-261</p>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Advancing algorithmic bias management capabilities in AI-driven marketing analytics research</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
     </div>
   </footer>
 

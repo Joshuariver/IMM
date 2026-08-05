@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Only senior managers lead business model innovation, or do they? Levels of management and dynamic capability deployment - IMM 2023</title>
+  <title>Only Senior Managers Lead BMI, or Do They? - IMM 2023</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- DaisyUI 4 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   <!-- Pretendard Font Import -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  
+
   <script>
     tailwind.config = {
       theme: {
@@ -32,236 +32,752 @@
       color: #1e293b;
       word-break: keep-all;
     }
-    .style-display { font-size: 40px; font-weight: 700; line-height: 1.2; }
-    .style-h1 { font-size: 32px; font-weight: 700; line-height: 1.2; }
-    .style-h2 { font-size: 24px; font-weight: 600; line-height: 1.3; }
-    .style-h3 { font-size: 18px; font-weight: 600; line-height: 1.4; }
+
+    /* Typography scale constraints */
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
     .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
     .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
     .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+
+    html { scroll-behavior: smooth; }
+
+    .nav-active {
+      color: #0f172a !important;
+      font-weight: 600;
+      border-left: 2px solid #3b82f6;
+    }
+
+    @media (max-width: 1024px) {
+      .style-display { font-size: 38px; }
+      .style-h1 { font-size: 30px; }
+      .style-h2 { font-size: 22px; }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-  <!-- Header / Hero Section (No Navbar, single scroll flow) -->
-  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-14 px-4 lg:px-8 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto flex flex-col gap-4 relative z-10">
+  <!-- Navbar (plain, non-fixed, non-sticky) -->
+  <div class="navbar bg-slate-900 text-white shadow-md px-4 lg:px-8">
+    <div class="flex-1">
+      <a class="btn btn-ghost normal-case text-xl font-bold tracking-tight text-cyan-400" href="#">IMM Research Brief</a>
+    </div>
+    <div class="flex-none hidden lg:block">
+      <ul class="menu menu-horizontal px-1 gap-2 text-slate-300 style-label">
+        <li><a href="#abstract" class="hover:text-cyan-400">초록</a></li>
+        <li><a href="#claims" class="hover:text-cyan-400">핵심 주장</a></li>
+        <li><a href="#evidence" class="hover:text-cyan-400">근거 데이터</a></li>
+        <li><a href="#model" class="hover:text-cyan-400">연구 프레임워크</a></li>
+        <li><a href="#method" class="hover:text-cyan-400">방법론</a></li>
+        <li><a href="#limitations" class="hover:text-cyan-400">한계점 & 비판</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
       <div class="flex flex-wrap gap-2">
-        <span class="badge badge-outline border-cyan-400 text-cyan-300 style-label uppercase">Industrial Marketing Management Vol. 114 (2023), pp. 181-195</span>
-        <span class="badge badge-secondary text-white style-label">Academic Paper Analysis</span>
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management, 114 (2023) 181–195</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Qualitative Abductive Case Study</div>
+        <div class="badge badge-secondary text-white style-label">Open Access · CC BY 4.0</div>
       </div>
-      
-      <h1 class="style-display text-white mt-2">Only senior managers lead business model innovation, or do they? Levels of management and dynamic capability deployment</h1>
-      <h2 class="text-2xl font-semibold text-cyan-300">최고경영진만이 비즈니스 모델 혁신을 이끄는가?- 계층별 경영진과 동적 역량 배치</h2>
-      <p class="text-slate-400 style-small mt-1">저자: Andrea Funke, Ralf Wilden, Siegfried Gudergan</p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Only senior managers lead business model innovation,<br>
+            <span class="text-cyan-400">or do they?</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">Levels of management and dynamic capability deployment</p>
+          <p class="style-body text-slate-400 mt-2">Andrea Funke, Ralf Wilden, Siegfried Gudergan</p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            오직 최고경영진만이 비즈니스 모델 혁신을 이끄는가,<br>
+            <span class="text-indigo-300">정말 그러한가?</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">관리 계층과 동적역량 전개 — B2B 의료기기 기업의 종단적 귀추적 사례연구</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">1M</div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">변화가 내부에서 비롯됐는지 외부에서 비롯됐는지에 따라, 최고경영진·중간관리자·비관리직의 역할이 뒤바뀐다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content Body -->
-  <main class="max-w-6xl mx-auto w-full px-4 lg:px-8 py-10 space-y-12 flex-1">
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    <div class="flex flex-col gap-16">
 
-    <!-- STEP 1: Title & Abstract Translation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-cyan-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
-      </div>
-
-      <div class="grid lg:grid-cols-2 gap-6">
-        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200/60">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-ghost badge-sm">EN</span> Abstract (Original)
-          </h3>
-          <blockquote class="text-slate-600 style-small leading-relaxed italic">
-            "This study investigates how dynamic capabilities (sensing, seizing, and transforming) are deployed across multiple managerial levels (senior, middle, and frontline managers) to drive business model innovation."
-          </blockquote>
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
         </div>
 
-        <div class="bg-cyan-50/40 p-6 rounded-xl border border-cyan-100">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-info badge-sm text-white">KO</span> Abstract (한국어 번역)
-          </h3>
-          <blockquote class="text-slate-700 style-small leading-relaxed">
-            "최고, 중간, 현장 경영진이 각 계층별로 동적 역량(감지, 포착, 변형)을 어떻게 다르게 배치하여 비즈니스 모델 혁신(BMI)을 달성하는지 탐구한다."
-          </blockquote>
-        </div>
-      </div>
-
-      <div class="mt-6 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-600">
-        <span class="font-bold text-slate-800">💡 주요 학술 용어 번역 메모:</span> Business Model Innovation (BMI) 분석.
-      </div>
-    </section>
-
-    <!-- STEP 2: Core Claims (1-Minute Pitch) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-indigo-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="p-4 bg-indigo-50/50 rounded-xl border border-indigo-100">
-          <div class="font-bold text-indigo-900 text-sm uppercase tracking-wide">1. 연구 질문 (Research Question)</div>
-          <div class="text-slate-700 mt-1 style-body">BMI 과정에서 계층별 경영진은 어떠한 동적 역량을 배치하는가?</div>
-        </div>
-
-        <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100">
-          <div class="font-bold text-emerald-900 text-sm uppercase tracking-wide">2. 핵심 발견 (Key Findings)</div>
-          <div class="text-slate-700 mt-1 style-body">최고경영진은 전략적 비전, 중간경영진은 부서 간 자원 통합, 현장경영진은 고객 니즈 감지 및 현장 재구성을 담당함.</div>
-        </div>
-
-        <div class="p-4 bg-purple-50/50 rounded-xl border border-purple-100">
-          <div class="font-bold text-purple-900 text-sm uppercase tracking-wide">3. 학술적 & 실무적 기여 (Contributions)</div>
-          <div class="text-slate-700 mt-1 style-body">BMI 연구에 다층적(Multi-level) 경영진 관점을 도입하여 동적 역량의 미시적 기초를 규명함.</div>
-        </div>
-
-        <div class="alert alert-info shadow-sm bg-cyan-50 border-cyan-200 text-cyan-900 mt-4">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <div>
-            <span class="font-bold">한 줄 요약:</span> 비즈니스 모델 혁신은 최고, 중간, 현장 경영진이 각자의 계층에 맞는 동적 역량을 상호보완적으로 배치할 때 달성된다.
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Previous research has provided valuable insights into the connection between market-driving strategies, business model innovation, and dynamic capabilities. However, several open questions remain. In this abductive study of a leading medical devices manufacturer, we investigate the roles various employees play in market-driving firms. We focus on how senior and middle managers as well as non-managers contribute to a firm's sensing, seizing, and reconfiguring to drive business model changes towards digital servitization and customer centricity. Our primary contributions lie in filling the knowledge gap in understanding the role employees at different levels of management play in market-driving strategies, as enacted through dynamic capability deployment, to support BMI. Second, we advance knowledge by stressing that a sole focus on senior managers provides an incomplete understanding of how firms engage in market-driving strategies."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              선행 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">시장주도전략(market-driving strategies)</span>, 비즈니스 모델 혁신(BMI), <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">동적역량(dynamic capabilities)</span> 간의 연결에 관해 유의미한 통찰을 제공해 왔다. 그러나 여전히 여러 미해결 질문이 남아 있다. 본 연구는 의료기기 제조 선도기업에 대한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">귀추적(abductive) 사례연구</span>를 통해, 시장주도기업에서 다양한 직급의 직원들이 어떤 역할을 수행하는지를 조사한다. 본 연구는 최고경영진과 중간관리자, 그리고 비관리직이 기업의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">감지(sensing)·포착(seizing)·재구성(reconfiguring)</span> 활동에 각각 어떻게 기여하여 디지털 서비타이제이션과 고객중심성으로의 비즈니스 모델 변화를 이끄는지에 초점을 맞춘다. 본 연구의 1차 기여는 동적역량 전개를 통해 실행되는 시장주도전략에서 서로 다른 관리 계층의 직원들이 수행하는 역할에 관한 지식 공백을 메우는 데 있다. 둘째, 본 연구는 최고경영진에게만 초점을 맞추는 것이 기업의 시장주도전략 참여 방식을 불완전하게 이해하게 만든다는 점을 강조함으로써 지식을 확장한다.
+            </blockquote>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- STEP 3: Evidence Alignment Table -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-blue-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거(Evidence)와 원문 위치</h2>
-      </div>
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Market-driving strategy</td>
+                  <td>시장주도전략</td>
+                  <td class="text-sm">시장에 수동적으로 반응(market-driven)하는 것이 아니라 시장 구조·규칙 자체를 능동적으로 바꾸는 전략(Jaworski et al., 2000).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Sensing / Seizing / Reconfiguring</td>
+                  <td>감지 / 포착 / 재구성</td>
+                  <td class="text-sm">Teece(2007)의 동적역량 3단계 하위 프로세스. 감지=기회·위협 포착, 포착=사업화를 위한 투자·설계 결정, 재구성=자원·역량의 실제 재편.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Business Model Innovation (BMI)</td>
+                  <td>비즈니스 모델 혁신</td>
+                  <td class="text-sm">가치창출·가치제안·가치포착 구성요소 중 하나 이상을 변화시키는 것(Clauss, 2017; Amit & Zott, 2012).</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Senior / Middle / Non-manager</td>
+                  <td>최고경영진 / 중간관리자 / 비관리직</td>
+                  <td class="text-sm">전사 전략 수립·변경 권한(최고경영진) / 전사 전략 실행·운영전략 설계(중간관리자) / 감독 권한이 전혀 없는 실무자(비관리직)로 조작적으로 구분.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Abductive research design</td>
+                  <td>귀추적 연구설계</td>
+                  <td class="text-sm">기존 이론과 경험적 데이터를 반복 왕복하며 이론을 "정련(refine)"하는 접근(Dubois & Gadde, 2002) — 귀납적 이론구축도, 연역적 가설검정도 아님.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Digital servitization</td>
+                  <td>디지털 서비타이제이션</td>
+                  <td class="text-sm">제조기업이 디지털 기술을 활용해 제품 중심에서 서비스 중심 가치제안으로 전환하는 현상.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
-      <div class="overflow-x-auto">
-        <table class="table table-zebra w-full text-slate-700">
-          <thead class="bg-slate-100 text-slate-800">
-            <tr>
-              <th class="w-12">#</th>
-              <th class="w-1/3">핵심 주장</th>
-              <th>근거 (원문 인용)</th>
-              <th class="w-32">원문 위치</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-            <td class="font-bold">1</td>
-            <td>중간 및 현장 경영진의 BMI 기여</td>
-            <td class="text-xs font-mono bg-slate-50 p-2 rounded">Middle and frontline managers play active roles in deploying dynamic capabilities for BMI.</td>
-            <td class="text-xs text-slate-500">p. 187</td>
-        </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
 
-    <!-- STEP 4: Research Model & Variables (DAG Included) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-teal-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
-      </div>
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
 
-      <!-- SVG DAG Model -->
-      <div class="mb-8 p-6 bg-slate-50 rounded-xl border border-slate-200">
-        <h3 class="style-h3 text-slate-800 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12H4z"></path></svg>
-          연구 가설 / 개념적 구조 모델 (Research DAG Framework)
-        </h3>
-        <svg viewBox="0 0 900 320" class="w-full h-auto bg-slate-50 border border-slate-200 rounded-xl" xmlns="http://www.w3.org/2000/svg">
-  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0891b2"/></marker></defs>
-  <rect x="30" y="30" width="200" height="70" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
-  <text x="130" y="60" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="13">최고경영진 (Senior)</text>
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">감지·포착·재구성 기여는 관리 계층별로 어떻게 다른가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">변화의 발생원(내부/외부)에 따라 주도권이 뒤바뀐다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">중간관리자 역할의 유동성 및 비관리직의 재구성 기여</p>
+                </div>
+              </li>
+            </ul>
 
-  <rect x="30" y="125" width="200" height="70" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
-  <text x="130" y="155" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="13">중간경영진 (Middle)</text>
+            <div class="divider divider-horizontal hidden md:flex"></div>
 
-  <rect x="30" y="220" width="200" height="70" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
-  <text x="130" y="250" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="13">현장경영진 (Frontline)</text>
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 시장주도기업에서 동적역량(감지·포착·재구성)의 전개에 대한 기여는 최고경영진, 중간관리자, 비관리직 사이에서 어떻게 다르게 나타나는가?</li>
+                  <li><strong>핵심 발견:</strong> 내부발 변화(고객중심성)는 최고경영진이 전 단계를 주도하지만, 외부발 변화(디지털 서비타이제이션)는 최고경영진이 감지조차 못하고 중간관리자가 포착·재구성을 주도한다. 비관리직은 <strong>어떤 경우에도 포착(seizing) 단계에는 관여하지 못한다.</strong></li>
+                  <li><strong>이론/실무 기여:</strong> 중간관리자는 고정된 역할 유형이 아니라 변화 발생원에 따라 역할이 바뀌며(Floyd & Wooldridge 유형론 정교화), 시장주도전략은 최고경영진 단독이 아니라 3개 계층의 차등적 관여로 완성됨을 실증.</li>
+                </ul>
+              </div>
 
-  <rect x="290" y="50" width="280" height="220" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
-  <text x="430" y="80" text-anchor="middle" font-weight="bold" fill="#0369a1" font-size="15">계층별 동적 역량 배치</text>
-
-  <rect x="630" y="90" width="240" height="140" rx="10" fill="#faf5ff" stroke="#9333ea" stroke-width="2"/>
-  <text x="750" y="120" text-anchor="middle" font-weight="bold" fill="#7e22ce" font-size="15">비즈니스 모델 혁신 (BMI)</text>
-
-  <path d="M230 65 L290 110" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M230 160 L290 160" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M230 255 L290 210" stroke="#ea580c" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M570 160 H630" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
-</svg>
-      </div>
-
-      <!-- Detailed Variable / Construct Breakdown -->
-      <div class="space-y-4">
-        <div class="border border-sky-200 bg-sky-50/50 p-5 rounded-xl"><h3 class="style-h3 text-sky-900">1. 동적 역량 (Sensing, Seizing, Transforming)</h3></div>
-      </div>
-    </section>
-
-    <!-- STEP 5: Method Replication Sequence -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-amber-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
-      </div>
-
-      <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-        <li>
-            
-            <div class="timeline-start font-bold text-cyan-600">STEP 1</div>
-            <div class="timeline-middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-cyan-500"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg></div>
-            <div class="timeline-end timeline-box bg-slate-50 border-slate-200 shadow-sm p-4">
-                <div class="font-semibold text-slate-800">45명 경영진(최고 15, 중간 15, 현장 15) 대상 다층 인터뷰</div>
-                <div class="text-xs text-slate-400 mt-1">원문 위치: pp. 183-192</div>
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "고위 경영진만 사업모델혁신을 주도한다는 통념과 달리, 변화의 발생원(내부/외부)에 따라 중간관리자와 비관리자가 각기 다른 단계에서 핵심 역할을 수행하며, 이들 없이는 시장주도전략이 완성되지 않는다."
+                </p>
+              </div>
             </div>
-            
-        </li>
-      </ul>
-
-      <div class="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 font-semibold text-center">
-        ⚡ 재현 가능성 평가: 부분 재현 가능.
-      </div>
-    </section>
-
-    <!-- STEP 6: Limitations & Critical Evaluation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-rose-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 6. Limitation 분리 및 비판적 검토</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="collapse collapse-arrow bg-rose-50/70 border border-rose-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-rose-900 flex items-center gap-2">
-            <span class="badge badge-error text-white">Part A</span> 논문 저자가 명시적으로 인정한 한계점 (Self-acknowledged Limitations)
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 호주/글로벌 B2B 질적 사례 한계 (p. 194)</li>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실증적 근거(원문 인용) 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">비관리직 역할 관련 연구 공백</td>
+                <td class="text-sm italic text-slate-600">"Whereas we know that both senior and middle managers matter for the successful implementation of market-driving strategies... whether non-managers play a role is not clear."</td>
+                <td class="text-right font-medium text-slate-500">p.181, Intro</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">고객중심성 감지는 최고경영진 주도</td>
+                <td class="text-sm italic text-slate-600">"This change was sensed and initiated by senior managers. While middle and non-managers were able to provide input... senior managers took the initiative..."</td>
+                <td class="text-right font-medium text-slate-500">p.188, §4.2.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">디지털 서비타이제이션 감지는 최고경영진 배제</td>
+                <td class="text-sm italic text-slate-600">"The second change, digital servitization, was not sensed by senior managers, but rather resulted as an outcome... with middle and non-managers focusing specifically on leveraging their relationships with customers."</td>
+                <td class="text-right font-medium text-slate-500">p.188, §4.2.1</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">비관리직 아이디어, 외부 정당화 후 수용</td>
+                <td class="text-sm italic text-slate-600">"...their ideas were rejected by senior managers as 'That's not what we do... It doesn't work'... until our competitors released a similar product. And then suddenly, everybody said, 'We have to have one too.'"</td>
+                <td class="text-right font-medium text-slate-500">p.189, §4.2.1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">포착(seizing) 주도권의 이동</td>
+                <td class="text-sm italic text-slate-600">"...in the shift towards customer centricity, senior managers were primarily responsible for seizing the opportunity, whereas in the case of digital transformation, middle managers were in charge."</td>
+                <td class="text-right font-medium text-slate-500">p.190, §4.2.2</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">비관리직은 포착 단계에 전혀 관여하지 않음</td>
+                <td class="text-sm italic text-slate-600">"...there was no evidence about non-managers adding to the seizing process (Tables 3 and 4)."</td>
+                <td class="text-right font-medium text-slate-500">p.190</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">디지털 전환 재구성에서 최고경영진 배제</td>
+                <td class="text-sm italic text-slate-600">"senior managers were reported to not play any part in those activities. Instead, middle and non-managers drove activities such as onboarding new digital capabilities..."</td>
+                <td class="text-right font-medium text-slate-500">p.191, §4.2.3</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">외부발 제안이 내부발보다 쉽게 수용되는 조직 편향</td>
+                <td class="text-sm italic text-slate-600">"...external usually is taken more seriously [and] the reaction time to change externally is quicker than an internal change... people will challenge you less..." (VP Manufacturing)</td>
+                <td class="text-right font-medium text-slate-500">p.190, §4.2.3</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td class="font-semibold text-slate-900">중간관리자 역할의 유동성 (이론적 기여)</td>
+                <td class="text-sm italic text-slate-600">"middle managers may change their roles in DC deployment depending on the source of change. This provides theoretical nuance to previous understanding about middle managers..."</td>
+                <td class="text-right font-medium text-slate-500">p.192, §5</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td class="font-semibold text-slate-900">실무 시사점: 최고경영진 단독 의존 불충분</td>
+                <td class="text-sm italic text-slate-600">"...a firm cannot solely rely on its senior managers to lead BMI in its market-driving efforts but must involve middle and non-managers."</td>
+                <td class="text-right font-medium text-slate-500">p.192–193, §6</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Framework & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Framework & Constructs</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 연구는 형식적 매개/조절 가설 경로모형을 검정하는 양적 연구가 아니라 <strong>귀추적 단일사례 질적 연구</strong>입니다. 따라서 아래 다이어그램은 "독립·매개·조절변수"의 DAG 대신, 논문의 실제 데이터 구조(Table 3·4)를 이루는 <strong>관리 계층 × 동적역량 프로세스</strong> 매트릭스가 <strong>변화의 발생원(내부/외부)</strong>이라는 맥락 조건에 따라 달라지는 방식을 시각화합니다.
+        </p>
+
+        <!-- Research Framework SVG -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (다층 관여 매트릭스)</h3>
+
+          <div class="w-full bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 940 660" class="w-full h-auto">
+              <defs>
+                <marker id="arrowM" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+                </marker>
+                <pattern id="hatch" width="8" height="8" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+                  <line x1="0" y1="0" x2="0" y2="8" stroke="#cbd5e1" stroke-width="4"/>
+                </pattern>
+              </defs>
+
+              <!-- Episode headers -->
+              <rect x="10" y="8" width="430" height="34" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+              <text x="225" y="30" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="15">① 내부발 변화: 고객중심성 전환 (Customer Centricity)</text>
+
+              <rect x="500" y="8" width="430" height="34" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+              <text x="715" y="30" text-anchor="middle" font-weight="700" fill="#92400e" font-size="15">② 외부발 변화: 디지털 서비타이제이션 (Digital Servitization)</text>
+
+              <!-- Column headers grid 1 -->
+              <text x="185" y="66" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">감지 (Sensing)</text>
+              <text x="280" y="66" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">포착 (Seizing)</text>
+              <text x="375" y="66" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">재구성 (Reconfig.)</text>
+
+              <!-- Column headers grid 2 -->
+              <text x="675" y="66" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">감지 (Sensing)</text>
+              <text x="770" y="66" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">포착 (Seizing)</text>
+              <text x="865" y="66" text-anchor="middle" font-weight="700" fill="#334155" font-size="13">재구성 (Reconfig.)</text>
+
+              <!-- Row labels grid 1 -->
+              <text x="15" y="112" font-weight="700" fill="#1e293b" font-size="13">최고경영진</text>
+              <text x="15" y="182" font-weight="700" fill="#1e293b" font-size="13">중간관리자</text>
+              <text x="15" y="252" font-weight="700" fill="#1e293b" font-size="13">비관리직</text>
+
+              <!-- Row labels grid 2 -->
+              <text x="505" y="112" font-weight="700" fill="#1e293b" font-size="13">최고경영진</text>
+              <text x="505" y="182" font-weight="700" fill="#1e293b" font-size="13">중간관리자</text>
+              <text x="505" y="252" font-weight="700" fill="#1e293b" font-size="13">비관리직</text>
+
+              <!-- GRID 1: Customer Centricity -->
+              <!-- Senior row: Lead, Lead, Lead -->
+              <rect x="140" y="84" width="90" height="60" rx="6" fill="#0f172a"/><text x="185" y="119" text-anchor="middle" fill="white" font-size="12" font-weight="700">주도</text>
+              <rect x="235" y="84" width="90" height="60" rx="6" fill="#0f172a"/><text x="280" y="119" text-anchor="middle" fill="white" font-size="12" font-weight="700">주도</text>
+              <rect x="330" y="84" width="90" height="60" rx="6" fill="#0f172a"/><text x="375" y="119" text-anchor="middle" fill="white" font-size="12" font-weight="700">주도</text>
+
+              <!-- Middle row: Support, Support, Support -->
+              <rect x="140" y="154" width="90" height="60" rx="6" fill="#7dd3fc"/><text x="185" y="189" text-anchor="middle" fill="#0c4a6e" font-size="12" font-weight="700">보조</text>
+              <rect x="235" y="154" width="90" height="60" rx="6" fill="#7dd3fc"/><text x="280" y="189" text-anchor="middle" fill="#0c4a6e" font-size="12" font-weight="700">보조</text>
+              <rect x="330" y="154" width="90" height="60" rx="6" fill="#7dd3fc"/><text x="375" y="189" text-anchor="middle" fill="#0c4a6e" font-size="12" font-weight="700">보조</text>
+
+              <!-- Non-manager row: Support, None, Support -->
+              <rect x="140" y="224" width="90" height="60" rx="6" fill="#7dd3fc"/><text x="185" y="259" text-anchor="middle" fill="#0c4a6e" font-size="12" font-weight="700">보조</text>
+              <rect x="235" y="224" width="90" height="60" rx="6" fill="url(#hatch)" stroke="#cbd5e1"/><text x="280" y="259" text-anchor="middle" fill="#64748b" font-size="12" font-weight="700">없음</text>
+              <rect x="330" y="224" width="90" height="60" rx="6" fill="#7dd3fc"/><text x="375" y="259" text-anchor="middle" fill="#0c4a6e" font-size="12" font-weight="700">보조</text>
+
+              <!-- GRID 2: Digital Transformation -->
+              <!-- Senior row: None, Support, None -->
+              <rect x="630" y="84" width="90" height="60" rx="6" fill="url(#hatch)" stroke="#cbd5e1"/><text x="675" y="119" text-anchor="middle" fill="#64748b" font-size="12" font-weight="700">없음</text>
+              <rect x="725" y="84" width="90" height="60" rx="6" fill="#fcd34d"/><text x="770" y="119" text-anchor="middle" fill="#78350f" font-size="12" font-weight="700">보조</text>
+              <rect x="820" y="84" width="90" height="60" rx="6" fill="url(#hatch)" stroke="#cbd5e1"/><text x="865" y="119" text-anchor="middle" fill="#64748b" font-size="12" font-weight="700">없음</text>
+
+              <!-- Middle row: Lead, Lead, Lead -->
+              <rect x="630" y="154" width="90" height="60" rx="6" fill="#b45309"/><text x="675" y="189" text-anchor="middle" fill="white" font-size="12" font-weight="700">주도</text>
+              <rect x="725" y="154" width="90" height="60" rx="6" fill="#b45309"/><text x="770" y="189" text-anchor="middle" fill="white" font-size="12" font-weight="700">주도</text>
+              <rect x="820" y="154" width="90" height="60" rx="6" fill="#b45309"/><text x="865" y="189" text-anchor="middle" fill="white" font-size="12" font-weight="700">주도</text>
+
+              <!-- Non-manager row: Support, None, Lead -->
+              <rect x="630" y="224" width="90" height="60" rx="6" fill="#fcd34d"/><text x="675" y="259" text-anchor="middle" fill="#78350f" font-size="12" font-weight="700">보조</text>
+              <rect x="725" y="224" width="90" height="60" rx="6" fill="url(#hatch)" stroke="#cbd5e1"/><text x="770" y="259" text-anchor="middle" fill="#64748b" font-size="12" font-weight="700">없음</text>
+              <rect x="820" y="224" width="90" height="60" rx="6" fill="#b45309"/><text x="865" y="259" text-anchor="middle" fill="white" font-size="12" font-weight="700">주도</text>
+
+              <!-- Converging arrows to BMI outcome -->
+              <path d="M225 284 L225 340 L460 340 L460 380" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrowM)"/>
+              <path d="M715 284 L715 340 L480 340 L480 380" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrowM)"/>
+
+              <!-- BMI outcome box -->
+              <rect x="330" y="384" width="280" height="70" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="470" y="412" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">비즈니스 모델 혁신 (BMI)</text>
+              <text x="470" y="434" text-anchor="middle" fill="#4338ca" font-size="11">제품중심 → 고객중심 · 서비스형 솔루션 전환</text>
+
+              <!-- Legend -->
+              <rect x="90" y="480" width="18" height="18" rx="3" fill="#0f172a"/>
+              <text x="115" y="494" font-size="12" fill="#334155">주도 (Lead) — 해당 계층이 이 프로세스를 실질적으로 개시·통제</text>
+
+              <rect x="90" y="508" width="18" height="18" rx="3" fill="#7dd3fc"/>
+              <text x="115" y="522" font-size="12" fill="#334155">보조 (Support) — 의견 제시, 정교화, 실행 보조 등 부차적 기여</text>
+
+              <rect x="90" y="536" width="18" height="18" rx="3" fill="url(#hatch)" stroke="#cbd5e1"/>
+              <text x="115" y="550" font-size="12" fill="#334155">없음 (None) — 해당 프로세스에서 관여의 실증적 증거 없음</text>
+
+              <text x="90" y="580" font-size="12.5" fill="#475569" font-weight="600">핵심 패턴: 그림 왼쪽(내부발) vs 오른쪽(외부발)을 비교하면, 주도권이 최고경영진→중간관리자로</text>
+              <text x="90" y="600" font-size="12.5" fill="#475569" font-weight="600">완전히 이동함을 확인할 수 있다. 비관리직은 두 경우 모두 &quot;포착&quot; 칸에서 항상 없음(회색 빗금)이다.</text>
+              <text x="90" y="624" font-size="11.5" fill="#94a3b8">주: 색상은 본 분석이 Table 3·4(원문 pp.187–190)의 서술 및 §4.2 본문을 근거로 재구성한 관여 강도 추정치임.</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">행위자 구성개념</span>
+                <span class="text-xs text-slate-400 font-semibold">Actor Level</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">관리 계층 (Senior / Middle / Non-manager)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 최고경영진="전사 전략을 수립·변경할 책임을 지는 관리자", 중간관리자="전사 전략을 실행하고 운영전략을 설계·관리하는 관리자", 비관리직="감독 권한이나 성과평가 권한이 전혀 없는 직원" (p.183).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Table 1의 공식 직함(Vice President/Director/Product Manager 등)과 직속부하 수를 기준으로 사전 분류 후 인터뷰 자기서술로 교차검증.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 32명 인터뷰(최고경영진 10 / 중간관리자 7 / 비관리직 15), Table 1, p.184.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Floyd & Wooldridge(1992, 1994)의 중간관리자 전략적 역할 유형론(action×cognition)을 정교화하는 근거로 사용됨.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">행위 유형 구성개념</span>
+                <span class="text-xs text-slate-400 font-semibold">DC Process</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">동적역량 프로세스 (감지·포착·재구성)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의(Teece, 2007):</strong> 감지="정보를 탐색·학습·해석하는 능력", 포착="기회를 사업화하기 위한 역량·BM·투자 결정과 자원 동원", 재구성="운영 역량을 조정하거나 새로 구축하는 것" (p.182–183).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 인터뷰 발화를 1차 개념으로 코딩 후 Teece 3단계 틀로 2차 주제화(Fig 1–3 코딩스킴, Gioia method).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 32건 인터뷰 + 2차자료(Table 2) 삼각검증, Fig 1–3, p.186–187.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Felin, Foss, Heimeriks & Madsen(2012)의 미시적 기초(microfoundations) 논쟁, Biesenthal et al.(2019)의 ostensive/performative 루틴 이원론과 연결.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">맥락 조건 구성개념</span>
+                <span class="text-xs text-slate-400 font-semibold">Context Condition</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">변화의 발생원 (내부발 vs 외부발)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> BMI를 촉발한 기회가 최고경영진의 전략적 의도(내부)에서 왔는지, 고객 피드백·경쟁사 행동·기술 트렌드(외부)에서 왔는지의 구분.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> Medtech의 두 순차적 변화 에피소드 — ①고객중심성 전환(내부발), ②디지털 서비타이제이션(외부발)에 경험적으로 대응.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Fig. 4 사건 연대기(p.189), 인터뷰 상 응답자의 "기원" 서술 코딩.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 질적 연구에서 사실상 "조절 조건"에 준하는 역할 — 관리 계층별 기여 패턴을 완전히 뒤바꾸는 핵심 축.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">결과 구성개념</span>
+                <span class="text-xs text-slate-400 font-semibold">Outcome (BMI)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">비즈니스 모델 혁신 (Business Model Innovation)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> "BM은 가치창출·가치제안·가치포착 구성요소와 내재 활동을 정의하며, BMI는 이 중 하나 이상을 변화시키는 것" (Clauss, 2017; p.183).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 제품중심 BM → 고객중심 BM, 중개자 경유 모델 → 최종사용자 직접 서비스 모델로의 전환. 시장점유율(60%), 서비스 매출 비중(25%) 등으로 조작화(p.187).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 연차보고서·산업데이터·인터뷰 삼각검증(Table 2), §4.1, p.187.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않은 연구자도 귀추적 단일사례 연구 절차를 그대로 따라 할 수 있도록 단계별로 분해했습니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구설계 선택: 귀추적 접근 + 종단적 단일사례</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  가설 검정(연역)도 신규 이론 구축(귀납)도 아닌 "이론 정련"을 목표로, 귀추적 접근(Dubois & Gadde, 2002)과 종단적 단일사례 연구(Eisenhardt, 1989b)를 결합.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.183, §3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">사례기업 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  "현상이 투명하게 관찰 가능한" 사례(Eisenhardt, 1989b) 기준에 따라, 시장변화 잠재력과 실제 실행 이력을 모두 가진 호주 의료기기 제조사(익명 'Medtech')를 선정. 연구팀 멤버 1인의 사전 접근권도 작용.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.183–184, §3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">정보제공자 모집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  과거 15년간 전략 변화를 알고 명료히 서술 가능한 직원을 기준으로 1차 인터뷰이 선정 후, 동료 추천 스노우볼 방식으로 확장·자격 재검증.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.184, §3.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">반구조화 인터뷰 실시</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  관리자용/비관리직용 별도 가이드(Appendix 1·2)로 화상 인터뷰 진행(평균 1시간, 녹음). 총 32명(최고경영진 10·중간관리자 7·비관리직 15), Marketing/R&D/Services/Manufacturing/IT/Finance/HR 부서 포괄. 제조부서는 3명 인터뷰 후 이론적 포화로 종료.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.184–185, §3.2, Table 1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">2차 자료 삼각검증 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  행동강령, 연차보고서, 소셜미디어, 언론기사, 투자자 프레젠테이션 등 20종 이상의 공개·내부 문서 확보(Table 2).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.185, §3.2, Table 2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">후속 인터뷰로 확증/반박</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  1차 인터뷰 검토 후 특정 응답자에게 재인터뷰 또는 이메일로 추가 질문하여 잠정 발견을 확증하거나 반박.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.184–185, §3.2</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">귀추적 코딩 및 Gioia method 적용</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  문헌 검토 → 인터뷰 전체상 파악 → 데이터-이론 반복왕복 → 1차 개념 → 2차 주제 → 집합적 차원으로 위계적 코딩(Fig 1–3: 감지/포착/재구성 코딩 스킴).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.185, §3.3, Fig 1–3</span>
+              </div>
+              <hr class="bg-slate-700"/>
+            </li>
+
+            <li>
+              <hr class="bg-slate-700"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">데이터 구조표·타임라인 구성 및 신뢰성 확보</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Table 3(고객중심성)·Table 4(디지털전환)로 관리계층×DC프로세스 데이터 구조 정리, Fig 4 사건 연대기 시각화. 전 연구진 코딩 검토, 2차자료 삼각검증, 정보제공자 대상 결과 공유(멤버체킹)로 신뢰성 확보.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.185–190, Table 3–4, Fig 4</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            인터뷰 프로토콜(Appendix 1·2)과 코딩 절차(귀추적 논리 + Gioia method)는 상세히 문서화되어 있어 방법론적 절차 자체는 재현 가능하다. 그러나 사례기업이 'Medtech'로 익명화되어 있고 "The authors do not have permission to share data"(p.192)로 명시되어 있어, 구체적 실증 결과를 원자료로부터 독립적으로 검증하는 것은 불가능하다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted, §6, p.192)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">저자들이 Section 6에서 직접 한정지은 연구의 경계입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>단일 사례 연구의 일반화 한계:</strong> "our insights are derived from analyzing market-driving strategies within the context of a longitudinal, in-depth case of one B2B firm active in the medical devices industry. Future research could thus draw on additional cases and add quantitative data..."
+              </li>
+              <li>
+                <strong>편향 통제의 한계:</strong> "although our research process sought to limit biases through applying interview guidelines and ensuring the presence of two researchers in each interview, future research could complement this research through other methods, such as surveys or focus groups."
+              </li>
+              <li>
+                <strong>성과 변수로의 확장 부재:</strong> "we essentially focus on examining the impact that DC deployment has on BMI. Future research could further expand this research by including an analysis of the impact of such BMI... on firm performance, growth, survival, or financial performance..."
+              </li>
+              <li>
+                <strong>분석 경계의 한계(이사회 미포함):</strong> "this deployment can also be influenced by members of the firms' board (Huynh, Wilden, & Gudergan, 2022). Hence, further research may clarify how members of the board influence market-driving strategies."
+              </li>
+              <li>
+                <strong>데이터 미공개:</strong> "The authors do not have permission to share data." (Data availability statement)
+              </li>
             </ul>
           </div>
         </div>
 
-        <div class="collapse collapse-arrow bg-amber-50/70 border border-amber-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-amber-900 flex items-center gap-2">
-            <span class="badge badge-warning text-white">Part B</span> 독자/연구자 관점의 독립적 비판적 검토 (Critical Methodological & Theoretical Concerns)
+        <!-- Limitation B -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 경영진 간 보상 체계 차이가 동적 역량 배치 동기에 미치는 효과 미반영</li>
-            </ul>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">질적 사례연구 설계 및 서술을 근거로 제기하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 사후적 서사 재구성 편향</span>
+                <p class="text-sm text-slate-700">
+                  최대 15년에 걸친 변화를 이미 성공(60% 점유율, 매출 10% 증가)한 것으로 알려진 상태에서 <strong>회고적으로 인터뷰</strong>했다. 당시의 혼란스럽고 우연적인 의사결정이 사후적으로 "감지-포착-재구성"이라는 깔끔한 서사로 재구성(hindsight bias)되었을 가능성이 크다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 연구자 내부자 편향</span>
+                <p class="text-sm text-slate-700">
+                  "one member of our research team had relevant pre-understanding about and deep insights into the case firm"(p.185)라는 서술은 신뢰성 근거로 제시되지만, 역으로 해당 연구자의 사전 이해가 코딩 범주 형성에 <strong>확증편향</strong>을 유발했을 위험 및 잠재적 이해상충을 내포한다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 스노우볼 표집의 체계적 편향</span>
+                <p class="text-sm text-slate-700">
+                  응답자가 "추천"한 동료를 스노우볼 방식으로 확장(p.184)했는데, 이는 이미 우호적 관계망에 있는 목소리를 과대표집하고 <strong>이직·퇴사자나 회사에 비판적인 전직원, 아이디어가 거부돼 좌절한 인물</strong>을 체계적으로 배제했을 가능성이 크다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 계층 조작화의 내적 불일치</span>
+                <p class="text-sm text-slate-700">
+                  Table 1을 보면 일부 "중간관리자"(Director R&D, 직속부하 12명)가 일부 "최고경영진"(VP Marketing, 직속부하 3~9명)보다 <strong>더 많은 부하직원을 감독</strong>한다. 직위 명칭과 실제 감독범위가 불일치함에도 순수 직함 기준으로만 계층을 분류해, 핵심 분석 단위의 조작적 타당성에 의문이 남는다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 반사실적 비교사례의 부재</span>
+                <p class="text-sm text-slate-700">
+                  시장주도전략이 실패했거나 최고경영진 단독 주도로 성공한 대조사례가 전혀 없다. <strong>60% 시장점유율의 압도적 선도기업</strong>이라는 자원이 풍부하고 경쟁압력이 낮은 특수 조건에서 나온 발견이, 자원이 부족한 평범한 B2B 기업에도 일반화될지는 미검증이다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. "내부발/외부발" 이분법의 순환성</span>
+                <p class="text-sm text-slate-700">
+                  저자들 스스로 디지털 서비타이제이션이 "고객중심성 강화의 결과로서(as an outcome of the increased customer centricity)" 발생했다고 서술한다(p.188). 즉 두 번째 에피소드가 첫 번째의 산물이라면, 이를 완전히 독립적인 "외부발" 비교축으로 다루는 것은 인과 해석에 혼란을 줄 수 있다.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+    </div>
   </main>
 
   <!-- Footer -->
-  <footer class="footer footer-center bg-slate-900 text-slate-400 p-8 border-t border-slate-800">
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
     <div>
-      <p class="font-bold text-slate-200">Industrial Marketing Management (IMM) Paper Analysis Archive</p>
-      <p class="text-xs text-slate-500 mt-1">Only senior managers lead business model innovation, or do they? Levels of management and dynamic capability deployment | Industrial Marketing Management Vol. 114 (2023), pp. 181-195</p>
+      <p class="font-bold text-slate-300">IMM Academic Paper Analysis Report</p>
+      <p>Only senior managers lead business model innovation, or do they? Levels of management and dynamic capability deployment</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
     </div>
   </footer>
 

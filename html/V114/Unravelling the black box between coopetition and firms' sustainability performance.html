@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unravelling the black box between coopetition and firms' sustainability performance - IMM 2023</title>
+  <title>Unravelling the Black Box Between Coopetition and Firms' Sustainability Performance - IMM 2023</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- DaisyUI 4 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   <!-- Pretendard Font Import -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  
+
   <script>
     tailwind.config = {
       theme: {
@@ -32,234 +32,834 @@
       color: #1e293b;
       word-break: keep-all;
     }
-    .style-display { font-size: 40px; font-weight: 700; line-height: 1.2; }
-    .style-h1 { font-size: 32px; font-weight: 700; line-height: 1.2; }
-    .style-h2 { font-size: 24px; font-weight: 600; line-height: 1.3; }
-    .style-h3 { font-size: 18px; font-weight: 600; line-height: 1.4; }
-    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
-    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
-    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+
+    /* Typography scale constraints */
+    .style-display {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .style-h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .style-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .style-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .style-body-large {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .style-small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .style-label {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive layout helper */
+    @media (max-width: 1024px) {
+      .style-display {
+        font-size: 38px;
+      }
+      .style-h1 {
+        font-size: 30px;
+      }
+      .style-h2 {
+        font-size: 22px;
+      }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-  <!-- Header / Hero Section (No Navbar, single scroll flow) -->
-  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-14 px-4 lg:px-8 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto flex flex-col gap-4 relative z-10">
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <!-- Abstract Vector Art Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
       <div class="flex flex-wrap gap-2">
-        <span class="badge badge-outline border-cyan-400 text-cyan-300 style-label uppercase">Industrial Marketing Management Vol. 114 (2023), pp. 110-124</span>
-        <span class="badge badge-secondary text-white style-label">Academic Paper Analysis</span>
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Coopetition & Sustainability</div>
+        <div class="badge badge-secondary text-white style-label">PLS-SEM + NCA</div>
       </div>
-      
-      <h1 class="style-display text-white mt-2">Unravelling the black box between coopetition and firms' sustainability performance</h1>
-      <h2 class="text-2xl font-semibold text-cyan-300">코오피티션과 기업의 지속가능성 성과 사이의 블랙박스 규명</h2>
-      <p class="text-slate-400 style-small mt-1">저자: Deodat Mwesiumo, Magoti Harun, Heidi Hogset</p>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Unravelling the black box between coopetition and<br>
+            <span class="text-cyan-400">firms' sustainability performance</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Deodat Mwesiumo, Magoti Harun, Heidi Hogset — Molde University College, Norway
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            코피티션(협력적 경쟁)과 기업<br>
+            <span class="text-indigo-300">지속가능성 성과 사이의 블랙박스 규명하기</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            노르웨이 수산업 97개사 설문을 기반으로 한 동적 역량·지속가능성 인식의 매개 및 필요조건 분석 (PLS-SEM + NCA)
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">코피티션은 그 자체로 지속가능성 성과를 만들지 않으며, 동적 역량과 지속가능성 인식을 완전히 매개로 거쳐야만 성과로 전환됩니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content Body -->
-  <main class="max-w-6xl mx-auto w-full px-4 lg:px-8 py-10 space-y-12 flex-1">
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
 
-    <!-- STEP 1: Title & Abstract Translation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-cyan-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
-      </div>
+    <!-- Content Area -->
+    <div class="flex flex-col gap-16">
 
-      <div class="grid lg:grid-cols-2 gap-6">
-        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200/60">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-ghost badge-sm">EN</span> Abstract (Original)
-          </h3>
-          <blockquote class="text-slate-600 style-small leading-relaxed italic">
-            "Drawing on dynamic capability and natural-resource-based views, this study examines how coopetition influences sustainability performance directly and indirectly through dual mediating mechanisms: dynamic capabilities and sustainability awareness."
-          </blockquote>
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
         </div>
 
-        <div class="bg-cyan-50/40 p-6 rounded-xl border border-cyan-100">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-info badge-sm text-white">KO</span> Abstract (한국어 번역)
-          </h3>
-          <blockquote class="text-slate-700 style-small leading-relaxed">
-            "동적 역량과 지속가능성 인식이라는 이중 매개 경로를 통해 코오피티션(Coopetition)이 기업의 환경·사회·경제적 지속가능성 성과에 미치는 영향을 PLS-SEM으로 검증한다."
-          </blockquote>
-        </div>
-      </div>
-
-      <div class="mt-6 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-600">
-        <span class="font-bold text-slate-800">💡 주요 학술 용어 번역 메모:</span> Coopetition은 "코오피티션"으로 번역함.
-      </div>
-    </section>
-
-    <!-- STEP 2: Core Claims (1-Minute Pitch) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-indigo-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="p-4 bg-indigo-50/50 rounded-xl border border-indigo-100">
-          <div class="font-bold text-indigo-900 text-sm uppercase tracking-wide">1. 연구 질문 (Research Question)</div>
-          <div class="text-slate-700 mt-1 style-body">코오피티션은 기업의 지속가능성 성과에 어떠한 영향을 미치며 이중 매개 구조는 무엇인가?</div>
-        </div>
-
-        <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100">
-          <div class="font-bold text-emerald-900 text-sm uppercase tracking-wide">2. 핵심 발견 (Key Findings)</div>
-          <div class="text-slate-700 mt-1 style-body">코오피티션은 동적 역량(H1+)과 지속가능성 인식(H3+)을 증진시키고, 이들이 지속가능성 성과(H2, H4+)를 매개하여 향상시킴.</div>
-        </div>
-
-        <div class="p-4 bg-purple-50/50 rounded-xl border border-purple-100">
-          <div class="font-bold text-purple-900 text-sm uppercase tracking-wide">3. 학술적 & 실무적 기여 (Contributions)</div>
-          <div class="text-slate-700 mt-1 style-body">코오피티션과 지속가능성 성과 간 매개 블랙박스를 이중 매개 구조로 명확히 해명함.</div>
-        </div>
-
-        <div class="alert alert-info shadow-sm bg-cyan-50 border-cyan-200 text-cyan-900 mt-4">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <div>
-            <span class="font-bold">한 줄 요약:</span> 코오피티션은 기업의 동적 역량과 지속가능성 인식을 촉진함으로써 지속가능성 성과를 높이는 결정적 동인이다.
+        <!-- Two-column layout (blockquote style) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Despite the widely advocated positive impact of coopetition on firms' sustainability performance, there is a lack of research-based explanations for the underlying mechanism linking these two variables. This study investigates the role of dynamic capabilities and sustainability awareness as mediators and necessary conditions for the relationship between coopetition and firms' sustainability performance. Drawing on data from the Norwegian fishing industry, our analysis demonstrates a significant association between coopetition and an increase in dynamic capabilities and sustainability awareness. Additionally, dynamic capabilities and sustainability awareness are significantly related to improved firms' sustainability performance. Importantly, the direct effect of coopetition becomes insignificant when considering the two mediating variables, indicating full mediation by dynamic capabilities and sustainability awareness. Further analysis reveals that these two factors are also necessary conditions for enhancing firms' sustainability performance. Based on these findings, we provide actionable recommendations to guide appropriate managerial and policy interventions."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">코피티션</span>이 기업의 지속가능성 성과에 긍정적 영향을 미친다는 주장은 널리 제기되어 왔지만, 두 변수를 연결하는 근본 메커니즘에 대한 실증 기반 설명은 부족한 실정이다. 본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">동적 역량</span>과 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">지속가능성 인식</span>이 코피티션과 기업 지속가능성 성과 간 관계에서 매개변수이자 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">필요조건</span>으로 작동하는지를 검증한다. 노르웨이 수산업 데이터를 분석한 결과, 코피티션은 동적 역량 및 지속가능성 인식의 증가와 유의한 관련이 있었다. 또한 동적 역량과 지속가능성 인식은 기업 지속가능성 성과의 향상과 유의하게 관련되어 있었다. 특히 두 매개변수를 모형에 포함하자 코피티션의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">직접효과</span>가 유의하지 않게 되어, 동적 역량과 지속가능성 인식에 의한 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">완전매개</span>가 확인되었다. 추가 분석 결과, 이 두 요인은 기업 지속가능성 성과를 높이기 위한 필요조건이기도 한 것으로 나타났다. 이러한 발견을 바탕으로 본 연구는 경영 및 정책 개입에 대한 실행 가능한 제언을 제시한다."
+            </blockquote>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- STEP 3: Evidence Alignment Table -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-blue-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거(Evidence)와 원문 위치</h2>
-      </div>
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Coopetition</td>
+                  <td>코피티션 (협력적 경쟁)</td>
+                  <td class="text-sm">cooperation + competition의 합성어로 동일 산업 내 경쟁자 간 동시적 협력·경쟁을 뜻하는 학술 고유명사. 음차와 의역을 병기함.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Dynamic Capabilities (DCs)</td>
+                  <td>동적 역량</td>
+                  <td class="text-sm">급변 환경에서 자원기반을 통합·구축·재구성하는 능력을 뜻하는 동적역량이론(DCT)의 표준 번역어.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Sustainability Awareness (SAW)</td>
+                  <td>지속가능성 인식</td>
+                  <td class="text-sm">지속가능성 개념과 관련성에 대한 행위자의 이해 정도. 본 논문에서는 단일 문항으로 측정됨.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Full (indirect-only) Mediation</td>
+                  <td>완전(간접전용) 매개</td>
+                  <td class="text-sm">Zhao et al.(2010) 분류에 따라 직접효과는 비유의, 간접효과만 유의한 매개 유형.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Necessary Condition Analysis (NCA)</td>
+                  <td>필요조건분석</td>
+                  <td class="text-sm">충분조건이 아닌 필요조건 로직에 기반해 "요인 부재 시 결과가 발생하지 않음"을 검증하는 방법론.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
-      <div class="overflow-x-auto">
-        <table class="table table-zebra w-full text-slate-700">
-          <thead class="bg-slate-100 text-slate-800">
-            <tr>
-              <th class="w-12">#</th>
-              <th class="w-1/3">핵심 주장</th>
-              <th>근거 (원문 인용)</th>
-              <th class="w-32">원문 위치</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-            <td class="font-bold">1</td>
-            <td>이중 매개 효과 실증</td>
-            <td class="text-xs font-mono bg-slate-50 p-2 rounded">Dynamic capabilities and sustainability awareness dual-mediate the link between coopetition and performance.</td>
-            <td class="text-xs text-slate-500">p. 119</td>
-        </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <!-- STEP 2 — Core Claims (1-minute explanation) -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
 
-    <!-- STEP 4: Research Model & Variables (DAG Included) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-teal-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
-      </div>
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
 
-      <!-- SVG DAG Model -->
-      <div class="mb-8 p-6 bg-slate-50 rounded-xl border border-slate-200">
-        <h3 class="style-h3 text-slate-800 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12H4z"></path></svg>
-          연구 가설 / 개념적 구조 모델 (Research DAG Framework)
-        </h3>
-        <svg viewBox="0 0 900 320" class="w-full h-auto bg-slate-50 border border-slate-200 rounded-xl" xmlns="http://www.w3.org/2000/svg">
-  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0891b2"/></marker></defs>
-  <rect x="30" y="110" width="200" height="100" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
-  <text x="130" y="145" text-anchor="middle" font-weight="bold" fill="#0369a1" font-size="15">코오피티션 (Coopetition)</text>
+          <!-- Vertical Steps Component -->
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">코피티션은 어떤 경로로 지속가능성 성과를 만드는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">직접효과는 사라지고, 완전매개 + 필요조건만 남는다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">매개(PLS-SEM)와 필요조건(NCA)의 결합 검증</p>
+                </div>
+              </li>
+            </ul>
 
-  <rect x="320" y="30" width="240" height="90" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
-  <text x="440" y="60" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="14">동적 역량 (Dynamic Capabilities)</text>
+            <div class="divider divider-horizontal hidden md:flex"></div>
 
-  <rect x="320" y="200" width="240" height="90" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
-  <text x="440" y="230" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="14">지속가능성 인식 (Awareness)</text>
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 코피티션이 기업 지속가능성 성과(경제·사회·환경)를 높인다는 주장은 많지만, 그 근본 메커니즘(mechanism)은 무엇인가?</li>
+                  <li><strong>핵심 발견:</strong> 매개변수 없이 보면 코피티션의 직접효과는 유의(β=0.373)하지만, <strong>동적 역량</strong>과 <strong>지속가능성 인식</strong>을 모형에 넣으면 직접효과가 사라진다(β=0.104, n.s.) → <strong>완전(간접전용) 매개</strong>. 나아가 NCA 분석 결과 두 매개변수는 지속가능성 성과 달성을 위한 <strong>필요조건</strong>(effect size d=0.276, 0.313, 모두 p&lt;0.01)이다.</li>
+                  <li><strong>이론/실무 기여:</strong> 코피티션→지속가능성 성과의 '블랙박스'를 최초로 실증 규명했으며, PLS-SEM(매개)과 NCA(필요조건)를 결합해 "충분히 도움이 되는 요인"과 "반드시 있어야 하는 요인"을 구분하는 방법론을 제시함.</li>
+                </ul>
+              </div>
 
-  <rect x="640" y="110" width="230" height="100" rx="10" fill="#faf5ff" stroke="#9333ea" stroke-width="2"/>
-  <text x="755" y="145" text-anchor="middle" font-weight="bold" fill="#7e22ce" font-size="15">지속가능성 성과</text>
-
-  <path d="M230 160 H640" stroke="#0284c7" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
-  <path d="M230 130 L320 75" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M560 75 L640 130" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M230 190 L320 245" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M560 245 L640 190" stroke="#ea580c" stroke-width="2" marker-end="url(#arrow)"/>
-</svg>
-      </div>
-
-      <!-- Detailed Variable / Construct Breakdown -->
-      <div class="space-y-4">
-        <div class="border border-sky-200 bg-sky-50/50 p-5 rounded-xl"><h3 class="style-h3 text-sky-900">1. 코오피티션 및 이중 매개 변수</h3></div>
-      </div>
-    </section>
-
-    <!-- STEP 5: Method Replication Sequence -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-amber-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
-      </div>
-
-      <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-        <li>
-            
-            <div class="timeline-start font-bold text-cyan-600">STEP 1</div>
-            <div class="timeline-middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-cyan-500"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg></div>
-            <div class="timeline-end timeline-box bg-slate-50 border-slate-200 shadow-sm p-4">
-                <div class="font-semibold text-slate-800">B2B 제조업 및 물류기업 n=187 대상 PLS-SEM 모델링</div>
-                <div class="text-xs text-slate-400 mt-1">원문 위치: pp. 115-119</div>
+              <!-- 1-line summary block -->
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "코피티션은 그 자체로 지속가능성 성과를 만드는 것이 아니라, 동적 역량과 지속가능성 인식이라는 두 '필요조건'을 완전히 매개로 거쳐야만 성과로 전환됩니다."
+                </p>
+              </div>
             </div>
-            
-        </li>
-      </ul>
-
-      <div class="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 font-semibold text-center">
-        ⚡ 재현 가능성 평가: 부분 재현 가능.
-      </div>
-    </section>
-
-    <!-- STEP 6: Limitations & Critical Evaluation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-rose-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 6. Limitation 분리 및 비판적 검토</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="collapse collapse-arrow bg-rose-50/70 border border-rose-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-rose-900 flex items-center gap-2">
-            <span class="badge badge-error text-white">Part A</span> 논문 저자가 명시적으로 인정한 한계점 (Self-acknowledged Limitations)
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 단일 국가 B2B 제조/물류 표본 한정 (p. 122)</li>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 가설적 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <!-- Table-zebra style -->
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">매개 배제 시 코피티션의 직접효과 (예비 검증)</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the direct impact of coopetition on firms' sustainability performance is positive (0.373) and statistically significant (p = 0.000)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.117 (§4.2, Fig.3, Table 5)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">H1: 코피티션 → 동적 역량 (지지)</td>
+                <td class="text-sm italic text-slate-600">
+                  "H1 ... is supported, as the corresponding path coefficient is positive (0.426) and significant (p = 0.000)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.117-118 (§4.2, Table 6)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">H2/H4: 동적역량·지속가능성 인식 → 성과 (모두 지지)</td>
+                <td class="text-sm italic text-slate-600">
+                  "H2 ... is supported ... (0.357) and significant (p = 0.000)." / "H4 ... was supported ... (0.318) and significant (p = 0.002)."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.118 (§4.2, Table 6)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">완전(간접전용) 매개 확인</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the direct effect of coopetition becomes insignificant following the inclusion of the two mediating variables, indicating that dynamic capabilities and sustainability awareness fully mediate the relationship."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.118 (§4.2-4.3, Table 7)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">NCA: 두 매개변수는 필요조건이자 병목 임계치 존재</td>
+                <td class="text-sm italic text-slate-600">
+                  "...the effect sizes (d) for both dynamic capabilities (DCs) and sustainability awareness (SAW) are above the conservative threshold ... indicating that the two variables are mandatory for sustainability performance." / "Dynamic capabilities must be at least 8.5%, and sustainability awareness must be at least 1.8%."
+                </td>
+                <td class="text-right font-medium text-slate-500">p.119 (§4.4, Fig.5, Table 8)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (병렬 이중매개모형, 연구 가설 모형)</h3>
+
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 820 420" class="w-full h-auto">
+              <!-- IV: Coopetition -->
+              <rect x="20" y="170" width="190" height="90" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
+              <text x="115" y="205" text-anchor="middle" font-weight="700" fill="#1e293b" font-size="15">코피티션</text>
+              <text x="115" y="223" text-anchor="middle" fill="#334155" font-size="11">(Coopetition, COOP)</text>
+              <text x="115" y="240" text-anchor="middle" fill="#64748b" font-size="10">경쟁자와의 동시 협력·경쟁</text>
+
+              <!-- Mediator 1: Dynamic Capabilities -->
+              <rect x="320" y="40" width="220" height="95" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="430" y="68" text-anchor="middle" font-weight="700" fill="#065f46" font-size="15">동적 역량 (DCs)</text>
+              <text x="430" y="88" text-anchor="middle" fill="#047857" font-size="11">지식개발(KND)·조직대응력(ORGR)</text>
+              <text x="430" y="103" text-anchor="middle" fill="#047857" font-size="11">성찰적 통제(REFC) — HOC</text>
+              <text x="430" y="120" text-anchor="middle" fill="#0f766e" font-size="10">필요조건 d=0.276***</text>
+
+              <!-- Mediator 2: Sustainability Awareness -->
+              <rect x="320" y="290" width="220" height="90" rx="8" fill="#eff6ff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="430" y="320" text-anchor="middle" font-weight="700" fill="#0369a1" font-size="15">지속가능성 인식 (SAW)</text>
+              <text x="430" y="340" text-anchor="middle" fill="#0284c7" font-size="11">단일 문항 측정</text>
+              <text x="430" y="358" text-anchor="middle" fill="#0369a1" font-size="10">필요조건 d=0.313***</text>
+
+              <!-- DV: Firms' Sustainability Performance -->
+              <rect x="620" y="165" width="180" height="100" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="710" y="195" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">기업 지속가능성</text>
+              <text x="710" y="213" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="15">성과 (FSP)</text>
+              <text x="710" y="232" text-anchor="middle" fill="#4338ca" font-size="11">경제·사회·환경 — HOC</text>
+              <text x="710" y="249" text-anchor="middle" fill="#4338ca" font-size="10">R²=0.434 (매개 포함 모형)</text>
+
+              <!-- Control variables box -->
+              <rect x="620" y="20" width="180" height="55" rx="8" fill="#fafaf9" stroke="#a8a29e" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="710" y="42" text-anchor="middle" font-weight="700" fill="#57534e" font-size="12">통제변수</text>
+              <text x="710" y="58" text-anchor="middle" fill="#78716c" font-size="10">기업규모(FSIZE)·업력(INDUE), n.s.</text>
+
+              <!-- Arrows: COOP -> DCs (H1) -->
+              <path d="M210 195 L 260 195 L 260 100 L 315 100" fill="none" stroke="#10b981" stroke-width="2.2" marker-end="url(#arrow)"/>
+              <text x="225" y="145" fill="#047857" font-weight="700" font-size="12">H1 (+, 0.426**)</text>
+
+              <!-- Arrows: COOP -> SAW (H3) -->
+              <path d="M210 235 L 260 235 L 260 320 L 315 320" fill="none" stroke="#0ea5e9" stroke-width="2.2" marker-end="url(#arrow)"/>
+              <text x="225" y="290" fill="#0284c7" font-weight="700" font-size="12">H3 (+, 0.366**)</text>
+
+              <!-- Arrows: DCs -> FSP (H2) -->
+              <path d="M540 100 L 590 100 L 590 200 L 615 200" fill="none" stroke="#10b981" stroke-width="2.2" marker-end="url(#arrow)"/>
+              <text x="548" y="130" fill="#047857" font-weight="700" font-size="12">H2 (+, 0.357**)</text>
+
+              <!-- Arrows: SAW -> FSP (H4) -->
+              <path d="M540 320 L 590 320 L 590 235 L 615 235" fill="none" stroke="#0ea5e9" stroke-width="2.2" marker-end="url(#arrow)"/>
+              <text x="548" y="313" fill="#0284c7" font-weight="700" font-size="12">H4 (+, 0.318**)</text>
+
+              <!-- Direct effect COOP -> FSP: dashed, becomes n.s. -->
+              <path d="M115 170 L 115 395 L 710 395 L 710 267" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-gray)"/>
+              <text x="410" y="412" text-anchor="middle" fill="#64748b" font-weight="700" font-size="12">직접효과: 매개 배제 시 0.373** → 매개 포함 시 0.104 (n.s.) — 완전매개</text>
+
+              <!-- Control -> FSP dashed -->
+              <path d="M710 75 L 710 163" fill="none" stroke="#a8a29e" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-gray)"/>
+
+              <!-- SVG Arrow Markers -->
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+                <marker id="arrow-gray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <p class="style-small text-slate-500 max-w-2xl text-center">
+            조절변수는 가설화되지 않음 — 저자들은 "환경 역동성(environmental dynamism)의 조절효과"를 향후 연구 과제로만 언급함(p.120). 점선은 직접효과(매개변수 배제 시에는 유의했으나, 매개변수 포함 시 소멸하는 경로 및 비유의 통제변수 경로)를 나타냄.
+          </p>
+        </div>
+
+        <!-- Variable Detail Cards in Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">독립변수</span>
+                <span class="text-xs text-slate-400 font-semibold">IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">코피티션 (Coopetition, COOP)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> "동일 산업 내에서 경쟁 관계에 있는 기업들이 동시에 협력하는 것" (Bengtsson &amp; Kock, 2014, p.182, 재인용 p.110).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 경쟁사와의 공동 지속가능성 목표 추구, 품질표준 공동화, 공동 마케팅 등 5개 문항(7점 리커트)의 1차 반영적 구성개념.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Bouncken et al.(2018), Crick &amp; Crick(2021), Paulraj et al.(2014) 척도를 예비 인터뷰로 수정 / COOP1-5 (α=0.857, AVE=0.633). COOP5 적재량 0.635로 임계치 미달이나 유지.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 코피티션은 "경쟁과 협력 사이의 다층적 역설적 긴장"으로 정의되며(Monticelli et al., 2023), 조직학습 및 동적역량 문헌과 직결됨.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator 1 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">매개변수 1 (HOC)</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator 1</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">동적 역량 (Dynamic Capabilities, DCs)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> "변화하는 환경에 대응하기 위해 자원 기반을 목적의식적으로 통합·구축·재구성하는 능력" (Teece et al., 1997, p.516).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 지식개발(KND 3문항)·조직대응력(ORGR 3문항)·성찰적통제(REFC 3문항)의 3개 1차 구성개념이 반영하는 상위차원 구성개념(반복지표법).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Alinaghian et al.(2020), Teece(2007) 기반 / HOC AVE=0.584, ρc=0.808, α=0.644. KND(α=0.594)·REFC(α=0.682)는 관례적 임계치(0.7) 미달.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> DCT는 RBV의 "정적 환경" 가정을 비판하며, 급변 환경에서 경쟁우위가 소멸할 수 있다고 봄(Beske, 2012; Teece et al., 1997).
+              </p>
+            </div>
+          </div>
+
+          <!-- Mediator 2 Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">매개변수 2</span>
+                <span class="text-xs text-slate-400 font-semibold">Mediator 2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">지속가능성 인식 (Sustainability Awareness, SAW)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> "행위자가 지속가능성 개념과 그 관련성을 이해하는 정도" (p.112).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> <strong>단일 문항(single-item)</strong> — "We are highly aware of sustainability issues in our supply chain."(7점 리커트).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Bergkvist &amp; Rossiter(2009), Bergkvist(2015/2016), Freed(2013)의 단일문항 정당화 논리 원용. loading=1.000(단일문항 특성).</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> "인식이 실천에 선행한다"는 전제(p.112) 하에 매개변수로 설정. 단일 문항이라 내적 신뢰도 자체 산출이 불가능함에 유의.
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">종속변수 (HOC)</span>
+                <span class="text-xs text-slate-400 font-semibold">Dependent Variable (DV)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기업 지속가능성 성과 (Firms' Sustainability Performance, FSP)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> Li(2022)를 따라 "경제적, 사회적, 환경적 최적화"를 포괄(p.112).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 경제(FSP_E, 4문항: 시장점유율·매출·비용효율성·수익성), 사회(FSP_S, 3문항: 지역사회 기여·안전·이해관계자 후생), 환경(FSP_G, 4문항: 배출저감·재활용·해양쓰레기·에너지절감)의 3개 1차 구성개념이 반영하는 상위차원 구성개념.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Crick &amp; Crick(2021), Guo et al.(2014), Kallmuenzer et al.(2021), Kumar et al.(2018), Paulraj et al.(2014) / HOC AVE=0.686, ρc=0.867, α=0.772.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 3축을 형성적(formative)으로 볼지 반영적(reflective)으로 볼지 학계 논쟁이 있으나(Khan et al., 2016), 저자들은 수산업 맥락에서 상호연관된 반영적 모델을 채택함.
+              </p>
+            </div>
+          </div>
+
+          <!-- Control variables card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-ghost style-label text-slate-700">통제변수</span>
+                <span class="text-xs text-slate-400 font-semibold">Control Variables</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기업 규모 (FSIZE) · 산업 업력 (INDUE)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> FSIZE — 상시/임시 고용인원 범주(50명 미만/50~500명/500명 초과). INDUE — 업력 범주(7년 미만/7년 이상).</p>
+              <p class="text-sm text-slate-600"><strong>결과:</strong> 두 변수 모두 FSP에 유의한 영향 없음 (FSIZE β=0.016~0.026, p=0.79~0.90; INDUE β=0.096~0.144, p=0.06~0.14).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 예비 질적 연구부터 PLS-SEM 및 NCA까지 그대로 <strong>추종 재현</strong>할 수 있도록 실증 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <!-- Timeline Component with color flow -->
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">예비 질적 탐색 (맥락 이해)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  노르웨이 수산업 4개 기업(NFAS 소속) 종사자 대상 반구조화 인터뷰 6건(총 335분, 전사 61페이지) 실시. NVivo 12 Pro로 코딩, 귀추적 추론으로 2차 코드 및 주제 도출.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.113 (§3.1), p.121 (Appendix 1)</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">실증 맥락 확인 및 사례 선정 기준 수립</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  (a) 동일 산업·시장 내 동시 경쟁·협력, (b) 동일 코피티션 네트워크 소속, (c) 공급망 상·하류 모두에서 코피티션 활동 확인이라는 3개 기준으로 목적표집하여 노르웨이 수산업을 사례로 정당화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.113 (§3.1)</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">설문 문항 개발 및 변수 조작화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  선행연구 척도를 인터뷰 인사이트로 수정하여 7점 리커트 척도로 구성(Table 1). 실무자 2인이 사전 검토(pre-screening)하여 명확성·관련성 확인.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.114 (§3.3, Table 1), p.115 (§3.4)</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">표본 프레임 확정 및 데이터 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Norwegian Seafood Council 명부의 297개 수산기업 <strong>전수조사</strong>. Nettskjema(오슬로대) 도구로 2022년 1~3월, 2주 간격 3회차 발송 → 유효응답 97건(응답률 32.7%).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.115 (§3.4)</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">표본 크기 적정성 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Kock &amp; Hadaya(2018)의 <strong>역제곱근법</strong> 적용. 최초 50개 응답의 최소 경로계수(0.256) 기준 80% 검정력을 위해 최소 94개 관측치 필요 → 97개로 충족.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.115 (§3.4)</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">무응답 편향 및 동일방법편향(CMB) 점검</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  초기 25%(24건) vs 후기 25%(24건) 대응표본 t-검정 → 유의차 없음(Table 2). Harman 단일요인검정 결과 단일 요인이 분산의 21.17%만 설명(임계치 50% 미만).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.115 (§3.5, Table 2)</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">측정모형 평가 (PLS-SEM, SmartPLS 3.7)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  2개 HOC(DCs, FSP)에 reflective-reflective <strong>반복지표법</strong> 적용. rho_A·AVE(≥0.5)·지표적재량(≥0.7, 0.4~0.7 예외 허용)으로 신뢰성/수렴타당도, HTMT로 판별타당도 확인(Table 3, 4).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.116 (§4.1, Table 3-4)</span>
+              </div>
+              <hr class="bg-slate-700"/>
+            </li>
+
+            <!-- Step 8 -->
+            <li>
+              <hr class="bg-slate-700"/>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">구조모형 추정: 매개 배제 → 매개 포함 모형</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  10,000회 부트스트랩. 매개 배제 모형(Fig.3): COOP→FSP β=0.373**, R²=0.171. 매개 포함 모형(Fig.4): H1~H4 전원 지지, 직접효과 β=0.104(n.s.)로 소멸, R²=0.434(Adj. 0.403), Q²=0.207, VIF&lt;3.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.117-118 (§4.2, Fig.3-4, Table 5-6)</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 9 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">9</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 9</time>
+                <div class="text-lg font-bold text-slate-800">매개효과 부트스트랩 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Zhao et al.(2010) 기준으로 매개유형 판정. COOP→DCs→FSP=0.150 [0.065, 0.273]**; COOP→SAW→FSP=0.116 [0.031, 0.236]*; 전체 간접효과=0.378**. 직접효과 소멸 확인 → 완전(간접전용) 매개.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.118 (§4.3, Table 7)</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 10 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">10</span>
+              </div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 10</time>
+                <div class="text-lg font-bold text-slate-800">필요조건분석 (NCA)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  PLS-SEM 잠재변수 점수를 R로 이전, R 패키지 <code>NCA</code> v3.1.1(Dul, 2021)로 CE-FDH 기법 적용, 10,000회 순열검정. DCs d=0.276***, SAW d=0.313***. FSP 50% 달성 최소 요구: DCs≥8.5%, SAW≥1.8%; SAW는 85.2% 초과 시 천장효과.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.119 (§4.4, Fig.5, Table 8)</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Replication assessment block -->
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            PLS-SEM 임계치·부트스트랩 반복수·NCA 패키지 버전 등 정량 절차는 투명하게 공개되어 통계기법 자체는 재현 가능하나, Norwegian Seafood Council의 297개사 전수조사 명부와 예비 인터뷰 6건의 세부 코딩 및 수정된 문항 원문은 외부 연구자가 완전히 재구성하기 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A: Admitted Limitations (alert alert-error + collapse) -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6, p.120)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>횡단적 데이터의 한계:</strong> "the analysis was based on cross-sectional data, making it challenging to uncover changes over time." 시간 경과에 따른 변화를 포착하지 못하며, 향후 종단연구가 필요함을 인정.
+              </li>
+              <li>
+                <strong>환경 역동성의 조절효과 미검증:</strong> "this study did not consider the potential moderating effect of environmental dynamism on the relationship between dynamic capabilities and sustainability performance."
+              </li>
+              <li>
+                <strong>단일 산업·단일 국가 한정:</strong> "the analysis was based on only one industry in one country, making it challenging to generalise the findings to other food industries."
+              </li>
+              <li>
+                <strong>코피티션 외 다른 선행요인 미탐구:</strong> "the study only focused on coopetition as a driver of dynamic capabilities and sustainability awareness ... future studies may empirically explore other sources."
+              </li>
+              <li>
+                <strong>하위역량 간 상호작용 미분석:</strong> "the development of dynamic capabilities is expensive. Future studies could examine the interaction among these lower-order capabilities [KND, ORGR, REFC] to explore the importance and role of each."
+              </li>
             </ul>
           </div>
         </div>
 
-        <div class="collapse collapse-arrow bg-amber-50/70 border border-amber-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-amber-900 flex items-center gap-2">
-            <span class="badge badge-warning text-white">Part B</span> 독자/연구자 관점의 독립적 비판적 검토 (Critical Methodological & Theoretical Concerns)
+        <!-- Limitation B: Critical Doubts (collapse with warning background) -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 경쟁사와의 기밀 누출 기회비용 미평가</li>
-            </ul>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계·측정·맥락을 근거로 제기하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 역인과관계 / 자기선택 편향</span>
+                <p class="text-sm text-slate-700">
+                  "As firms engage in coopetition, their dynamic capabilities will likely increase"(p.117)처럼 인과 방향을 전제하지만, 단일 시점 횡단설계로는 <strong>이미 동적 역량·지속가능성 인식이 높은 기업이 코피티션에 더 적극 참여했을</strong> 역방향 가능성을 배제할 수 없습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. SAW의 단일문항 측정 취약성</span>
+                <p class="text-sm text-slate-700">
+                  완전매개·필요조건이라는 핵심 결론의 절반이 <strong>문항 1개짜리 SAW</strong>에 의존합니다. 단일 문항은 내적신뢰도 자체를 산출할 수 없고(loading=1.000으로 기계적 처리), 측정오차 및 동일방법편향 증폭에 취약합니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 하위구성개념의 낮은 신뢰도</span>
+                <p class="text-sm text-slate-700">
+                  KND(α=0.594), REFC(α=0.682)는 관례적 임계치(0.7) 미달입니다. 저자들은 더 관대한 rho_A·합성신뢰도로 대체 평가하고, 적재량 0.7 미만인 3개 지표(COOP5·KND3·REFC2)도 유지했는데 이는 <strong>사후적으로 정당화된 재량적 판단</strong>일 수 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 소표본 + 고차구성개념 추정 안정성</span>
+                <p class="text-sm text-slate-700">
+                  N=97(500인 초과 기업 단 6개사)로 반복지표법 기반 2개 HOC를 포함한 복잡모형을 추정했습니다. 역제곱근법의 "최소 94개"는 검정력 하한선일 뿐, <strong>추정치의 안정성이나 과적합 방지를 보장하지 않습니다.</strong>
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 동일방법·동일응답자 편향</span>
+                <p class="text-sm text-slate-700">
+                  기업당 단일 고위 관리자가 IV·매개·DV를 모두 응답했습니다. <strong>Harman 단일요인검정은 CMB를 실제로 통제하지 못한다</strong>는 비판이 널리 제기되는 약한 진단법이며, 마커변수·시점분리 등 절차적 교정은 사용되지 않았습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 주관적 성과 인식 vs 객관적 지표</span>
+                <p class="text-sm text-slate-700">
+                  FSP_E/S/G 문항은 모두 "~이 개선되었다"는 <strong>관리자의 주관적 인지</strong>에 의존하며, 실제 재무·배출량 데이터와의 삼각검증이 없습니다. '지속가능성' 연구 특성상 사회적 바람직성 편향 개입 가능성이 특히 큽니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">7. 맥락 특수성</span>
+                <p class="text-sm text-slate-700">
+                  노르웨이 백색어종 수산업은 어획 쿼터제·NFAS 등 강한 산업협회·정부 규제 하의 소수 모집단(297개사) 상업어업입니다. 코피티션이 이미 <strong>제도적으로 구조화된 이 맥락</strong>의 메커니즘이 규제가 약한 일반 B2B 산업재 시장에도 통할지는 미지수입니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">8. NCA "필요조건" 주장의 실질적 크기</span>
+                <p class="text-sm text-slate-700">
+                  병목표(Table 8)의 대부분 구간이 "NN"(불필요)이며, 50% 성과 달성을 위한 필요 수준도 DCs 8.5%·SAW 1.8%로 매우 낮습니다. <strong>"mandatory", "indispensable"</strong>이라는 수사에 비해 실제 문턱은 완만하여 실무적 함의가 과장되었을 소지가 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">9. 질적 예비연구와 가설 도출의 순환성</span>
+                <p class="text-sm text-slate-700">
+                  4개 회사·6인(모두 NFAS 소속) 인터뷰가 맥락 확인과 4개 가설(매개변수 선정) 근거로 동시에 사용되었고, 이후 정량조사 모집단(297개사)도 동일 산업입니다. <strong>이미 코피티션에 적극적인 소수 선도기업의 내러티브</strong>가 전체 메커니즘 틀로 일반화되었을 위험이 있습니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">10. 연구비 출처의 방향성 가능성</span>
+                <p class="text-sm text-slate-700">
+                  "지속가능 식량안보를 위한 국제·지역 농식품 공급망 통합"을 목표로 하는 EU H2020 MSCA-RISE 사업(GOLF, Grant 777742)의 지원을 받았습니다(p.120). <strong>미션 지향적 연구비</strong>가 코피티션의 긍정적 결론을 지지하는 방향으로 (의식적이든 아니든) 영향을 줄 수 있는 구조적 유인이 될 수 있습니다.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+    </div>
   </main>
 
   <!-- Footer -->
-  <footer class="footer footer-center bg-slate-900 text-slate-400 p-8 border-t border-slate-800">
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
     <div>
-      <p class="font-bold text-slate-200">Industrial Marketing Management (IMM) Paper Analysis Archive</p>
-      <p class="text-xs text-slate-500 mt-1">Unravelling the black box between coopetition and firms' sustainability performance | Industrial Marketing Management Vol. 114 (2023), pp. 110-124</p>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Unravelling the black box between coopetition and firms' sustainability performance</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
     </div>
   </footer>
 

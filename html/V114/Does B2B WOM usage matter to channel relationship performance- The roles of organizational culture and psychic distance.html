@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Does B2B WOM usage matter to channel relationship performance? The roles of organizational culture and psychic distance - IMM 2023</title>
+  <title>Does B2B WOM usage matter to channel relationship performance? - IMM 2023</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- DaisyUI 4 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   <!-- Pretendard Font Import -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  
+
   <script>
     tailwind.config = {
       theme: {
@@ -32,240 +32,832 @@
       color: #1e293b;
       word-break: keep-all;
     }
-    .style-display { font-size: 40px; font-weight: 700; line-height: 1.2; }
-    .style-h1 { font-size: 32px; font-weight: 700; line-height: 1.2; }
-    .style-h2 { font-size: 24px; font-weight: 600; line-height: 1.3; }
-    .style-h3 { font-size: 18px; font-weight: 600; line-height: 1.4; }
+
+    /* Typography scale constraints */
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
     .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
     .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
     .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+
+    html { scroll-behavior: smooth; }
+
+    @media (max-width: 1024px) {
+      .style-display { font-size: 38px; }
+      .style-h1 { font-size: 30px; }
+      .style-h2 { font-size: 22px; }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-  <!-- Header / Hero Section (No Navbar, single scroll flow) -->
-  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-14 px-4 lg:px-8 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto flex flex-col gap-4 relative z-10">
+  <!-- Navbar (plain, non-fixed, part of normal document flow) -->
+  <div class="navbar bg-slate-900 text-white shadow-md px-4 lg:px-8">
+    <div class="flex-1">
+      <a class="btn btn-ghost normal-case text-xl font-bold tracking-tight text-cyan-400" href="#">IMM Research Brief</a>
+    </div>
+    <div class="flex-none hidden lg:block">
+      <ul class="menu menu-horizontal px-1 gap-2 text-slate-300 style-label">
+        <li><a href="#abstract" class="hover:text-cyan-400">초록</a></li>
+        <li><a href="#claims" class="hover:text-cyan-400">핵심 주장</a></li>
+        <li><a href="#evidence" class="hover:text-cyan-400">근거 데이터</a></li>
+        <li><a href="#model" class="hover:text-cyan-400">연구 모델 & 변수</a></li>
+        <li><a href="#method" class="hover:text-cyan-400">분석 방법론</a></li>
+        <li><a href="#limitations" class="hover:text-cyan-400">한계점 & 비판</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
       <div class="flex flex-wrap gap-2">
-        <span class="badge badge-outline border-cyan-400 text-cyan-300 style-label uppercase">Industrial Marketing Management Vol. 114 (2023), pp. 286-296</span>
-        <span class="badge badge-secondary text-white style-label">Academic Paper Analysis</span>
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Word-of-Mouth</div>
+        <div class="badge badge-secondary text-white style-label">International Channel Partners</div>
       </div>
-      
-      <h1 class="style-display text-white mt-2">Does B2B WOM usage matter to channel relationship performance? The roles of organizational culture and psychic distance</h1>
-      <h2 class="text-2xl font-semibold text-cyan-300">B2B 구전 활용이 유통채널 관계 성과에 미치는 영향- 조직문화와 심리적 거리의 조절 효과</h2>
-      <p class="text-slate-400 style-small mt-1">저자: Mai Kikumori, Ryuta Ishii</p>
+
+      <!-- English & Korean titles side-by-side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Does B2B WOM usage matter to channel relationship performance?<br>
+            <span class="text-cyan-400">The roles of organizational culture and psychic distance</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Mai Kikumori, Ryuta Ishii &middot; Ritsumeikan University, Japan
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            B2B 구전(WOM) 활용은 채널 관계 성과에<br>영향을 미치는가?
+            <span class="text-indigo-300">조직문화와 심리적 거리의 역할</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            일본 수출 제조기업 246개사 설문 데이터를 기반으로 한 WOM 활용의 양날의 검(double-edged sword) 효과 분석
+          </p>
+        </div>
+      </div>
+
+      <!-- Intro summary -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">WOM 활용은 그 자체로 좋거나 나쁜 게 아니라, 권력거리·남성성(조직문화)과 사람 특성 심리적 거리(외부 환경)에 따라 득이 되기도, 독이 되기도 합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content Body -->
-  <main class="max-w-6xl mx-auto w-full px-4 lg:px-8 py-10 space-y-12 flex-1">
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
 
-    <!-- STEP 1: Title & Abstract Translation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-cyan-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
-      </div>
+    <div class="flex flex-col gap-16">
 
-      <div class="grid lg:grid-cols-2 gap-6">
-        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200/60">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-ghost badge-sm">EN</span> Abstract (Original)
-          </h3>
-          <blockquote class="text-slate-600 style-small leading-relaxed italic">
-            "While Word-of-Mouth (WOM) is well-studied in B2C contexts, its impact on international B2B channel relationships remains under-researched. Drawing on information processing theory, this study examines how B2B WOM usage affects exporters' perceived channel relationship performance, and how this effect is contingent on organizational culture dimensions and psychic distance."
-          </blockquote>
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
         </div>
 
-        <div class="bg-cyan-50/40 p-6 rounded-xl border border-cyan-100">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-info badge-sm text-white">KO</span> Abstract (한국어 번역)
-          </h3>
-          <blockquote class="text-slate-700 style-small leading-relaxed">
-            "B2B 구전 활용(WOM Usage)이 일본 수출기업의 지각된 유통채널 관계 성과에 미치는 영향과, Hofstede 조직문화 4대 차원 및 심리적 거리의 조절 효과를 위계적 회귀분석으로 실증 분석한다."
-          </blockquote>
-        </div>
-      </div>
-
-      <div class="mt-6 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-600">
-        <span class="font-bold text-slate-800">💡 주요 학술 용어 번역 메모:</span> B2B WOM Usage는 "B2B 구전 활용도"로, Psychic Distance는 "심리적 거리"로 번역함.
-      </div>
-    </section>
-
-    <!-- STEP 2: Core Claims (1-Minute Pitch) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-indigo-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="p-4 bg-indigo-50/50 rounded-xl border border-indigo-100">
-          <div class="font-bold text-indigo-900 text-sm uppercase tracking-wide">1. 연구 질문 (Research Question)</div>
-          <div class="text-slate-700 mt-1 style-body">B2B 구전 활용이 유통채널 관계 성과에 미치는 영향 및 조직문화와 심리적 거리의 조절 메커니즘은 무엇인가?</div>
-        </div>
-
-        <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100">
-          <div class="font-bold text-emerald-900 text-sm uppercase tracking-wide">2. 핵심 발견 (Key Findings)</div>
-          <div class="text-slate-700 mt-1 style-body">B2B 구전 활용은 유통채널 성과를 향상시킴. 집단주의(H1+), 권력격차(H2+), 불확실성 회피(H3+)는 양의 조절을, 남성성(H4-)은 음의 조절을 수행함. 심리적 거리(H5a, H5b+)가 멀수록 구전의 성과 기여도가 커짐.</div>
-        </div>
-
-        <div class="p-4 bg-purple-50/50 rounded-xl border border-purple-100">
-          <div class="font-bold text-purple-900 text-sm uppercase tracking-wide">3. 학술적 & 실무적 기여 (Contributions)</div>
-          <div class="text-slate-700 mt-1 style-body">B2C 중심 구전 연구를 B2B 국제 유통채널로 확장하고 문화/심리적 거리의 조절 메커니즘을 밝힘.</div>
-        </div>
-
-        <div class="alert alert-info shadow-sm bg-cyan-50 border-cyan-200 text-cyan-900 mt-4">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <div>
-            <span class="font-bold">한 줄 요약:</span> B2B 구전 활용은 유통채널 성과를 높이며, 불확실성이 높고 심리적 거리가 먼 환경일수록 구전의 효과가 증폭된다.
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <!-- English Abstract -->
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Word-of-mouth (WOM) in the business-to-business (B2B) context is of great interest to business managers and academic researchers. Firms often use B2B WOM not only to choose products and services but also to select channel partners. Particularly, exporting manufacturers tend to rely on face-to-face WOM from existing partners and business connections to select international channel partners. However, the literature provides contradictory findings on whether WOM usage for selecting international channel partners has a positive or negative impact on subsequent relationship outcomes. Therefore, the question of whether export manufacturers should use WOM in the selection of international channel partners remains unanswered. We aim to address this question by examining firms' internal and external factors (i.e., organizational culture and psychic distance, respectively). By analyzing survey data from Japanese exporting manufacturers, we show that WOM usage can have both positive and negative effects on relationship performance, depending on the firm's internal and external factors. Specifically, organizational culture (power distance and masculinity/femininity) and perceived psychic distance (people characteristics distance) influence the benefits of WOM usage. By indicating that WOM usage does not always lead to favorable outcomes, our study contributes to the research on B2B WOM management and international channel relationships."
+            </blockquote>
+          </div>
+          <!-- Korean Translation -->
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              "B2B(기업 간) 맥락에서의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">구전(Word-of-Mouth, WOM)</span>은 실무 경영자와 학계 연구자 모두의 큰 관심사이다. 기업들은 B2B WOM을 제품·서비스 선택뿐 아니라 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">채널 파트너 선정</span>에도 활용한다. 특히 수출 제조기업은 국제 채널 파트너를 선정할 때 기존 파트너 및 비즈니스 인맥으로부터 얻는 대면(face-to-face) WOM에 의존하는 경향이 있다. 그러나 선행연구들은 WOM 활용이 이후 관계 성과에 긍정적 영향을 미치는지 부정적 영향을 미치는지에 대해 상반된 결과를 제시해왔다. 따라서 수출 제조기업이 국제 채널 파트너 선정 시 WOM을 활용해야 하는지에 대한 질문은 여전히 답을 찾지 못한 상태이다. 본 연구는 기업의 내부 요인과 외부 요인(각각 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">조직문화</span>와 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">심리적 거리</span>)을 검토함으로써 이 질문에 답하고자 한다. 일본 수출 제조기업 설문 데이터를 분석한 결과, WOM 활용은 기업의 내·외부 요인에 따라 관계 성과에 긍정적 효과와 부정적 효과를 모두 가질 수 있는 것으로 나타났다. 구체적으로, 조직문화(권력거리, 남성성/여성성)와 지각된 심리적 거리(사람 특성 거리)가 WOM 활용의 이득에 영향을 미친다. WOM 활용이 항상 호의적인 결과로 이어지는 것은 아님을 보임으로써, 본 연구는 B2B WOM 관리 및 국제 채널 관계 연구에 기여한다."
+            </blockquote>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- STEP 3: Evidence Alignment Table -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-blue-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거(Evidence)와 원문 위치</h2>
-      </div>
+        <!-- Glossary Table -->
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">WOM Usage for Channel Partner Selection</td>
+                  <td>채널 파트너 선정을 위한 구전 활용</td>
+                  <td class="text-sm">단순 구전 발생·수신이 아니라, 파트너 선정 의사결정 시 구전 정보에 의존하는 행동 성향을 측정하므로 "활용"으로 번역.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Organizational Culture (internal factor)</td>
+                  <td>조직문화 (내부 요인)</td>
+                  <td class="text-sm">Hofstede의 국가문화 프레임워크를 조직(공급망 관리자들의 공유 가치관) 수준으로 전용해 측정.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Perceived Psychic Distance (external factor)</td>
+                  <td>지각된 심리적 거리 (외부 요인)</td>
+                  <td class="text-sm">지리적 거리가 아닌, 경영자가 주관적으로 인지하는 본국-수출국 간 이질감이므로 "지각된"을 병기.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Power Distance / Masculinity-Femininity</td>
+                  <td>권력거리 / 남성성-여성성</td>
+                  <td class="text-sm">Hofstede 문화 차원의 국내 표준 번역어. 본 연구에서는 값이 낮을수록(여성성) WOM 효과가 커지는 역방향 조절이 발견됨.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Country / People Characteristics Distance</td>
+                  <td>국가 특성 거리 / 사람 특성 거리</td>
+                  <td class="text-sm">Sousa &amp; Lages(2011) PD Scale의 2개 하위차원(경제·인프라 vs. 소비자·문화가치)을 그대로 직역.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
-      <div class="overflow-x-auto">
-        <table class="table table-zebra w-full text-slate-700">
-          <thead class="bg-slate-100 text-slate-800">
-            <tr>
-              <th class="w-12">#</th>
-              <th class="w-1/3">핵심 주장</th>
-              <th>근거 (원문 인용)</th>
-              <th class="w-32">원문 위치</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-            <td class="font-bold">1</td>
-            <td>B2B WOM과 관계 성과의 양의 관계</td>
-            <td class="text-xs font-mono bg-slate-50 p-2 rounded">B2B WOM usage directly enhances exporters' perceived channel relationship performance.</td>
-            <td class="text-xs text-slate-500">p. 290, Section 5.1</td>
-        </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
 
-    <!-- STEP 4: Research Model & Variables (DAG Included) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-teal-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
-      </div>
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
 
-      <!-- SVG DAG Model -->
-      <div class="mb-8 p-6 bg-slate-50 rounded-xl border border-slate-200">
-        <h3 class="style-h3 text-slate-800 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12H4z"></path></svg>
-          연구 가설 / 개념적 구조 모델 (Research DAG Framework)
-        </h3>
-        <svg viewBox="0 0 900 340" class="w-full h-auto bg-slate-50 border border-slate-200 rounded-xl" xmlns="http://www.w3.org/2000/svg">
-  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0891b2"/></marker></defs>
-  <rect x="300" y="20" width="300" height="90" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
-  <text x="450" y="45" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="14">조직문화 (Hofstede Culture)</text>
-  <text x="450" y="68" text-anchor="middle" fill="#166534" font-size="11">H1 집단주의(+), H2 권력격차(+)</text>
-  <text x="450" y="86" text-anchor="middle" fill="#166534" font-size="11">H3 불확실성회피(+), H4 남성성(-)</text>
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">국제 채널 파트너 선정 시 WOM을 써야 하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">WOM은 양날의 검 — 평균효과는 없고, 조건부로 갈린다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">조직문화·심리적 거리라는 경계조건의 규명</p>
+                </div>
+              </li>
+            </ul>
 
-  <rect x="40" y="145" width="220" height="80" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
-  <text x="150" y="180" text-anchor="middle" font-weight="bold" fill="#0369a1" font-size="15">B2B 구전 활용도</text>
+            <div class="divider divider-horizontal hidden md:flex"></div>
 
-  <rect x="640" y="145" width="220" height="80" rx="10" fill="#faf5ff" stroke="#9333ea" stroke-width="2"/>
-  <text x="750" y="175" text-anchor="middle" font-weight="bold" fill="#7e22ce" font-size="15">유통채널 관계 성과</text>
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 선행연구는 WOM 활용이 관계 성과에 긍정적(정보 획득, 기회주의 억제)이라는 결과와 부정적(폐쇄적 네트워크, 관계 종료 곤란)이라는 결과가 엇갈려 왔다. 수출 제조기업은 국제 채널 파트너 선정 시 WOM을 써야 하는가?</li>
+                  <li><strong>핵심 발견:</strong> WOM 활용의 <strong>주효과(main effect)는 유의하지 않다</strong>(β=0.05, ns). 대신 <strong>권력거리(H2)와 남성성/여성성(H4)</strong> 같은 조직문화, <strong>사람 특성 심리적 거리(H5b)</strong> 같은 외부요인이 WOM–성과 관계를 유의하게 조절한다(6개 가설 중 3개 지지). 최적 조건(고권력거리·저남성성·고사람특성거리)에서는 WOM이 성과를 높이지만, 최악 조건에서는 오히려 성과를 해친다.</li>
+                  <li><strong>이론/실무 기여:</strong> "WOM 활용이 좋은가 나쁜가"라는 B2B WOM 연구의 미해결 질문에 경계조건 관점으로 답하고, 조직문화를 WOM 효과의 조절요인으로 최초 도입했으며, 심리적 거리가 "언제 WOM을 써야 하는가"의 환경적 조건임을 규명함.</li>
+                </ul>
+              </div>
 
-  <rect x="300" y="235" width="300" height="80" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
-  <text x="450" y="260" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="14">심리적 거리 (Psychic Distance)</text>
-  <text x="450" y="285" text-anchor="middle" fill="#9a3412" font-size="11">H5a 국가 특성 거리(+), H5b 사람 특성 거리(+)</text>
-
-  <path d="M260 185 H640" stroke="#0284c7" stroke-width="3" marker-end="url(#arrow)"/>
-  <path d="M450 110 V165" stroke="#16a34a" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
-  <path d="M450 235 V205" stroke="#ea580c" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
-</svg>
-      </div>
-
-      <!-- Detailed Variable / Construct Breakdown -->
-      <div class="space-y-4">
-        
-<div class="border border-sky-200 bg-sky-50/50 p-5 rounded-xl">
-  <h3 class="style-h3 text-sky-900">1. B2B 구전 활용도 및 심리적 거리</h3>
-  <p class="text-slate-700 style-small mt-2"><b>개념적 정의:</b> 비공식 정보 수집 활동과 문화적·심리적 거리감.</p>
-</div>
-
-      </div>
-    </section>
-
-    <!-- STEP 5: Method Replication Sequence -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-amber-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
-      </div>
-
-      <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-        <li>
-            
-            <div class="timeline-start font-bold text-cyan-600">STEP 1</div>
-            <div class="timeline-middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-cyan-500"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg></div>
-            <div class="timeline-end timeline-box bg-slate-50 border-slate-200 shadow-sm p-4">
-                <div class="font-semibold text-slate-800">일본 수출기업 n=216 데이터 수집 및 회귀분석 진행</div>
-                <div class="text-xs text-slate-400 mt-1">원문 위치: pp. 290-294, Section 4-5</div>
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "국제 채널 파트너 선정 시 WOM 활용은 그 자체로 좋거나 나쁜 것이 아니라, 수출기업의 권력거리·남성성(조직문화)과 상대국에 대한 사람 특성 심리적 거리에 따라 득이 되거나 독이 되는 양날의 검이다."
+                </p>
+              </div>
             </div>
-            
-        </li>
-      </ul>
-
-      <div class="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 font-semibold text-center">
-        ⚡ 재현 가능성 평가: 부분 재현 가능.
-      </div>
-    </section>
-
-    <!-- STEP 6: Limitations & Critical Evaluation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-rose-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 6. Limitation 분리 및 비판적 검토</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="collapse collapse-arrow bg-rose-50/70 border border-rose-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-rose-900 flex items-center gap-2">
-            <span class="badge badge-error text-white">Part A</span> 논문 저자가 명시적으로 인정한 한계점 (Self-acknowledged Limitations)
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 일본 기업 표본 한정 (p. 295)</li>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실증적 근거 데이터의 원문 인용 및 페이지 위치를 맵핑했습니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">WOM 활용 효과에 대한 선행연구의 상반된 결론</td>
+                <td class="text-sm italic text-slate-600">"the literature provides contradictory findings on whether using WOM for selecting international channel partners has a positive or negative impact on subsequent relationship outcomes. There is currently no clear answer..."</td>
+                <td class="text-right font-medium text-slate-500">p.287 (Sec.1)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">WOM 활용의 주효과는 유의하지 않음</td>
+                <td class="text-sm italic text-slate-600">Table 3, Model 2: "Word-of-mouth usage (WOM) &beta;=0.05, t-Value=0.80"</td>
+                <td class="text-right font-medium text-slate-500">p.292 (Table 3)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">권력거리(PWD)의 정(+) 조절효과 — H2 지지</td>
+                <td class="text-sm italic text-slate-600">"the interaction term between power distance and perceived relationship performance is positive and significant (&beta; = 0.17, p &lt; 0.05). Thus, H2 is supported."</td>
+                <td class="text-right font-medium text-slate-500">p.292 (Sec.4)</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">남성성/여성성(MAS)의 부(&minus;) 조절효과 — H4 지지</td>
+                <td class="text-sm italic text-slate-600">Table 3: "WOM&times;MAS &beta;=&minus;0.20, t=&minus;2.22*" &mdash; 본문은 "uncertainty avoidance"라 오기(誤記)했으나 문맥·표는 masculinity를 의미함 (STEP 6-B 참고)</td>
+                <td class="text-right font-medium text-slate-500">p.292 (Table 3)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">사람 특성 심리적 거리(PCD)의 정(+) 조절효과 — H5b 지지</td>
+                <td class="text-sm italic text-slate-600">"the interaction term between WOM usage and people characteristics distance is positive (&beta; = 0.17, p &lt; 0.05)... [H5b] is supported."</td>
+                <td class="text-right font-medium text-slate-500">p.293 (Table 3)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">상호작용항 투입 모델의 설명력 유의한 향상</td>
+                <td class="text-sm italic text-slate-600">"the R-squared value was significantly higher for Model 2 than for Model 1 (&Delta;0.02, p &lt; 0.05)..."</td>
+                <td class="text-right font-medium text-slate-500">p.292 (Sec.4)</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">최적/최악 조건에서 WOM 효과의 부호 반전 (양날의 검)</td>
+                <td class="text-sm italic text-slate-600">"In the best condition, WOM usage is positively related to perceived relationship performance... In the worst condition, WOM usage has a negative impact..."</td>
+                <td class="text-right font-medium text-slate-500">p.293 (Fig. 2, Panel D)</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">표본: JETRO 명부 기반 246개 유효 응답 확보</td>
+                <td class="text-sm italic text-slate-600">"We extracted 911 manufacturing firms... 555 firms qualified... The final number of valid responses was 246, reflecting an effective response rate of 44.3%."</td>
+                <td class="text-right font-medium text-slate-500">p.290 (Sec.3.1)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          본 모형은 <strong>매개변수가 없는 순수 조절모형</strong>입니다: WOM 활용(IV) &rarr; 지각된 관계성과(DV)의 단일 직접경로에, 조직문화(내부요인) 4개와 심리적 거리(외부요인) 2개, 총 6개의 조절변수가 각각 개별적으로 작용합니다 (Fig. 1, p.291).
+        </p>
+
+        <!-- Research Model SVG DAG -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (연구 가설 모형)</h3>
+
+          <div class="w-full max-w-4xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 960 520" class="w-full h-auto">
+              <!-- Group label: internal factor -->
+              <text x="480" y="14" text-anchor="middle" font-weight="700" fill="#475569" font-size="12" letter-spacing="1">내부 요인 (조직문화, Organizational Culture)</text>
+
+              <!-- Top row: organizational culture moderators -->
+              <!-- COL - not supported -->
+              <rect x="230" y="24" width="110" height="72" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 3"/>
+              <text x="285" y="46" text-anchor="middle" font-weight="700" fill="#475569" font-size="11.5">집단주의/</text>
+              <text x="285" y="59" text-anchor="middle" font-weight="700" fill="#475569" font-size="11.5">개인주의</text>
+              <text x="285" y="74" text-anchor="middle" fill="#94a3b8" font-size="9.5">Collectivism</text>
+              <text x="285" y="88" text-anchor="middle" fill="#94a3b8" font-size="9.5">H1 기각(ns)</text>
+
+              <!-- PWD - supported -->
+              <rect x="360" y="24" width="110" height="72" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2.5"/>
+              <text x="415" y="46" text-anchor="middle" font-weight="700" fill="#92400e" font-size="11.5">권력거리</text>
+              <text x="415" y="59" text-anchor="middle" font-weight="700" fill="#92400e" font-size="11.5">Power Distance</text>
+              <text x="415" y="74" text-anchor="middle" fill="#b45309" font-size="9.5">CR .81 / AVE .60</text>
+              <text x="415" y="88" text-anchor="middle" fill="#b45309" font-weight="700" font-size="9.5">H2 지지 (+)</text>
+
+              <!-- UNA - not supported -->
+              <rect x="490" y="24" width="110" height="72" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 3"/>
+              <text x="545" y="46" text-anchor="middle" font-weight="700" fill="#475569" font-size="11.5">불확실성</text>
+              <text x="545" y="59" text-anchor="middle" font-weight="700" fill="#475569" font-size="11.5">회피</text>
+              <text x="545" y="74" text-anchor="middle" fill="#94a3b8" font-size="9.5">Uncertainty Av.</text>
+              <text x="545" y="88" text-anchor="middle" fill="#94a3b8" font-size="9.5">H3 기각(ns)</text>
+
+              <!-- MAS - supported -->
+              <rect x="620" y="24" width="110" height="72" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2.5"/>
+              <text x="675" y="46" text-anchor="middle" font-weight="700" fill="#92400e" font-size="11.5">남성성/</text>
+              <text x="675" y="59" text-anchor="middle" font-weight="700" fill="#92400e" font-size="11.5">여성성</text>
+              <text x="675" y="74" text-anchor="middle" fill="#b45309" font-size="9.5">CR .65 / AVE .49</text>
+              <text x="675" y="88" text-anchor="middle" fill="#b45309" font-weight="700" font-size="9.5">H4 지지 (&minus;)</text>
+
+              <!-- Vertical arrows from top boxes to main path -->
+              <path d="M285 96 L 285 265" fill="none" stroke="#94a3b8" stroke-width="1.75" stroke-dasharray="4 3" marker-end="url(#arrowGrey)"/>
+              <path d="M415 96 L 415 262" fill="none" stroke="#d97706" stroke-width="2.25" marker-end="url(#arrowAmber)"/>
+              <path d="M545 96 L 545 265" fill="none" stroke="#94a3b8" stroke-width="1.75" stroke-dasharray="4 3" marker-end="url(#arrowGrey)"/>
+              <path d="M675 96 L 675 262" fill="none" stroke="#d97706" stroke-width="2.25" marker-end="url(#arrowAmber)"/>
+
+              <!-- IV box -->
+              <rect x="20" y="225" width="210" height="80" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="2.5"/>
+              <text x="125" y="255" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14.5">WOM 활용</text>
+              <text x="125" y="272" text-anchor="middle" fill="#4338ca" font-size="10.5">채널 파트너 선정 시</text>
+              <text x="125" y="286" text-anchor="middle" fill="#4338ca" font-size="10.5">구전 의존 정도 (IV)</text>
+              <text x="125" y="299" text-anchor="middle" fill="#4338ca" font-size="9.5" font-style="italic">Yang et al.(2017), 3문항</text>
+
+              <!-- DV box -->
+              <rect x="730" y="225" width="210" height="80" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="2.5"/>
+              <text x="835" y="252" text-anchor="middle" font-weight="700" fill="#065f46" font-size="13.5">지각된 관계 성과</text>
+              <text x="835" y="270" text-anchor="middle" fill="#047857" font-size="10.5">Perceived Relationship</text>
+              <text x="835" y="284" text-anchor="middle" fill="#047857" font-size="10.5">Performance (DV)</text>
+              <text x="835" y="298" text-anchor="middle" fill="#047857" font-size="9.5" font-style="italic">Griffith&amp;Dimitrova(2014) 등, 3문항</text>
+
+              <!-- Main path: not significant -> dashed grey -->
+              <path d="M230 265 L 730 265" fill="none" stroke="#64748b" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#arrowGreyBig)"/>
+              <text x="480" y="252" text-anchor="middle" fill="#475569" font-weight="700" font-size="12.5">주효과: 유의하지 않음 (&beta;=.05, ns)</text>
+
+              <!-- Vertical arrows from bottom boxes to main path -->
+              <path d="M340 420 L 340 280" fill="none" stroke="#94a3b8" stroke-width="1.75" stroke-dasharray="4 3" marker-end="url(#arrowGrey)"/>
+              <path d="M590 420 L 590 275" fill="none" stroke="#d97706" stroke-width="2.25" marker-end="url(#arrowAmber)"/>
+
+              <!-- Bottom row: psychic distance moderators -->
+              <!-- CCD - not supported -->
+              <rect x="230" y="420" width="220" height="72" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 3"/>
+              <text x="340" y="443" text-anchor="middle" font-weight="700" fill="#475569" font-size="12">국가 특성 거리</text>
+              <text x="340" y="459" text-anchor="middle" fill="#94a3b8" font-size="10">Country Characteristics Distance</text>
+              <text x="340" y="474" text-anchor="middle" fill="#94a3b8" font-size="9.5">(formative, 6문항)</text>
+              <text x="340" y="487" text-anchor="middle" fill="#94a3b8" font-size="9.5">H5a 기각(ns)</text>
+
+              <!-- PCD - supported -->
+              <rect x="480" y="420" width="220" height="72" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2.5"/>
+              <text x="590" y="443" text-anchor="middle" font-weight="700" fill="#92400e" font-size="12">사람 특성 거리</text>
+              <text x="590" y="459" text-anchor="middle" fill="#b45309" font-size="10">People Characteristics Distance</text>
+              <text x="590" y="474" text-anchor="middle" fill="#b45309" font-size="9.5">(formative, 6문항)</text>
+              <text x="590" y="487" text-anchor="middle" fill="#b45309" font-weight="700" font-size="9.5">H5b 지지 (+)</text>
+
+              <!-- Group label: external factor -->
+              <text x="480" y="512" text-anchor="middle" font-weight="700" fill="#475569" font-size="12" letter-spacing="1">외부 요인 (지각된 심리적 거리, Perceived Psychic Distance)</text>
+
+              <!-- Legend -->
+              <rect x="20" y="345" width="14" height="14" rx="3" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <text x="40" y="356" fill="#475569" font-size="10.5">가설 지지 (p&lt;.05)</text>
+              <rect x="20" y="368" width="14" height="14" rx="3" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" stroke-dasharray="3 2"/>
+              <text x="40" y="379" fill="#475569" font-size="10.5">가설 기각 (ns)</text>
+
+              <!-- Markers -->
+              <defs>
+                <marker id="arrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+                </marker>
+                <marker id="arrowGrey" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+                </marker>
+                <marker id="arrowGreyBig" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- IV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">독립변수</span>
+                <span class="text-xs text-slate-400 font-semibold">IV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">WOM 활용 (WOM Usage for Channel Partner Selection)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 수출기업이 해외 판매 파트너를 선정할 때 동종업계 타사·비즈니스 인맥·기존 파트너로부터 얻는 구전 정보에 의존하는 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "동종업계 정보 의존", "비즈니스 인맥을 통한 선정", "파트너 추천을 통한 선정" 3문항, 7점 리커트.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Yang, Zhang, &amp; Xie (2017) 수정 인용 / 3문항 (CR=0.76, AVE=0.53, &alpha;=0.73)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> "일반적 성향"을 측정하는 문항이라, 이번에 평가 대상인 특정 파트너의 실제 선정경로와는 괴리가 있을 수 있음(구성타당도 문제, STEP 6-B 참고).
+              </p>
+            </div>
+          </div>
+
+          <!-- DV Card -->
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">종속변수</span>
+                <span class="text-xs text-slate-400 font-semibold">DV</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">지각된 관계 성과 (Perceived Relationship Performance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 수출기업과 국제 채널 파트너 간의 관계가 성공적이고 만족스럽다고 지각되는 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "전반적으로 관계가 성공적", "기대 초과", "만족스러움" 3문항, 7점 리커트.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Griffith &amp; Dimitrova (2014); Leonidou et al. (2017) / 3문항 (CR=0.85, AVE=0.66, &alpha;=0.89)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 재무성과가 아닌 지각된(perceptual) 성과 — 동일 응답자가 IV·DV를 모두 평가하는 구조로 공통방법편의 우려 존재.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator PWD -->
+          <div class="card bg-white border border-amber-300 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 (지지)</span>
+                <span class="text-xs text-slate-400 font-semibold">H2</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">권력거리 (Power Distance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 조직이 위계·권위에 기반한 불균형적 권력관계를 선호하는 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "권력이 더 큰 쪽이 발언권을 가짐이 당연" 등 3문항, 7점 리커트.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Lund et al.(2013); Wuyts &amp; Geyskens(2005) 수정 / 3문항 (CR=0.81, AVE=0.60, &alpha;=0.81)</p>
+              <p class="text-xs text-amber-800 bg-amber-50 p-2.5 rounded border border-amber-100">
+                <strong>결과:</strong> 정(+) 조절 지지 (&beta;=0.17, p&lt;0.05) — 고권력거리 기업일수록 WOM 사용 시 관계성과 상승폭이 큼.
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator MAS -->
+          <div class="card bg-white border border-amber-300 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 (지지)</span>
+                <span class="text-xs text-slate-400 font-semibold">H4</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">남성성/여성성 (Masculinity/Femininity)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 남성성(적극성·성취·경쟁) vs. 여성성(관계 유지·배려·연대)을 중시하는 정도.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "서로 자기 의견에 적극적", "경제적 성공이 가장 중요" 등 2문항, 7점 리커트.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Lund et al. (2013) 수정 / <strong>2문항</strong> (CR=0.65, AVE=0.49, &alpha;=0.64)</p>
+              <p class="text-xs text-amber-800 bg-amber-50 p-2.5 rounded border border-amber-100">
+                <strong>결과:</strong> 부(&minus;) 조절 지지 (&beta;=&minus;0.20, p&lt;0.05) — 저남성성(고여성성) 기업이 WOM 사용 시 성과 상승폭이 큼. 단, CR·AVE가 통상 기준(0.70/0.50) 미달 (STEP 6-B 참고).
+              </p>
+            </div>
+          </div>
+
+          <!-- Moderator PCD -->
+          <div class="card bg-white border border-amber-300 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">조절변수 (지지)</span>
+                <span class="text-xs text-slate-400 font-semibold">H5b</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">사람 특성 거리 (People Characteristics Distance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 본국과 주요 수출국 간 소비자 구매력·라이프스타일·선호·언어·문화가치 측면의 지각된 차이.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> "구매력, 라이프스타일, 소비자 선호, 문해·교육수준, 언어, 문화적 가치·태도·전통이 얼마나 다른가" 6문항 형성적 지표, 7점 척도(1=매우 유사 ~ 7=매우 다름).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Sousa &amp; Lages (2011) PD Scale / 6문항 형성적(formative) 지표</p>
+              <p class="text-xs text-amber-800 bg-amber-50 p-2.5 rounded border border-amber-100">
+                <strong>결과:</strong> 정(+) 조절 지지 (&beta;=0.17, p&lt;0.05) — 상대국과의 사람 특성 거리가 클수록 WOM 사용 시 관계성과 상승폭이 큼. 국가 특성 거리(CCD, r=0.65와 높은 상관)는 유의하지 않음(H5a 기각).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Not-supported moderators, compact table -->
+        <div class="mt-2">
+          <h4 class="style-h3 text-slate-800 mb-3">기각된 조절가설 (Not Supported)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th>변수</th>
+                  <th>가설</th>
+                  <th>결과 (&beta;, 유의성)</th>
+                  <th>측정/출처</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm">
+                <tr>
+                  <td class="font-semibold">집단주의/개인주의 (Collectivism/Individualism)</td>
+                  <td>H1: 정(+) 조절</td>
+                  <td class="text-slate-500">&beta;=&minus;0.02, ns &rarr; 기각</td>
+                  <td>Lund et al.(2013) 등 / 3문항 (CR=0.74, AVE=0.49)</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold">불확실성 회피 (Uncertainty Avoidance)</td>
+                  <td>H3: 정(+) 조절</td>
+                  <td class="text-slate-500">&beta;=0.00, ns &rarr; 기각</td>
+                  <td>Lund et al.(2013) 등 / 3문항 (CR=0.78, AVE=0.55)</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold">국가 특성 거리 (Country Characteristics Distance)</td>
+                  <td>H5a: 정(+) 조절</td>
+                  <td class="text-slate-500">&beta;=&minus;0.11, ns &rarr; 기각</td>
+                  <td>Sousa &amp; Lages (2011) / 6문항 형성적 지표</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Control variables -->
+        <div class="mt-2 bg-slate-50 border border-slate-200 rounded-xl p-5">
+          <h4 class="style-h3 text-slate-800 mb-2">통제변수 (Control Variables)</h4>
+          <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+            <li><strong>기업 규모 (Firm size, log):</strong> 상근직원 수(로그 변환) — 대기업일수록 정보접근력이 좋아 WOM 의존도가 낮을 것이라는 논리.</li>
+            <li><strong>국제화 경험 (International experience):</strong> 수출 경력 연수 — 경험이 많을수록 비즈니스 네트워크가 넓어 WOM 의존 경향이 클 것이라는 논리.</li>
+            <li><strong>수출국 수 (Number of countries):</strong> 진출 수출시장 국가 수 — Table 3에서 유일하게 유의한 통제변수(&beta;=0.17&ndash;0.18, p&lt;0.05/0.01).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 표본 수집부터 가설 검정까지 그대로 <strong>추종 재현</strong>할 수 있도록 실증 절차를 타임라인으로 단계화하였습니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <!-- Step 1 -->
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">표본 프레임 구축 및 스크리닝</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  JETRO(일본무역진흥기구) 무역업체 명부에서 종업원 10인 이상, 수출 수행 제조기업 911개사를 추출. 전화 스크리닝(연구목적 설명·수출여부·참여의향·핵심 정보제공자 확인)을 거쳐 555개사가 자격 충족(356개사는 직수출 없음 등으로 거절).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.290, Sec.3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <!-- Step 2 -->
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">우편 설문 발송 및 회수</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  555개 자격기업에 표지서한·설문지·회신봉투를 11월(장기휴가 기간 회피)에 발송, 기밀보장·요약보고서 제공을 인센티브로 제시, 발송 2주 후 전화 독려. 281개사 회신(회수율 50.6%) &rarr; 무응답거부 8개사, 해외파트너 미보유 27개사 제외 &rarr; 최종 유효표본 246개사(44.3%).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.290, Sec.3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <!-- Step 3 -->
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">공통방법편의(CMB) 사전·사후 통제</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  (사전) 모호 문항 수정, IV/DV 문항 분리 배치, 응답 기밀성 고지. (사후) Harman 단일요인검정(다수 요인 추출 확인) + Lindell &amp; Whitney 마커변수법(편상관 비교, 유의차 없음 확인).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.291, Sec.3.2</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <!-- Step 4 -->
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">측정모형 검증 (CFA)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Appendix A 문항 전체를 최대우도법 CFA에 투입. &chi;&sup2;=169.30(df=102, p&lt;.01), &chi;&sup2;/df=1.66, RMSEA=.052, CFI=.96, NNFI=.95, IFI=.96. CR/AVE 대체로 0.70/0.50 전후 이상(단, 남성성 CR=.65, AVE=.49로 미달). AVE&gt;상관제곱으로 판별타당도 확보.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.291, Sec.3.3, Table 2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <!-- Step 5 -->
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">다중공선성 완화를 위한 직교화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  상호작용항(WOM&times;조절변수) 구성 전, Little, Bovaird, &amp; Widaman (2006) 방식으로 상호작용에 관여하는 모든 측정치를 직교화(orthogonalize)하여 다중공선성 문제를 완화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.291, Sec.3.4</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <!-- Step 6 -->
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">위계적 OLS 회귀분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Model 1(선형항+통제변수) vs. Model 2(Model1 + 6개 상호작용항)을 OLS로 추정. R&sup2;: .21 &rarr; .26 (&Delta;R&sup2;=.02, p&lt;.05)로 상호작용항 투입 정당화 &rarr; Model 2를 최종 가설검정 모형으로 채택.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.291&ndash;292, Sec.3.4/4, Table 3</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <!-- Step 7 -->
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">가설 검정 및 사후(post-hoc) 그래프 해석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Table 3의 6개 상호작용항 계수로 H1&ndash;H5b 개별 판정(H2, H4, H5b 지지). 유의한 항에 대해 조절변수를 고(7점)/저(1점)로 대입, 나머지는 중간값(4점) 고정한 그래프(Fig. 2)로 최적/최악 조건에서의 부호 반전을 시각화.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.292&ndash;293, Sec.4, Fig. 2</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            측정문항(Appendix A)·표본절차·분석기법(직교화·위계적 회귀·CFA 적합도)은 구체적으로 공개되어 통계적 재현은 가능하나, JETRO 명부 및 전화 스크리닝 세부 대본은 공개되지 않았고, 원자료는 "요청 시 제공"으로만 명시되어 있어 즉시 접근 가능한 공개 데이터셋이 아니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6, p.294)에서 연구진들이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>횡단면 데이터의 한계:</strong> "using cross-sectional data at the same time point... a deeper examination... must explore the link between such usage prior to the initiation of a particular business relationship and subsequent relationship performance... Collecting long-term panel data is necessary."
+              </li>
+              <li>
+                <strong>조직문화 측정 프레임워크의 한정성:</strong> "this study captured organizational culture in terms of four values based on Hofstede's framework... it would be useful to... apply... other organizational culture frameworks. A good candidate for this is the Competing Values Framework (Quinn &amp; Rohrbaugh, 1983)."
+              </li>
+              <li>
+                <strong>단일국가(일본) 표본의 일반화 한계:</strong> "we used data only from Japanese firms. Therefore, our findings' generalizability to firms in other countries is uncertain... Hofstede's recent framework includes the dimensions of long-term orientation and indulgence/restraint, which we did not consider."
+              </li>
+              <li>
+                <strong>경계조건의 제한적 범위:</strong> "other boundary conditions may exist. These could include firm strategies such as market orientation and export diversification... as well as external environmental factors like environmental uncertainty and institutional distance."
+              </li>
+              <li>
+                <strong>수출자 관점에 한정, 수입자 관점 부재:</strong> "while this study focuses on exporters, it is equally important to focus on importer behaviors... It is encouraged for future research to adopt the importer's perspective."
+              </li>
+              <li>
+                <strong>대면 WOM에 한정, 전자적 WOM(eWOM) 미포함:</strong> "this study focuses on face-to-face WOM communication, electronic WOM, including online reviews and references, is an intriguing research area."
+              </li>
             </ul>
           </div>
         </div>
 
-        <div class="collapse collapse-arrow bg-amber-50/70 border border-amber-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-amber-900 flex items-center gap-2">
-            <span class="badge badge-warning text-white">Part B</span> 독자/연구자 관점의 독립적 비판적 검토 (Critical Methodological & Theoretical Concerns)
+        <!-- Limitation B -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 구전의 질적 특성(긍정/부정) 미반영</li>
-            </ul>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계·측정·서술을 근거로 제시하는, 저자들이 스스로 언급하지 않은 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 역인과/사후 합리화</span>
+                <p class="text-sm text-slate-700">
+                  동일 시점·동일 응답자가 WOM 성향과 관계성과를 모두 보고하므로, 이미 관계가 좋은 기업이 "우리는 원래 신뢰 기반 정보를 잘 활용해왔다"고 사후적으로 재구성해 응답했을 가능성을 배제할 수 없다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 구성타당도 불일치</span>
+                <p class="text-sm text-slate-700">
+                  WOM 활용 문항은 "일반적 성향"을 묻지만 관계성과 문항은 (암묵적으로) 특정 파트너와의 관계를 지칭한다. "WOM을 자주 쓰는 기업"과 "이번 파트너를 실제로 WOM으로 선정했는가"가 정확히 일치하지 않을 수 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 취약한 남성성 척도의 신뢰도</span>
+                <p class="text-sm text-slate-700">
+                  단 2문항으로 측정된 남성성/여성성은 CR=0.65(&lt;0.70), AVE=0.49(&lt;0.50)로 수렴타당도 기준 미달. 그런데도 "양날의 검" 핵심 스토리의 두 축 중 하나(H4)를 구성한다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 다중검정 보정 부재</span>
+                <p class="text-sm text-slate-700">
+                  H1&ndash;H5b, 6개 개별 상호작용 가설을 보정 없이 각각 p&lt;.05로 검정. 우연히 유의한 결과가 섞였을 확률(전체 오류율)이 결코 낮지 않다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 본문 서술 오류 2건</span>
+                <p class="text-sm text-slate-700">
+                  H4 결과 서술에 "uncertainty avoidance"라 오기(Table 3은 masculinity를 의미)했고, H5a/H5b 결론 문장은 "H5a is not supported, whereas H5a is supported"로 두 번째가 H5b의 오기로 보인다. 표 수치와는 모순되지 않으나 교정 수준에 의문을 남긴다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 낮은 설명력·작은 효과크기</span>
+                <p class="text-sm text-slate-700">
+                  최종모형 R&sup2;=0.26(수정 R&sup2;=0.21) — 분산의 약 3/4이 미설명. 유의한 조절계수도 &beta;&asymp;0.17&ndash;0.20 수준으로 작아, 강한 실무적 함의에 비해 실제 효과크기는 제한적이다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">7. 무응답 편향 미검증</span>
+                <p class="text-sm text-slate-700">
+                  555개 자격기업 중 246개(44.3%)만 최종 분석에 포함. 조기/후기 응답자 비교 등 통상적 무응답 편향 검증 절차가 보고되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">8. 국가·조직문화 혼입</span>
+                <p class="text-sm text-slate-700">
+                  일본은 "고맥락·대면 WOM 선호" 국가로 선택되었는데, 그 안에서 "조직문화"의 조절효과를 추정했다. WOM에 애초 소극적인 저맥락 국가 기업에도 동일 조절효과가 성립할지는 미지수다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">9. 형성지표 검증 미비·개념 중첩</span>
+                <p class="text-sm text-slate-700">
+                  국가/사람 특성 거리는 형성적 지표로 CR/AVE 보고가 불가하며 상관 r=0.65로 높다. VIF 등 다중공선성 진단 없이, PCD만 유의하고 CCD는 기각된 결과가 이론적 구분인지 측정오차인지 판단하기 어렵다.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+    </div>
   </main>
 
   <!-- Footer -->
-  <footer class="footer footer-center bg-slate-900 text-slate-400 p-8 border-t border-slate-800">
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
     <div>
-      <p class="font-bold text-slate-200">Industrial Marketing Management (IMM) Paper Analysis Archive</p>
-      <p class="text-xs text-slate-500 mt-1">Does B2B WOM usage matter to channel relationship performance? The roles of organizational culture and psychic distance | Industrial Marketing Management Vol. 114 (2023), pp. 286-296</p>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Does B2B WOM usage matter to channel relationship performance? The roles of organizational culture and psychic distance</p>
+      <p class="text-xs mt-2">&copy; 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
     </div>
   </footer>
 

@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>B2B digital platform adoption by SMEs and large firms: Pathways and pitfalls - IMM 2023</title>
+  <title>B2B digital platform adoption by SMEs and large firms - IMM 2023</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- DaisyUI 4 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   <!-- Pretendard Font Import -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  
+
   <script>
     tailwind.config = {
       theme: {
@@ -32,245 +32,842 @@
       color: #1e293b;
       word-break: keep-all;
     }
-    .style-display { font-size: 40px; font-weight: 700; line-height: 1.2; }
-    .style-h1 { font-size: 32px; font-weight: 700; line-height: 1.2; }
-    .style-h2 { font-size: 24px; font-weight: 600; line-height: 1.3; }
-    .style-h3 { font-size: 18px; font-weight: 600; line-height: 1.4; }
+
+    /* Typography scale constraints */
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
     .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
     .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
     .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+
+    html { scroll-behavior: smooth; }
+
+    .nav-active {
+      color: #0f172a !important;
+      font-weight: 600;
+      border-left: 2px solid #3b82f6;
+    }
+
+    @media (max-width: 1024px) {
+      .style-display { font-size: 38px; }
+      .style-h1 { font-size: 30px; }
+      .style-h2 { font-size: 22px; }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-  <!-- Header / Hero Section (No Navbar, single scroll flow) -->
-  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-14 px-4 lg:px-8 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto flex flex-col gap-4 relative z-10">
+  <!-- Navbar -->
+  <div class="navbar bg-slate-900 text-white shadow-md px-4 lg:px-8">
+    <div class="flex-1">
+      <a class="btn btn-ghost normal-case text-xl font-bold tracking-tight text-cyan-400" href="#">IMM Research Brief</a>
+    </div>
+    <div class="flex-none hidden lg:block">
+      <ul class="menu menu-horizontal px-1 gap-2 text-slate-300 style-label">
+        <li><a href="#abstract" class="hover:text-cyan-400">초록</a></li>
+        <li><a href="#claims" class="hover:text-cyan-400">핵심 주장</a></li>
+        <li><a href="#evidence" class="hover:text-cyan-400">근거 데이터</a></li>
+        <li><a href="#model" class="hover:text-cyan-400">연구 모델 & 변수</a></li>
+        <li><a href="#method" class="hover:text-cyan-400">분석 방법론</a></li>
+        <li><a href="#limitations" class="hover:text-cyan-400">한계점 & 비판</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
       <div class="flex flex-wrap gap-2">
-        <span class="badge badge-outline border-cyan-400 text-cyan-300 style-label uppercase">Industrial Marketing Management Vol. 114 (2023), pp. 80-93</span>
-        <span class="badge badge-secondary text-white style-label">Academic Paper Analysis</span>
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management (2023)</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">B2B Platform Adoption / fsQCA</div>
+        <div class="badge badge-secondary text-white style-label">Vol. 114, pp. 80–93</div>
       </div>
-      
-      <h1 class="style-display text-white mt-2">B2B digital platform adoption by SMEs and large firms: Pathways and pitfalls</h1>
-      <h2 class="text-2xl font-semibold text-cyan-300">중소기업 및 대기업의 B2B 디지털 플랫폼 채택- 경로와 함정</h2>
-      <p class="text-slate-400 style-small mt-1">저자: Giacomo Marzi, Anna Marrucci, Donata Vianelli, Cristiano Ciappei</p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            B2B digital platform adoption by SMEs and large firms:<br>
+            <span class="text-cyan-400">Pathways and pitfalls</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Giacomo Marzi, Anna Marrucci, Donata Vianelli, Cristiano Ciappei
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            SME와 대기업의 B2B 디지털 플랫폼 도입:<br>
+            <span class="text-indigo-300">경로와 함정</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            영국 제조업 관리자 318명 대상 fsQCA 분석 — 양면(two-sided) 플랫폼 채택 의도를 좌우하는 15개 조건 조합
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">SME는 '유연한 관계'를 위해, 대기업은 '효율과 전략적 이익'을 위해 플랫폼을 채택하며, 규모는 채택 여부가 아니라 경로를 바꿀 뿐이다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content Body -->
-  <main class="max-w-6xl mx-auto w-full px-4 lg:px-8 py-10 space-y-12 flex-1">
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
 
-    <!-- STEP 1: Title & Abstract Translation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-cyan-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
-      </div>
+    <div class="flex flex-col gap-16">
 
-      <div class="grid lg:grid-cols-2 gap-6">
-        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200/60">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-ghost badge-sm">EN</span> Abstract (Original)
-          </h3>
-          <blockquote class="text-slate-600 style-small leading-relaxed italic">
-            "B2B digital platforms offer new opportunities for value creation, but adoption patterns differ significantly between SMEs and large enterprises. Integrating DOI theory and the TOE framework, this study employs fuzzy-set Qualitative Comparative Analysis (fsQCA) to identify configurational pathways to high platform adoption as well as conditions leading to non-adoption pitfalls across firm sizes."
-          </blockquote>
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
         </div>
 
-        <div class="bg-cyan-50/40 p-6 rounded-xl border border-cyan-100">
-          <h3 class="style-h3 text-slate-800 mb-3 flex items-center gap-2">
-            <span class="badge badge-info badge-sm text-white">KO</span> Abstract (한국어 번역)
-          </h3>
-          <blockquote class="text-slate-700 style-small leading-relaxed">
-            "B2B 디지털 플랫폼은 가치 창출의 기회를 제공하지만, 채택 패턴은 중소기업과 대기업 간에 현저히 다르다. 본 연구는 DOI와 TOE 프레임워크를 통합하여 fsQCA 분석으로 기업 규모별 높은 채택의 구성적 경로와 비채택 함정 조건을 규명한다."
-          </blockquote>
-        </div>
-      </div>
-
-      <div class="mt-6 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-600">
-        <span class="font-bold text-slate-800">💡 주요 학술 용어 번역 메모:</span> DOI 및 TOE 프레임워크 통합. fsQCA(퍼지집합 질적비교분석) 적용.
-      </div>
-    </section>
-
-    <!-- STEP 2: Core Claims (1-Minute Pitch) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-indigo-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="p-4 bg-indigo-50/50 rounded-xl border border-indigo-100">
-          <div class="font-bold text-indigo-900 text-sm uppercase tracking-wide">1. 연구 질문 (Research Question)</div>
-          <div class="text-slate-700 mt-1 style-body">TOE 및 DOI 조건들의 어떤 구성적 조합(Pathways)이 중소기업과 대기업의 B2B 디지털 플랫폼 채택 및 비채택 함정을 유발하는가?</div>
-        </div>
-
-        <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100">
-          <div class="font-bold text-emerald-900 text-sm uppercase tracking-wide">2. 핵심 발견 (Key Findings)</div>
-          <div class="text-slate-700 mt-1 style-body">중소기업은 경영진 지원과 생태계 결합(SH1-SH3)이 필수적인 반면, 대기업은 경쟁 압력과 적합성 중심 경로(LH1-LH4)로 채택함.</div>
-        </div>
-
-        <div class="p-4 bg-purple-50/50 rounded-xl border border-purple-100">
-          <div class="font-bold text-purple-900 text-sm uppercase tracking-wide">3. 학술적 & 실무적 기여 (Contributions)</div>
-          <div class="text-slate-700 mt-1 style-body">fsQCA를 통해 기업 규모별 B2B 플랫폼 채택 복합 경로와 비채택 함정의 비대칭적 조합을 명확히 제시함.</div>
-        </div>
-
-        <div class="alert alert-info shadow-sm bg-cyan-50 border-cyan-200 text-cyan-900 mt-4">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <div>
-            <span class="font-bold">한 줄 요약:</span> B2B 플랫폼 채택은 TOE/DOI 요인들의 비선형적·구성적 조합에 달려 있으며, 기업 규모에 맞춤화된 접근이 필수적이다.
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "The ongoing paradigm shift towards two-sided and multi-sided platforms is reshaping business transactions and collaborations worldwide. Such digital platforms have found widespread acceptance in business-to-business markets, serving as catalysts for strategic networking, transparency, and traceability, especially in sourcing activities that demand strategic solutions for supplier selection and collaboration. Nonetheless, the variables influencing platform adoption in small and medium-sized enterprises (SMEs) and large firms remain somewhat opaque. In this study, the social network theory (SNT), diffusion of innovation (DOI) theory, and technology–organisation–environment (TOE) framework were used as analytical lenses. Drawing from a sample of 318 responses from supply chain managers, this study employs a fuzzy-set qualitative comparative analysis (fsQCA) to identify 15 configurations related to the adoption of two-sided platforms in both SMEs and large manufacturing firms. The results underscore that SMEs' drive for platform adoption is primarily anchored in their need for flexible, fluid networks, thus reinforcing the value of two-sided platforms in cultivating robust supplier relationships. In contrast, large firms are driven by potential advantages in efficiency and transactional security. However, the low adoption intention in both SMEs and large firms can be attributed to perceived barriers and a lack of perceived benefits, respectively."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              양면(<span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">two-sided</span>) 및 다면 플랫폼으로의 지속적인 패러다임 전환은 전 세계 비즈니스 거래와 협업 방식을 재편하고 있다. 이러한 디지털 플랫폼은 B2B 시장에서 폭넓게 수용되어, 특히 공급업체 선정·협업에 전략적 해법이 요구되는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">소싱(sourcing)</span> 활동에서 전략적 네트워킹, 투명성, 추적가능성을 촉진하는 촉매 역할을 한다. 그럼에도 중소기업(SME)과 대기업의 플랫폼 도입에 영향을 미치는 변수들은 여전히 다소 불투명하다. 본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">사회연결망이론(SNT)</span>, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">혁신확산이론(DOI)</span>, <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">기술-조직-환경(TOE) 프레임워크</span>를 분석 렌즈로 사용했다. 공급망 관리자 318명의 응답을 바탕으로 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">퍼지셋 질적비교분석(fsQCA)</span>을 활용해 SME와 대형 제조기업 모두에서 양면 플랫폼 도입과 관련된 15개의 구성(configuration)을 도출했다. 분석 결과 SME의 플랫폼 도입 동인은 주로 유연하고 유동적인 네트워크에 대한 필요에 뿌리를 두어, 양면 플랫폼이 견고한 공급업체 관계 구축에 갖는 가치를 재확인시켜준다. 반면 대기업은 효율성과 거래 보안성 측면의 잠재적 이점에 의해 움직인다. 그러나 SME와 대기업 모두에서 나타나는 낮은 도입 의도는 각각 지각된 장벽과 지각된 편익의 부재에 기인한다.
+            </blockquote>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- STEP 3: Evidence Alignment Table -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-blue-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거(Evidence)와 원문 위치</h2>
-      </div>
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/4">원문 용어 (EN)</th>
+                  <th class="w-1/4">한국어 번역</th>
+                  <th class="w-1/2">번역 선택 이유 및 해설</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Two-sided Platform</td>
+                  <td>양면 플랫폼</td>
+                  <td class="text-sm">두 개의 상이하지만 상호의존적인 고객군(구매자-공급자)을 중개 없이 연결하는 특정 다면 플랫폼 유형을 지칭하는 표준 학술 용어입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">SNT / DOI / TOE</td>
+                  <td>사회연결망이론 / 혁신확산이론 / 기술-조직-환경 프레임워크</td>
+                  <td class="text-sm">SNT는 기업을 네트워크 노드로, DOI는 혁신 속성(상대적 이점·복잡성)을, TOE는 기술·조직·환경 3대 맥락을 다루는 세 이론의 결합 렌즈입니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">fsQCA (Configuration)</td>
+                  <td>퍼지셋 질적비교분석 (구성/조합)</td>
+                  <td class="text-sm">개별 변수의 순net 효과가 아니라 "조건들의 조합"이 결과를 설명한다고 보는 집합론적 방법으로, 회귀/SEM과 인식론이 다릅니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Sourcing</td>
+                  <td>소싱</td>
+                  <td class="text-sm">공급업체 선정·협상·거래를 포괄하는 전략적 구매 활동(Giunipero et al., 2019 정의)을 그대로 음역했습니다.</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Adoption Fatigue / Cost</td>
+                  <td>채택 피로 / 채택 비용</td>
+                  <td class="text-sm">신기술 습득에 드는 학습 노력(피로)과 재무·조직적 비용(비용)을 각각 조작화한 이 논문 고유의 장벽 변수입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
-      <div class="overflow-x-auto">
-        <table class="table table-zebra w-full text-slate-700">
-          <thead class="bg-slate-100 text-slate-800">
-            <tr>
-              <th class="w-12">#</th>
-              <th class="w-1/3">핵심 주장</th>
-              <th>근거 (원문 인용)</th>
-              <th class="w-32">원문 위치</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-            <td class="font-bold">1</td>
-            <td>중소기업 vs 대기업 채택 경로 비대칭성</td>
-            <td class="text-xs font-mono bg-slate-50 p-2 rounded">SMEs and large firms rely on distinct configurational pathways to achieve high B2B platform adoption.</td>
-            <td class="text-xs text-slate-500">p. 86, Section 5.1</td>
-        </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
 
-    <!-- STEP 4: Research Model & Variables (DAG Included) -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-teal-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
-      </div>
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
 
-      <!-- SVG DAG Model -->
-      <div class="mb-8 p-6 bg-slate-50 rounded-xl border border-slate-200">
-        <h3 class="style-h3 text-slate-800 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12H4z"></path></svg>
-          연구 가설 / 개념적 구조 모델 (Research DAG Framework)
-        </h3>
-        <svg viewBox="0 0 900 320" class="w-full h-auto bg-slate-50 border border-slate-200 rounded-xl" xmlns="http://www.w3.org/2000/svg">
-  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0891b2"/></marker></defs>
-  <rect x="30" y="50" width="220" height="220" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
-  <text x="140" y="80" text-anchor="middle" font-weight="bold" fill="#334155" font-size="14">TOE / DOI 조건</text>
-  <text x="140" y="110" text-anchor="middle" fill="#475569" font-size="12">• 상대적 이점, 적합성</text>
-  <text x="140" y="135" text-anchor="middle" fill="#475569" font-size="12">• 경영진 지원</text>
-  <text x="140" y="160" text-anchor="middle" fill="#475569" font-size="12">• 경쟁 압력</text>
-  <text x="140" y="185" text-anchor="middle" fill="#475569" font-size="12">• 생태계 지원</text>
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">규모별로 어떤 조건 조합이 플랫폼 채택 의도를 좌우하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">SME는 관계, 대기업은 효율·전략 이익이 축이다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">SNT+DOI-TOE 융합과 fsQCA 그래픽 보고 포맷 제안</p>
+                </div>
+              </li>
+            </ul>
 
-  <rect x="310" y="30" width="260" height="110" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
-  <text x="440" y="60" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="14">중소기업(SME) 경로 (SH1~SH3)</text>
-  <text x="440" y="85" text-anchor="middle" fill="#2563eb" font-size="12">• 경영진 주도 + 생태계 결합</text>
+            <div class="divider divider-horizontal hidden md:flex"></div>
 
-  <rect x="310" y="180" width="260" height="110" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
-  <text x="440" y="210" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="14">대기업 경로 (LH1~LH4)</text>
-  <text x="440" y="235" text-anchor="middle" fill="#16a34a" font-size="12">• 경쟁 압력 + 레거시 적합성</text>
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 공급망 역량(SNF, FP), 지각된 편익(ES, EP, SB), 지각된 장벽(AF, AC)의 어떤 조합이 SME와 대기업 각각의 양면 플랫폼 채택 의도를 높이거나 낮추는가? 기업 규모는 채택 자체를 제한하는가, 경로만 분화시키는가?</li>
+                  <li><strong>핵심 발견:</strong> SME는 유동적 파트너링(FP)의 존재와 장벽(AC·AF)의 부재 조합에서 고의도로 이어지는 반면, 대기업은 공급망 역량 변수 없이 효율·보안(ES)과 전략적 편익(SB)만으로 고의도 솔루션이 구성됩니다. 저의도는 양측 모두 장벽·편익부재 조합에서 발생하지만 핵심조건은 다릅니다. 총 15개 구성(고의도 7 + 저의도 8)이 식별되었습니다.</li>
+                  <li><strong>이론/실무 기여:</strong> SNT(관계적 요인)와 DOI–TOE(혁신 채택 요인)를 결합한 최초의 fsQCA 연구 중 하나이며, Pappas & Woodside(2021)의 기존 fsQCA 보고 표준을 넘어 이론모형·결과를 그래픽 다이어그램으로 표현하는 새로운 보고 포맷을 제안합니다.</li>
+                </ul>
+              </div>
 
-  <rect x="630" y="105" width="240" height="110" rx="10" fill="#faf5ff" stroke="#a855f7" stroke-width="2"/>
-  <text x="750" y="135" text-anchor="middle" font-weight="bold" fill="#7e22ce" font-size="15">플랫폼 채택 성과</text>
-  <text x="750" y="165" text-anchor="middle" fill="#6b21a8" font-size="12">• 고채택 경로 vs 비채택 함정</text>
-
-  <path d="M250 120 L310 85" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M250 200 L310 235" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M570 85 L630 135" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M570 235 L630 185" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
-</svg>
-      </div>
-
-      <!-- Detailed Variable / Construct Breakdown -->
-      <div class="space-y-4">
-        
-<div class="border border-blue-200 bg-blue-50/50 p-5 rounded-xl">
-  <h3 class="style-h3 text-blue-900">1. TOE 구성 조건 및 퍼지집합 점수</h3>
-  <p class="text-slate-700 style-small mt-2"><b>개념적 정의:</b> 플랫폼 채택에 영향을 미치는 기술적, 조직적, 환경적 퍼지집합 조건.</p>
-</div>
-
-      </div>
-    </section>
-
-    <!-- STEP 5: Method Replication Sequence -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-amber-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
-      </div>
-
-      <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-        <li>
-            
-            <div class="timeline-start font-bold text-cyan-600">STEP 1</div>
-            <div class="timeline-middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-cyan-500"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg></div>
-            <div class="timeline-end timeline-box bg-slate-50 border-slate-200 shadow-sm p-4">
-                <div class="font-semibold text-slate-800">유럽 B2B 중소기업 및 대기업 경영진 설문 및 fsQCA 분석</div>
-                <div class="text-xs text-slate-400 mt-1">원문 위치: pp. 85-91, Section 4-5</div>
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "플랫폼 채택은 규모와 무관한 단일 경로가 아니라, SME에게는 '관계를 여는 열쇠', 대기업에게는 '거래를 조이는 열쇠'로 다르게 작동하며, 장벽과 편익 부재가 겹치면 어느 쪽이든 문은 닫힌다."
+                </p>
+              </div>
             </div>
-            
-        </li>
-      </ul>
-
-      <div class="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 font-semibold text-center">
-        ⚡ 재현 가능성 평가: 부분 재현 가능.
-      </div>
-    </section>
-
-    <!-- STEP 6: Limitations & Critical Evaluation -->
-    <section class="bg-white p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-200/80">
-      <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
-        <div class="w-3 h-8 bg-rose-500 rounded-full"></div>
-        <h2 class="style-h2 text-slate-900">STEP 6. Limitation 분리 및 비판적 검토</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="collapse collapse-arrow bg-rose-50/70 border border-rose-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-rose-900 flex items-center gap-2">
-            <span class="badge badge-error text-white">Part A</span> 논문 저자가 명시적으로 인정한 한계점 (Self-acknowledged Limitations)
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 유럽 B2B 제조/서비스업 표본에 집중 (p. 92)</li>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          각 핵심 주장과 실증적 근거의 원문 인용 및 위치를 맵핑했습니다. 페이지 번호는 저널 표제(114(2023) 80–93, 총 14쪽)를 기준으로 추출 순서를 역산한 값입니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">규모는 채택을 막지 않고 경로만 분화 (Baseline)</td>
+                <td class="text-sm italic text-slate-600">"Firm size does not limit the adoption of two-sided platforms in the sourcing process. However, manufacturing firms may follow different adoption paths depending on their size."</td>
+                <td class="text-right font-medium text-slate-500">Sec 2.1.1, p.82</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">공급망 역량(SNF·FP)의 정(+) 역할 (Proposition 1)</td>
+                <td class="text-sm italic text-slate-600">"Supply network flexibility and fluid partnering are either existing conditions or conditions that manufacturing firms seek to achieve by using two-sided platforms in their sourcing processes."</td>
+                <td class="text-right font-medium text-slate-500">Sec 2.2, p.83</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">지각된 편익의 정(+) 영향 (Proposition 2)</td>
+                <td class="text-sm italic text-slate-600">"Two-sided platforms provide a variety of advantages...such as efficiency and security, environmental performance, and strategic benefits, which positively influence...intention to adopt platforms..."</td>
+                <td class="text-right font-medium text-slate-500">Sec 2.3, p.83</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">지각된 장벽의 부(−) 영향 (Proposition 3)</td>
+                <td class="text-sm italic text-slate-600">"The adoption of two-sided platforms by manufacturing firms is inhibited by organisational and cost barriers. High perceived adoption costs and adoption fatigue levels negatively influence the adoption..."</td>
+                <td class="text-right font-medium text-slate-500">Sec 2.4, p.84</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">SME 고의도: FP 존재 + AC·AF 부재 조합 (SH1)</td>
+                <td class="text-sm italic text-slate-600">"Solution 1 (SH1) revealed that the presence of FP and the absence of AC and AF form an effective combination that drives SMEs to adopt two-sided platforms..."</td>
+                <td class="text-right font-medium text-slate-500">Sec 4.1.1, Table 4, p.88</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">대기업 고의도: 공급망 역량 없이 편익만으로 구성 (LH1)</td>
+                <td class="text-sm italic text-slate-600">"...large firms only adopt new technology if it presents highly achievable benefits...Supply network capabilities were not included in this solution."</td>
+                <td class="text-right font-medium text-slate-500">Sec 4.1.2, Table 4, p.88-89</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">SME 저의도: 채택 피로(AF)가 핵심 (SL1)</td>
+                <td class="text-sm italic text-slate-600">"SL1 indicated that SMEs have low levels of intention to integrate two-sided platforms into their sourcing processes when adoption fatigue is high."</td>
+                <td class="text-right font-medium text-slate-500">Sec 4.2.1, Table 5, p.90</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">대기업 저의도: 전략적 편익·환경성과 부재 (LL1-LL3)</td>
+                <td class="text-sm italic text-slate-600">"For large firms, perceived barriers and the absence of strategic benefits and environmental performance were found to be the main drivers of low two-sided platform adoption intention."</td>
+                <td class="text-right font-medium text-slate-500">Sec 4.2.2, Table 5, p.91</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td class="font-semibold text-slate-900">개별 조건은 필요조건이 아님 (조합분석 필요성)</td>
+                <td class="text-sm italic text-slate-600">"The conditions were all below the threshold of 0.9, indicating that the condition variables could not explain the results individually and that combinations needed to be found."</td>
+                <td class="text-right font-medium text-slate-500">Sec 3.5, p.87</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td class="font-semibold text-slate-900">솔루션 커버리지는 부분 설명에 그침</td>
+                <td class="text-sm italic text-slate-600">"...overall solution coverage for SME cases...high intention...0.703...large firm...0.676...low intention...SME 0.643...large firms 0.780."</td>
+                <td class="text-right font-medium text-slate-500">Sec 4, p.87</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Research Model & Variables -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model & Variables</span>
+        </div>
+
+        <div class="alert bg-slate-50 border border-slate-200 text-slate-600 text-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0 stroke-slate-400" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span>이 논문은 SEM/회귀 기반 IV→DV 단일 경로 모형이 아니라 <strong>fsQCA 조건(condition) 조합 모형</strong>입니다. 아래 DAG는 이론모형(Fig. 2, p.84)을 조합적(configurational) 인과관 기준으로 단순화해 시각화한 것입니다.</span>
+        </div>
+
+        <!-- Research Model SVG Block -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col gap-4 items-center">
+          <h3 class="style-label text-slate-500 uppercase tracking-widest self-start">Research Framework (fsQCA 조건 조합 모형)</h3>
+
+          <div class="w-full max-w-3xl bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+            <svg viewBox="0 0 820 470" class="w-full h-auto">
+              <!-- Firm size segmenting factor -->
+              <rect x="290" y="10" width="240" height="60" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+              <text x="410" y="33" text-anchor="middle" font-weight="700" fill="#5b21b6" font-size="13">기업 규모 (SME ≤250명 / 대기업 &gt;250명)</text>
+              <text x="410" y="52" text-anchor="middle" fill="#6d28d9" font-size="10">채택을 막지 않고 조건 조합을 재편 (Baseline Expectation)</text>
+
+              <!-- IV1: Supply Network Capabilities -->
+              <rect x="20" y="90" width="240" height="90" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+              <text x="140" y="122" text-anchor="middle" font-weight="700" fill="#334155" font-size="14">공급망 역량</text>
+              <text x="140" y="142" text-anchor="middle" fill="#475569" font-size="11">SNF (유연성) + FP (유동적 파트너링)</text>
+              <text x="140" y="160" text-anchor="middle" fill="#94a3b8" font-size="10">Proposition 1</text>
+
+              <!-- IV2: Perceived Benefits -->
+              <rect x="20" y="200" width="240" height="90" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+              <text x="140" y="232" text-anchor="middle" font-weight="700" fill="#065f46" font-size="14">지각된 편익</text>
+              <text x="140" y="252" text-anchor="middle" fill="#047857" font-size="11">ES (효율·보안) + EP (환경성과) + SB (전략적 편익)</text>
+              <text x="140" y="270" text-anchor="middle" fill="#34d399" font-size="10">Proposition 2</text>
+
+              <!-- IV3: Perceived Barriers -->
+              <rect x="20" y="310" width="240" height="90" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+              <text x="140" y="342" text-anchor="middle" font-weight="700" fill="#991b1b" font-size="14">지각된 장벽</text>
+              <text x="140" y="362" text-anchor="middle" fill="#b91c1c" font-size="11">AF (채택 피로) + AC (채택 비용)</text>
+              <text x="140" y="380" text-anchor="middle" fill="#f87171" font-size="10">Proposition 3</text>
+
+              <!-- DV: Intention to Integrate -->
+              <rect x="560" y="190" width="230" height="110" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+              <text x="675" y="222" text-anchor="middle" font-weight="700" fill="#3730a3" font-size="14">채택 의도 (ITI)</text>
+              <text x="675" y="242" text-anchor="middle" fill="#4338ca" font-size="11">양면 플랫폼 통합 의도</text>
+              <text x="675" y="260" text-anchor="middle" fill="#4338ca" font-size="11">(SME / 대기업 별도 진리표)</text>
+              <text x="675" y="280" text-anchor="middle" fill="#818cf8" font-size="10">고의도 7개 + 저의도 8개 = 15개 구성</text>
+
+              <!-- Arrows: A -> DV -->
+              <path d="M260 135 L 420 135 L 420 220 L 555 220" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrowM114)"/>
+              <text x="420" y="122" text-anchor="middle" fill="#475569" font-weight="700" font-size="12">P1 (+)</text>
+              <text x="420" y="108" text-anchor="middle" fill="#94a3b8" font-size="9">SME 핵심 (FP)</text>
+
+              <!-- Arrows: B -> DV -->
+              <path d="M260 245 L 555 245" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrowM114)"/>
+              <text x="410" y="238" text-anchor="middle" fill="#047857" font-weight="700" font-size="12">P2 (+)</text>
+              <text x="410" y="264" text-anchor="middle" fill="#34d399" font-size="9">대기업 핵심 (ES · SB)</text>
+
+              <!-- Arrows: C -> DV -->
+              <path d="M260 355 L 460 355 L 460 268 L 555 268" fill="none" stroke="#ef4444" stroke-width="2" marker-end="url(#arrowM114)"/>
+              <text x="460" y="345" text-anchor="middle" fill="#b91c1c" font-weight="700" font-size="12">P3 (−)</text>
+              <text x="460" y="331" text-anchor="middle" fill="#f87171" font-size="9">SME·대기업 공통 저해</text>
+
+              <!-- Firm size fanning dashed arrows into each IV group -->
+              <path d="M370 70 L 190 88" fill="none" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrowM114v)"/>
+              <path d="M400 70 L 180 198" fill="none" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrowM114v)"/>
+              <path d="M420 70 L 170 308" fill="none" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrowM114v)"/>
+              <text x="600" y="410" text-anchor="middle" fill="#7c3aed" font-size="10" font-style="italic">점선 = 규모에 따른 구성적(configurational) 재편, 실선 = 조건→결과 조합적 연관 (직접 net 효과 아님)</text>
+
+              <!-- SVG Arrow Markers -->
+              <defs>
+                <marker id="arrowM114" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+                <marker id="arrowM114v" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Variable Detail Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">조건 1-1</span>
+                <span class="text-xs text-slate-400 font-semibold">SNF</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">공급망 네트워크 유연성 (Supply Network Flexibility)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 공급업체 기반을 효과적·효율적으로 재구성할 수 있는 기업의 능력 (Liao, Hong, & Rao, 2010).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 다수 구매처 확보, 저비용·단시간 내 공급원 교체 능력, 품질/디자인 영향 최소화 등 4문항(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Liao et al. (2010) 4문항 / α=.860, ω=.863, CR=.856, AVE=.599</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> SNT 관점에서 네트워크 유연성은 노드 간 정보 흐름과 조직 유연성 요구를 충족하는 핵심 능력. SME 고의도 솔루션에서 부차조건으로 등장.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">조건 1-2</span>
+                <span class="text-xs text-slate-400 font-semibold">FP</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">유동적 파트너링 (Fluid Partnering)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 다양한 공급업체와 협력하고 소싱 활동을 개선하는 기업의 능력 (Rosenzweig & Roth, 2007).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 동적 파트너 풀에서 자원 결집 속도, 짧은 시간 내 네트워크 재구성 능력 등 3문항(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Rosenzweig & Roth (2007) 3문항 / α=.835, ω=.862, CR=.795, AVE=.565</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> "소싱 민첩성"의 핵심 구성요소. SME 고의도 솔루션(SH1, SH2)에서 반복적으로 핵심조건(core condition)으로 등장.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">조건 2-1</span>
+                <span class="text-xs text-slate-400 font-semibold">ES</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">효율성 및 보안성 (Efficiency and Security)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 플랫폼이 거래 추적·속도·효율·보안·투명성을 개선한다는 지각 (Garg et al., 2021).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 거래 추적 개선, 관계 속도/효율 증가, 보안·투명성 강화 등 5문항(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Garg et al. (2021) 5문항 적응 / α=.796, ω=.813, CR=.835, AVE=.504</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> DOI의 "상대적 이점"과 직결. 대기업 고의도 솔루션(LH1-LH4) 전반에서 핵심조건으로 반복 등장.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">조건 2-2</span>
+                <span class="text-xs text-slate-400 font-semibold">EP</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">환경성과 (Environmental Performance)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 플랫폼이 배출·폐기물·연료소비 감축 및 친환경 공급업체 파트너십을 촉진한다는 지각 (Singh & El-Kassar, 2019).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 대기배출/폐기물/연료소비 감소, 친환경 파트너십 장려, 환경 준수 촉진 등 6문항(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Singh & El-Kassar (2019) 6문항 적응 / α=.867, ω=.872, CR=.874, AVE=.537</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> TOE의 환경적 맥락과 지속가능 소싱 문헌 연결. 대기업 저의도 솔루션(LL1, LL4)에서 부재가 핵심조건.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-success style-label text-white">조건 2-3</span>
+                <span class="text-xs text-slate-400 font-semibold">SB</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">전략적 편익 (Strategic Benefits)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 디지털 플랫폼이 프로세스·관계에 미치는 영향에서 비롯되는 전술적·경쟁적 우위 (Croteau & Li, 2003).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 수익성 증가, 경쟁우위 확보, 고객 충성도 증가 3문항(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Croteau & Li (2003) 3문항 / α=.758, ω=.762, CR=.801, AVE=.573</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 대기업 고의도·저의도 솔루션 전반에서 가장 빈번히 등장하는 핵심조건 — 대기업 의사결정의 "축".
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-error style-label text-white">조건 3-1</span>
+                <span class="text-xs text-slate-400 font-semibold">AF</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">채택 피로 (Adoption Fatigue)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 신기술 습득에 요구되는 조직 구성원의 학습 노력(=DOI의 기술 복잡성 개념의 조작화) (Wong et al., 2020).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 사용법 학습의 어려움, 노력 필요성, 이해 실패 가능성 등 5문항 중 4문항 채택(AF4 제외, 7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Wong et al. (2020) 적응 / α=.840, ω=.821, CR=.814, AVE=.523</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> SME 저의도 솔루션(SL1, SL4)의 핵심조건. 대기업에서는 편익이 크면 AF가 존재해도 채택되는 LH2 패턴 관찰.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-error style-label text-white">조건 3-2</span>
+                <span class="text-xs text-slate-400 font-semibold">AC</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">채택 비용 (Adoption Cost)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 플랫폼 도입에 따른 재무적·조직적 비용 지각 (Wong et al., 2020; Madrid-Guijarro et al., 2009).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 시설/운영/유지보수/통합/거래 비용에 대한 5문항(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Wong et al. (2020) 적응 / α=.787, ω=.826, CR=.852, AVE=.536</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> SME 고의도(SH1)에서는 "AC 부재"가, 대기업 저의도(LL4)에서는 "AC 존재"가 핵심조건 — 동일 변수가 규모별 반대 극성으로 작동.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">결과조건</span>
+                <span class="text-xs text-slate-400 font-semibold">ITI</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">양면 플랫폼 통합 의도 (Intention to Integrate)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> 기업이 소싱 활동에 양면 플랫폼을 통합하려는 의지 및 실행 계획의 존재.</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 근시일 내 도입 의지, 전략적 실행계획 보유, 타 기업 추천 의향 등 5문항(7점 Likert).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Pappas, Caputo, Pellegrini, Marzi, & Michopoulou (2021) 적응 / α=.844, ω=.843, CR=.876, AVE=.587</p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">세분화 요인</span>
+                <span class="text-xs text-slate-400 font-semibold">Firm Size (Segmenting Factor)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">기업 규모 (SME vs 대기업)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념 정의:</strong> EU 분류 기준에 따른 규모 구분 — SME(종업원 250명 이하) vs 대기업(250명 초과).</p>
+              <p class="text-sm text-slate-700"><strong>조작 정의:</strong> 표본을 SME(n=120, 37.7%)와 대기업(n=198, 62.3%)으로 이분해 fsQCA를 각각 독립 수행.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 유럽연합(EU) 표준 규모 분류 (범주형 분할변수, 별도 척도 없음)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 상호작용항으로 통계 검정된 고전적 조절변수가 아니라, <strong>표본을 분할해 별도 fsQCA를 수행하는 방식(configurational moderation)</strong>으로 "조절"을 구현한 점이 방법론적 특징.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- fsQCA Configuration Summary Tables -->
+        <div class="mt-6">
+          <h4 class="style-h3 text-slate-800 mb-3">fsQCA 구성 요약 (Table 4·5 축약)</h4>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="overflow-x-auto border rounded-lg">
+              <table class="table table-bordered table-sm w-full text-slate-700">
+                <thead>
+                  <tr class="bg-emerald-700 text-white text-xs">
+                    <th>고의도 솔루션</th><th>핵심조건</th><th>Consistency</th><th>Raw Cov.</th>
+                  </tr>
+                </thead>
+                <tbody class="text-xs">
+                  <tr><td class="font-semibold">SH1 (SME)</td><td>FP 존재, AC·AF 부재</td><td>0.845</td><td>0.579</td></tr>
+                  <tr><td class="font-semibold">SH2 (SME)</td><td>FP, ES, EP, SB 존재</td><td>0.848</td><td>0.562</td></tr>
+                  <tr><td class="font-semibold">SH3 (SME)</td><td>FP 존재</td><td>0.827</td><td>0.393</td></tr>
+                  <tr><td class="font-semibold">LH1 (대기업)</td><td>ES, SB 존재 (공급망역량 미포함)</td><td>0.913</td><td>0.459</td></tr>
+                  <tr><td class="font-semibold">LH2 (대기업)</td><td>ES, SB 존재, AF 존재</td><td>0.925</td><td>0.395</td></tr>
+                  <tr><td class="font-semibold">LH3 (대기업)</td><td>SB 존재, 장벽 존재</td><td>0.902</td><td>0.358</td></tr>
+                  <tr><td class="font-semibold">LH4 (대기업)</td><td>SB 존재, 장벽 존재</td><td>0.867</td><td>0.311</td></tr>
+                </tbody>
+              </table>
+              <p class="text-xs text-slate-400 p-2">전체 커버리지: SME 0.703 / 대기업 0.676 (Table 4, p.88)</p>
+            </div>
+            <div class="overflow-x-auto border rounded-lg">
+              <table class="table table-bordered table-sm w-full text-slate-700">
+                <thead>
+                  <tr class="bg-rose-700 text-white text-xs">
+                    <th>저의도 솔루션</th><th>핵심조건</th><th>Consistency</th><th>Raw Cov.</th>
+                  </tr>
+                </thead>
+                <tbody class="text-xs">
+                  <tr><td class="font-semibold">SL1 (SME)</td><td>AF 존재</td><td>0.890</td><td>0.456</td></tr>
+                  <tr><td class="font-semibold">SL2 (SME)</td><td>SB·EP·ES 부재</td><td>0.787</td><td>0.366</td></tr>
+                  <tr><td class="font-semibold">SL3 (SME)</td><td>SB·EP·ES 부재</td><td>0.810</td><td>0.359</td></tr>
+                  <tr><td class="font-semibold">SL4 (SME)</td><td>AC·AF 존재</td><td>0.809</td><td>0.351</td></tr>
+                  <tr><td class="font-semibold">LL1 (대기업)</td><td>EP 부재</td><td>0.873</td><td>0.534</td></tr>
+                  <tr><td class="font-semibold">LL2 (대기업)</td><td>SB 부재</td><td>0.916</td><td>0.500</td></tr>
+                  <tr><td class="font-semibold">LL3 (대기업)</td><td>SB 부재, ES·EP 낮음</td><td>0.916</td><td>0.463</td></tr>
+                  <tr><td class="font-semibold">LL4 (대기업)</td><td>EP 부재, AC 존재</td><td>0.873</td><td>0.438</td></tr>
+                </tbody>
+              </table>
+              <p class="text-xs text-slate-400 p-2">전체 커버리지: SME 0.643 / 대기업 0.780 (Table 5, p.88)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않고도 외부 연구자가 fsQCA 절차를 그대로 <strong>추종 재현</strong>할 수 있도록 실증 절차를 타임라인으로 단계화했습니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <li>
+              <div class="timeline-middle"><span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">이론 프레임 및 명제 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">SNT+DOI+TOE 결합, baseline expectation과 Proposition 1-3(공급망 역량/편익/장벽) 도출.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec 2, pp.82-84</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle"><span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">표본 정의 및 필터링</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">EU 기준 SME(≤250명)/대기업(&gt;250명) 정의. 현재 양면 플랫폼 미사용 UK 제조업 관리자로 표본 한정.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec 3.1, p.84</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle"><span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">설문 설계 및 사전 편향 완화</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">중립적 사전 설명문 삽입, 관리자 대상 사전 테스트 후 수정·배포, 조작확인 4문항 포함.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec 3.1, pp.84-85</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle"><span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">데이터 수집 및 표본 확정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">323건 회수 → 조작확인 실패자 제외 후 318건 확정(SME 120 / 대기업 198).</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec 3.1, p.85, Table 1</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle"><span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">편향 통제 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">초기/후기 응답자 t-검정(무응답편향), Harman 단일요인검정(31.341%)+마커변수(CMB), VIF(평균 3.711, 모두 &lt;5).</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec 3.2, p.85</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle"><span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">척도 측정 및 신뢰도 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">8개 잠재구성(SNF,FP,ES,EP,SB,AF,AC,ITI) 기존 척도 적응. α·ω·CR 임계치 이상, AVE&gt;0.50 확인.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec 3.3, pp.85-87, Table 2</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle"><span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">CLC Estimator로 잠재점수 산출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">단순 합산평균 대신 Marzi et al.(2023)의 CLC Estimator(clcestimator.com)로 최대우도 요인가중 잠재점수 산출.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec 3.3, p.86</span>
+              </div>
+              <hr class="bg-slate-900"/>
+            </li>
+            <li>
+              <hr class="bg-slate-900"/>
+              <div class="timeline-middle"><span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">fsQCA 캘리브레이션</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">SME/대기업 하위표본별 백분위 기준(5%=0.05, 50%=0.50, 95%=0.95)으로 퍼지 멤버십 변환(Table 3).</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec 3.5, pp.86-87, Table 3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle"><span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">9</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 9</time>
+                <div class="text-lg font-bold text-slate-800">필요조건 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">7개 조건 개별 필요조건 검정 — 모두 일관성 0.9 미만 → 조합분석 필요성 확인.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec 3.5, p.87</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle"><span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">10</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 10</time>
+                <div class="text-lg font-bold text-slate-800">진리표 구축 및 fsQCA 실행</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">빈도임계 4, 일관성임계 0.90으로 SME/대기업 별도 진리표 구축(포함사례 80% 달성), ITI/~ITI 각각 분석.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec 3.4-4, pp.86-87</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle"><span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">11</span></div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 11</time>
+                <div class="text-lg font-bold text-slate-800">결과 도출 및 강건성(민감도) 분석</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">15개 구성 확정(Table 4,5) 후 Fiss(2011) 방식대로 캘리브레이션 교차점 ±25% 이동 재산출 — 경미한 변화만 확인, 강건성 확보.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">Sec 4, pp.87-88</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가 (Replication Assessment)</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            척도 문항과 캘리브레이션·진리표 파라미터는 투명하게 공개되어 절차적 재현은 가능하나, 원자료 비공개("The authors do not have permission to share data", p.93), 채택 해(복잡/간명/중간)의 미명시, 표본 모집 경로 미공개로 인해 완전한 수치 재현은 제한적입니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A -->
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-rose-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">논문 본문(Section 6, p.92)에서 연구진이 직접 한정 지은 연구의 바운더리입니다:</p>
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>DOI-TOE "적합성(compatibility)" 차원 미검토:</strong> "While we focus on the relative advantages and complexity of technology, future studies should investigate other aspects that constitute the DOI–TOE framework, such as compatibility...This aspect represents one of the study's limitations: considering the innovative culture of a firm as an influencing driver of platform adoption..." — 기업 혁신문화·가치적합성이라는 잠재적 핵심 변수가 모형에서 아예 빠져 있음을 인정.
+              </li>
+              <li>
+                <strong>지리적 범위의 단일국가(영국) 한정:</strong> "The sample comprised SMEs and large firms based in the United Kingdom, and the chosen geographic context involved the significant presence of innovative manufacturing firms. It is necessary to replicate the present study's results in different geographic contexts in the future." — 혁신적 제조기업이 많은 특정 국가 맥락에서만 검증되어 일반화 제약을 인정.
+              </li>
             </ul>
           </div>
         </div>
 
-        <div class="collapse collapse-arrow bg-amber-50/70 border border-amber-200 rounded-xl">
-          <input type="checkbox" checked /> 
-          <div class="collapse-title text-lg font-bold text-amber-900 flex items-center gap-2">
-            <span class="badge badge-warning text-white">Part B</span> 독자/연구자 관점의 독립적 비판적 검토 (Critical Methodological & Theoretical Concerns)
+        <!-- Limitation B -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
           </div>
-          <div class="collapse-content text-slate-700 style-small">
-            <ul class="list-none pl-2">
-              <li class='mb-2'>• 캘리브레이션 임계값 설정의 주관성</li>
-            </ul>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계와 fsQCA의 방법론적 특성을 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 가상성(hypotheticality) 문제</span>
+                <p class="text-sm text-slate-700">
+                  표본은 "현재 양면 플랫폼을 사용하지 않는" 기업으로 한정됐다(p.84). 실제 사용 경험 없이 가상 기술의 편익/장벽을 평가한 것으로, <strong>의도-행동 간극(intention-behavior gap)</strong>이 구조적으로 존재하며 실제 채택 행동·채택 후 성과와의 연결은 검증되지 않았다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 동일방법편향(CMV) 통제의 한계</span>
+                <p class="text-sm text-slate-700">
+                  Harman 단일요인검정(31.341%)과 마커변수기법을 사용했으나 이는 진단력이 약하다고 널리 비판받는 기법이다. 모든 조건·결과 변수가 <strong>동일 응답자·동일 시점·동일 7점 척도</strong>로 측정된 전형적 단면 자기보고 설계라는 근본 구조는 해소되지 않는다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 표본상대적 캘리브레이션의 함정</span>
+                <p class="text-sm text-slate-700">
+                  퍼지 멤버십 임계값(5/50/95%)이 SME·대기업 <strong>각각 별도</strong>로 산출된다(Table 3). "SME의 고편익"과 "대기업의 고편익"은 절대 기준이 아닌 하위표본 내 상대적 순위이므로, 규모별 채택 경로 차이라는 핵심 주장이 재척도화 절차 자체에서 부분적으로 발생했을 가능성이 있다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 표본 모집 경로·응답률 미공개</span>
+                <p class="text-sm text-slate-700">
+                  몇 개 사에 발송해 몇 %가 응답했는지, 어떤 채널로 관리자를 접촉했는지 명시되지 않았다. 초기/후기 응답자 비교만으로는 애초에 접촉되지 않은 잠재 모집단(디지털 전환에 소극적인 기업군의 체계적 배제 등)의 특성을 알 수 없다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 역인과·내생성 가능성</span>
+                <p class="text-sm text-slate-700">
+                  저자 스스로 인정한 "혁신문화" 누락 변수가 <strong>장벽 지각과 채택 의도 모두의 공통원인(common cause)</strong>일 수 있다. 즉 "장벽이 낮아 의도가 높다"가 아니라 "원래 혁신 지향적이라 장벽도 낮게, 의도도 높게 응답했다"는 대안 설명이 배제되지 않으며, fsQCA 자체가 횡단자료 기반 연관성 분석이지 인과추론이 아니다.
+                </p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 저커버리지 솔루션의 취약성</span>
+                <p class="text-sm text-slate-700">
+                  LH4의 원커버리지는 0.311, SH3는 0.393에 불과하고 전체 솔루션 커버리지도 최저 0.643에 그친다. "15개 구성을 찾았다"는 서술이 설명력의 완전성을 함의하는 것으로 읽히지 않도록 주의해야 하며, 일부 솔루션은 일반화 가능한 경로라기보다 표본 특유의 우연적 패턴일 위험이 있다.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+    </div>
   </main>
 
   <!-- Footer -->
-  <footer class="footer footer-center bg-slate-900 text-slate-400 p-8 border-t border-slate-800">
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
     <div>
-      <p class="font-bold text-slate-200">Industrial Marketing Management (IMM) Paper Analysis Archive</p>
-      <p class="text-xs text-slate-500 mt-1">B2B digital platform adoption by SMEs and large firms: Pathways and pitfalls | Industrial Marketing Management Vol. 114 (2023), pp. 80-93</p>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>B2B digital platform adoption by SMEs and large firms: Pathways and pitfalls</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 & Tailwind CSS. Font: Pretendard.</p>
     </div>
   </footer>
 
