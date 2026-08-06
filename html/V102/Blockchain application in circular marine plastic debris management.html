@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blockchain Application in Circular Marine Plastic Debris Management - IMM 2022</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI 4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Pretendard Font Import -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
+    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
+    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
+    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+
+    html { scroll-behavior: smooth; }
+
+    @media (max-width: 1024px) {
+      .style-display { font-size: 38px; }
+      .style-h1 { font-size: 30px; }
+      .style-h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management 102 (2022) 164–176</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Blockchain &amp; Circular Economy</div>
+        <div class="badge badge-secondary text-white style-label">Open Access · CC BY 4.0</div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Blockchain application in<br>
+            <span class="text-cyan-400">circular marine plastic debris management</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Yu Gong, Yang Wang, Regina Frei, Bill Wang, Changping Zhao
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            순환경제 관점에서의<br>
+            <span class="text-indigo-300">해양 플라스틱 폐기물 관리를 위한 블록체인 기술 적용</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            Plastic Bank·Waste2Wear·Dell 세 선도 기업의 다중 사례연구로 본 블록체인 기술(BCT)의 순환경제 적용 가능성
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">블록체인은 재활용 체인의 위험·인식·협력·감시 문제를 토큰 보상과 분산원장으로 해결합니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "The threat to the environment and humanity caused by marine plastic debris has aroused global attention. This research aims to explore the feasibility of applying blockchain technology (BCT) in marine plastic debris management. A case study on three pioneer recycling organizations is conducted based on secondary data. The study found that BCT can be applied to solve some of the existing challenges of marine plastic debris management. A digital token system and identity recognition mechanism based on BCT can increase the public awareness for marine plastic debris governance. The derived digital wallets and distributed ledgers can effectively replace paper documents and cash transactions in the traditional recycling chain, and minimize global impact on local economies, thus improve efficiency and safety. Also, the traceability and high transparency of blockchain and the application of smart contracts can effectively build a global recycling network. In addition, the application of BCT can greatly improve the transparency of recycling value chains, and make them more accepting of supervision from society and consumers. This research is one of the first studies on BCT in marine plastic debris management and explores worldwide pioneering companies. In practice, this study can help companies analyse the defects in their own waste disposal models and help practitioners make decisions to adopt BCT. In academia, as one of the early exploratory studies on the application of BCT to the treatment of marine plastic debris, this study provides further empirical reference on BCT based business models and recycling chains, and can guide future research in this field."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              해양 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">플라스틱 폐기물(marine plastic debris)</span>이 환경과 인류에 가하는 위협은 전 세계적인 관심을 불러일으키고 있다. 본 연구는 해양 플라스틱 폐기물 관리에 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">블록체인 기술(BCT)</span>을 적용할 수 있는 실행 가능성을 탐색하는 것을 목적으로 한다. 세 곳의 선구적 재활용 조직을 대상으로 2차 자료에 기반한 사례연구를 수행하였다. 연구 결과, BCT는 기존 해양 플라스틱 폐기물 관리가 안고 있는 여러 과제를 해결하는 데 적용될 수 있는 것으로 나타났다. BCT 기반의 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">디지털 토큰</span> 시스템과 신원 인식 메커니즘은 해양 플라스틱 폐기물 거버넌스에 대한 대중 인식을 제고할 수 있다. 이로부터 파생된 디지털 지갑과 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">분산원장(distributed ledger)</span>은 기존 재활용 체인의 종이 문서 및 현금 거래를 효과적으로 대체할 수 있으며, 글로벌 요인이 지역 경제에 미치는 영향을 최소화함으로써 효율성과 안전성을 개선한다. 또한 블록체인의 추적가능성과 높은 투명성, 스마트 계약의 적용은 글로벌 재활용 네트워크 구축에 효과적으로 기여할 수 있다. 아울러 BCT의 적용은 재활용 가치사슬의 투명성을 크게 개선하여 사회와 소비자로부터의 감시를 더 쉽게 수용할 수 있게 한다. 본 연구는 해양 플라스틱 폐기물 관리 분야에서 BCT를 다룬 최초의 연구 중 하나이며, 전 세계의 선도 기업들을 탐구한다. 실무적으로 본 연구는 기업이 자사 폐기물 처리 모델의 결함을 분석하도록 돕고, 실무자가 BCT 도입을 결정하는 데 도움을 줄 수 있다. 학술적으로는 초기 탐색적 연구로서, BCT 기반 비즈니스 모델과 재활용 체인에 관한 추가적인 경험적 준거를 제공하며 이 분야의 향후 연구 방향을 제시할 수 있다.
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-semibold text-slate-900">Blockchain Technology (BCT)</td>
+                  <td>블록체인 기술</td>
+                  <td class="text-sm">국내 학계·업계에서 이미 정착된 음역어를 그대로 사용</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Circular Economy (CE)</td>
+                  <td>순환경제</td>
+                  <td class="text-sm">국내 환경정책·경영학 문헌에서 표준적으로 사용되는 번역어</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Distributed ledger</td>
+                  <td>분산원장</td>
+                  <td class="text-sm">블록체인 기술 문헌의 표준 번역어</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Smart contract</td>
+                  <td>스마트 계약</td>
+                  <td class="text-sm">코드로 자동 집행되는 계약이라는 의미를 살리는 표준 번역어</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Traceability</td>
+                  <td>추적가능성</td>
+                  <td class="text-sm">공급망 관리(SCM) 분야의 표준 번역어</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Recycling value chain</td>
+                  <td>재활용 가치사슬</td>
+                  <td class="text-sm">가치사슬 개념을 재활용 맥락에 적용한 것임을 명시</td>
+                </tr>
+                <tr>
+                  <td class="font-semibold text-slate-900">Digital token / wallet</td>
+                  <td>디지털 토큰 / 디지털 지갑</td>
+                  <td class="text-sm">관련 실무 용어로 이미 정착되어 음역·직역 혼용</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">BCT는 해양 플라스틱 관리 과제를 어떻게 해결하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">토큰 보상·분산원장·신원인증이 4대 과제를 해결한다</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">순환경제와 BCT를 접목한 초기 탐색 연구</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> 해양 플라스틱 폐기물 관리가 직면한 과제는 무엇이며, BCT는 이를 어떻게 해결하고 어떤 이점을 제공하는가?</li>
+                  <li><strong>핵심 발견:</strong> 재활용 체인의 위험·안전, 대중 인식 부족, 글로벌 협력 네트워크 부재, 사회·소비자 감시 미흡이라는 4대 과제를 Plastic Bank(B2C), Waste2Wear(B2B), Dell(B2B+B2C) 세 사례가 토큰 보상, 신원 인증(DID), 분산원장, 스마트 계약으로 각각 2개 이상 해결함을 확인.</li>
+                  <li><strong>이론/실무 기여:</strong> 해양 폐기물 관리 문헌에 순환경제 관점을 접목하고 BCT를 지속가능 공급망관리의 전략적 도구로 자리매김했으며, 기업의 폐기물 처리 모델 진단과 BCT 도입 의사결정에 실무적 참고자료를 제공.</li>
+                </ul>
+              </div>
+
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "3개 선도 기업(Plastic Bank, Waste2Wear, Dell)의 사례를 통해, 블록체인 기술이 해양 플라스틱 폐기물 관리의 위험·인식·협력·감시 4대 과제를 해결하고 재활용 가치사슬의 공식화·경제성·투명성을 높일 수 있음을 보여준다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실증적 근거 데이터의 원문 인용 및 위치를 맵핑했습니다.
+        </p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="font-semibold text-slate-900">연구 공백: BCT를 해양 폐기물 관리에 적용한 연구 부족</td>
+                <td class="text-sm italic text-slate-600">"there is scant research to explore how to apply BCT to manage the marine plastic debris. To fill the research gap, this research aims to analyse the feasibility of applying BCT in marine debris management"</td>
+                <td class="text-right font-medium text-slate-500">p.165, §1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="font-semibold text-slate-900">사례연구가 방법론적으로 적합함</td>
+                <td class="text-sm italic text-slate-600">"As a commonly used qualitative research method, case study is suitable for exploratory research (Yin, 2014)... this study uses multiple case studies based on secondary data."</td>
+                <td class="text-right font-medium text-slate-500">p.167, §3.1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="font-semibold text-slate-900">6개 후보 중 대표성 기준으로 3개 사례 선정</td>
+                <td class="text-sm italic text-slate-600">"Six pioneer companies applying blockchain were selected initially... Finally, we selected the three most representative cases for analysis: Plastic Bank, Waste2Wear, and Dell."</td>
+                <td class="text-right font-medium text-slate-500">p.167, §3.2</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="font-semibold text-slate-900">Plastic Bank는 토큰 보상 메커니즘으로 수거 단계 문제 해결</td>
+                <td class="text-sm italic text-slate-600">"Social Plastic Collection Credits (SPCC)... 1 SPCC is equal to recycled 1 kg of plastic waste... Digital tokens... can be exchanged for cash... or exchange daily necessities"</td>
+                <td class="text-right font-medium text-slate-500">p.168, §4.1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="font-semibold text-slate-900">Waste2Wear는 WE-CO 플랫폼으로 투명성·추적성 확보</td>
+                <td class="text-sm italic text-slate-600">"Waste2wear establishes a reliable supplier network through a blockchain platform called WE-CO system... consumer can also scan the QR code... to enquire about the content of recycled plastic"</td>
+                <td class="text-right font-medium text-slate-500">p.169, §4.2</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="font-semibold text-slate-900">Dell은 VMware 블록체인으로 재활용 소재 추적·수거자 보호</td>
+                <td class="text-sm italic text-slate-600">"Through the 'VMWare blockchain' platform, Dell supports transactions between collectors, recyclers and manufacturers... to verify whether individuals collecting plastic suffer forced labour or receive substandard income"</td>
+                <td class="text-right font-medium text-slate-500">p.170, §4.3</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="font-semibold text-slate-900">BCT는 B2B·B2C 비즈니스 모델 모두에서 작동</td>
+                <td class="text-sm italic text-slate-600">"BCT has been applied in different stages of marine plastic debris management, representing the application of BCT to different business models, including B2B, B2C and both."</td>
+                <td class="text-right font-medium text-slate-500">p.170, §5.1</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="font-semibold text-slate-900">BCT는 재활용 체인의 위험·안전 문제를 완화</td>
+                <td class="text-sm italic text-slate-600">"Risks can be reduced by an electronic record platform based on distributed ledgers replacing paper documents... malicious modification of transaction contract data (fraud) is essentially impossible"</td>
+                <td class="text-right font-medium text-slate-500">p.171, §5.2.1</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td class="font-semibold text-slate-900">BCT는 대중의 재활용 인식을 제고</td>
+                <td class="text-sm italic text-slate-600">"Reward token mechanisms have increased the public's enthusiasm for recycling... The 'Green coin' of Brazil... and the 'Swachh Tokens' of India... use the same mechanism"</td>
+                <td class="text-right font-medium text-slate-500">p.172, §5.2.2</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td class="font-semibold text-slate-900">BCT는 글로벌 재활용 네트워크 형성에 기여</td>
+                <td class="text-sm italic text-slate-600">"The credit mechanism established under the traceability feature of the blockchain can form a global flow of funds for plastics recycling."</td>
+                <td class="text-right font-medium text-slate-500">p.172, §5.2.4</td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td class="font-semibold text-slate-900">BCT 적용의 6가지 이점 요약</td>
+                <td class="text-sm italic text-slate-600">"the benefits of applying BCT include formalization of recycling professions, creation of economic benefits, global cooperation, creating digital currency systems, transaction security, and a transparent and efficient recycling chain."</td>
+                <td class="text-right font-medium text-slate-500">p.172, §5.3</td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td class="font-semibold text-slate-900">이론적·실무적 종합 결론</td>
+                <td class="text-sm italic text-slate-600">"The findings indicate that BCT applications can run smoothly in different business models including B2B and B2C... This research is one of the first studies on blockchain in marine plastic debris management"</td>
+                <td class="text-right font-medium text-slate-500">p.174, §6.1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Analytical Constructs (no formal hypothesis model: qualitative multi-case study) -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model &amp; Variables</span>
+        </div>
+
+        <div class="alert bg-slate-50 border border-slate-200 text-slate-700 style-small">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 shrink-0 text-slate-500"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" /></svg>
+          <span><strong>적용상의 유의점:</strong> 본 논문은 가설검정형 정량 연구가 아니라 2차 자료 기반의 질적 다중사례연구(multiple case study)입니다. 따라서 전통적 독립/종속/매개/조절변수와 설문 척도는 존재하지 않으며, 가설 경로 DAG도 없습니다. 대신 저자들이 주제 분석(thematic analysis)으로 도출한 핵심 분석 구성개념(analytical constructs)을 아래 카드로 정리했습니다. 5개 구성개념의 관계는 <code class="text-xs bg-slate-200 px-1 rounded">[블록체인 기술 기능] → (가치사슬 단계·비즈니스 모델 유형에 따라 상이) → [관리 과제 해결] → [BCT 적용 이점 실현]</code> 흐름으로 요약됩니다.</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">구성개념 1</span>
+                <span class="text-xs text-slate-400 font-semibold">기술 기능</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">블록체인 기술의 기능적 속성 (Blockchain Technology Features)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 분산원장 기반 거래처리 시스템으로, 블록 전파·동기화, 합의 메커니즘, 스마트 계약이라는 세 가지 고유 기술로 구별되는 기술 인프라.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> 토큰 보상 시스템, 디지털 지갑/신원 인식(DID), 전자 기록(분산원장)에 의한 문서 대체, 스마트 계약 기반 자동 분류/모니터링.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 기업 공식 웹사이트·보도자료·파트너사 발표·업계 매체 기사를 코딩. Table 4(p.171) "Blockchain features" 열.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 탈중앙화·개방성·보안성이라는 BCT의 강점(Hastig &amp; Sodhi, 2020), Esmaeilian et al.(2020)의 BCT-CE 4대 이점 논의와 연결.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">구성개념 2</span>
+                <span class="text-xs text-slate-400 font-semibold">맥락(준-조절)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">재활용 가치사슬 단계 (Stage of Recycling Value Chain)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 해양 플라스틱 폐기물이 원료로 전환되기까지 거치는 순차적 단계(수거 → 운송·가공 → 제조·재사용).</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> "수거 단계"와 "운송·가공 단계"의 이분법. Plastic Bank=수거, Waste2Wear=운송·가공, Dell=수거+운송·가공.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Table 2(p.168) "Position in the recycling chain", Table 4(p.171) "Stage of blockchain application".</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> CE 문헌의 폐쇄루프 공급망 단계 구분(Kirchherr et al., 2017)과 연결되며, 어떤 BCT 기능이 어떤 단계에서 효과적인지 구분하는 준-조절변수 역할.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-secondary style-label text-white">구성개념 3</span>
+                <span class="text-xs text-slate-400 font-semibold">맥락</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">비즈니스 모델 유형 (B2B vs. B2C)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 재활용 가치사슬 내 사례 기업의 거래 상대방 성격 — 기업 대 기업(B2B) 또는 기업 대 개인/비공식 수거자(B2C).</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> Waste2Wear=B2B, Plastic Bank=B2C, Dell=B2B(NextWave 파트너)+B2C(수거자 신원 인증) 혼합형.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> §5.1(p.170) 서술 및 사례 기업 이해관계자 구조 기술.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> B2B·B2C 이해관계자 구조 차이가 BCT 적용 방식과 편익 배분에 미치는 영향(Rogers, Leuschner, &amp; Choi, 2020).
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">구성개념 4</span>
+                <span class="text-xs text-slate-400 font-semibold">문제 상황(선행)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">해양 플라스틱 폐기물 관리의 과제 (Challenges)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 전통적(비블록체인) 재활용 체인이 안고 있는 구조적 문제들.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> 4개 최종 테마 — ① 위험·안전, ② 대중 인식 부족, ③ 글로벌 협력 네트워크 부재, ④ 사회·소비자 감시 미흡.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Table 5(p.173) "Challenges" 열; §5.2.1–5.2.4.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> 개발도상국의 부정거래·수거자 착취(Chen, Geng, &amp; Fujita, 2010), 선진국의 폐기물 수출 문제(Haward, 2018)와 연결.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">구성개념 5</span>
+                <span class="text-xs text-slate-400 font-semibold">결과(성과)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">BCT 적용의 이점/성과 (Benefits/Outcomes of BCT Adoption)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> BCT 적용을 통해 재활용 가치사슬에서 실현되는 편익.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> 6개 하위 범주 — ① 재활용 직업의 공식화, ② 경제적 편익, ③ 글로벌 협력, ④ 디지털 화폐 시스템, ⑤ 거래 보안성, ⑥ 투명하고 효율적인 재활용 체인(§5.3.1–5.3.6).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 사례별 서술 근거(예: Plastic Bank SPCC, Dell 스마트 계약 자동 분류)를 Table 4·5에 정리.</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Kouhizadeh, Zhu, &amp; Sarkis(2020)의 BCT-CE 사례연구, Dubey et al.(2020)의 swift-trust 구축 논의와 접목되어 BCT가 CE 전환의 촉진 기술로 기능한다는 주장을 뒷받침.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않은 연구자가 동일한 다중 사례연구 절차를 그대로 <strong>재현</strong>할 수 있도록 단계별로 타임라인화했습니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <li>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">연구 공백 확인 및 연구질문 설정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  선행연구 검토를 통해 "해양 플라스틱 폐기물 관리에 BCT를 적용한 연구 부족"이라는 연구 공백을 확인하고 3개 연구질문(RQ1~RQ3)을 설정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.165, §1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">해석주의 패러다임 및 귀납적 질적 전략 설계</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  연구 패러다임으로 해석주의(interpretivism)를 채택하고 귀납적 분석에 기반한 질적 연구 전략을 설계(Collis &amp; Hussey, 2014).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.167, §3.1</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">다중 사례연구 설계 확정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  탐색적 사례연구(Yin 2014; Eisenhardt 1989)를 채택하고, 단일 사례의 대표성 한계를 피하기 위해 다중 사례연구 설계로 확정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.167, §3.1</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">6개 후보 기업 식별</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  BCT를 적용 중인 선도 기업 모집단에서 6개 후보(Plastic Bank, Bounties Network, Dell, HP, Waste2Wear, Zumo)를 식별.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.167, §3.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">대표성 기준으로 3개 사례 확정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  대표성 기준(운영 기간, 적용 범위, 토큰 보상형 vs. 투명성 강조형)으로 대표성이 낮은 3개 후보를 제외하고 Plastic Bank·Waste2Wear·Dell로 확정.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.167, §3.2, Table 2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle">
+                <span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">2차 자료 다중 출처 수집·삼각검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  각 사례별 기업 웹사이트·연차보고서·블로그·언론 기사 등 2차 자료를 다중 출처에서 수집하여 데이터 삼각검증(triangulation) 수행.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.167, §3.3</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle">
+                <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">사례 내 분석(Intra-case Analysis)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  기업 연혁·BCT 적용 배경 파악 후 비즈니스 모델을 탐색하여 1차 코드(code)를 형성.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.167, §3.3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle">
+                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">주제 분석(Thematic Analysis)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  Voss, Tsikriktsis, &amp; Frohlich(2002)의 절차에 따라 유사 코드를 정렬·귀납해 코드 군집을 형성하고 하위주제·최종 주제로 발전.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.167, §3.3</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle">
+                <span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">9</span>
+              </div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 9</time>
+                <div class="text-lg font-bold text-slate-800">사례 간 분석(Cross-case Analysis)</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  Miles &amp; Huberman(1994) 방법론으로 서로 다른 BCT 적용 방식·해결책을 비교하고 주요 발견을 표로 정리(Table 4, Table 5).
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.170–173, §5</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle">
+                <span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">10</span>
+              </div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 10</time>
+                <div class="text-lg font-bold text-slate-800">연구 엄정성 점검</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">
+                  구성타당도·내적타당도·외적타당도·신뢰성(Table 3, Yin 2014)을 점검: 다중 출처 삼각검증, 공동저자 초안 검토, 연구자 간 토론.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.168, §3.3, Table 3</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle">
+                <span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">11</span>
+              </div>
+              <div class="timeline-start mb-4 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 11</time>
+                <div class="text-lg font-bold text-slate-800">이론적·실무적 종합 및 한계 제시</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">
+                  사례 간 분석 결과를 이론적·실무적 기여로 종합하고 연구의 한계와 향후 연구 방향을 제시.
+                </p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.174–175, §6</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            연구설계, 사례선정 기준, 데이터 출처 유형, 분석 절차는 상세히 기술되어 있으나, 실제 코딩표·전체 2차 자료 코퍼스·연구자 간 합치도 수치는 공개되지 않아 동일한 최종 주제를 독립적으로 완전히 재현하기는 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <!-- Limitation A -->
+        <div class="alert alert-error bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6 mt-1" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <span class="font-bold style-h3 text-rose-900">Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+        </div>
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold text-rose-900">원문 인용 및 근거 펼쳐보기</div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li>
+                <strong>시범 단계 한정:</strong> BCT의 해양 플라스틱 폐기물 관리 적용이 대부분 시범(pilot) 단계에 머물러 있음.
+                <blockquote class="text-sm italic text-rose-800 border-l-2 border-rose-300 pl-3 mt-1">"The limitations of this research include that BCT application in marine plastic debris management is mostly in the pilot stage" (p.174–175, §6.2)</blockquote>
+              </li>
+              <li>
+                <strong>일반화 한계:</strong> 사례가 모두 "선도 기업"으로 선정되어 다른 기업 사례가 가진 추가 기능·이점이 반영되지 못했을 수 있음.
+                <blockquote class="text-sm italic text-rose-800 border-l-2 border-rose-300 pl-3 mt-1">"case selections are pioneer companies, and other cases may provide extra functions, benefits, which may not be covered in this research, thus leads to the generalization issue" (p.175, §6.2)</blockquote>
+              </li>
+              <li>
+                <strong>개발도상국 편중:</strong> 분석의 초점이 개발도상국 위주이며 선진국 맥락에 대한 추가 연구 필요.
+                <blockquote class="text-sm italic text-rose-800 border-l-2 border-rose-300 pl-3 mt-1">"Our analysis offers solutions with a focus on developing countries, rather than developed countries." (p.175, §6.2)</blockquote>
+              </li>
+              <li>
+                <strong>2차 자료의 심도 한계:</strong> 2차 자료만으로는 실행 과정·의사결정·실행 장벽을 깊이 있게 연구하기에 충분하지 않음.
+                <blockquote class="text-sm italic text-rose-800 border-l-2 border-rose-300 pl-3 mt-1">"the secondary data collection may not be in-depth enough to study the implementation process... which needs more detailed and intensive research perhaps via interviews" (p.175, §6.2)</blockquote>
+              </li>
+              <li>
+                <strong>연구 축적 부족:</strong> BCT의 급속한 발전에 비해 CE·지속가능 공급망관리 분야에서 BCT를 다룬 연구가 여전히 제한적임.
+                <blockquote class="text-sm italic text-rose-800 border-l-2 border-rose-300 pl-3 mt-1">"research on applying BCT in circular economy and sustainable supply chain management is still limited" (p.175, §6.2)</blockquote>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitation B -->
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <p class="style-body text-slate-700">연구 설계와 자료 출처를 근거로 제시하는 비판적 학술 의구심입니다:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 생존자 편향</span>
+                <p class="text-sm text-slate-700">연구 대상이 "성공적으로 BCT를 적용 중인 선도 기업"으로만 한정되어, BCT 도입을 시도했다가 실패·중단한 기업 사례가 전혀 검토되지 않았습니다. BCT 이점이 실제보다 과대평가될 위험이 있습니다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 자료의 이해상충</span>
+                <p class="text-sm text-slate-700">수집된 2차 자료 대부분이 해당 기업 자신의 웹사이트·보도자료·마케팅 콘텐츠로, 독립적 제3자 검증 없이 기업의 자기 홍보성 서술을 그대로 근거로 사용했을 가능성이 있어 구성타당도에 위협이 됩니다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 역인과 관계 가능성</span>
+                <p class="text-sm text-slate-700">"BCT 적용 → 이점 실현"이라는 인과관계를 전제하지만, 재무적으로 여유 있고 브랜드 이미지에 관심이 큰 기업(Dell 등)이 선제적으로 지속가능성 홍보 수단으로 BCT를 채택했을 역인과·교란변수 문제가 검토되지 않았습니다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 수거자 목소리의 부재</span>
+                <p class="text-sm text-slate-700">"BCT가 수거자의 권익을 보호한다"는 핵심 주장이 반복되지만, 실제 수거자 인터뷰나 설문은 전혀 이루어지지 않아 측정 타당성 문제가 있습니다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 블록체인 자체의 환경 비용 미고려</span>
+                <p class="text-sm text-slate-700">블록체인 네트워크(특히 작업증명 기반)의 에너지 소비·탄소발자국이 해양 플라스틱 문제 해결이라는 환경적 목적과 상충할 수 있음에도 이에 대한 논의가 없습니다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 맥락 특수성의 과잉 일반화</span>
+                <p class="text-sm text-slate-700">아이티(Haiti) 같은 특정 취약 국가 사례를 "개발도상국"이라는 광범위한 범주로 일반화하는 경향이 있어 외적타당도 문제가 있습니다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">7. 경제적 타당성 분석 부재</span>
+                <p class="text-sm text-slate-700">BCT 도입의 초기 투자비용·유지비용·실제 ROI에 대한 정량적 데이터가 전혀 제시되지 않아 "경제적 편익" 주장이 서술적으로만 뒷받침됩니다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">8. 사례선정 기준의 자의성</span>
+                <p class="text-sm text-slate-700">6개 후보 중 3개를 제외한 기준("대표성이 낮다")이 서술적 판단에 그쳐, 연구자 주관이 사례선정에 미친 영향을 배제하기 어렵습니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">
+        IMM Academic Paper Analysis Report
+      </p>
+      <p>Blockchain application in circular marine plastic debris management</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Examining a Client Network Development Framework for a Logistics Service Provider - IMM 2022</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: "Pretendard", -apple-system, "Noto Sans KR", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #1e293b;
+      word-break: keep-all;
+    }
+    .style-display { font-size: 56px; font-weight: 700; line-height: 1.15; }
+    .style-h1 { font-size: 40px; font-weight: 700; line-height: 1.2; }
+    .style-h2 { font-size: 28px; font-weight: 600; line-height: 1.3; }
+    .style-h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .style-body-large { font-size: 18px; font-weight: 400; line-height: 1.6; }
+    .style-body { font-size: 16px; font-weight: 400; line-height: 1.6; }
+    .style-small { font-size: 14px; font-weight: 400; line-height: 1.5; }
+    .style-label { font-size: 13px; font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; }
+    html { scroll-behavior: smooth; }
+    @media (max-width: 1024px) {
+      .style-display { font-size: 38px; }
+      .style-h1 { font-size: 30px; }
+      .style-h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-16 px-4 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-100 100C100 200 200 -50 400 120C600 290 800 50 1000 180C1200 310 1400 150 1600 250" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"/>
+        <circle cx="400" cy="120" r="10" fill="currentColor"/>
+        <circle cx="1000" cy="180" r="10" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="flex flex-wrap gap-2">
+        <div class="badge badge-outline border-cyan-400 text-cyan-400 style-label uppercase">Industrial Marketing Management 102 (2022) 514–526</div>
+        <div class="badge badge-outline border-slate-400 text-slate-300 style-label uppercase">Logistics · Mediating Firm Theory</div>
+        <div class="badge badge-secondary text-white style-label">Open Access · CC BY-NC-ND 4.0</div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-slate-700/60 pb-8">
+        <div>
+          <h1 class="style-display text-white tracking-tight">
+            Examining a client network<br>
+            <span class="text-cyan-400">development framework for a logistics service provider</span>
+          </h1>
+          <p class="style-body-large text-slate-300 mt-4">
+            Xiaobei Wang, Vasco Sanchez Rodrigues, Robert Mason
+          </p>
+        </div>
+        <div class="border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
+            물류서비스 제공업체의<br>
+            <span class="text-indigo-300">클라이언트 네트워크 개발 프레임워크 고찰: 종단 사례연구</span>
+          </h2>
+          <p class="style-body text-slate-400 mt-4">
+            신생 4PL 기업 MLog의 5년 추적으로 정련한 매개기업이론 기반 클라이언트 유치 프레임워크
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="avatar placeholder">
+            <div class="bg-cyan-500/20 text-cyan-400 rounded-full w-12 h-12 flex items-center justify-center font-bold">
+              1M
+            </div>
+          </div>
+          <div>
+            <p class="style-label text-slate-400 uppercase">1분 요약</p>
+            <p class="style-body font-semibold">LSP는 최고가 아니라 "적합한" 클라이언트를 선별해야 하며, 전략설계와 운영 간 적합(fit)이 유치 성공의 핵심입니다.</p>
+          </div>
+        </div>
+        <a href="#abstract" class="btn btn-cyan btn-sm text-slate-900 style-label uppercase gap-2">
+          시작하기
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex-1 w-full flex flex-col gap-16">
+    <div class="flex flex-col gap-16">
+
+      <!-- STEP 1 — Title & Abstract Translation -->
+      <section id="abstract" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 1. 논문 제목 및 Abstract 번역</h2>
+          <span class="badge badge-primary style-label uppercase">Translation</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-400 flex flex-col gap-4">
+            <h3 class="style-label text-slate-500 uppercase tracking-widest">Original Abstract (EN)</h3>
+            <blockquote class="style-body text-slate-700 italic">
+              "Buyer-seller relationships represent a core theme in industrial marketing management. From the supplier's perspective, extant marketing literature, however, focuses on client retention in preference to client recruitment. Within the context of logistics outsourcing, although numerous studies have taken the buyer's perspective and shown how manufacturers/retailers select logistics service providers (LSPs), there is a shortage of studies and a lack of theoretical understanding from the supplier's perspective on how LSPs recruit clients. This study contributes to rectifying this through a longitudinal case study conducted on a fourth-party logistics service provider appraising its recruitment of clients. A mid-range client recruitment framework is developed, built abductively on the case and through the theory of mediating firms value creation. Theoretically, the framework refines notions of the mediating firm theory. Managerially, this client recruitment framework is proposed as a guide to aid LSP managers in their organic growth strategies through client network development."
+            </blockquote>
+          </div>
+          <div class="bg-cyan-50/50 p-6 rounded-xl border-l-4 border-cyan-500 flex flex-col gap-4">
+            <h3 class="style-label text-cyan-700 uppercase tracking-widest">Abstract 번역 (KO)</h3>
+            <blockquote class="style-body text-slate-800">
+              구매자-판매자 관계는 산업재 마케팅 관리의 핵심 주제이다. 그러나 공급자 관점에서 기존 마케팅 문헌은 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">클라이언트 유치(client recruitment)</span>보다 클라이언트 유지에 초점을 맞춰왔다. 물류 아웃소싱 맥락에서, 제조업체/소매업체가 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">물류서비스 제공업체(LSP)</span>를 어떻게 선택하는지를 구매자 관점에서 다룬 연구는 많지만, LSP가 클라이언트를 어떻게 유치하는지를 공급자 관점에서 다룬 연구와 이론적 이해는 부족하다. 본 연구는 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">4자물류(4PL)</span> 서비스 제공업체를 대상으로 한 종단 사례연구를 통해 이러한 공백을 메우는 데 기여한다. 사례와 <span class="bg-cyan-100 px-1 font-semibold text-slate-900 rounded">매개기업 가치창출 이론</span>을 토대로 귀추적(abductively)으로 중범위 클라이언트 유치 프레임워크를 개발한다. 이론적으로 이 프레임워크는 매개기업이론의 개념을 정련한다. 실무적으로 이 클라이언트 유치 프레임워크는 LSP 관리자가 클라이언트 네트워크 개발을 통한 유기적 성장전략을 수립하는 데 도움이 되는 지침으로 제안된다.
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="style-h3 text-slate-800 mb-3">핵심 번역 용어 정리 (Notes)</h4>
+          <div class="overflow-x-auto border rounded-lg">
+            <table class="table w-full text-slate-700">
+              <thead>
+                <tr class="bg-slate-50 text-slate-800">
+                  <th class="w-1/3">원문 용어 (EN)</th>
+                  <th class="w-1/3">한국어 번역</th>
+                  <th class="w-1/3">번역 선택 이유</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="font-semibold text-slate-900">Client Recruitment</td><td>클라이언트 유치</td><td class="text-sm">전략적으로 신규 거래처를 확보한다는 의미를 살린 번역</td></tr>
+                <tr><td class="font-semibold text-slate-900">Fourth-Party Logistics (4PL)</td><td>4자물류</td><td class="text-sm">물리적 자산 없이 정보·조정 기능만 수행하는 물류 중개업체를 뜻하는 업계 표준 역어</td></tr>
+                <tr><td class="font-semibold text-slate-900">Mediating Firm Theory</td><td>매개기업이론</td><td class="text-sm">Stabell &amp; Fjeldstad(1998)의 가치네트워크 모델에 기반, "연결자로서의 기업"을 뜻함</td></tr>
+                <tr><td class="font-semibold text-slate-900">Network Externality</td><td>네트워크 외부성</td><td class="text-sm">네트워크 크기가 개별 참여자 가치에 미치는 영향을 뜻하는 경제학 표준 개념</td></tr>
+                <tr><td class="font-semibold text-slate-900">Mid-range Framework</td><td>중범위 프레임워크</td><td class="text-sm">특정 맥락에 국한되면서도 일반화 가능성을 갖는 이론화 수준</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Core Claims -->
+      <section id="claims" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 2. 핵심 주장 (1분 설명용)</h2>
+          <span class="badge badge-secondary style-label uppercase">Core Claims</span>
+        </div>
+
+        <div class="py-4">
+          <p class="style-body-large text-slate-600 mb-8">
+            학회나 발표회에서 <strong>1분 만에</strong> 청중을 설득할 수 있도록 논문의 주요 쟁점과 기여도를 핵심 단계별로 구조화했습니다.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8 items-stretch">
+            <ul class="steps steps-vertical w-full md:w-1/3 flex-shrink-0">
+              <li class="step step-primary" data-content="Q">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Research Question</span>
+                  <p class="font-bold text-slate-800">LSP는 클라이언트 유치로 어떻게 네트워크를 개발하는가?</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="F">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Key Finding</span>
+                  <p class="font-bold text-slate-800">첫 클라이언트가 인프라를 좌우, 무리한 확장은 실패</p>
+                </div>
+              </li>
+              <li class="step step-primary" data-content="C">
+                <div class="text-left md:pl-4">
+                  <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Contribution</span>
+                  <p class="font-bold text-slate-800">가치네트워크 모델을 전략-운영 적합성으로 정련</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider divider-horizontal hidden md:flex"></div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <div>
+                <h4 class="style-h3 text-slate-900 mb-2">논문의 핵심 메커니즘 상세</h4>
+                <ul class="list-disc pl-5 space-y-2 text-slate-700 style-body">
+                  <li><strong>연구 질문:</strong> LSP는 클라이언트의 전략적 유치를 통해 어떻게 클라이언트 네트워크를 개발하는가?</li>
+                  <li><strong>핵심 발견:</strong> 신생 4PL MLog의 5년 추적 결과, 첫 클라이언트(Big Drink)는 유치 기준에 완벽히 부합해 이후 인프라·해외 확장에 선점자 영향력을 행사한 반면, 무리한 신규 카테고리 확장(Vampire)은 네트워크 비호환·실패 함정으로 1년 만에 계약 해지됨.</li>
+                  <li><strong>이론/실무 기여:</strong> 가치네트워크 모델의 규모·구성 개념을 실제/잠재 규모, 제품/행위자 수준으로 정련하고 Porter의 활동적합성을 전략설계·운영·전체 3개 수준으로 확장. 실무자에게는 "최고"가 아닌 "적합한" 장기 클라이언트 선별을 제안.</li>
+                </ul>
+              </div>
+
+              <div class="bg-indigo-900 text-indigo-100 p-4 rounded-lg shadow-sm border-l-4 border-indigo-400">
+                <p class="style-label text-indigo-300 uppercase tracking-widest text-xs">한 줄 요약 (1-Line Thesis)</p>
+                <p class="style-body font-bold mt-1">
+                  "신생 4PL 기업의 5년 추적 사례를 통해, 클라이언트 유치는 전략설계(유치기준·트레이드오프)와 운영(네트워크 프로모션)이 적합(fit)할 때 성공하고, 이 적합이 깨지면 실패한다는 프레임워크를 정련했다."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Claims and Evidence -->
+      <section id="evidence" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 3. 주장별 근거와 원문 위치 연결</h2>
+          <span class="badge badge-accent style-label uppercase">Evidence</span>
+        </div>
+
+        <p class="style-body text-slate-600">연구의 신뢰도를 보장하기 위해 각 핵심 주장과 실증적 근거의 원문 위치를 맵핑했습니다.</p>
+
+        <div class="overflow-x-auto border rounded-xl shadow-inner mt-2">
+          <table class="table table-zebra w-full text-slate-700">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="w-12">#</th>
+                <th class="w-1/4">핵심 주장</th>
+                <th class="w-1/2">원문 근거 (Original Quote)</th>
+                <th class="w-1/6 text-right">원문 위치</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td class="font-semibold text-slate-900">연구 공백: LSP 관점의 클라이언트 유치 연구 부족</td><td class="text-sm italic text-slate-600">"there is a shortage of studies and a lack of theoretical understanding from the supplier's perspective on how LSPs recruit clients"</td><td class="text-right font-medium text-slate-500">p.514–515, §1</td></tr>
+              <tr><td>2</td><td class="font-semibold text-slate-900">매개기업이론의 3대 가치창출 활동</td><td class="text-sm italic text-slate-600">"Mediation value creation logic relies on three primary value creation activities: 1) developing a network of clients... 2) provisioning standard services and 3) operating a mediating infrastructure"</td><td class="text-right font-medium text-slate-500">p.516, §2.1</td></tr>
+              <tr><td>3</td><td class="font-semibold text-slate-900">첫 클라이언트가 유치 기준에 완벽히 부합</td><td class="text-sm italic text-slate-600">"Big Drink had a large volume, structured products, and was open to involving MLog... All these attributes matched MLog's recruitment criteria."</td><td class="text-right font-medium text-slate-500">p.520–521, §4.1</td></tr>
+              <tr><td>4</td><td class="font-semibold text-slate-900">첫 클라이언트의 선점자 영향력</td><td class="text-sm italic text-slate-600">"As its first client, Big Drink partly influenced MLog's choice of 3PLs... expand overseas four years later"</td><td class="text-right font-medium text-slate-500">p.521, §4.1</td></tr>
+              <tr><td>5</td><td class="font-semibold text-slate-900">Vampire 유치 실패: 탐색의 실패 함정</td><td class="text-sm italic text-slate-600">"MLog and Vampire fell into the failure trap of exploration... terminated the contract after just one year"</td><td class="text-right font-medium text-slate-500">p.522, §4.3, §5.2</td></tr>
+              <tr><td>6</td><td class="font-semibold text-slate-900">전략설계-운영 적합이 유치 성공의 핵심</td><td class="text-sm italic text-slate-600">"the refined framework highlights the overall fit between the strategic design level and the operational level"</td><td class="text-right font-medium text-slate-500">p.522, §5</td></tr>
+              <tr><td>7</td><td class="font-semibold text-slate-900">유치 기준이 규모/잠재규모, 제품/행위자 수준으로 정련</td><td class="text-sm italic text-slate-600">"the size of a client is refined by distinguishing between actual size and size potential"</td><td class="text-right font-medium text-slate-500">p.523, §6</td></tr>
+              <tr><td>8</td><td class="font-semibold text-slate-900">LSP 유치 기준과 구매자의 LSP 선정 기준은 부분 일치</td><td class="text-sm italic text-slate-600">"It illustrates that there is only a partial match between the two." (Table 6)</td><td class="text-right font-medium text-slate-500">p.524, §5.5</td></tr>
+              <tr><td>9</td><td class="font-semibold text-slate-900">"최고"가 아닌 "적합한" 장기 클라이언트 선별 필요</td><td class="text-sm italic text-slate-600">"LSPs should recruit suitable, long-term clients rather than the so-called 'best ones' from the market."</td><td class="text-right font-medium text-slate-500">p.524, §7</td></tr>
+              <tr><td>10</td><td class="font-semibold text-slate-900">연구 품질: 다중 자료원 삼각검증</td><td class="text-sm italic text-slate-600">"Multiple sources of evidence... were collected as both retrospective and real-time data and appropriately triangulated"</td><td class="text-right font-medium text-slate-500">p.519, Table 4</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Analytical Framework (qualitative case study: no hypothesis DAG) -->
+      <section id="model" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 4. 연구 모델 및 구성 변수 상세 분석</h2>
+          <span class="badge badge-info style-label text-slate-900 uppercase">Model &amp; Variables</span>
+        </div>
+
+        <div class="alert bg-slate-50 border border-slate-200 text-slate-700 style-small">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 shrink-0 text-slate-500"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" /></svg>
+          <span><strong>적용상의 유의점:</strong> 본 논문은 가설검정형 정량 연구가 아니라 매개기업이론에 기반한 귀추적 종단 사례연구이므로 H1·H2 형태의 가설 경로 DAG가 존재하지 않습니다. 대신 저자들이 정련한 <strong>클라이언트 유치 프레임워크(Fig. 2)</strong>의 핵심 구성요소를 아래 카드로 정리했습니다.</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-neutral style-label text-white">전략설계</span>
+                <span class="text-xs text-slate-400 font-semibold">유치 기준</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">네트워크 설계: 유치 기준 (Recruitment Criteria)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> LSP가 잠재 클라이언트를 평가·선별하는 원칙, 네트워크 외부성 논리(Katz &amp; Shapiro, 1985)에 기반.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> 규모(제품 물량·연결 노드 수), 잠재 규모(성장 가능성), 제품 특성(구조화된 포트폴리오·보완적 특성), 사업행위자 특성(재무건전성·트랙레코드·장기협력 의지).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 인터뷰·계약서·아카이브 기록 코딩(Table 5)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Stabell &amp; Fjeldstad(1998)의 규모·구성 개념을 실제/잠재, 제품/행위자 수준으로 세분화하여 정련.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-info style-label text-slate-900">전략설계</span>
+                <span class="text-xs text-slate-400 font-semibold">유치 트레이드오프</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">네트워크 설계: 유치 트레이드오프 (Recruitment Trade-offs)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 전략은 선택을 요구한다는 원리(Porter, 1996)에 기반한 시간적·활동적 트레이드오프.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> 시간=기존 카테고리 심화(활용) vs. 신규 카테고리 개척(탐색); 활동=도달범위(reach) vs. 범위/풍부함(range).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Big Drink Overseas(성공) vs. Vampire(실패) 비교(§5.2)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> March(1991, 1995)의 탐색-활용 트레이드오프, Fjeldstad &amp; Haanæs(2001)의 지식경제 전략 트레이드오프.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-secondary style-label text-white">전략/운영</span>
+                <span class="text-xs text-slate-400 font-semibold">클라이언트 영향</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">클라이언트 영향 (Client Influence: Strategic/Operational)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 잠재·기존 클라이언트가 LSP의 유치 전략·실행에 미치는 영향(원 가치네트워크 모델에 없던 신규 요소).</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> 전략적=역량 있는 클라이언트의 탐색 학습 촉진, 선점자 영향; 운영적=외부성, 관계 추천, 클라이언트의 능동적 니즈 분석.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Table 5 "client influence" 행, 클라이언트 인터뷰</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Håkansson &amp; Ford(2002)의 산업네트워크 배태 맥락 논의로 확장.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-warning style-label text-amber-950">운영</span>
+                <span class="text-xs text-slate-400 font-semibold">네트워크 프로모션</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">네트워크 프로모션 (Network Promotion)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 잠재 클라이언트를 네트워크에 초빙하고 가입을 허용하는 활동, 3대 1차 가치창출 활동의 핵심.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> 반응적(문의 대응) 및 능동적(영업팀 인맥·컨설팅 프로젝트) 방식. 평균 유치 소요 6~8개월.</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> 인터뷰(파트너·사업관리자·ICT관리자), 계약서·발표자료(§4.2, §5.3)</p>
+              <p class="text-xs text-indigo-700 bg-indigo-50 p-2.5 rounded border border-indigo-100">
+                <strong>관련 논의:</strong> Wong &amp; Karia(2010)의 영업팀 인맥 활용 논의와 연결.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden hover:shadow-md transition md:col-span-2">
+            <div class="card-body p-6 gap-3">
+              <div class="flex items-center justify-between">
+                <span class="badge badge-primary style-label text-white">통합 개념</span>
+                <span class="text-xs text-slate-400 font-semibold">적합성 (Fit)</span>
+              </div>
+              <h3 class="style-h3 text-slate-900">전략설계 적합 · 운영 적합 · 전체 적합 (Fit)</h3>
+              <div class="divider my-1"></div>
+              <p class="text-sm text-slate-700"><strong>개념적 정의:</strong> 가치창출 활동들이 정합적으로 작동하는 정도(Porter, 1996): 일관성 적합, 강화 적합, 최적화 적합.</p>
+              <p class="text-sm text-slate-700"><strong>조작적 정의:</strong> MLog의 범노르딕 클라이언트 우선순위화(강화 적합), 표준화 서비스와의 일관성 적합, Vampire 사례의 활동 부적합(서비스 역량 초과로 부정적 외부성).</p>
+              <p class="text-sm text-slate-600"><strong>측정 및 출처:</strong> Fig. 2 좌·우 삼각형 도식, §5.5 사례 분석</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 mt-2">
+          <p class="style-label text-slate-500 uppercase tracking-widest mb-2">종합 프레임워크 (Fig. 2 정련 모형)</p>
+          <p class="text-sm text-slate-700 font-mono">[네트워크 설계: 유치기준+트레이드오프+전략적 영향] ⇄ (전략설계 적합) ⇄ [서비스개발+인프라개발]<br>[네트워크 프로모션: 초빙·선별+운영적 영향] ⇄ (활동 적합) ⇄ [서비스제공+인프라운영]<br>→ 두 삼각형이 <strong>전체 적합(Overall Fit)</strong>으로 연결되어 LSP 전략개발·가치창출과 통합</p>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Method Replication Steps -->
+      <section id="method" class="scroll-mt-24 flex flex-col gap-6 bg-white p-6 lg:p-8 rounded-box shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-4">
+          <h2 class="style-h2 text-slate-900">STEP 5. Method 재현 순서 분해</h2>
+          <span class="badge badge-primary style-label uppercase">Methodology</span>
+        </div>
+
+        <p class="style-body text-slate-600">
+          논문을 읽지 않은 연구자가 유사한 종단 사례연구를 재현할 수 있도록 절차를 타임라인으로 단계화했습니다.
+        </p>
+
+        <div class="mt-4">
+          <ul class="timeline timeline-vertical timeline-snap-icon">
+            <li>
+              <div class="timeline-middle"><span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 1</time>
+                <div class="text-lg font-bold text-slate-800">이론적 표집으로 사례 선정</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">매개가치창출 로직을 따르는 4PL 기업(MLog)을 선정. 표준화된 서비스·소규모 네트워크로 규모·구성의 전략적 중요성이 명시적으로 드러남.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.518, §3.1</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle"><span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 2</time>
+                <div class="text-lg font-bold text-slate-800">5년 실시간 데이터 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">Year 2 중반~Year 5 후반, 인터뷰·문서·아카이브를 삼각검증하며 소급적·실시간 데이터 확보.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.518, §3.2</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle"><span class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 3</time>
+                <div class="text-lg font-bold text-slate-800">3단계 반구조화 인터뷰</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">Stage 1(Year 2, 내부 5인)→Stage 2(Year 4, 파트너 3인)→Stage 3(Year 5, 클라이언트 4인+MLog 3인). 총 20건, 75~120분.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.518–519, Table 3</span>
+              </div>
+              <hr class="bg-accent"/>
+            </li>
+            <li>
+              <hr class="bg-accent"/>
+              <div class="timeline-middle"><span class="bg-info text-slate-900 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 4</time>
+                <div class="text-lg font-bold text-slate-800">문서·아카이브 보완 수집</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">계약서 샘플, 프로젝트 실행 절차서, 발표자료, 클라이언트 연차보고서, 클라이언트 수 아카이브 기록 수집.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.519, §3.2</span>
+              </div>
+              <hr class="bg-info"/>
+            </li>
+            <li>
+              <hr class="bg-info"/>
+              <div class="timeline-middle"><span class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 5</time>
+                <div class="text-lg font-bold text-slate-800">체계적 결합으로 6단계 코딩</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">체계적 결합(Dubois &amp; Gadde 2002)으로 이론-데이터 반복 왕복하며 클라이언트 네트워크 변화를 시간순 6단계로 코딩(Table 2).</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.519–520, Table 2</span>
+              </div>
+              <hr class="bg-success"/>
+            </li>
+            <li>
+              <hr class="bg-success"/>
+              <div class="timeline-middle"><span class="bg-neutral text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 6</time>
+                <div class="text-lg font-bold text-slate-800">교차비교로 3개 범주 재구성</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">6단계를 교차 비교해 3개 핵심 범주로 재구성: 첫 적합 클라이언트 유치, 기존 카테고리 내 일반 유치, 신규 카테고리 탐색.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.520, §3.3</span>
+              </div>
+              <hr class="bg-neutral"/>
+            </li>
+            <li>
+              <hr class="bg-neutral"/>
+              <div class="timeline-middle"><span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">7</span></div>
+              <div class="timeline-start mb-10 md:text-right">
+                <time class="font-mono italic text-xs text-slate-400">STEP 7</time>
+                <div class="text-lg font-bold text-slate-800">패턴매칭 및 설명구축</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm md:ml-auto">패턴매칭(Yin 2009)으로 범주 내·간 분석, 이론주도 코드와 자료주도 코드 식별 후 설명구축으로 코드 간 연결 확인.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.520, §3.3</span>
+              </div>
+              <hr class="bg-primary"/>
+            </li>
+            <li>
+              <hr class="bg-primary"/>
+              <div class="timeline-middle"><span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">8</span></div>
+              <div class="timeline-end mb-10">
+                <time class="font-mono italic text-xs text-slate-400">STEP 8</time>
+                <div class="text-lg font-bold text-slate-800">연구 품질 검증</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">Yin(2009) 기준(구성·내적·외적 타당도·신뢰성)으로 다중 자료원 삼각검증, 사례보고서 검증 등 수행(Table 4).</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.519, Table 4</span>
+              </div>
+              <hr class="bg-secondary"/>
+            </li>
+            <li>
+              <hr class="bg-secondary"/>
+              <div class="timeline-middle"><span class="bg-slate-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">9</span></div>
+              <div class="timeline-end mb-4">
+                <time class="font-mono italic text-xs text-slate-400">STEP 9</time>
+                <div class="text-lg font-bold text-slate-800">프레임워크 정련 및 시사점 도출</div>
+                <p class="text-sm text-slate-600 mt-1 max-w-sm">예비 프레임워크(Fig. 1)를 사례 분석 결과로 정련해 최종 프레임워크(Fig. 2) 완성, 이론·실무 시사점 도출.</p>
+                <span class="badge badge-outline badge-sm mt-2 text-slate-500">p.522–525, §5–7</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bg-slate-100 p-4 rounded-xl border-l-4 border-slate-700 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <h4 class="style-label text-slate-500 uppercase tracking-widest text-xs">재현 가능성 최종 평가</h4>
+            <p class="style-body font-bold mt-1 text-slate-800">부분 재현 가능 (Partial Replicability)</p>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md">
+            사례 선정 기준, 자료수집 단계, 코딩 절차는 상세히 기술되어 있으나, MLog와 클라이언트가 익명 처리되어 원자료(전사본, 계약서)에 접근할 수 없어 동일한 프레임워크를 독립적으로 완전히 재현하기는 어렵습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Limitations & Critical Doubts -->
+      <section id="limitations" class="scroll-mt-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b pb-4 bg-white p-6 lg:p-8 rounded-t-box border border-slate-200 -mb-6">
+          <h2 class="style-h2 text-slate-900">STEP 6. Limitations (한계점 분리 분석)</h2>
+          <span class="badge badge-warning style-label text-amber-950 uppercase">Critique</span>
+        </div>
+
+        <div class="alert alert-error bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-rose-700 shrink-0 h-6 w-6 mt-1" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <span class="font-bold style-h3 text-rose-900">Limitation A. 논문이 스스로 인정한 한계 (Admitted)</span>
+        </div>
+        <div class="collapse collapse-arrow bg-rose-50 border border-rose-300 text-rose-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold text-rose-900">원문 인용 및 근거 펼쳐보기</div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <ul class="list-decimal pl-5 space-y-3 style-body text-slate-700">
+              <li><strong>단일 사례 한정:</strong> 특정 유형(4PL)의 단일 사례이므로 다른 LSP 유형은 다를 수 있음.
+                <blockquote class="text-sm italic text-rose-800 border-l-2 border-rose-300 pl-3 mt-1">"The study builds on a single case study of a specific type of LSP... the client recruitment strategies... may differ." (p.525, §8)</blockquote>
+              </li>
+              <li><strong>자산기반 여부 미비교:</strong> 자산기반 vs. 비자산기반 LSP 차이 미검토.
+                <blockquote class="text-sm italic text-rose-800 border-l-2 border-rose-300 pl-3 mt-1">"it is worth investigating if and how the so-called asset-based LSPs differ from less asset-based LSPs" (p.525, §8)</blockquote>
+              </li>
+              <li><strong>능동/수동 유치 전략 미비교:</strong> 프로액티브 vs. 패시브 LSP 차이 미검토.
+                <blockquote class="text-sm italic text-rose-800 border-l-2 border-rose-300 pl-3 mt-1">"investigate the differences and similarities among the client recruitment strategies taken by LSPs that are more proactive... and those that are more passive" (p.525, §8)</blockquote>
+              </li>
+              <li><strong>소규모 기업 한정:</strong> 데이터마이닝이 아닌 경험·인맥·직관에 의존.
+                <blockquote class="text-sm italic text-rose-800 border-l-2 border-rose-300 pl-3 mt-1">"MLog... as a small firm, relies on experiences, personal relationships and intuition rather than large databases" (p.525, §8)</blockquote>
+              </li>
+              <li><strong>획득비용 미반영:</strong> 유치 의사결정에 대한 비용 영향 미분석.
+                <blockquote class="text-sm italic text-rose-800 border-l-2 border-rose-300 pl-3 mt-1">"Future research could explore the impact of the acquisition costs" (p.525, §8)</blockquote>
+              </li>
+              <li><strong>대안 성장전략 미고려:</strong> M&amp;A 등과의 상호작용 미검토.
+                <blockquote class="text-sm italic text-rose-800 border-l-2 border-rose-300 pl-3 mt-1">"future studies may explore whether the LSP's organic growth strategy... can be impacted by alternative growth strategies, such as mergers and acquisitions" (p.525, §8)</blockquote>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="collapse collapse-arrow bg-amber-50 border border-amber-300 text-amber-950 rounded-box shadow-sm">
+          <input type="checkbox" checked />
+          <div class="collapse-title font-bold style-h3 text-amber-900 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-amber-700 shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Limitation B. 논문이 언급하지 않은 비판적 의구심 (Critical)</span>
+          </div>
+          <div class="collapse-content space-y-4 text-slate-800 bg-white/50 p-6 pt-0">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">1. 생존자 편향</span>
+                <p class="text-sm text-slate-700">살아남아 운영 중인 MLog만 관찰 대상이 되었고, 유치 실패로 폐업한 신생 LSP는 애초에 관찰될 수 없어 "성공 프레임워크"가 생존 기업 편향일 수 있습니다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">2. 단일 실패 사례에 대한 과도한 비중</span>
+                <p class="text-sm text-slate-700">트레이드오프·실패 함정 이론의 상당 부분이 단 1건의 실패 사례(Vampire)에서 도출되어 일반화 가능성이 제한적입니다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">3. 파트너 응답자 과도 의존</span>
+                <p class="text-sm text-slate-700">공동창업자 2인이 3단계 인터뷰 모두에 참여, 자사 전략 성공을 설명할 유인이 강해 실패 서술이 사후 재구성되었을 가능성이 있습니다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">4. 익명화로 인한 검증 불가능성</span>
+                <p class="text-sm text-slate-700">기업명·클라이언트명·시장·클라이언트 수가 모두 은폐되어 독자가 맥락을 독립적으로 검증할 수 없습니다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">5. 유치 기준의 사후 합리화</span>
+                <p class="text-sm text-slate-700">"장기협력 의지" 등 기준이 실제로는 성공한 관계(Big Drink)의 특성을 사후에 역산했을 가능성이 있으며, 소급적 회상 인터뷰가 이를 강화합니다.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-amber-200">
+                <span class="badge badge-warning style-label text-amber-950 mb-2">6. 재무 성과지표 부재</span>
+                <p class="text-sm text-slate-700">유치 "성공"이 관계 지속 여부와 서술적 평가로만 판단되어 프레임워크가 실제 재무 성과를 개선하는지는 검증되지 않았습니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer footer-center p-8 bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div>
+      <p class="font-bold text-slate-300">IMM Academic Paper Analysis Report</p>
+      <p>Examining a client network development framework for a logistics service provider: A longitudinal case study</p>
+      <p class="text-xs mt-2">© 2026 paper_analyst. Generated with DaisyUI 4 &amp; Tailwind CSS. Font: Pretendard.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
